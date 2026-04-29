@@ -343,6 +343,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -385,7 +386,7 @@
 <!-- ═══════ HERO ═══════ -->
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson One</div>
+    <div class="kicker" data-num="01">Lesson One</div>
     <h1>Why one neuron isn't enough.</h1>
     <p>A <strong>perceptron</strong> draws a single straight line to separate data. The <strong>XOR problem</strong> refuses to be solved that way. You'll see why — and how a <strong>hidden layer</strong> fixes it.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -748,6 +749,9 @@
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

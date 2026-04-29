@@ -343,6 +343,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -384,7 +385,7 @@
 <!-- ═══════ HERO ═══════ -->
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Eight · the finale</div>
+    <div class="kicker" data-num="08">Lesson Eight · the finale</div>
     <h1>Teaching machines to see — still unsolved.</h1>
     <p>In <strong>1966</strong>, MIT thought a summer project could "solve vision". Sixty years later, we have <strong>CNNs</strong>, <strong>transformers</strong>, <strong>state-space models</strong>, and we still can't match a toddler. This lesson is a tour of where the field is now and where it's heading.</p>
     <div class="meta">Slides by <strong>Silvia Pintea</strong><br/>
@@ -849,6 +850,9 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

@@ -247,6 +247,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -287,7 +288,7 @@
 
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Four</div>
+    <div class="kicker" data-num="04">Lesson Four</div>
     <h1>Convolutional neural networks — seeing in local patterns.</h1>
     <p>A fully-connected network treats every pixel as unrelated. A <strong>convolutional</strong> network assumes something stronger: <em>nearby pixels belong together</em>. That single assumption changes everything — fewer parameters, translation tolerance, and a hierarchy of features that reads like vision itself.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -621,6 +622,9 @@
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

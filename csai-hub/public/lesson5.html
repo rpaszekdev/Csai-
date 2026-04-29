@@ -251,6 +251,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -291,7 +292,7 @@
 
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Five</div>
+    <div class="kicker" data-num="05">Lesson Five</div>
     <h1>Teaching a network to forget the noise, remember the pattern.</h1>
     <p>A network with enough neurons can <strong>memorize</strong> every training example. That is not learning. <strong>Regularization</strong> is the family of tricks that stops a model from gluing itself to the training data — so it still works on everything it has never seen.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -624,6 +625,9 @@
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

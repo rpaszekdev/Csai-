@@ -259,6 +259,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -300,7 +301,7 @@
 
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Two</div>
+    <div class="kicker" data-num="02">Lesson Two</div>
     <h1>How a network learns: derivatives, flowing backward.</h1>
     <p>Last lesson ended with a working <strong>MLP</strong> and an open question: <em>how do we train it?</em> The perceptron rule only works for one neuron. Today, the answer: <strong>backpropagation</strong> — the chain rule, applied layer by layer, end to start.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -642,6 +643,9 @@
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

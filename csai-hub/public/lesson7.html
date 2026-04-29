@@ -343,6 +343,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -385,7 +386,7 @@
 <!-- ═══════ HERO ═══════ -->
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Seven · slides 1–2</div>
+    <div class="kicker" data-num="07">Lesson Seven · slides 1–2</div>
     <h1>Every token, looking at every other token, all at once.</h1>
     <p>Last lesson the encoder squeezed an entire sentence into <strong>one final hidden state</strong>. The decoder then read from that single vector. It was a bottleneck. <strong>Self-attention</strong> removes the bottleneck — every token gets to look at every other token, in parallel, with no recurrence.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -807,6 +808,9 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

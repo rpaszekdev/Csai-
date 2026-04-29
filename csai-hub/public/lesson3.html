@@ -248,6 +248,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -288,7 +289,7 @@
 
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Three</div>
+    <div class="kicker" data-num="03">Lesson Three</div>
     <h1>How a network actually takes each step.</h1>
     <p>Backprop gives us the <strong>gradient</strong>. But what do we <em>do</em> with it? Plain gradient descent is the obvious answer — and the broken one. Today: the family of <strong>optimizers</strong> that patch its flaws, one idea at a time.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -606,6 +607,9 @@
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

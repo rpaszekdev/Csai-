@@ -343,6 +343,7 @@
   }
 </style>
 <link rel="stylesheet" href="/lesson-brutal.css" />
+<link rel="stylesheet" href="/lesson-editorial.css" />
 </head>
 <body>
 
@@ -384,7 +385,7 @@
 <!-- ═══════ HERO ═══════ -->
 <div class="hero" id="hero">
   <div>
-    <div class="kicker">Lesson Six</div>
+    <div class="kicker" data-num="06">Lesson Six</div>
     <h1>Networks that remember.</h1>
     <p>An MLP sees one fixed-size vector and answers. A sentence isn't fixed-size. A video isn't either. You need a network with a <strong>hidden state</strong> that carries information from one step to the next — a <strong>recurrent neural network</strong>. Then you'll see why simple RNNs forget, and why <strong>LSTMs</strong> and <strong>GRUs</strong> add <strong>gates</strong> to keep what matters.</p>
     <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
@@ -817,6 +818,9 @@
   }
 }
 </script>
+<!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
+<script type="module" src="/lesson-pretext.js"></script>
+
 
 <script type="module">
 import * as THREE from 'three';

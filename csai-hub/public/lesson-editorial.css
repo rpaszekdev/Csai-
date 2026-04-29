@@ -1,0 +1,554 @@
+/* ═══════════════════════════════════════════════════════════════
+   Lesson Editorial — IBM Plex Mono editorial skin for lesson*.html.
+   Loaded AFTER lesson-brutal.css so the cascade narrows the lesson
+   body surface into the typewriter / sumi-e style established by the
+   cog-neuro module (src/courses/cog-neuro/styles.css).
+
+   Tokens mirror cog-neuro:
+     --paper       #F8F6EE  (warm paper)
+     --ink-soft    #2A2826  (deep ink)
+     --ink-faint   #A8A29A  (eyebrow / hairline)
+     --coral       #C45A2A  (single editorial accent — used sparingly)
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --paper:        #F8F6EE;
+  --ink-soft:     #2A2826;
+  --ink-faint-2:  #A8A29A;
+  --hairline:     rgba(168, 162, 154, 0.45);
+  --coral:        #C45A2A;
+  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ── page surface ─────────────────────────────────────────── */
+body {
+  background: var(--paper) !important;
+  color: var(--ink-soft) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 13.5px !important;
+  line-height: 1.7 !important;
+}
+
+/* ── topbar — keep brutal frame, narrow brand block to mono ── */
+header.topbar {
+  background: var(--paper) !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  padding: 16px 32px !important;
+  position: relative;
+}
+header.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--coral);
+}
+.brand .mark {
+  background: var(--coral) !important;
+  color: var(--paper) !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 500 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  padding: 3px 6px !important;
+  text-transform: uppercase !important;
+}
+.brand .title {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  color: var(--ink-soft) !important;
+  text-transform: uppercase !important;
+}
+.brand .sub {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  color: var(--ink-faint-2) !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+}
+
+/* progress bar — thinned to a hairline */
+.progress { background: var(--hairline) !important; height: 1px !important; }
+.progress > span { background: var(--coral) !important; }
+
+/* lesson nav + toc button — chip → mono link */
+.toc-btn, .lesson-nav a {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.16em !important;
+  color: var(--ink-faint-2) !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  padding: 2px 6px !important;
+  position: relative;
+}
+.toc-btn:hover, .lesson-nav a:hover {
+  background: transparent !important;
+  color: var(--ink-soft) !important;
+  transform: none !important;
+}
+.lesson-nav a.active {
+  background: transparent !important;
+  color: var(--ink-soft) !important;
+}
+.lesson-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 6px; right: 6px; bottom: -3px;
+  height: 1.5px; background: var(--ink-soft);
+}
+
+/* TOC card — paper card with hairline */
+.toc {
+  background: var(--paper) !important;
+  border: 1px solid var(--hairline) !important;
+  box-shadow: 6px 6px 0 var(--ink-soft) !important;
+  font-family: var(--font-mono) !important;
+}
+.toc a {
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.04em !important;
+  color: var(--ink-soft) !important;
+}
+
+/* ── hero — ghost numeral + module crumb + topic illustration ── */
+.hero {
+  display: grid !important;
+  grid-template-columns: 220px 1fr minmax(280px, 360px) !important;
+  align-items: start !important;
+  gap: 32px !important;
+  padding: 48px 40px 32px !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  background: var(--paper) !important;
+  position: relative;
+}
+.hero > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* the kicker (e.g. "Lesson Six") becomes an outlined ghost numeral */
+.hero .kicker {
+  display: block !important;
+  font-family: 'Inter', var(--font-mono) !important;
+  font-size: 200px !important;
+  font-weight: 200 !important;
+  line-height: 0.85 !important;
+  color: transparent !important;
+  -webkit-text-stroke: 1.5px var(--ink-faint-2) !important;
+  letter-spacing: -0.04em !important;
+  background: none !important;
+  padding: 0 !important;
+  text-transform: uppercase !important;
+  user-select: none;
+}
+/* hide the body's word — only show the ghost numeral derived from data */
+.hero .kicker::after {
+  content: attr(data-num);
+  display: block;
+}
+.hero .kicker > * { display: none !important; }
+.hero .kicker:not([data-num]) {
+  /* fallback — mono pre-title if the lesson hasn't set data-num */
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  color: var(--ink-soft) !important;
+  -webkit-text-stroke: 0 !important;
+  letter-spacing: 0.18em !important;
+}
+
+/* hero h1 — small mono crumb above the lesson body, not a 64px slab */
+.hero h1 {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  color: var(--ink-soft) !important;
+  text-transform: uppercase !important;
+  line-height: 1.5 !important;
+  margin: 0 0 12px !important;
+}
+.hero p {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  color: var(--ink-soft) !important;
+  line-height: 1.7 !important;
+  max-width: 60ch;
+}
+.hero .meta {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  color: var(--ink-faint-2) !important;
+  text-transform: uppercase !important;
+  margin-top: 24px !important;
+  border-top: 1px solid var(--hairline) !important;
+  padding-top: 12px !important;
+}
+.hero .meta strong { color: var(--ink-soft) !important; font-weight: 600 !important; }
+
+/* hero illustration cell — third grid column hosts the canvas */
+.hero .stage {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+  min-height: 300px;
+  align-self: end;
+}
+
+/* ── steps — single column reading flow, no big right canvas ── */
+section.step {
+  display: block !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  padding: 56px 40px !important;
+  min-height: 0 !important;
+  background: var(--paper) !important;
+}
+section.step .text {
+  padding: 0 !important;
+  max-width: 64ch !important;
+  display: block !important;
+}
+section.step .text .eyebrow {
+  display: block !important;
+  background: transparent !important;
+  color: var(--ink-faint-2) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  padding: 0 0 8px 0 !important;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 20px !important;
+}
+section.step .text h2 {
+  font-family: var(--font-mono) !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: var(--ink-soft) !important;
+  line-height: 1.3 !important;
+  margin: 0 0 20px !important;
+}
+section.step .text p,
+section.step .text li {
+  font-family: var(--font-mono) !important;
+  font-size: 13.5px !important;
+  line-height: 1.75 !important;
+  color: var(--ink-soft) !important;
+  margin-bottom: 14px;
+}
+section.step .text ul, section.step .text ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 16px;
+}
+section.step .text li {
+  position: relative;
+  padding-left: 18px;
+}
+section.step .text li::before {
+  content: "·";
+  position: absolute; left: 4px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+section.step .text strong {
+  font-weight: 700 !important;
+  color: var(--ink-soft) !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  letter-spacing: 0 !important;
+}
+section.step .text em {
+  font-style: italic;
+  color: var(--ink-faint-2) !important;
+}
+section.step .text code {
+  font-family: inherit !important;
+  background: rgba(196, 90, 42, 0.08) !important;
+  color: var(--ink-soft) !important;
+  border: none !important;
+  padding: 0 4px !important;
+}
+
+/* the right canvas stage — full-width strip after the prose */
+section.step .stage-wrap {
+  border: 1px solid var(--hairline) !important;
+  border-left: 1px solid var(--hairline) !important;
+  background: var(--paper) !important;
+  margin-top: 32px;
+}
+section.step .stage {
+  position: static !important;
+  height: auto !important;
+  display: block !important;
+}
+.canvas-host {
+  background: var(--paper) !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  height: 380px;
+  min-height: 320px;
+}
+
+/* ── chips — fade them out so canvas-baked labels lead ─────── */
+.chip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--ink-faint-2) !important;
+  padding: 2px 0 !important;
+}
+
+/* ── controls — quiet ghost buttons, mono labels ─────────── */
+.controls {
+  background: var(--paper) !important;
+  border-top: 1px solid var(--hairline) !important;
+  padding: 12px 20px !important;
+}
+.btn {
+  background: transparent !important;
+  border: 1px solid var(--ink-faint-2) !important;
+  color: var(--ink-soft) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  padding: 6px 14px !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transition: color 0.12s, border-color 0.12s !important;
+}
+.btn:hover {
+  background: transparent !important;
+  border-color: var(--ink-soft) !important;
+  color: var(--ink-soft) !important;
+  transform: none !important;
+}
+.btn:active, .btn.active {
+  background: var(--ink-soft) !important;
+  color: var(--paper) !important;
+  border-color: var(--ink-soft) !important;
+  transform: none !important;
+}
+.btn.gold {
+  border-color: var(--coral) !important;
+  color: var(--coral) !important;
+}
+.btn.gold:hover { color: var(--ink-soft) !important; border-color: var(--ink-soft) !important; }
+
+input[type="range"] { accent-color: var(--coral) !important; }
+.slider-wrap {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+  color: var(--ink-faint-2) !important;
+  text-transform: uppercase !important;
+}
+
+/* ── callouts — flat mono blocks, single hairline accent ─── */
+.callout, .callout.navy, .callout.warn {
+  background: transparent !important;
+  border: none !important;
+  border-left: 1px solid var(--ink-soft) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 4px 0 4px 16px !important;
+  margin: 16px 0 !important;
+  font-style: italic;
+  color: var(--ink-faint-2) !important;
+}
+.callout strong, .callout.navy strong, .callout.warn strong {
+  font-style: normal;
+  color: var(--ink-soft) !important;
+}
+.callout.warn { border-left-color: var(--coral) !important; }
+
+/* ── predict / quiz cards — mono, no shadow ──────────────── */
+.predict {
+  background: transparent !important;
+  border: 1px solid var(--hairline) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 16px !important;
+  margin: 16px 0;
+}
+.predict h4 {
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.16em !important;
+  color: var(--ink-faint-2) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: none !important;
+}
+.opt {
+  background: transparent !important;
+  border: 1px solid var(--hairline) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  color: var(--ink-soft) !important;
+  padding: 8px 12px !important;
+  transition: border-color 0.12s !important;
+}
+.opt:hover { border-color: var(--ink-soft) !important; background: transparent !important; }
+.opt.correct { border-color: var(--ink-soft) !important; background: rgba(47, 74, 51, 0.06) !important; }
+.opt.wrong   { border-color: var(--coral) !important; background: rgba(196, 90, 42, 0.06) !important; }
+.reveal {
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  font-style: italic;
+  color: var(--ink-faint-2) !important;
+  border-left: 1px solid var(--hairline) !important;
+  padding-left: 12px !important;
+  margin-top: 12px !important;
+}
+
+/* ── EXAM badge & PROF quote — first-class editorial parts ── */
+.exam-tag, .exam-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--ink-faint-2);
+  background: transparent;
+  border: 1px solid var(--ink-faint-2);
+  padding: 1px 6px;
+  margin: 0 4px;
+  vertical-align: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.prof-quote {
+  display: block;
+  border-left: 1px solid var(--ink-soft);
+  padding: 8px 0 8px 20px;
+  margin: 24px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint-2);
+  position: relative;
+}
+.prof-quote::before {
+  content: "PROF";
+  display: inline-block;
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+  border: 1px solid var(--ink-soft);
+  padding: 1px 6px;
+  margin-right: 12px;
+  vertical-align: 2px;
+}
+
+/* ── code blocks ─────────────────────────────────────────── */
+.ssl-code, pre {
+  background: var(--ink-soft) !important;
+  color: var(--paper) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 16px !important;
+}
+
+/* ── final quiz block ─────────────────────────────────────── */
+.quiz {
+  background: var(--paper) !important;
+  border-top: 1px solid var(--hairline) !important;
+  padding: 64px 40px !important;
+}
+.quiz h2 {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--ink-faint-2) !important;
+  margin-bottom: 32px !important;
+}
+.q-card {
+  background: transparent !important;
+  border: 1px solid var(--hairline) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 16px !important;
+}
+.q-card > p:first-child {
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  color: var(--ink-soft) !important;
+  margin-bottom: 12px !important;
+}
+
+/* score badge — mono pill */
+.score {
+  background: var(--paper) !important;
+  color: var(--ink-soft) !important;
+  border: 1px solid var(--ink-soft) !important;
+  box-shadow: 4px 4px 0 var(--ink-soft) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.16em !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+}
+
+/* footer */
+footer {
+  background: var(--paper) !important;
+  border-top: 1px solid var(--hairline) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.14em !important;
+  color: var(--ink-faint-2) !important;
+  text-transform: uppercase !important;
+  padding: 32px 40px !important;
+}
+footer a {
+  color: var(--coral) !important;
+  text-decoration: none !important;
+  border: none !important;
+}
+footer a:hover { background: transparent !important; color: var(--ink-soft) !important; }
+
+/* ── canvas-host bg parity with paper (let baked labels read) ─ */
+.canvas-host { background: var(--paper) !important; }
+section.step .stage-wrap { background: var(--paper) !important; }
+.hero .stage { background: transparent !important; }
+
+/* ── responsive — hero collapses, single column ─────────── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 160px 1fr !important; }
+  .hero .stage { grid-column: 1 / -1; min-height: 240px; }
+  .hero .kicker { font-size: 140px !important; }
+}
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr !important; padding: 32px 20px !important; }
+  .hero .kicker { font-size: 96px !important; }
+  section.step { padding: 40px 20px !important; }
+  .quiz, footer { padding: 40px 20px !important; }
+}
