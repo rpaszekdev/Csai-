@@ -502,6 +502,31 @@ input[type="range"] { accent-color: var(--coral) !important; }
    colour-code right/wrong inline; the floating tally was redundant) */
 .score { display: none !important; }
 
+/* ── slide thumbnails — paper card with hairline + mono caption ── */
+.slide-thumb {
+  margin: 24px 0 8px !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: 0 !important;
+  background: var(--paper) !important;
+  box-shadow: 4px 4px 0 var(--ink-soft) !important;
+  max-width: 360px !important;
+  overflow: hidden;
+}
+.slide-thumb img {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--hairline);
+}
+.slide-thumb .cap {
+  background: var(--paper) !important;
+  color: var(--ink-faint-2) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 8px 12px !important;
+}
+
 /* footer */
 footer {
   background: var(--paper) !important;
