@@ -1,0 +1,140 @@
+export const PROGRAM = [
+  {
+    year: 1,
+    semesters: [
+      { number: 1, courses: [] },
+      { number: 2, courses: [] },
+    ],
+  },
+  {
+    year: 2,
+    semesters: [
+      { number: 3, courses: [] },
+      {
+        number: 4,
+        courses: [
+          {
+            id: "cog-neuro",
+            name: "Cognitive Neuroscience",
+            icon: "\u{1F9E0}",
+            color: "#FF5BAA",
+            shape: "neuron",
+            exams: [
+              {
+                type: "Midterm",
+                format: "Digital",
+                weight: "40%",
+                min: "None",
+                date: "31 Mar",
+              },
+              {
+                type: "Final",
+                format: "Digital",
+                weight: "40%",
+                min: "None",
+                date: "28 May",
+              },
+              {
+                type: "Resit",
+                format: "Digital",
+                weight: "80%",
+                min: "None",
+                date: "23 Jun",
+              },
+            ],
+            resources: [
+              { label: "Lessons", href: "/lesson.html" },
+              { label: "Q&A (RAG)", href: "#" },
+              { label: "Flashcards", href: "#" },
+            ],
+          },
+          {
+            id: "auto-sys",
+            name: "Autonomous Systems",
+            icon: "\u{1F916}",
+            color: "#2D5BFF",
+            shape: "orbit",
+            exams: [
+              {
+                type: "Final",
+                format: "Digital",
+                weight: "60%",
+                min: "5.5",
+                date: "5 Jun",
+              },
+            ],
+            resources: [
+              { label: "Lessons", href: "#" },
+              { label: "Q&A (RAG)", href: "#" },
+            ],
+          },
+          {
+            id: "research",
+            name: "Research Workshop",
+            icon: "\u{1F52C}",
+            color: "#F5C518",
+            shape: "burst",
+            exams: [],
+            resources: [{ label: "Project", href: "#" }],
+          },
+          {
+            id: "deep-learn",
+            name: "Introduction to Deep Learning",
+            icon: "\u{1F525}",
+            color: "#FF4521",
+            shape: "stack",
+            exams: [
+              {
+                type: "Final",
+                format: "Digital",
+                weight: "70%",
+                min: "5.5",
+                date: "3 Jun",
+              },
+            ],
+            resources: [
+              { label: "Lesson 1: MLPs", href: "/lesson.html" },
+              { label: "Lesson 2: Backprop", href: "/lesson2.html" },
+              { label: "Lesson 3: Optimizers", href: "/lesson3.html" },
+              { label: "Lesson 4: CNNs", href: "/lesson4.html" },
+              { label: "Lesson 5: Regularization", href: "/lesson5.html" },
+            ],
+          },
+          {
+            id: "adv-prog",
+            name: "Advanced Programming for CSAI",
+            icon: "\u{26A1}",
+            color: "#7C3AED",
+            shape: "bolt",
+            exams: [
+              {
+                type: "Final",
+                format: "Digital",
+                weight: "80%",
+                min: "5.5",
+                date: "28 May",
+              },
+            ],
+            resources: [
+              { label: "Lessons", href: "#" },
+              { label: "Q&A (RAG)", href: "#" },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: 3,
+    semesters: [
+      { number: 5, courses: [] },
+      { number: 6, courses: [] },
+    ],
+  },
+];
+
+export const ALL_EXAMS = PROGRAM.flatMap((y) =>
+  y.semesters.flatMap((s) =>
+    s.courses.flatMap((c) => c.exams.map((e) => ({ course: c.name, ...e }))),
+  ),
+);

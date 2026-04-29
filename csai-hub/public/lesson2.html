@@ -1,0 +1,1671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Backpropagation — Lesson 2</title>
+<style>
+  :root {
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+    --ai:        #264E70;
+    --beni:      #9B4E4E;
+    --moegi:     #5B7553;
+    --kitsune:   #B87333;
+    --murasaki:  #4A3B5C;
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+    --text-whisper: 11px; --text-body: 14px; --text-lead: 16px;
+    --text-subhead: 18px; --text-head: 24px; --text-display: 32px; --text-hero: 48px;
+    --radius-subtle: 2px; --radius-gentle: 4px; --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+    --duration-swift: 200ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep); line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .lesson-nav {
+    display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker { font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--ma-5); }
+  .hero h1 { max-width: 22ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+  }
+
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout strong { color: var(--sumi-deep); }
+
+  .formula {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+    font-size: var(--text-subhead); text-align: center;
+    padding: var(--ma-5);
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-soft);
+    color: var(--sumi-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .predict { background: var(--washi-white); border: 1px solid var(--washi-warm); padding: var(--ma-5); border-radius: var(--radius-soft); }
+  .predict h4 { margin-bottom: var(--ma-3); font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .predict > p { font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3); }
+  .predict .opts { display: grid; gap: var(--ma-2); }
+  .opt { background: var(--washi-white); border: 1px solid var(--washi-warm); padding: var(--ma-3) var(--ma-4); border-radius: var(--radius-gentle); cursor: pointer; text-align: left; font-family: inherit; font-size: var(--text-body); color: var(--sumi-deep); transition: all var(--duration-swift) var(--ease-gentle); }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal { display: none; margin-top: var(--ma-3); color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm); }
+  .reveal.show { display: block; }
+
+  .slide-thumb {
+    margin-top: var(--ma-3);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-gentle);
+    overflow: hidden; max-width: 360px;
+    box-shadow: var(--shadow-whisper);
+  }
+  .slide-thumb img { width: 100%; display: block; }
+  .slide-thumb .cap { padding: var(--ma-2) var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.06em; color: var(--sumi-light); background: var(--washi-cream); }
+
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card { background: var(--washi-white); padding: var(--ma-5); border-radius: var(--radius-soft); border: 1px solid var(--washi-warm); }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white); color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4); border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm); box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light); font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center; line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+<link rel="stylesheet" href="/lesson-brutal.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">CSAI</span>
+    <span class="title">Backpropagation</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 2</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html">Lesson 1</a>
+    <a href="lesson2.html" class="active">Lesson 2</a>
+    <a href="lesson3.html">Lesson 3</a>
+    <a href="lesson4.html">Lesson 4</a>
+    <a href="lesson5.html">Lesson 5</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#recap">1 · Where we left off</a></li>
+    <li><a href="#approximator">2 · Network as a function</a></li>
+    <li><a href="#gradient">3 · Gradient descent</a></li>
+    <li><a href="#optimization">4 · What is optimization?</a></li>
+    <li><a href="#chainrule">5 · The chain rule</a></li>
+    <li><a href="#output-grad">6 · Output layer gradient</a></li>
+    <li><a href="#backward">7 · Propagating error backward</a></li>
+    <li><a href="#update">8 · Updating the weights</a></li>
+    <li><a href="#smooth">9 · Why smooth activations</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">Lesson Two</div>
+    <h1>How a network learns: derivatives, flowing backward.</h1>
+    <p>Last lesson ended with a working <strong>MLP</strong> and an open question: <em>how do we train it?</em> The perceptron rule only works for one neuron. Today, the answer: <strong>backpropagation</strong> — the chain rule, applied layer by layer, end to start.</p>
+    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+</div>
+
+<!-- 1 · RECAP -->
+<section class="step" id="recap">
+  <div class="text">
+    <div class="eyebrow">Section 1 · slides 2–3</div>
+    <h2>Where we left off</h2>
+    <p>Last lesson we found that <strong>XOR</strong> needs two perceptrons in a hidden layer plus a third to combine them. The architecture works — but the old perceptron rule <code>Δw = η · error · input</code> needs a <strong>target</strong> for each neuron.</p>
+    <p>For the hidden neurons, <strong>we don't have a target</strong>. Only the output has one.</p>
+    <div class="callout warn">
+      <strong>The core question:</strong> if we can't directly tell each hidden neuron "here's what you should have produced," how can we know which way to nudge its weights?
+    </div>
+    <p class="muted">Answer: the network's <strong>output error</strong> gets propagated <strong>backward</strong>, neuron by neuron, using the <strong>chain rule</strong>.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="recap-canvas">
+      <div class="chip nw">MLP · two-layer · XOR</div>
+      <div class="chip se" id="recap-status">hidden layer: no target</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="recap-play">▶ Forward pass</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 2 · UNIVERSAL APPROXIMATOR -->
+<section class="step" id="approximator">
+  <div class="text">
+    <div class="eyebrow">Section 2 · slide 4</div>
+    <h2>A network is a function</h2>
+    <p>Here's the frame that makes everything click: a neural network is a <strong>function</strong> <code>y = f(x; W)</code> where <code>W</code> is all the weights.</p>
+    <p>Somewhere out there is a <strong>true function</strong> that maps inputs to the correct outputs. We don't know its form — we just have <strong>examples</strong> (training data).</p>
+    <p><strong>Training</strong> means adjusting <code>W</code> until our network's function looks like the true one, at least on our examples.</p>
+    <div class="callout navy">A network with enough neurons is a <strong>universal function approximator</strong> — it can get arbitrarily close to any continuous function. Training is the search for the right weights.</div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="approx-canvas">
+      <div class="chip nw">fitting y = sin(x)</div>
+      <div class="chip se" id="approx-status">step 0 · loss: —</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="approx-train">▶ Train</button>
+      <button class="btn" id="approx-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 3 · GRADIENT DESCENT (the 3D moment) -->
+<section class="step" id="gradient">
+  <div class="text">
+    <div class="eyebrow">Section 3 · slide 6 · the key idea</div>
+    <h2>Gradient descent</h2>
+    <p>Think of the <strong>loss</strong> <code>L</code> as a <strong>landscape</strong>. Every choice of weights is a point in this landscape. The <strong>height</strong> at that point is how bad the network is doing.</p>
+    <p><strong>Training</strong> means walking downhill, toward the lowest point.</p>
+    <p class="muted">The <strong>gradient</strong> <code>∇L</code> points <em>uphill</em> — the steepest direction of increase. So we move in the <strong>opposite</strong> direction:</p>
+    <div class="formula">W ← W − η · ∇L</div>
+    <p class="muted"><code>η</code> is the <strong>learning rate</strong> — how big a step to take. Too small = slow; too big = you overshoot the minimum.</p>
+    <div class="callout">
+      <strong>Try it on the right.</strong> Click anywhere on the surface to drop a ball there. It follows the gradient downhill. Start from different places — you'll land in different local minima. Real networks face this problem in thousands of dimensions.
+    </div>
+    <div class="slide-thumb">
+      <img src="out2/slides_png/slide-06.png" alt="slide 6" />
+      <div class="cap">slide 6 — descending a 1D cross-section of the loss</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="gd-canvas">
+      <div class="chip nw">loss surface · L(w₁, w₂)</div>
+      <div class="chip ne" id="gd-status">click surface to drop ball</div>
+      <div class="chip sw">drag to rotate</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="gd-random">✦ Random start</button>
+      <button class="btn" id="gd-stop">Pause</button>
+      <div class="slider-wrap">learning rate η <input type="range" id="gd-lr" min="1" max="50" value="15"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 4 · OPTIMIZATION -->
+<section class="step" id="optimization">
+  <div class="text">
+    <div class="eyebrow">Section 4 · slides 7–8</div>
+    <h2>What is optimization?</h2>
+    <p>Optimization is: <em>picking the best parameters, by some criterion, out of all alternatives.</em></p>
+    <p>For a neural network, those three pieces are:</p>
+    <div class="callout navy">
+      <strong>Parameters</strong> — all the weights and biases in the network.<br/>
+      <strong>Criterion</strong> — the loss function.<br/>
+      <strong>Alternatives</strong> — every possible value those weights could take.
+    </div>
+    <p>That "every possible value" is a <strong>huge</strong> space. A modern network has millions or billions of parameters. We can't enumerate all choices — we need a smarter search. <strong>Gradient descent</strong> is that search.</p>
+    <p class="muted">Each step uses the gradient to pick a slightly better set of weights than the current one. Repeat many times, and you arrive somewhere decent.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="opt-canvas">
+      <div class="chip nw">parameter space</div>
+      <div class="chip se" id="opt-status">exploring…</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">dimensions <input type="range" id="opt-dim" min="2" max="50" value="10"></div>
+      <span class="slider-wrap" id="opt-count">1024 choices</span>
+    </div>
+  </div></div>
+</section>
+
+<!-- 5 · CHAIN RULE -->
+<section class="step" id="chainrule">
+  <div class="text">
+    <div class="eyebrow">Section 5 · slide 14</div>
+    <h2>The chain rule</h2>
+    <p>To get the gradient, we need derivatives. And because layers are <strong>nested functions</strong>, we need the <strong>chain rule</strong>.</p>
+    <p>If <code>L = f(a)</code> and <code>a = g(z)</code>, then:</p>
+    <div class="formula">∂L/∂z = (∂L/∂a) · (∂a/∂z)</div>
+    <p>In words: <strong>how much does L change when z changes?</strong> It's the product of two smaller sensitivities — how L depends on a, times how a depends on z.</p>
+    <div class="callout">
+      In a neural network the chain keeps going: <br/>
+      <strong>loss → output activation → weighted sum → weights</strong>.<br/>
+      Each arrow is a derivative. The chain rule multiplies them all.
+    </div>
+    <div class="slide-thumb">
+      <img src="out2/slides_png/slide-14.png" alt="chain rule" />
+      <div class="cap">slide 14 — the chain rule, in symbols</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="chain-canvas">
+      <div class="chip nw">nested functions</div>
+      <div class="chip se" id="chain-status">drag the z slider</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">z <input type="range" id="chain-z" min="-20" max="20" value="5"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 6 · OUTPUT LAYER GRADIENT -->
+<section class="step" id="output-grad">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 17–22</div>
+    <h2>Gradient of the output layer</h2>
+    <p>For the output layer <code>n</code>, applying the chain rule to <code>∂L/∂W</code> gives us <strong>three terms</strong>:</p>
+    <div class="formula">∂L/∂W = (∂L/∂a) · (∂a/∂z) · (∂z/∂W)</div>
+    <ul>
+      <li><strong>∂L/∂a</strong> — how the loss changes when the output changes. The <strong>error component</strong>.</li>
+      <li><strong>∂a/∂z</strong> — the derivative of the <strong>activation function</strong>.</li>
+      <li><strong>∂z/∂W</strong> — simple: it's just the <strong>input</strong> to this layer.</li>
+    </ul>
+    <p>Group the first two and give them a name: <strong>δ</strong> (delta).</p>
+    <div class="formula">δ = (∂L/∂a) · (∂a/∂z) &nbsp; ⇒ &nbsp; ∂L/∂W = δ · input</div>
+    <div class="callout navy">
+      <strong>δ is the "error signal" of the layer.</strong> It measures how much the layer's weighted sum <code>z</code> should shift to reduce the loss. Multiply δ by the layer's input and you get the weight gradient.
+    </div>
+    <div class="slide-thumb">
+      <img src="out2/slides_png/slide-21.png" alt="slide 21" />
+      <div class="cap">slide 21 — the three terms collapse to δ · aⁿ⁻¹</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="output-canvas">
+      <div class="chip nw">three derivatives → one delta</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="output-step">▶ Step through terms</button>
+      <button class="btn" id="output-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 7 · BACKWARD PROPAGATION -->
+<section class="step" id="backward">
+  <div class="text">
+    <div class="eyebrow">Section 7 · slides 28–32</div>
+    <h2>Sending error backward</h2>
+    <p>Good — we have δ for the <strong>output layer</strong>. What about the hidden layers?</p>
+    <p>Another round of the chain rule gives the rule for <strong>every previous layer</strong>:</p>
+    <div class="formula">δ<sup>l−1</sup> = (W<sup>l</sup>)ᵀ · δ<sup>l</sup> · f'(z<sup>l−1</sup>)</div>
+    <p>Each layer's error is the <strong>next layer's error</strong>, multiplied by the <strong>same weights</strong> that carried the signal forward (transposed), and then shaped by the <strong>derivative of this layer's activation</strong>.</p>
+    <div class="callout navy">
+      <strong>Backprop is the forward pass in reverse.</strong><br/>
+      Forward: input flows left → right through the weights, becoming an output.<br/>
+      Backward: the output's error flows right → left through the <strong>same weights</strong>, becoming a per-layer error signal.
+    </div>
+    <p class="muted">Press ▶ on the right — first watch the signal go forward (blue pulses). Then the error comes back (red pulses), through the same connections, in reverse.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="backward-canvas">
+      <div class="chip nw">forward → backward</div>
+      <div class="chip se" id="backward-status">idle</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="bp-play">▶ Forward then backward</button>
+      <button class="btn" id="bp-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 8 · UPDATE -->
+<section class="step" id="update">
+  <div class="text">
+    <div class="eyebrow">Section 8 · slide 34</div>
+    <h2>Update the weights</h2>
+    <p>Now we have a gradient for <strong>every layer</strong>. Apply the same rule as gradient descent, layer by layer:</p>
+    <div class="formula">W<sup>l</sup> ← W<sup>l</sup> − η · ΔW<sup>l</sup> <br/> with &nbsp; ΔW<sup>l</sup> = (a<sup>l−1</sup>)ᵀ · δ<sup>l</sup></div>
+    <p>And the same for the bias:</p>
+    <div class="formula">b<sup>l</sup> ← b<sup>l</sup> − η · δ<sup>l</sup></div>
+    <p>That's it. That's the whole training step:</p>
+    <div class="callout">
+      <strong>1. Forward pass</strong> — input through the network, get the output.<br/>
+      <strong>2. Loss</strong> — compare output to target.<br/>
+      <strong>3. Backward pass</strong> — propagate δ back through all layers.<br/>
+      <strong>4. Update</strong> — adjust every weight by its gradient × learning rate.<br/>
+      Repeat thousands of times.
+    </div>
+    <p class="muted">In libraries like <strong>PyTorch</strong> this all happens automatically via <em>autograd</em>. But under the hood it is exactly the chain rule, layer by layer.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="update-canvas">
+      <div class="chip nw">one weight descending L(w)</div>
+      <div class="chip se" id="update-status">step 0 · w = 0.00 · L = 0.00</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="upd-play">▶ Start descent</button>
+      <button class="btn" id="upd-reset">Reset</button>
+      <div class="slider-wrap">η <input type="range" id="upd-lr" min="1" max="80" value="20"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 9 · SMOOTH ACTIVATIONS -->
+<section class="step" id="smooth">
+  <div class="text">
+    <div class="eyebrow">Section 9</div>
+    <h2>Why we dropped the step function</h2>
+    <p>The classic perceptron used a <strong>step function</strong>: output 1 if the sum ≥ 0, else 0. Simple. But it has a fatal problem for backprop.</p>
+    <div class="callout warn">
+      The step function has <strong>no derivative</strong> at its jump — and zero derivative everywhere else. Every term in the chain rule gets multiplied by zero. <strong>No gradient, no learning.</strong>
+    </div>
+    <p>So deep learning uses <strong>smooth</strong> activations:</p>
+    <ul>
+      <li><strong>Sigmoid</strong> — σ(z) = 1 / (1 + e⁻ᶻ). Squashes into (0, 1). Smooth everywhere.</li>
+      <li><strong>Tanh</strong> — similar, but output in (−1, 1).</li>
+      <li><strong>ReLU</strong> — max(0, z). Not smooth at 0, but its left-and-right derivatives are well-defined (0 and 1), and that works fine in practice.</li>
+    </ul>
+    <p class="muted">Your choice of activation decides what <code>f'(z)</code> in the backprop equation actually is. Sigmoid's derivative is <code>σ(z)·(1 − σ(z))</code>, for example — elegant, easy to compute from the sigmoid itself.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="act-canvas">
+      <div class="chip nw" id="act-name">sigmoid</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-act="sigmoid">Sigmoid</button>
+      <button class="btn" data-act="tanh">Tanh</button>
+      <button class="btn" data-act="relu">ReLU</button>
+      <button class="btn" data-act="step">Step (broken)</button>
+    </div>
+  </div></div>
+</section>
+
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> Gradient descent moves the weights:</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">In the direction of the gradient</button>
+        <button class="opt" data-correct="true">Opposite to the gradient</button>
+        <button class="opt" data-correct="false">Randomly</button>
+      </div>
+      <div class="reveal">The <strong>gradient</strong> points toward <em>higher</em> loss. To reduce loss, we step in the <strong>opposite</strong> direction.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q2.</strong> What is the <strong>learning rate η</strong>?</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">A derivative</button>
+        <button class="opt" data-correct="true">How big a step to take along the gradient</button>
+        <button class="opt" data-correct="false">The number of layers</button>
+      </div>
+      <div class="reveal">Too small: slow training. Too big: you overshoot minima and bounce around.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q3.</strong> In backprop, δ<sup>l−1</sup> is computed from:</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">δ of the previous layer only</button>
+        <button class="opt" data-correct="true">δ of the next layer, the transposed weights, and this layer's activation derivative</button>
+        <button class="opt" data-correct="false">The raw input to the network</button>
+      </div>
+      <div class="reveal">δ<sup>l−1</sup> = (W<sup>l</sup>)ᵀ · δ<sup>l</sup> · f'(z<sup>l−1</sup>). Each layer's error is the next layer's error, pulled back through the weights, shaped by this layer's activation.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q4.</strong> Why is the <strong>step function</strong> unusable for hidden layers in backprop?</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">It's too slow</button>
+        <button class="opt" data-correct="true">Its derivative is 0 almost everywhere, killing the gradient</button>
+        <button class="opt" data-correct="false">It produces negative outputs</button>
+      </div>
+      <div class="reveal">The step is flat everywhere except one point, so <code>f'(z) = 0</code> almost always. Multiplied into the chain rule, it kills all learning.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q5.</strong> The gradient of the weights in any layer is:</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">δ alone</button>
+        <button class="opt" data-correct="true">δ multiplied by the layer's input</button>
+        <button class="opt" data-correct="false">The weight itself</button>
+      </div>
+      <div class="reveal">ΔW<sup>l</sup> = (a<sup>l−1</sup>)ᵀ · δ<sup>l</sup>. The error signal δ tells us "which direction the sum z should shift"; multiplying by the input tells us how to shift each weight to achieve that.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q6.</strong> Backpropagation is essentially:</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="false">A new optimization algorithm</button>
+        <button class="opt" data-correct="true">The chain rule applied repeatedly, from output back to input</button>
+        <button class="opt" data-correct="false">A replacement for gradient descent</button>
+      </div>
+      <div class="reveal">Backprop is just the <strong>chain rule</strong>, repeated layer by layer. Gradient descent is what <em>uses</em> those gradients to update weights.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  End of lesson two<br/>
+  built from <code>2. Backpropagation.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
+  <a href="lesson.html">← back to Lesson 1</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 6</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const COLORS = {
+  washi:  0xF5F2EB,
+  cream:  0xEDE8DC,
+  warm:   0xE5DFD0,
+  sumi:   0x1A1A1A,
+  sumiMd: 0x3D3D3D,
+  sumiLt: 0x6B6B6B,
+  ai:     0x264E70,
+  aiLt:   0x3E6B8A,
+  beni:   0x9B4E4E,
+  moegi:  0x5B7553,
+  kitsune:0xB87333,
+  murasaki:0x4A3B5C,
+};
+
+function makeScene(host, opts = {}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 100);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 4);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(rect.width, rect.height);
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+  scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+  const dir = new THREE.DirectionalLight(0xffffff, 0.55);
+  dir.position.set(3, 5, 2); scene.add(dir);
+  new ResizeObserver(() => {
+    const r = host.getBoundingClientRect();
+    camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+    renderer.setSize(r.width, r.height);
+  }).observe(host);
+  return { scene, camera, renderer, controls };
+}
+
+function makeLabel(text, color = '#1A1A1A', size = 64) {
+  const c = document.createElement('canvas'); c.width = 512; c.height = 128;
+  const ctx = c.getContext('2d');
+  ctx.font = `600 ${size}px -apple-system, Inter, sans-serif`;
+  ctx.fillStyle = color; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(text, c.width/2, c.height/2);
+  const tex = new THREE.CanvasTexture(c); tex.minFilter = THREE.LinearFilter;
+  return new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true }));
+}
+
+function makeSphere(radius, color) {
+  return new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 32, 32),
+    new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.55 })
+  );
+}
+
+function makeCylinderBetween(a, b, color, radius = 0.02) {
+  const va = new THREE.Vector3(...a), vb = new THREE.Vector3(...b);
+  const dir = new THREE.Vector3().subVectors(vb, va);
+  const len = dir.length();
+  const geom = new THREE.CylinderGeometry(radius, radius, len, 12);
+  const mesh = new THREE.Mesh(geom, new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6 }));
+  mesh.position.copy(va).add(vb).multiplyScalar(0.5);
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), dir.clone().normalize());
+  return mesh;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Loss surface function (used in hero + gradient descent scene)
+// ═══════════════════════════════════════════════════════════════════
+function lossSurface(x, y) {
+  // bumpy bowl: quadratic + two sin ripples
+  return 0.18 * (x*x + y*y) + 0.4 * Math.sin(x*1.2) * Math.cos(y*1.2);
+}
+function lossGradient(x, y) {
+  // analytical gradient
+  const dx = 0.36 * x + 0.4 * 1.2 * Math.cos(x*1.2) * Math.cos(y*1.2);
+  const dy = 0.36 * y - 0.4 * 1.2 * Math.sin(x*1.2) * Math.sin(y*1.2);
+  return [dx, dy];
+}
+
+function buildLossSurfaceMesh(extent = 4, segments = 60) {
+  const geom = new THREE.PlaneGeometry(extent*2, extent*2, segments, segments);
+  const pos = geom.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), y = pos.getY(i);
+    pos.setZ(i, lossSurface(x, y));
+  }
+  geom.computeVertexNormals();
+  const mat = new THREE.MeshStandardMaterial({
+    color: 0xd8d2c0, side: THREE.DoubleSide,
+    flatShading: false, roughness: 0.8, metalness: 0.05,
+    wireframe: false, transparent: true, opacity: 0.95,
+  });
+  const mesh = new THREE.Mesh(geom, mat);
+  // put a contour-line overlay
+  const wire = new THREE.Mesh(
+    geom.clone(),
+    new THREE.MeshBasicMaterial({ color: 0x8c867a, wireframe: true, transparent: true, opacity: 0.12 })
+  );
+  const group = new THREE.Group();
+  group.add(mesh); group.add(wire);
+  group.rotation.x = -Math.PI/2;
+  return group;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO — ambient rolling ball on loss surface
+// ═══════════════════════════════════════════════════════════════════
+(function hero() {
+  const host = document.getElementById('hero-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [4, 3.5, 5] });
+  controls.target.set(0, 0.5, 0);
+  const surface = buildLossSurfaceMesh();
+  scene.add(surface);
+  const ball = makeSphere(0.14, COLORS.kitsune);
+  scene.add(ball);
+  let w = [-2.2, 2.1];
+  function loop() {
+    const [gx, gy] = lossGradient(w[0], w[1]);
+    w[0] -= 0.05 * gx;
+    w[1] -= 0.05 * gy;
+    const h = lossSurface(w[0], w[1]);
+    ball.position.set(w[0], h + 0.1, -w[1]);
+    controls.update();
+    renderer.render(scene, camera);
+    if (Math.hypot(gx, gy) < 0.01) { w = [-2 + Math.random()*4, -2 + Math.random()*4]; }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 1 · RECAP — 2-layer MLP with "no target" on hidden layer
+// ═══════════════════════════════════════════════════════════════════
+(function recapScene() {
+  const host = document.getElementById('recap-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let pulseT = -1; let activeLayer = -1;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  const layers = [2, 2, 1];
+  const labels = ['input', 'hidden', 'output'];
+  function positions() {
+    const r = host.getBoundingClientRect();
+    const padX = 80; const W = r.width - padX*2;
+    return layers.map((n, li) => {
+      const x = padX + (li / (layers.length-1)) * W;
+      return Array.from({ length: n }, (_, i) => {
+        const y = r.height/2 + (i - (n-1)/2) * 80;
+        return { x, y };
+      });
+    });
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pos = positions();
+    // edges
+    ctx.lineWidth = 1.5;
+    for (let li = 0; li < pos.length - 1; li++) {
+      pos[li].forEach(a => pos[li+1].forEach(b => {
+        ctx.strokeStyle = '#d4cdba';
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }));
+    }
+    // pulses on forward pass
+    if (pulseT >= 0 && pulseT <= 1) {
+      for (let li = 0; li < pos.length - 1; li++) {
+        if (li !== activeLayer) continue;
+        pos[li].forEach(a => pos[li+1].forEach(b => {
+          const px = a.x + (b.x - a.x) * pulseT;
+          const py = a.y + (b.y - a.y) * pulseT;
+          ctx.fillStyle = '#264E70';
+          ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI*2); ctx.fill();
+        }));
+      }
+    }
+    // nodes
+    pos.forEach((layer, li) => {
+      layer.forEach(n => {
+        const color = li === 0 ? '#264E70' : li === pos.length-1 ? '#3E6B8A' : '#8c867a';
+        ctx.fillStyle = color;
+        ctx.beginPath(); ctx.arc(n.x, n.y, 20, 0, Math.PI*2); ctx.fill();
+      });
+    });
+    // layer labels
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    pos.forEach((layer, li) => {
+      const y = layer[layer.length-1].y + 50;
+      ctx.fillText(labels[li].toUpperCase(), layer[0].x, y);
+    });
+    // "no target" callout on hidden layer
+    if (pulseT < 0 || pulseT > 0.9) {
+      const hidden = pos[1];
+      ctx.fillStyle = '#9B4E4E';
+      ctx.font = 'italic 12px "Hiragino Mincho ProN", Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('? target unknown ?', hidden[0].x, hidden[0].y - 40);
+    }
+    // target on output
+    const out = pos[pos.length-1];
+    ctx.fillStyle = '#5B7553';
+    ctx.font = 'bold 12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('← y', out[0].x + 40, out[0].y + 4);
+  }
+
+  let anim = null;
+  function fire() {
+    let t0 = null;
+    activeLayer = 0;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      pulseT = Math.min(1, (ts - t0) / 600);
+      draw();
+      if (pulseT < 1) anim = requestAnimationFrame(step);
+      else if (activeLayer < layers.length - 2) {
+        activeLayer++; t0 = null; pulseT = 0; anim = requestAnimationFrame(step);
+      } else {
+        pulseT = -1; activeLayer = -1; draw();
+      }
+    }
+    anim = requestAnimationFrame(step);
+  }
+  document.getElementById('recap-play').onclick = () => { if (anim) cancelAnimationFrame(anim); fire(); };
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 2 · UNIVERSAL APPROXIMATOR — fit sin(x) with a tiny MLP
+// ═══════════════════════════════════════════════════════════════════
+(function approxScene() {
+  const host = document.getElementById('approx-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const status = document.getElementById('approx-status');
+
+  // tiny MLP: 1 -> 8 tanh -> 1
+  const H = 8;
+  let W1 = Array.from({ length: H }, () => (Math.random()*2-1)*1.5);
+  let b1 = Array.from({ length: H }, () => (Math.random()*2-1)*0.8);
+  let W2 = Array.from({ length: H }, () => (Math.random()*2-1)*1.0);
+  let b2 = 0;
+  const target = (x) => Math.sin(x);
+  const tanh = (z) => Math.tanh(z);
+  function forward(x) {
+    const h = W1.map((w, i) => tanh(w * x + b1[i]));
+    const y = h.reduce((s, hi, i) => s + W2[i] * hi, 0) + b2;
+    return { h, y };
+  }
+  function train_step(lr = 0.02) {
+    // one epoch over 60 samples
+    let totalLoss = 0;
+    const pts = Array.from({ length: 60 }, () => -Math.PI + Math.random() * 2 * Math.PI);
+    const gW1 = Array(H).fill(0), gb1 = Array(H).fill(0), gW2 = Array(H).fill(0); let gb2 = 0;
+    for (const x of pts) {
+      const { h, y } = forward(x);
+      const t = target(x);
+      const err = y - t; // dL/dy for MSE
+      totalLoss += 0.5 * err * err;
+      gb2 += err;
+      for (let i = 0; i < H; i++) {
+        gW2[i] += err * h[i];
+        const dh = err * W2[i] * (1 - h[i]*h[i]);
+        gW1[i] += dh * x;
+        gb1[i] += dh;
+      }
+    }
+    const n = pts.length;
+    for (let i = 0; i < H; i++) {
+      W1[i] -= lr * gW1[i]/n; b1[i] -= lr * gb1[i]/n;
+      W2[i] -= lr * gW2[i]/n;
+    }
+    b2 -= lr * gb2/n;
+    return totalLoss/n;
+  }
+  let step = 0, loss = 0, running = false;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    const pad = 50;
+    const W = r.width - pad*2, H_ = r.height - pad*2;
+    ctx.clearRect(0, 0, r.width, r.height);
+    // axes
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 6; i++) {
+      const x = pad + i/6*W;
+      ctx.beginPath(); ctx.moveTo(x, pad); ctx.lineTo(x, pad + H_); ctx.stroke();
+      const y = pad + i/6*H_;
+      ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(pad + W, y); ctx.stroke();
+    }
+    ctx.strokeStyle = '#6B6B6B'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(pad, pad + H_/2); ctx.lineTo(pad + W, pad + H_/2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(pad + W/2, pad); ctx.lineTo(pad + W/2, pad + H_); ctx.stroke();
+
+    const x2px = (x) => pad + (x + Math.PI) / (2*Math.PI) * W;
+    const y2px = (y) => pad + H_/2 - y * H_/3;
+
+    // truth
+    ctx.strokeStyle = '#5B7553'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+      const x = -Math.PI + i/100 * 2*Math.PI;
+      const px = x2px(x), py = y2px(target(x));
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    // prediction
+    ctx.strokeStyle = '#B87333'; ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+      const x = -Math.PI + i/100 * 2*Math.PI;
+      const { y } = forward(x);
+      const px = x2px(x), py = y2px(y);
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    // legend
+    ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#5B7553'; ctx.fillText('— target sin(x)', pad + 10, pad + 18);
+    ctx.fillStyle = '#B87333'; ctx.fillText('— network', pad + 10, pad + 36);
+    status.textContent = `step ${step} · loss: ${loss.toFixed(4)}`;
+  }
+
+  function loop() {
+    if (!running) return;
+    for (let k = 0; k < 5; k++) { loss = train_step(0.05); step++; }
+    draw();
+    if (step < 5000) requestAnimationFrame(loop);
+    else running = false;
+  }
+  document.getElementById('approx-train').onclick = () => {
+    if (running) return;
+    running = true; requestAnimationFrame(loop);
+  };
+  document.getElementById('approx-reset').onclick = () => {
+    running = false;
+    W1 = Array.from({ length: H }, () => (Math.random()*2-1)*1.5);
+    b1 = Array.from({ length: H }, () => (Math.random()*2-1)*0.8);
+    W2 = Array.from({ length: H }, () => (Math.random()*2-1)*1.0);
+    b2 = 0; step = 0; loss = 0; draw();
+  };
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 3 · GRADIENT DESCENT — the killer 3D scene
+// ═══════════════════════════════════════════════════════════════════
+(function gdScene() {
+  const host = document.getElementById('gd-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [5, 4, 5] });
+  controls.target.set(0, 0.2, 0);
+
+  const surface = buildLossSurfaceMesh(3.5, 80);
+  scene.add(surface);
+
+  // axis rods
+  const aX = makeCylinderBetween([-3.8, 0, 0], [3.8, 0, 0], COLORS.sumiLt, 0.01); scene.add(aX);
+  const aZ = makeCylinderBetween([0, 0, -3.8], [0, 0, 3.8], COLORS.sumiLt, 0.01); scene.add(aZ);
+  const lx = makeLabel('w₁', '#264E70'); lx.position.set(4, 0.1, 0); lx.scale.set(0.4, 0.1, 1); scene.add(lx);
+  const lz = makeLabel('w₂', '#264E70'); lz.position.set(0, 0.1, 4); lz.scale.set(0.4, 0.1, 1); scene.add(lz);
+
+  // ball
+  const ball = makeSphere(0.11, COLORS.kitsune);
+  scene.add(ball);
+  let ballPos = [-2, 2.2];
+  let trail = [];
+  let trailLine = null;
+  let running = true;
+  let lrInput = document.getElementById('gd-lr');
+
+  function updateTrailLine() {
+    if (trailLine) scene.remove(trailLine);
+    if (trail.length < 2) return;
+    const pts = trail.map(p => new THREE.Vector3(p[0], lossSurface(p[0], p[1]) + 0.02, -p[1]));
+    trailLine = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({ color: COLORS.kitsune, transparent: true, opacity: 0.7 })
+    );
+    scene.add(trailLine);
+  }
+
+  function placeBall(wx, wy) {
+    ballPos = [wx, wy];
+    trail = [[wx, wy]];
+    if (trailLine) scene.remove(trailLine);
+    const h = lossSurface(ballPos[0], ballPos[1]);
+    ball.position.set(ballPos[0], h + 0.1, -ballPos[1]);
+  }
+  placeBall(-2, 2.2);
+
+  // raycast click on surface
+  const ray = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  renderer.domElement.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    const rect = renderer.domElement.getBoundingClientRect();
+    pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    ray.setFromCamera(pointer, camera);
+    const hit = ray.intersectObject(surface.children[0], false)[0];
+    if (hit) {
+      const p = hit.point;
+      // surface is rotated -PI/2 on X, so p.x = wx; p.z = -wy  =>  wy = -p.z
+      placeBall(p.x, -p.z);
+      running = true;
+      document.getElementById('gd-status').textContent = `start: (${p.x.toFixed(2)}, ${(-p.z).toFixed(2)})`;
+    }
+  });
+
+  document.getElementById('gd-random').onclick = () => {
+    const wx = -3 + Math.random()*6, wy = -3 + Math.random()*6;
+    placeBall(wx, wy);
+    running = true;
+    document.getElementById('gd-status').textContent = `random start: (${wx.toFixed(2)}, ${wy.toFixed(2)})`;
+  };
+  document.getElementById('gd-stop').onclick = () => { running = !running; };
+
+  function loop() {
+    if (running) {
+      const eta = parseFloat(lrInput.value) / 1000;
+      const [gx, gy] = lossGradient(ballPos[0], ballPos[1]);
+      ballPos[0] -= eta * gx;
+      ballPos[1] -= eta * gy;
+      trail.push([...ballPos]);
+      if (trail.length > 400) trail.shift();
+      if (Math.hypot(gx, gy) < 0.005) running = false;
+      const h = lossSurface(ballPos[0], ballPos[1]);
+      ball.position.set(ballPos[0], h + 0.1, -ballPos[1]);
+      updateTrailLine();
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 4 · OPTIMIZATION — showing the explosion of parameter combinations
+// ═══════════════════════════════════════════════════════════════════
+(function optScene() {
+  const host = document.getElementById('opt-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5], noOrbit: true });
+  camera.lookAt(0, 0, 0);
+
+  const dimSlider = document.getElementById('opt-dim');
+  const countEl = document.getElementById('opt-count');
+  const statusEl = document.getElementById('opt-status');
+
+  // ONE Points cloud — fixed number of particles, cheap to draw.
+  const N = 1200;
+  const positions = new Float32Array(N * 3);
+  const colors = new Float32Array(N * 3);
+  const ai = new THREE.Color(COLORS.ai);
+  const kitsune = new THREE.Color(COLORS.kitsune);
+  for (let i = 0; i < N; i++) {
+    positions[i*3]   = (Math.random() - 0.5) * 4.5;
+    positions[i*3+1] = (Math.random() - 0.5) * 3.2;
+    positions[i*3+2] = (Math.random() - 0.5) * 0.4;
+    const c = Math.random() < 0.08 ? kitsune : ai;
+    colors[i*3] = c.r; colors[i*3+1] = c.g; colors[i*3+2] = c.b;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+  const mat = new THREE.PointsMaterial({
+    size: 0.04, vertexColors: true, transparent: true, opacity: 0.75,
+    sizeAttenuation: true,
+  });
+  const points = new THREE.Points(geo, mat);
+  scene.add(points);
+
+  // Format "2^dim" safely for arbitrary dim.
+  function formatCombinations(dim) {
+    if (dim <= 30) return (2 ** dim).toLocaleString() + ' choices';
+    // use log₁₀(2^dim) = dim·log₁₀(2) ≈ dim·0.30103
+    const log10 = dim * Math.log10(2);
+    const exp = Math.floor(log10);
+    const mantissa = Math.pow(10, log10 - exp).toFixed(2);
+    return `≈ ${mantissa} × 10^${exp} choices`;
+  }
+
+  function updateLabels() {
+    const dim = parseInt(dimSlider.value);
+    countEl.textContent = formatCombinations(dim);
+    statusEl.textContent = `${dim} parameters · 2-value binning`;
+  }
+  dimSlider.oninput = updateLabels;
+  updateLabels();
+
+  function loop() {
+    points.rotation.z = Math.sin(performance.now()/5000) * 0.1;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 5 · CHAIN RULE — z → a = σ(z) → L = (a - 0.5)^2, visualized
+// ═══════════════════════════════════════════════════════════════════
+(function chainScene() {
+  const host = document.getElementById('chain-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const zSlider = document.getElementById('chain-z');
+  const statusEl = document.getElementById('chain-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  const sig = (z) => 1 / (1 + Math.exp(-z/5));
+  const dsig = (z) => { const s = sig(z); return s * (1 - s) / 5; };
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 50;
+    const cw = (r.width - pad*3) / 2;
+    const ch = r.height - pad*2;
+
+    const z = parseFloat(zSlider.value);
+    const a = sig(z);
+    const target = 0.5;
+    const L = (a - target)**2;
+
+    // LEFT: sigmoid a = σ(z)
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    ctx.strokeRect(pad, pad, cw, ch);
+    ctx.font = '12px -apple-system, Inter, sans-serif';
+    ctx.fillStyle = '#6B6B6B'; ctx.textAlign = 'center';
+    ctx.fillText('a = σ(z)', pad + cw/2, pad - 8);
+    // curve
+    ctx.strokeStyle = '#264E70'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+      const zi = -20 + i/100 * 40;
+      const ai = sig(zi);
+      const px = pad + (zi + 20) / 40 * cw;
+      const py = pad + ch - ai * ch;
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    // point
+    const zpx = pad + (z + 20) / 40 * cw;
+    const zpy = pad + ch - a * ch;
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(zpx, zpy, 6, 0, Math.PI*2); ctx.fill();
+    // derivative line (tangent)
+    const slope_a_z = dsig(z);
+    ctx.strokeStyle = 'rgba(184,115,51,0.5)'; ctx.lineWidth = 1.5; ctx.setLineDash([4,4]);
+    ctx.beginPath();
+    ctx.moveTo(zpx - 60, zpy + 60 * slope_a_z * ch / 1);
+    ctx.lineTo(zpx + 60, zpy - 60 * slope_a_z * ch / 1);
+    ctx.stroke(); ctx.setLineDash([]);
+
+    // RIGHT: L = (a - 0.5)^2
+    const rx = pad*2 + cw;
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    ctx.strokeRect(rx, pad, cw, ch);
+    ctx.fillStyle = '#6B6B6B'; ctx.textAlign = 'center';
+    ctx.fillText('L = (a − 0.5)²', rx + cw/2, pad - 8);
+    ctx.strokeStyle = '#264E70'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+      const ai = i/100;
+      const Li = (ai - target)**2;
+      const px = rx + ai * cw;
+      const py = pad + ch - Li / 0.25 * ch;
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    const apx = rx + a * cw;
+    const apy = pad + ch - L / 0.25 * ch;
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(apx, apy, 6, 0, Math.PI*2); ctx.fill();
+
+    const slope_L_a = 2 * (a - target);
+    const total = slope_L_a * slope_a_z;
+
+    // chain rule readout at the bottom
+    ctx.fillStyle = '#1A1A1A'; ctx.font = '13px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(
+      `∂L/∂z = (∂L/∂a) · (∂a/∂z) = (${slope_L_a.toFixed(3)}) · (${slope_a_z.toFixed(3)}) = ${total.toFixed(4)}`,
+      r.width/2, r.height - 18
+    );
+    statusEl.textContent = `z = ${z.toFixed(1)} · a = ${a.toFixed(3)}`;
+  }
+  zSlider.oninput = draw;
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 6 · OUTPUT LAYER GRADIENT — step through three terms → δ
+// ═══════════════════════════════════════════════════════════════════
+(function outputScene() {
+  const host = document.getElementById('output-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let stage = 0;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const cx = r.width/2;
+    const y = r.height/2;
+
+    const boxes = [
+      { label: '∂L/∂a', desc: 'how loss reacts to the output', color: '#9B4E4E' },
+      { label: '∂a/∂z', desc: "activation's derivative", color: '#B87333' },
+      { label: '∂z/∂W', desc: '= input to layer', color: '#5B7553' },
+    ];
+    const bw = 170, bh = 100, gap = 30;
+    const totalW = boxes.length * bw + (boxes.length-1)*gap;
+    const startX = cx - totalW/2;
+
+    boxes.forEach((b, i) => {
+      const x = startX + i * (bw + gap);
+      const active = i <= stage;
+      ctx.strokeStyle = active ? b.color : '#d4cdba';
+      ctx.lineWidth = active ? 2 : 1;
+      ctx.fillStyle = active ? 'rgba(245,242,235,0.85)' : 'rgba(245,242,235,0.4)';
+      ctx.beginPath(); ctx.roundRect(x, y - bh/2, bw, bh, 6); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = active ? b.color : '#8c867a';
+      ctx.font = '600 22px "Hiragino Mincho ProN", Georgia, serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(b.label, x + bw/2, y - 8);
+      ctx.fillStyle = active ? '#6B6B6B' : '#d4cdba';
+      ctx.font = '11px -apple-system, Inter, sans-serif';
+      ctx.fillText(b.desc, x + bw/2, y + 22);
+      if (i < boxes.length - 1) {
+        ctx.strokeStyle = active ? '#6B6B6B' : '#d4cdba';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(x + bw, y); ctx.lineTo(x + bw + gap, y);
+        ctx.stroke();
+        ctx.fillStyle = active ? '#6B6B6B' : '#d4cdba';
+        ctx.font = '18px "Hiragino Mincho ProN", Georgia, serif';
+        ctx.fillText('·', x + bw + gap/2, y - 4);
+      }
+    });
+
+    // delta reveal
+    if (stage >= 3) {
+      ctx.fillStyle = '#264E70'; ctx.font = '600 18px "Hiragino Mincho ProN", Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('group first two:  δ = (∂L/∂a) · (∂a/∂z)', cx, y + bh + 30);
+      ctx.fillText('⇒  ∂L/∂W = δ · input', cx, y + bh + 65);
+    }
+  }
+  document.getElementById('output-step').onclick = () => { stage = Math.min(3, stage + 1); draw(); };
+  document.getElementById('output-reset').onclick = () => { stage = 0; draw(); };
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 7 · BACKWARD PROPAGATION — forward (blue) then backward (red) pulses
+// ═══════════════════════════════════════════════════════════════════
+(function backwardScene() {
+  const host = document.getElementById('backward-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('backward-status');
+
+  const layers = [3, 4, 3, 2];
+  let phase = 'idle'; // forward, backward, done
+  let pulseT = 0; let activeEdge = 0;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function positions() {
+    const r = host.getBoundingClientRect();
+    const padX = 60;
+    const W = r.width - padX*2;
+    return layers.map((n, li) => {
+      const x = padX + (li / (layers.length-1)) * W;
+      return Array.from({ length: n }, (_, i) => {
+        const y = r.height/2 + (i - (n-1)/2) * 60;
+        return { x, y };
+      });
+    });
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pos = positions();
+    // edges
+    for (let li = 0; li < pos.length - 1; li++) {
+      pos[li].forEach(a => pos[li+1].forEach(b => {
+        ctx.strokeStyle = '#d4cdba'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }));
+    }
+    // pulses
+    const color = phase === 'forward' ? '#264E70' : phase === 'backward' ? '#9B4E4E' : null;
+    if (color && activeEdge < layers.length - 1) {
+      const li = phase === 'forward' ? activeEdge : (layers.length - 2 - activeEdge);
+      pos[li].forEach(a => pos[li+1].forEach(b => {
+        const t = phase === 'forward' ? pulseT : 1 - pulseT;
+        const px = a.x + (b.x - a.x) * t;
+        const py = a.y + (b.y - a.y) * t;
+        ctx.fillStyle = color;
+        ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI*2); ctx.fill();
+      }));
+    }
+    // nodes
+    pos.forEach((layer, li) => layer.forEach(n => {
+      let nodeColor = '#8c867a';
+      if (li === 0) nodeColor = '#264E70';
+      else if (li === pos.length - 1) nodeColor = '#3E6B8A';
+      ctx.fillStyle = nodeColor;
+      ctx.beginPath(); ctx.arc(n.x, n.y, 16, 0, Math.PI*2); ctx.fill();
+    }));
+    // direction arrows on sides
+    if (phase !== 'idle') {
+      ctx.fillStyle = color; ctx.font = 'italic 14px "Hiragino Mincho ProN", Georgia, serif';
+      ctx.textAlign = 'center';
+      const r = host.getBoundingClientRect();
+      ctx.fillText(phase === 'forward' ? '→ signal flows forward' : '← error flows backward', r.width/2, 36);
+    }
+  }
+
+  let rafId = null;
+  function play() {
+    phase = 'forward'; activeEdge = 0; pulseT = 0;
+    statusEl.textContent = 'forward pass…';
+    let lastT = performance.now();
+    function tick(ts) {
+      const dt = (ts - lastT) / 600; lastT = ts;
+      pulseT += dt;
+      if (pulseT >= 1) {
+        pulseT = 0; activeEdge++;
+        if (activeEdge >= layers.length - 1) {
+          if (phase === 'forward') {
+            phase = 'backward'; activeEdge = 0;
+            statusEl.textContent = 'backward pass…';
+          } else {
+            phase = 'done'; draw();
+            statusEl.textContent = 'done. weights can now be updated.';
+            return;
+          }
+        }
+      }
+      draw();
+      rafId = requestAnimationFrame(tick);
+    }
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(tick);
+  }
+  document.getElementById('bp-play').onclick = play;
+  document.getElementById('bp-reset').onclick = () => {
+    if (rafId) cancelAnimationFrame(rafId); rafId = null;
+    phase = 'idle'; activeEdge = 0; pulseT = 0; statusEl.textContent = 'idle'; draw();
+  };
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 8 · UPDATE — 1D weight stepping along a 1D loss curve
+// ═══════════════════════════════════════════════════════════════════
+(function updateScene() {
+  const host = document.getElementById('update-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('update-status');
+  const lrEl = document.getElementById('upd-lr');
+
+  // loss L(w) = 0.5 (w - 1.2)^2 + 0.2 sin(3w)
+  const L = (w) => 0.5 * (w - 1.2)**2 + 0.2 * Math.sin(3*w);
+  const dL = (w) => (w - 1.2) + 0.6 * Math.cos(3*w);
+
+  let w = -2.5, step = 0, running = false;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 60;
+    const W = r.width - pad*2, H = r.height - pad*2;
+    // curve
+    ctx.strokeStyle = '#264E70'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= 200; i++) {
+      const wi = -3 + i/200 * 6;
+      const Li = L(wi);
+      const px = pad + (wi + 3) / 6 * W;
+      const py = pad + H - Li / 5 * H;
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    // ball
+    const bx = pad + (w + 3) / 6 * W;
+    const by = pad + H - L(w) / 5 * H;
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(bx, by, 8, 0, Math.PI*2); ctx.fill();
+    // tangent
+    const slope = dL(w);
+    ctx.strokeStyle = 'rgba(155,78,78,0.7)'; ctx.lineWidth = 1.5; ctx.setLineDash([4,4]);
+    ctx.beginPath();
+    ctx.moveTo(bx - 40, by + 40 * slope * H/5 / (W/6));
+    ctx.lineTo(bx + 40, by - 40 * slope * H/5 / (W/6));
+    ctx.stroke(); ctx.setLineDash([]);
+    // axes labels
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillText('w', pad + W + 6, pad + H);
+    ctx.fillText('L', pad - 14, pad + 8);
+    statusEl.textContent = `step ${step} · w = ${w.toFixed(3)} · L = ${L(w).toFixed(3)}`;
+  }
+
+  let rafId = null;
+  function tick() {
+    if (!running) return;
+    const eta = parseFloat(lrEl.value) / 500;
+    const g = dL(w);
+    w = w - eta * g;
+    step++;
+    draw();
+    if (Math.abs(g) < 0.005 || step > 300) { running = false; return; }
+    rafId = requestAnimationFrame(tick);
+  }
+  document.getElementById('upd-play').onclick = () => {
+    if (running) return;
+    running = true; rafId = requestAnimationFrame(tick);
+  };
+  document.getElementById('upd-reset').onclick = () => {
+    running = false; if (rafId) cancelAnimationFrame(rafId);
+    w = -2.5; step = 0; draw();
+  };
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// 9 · ACTIVATIONS — plot f(z) and f'(z) side-by-side
+// ═══════════════════════════════════════════════════════════════════
+(function actScene() {
+  const host = document.getElementById('act-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const nameEl = document.getElementById('act-name');
+
+  const activations = {
+    sigmoid: { f: z => 1/(1+Math.exp(-z)), df: z => { const s = 1/(1+Math.exp(-z)); return s*(1-s); }, range:[-6, 6], yrange:[0,1] },
+    tanh:    { f: z => Math.tanh(z),       df: z => 1 - Math.tanh(z)**2,                                range:[-3, 3], yrange:[-1,1] },
+    relu:    { f: z => Math.max(0, z),     df: z => z > 0 ? 1 : 0,                                       range:[-3, 3], yrange:[-1,3] },
+    step:    { f: z => z >= 0 ? 1 : 0,     df: z => 0,                                                    range:[-3, 3], yrange:[0,1] },
+  };
+
+  let current = 'sigmoid';
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const cfg = activations[current];
+    const pad = 50;
+    const cw = (r.width - pad*3) / 2;
+    const ch = r.height - pad*2;
+    const pairs = [
+      { title: `f(z) · ${current}`, fn: cfg.f, color: '#264E70', yrange: cfg.yrange },
+      { title: `f'(z) — derivative`, fn: cfg.df, color: '#B87333', yrange: [-0.2, Math.max(1.2, cfg.yrange[1])] },
+    ];
+    pairs.forEach((p, i) => {
+      const rx = pad + i * (cw + pad);
+      ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+      ctx.strokeRect(rx, pad, cw, ch);
+      ctx.fillStyle = '#6B6B6B'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(p.title, rx + cw/2, pad - 8);
+      // zero line
+      const [yl, yh] = p.yrange;
+      const zeroY = pad + ch - (0 - yl) / (yh - yl) * ch;
+      ctx.strokeStyle = '#d4cdba'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(rx, zeroY); ctx.lineTo(rx+cw, zeroY); ctx.stroke();
+      // curve
+      ctx.strokeStyle = p.color; ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      const [zl, zh] = cfg.range;
+      for (let k = 0; k <= 200; k++) {
+        const z = zl + k/200 * (zh - zl);
+        const y = p.fn(z);
+        const px = rx + (z - zl) / (zh - zl) * cw;
+        const py = pad + ch - (y - yl) / (yh - yl) * ch;
+        if (k === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+    });
+    // warning for step
+    if (current === 'step') {
+      ctx.fillStyle = '#9B4E4E'; ctx.font = 'italic 13px "Hiragino Mincho ProN", Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText("f'(z) = 0 everywhere → gradient vanishes → no learning", r.width/2, r.height - 22);
+    }
+    nameEl.textContent = current;
+  }
+  document.querySelectorAll('#smooth [data-act]').forEach(btn => {
+    btn.onclick = () => { current = btn.dataset.act; draw(); };
+  });
+  setTimeout(resize, 50);
+})();
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz logic
+// ═══════════════════════════════════════════════════════════════════
+let score = 0; const seen = new Set();
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
+        if (b.dataset.correct === 'true') b.classList.add('correct');
+      });
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        document.getElementById('score').textContent = `Score: ${score} / ${document.querySelectorAll('.opts').length}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
+
+// Progress + TOC
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = Math.min(100, Math.max(0, window.scrollY / h * 100)) + '%';
+}, { passive: true });
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+
+// polyfill roundRect for older browsers
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+    if (r === undefined) r = 4;
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y, x + w, y + h, r);
+    this.arcTo(x + w, y + h, x, y + h, r);
+    this.arcTo(x, y + h, x, y, r);
+    this.arcTo(x, y, x + w, y, r);
+    return this;
+  };
+}
+</script>
+</body>
+</html>

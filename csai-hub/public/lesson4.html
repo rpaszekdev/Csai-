@@ -1,0 +1,1919 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Convolutional Neural Networks — Lesson 4</title>
+<style>
+  :root {
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+    --ai:        #264E70;
+    --beni:      #9B4E4E;
+    --moegi:     #5B7553;
+    --kitsune:   #B87333;
+    --murasaki:  #4A3B5C;
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+    --text-whisper: 11px; --text-body: 14px; --text-lead: 16px;
+    --text-subhead: 18px; --text-head: 24px; --text-display: 32px; --text-hero: 48px;
+    --radius-subtle: 2px; --radius-gentle: 4px; --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+    --duration-swift: 200ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep); line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .lesson-nav {
+    display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker { font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--ma-5); }
+  .hero h1 { max-width: 22ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+    display: flex; flex-direction: column;
+  }
+
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .btn.active { background: rgba(38,78,112,0.08); border-color: var(--ai); color: var(--ai); }
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout strong { color: var(--sumi-deep); }
+
+  .formula {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+    font-size: var(--text-subhead); text-align: center;
+    padding: var(--ma-5);
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-soft);
+    color: var(--sumi-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card { background: var(--washi-white); padding: var(--ma-5); border-radius: var(--radius-soft); border: 1px solid var(--washi-warm); }
+  .opts { display: grid; gap: var(--ma-2); margin-top: var(--ma-3); }
+  .opt { background: var(--washi-white); border: 1px solid var(--washi-warm); padding: var(--ma-3) var(--ma-4); border-radius: var(--radius-gentle); cursor: pointer; text-align: left; font-family: inherit; font-size: var(--text-body); color: var(--sumi-deep); transition: all var(--duration-swift) var(--ease-gentle); }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal { display: none; margin-top: var(--ma-3); color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm); }
+  .reveal.show { display: block; }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white); color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4); border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm); box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light); font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center; line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+<link rel="stylesheet" href="/lesson-brutal.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">CSAI</span>
+    <span class="title">Convolutional Neural Networks</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 4</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html">Lesson 1</a>
+    <a href="lesson2.html">Lesson 2</a>
+    <a href="lesson3.html">Lesson 3</a>
+    <a href="lesson4.html" class="active">Lesson 4</a>
+    <a href="lesson5.html">Lesson 5</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#why">1 · Why convolutions?</a></li>
+    <li><a href="#conv">2 · The convolution operation</a></li>
+    <li><a href="#stride">3 · Kernels, stride, padding</a></li>
+    <li><a href="#pool">4 · Pooling</a></li>
+    <li><a href="#stack">5 · A full CNN stack</a></li>
+    <li><a href="#variations">6 · Dilated, 3D &amp; transposed</a></li>
+    <li><a href="#oneone">7 · 1×1 convolution &amp; ResNet</a></li>
+    <li><a href="#apps">8 · Applications</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">Lesson Four</div>
+    <h1>Convolutional neural networks — seeing in local patterns.</h1>
+    <p>A fully-connected network treats every pixel as unrelated. A <strong>convolutional</strong> network assumes something stronger: <em>nearby pixels belong together</em>. That single assumption changes everything — fewer parameters, translation tolerance, and a hierarchy of features that reads like vision itself.</p>
+    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+</div>
+
+<!-- 1 · WHY CONVOLUTIONS -->
+<section class="step" id="why">
+  <div class="text">
+    <div class="eyebrow">Section 1 · motivation</div>
+    <h2>Why not just use a fully-connected net?</h2>
+    <p>An MLP flattens an image into a long vector, then multiplies by a giant weight matrix. For a modest <code>200×200</code> RGB image, the first layer alone needs <strong>120,000 inputs</strong> — and if the next layer has 1,000 neurons, that's <strong>120 million weights</strong>. One layer.</p>
+    <p>Worse: the MLP <strong>does not know</strong> two pixels are neighbours. If the cat shifts ten pixels to the right, every weight must be relearned.</p>
+    <div class="callout navy">
+      <strong>Convolutions assume two things about images:</strong><br/>
+      <strong>Locality</strong> — the useful patterns are small and local (an edge, a corner, a texture).<br/>
+      <strong>Translation invariance</strong> — a cat is a cat whether it's in the top-left or the bottom-right.
+    </div>
+    <p>From those two assumptions: share one small <strong>filter</strong> across the whole image. Suddenly you have a few dozen weights instead of millions — and the network sees shifted cats for free.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="why-canvas">
+      <div class="chip nw">FC params vs conv params</div>
+      <div class="chip se" id="why-status">resolution: 32 × 32</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">image size <input type="range" id="why-size" min="8" max="256" value="32"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 2 · THE CONVOLUTION OPERATION -->
+<section class="step" id="conv">
+  <div class="text">
+    <div class="eyebrow">Section 2 · the core operation</div>
+    <h2>What a convolution actually does</h2>
+    <p>A <strong>filter</strong> (also called a <strong>kernel</strong>) is a tiny grid of numbers — often 3×3. You slide it across the image. At each position: multiply element-wise, then sum. That single number becomes one pixel in the output.</p>
+    <div class="formula">out[i, j] = Σ kernel[k, l] · image[i+k, j+l]</div>
+    <p>The filter <em>looks for one pattern</em>. An <strong>edge-detector</strong> filter produces big numbers where the image has an edge and small numbers in flat regions. A <strong>blur</strong> filter averages neighbours.</p>
+    <p>Picking filter weights by hand is painful — so a CNN <strong>learns the filters</strong> from data, the same way an MLP learns its weights: through backpropagation.</p>
+    <div class="callout">
+      Watch the 3×3 window on the right step across the input. The cell it writes to in the output is the sum of the nine products. Try different <strong>presets</strong>.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="conv-canvas">
+      <div class="chip nw" id="conv-preset-label">edge (Sobel-x)</div>
+      <div class="chip se" id="conv-status">position: (0, 0)</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="conv-play">▶ Slide kernel</button>
+      <button class="btn" data-kernel="identity">Identity</button>
+      <button class="btn active" data-kernel="edge">Edge</button>
+      <button class="btn" data-kernel="sharpen">Sharpen</button>
+      <button class="btn" data-kernel="blur">Blur</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 3 · STRIDE, PADDING -->
+<section class="step" id="stride">
+  <div class="text">
+    <div class="eyebrow">Section 3 · knobs on the operation</div>
+    <h2>Kernel size, stride, padding</h2>
+    <p>Three choices shape the output:</p>
+    <ul style="margin-left: var(--ma-5); line-height: 1.9;">
+      <li><strong>Kernel size</strong> — usually <strong>odd numbers</strong> (3, 5, 7) so the filter has a natural centre. Bigger kernels capture bigger patterns but cost more.</li>
+      <li><strong>Stride</strong> — how many pixels you jump between applications. Stride 1 = check every position. Stride 2 = skip every other one, output shrinks by half.</li>
+      <li><strong>Padding</strong> — zeros added around the border so the filter can reach the edges. Without it, the output shrinks a little every layer.</li>
+    </ul>
+    <div class="formula">W<sub>out</sub> = (W<sub>in</sub> − F + 2P) / S + 1</div>
+    <p class="muted"><code>F</code> = filter width, <code>P</code> = padding, <code>S</code> = stride. The same formula works for height.</p>
+    <div class="callout navy">
+      <strong>Example from the lecture.</strong> Input 5×5, filter 3×3, padding 1, stride 2. Then (5 − 3 + 2)/2 + 1 = <strong>3</strong>. The output is 3×3 — matching what you see on the right.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="stride-canvas">
+      <div class="chip nw" id="stride-formula">(5 − 3 + 2·1) / 1 + 1 = 5</div>
+      <div class="chip se" id="stride-out">output: 5 × 5</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">kernel F <input type="range" id="stride-F" min="1" max="7" step="2" value="3"></div>
+      <div class="slider-wrap">stride S <input type="range" id="stride-S" min="1" max="3" value="1"></div>
+      <div class="slider-wrap">padding P <input type="range" id="stride-P" min="0" max="3" value="1"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 4 · POOLING -->
+<section class="step" id="pool">
+  <div class="text">
+    <div class="eyebrow">Section 4 · downsampling</div>
+    <h2>Pooling — summarise and shrink</h2>
+    <p>After a convolution, we often <strong>downsample</strong>. The idea: if a pattern appears <em>somewhere</em> in a small region, we don't need to know the exact pixel. Keep the summary, throw away the precise position.</p>
+    <p>The two common flavours:</p>
+    <ul style="margin-left: var(--ma-5); line-height: 1.9;">
+      <li><strong>Max pooling</strong> — take the largest value in each window. "Did the pattern fire anywhere in here?"</li>
+      <li><strong>Average pooling</strong> — take the mean. Smoother, softer.</li>
+    </ul>
+    <div class="callout">
+      <strong>Why it helps.</strong> Pooling gives the network a little <strong>translation tolerance</strong> — shift the input by one pixel and the pooled output barely changes. It also cuts the number of values the next layer has to process.
+    </div>
+    <p class="muted">You can also downsample <em>within</em> the convolution, by using stride &gt; 1. Modern networks often mix both tricks.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="pool-canvas">
+      <div class="chip nw" id="pool-mode-label">max pool · 2×2</div>
+      <div class="chip se">input 4×4 → output 2×2</div>
+    </div>
+    <div class="controls">
+      <button class="btn active" data-pool="max">Max</button>
+      <button class="btn" data-pool="avg">Average</button>
+      <button class="btn gold" id="pool-shuffle">↻ New values</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 5 · FULL CNN STACK -->
+<section class="step" id="stack">
+  <div class="text">
+    <div class="eyebrow">Section 5 · the whole pipeline</div>
+    <h2>Stacking it all: a CNN</h2>
+    <p>A typical classification CNN is a repeating pattern:</p>
+    <div class="formula">conv → ReLU → pool &nbsp; ⟶ &nbsp; conv → ReLU → pool &nbsp; ⟶ &nbsp; … &nbsp; ⟶ &nbsp; flatten → dense → softmax</div>
+    <p>Two things happen as you go deeper:</p>
+    <ul style="margin-left: var(--ma-5); line-height: 1.9;">
+      <li>The spatial size <strong>shrinks</strong> (pooling + strided convs).</li>
+      <li>The number of channels <strong>grows</strong> — early layers fire on simple <strong>edges</strong>, middle layers on <strong>textures</strong>, later layers on <strong>object parts</strong>, and the deepest on whole <strong>concepts</strong> like "cat".</li>
+    </ul>
+    <p>At the end, the feature maps are tiny but deep. You <strong>flatten</strong> them into a vector and hand it to a small MLP that outputs one number per class.</p>
+    <div class="callout navy">
+      <strong>A filter is never just 2D.</strong> If the input has <code>C</code> channels, each filter has <code>C</code> channels too. The filter looks through <em>all</em> input channels at once and produces one output channel. Use <code>K</code> filters, get <code>K</code> output channels.
+    </div>
+    <div class="callout">
+      <strong>Counting parameters.</strong> For a 4×4 filter on an RGB input (3 channels), with 32 output filters: <code>4 · 4 · 3 · 32 + 32 = 1568</code> parameters (the last <code>+32</code> is one bias per filter). <em>Independent of image size.</em>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="stack-canvas">
+      <div class="chip nw">input → conv → pool → … → flatten</div>
+      <div class="chip se">drag to rotate</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="stack-reset">Reset view</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 6 · VARIATIONS -->
+<section class="step" id="variations">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 17–31 · variations</div>
+    <h2>Dilated · 3D · Transposed</h2>
+    <p>The basic recipe has a few useful variants:</p>
+    <p><strong>Dilated (atrous) convolution</strong> — keep the 3×3 filter, but spread its samples out with gaps. A <em>2-dilated</em> 3×3 filter still has 9 weights, but now covers a 5×5 area. Stack a few of them and the <strong>receptive field</strong> grows exponentially without losing resolution.</p>
+    <p><strong>3D convolution</strong> — slide the kernel in a third dimension too. Used for <strong>video</strong> (time is the third axis), <strong>medical volumes</strong> (CT, MRI), and <strong>point clouds</strong>.</p>
+    <p><strong>Transposed convolution</strong> — the reverse move. Instead of shrinking, it <strong>upsamples</strong>: each input pixel is multiplied by the whole kernel and placed into a larger output. The network <em>learns</em> how to enlarge.</p>
+    <div class="callout">
+      <strong>Where transposed convs show up.</strong> Encoder-decoders (compress then reconstruct), <strong>U-Net</strong> for segmentation, <strong>GANs</strong> that generate images from noise, and <em>colorising</em> greyscale photos.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="var-canvas">
+      <div class="chip nw" id="var-label">dilated convolution · rate 1</div>
+      <div class="chip se" id="var-rf">receptive field: 3 × 3</div>
+    </div>
+    <div class="controls">
+      <button class="btn active" data-var="dilated">Dilated</button>
+      <button class="btn" data-var="transposed">Transposed</button>
+      <div class="slider-wrap" id="var-rate-wrap">dilation rate <input type="range" id="var-rate" min="1" max="4" value="1"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 7 · 1x1 + ResNet -->
+<section class="step" id="oneone">
+  <div class="text">
+    <div class="eyebrow">Section 7 · depth and identity</div>
+    <h2>1×1 convolutions &amp; residual connections</h2>
+    <p>A <strong>1×1 convolution</strong> only looks at one position — but it sees <em>every channel</em> at once. It mixes channels together without touching space. Two common uses:</p>
+    <ul style="margin-left: var(--ma-5); line-height: 1.9;">
+      <li><strong>Channel compression</strong> — go from 256 channels down to 64 with a few 1×1 filters. Cheap way to shrink.</li>
+      <li><strong>Channel mixing</strong> — blend different feature maps into new combinations.</li>
+    </ul>
+    <p>Now the <strong>ResNet trick</strong>. He et al. (2016) noticed that making a plain CNN <em>deeper</em> (56 vs 20 layers) made it <strong>worse</strong>. Gradients vanished before reaching early layers.</p>
+    <p>Their fix: the <strong>residual block</strong>. Alongside the usual conv-ReLU-conv, add a <strong>shortcut</strong> that carries the input unchanged, and add it to the block's output:</p>
+    <div class="formula">y = F(x) + x</div>
+    <div class="callout navy">
+      <strong>Why it works.</strong> If the block can't learn anything useful, <code>F(x)</code> can just go to zero and the network passes <code>x</code> through untouched. Gradients also flow backward through the shortcut — no vanishing. That <em>option to do nothing</em> is what lets ResNets go 100+ layers deep.
+    </div>
+    <p class="muted">When the block changes the number of channels, the shortcut needs a <strong>1×1 convolution</strong> so its shape matches the output — and the two can be added.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="res-canvas">
+      <div class="chip nw">residual block · F(x) + x</div>
+      <div class="chip se" id="res-status">ready</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="res-play">▶ Flow signal</button>
+      <button class="btn" id="res-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 8 · APPLICATIONS -->
+<section class="step" id="apps">
+  <div class="text">
+    <div class="eyebrow">Section 8 · where CNNs are used</div>
+    <h2>Applications</h2>
+    <p>The same backbone — stacked convs producing feature maps — powers a surprising range of tasks:</p>
+    <ul style="margin-left: var(--ma-5); line-height: 1.9;">
+      <li><strong>Image classification</strong> — one label per image. The classic CNN job.</li>
+      <li><strong>Object detection</strong> — <em>what is in the image</em> <em>and where</em>. Produces bounding boxes + class labels.</li>
+      <li><strong>Segmentation</strong> — assign a class to every pixel. Uses encoder-decoder shapes like <strong>U-Net</strong>.</li>
+      <li><strong>Generation</strong> — upsample from a compressed code back to an image (autoencoders, GANs).</li>
+    </ul>
+    <p>For detection, two families dominate:</p>
+    <div class="callout">
+      <strong>Region-based (R-CNN, Faster R-CNN)</strong> — first propose candidate regions, then classify each one. Two-stage, accurate, slower.<br/><br/>
+      <strong>YOLO — You Only Look Once</strong> — split the image into an <code>S×S</code> grid. Each cell predicts, in <strong>one pass</strong>, both what's there and a few candidate bounding boxes. Overlapping boxes are cleaned up by <em>non-max suppression</em>. Single-shot, fast enough for real time.
+    </div>
+    <p class="muted">Others worth knowing: <strong>SSD</strong>, <strong>RetinaNet</strong>, and increasingly transformer-based detectors like <strong>DETR</strong>.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="apps-canvas">
+      <div class="chip nw" id="apps-label">classification</div>
+      <div class="chip se">one pass, one image</div>
+    </div>
+    <div class="controls">
+      <button class="btn active" data-app="classify">Classify</button>
+      <button class="btn" data-app="detect">Detect</button>
+      <button class="btn" data-app="segment">Segment</button>
+    </div>
+  </div></div>
+</section>
+
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> The main reason a CNN needs far fewer parameters than a fully-connected network on images is:</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">CNNs use smaller images</button>
+        <button class="opt" data-correct="true">One small filter is shared across every position in the image</button>
+        <button class="opt" data-correct="false">Pooling removes weights</button>
+      </div>
+      <div class="reveal">A filter has a tiny fixed number of weights (e.g. <code>3·3·C</code>). Those same weights are reused at every spatial location. The parameter count does not grow with image size.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q2.</strong> For input 64×64, filter 4×4, stride 1, padding 0, the output size is:</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">64 × 64</button>
+        <button class="opt" data-correct="true">61 × 61</button>
+        <button class="opt" data-correct="false">60 × 60</button>
+      </div>
+      <div class="reveal"><code>(64 − 4 + 0)/1 + 1 = 61</code>. No padding + stride 1 shrinks the output by <code>F − 1</code> on each side.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q3.</strong> If a convolution layer has 32 filters, each of size 4×4, on an RGB input, how many learnable parameters does it have (including bias)?</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">512</button>
+        <button class="opt" data-correct="true">1568</button>
+        <button class="opt" data-correct="false">128</button>
+      </div>
+      <div class="reveal"><code>4 · 4 · 3 · 32 + 32 = 1568</code>. Filter volume times number of filters, plus one bias per filter.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q4.</strong> Max pooling helps mostly because:</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">It adds learnable parameters</button>
+        <button class="opt" data-correct="true">It shrinks the feature map and gives a little translation tolerance</button>
+        <button class="opt" data-correct="false">It replaces the activation function</button>
+      </div>
+      <div class="reveal">Pooling has no weights. It summarises a region (max or average) and gives the next layer a smaller, slightly shift-tolerant input.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q5.</strong> A <strong>dilated</strong> (atrous) convolution is useful because it:</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">Uses more weights than a normal conv</button>
+        <button class="opt" data-correct="true">Enlarges the receptive field without extra parameters or losing resolution</button>
+        <button class="opt" data-correct="false">Replaces pooling entirely</button>
+      </div>
+      <div class="reveal">A 3×3 dilated filter still has 9 weights, but the 9 samples are spread out, so the filter "sees" a much larger patch of input.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q6.</strong> What does a <strong>1×1 convolution</strong> do that a 3×3 conv cannot cleanly do?</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="false">Detect edges</button>
+        <button class="opt" data-correct="true">Mix or compress channels without mixing spatial neighbours</button>
+        <button class="opt" data-correct="false">Add padding</button>
+      </div>
+      <div class="reveal">A 1×1 filter touches a single spatial position but combines information across <em>all channels</em>. Great for cheaply changing the channel count.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q7.</strong> A <strong>ResNet</strong> residual block learns <code>y = F(x) + x</code>. The shortcut helps because:</p>
+      <div class="opts" data-q="q7">
+        <button class="opt" data-correct="false">It doubles the network's capacity</button>
+        <button class="opt" data-correct="true">If F isn't useful, it can go to zero and the block just passes x through — and gradients flow back through the shortcut</button>
+        <button class="opt" data-correct="false">It replaces batch normalisation</button>
+      </div>
+      <div class="reveal">The identity path gives the block an "opt-out" and provides a direct route for gradients backward, which is why very deep networks become trainable.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q8.</strong> The difference between <strong>R-CNN</strong> and <strong>YOLO</strong> for object detection is mainly:</p>
+      <div class="opts" data-q="q8">
+        <button class="opt" data-correct="false">R-CNN works on videos, YOLO on images</button>
+        <button class="opt" data-correct="true">R-CNN first proposes regions then classifies each; YOLO predicts class + box for every grid cell in one pass</button>
+        <button class="opt" data-correct="false">YOLO cannot predict bounding boxes</button>
+      </div>
+      <div class="reveal">Two-stage vs one-shot. YOLO trades a little accuracy for a huge speed-up — fast enough for real-time detection.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  End of lesson four<br/>
+  built from <code>CNNs - Variations and applications.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
+  <a href="lesson3.html">← back to Lesson 3</a> &nbsp;·&nbsp; <a href="lesson5.html">forward to Lesson 5 →</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 8</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+function safeScene(name, fn) {
+  try { fn(); } catch (e) { console.warn('[scene:' + name + ']', e); }
+}
+
+const COLORS = {
+  washi:  0xF5F2EB,
+  cream:  0xEDE8DC,
+  warm:   0xE5DFD0,
+  sumi:   0x1A1A1A,
+  sumiMd: 0x3D3D3D,
+  sumiLt: 0x6B6B6B,
+  ai:     0x264E70,
+  aiLt:   0x3E6B8A,
+  beni:   0x9B4E4E,
+  moegi:  0x5B7553,
+  kitsune:0xB87333,
+  murasaki:0x4A3B5C,
+};
+
+function makeScene(host, opts = {}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, Math.max(1, rect.width) / Math.max(1, rect.height), 0.1, 200);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 5);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height));
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+  scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+  const dir = new THREE.DirectionalLight(0xffffff, 0.55);
+  dir.position.set(3, 5, 2); scene.add(dir);
+  new ResizeObserver(() => {
+    const r = host.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return;
+    camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+    renderer.setSize(r.width, r.height);
+  }).observe(host);
+  return { scene, camera, renderer, controls };
+}
+
+// Synthetic 2D image — small smooth gradient + a "shape"
+function makeImage(size) {
+  const img = new Array(size * size);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const cx = size * 0.45, cy = size * 0.5;
+      const r = Math.hypot(x - cx, y - cy);
+      let v = 0.3 + 0.5 * Math.exp(-r * r / (size * 2));
+      // vertical edge on the right side
+      if (x > size * 0.6 && x < size * 0.75) v += 0.35;
+      // horizontal band
+      if (y > size * 0.25 && y < size * 0.35) v -= 0.2;
+      v = Math.max(0, Math.min(1, v + (Math.sin(x*0.8) + Math.cos(y*0.7))*0.04));
+      img[y * size + x] = v;
+    }
+  }
+  return img;
+}
+
+function applyKernel(img, size, kernel) {
+  const k = kernel.length; // assume square
+  const half = Math.floor(Math.sqrt(k) / 2);
+  const kw = Math.sqrt(k);
+  const out = new Array(size * size).fill(0);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      let s = 0;
+      for (let j = 0; j < kw; j++) {
+        for (let i = 0; i < kw; i++) {
+          const xi = x + i - half, yj = y + j - half;
+          if (xi < 0 || yj < 0 || xi >= size || yj >= size) continue;
+          s += kernel[j * kw + i] * img[yj * size + xi];
+        }
+      }
+      out[y * size + x] = s;
+    }
+  }
+  return out;
+}
+
+function drawGrid(ctx, img, x0, y0, cellW, cellH, size, opts = {}) {
+  const { min = 0, max = 1, showText = false, highlight = null, hlColor = '#B87333' } = opts;
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const v = img[y * size + x];
+      const t = Math.max(0, Math.min(1, (v - min) / (max - min)));
+      const g = Math.round(245 - t * 200);
+      ctx.fillStyle = `rgb(${g}, ${g}, ${g})`;
+      ctx.fillRect(x0 + x * cellW, y0 + y * cellH, cellW, cellH);
+    }
+  }
+  // grid lines
+  ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= size; i++) {
+    ctx.beginPath();
+    ctx.moveTo(x0 + i * cellW + 0.5, y0);
+    ctx.lineTo(x0 + i * cellW + 0.5, y0 + size * cellH);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x0, y0 + i * cellH + 0.5);
+    ctx.lineTo(x0 + size * cellW, y0 + i * cellH + 0.5);
+    ctx.stroke();
+  }
+  if (highlight) {
+    const [hx, hy, hw, hh] = highlight;
+    ctx.strokeStyle = hlColor;
+    ctx.lineWidth = 2.5;
+    ctx.strokeRect(x0 + hx * cellW, y0 + hy * cellH, hw * cellW, hh * cellH);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO — drifting translucent feature-map stack
+// ═══════════════════════════════════════════════════════════════════
+safeScene('hero', function () {
+  const host = document.getElementById('hero-canvas');
+  if (!host) return;
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [2.6, 1.4, 4.2], noOrbit: false });
+  controls.target.set(0, 0, 0);
+  controls.enableZoom = false;
+
+  const group = new THREE.Group();
+  const layers = 10;
+  const planes = [];
+  const tints = [COLORS.ai, COLORS.aiLt, COLORS.moegi, COLORS.kitsune, COLORS.murasaki, COLORS.beni];
+  for (let i = 0; i < layers; i++) {
+    const side = 2.0 - i * 0.08;
+    const geom = new THREE.PlaneGeometry(side, side, 1, 1);
+    const mat = new THREE.MeshBasicMaterial({
+      color: tints[i % tints.length],
+      transparent: true,
+      opacity: 0.18 + (i / layers) * 0.14,
+      side: THREE.DoubleSide,
+    });
+    const mesh = new THREE.Mesh(geom, mat);
+    mesh.position.z = -i * 0.16;
+    mesh.position.x = (i % 2 ? 1 : -1) * 0.02 * i;
+    group.add(mesh);
+    planes.push(mesh);
+
+    // edge outline
+    const edge = new THREE.LineSegments(
+      new THREE.EdgesGeometry(geom),
+      new THREE.LineBasicMaterial({ color: COLORS.sumi, transparent: true, opacity: 0.15 })
+    );
+    edge.position.copy(mesh.position);
+    group.add(edge);
+  }
+  scene.add(group);
+
+  // ambient dots (BufferGeometry Points — cheap)
+  const N = 400;
+  const positions = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    positions[3*i]   = (Math.random() - 0.5) * 5;
+    positions[3*i+1] = (Math.random() - 0.5) * 3;
+    positions[3*i+2] = (Math.random() - 0.5) * 4;
+  }
+  const pg = new THREE.BufferGeometry();
+  pg.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const pm = new THREE.PointsMaterial({ color: COLORS.sumiLt, size: 0.015, transparent: true, opacity: 0.5 });
+  scene.add(new THREE.Points(pg, pm));
+
+  let t = 0;
+  function loop() {
+    t += 0.005;
+    group.rotation.y = Math.sin(t * 0.8) * 0.4;
+    group.rotation.x = Math.sin(t * 0.5) * 0.15;
+    planes.forEach((p, i) => {
+      p.position.z = -i * 0.16 + Math.sin(t + i * 0.3) * 0.04;
+    });
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 1 · WHY — FC vs conv parameter count
+// ═══════════════════════════════════════════════════════════════════
+safeScene('why', function () {
+  const host = document.getElementById('why-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const status = document.getElementById('why-status');
+  const slider = document.getElementById('why-size');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const res = parseInt(slider.value, 10);
+    const fcParams = res * res * 3 * 1000; // flatten RGB → 1000 hidden units
+    const convParams = 3 * 3 * 3 * 32 + 32; // 3×3 conv, 3→32 channels
+
+    const pad = 60;
+    const W = r.width - pad * 2;
+    const baseY = r.height - 80;
+    const maxH = r.height - 180;
+
+    // log scale
+    const maxLog = Math.log10(Math.max(fcParams, 1e6));
+    const fcH = Math.max(20, (Math.log10(fcParams) / maxLog) * maxH);
+    const convH = Math.max(20, (Math.log10(convParams) / maxLog) * maxH);
+
+    const barW = W / 3;
+    const fcX = pad + barW * 0.3;
+    const convX = pad + barW * 1.7;
+
+    // FC bar
+    ctx.fillStyle = '#9B4E4E';
+    ctx.fillRect(fcX, baseY - fcH, barW * 0.9, fcH);
+    // conv bar
+    ctx.fillStyle = '#5B7553';
+    ctx.fillRect(convX, baseY - convH, barW * 0.9, convH);
+
+    // labels
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = '600 14px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Fully connected', fcX + barW * 0.45, baseY + 22);
+    ctx.fillText('Convolutional', convX + barW * 0.45, baseY + 22);
+    ctx.font = '12px -apple-system, Inter, sans-serif';
+    ctx.fillStyle = '#6B6B6B';
+    ctx.fillText('flatten → 1000 units', fcX + barW * 0.45, baseY + 40);
+    ctx.fillText('3×3 conv, 3 → 32 channels', convX + barW * 0.45, baseY + 40);
+
+    // counts
+    ctx.font = '600 14px -apple-system, Inter, sans-serif';
+    ctx.fillStyle = '#9B4E4E';
+    ctx.fillText(fcParams.toLocaleString() + ' weights', fcX + barW * 0.45, baseY - fcH - 12);
+    ctx.fillStyle = '#5B7553';
+    ctx.fillText(convParams.toLocaleString() + ' weights', convX + barW * 0.45, baseY - convH - 12);
+
+    // title
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = '300 22px "Hiragino Mincho ProN", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${res} × ${res} RGB image — first-layer weights`, r.width / 2, 40);
+
+    status.textContent = `resolution: ${res} × ${res}`;
+  }
+
+  slider.oninput = draw;
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 2 · CONVOLUTION — sliding 3×3 kernel
+// ═══════════════════════════════════════════════════════════════════
+safeScene('conv', function () {
+  const host = document.getElementById('conv-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const status = document.getElementById('conv-status');
+  const presetLabel = document.getElementById('conv-preset-label');
+
+  const SIZE = 12;
+  const img = makeImage(SIZE);
+
+  const kernels = {
+    identity: { label: 'identity', k: [0,0,0, 0,1,0, 0,0,0] },
+    edge:     { label: 'edge (Sobel-x)', k: [-1,0,1, -2,0,2, -1,0,1] },
+    sharpen:  { label: 'sharpen', k: [0,-1,0, -1,5,-1, 0,-1,0] },
+    blur:     { label: 'blur (box)', k: [1/9,1/9,1/9, 1/9,1/9,1/9, 1/9,1/9,1/9] },
+  };
+  let current = 'edge';
+  let px = 0, py = 0;
+  let running = false;
+
+  function output() {
+    return applyKernel(img, SIZE, kernels[current].k);
+  }
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+
+    const pad = 30;
+    const gap = 30;
+    const maxW = (r.width - pad * 2 - gap) / 2;
+    const maxH = r.height - pad * 2 - 60;
+    const cell = Math.floor(Math.min(maxW / SIZE, maxH / SIZE));
+
+    const gridW = cell * SIZE;
+    const gridH = cell * SIZE;
+    const xIn = pad;
+    const yIn = pad + 24;
+    const xOut = pad + gridW + gap;
+    const yOut = yIn;
+
+    // titles
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('INPUT', xIn, yIn - 8);
+    ctx.fillText('OUTPUT', xOut, yOut - 8);
+
+    // input
+    drawGrid(ctx, img, xIn, yIn, cell, cell, SIZE, {
+      min: 0, max: 1.4,
+      highlight: [Math.max(0, px-1), Math.max(0, py-1), 3, 3],
+      hlColor: '#B87333',
+    });
+
+    // output (only show cells already computed up to px,py)
+    const out = output();
+    // normalise output for display
+    let mn = Infinity, mx = -Infinity;
+    for (const v of out) { mn = Math.min(mn, v); mx = Math.max(mx, v); }
+    drawGrid(ctx, out, xOut, yOut, cell, cell, SIZE, {
+      min: mn, max: Math.max(mx, mn + 0.001),
+      highlight: [px, py, 1, 1],
+      hlColor: '#264E70',
+    });
+
+    // kernel glyph below
+    const kernel = kernels[current].k;
+    const kCell = 28;
+    const kx = pad;
+    const ky = yIn + gridH + 18;
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.fillText('KERNEL', kx, ky - 6);
+    for (let j = 0; j < 3; j++) {
+      for (let i = 0; i < 3; i++) {
+        const v = kernel[j*3 + i];
+        ctx.fillStyle = '#F5F2EB';
+        ctx.fillRect(kx + i * kCell, ky + j * kCell, kCell, kCell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+        ctx.strokeRect(kx + i * kCell + 0.5, ky + j * kCell + 0.5, kCell, kCell);
+        ctx.fillStyle = v < 0 ? '#9B4E4E' : v > 0 ? '#264E70' : '#6B6B6B';
+        ctx.font = '600 12px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'center';
+        const s = (Math.abs(v) < 0.01 ? '0' : v.toFixed(v % 1 === 0 ? 0 : 2));
+        ctx.fillText(s, kx + i * kCell + kCell/2, ky + j * kCell + kCell/2 + 4);
+      }
+    }
+
+    // arrow
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(xIn + (px + 1) * cell + cell/2, yIn + (py + 1) * cell + cell/2);
+    ctx.lineTo(xOut + px * cell + cell/2, yOut + py * cell + cell/2);
+    ctx.stroke();
+
+    presetLabel.textContent = kernels[current].label;
+    status.textContent = `position: (${px}, ${py})`;
+  }
+
+  let raf = null;
+  function tick() {
+    if (!running) return;
+    px++;
+    if (px >= SIZE) { px = 0; py++; }
+    if (py >= SIZE) { py = 0; running = false; }
+    draw();
+    if (running) raf = setTimeout(() => requestAnimationFrame(tick), 100);
+  }
+
+  document.getElementById('conv-play').onclick = () => {
+    if (running) { running = false; return; }
+    px = 0; py = 0; running = true; tick();
+  };
+
+  document.querySelectorAll('#conv [data-kernel]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#conv [data-kernel]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      current = btn.dataset.kernel;
+      draw();
+    };
+  });
+
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 3 · STRIDE / PADDING
+// ═══════════════════════════════════════════════════════════════════
+safeScene('stride', function () {
+  const host = document.getElementById('stride-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const formulaChip = document.getElementById('stride-formula');
+  const outChip = document.getElementById('stride-out');
+
+  const Fslider = document.getElementById('stride-F');
+  const Sslider = document.getElementById('stride-S');
+  const Pslider = document.getElementById('stride-P');
+
+  const IN = 7;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function draw() {
+    const F = parseInt(Fslider.value, 10);
+    const S = parseInt(Sslider.value, 10);
+    const P = parseInt(Pslider.value, 10);
+    const outSize = Math.floor((IN - F + 2 * P) / S) + 1;
+
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+
+    const pad = 30;
+    const maxW = (r.width - pad * 2 - 40) / 2;
+    const maxH = r.height - pad * 2 - 60;
+    const inCell = Math.floor(Math.min(maxW / (IN + 2 * P), maxH / (IN + 2 * P)));
+    const outCell = inCell; // same cell size so comparison reads
+
+    const padded = IN + 2 * P;
+    const xIn = pad;
+    const yIn = pad + 24;
+    const xOut = pad + padded * inCell + 50;
+
+    // title
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('INPUT (with padding ' + P + ')', xIn, yIn - 8);
+    ctx.fillText('OUTPUT', xOut, yIn - 8);
+
+    // draw input with padding ring
+    for (let y = 0; y < padded; y++) {
+      for (let x = 0; x < padded; x++) {
+        const isPad = (x < P || y < P || x >= padded - P || y >= padded - P);
+        ctx.fillStyle = isPad ? '#F5F2EB' : '#d8d2c0';
+        ctx.fillRect(xIn + x * inCell, yIn + y * inCell, inCell, inCell);
+        ctx.strokeStyle = isPad ? 'rgba(0,0,0,0.1)' : 'rgba(0,0,0,0.2)';
+        ctx.strokeRect(xIn + x * inCell + 0.5, yIn + y * inCell + 0.5, inCell, inCell);
+        if (isPad) {
+          ctx.fillStyle = '#B87333';
+          ctx.font = '10px -apple-system, Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('0', xIn + x * inCell + inCell/2, yIn + y * inCell + inCell/2 + 3);
+        }
+      }
+    }
+
+    // draw filter at a few stride positions
+    for (let j = 0; j <= outSize - 1; j++) {
+      for (let i = 0; i <= outSize - 1; i++) {
+        const sx = i * S;
+        const sy = j * S;
+        ctx.strokeStyle = 'rgba(38,78,112,0.25)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(xIn + sx * inCell + 0.5, yIn + sy * inCell + 0.5, F * inCell, F * inCell);
+      }
+    }
+    // highlight the first position
+    ctx.strokeStyle = '#264E70';
+    ctx.lineWidth = 2.5;
+    ctx.strokeRect(xIn + 0.5, yIn + 0.5, F * inCell, F * inCell);
+
+    // output grid
+    for (let y = 0; y < outSize; y++) {
+      for (let x = 0; x < outSize; x++) {
+        ctx.fillStyle = (x === 0 && y === 0) ? '#264E70' : '#EDE8DC';
+        ctx.fillRect(xOut + x * outCell, yIn + y * outCell, outCell, outCell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+        ctx.strokeRect(xOut + x * outCell + 0.5, yIn + y * outCell + 0.5, outCell, outCell);
+      }
+    }
+
+    // formula text
+    const formulaText = `(${IN} − ${F} + 2·${P}) / ${S} + 1 = ${outSize}`;
+    formulaChip.textContent = formulaText;
+    outChip.textContent = `output: ${outSize} × ${outSize}`;
+
+    // caption
+    ctx.fillStyle = '#3D3D3D';
+    ctx.font = '14px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(`F = ${F},  S = ${S},  P = ${P}   →   ${outSize} × ${outSize}`, pad, r.height - 30);
+  }
+
+  [Fslider, Sslider, Pslider].forEach(s => s.oninput = draw);
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 4 · POOLING
+// ═══════════════════════════════════════════════════════════════════
+safeScene('pool', function () {
+  const host = document.getElementById('pool-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const modeLabel = document.getElementById('pool-mode-label');
+
+  let mode = 'max';
+  let grid = [];
+  function regen() {
+    grid = Array.from({ length: 16 }, () => Math.round(Math.random() * 9));
+  }
+  regen();
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function pool2x2(arr, fn) {
+    const out = [];
+    for (let y = 0; y < 2; y++) {
+      for (let x = 0; x < 2; x++) {
+        const a = arr[(2*y)*4 + (2*x)];
+        const b = arr[(2*y)*4 + (2*x+1)];
+        const c = arr[(2*y+1)*4 + (2*x)];
+        const d = arr[(2*y+1)*4 + (2*x+1)];
+        out.push(fn([a, b, c, d]));
+      }
+    }
+    return out;
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+
+    const pad = 40;
+    const gap = 60;
+    const maxH = r.height - pad * 2 - 80;
+    const inSide = 4, outSide = 2;
+    const cell = Math.floor(Math.min((r.width - pad * 2 - gap) / (inSide + outSide), maxH / inSide));
+
+    const xIn = pad + 20;
+    const yIn = (r.height - cell * inSide) / 2;
+    const xOut = xIn + cell * inSide + gap;
+    const yOut = (r.height - cell * outSide) / 2;
+
+    // input grid with colored 2x2 regions
+    const regionColors = ['rgba(38,78,112,0.10)','rgba(91,117,83,0.10)','rgba(184,115,51,0.10)','rgba(74,59,92,0.10)'];
+    for (let y = 0; y < 4; y++) {
+      for (let x = 0; x < 4; x++) {
+        const region = (Math.floor(y/2))*2 + Math.floor(x/2);
+        ctx.fillStyle = regionColors[region];
+        ctx.fillRect(xIn + x * cell, yIn + y * cell, cell, cell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+        ctx.strokeRect(xIn + x * cell + 0.5, yIn + y * cell + 0.5, cell, cell);
+        ctx.fillStyle = '#1A1A1A';
+        ctx.font = '600 ' + Math.round(cell * 0.35) + 'px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(grid[y*4 + x], xIn + x * cell + cell/2, yIn + y * cell + cell/2 + cell*0.12);
+      }
+    }
+    // thicker lines separating 2x2 regions
+    ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(xIn + 0.5, yIn + 0.5, cell * 2, cell * 2);
+    ctx.strokeRect(xIn + cell * 2 + 0.5, yIn + 0.5, cell * 2, cell * 2);
+    ctx.strokeRect(xIn + 0.5, yIn + cell * 2 + 0.5, cell * 2, cell * 2);
+    ctx.strokeRect(xIn + cell * 2 + 0.5, yIn + cell * 2 + 0.5, cell * 2, cell * 2);
+    ctx.lineWidth = 1;
+
+    // output
+    const pooled = pool2x2(grid, mode === 'max' ? a => Math.max(...a) : a => (a.reduce((s,v)=>s+v,0)/4));
+    for (let y = 0; y < 2; y++) {
+      for (let x = 0; x < 2; x++) {
+        const region = y*2 + x;
+        ctx.fillStyle = regionColors[region].replace('0.10', '0.35');
+        ctx.fillRect(xOut + x * cell, yOut + y * cell, cell, cell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+        ctx.strokeRect(xOut + x * cell + 0.5, yOut + y * cell + 0.5, cell, cell);
+        ctx.fillStyle = '#1A1A1A';
+        ctx.font = '600 ' + Math.round(cell * 0.35) + 'px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'center';
+        const v = pooled[region];
+        const s = mode === 'max' ? String(v) : v.toFixed(1);
+        ctx.fillText(s, xOut + x * cell + cell/2, yOut + y * cell + cell/2 + cell*0.12);
+      }
+    }
+
+    // arrow / label
+    ctx.strokeStyle = '#6B6B6B';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(xIn + cell * inSide + 10, r.height/2);
+    ctx.lineTo(xOut - 10, r.height/2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(xOut - 10, r.height/2);
+    ctx.lineTo(xOut - 18, r.height/2 - 5);
+    ctx.lineTo(xOut - 18, r.height/2 + 5);
+    ctx.closePath();
+    ctx.fillStyle = '#6B6B6B';
+    ctx.fill();
+
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(mode === 'max' ? 'MAX' : 'AVG', (xIn + cell * inSide + xOut)/2, r.height/2 - 12);
+
+    modeLabel.textContent = (mode === 'max' ? 'max pool · 2×2' : 'avg pool · 2×2');
+  }
+
+  document.querySelectorAll('#pool [data-pool]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#pool [data-pool]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      mode = btn.dataset.pool;
+      draw();
+    };
+  });
+  document.getElementById('pool-shuffle').onclick = () => { regen(); draw(); };
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 5 · STACK — 3D volumes shrinking + deepening
+// ═══════════════════════════════════════════════════════════════════
+safeScene('stack', function () {
+  const host = document.getElementById('stack-canvas');
+  if (!host) return;
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [3.5, 2.5, 5.5] });
+  controls.target.set(1.5, 0, 0);
+
+  // layers: [label, W, H, D, color]
+  const layers = [
+    ['input',   1.6, 1.6, 0.15, COLORS.aiLt],
+    ['conv 32', 1.6, 1.6, 0.32, COLORS.ai],
+    ['pool',    0.8, 0.8, 0.32, COLORS.moegi],
+    ['conv 64', 0.8, 0.8, 0.5,  COLORS.ai],
+    ['pool',    0.4, 0.4, 0.5,  COLORS.moegi],
+    ['conv 128',0.4, 0.4, 0.8,  COLORS.ai],
+    ['flatten', 0.12, 1.4, 0.12, COLORS.kitsune],
+    ['dense',   0.12, 0.9, 0.12, COLORS.murasaki],
+  ];
+
+  let x = 0;
+  const gap = 0.12;
+  layers.forEach(([label, w, h, d, color]) => {
+    const geom = new THREE.BoxGeometry(d, h, w);
+    const mat = new THREE.MeshStandardMaterial({
+      color, metalness: 0.05, roughness: 0.6, transparent: true, opacity: 0.85,
+    });
+    const mesh = new THREE.Mesh(geom, mat);
+    mesh.position.x = x + d/2;
+    scene.add(mesh);
+    // outline
+    const edge = new THREE.LineSegments(
+      new THREE.EdgesGeometry(geom),
+      new THREE.LineBasicMaterial({ color: 0x1A1A1A, transparent: true, opacity: 0.4 })
+    );
+    edge.position.copy(mesh.position);
+    scene.add(edge);
+
+    // label
+    const c = document.createElement('canvas'); c.width = 256; c.height = 64;
+    const cctx = c.getContext('2d');
+    cctx.font = '500 24px -apple-system, Inter, sans-serif';
+    cctx.fillStyle = '#1A1A1A'; cctx.textAlign = 'center'; cctx.textBaseline = 'middle';
+    cctx.fillText(label, 128, 32);
+    const tex = new THREE.CanvasTexture(c);
+    tex.minFilter = THREE.LinearFilter;
+    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true }));
+    sprite.position.set(x + d/2, -1.1, 0);
+    sprite.scale.set(0.9, 0.22, 1);
+    scene.add(sprite);
+
+    x += d + gap;
+  });
+
+  // subtle plane
+  const planeG = new THREE.PlaneGeometry(10, 5);
+  const plane = new THREE.Mesh(planeG, new THREE.MeshBasicMaterial({ color: 0xE5DFD0, transparent: true, opacity: 0.25 }));
+  plane.rotation.x = -Math.PI / 2;
+  plane.position.set(2, -1.4, 0);
+  scene.add(plane);
+
+  function loop() {
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  document.getElementById('stack-reset').onclick = () => {
+    camera.position.set(3.5, 2.5, 5.5);
+    controls.target.set(1.5, 0, 0);
+    controls.update();
+  };
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6 · VARIATIONS — dilated conv + transposed conv
+// ═══════════════════════════════════════════════════════════════════
+safeScene('variations', function () {
+  const host = document.getElementById('var-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const label = document.getElementById('var-label');
+  const rfChip = document.getElementById('var-rf');
+  const rateWrap = document.getElementById('var-rate-wrap');
+  const rateSlider = document.getElementById('var-rate');
+
+  let mode = 'dilated';
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function drawDilated(r) {
+    const rate = parseInt(rateSlider.value, 10);
+    const GRID = 15;
+    const pad = 30;
+    const cell = Math.floor(Math.min((r.width - pad*2) / GRID, (r.height - pad*2 - 60) / GRID));
+    const x0 = (r.width - cell * GRID) / 2;
+    const y0 = pad + 20;
+
+    // grid
+    for (let y = 0; y < GRID; y++) {
+      for (let x = 0; x < GRID; x++) {
+        ctx.fillStyle = '#F5F2EB';
+        ctx.fillRect(x0 + x * cell, y0 + y * cell, cell, cell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+        ctx.strokeRect(x0 + x * cell + 0.5, y0 + y * cell + 0.5, cell, cell);
+      }
+    }
+
+    // 3×3 filter centered, spaced by rate
+    const cx = Math.floor(GRID / 2);
+    const cy = Math.floor(GRID / 2);
+    // receptive field box
+    const rfRad = rate;
+    ctx.fillStyle = 'rgba(91,117,83,0.15)';
+    ctx.fillRect(x0 + (cx - rfRad) * cell, y0 + (cy - rfRad) * cell, cell * (2*rfRad+1), cell * (2*rfRad+1));
+    ctx.strokeStyle = '#5B7553';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(x0 + (cx - rfRad) * cell + 0.5, y0 + (cy - rfRad) * cell + 0.5, cell * (2*rfRad+1), cell * (2*rfRad+1));
+
+    // 9 sample points
+    for (let j = -1; j <= 1; j++) {
+      for (let i = -1; i <= 1; i++) {
+        const sx = cx + i * rate;
+        const sy = cy + j * rate;
+        ctx.fillStyle = '#9B4E4E';
+        ctx.beginPath();
+        ctx.arc(x0 + sx * cell + cell/2, y0 + sy * cell + cell/2, cell * 0.25, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    const rfSize = 2 * rate + 1;
+    rfChip.textContent = `receptive field: ${rfSize} × ${rfSize}`;
+    label.textContent = `dilated convolution · rate ${rate}`;
+
+    // caption
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('9 weights (dots) · receptive field spans ' + rfSize + '×' + rfSize, r.width/2, r.height - 20);
+  }
+
+  function drawTransposed(r) {
+    const pad = 30;
+    const inSize = 2, outSize = 3;
+    const gap = 60;
+    const maxH = r.height - pad*2 - 60;
+    const cell = Math.floor(Math.min((r.width - pad*2 - gap) / (inSize + outSize), maxH / outSize));
+
+    const xIn = pad + 20;
+    const yIn = (r.height - cell * inSize) / 2;
+    const xOut = xIn + cell * inSize + gap;
+    const yOut = (r.height - cell * outSize) / 2;
+
+    // input 2×2
+    const inVals = [0, 1, 2, 3];
+    for (let y = 0; y < 2; y++) {
+      for (let x = 0; x < 2; x++) {
+        ctx.fillStyle = '#264E70';
+        ctx.fillRect(xIn + x * cell, yIn + y * cell, cell, cell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+        ctx.strokeRect(xIn + x * cell + 0.5, yIn + y * cell + 0.5, cell, cell);
+        ctx.fillStyle = '#F5F2EB';
+        ctx.font = '600 ' + Math.round(cell * 0.35) + 'px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(inVals[y*2+x], xIn + x * cell + cell/2, yIn + y * cell + cell/2 + cell*0.12);
+      }
+    }
+
+    // output 3×3: computed by placing kernel×input at each position and summing overlaps
+    const kernel = [0,1,2,3];
+    const out = Array.from({ length: 9 }, () => 0);
+    for (let py = 0; py < 2; py++) {
+      for (let px = 0; px < 2; px++) {
+        const v = inVals[py*2+px];
+        for (let j = 0; j < 2; j++) {
+          for (let i = 0; i < 2; i++) {
+            out[(py+j)*3 + (px+i)] += v * kernel[j*2+i];
+          }
+        }
+      }
+    }
+    for (let y = 0; y < 3; y++) {
+      for (let x = 0; x < 3; x++) {
+        ctx.fillStyle = '#EDE8DC';
+        ctx.fillRect(xOut + x * cell, yOut + y * cell, cell, cell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+        ctx.strokeRect(xOut + x * cell + 0.5, yOut + y * cell + 0.5, cell, cell);
+        ctx.fillStyle = '#1A1A1A';
+        ctx.font = '600 ' + Math.round(cell * 0.3) + 'px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(out[y*3+x], xOut + x * cell + cell/2, yOut + y * cell + cell/2 + cell*0.10);
+      }
+    }
+
+    // arrow
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(xIn + cell * inSize + 10, r.height/2);
+    ctx.lineTo(xOut - 10, r.height/2);
+    ctx.stroke();
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath();
+    ctx.moveTo(xOut - 10, r.height/2);
+    ctx.lineTo(xOut - 20, r.height/2 - 6);
+    ctx.lineTo(xOut - 20, r.height/2 + 6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('upsample', (xIn + cell * inSize + xOut)/2, r.height/2 - 12);
+    ctx.fillText('2×2 → 3×3', (xIn + cell * inSize + xOut)/2, r.height/2 + 20);
+
+    label.textContent = 'transposed convolution · 2×2 kernel';
+    rfChip.textContent = 'input smaller than output';
+
+    // caption
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('each input cell × kernel, placed & summed → a larger output', r.width/2, r.height - 20);
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    if (mode === 'dilated') drawDilated(r);
+    else drawTransposed(r);
+  }
+
+  document.querySelectorAll('#variations [data-var]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#variations [data-var]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      mode = btn.dataset.var;
+      rateWrap.style.display = (mode === 'dilated') ? '' : 'none';
+      draw();
+    };
+  });
+  rateSlider.oninput = draw;
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 7 · RESNET — animated residual block
+// ═══════════════════════════════════════════════════════════════════
+safeScene('resnet', function () {
+  const host = document.getElementById('res-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const status = document.getElementById('res-status');
+
+  let t = -1;
+  let raf = null;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  // layout of blocks
+  // x: input — conv1 — relu — conv2 — plus — relu — out
+  function positions(r) {
+    const pad = 50;
+    const W = r.width - pad*2;
+    const cy = r.height / 2;
+    return {
+      input: { x: pad, y: cy },
+      conv1: { x: pad + W * 0.22, y: cy + 40 },
+      conv2: { x: pad + W * 0.48, y: cy + 40 },
+      plus:  { x: pad + W * 0.72, y: cy },
+      relu:  { x: pad + W * 0.85, y: cy },
+      out:   { x: pad + W, y: cy },
+    };
+  }
+
+  function drawBox(x, y, w, h, label, fill) {
+    ctx.fillStyle = fill;
+    ctx.fillRect(x - w/2, y - h/2, w, h);
+    ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+    ctx.strokeRect(x - w/2 + 0.5, y - h/2 + 0.5, w, h);
+    ctx.fillStyle = '#F5F2EB';
+    ctx.font = '600 12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, x, y);
+  }
+
+  function drawArrow(ax, ay, bx, by, color = '#6B6B6B') {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.lineTo(bx, by);
+    ctx.stroke();
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const p = positions(r);
+
+    // shortcut arrow (curved)
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(p.input.x + 20, p.input.y);
+    ctx.bezierCurveTo(
+      p.input.x + 100, p.input.y - 80,
+      p.plus.x - 100, p.plus.y - 80,
+      p.plus.x - 16, p.plus.y
+    );
+    ctx.stroke();
+    ctx.fillStyle = '#B87333';
+    ctx.font = 'italic 12px "Hiragino Mincho ProN", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('identity shortcut  x', (p.input.x + p.plus.x)/2, p.plus.y - 60);
+
+    // main path lines
+    drawArrow(p.input.x + 20, p.input.y, p.conv1.x - 30, p.conv1.y);
+    drawArrow(p.conv1.x + 30, p.conv1.y, p.conv2.x - 30, p.conv2.y);
+    drawArrow(p.conv2.x + 30, p.conv2.y, p.plus.x - 16, p.plus.y);
+    drawArrow(p.plus.x + 16, p.plus.y, p.relu.x - 20, p.relu.y);
+    drawArrow(p.relu.x + 20, p.relu.y, p.out.x, p.out.y);
+
+    // input / output markers
+    ctx.fillStyle = '#264E70';
+    ctx.beginPath(); ctx.arc(p.input.x, p.input.y, 10, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#F5F2EB';
+    ctx.font = '600 10px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('x', p.input.x, p.input.y);
+
+    drawBox(p.conv1.x, p.conv1.y, 60, 28, 'conv', '#264E70');
+    drawBox(p.conv1.x, p.conv1.y + 30, 60, 18, 'ReLU', '#5B7553');
+    drawBox(p.conv2.x, p.conv2.y, 60, 28, 'conv', '#264E70');
+    drawBox(p.conv2.x, p.conv2.y + 30, 60, 18, 'BN', '#4A3B5C');
+
+    // plus circle
+    ctx.fillStyle = '#F5F2EB';
+    ctx.strokeStyle = '#1A1A1A';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(p.plus.x, p.plus.y, 16, 0, Math.PI*2);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = '600 18px -apple-system, Inter, sans-serif';
+    ctx.fillText('+', p.plus.x, p.plus.y + 1);
+
+    drawBox(p.relu.x, p.relu.y, 40, 22, 'ReLU', '#5B7553');
+
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(p.out.x, p.out.y, 8, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = 'italic 13px "Hiragino Mincho ProN", Georgia, serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('y = F(x) + x', p.out.x + 16, p.out.y + 4);
+
+    // F(x) label
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = 'italic 14px "Hiragino Mincho ProN", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('F(x)', (p.conv1.x + p.conv2.x) / 2, p.conv1.y - 30);
+
+    // pulses
+    if (t >= 0 && t <= 1) {
+      // main path
+      let mainEndX = p.input.x + (p.out.x - p.input.x) * t;
+      ctx.fillStyle = '#264E70';
+      ctx.beginPath(); ctx.arc(mainEndX, p.input.y + Math.min(40, t*80), 6, 0, Math.PI*2); ctx.fill();
+
+      // shortcut pulse — move along bezier
+      const tt = t;
+      const x0 = p.input.x + 20, y0 = p.input.y;
+      const x1 = p.input.x + 100, y1 = p.input.y - 80;
+      const x2 = p.plus.x - 100, y2 = p.plus.y - 80;
+      const x3 = p.plus.x - 16, y3 = p.plus.y;
+      const u = 1 - tt;
+      const bx = u*u*u*x0 + 3*u*u*tt*x1 + 3*u*tt*tt*x2 + tt*tt*tt*x3;
+      const by = u*u*u*y0 + 3*u*u*tt*y1 + 3*u*tt*tt*y2 + tt*tt*tt*y3;
+      ctx.fillStyle = '#B87333';
+      ctx.beginPath(); ctx.arc(bx, by, 6, 0, Math.PI*2); ctx.fill();
+    }
+  }
+
+  function animate() {
+    let t0 = null;
+    cancelAnimationFrame(raf);
+    function step(ts) {
+      if (!t0) t0 = ts;
+      t = Math.min(1, (ts - t0) / 2200);
+      draw();
+      status.textContent = t < 1 ? 'flowing…' : 'merged';
+      if (t < 1) raf = requestAnimationFrame(step);
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  document.getElementById('res-play').onclick = animate;
+  document.getElementById('res-reset').onclick = () => { t = -1; status.textContent = 'ready'; draw(); };
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 8 · APPLICATIONS
+// ═══════════════════════════════════════════════════════════════════
+safeScene('apps', function () {
+  const host = document.getElementById('apps-canvas');
+  if (!host) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const label = document.getElementById('apps-label');
+
+  let mode = 'classify';
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  function drawScene(r) {
+    // backdrop "image" — simple room stylisation
+    const pad = 30;
+    const imgX = pad, imgY = pad + 20;
+    const imgW = r.width - pad*2, imgH = r.height - pad*2 - 120;
+    ctx.fillStyle = '#d8d2c0';
+    ctx.fillRect(imgX, imgY, imgW, imgH);
+    // horizon
+    ctx.fillStyle = '#c0b9a3';
+    ctx.fillRect(imgX, imgY + imgH * 0.55, imgW, imgH * 0.45);
+    // a couple "objects"
+    ctx.fillStyle = '#4A3B5C';
+    ctx.fillRect(imgX + imgW * 0.12, imgY + imgH * 0.4, imgW * 0.18, imgH * 0.35);
+    ctx.fillStyle = '#9B4E4E';
+    ctx.beginPath();
+    ctx.arc(imgX + imgW * 0.55, imgY + imgH * 0.5, imgW * 0.09, 0, Math.PI*2);
+    ctx.fill();
+    ctx.fillStyle = '#5B7553';
+    ctx.fillRect(imgX + imgW * 0.72, imgY + imgH * 0.35, imgW * 0.15, imgH * 0.4);
+    // sky
+    ctx.fillStyle = 'rgba(38,78,112,0.15)';
+    ctx.fillRect(imgX, imgY, imgW, imgH * 0.3);
+
+    return { imgX, imgY, imgW, imgH };
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const { imgX, imgY, imgW, imgH } = drawScene(r);
+
+    if (mode === 'classify') {
+      label.textContent = 'classification';
+      // no boxes — just confidence bars below
+      const bars = [
+        ['cat',   0.02],
+        ['dog',   0.04],
+        ['chair', 0.88],
+        ['lamp',  0.06],
+      ];
+      const barY = imgY + imgH + 20;
+      const barH = 18, gap = 8;
+      const labelW = 80;
+      const maxBarW = r.width - labelW - 100;
+      bars.forEach((b, i) => {
+        const y = barY + i * (barH + gap);
+        ctx.fillStyle = '#6B6B6B';
+        ctx.font = '13px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText(b[0], imgX + labelW, y + barH/2 + 4);
+        ctx.fillStyle = '#EDE8DC';
+        ctx.fillRect(imgX + labelW + 10, y, maxBarW, barH);
+        ctx.fillStyle = i === 2 ? '#264E70' : '#8c867a';
+        ctx.fillRect(imgX + labelW + 10, y, maxBarW * b[1], barH);
+        ctx.fillStyle = '#3D3D3D';
+        ctx.font = '600 12px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText((b[1]*100).toFixed(0) + '%', imgX + labelW + 20 + maxBarW, y + barH/2 + 4);
+      });
+    } else if (mode === 'detect') {
+      label.textContent = 'object detection (YOLO-style)';
+      // bounding boxes
+      const boxes = [
+        { x: 0.10, y: 0.38, w: 0.22, h: 0.4, label: 'chair · 0.92', color: '#264E70' },
+        { x: 0.46, y: 0.41, w: 0.18, h: 0.2, label: 'ball · 0.86', color: '#9B4E4E' },
+        { x: 0.70, y: 0.33, w: 0.19, h: 0.42, label: 'plant · 0.78', color: '#5B7553' },
+      ];
+      boxes.forEach(b => {
+        const x = imgX + b.x * imgW, y = imgY + b.y * imgH;
+        const w = b.w * imgW, h = b.h * imgH;
+        ctx.strokeStyle = b.color;
+        ctx.lineWidth = 2.5;
+        ctx.strokeRect(x, y, w, h);
+        ctx.fillStyle = b.color;
+        ctx.fillRect(x, y - 18, ctx.measureText(b.label).width + 16, 18);
+        ctx.fillStyle = '#F5F2EB';
+        ctx.font = '600 11px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(b.label, x + 8, y - 5);
+      });
+      // grid overlay
+      ctx.strokeStyle = 'rgba(184,115,51,0.35)';
+      ctx.lineWidth = 1;
+      for (let i = 1; i < 7; i++) {
+        ctx.beginPath();
+        ctx.moveTo(imgX + (i/7) * imgW, imgY);
+        ctx.lineTo(imgX + (i/7) * imgW, imgY + imgH);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(imgX, imgY + (i/7) * imgH);
+        ctx.lineTo(imgX + imgW, imgY + (i/7) * imgH);
+        ctx.stroke();
+      }
+      // caption
+      ctx.fillStyle = '#6B6B6B';
+      ctx.font = '12px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('each grid cell predicts: class + box + confidence', r.width/2, imgY + imgH + 40);
+    } else {
+      label.textContent = 'segmentation (U-Net style)';
+      // recolor the scene by "class"
+      const classes = [
+        { rx: 0.12, ry: 0.4,  rw: 0.18, rh: 0.35, color: 'rgba(74,59,92,0.75)', name: 'chair' },
+        { rx: 0.46, ry: 0.41, rw: 0.18, rh: 0.18, color: 'rgba(155,78,78,0.75)', name: 'ball' },
+        { rx: 0.72, ry: 0.35, rw: 0.15, rh: 0.4,  color: 'rgba(91,117,83,0.75)', name: 'plant' },
+      ];
+      // ground / sky
+      ctx.fillStyle = 'rgba(184,115,51,0.35)';
+      ctx.fillRect(imgX, imgY + imgH * 0.55, imgW, imgH * 0.45);
+      ctx.fillStyle = 'rgba(38,78,112,0.35)';
+      ctx.fillRect(imgX, imgY, imgW, imgH * 0.55);
+      classes.forEach(c => {
+        ctx.fillStyle = c.color;
+        if (c.name === 'ball') {
+          ctx.beginPath();
+          ctx.arc(imgX + (c.rx + c.rw/2) * imgW, imgY + (c.ry + c.rh/2) * imgH, c.rw * imgW * 0.55, 0, Math.PI*2);
+          ctx.fill();
+        } else {
+          ctx.fillRect(imgX + c.rx * imgW, imgY + c.ry * imgH, c.rw * imgW, c.rh * imgH);
+        }
+      });
+      // legend
+      const legend = [
+        ['sky',   'rgba(38,78,112,0.7)'],
+        ['ground','rgba(184,115,51,0.7)'],
+        ['chair', 'rgba(74,59,92,0.85)'],
+        ['ball',  'rgba(155,78,78,0.85)'],
+        ['plant', 'rgba(91,117,83,0.85)'],
+      ];
+      const ly = imgY + imgH + 30;
+      legend.forEach((e, i) => {
+        const x = imgX + i * 100;
+        ctx.fillStyle = e[1];
+        ctx.fillRect(x, ly, 14, 14);
+        ctx.fillStyle = '#3D3D3D';
+        ctx.font = '12px -apple-system, Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(e[0], x + 20, ly + 11);
+      });
+      ctx.fillStyle = '#6B6B6B';
+      ctx.font = '12px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('one class label per pixel', r.width/2, imgY + imgH + 72);
+    }
+  }
+
+  document.querySelectorAll('#apps [data-app]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#apps [data-app]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      mode = btn.dataset.app;
+      draw();
+    };
+  });
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz logic
+// ═══════════════════════════════════════════════════════════════════
+let score = 0; const seen = new Set();
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
+        if (b.dataset.correct === 'true') b.classList.add('correct');
+      });
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        document.getElementById('score').textContent = `Score: ${score} / ${document.querySelectorAll('.opts').length}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
+
+// Progress + TOC
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = Math.min(100, Math.max(0, window.scrollY / h * 100)) + '%';
+}, { passive: true });
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+</script>
+</body>
+</html>

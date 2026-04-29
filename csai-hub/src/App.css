@@ -1,0 +1,509 @@
+/* ═══════════════════════════════════════════════
+   CSAI Learning Hub — Editorial Design
+   Inspired by Readymag for Education
+   ═══════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --orange: #E8723A;
+  --orange-dark: #D4632E;
+  --cream: #FFFDF7;
+  --ink: #1A1A1A;
+  --ink-light: #4A4A4A;
+  --ink-faint: #888888;
+  --border: #1A1A1A;
+  --surface: #FFFFFF;
+  --brutal-shadow: 4px 4px 0 var(--ink);
+  --brutal-shadow-sm: 3px 3px 0 var(--ink);
+
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-display: 'Archivo Black', 'Inter', sans-serif;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 80px;
+  --space-3xl: 120px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* ─── Landing (SVG) ────────────────────────── */
+
+.landing-svg {
+  width: 100vw;
+  min-height: 100vh;
+  background: #f9f9f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 3px solid var(--ink);
+  padding: 0;
+}
+
+.landing-svg img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.landing-svg-inline {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-svg-inline svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+}
+
+.landing-svg-inline .draw-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  fill-opacity: 0;
+  animation:
+    drawStroke var(--draw-duration, 1.6s) ease-out var(--draw-delay, 0s) forwards,
+    fadeFill var(--fill-duration, 0.4s) ease-out var(--fill-delay, 1s) forwards;
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeFill {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-svg-inline .draw-path {
+    animation: none;
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+
+/* ─── Content ──────────────────────────────── */
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+/* ─── Year ─────────────────────────────────── */
+
+.year {
+  margin-bottom: var(--space-2xl);
+}
+
+.year-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.year-line {
+  height: 3px;
+  background: var(--ink);
+  margin-bottom: var(--space-lg);
+}
+
+/* ─── Semester ─────────────────────────────── */
+
+.semester {
+  margin-bottom: var(--space-md);
+}
+
+.semester-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 12px var(--space-md);
+  background: white;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: all 0.1s;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.semester-toggle:active {
+  box-shadow: 0px 0px 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+.semester-toggle:disabled {
+  cursor: default;
+  color: var(--ink-faint);
+  border-color: #ccc;
+  box-shadow: 2px 2px 0 #ccc;
+  background: var(--cream);
+}
+
+.semester-toggle:not(:disabled):hover {
+  background: #152229;
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+.semester-arrow {
+  width: 16px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.semester-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 13px;
+}
+
+.semester-count {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: inherit;
+  letter-spacing: 0.05em;
+}
+
+.semester-courses {
+  padding: var(--space-md) 0 0 0;
+  margin-top: 0;
+  border-left: none;
+}
+
+/* ─── Course ───────────────────────────────── */
+
+.course {
+  margin-bottom: 2px;
+  --course-color: var(--orange);
+}
+
+.course-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 10px var(--space-md);
+  background: white;
+  border: 2px solid transparent;
+  border-bottom-color: #eee;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  transition: background 0.12s, box-shadow 0.12s;
+  text-align: left;
+  position: relative;
+}
+
+.course-toggle:hover {
+  background: color-mix(in srgb, var(--course-color) 6%, white);
+}
+
+.course-open .course-toggle {
+  background: white;
+  color: var(--ink);
+  border-color: transparent;
+  border-bottom-color: var(--ink);
+  box-shadow: inset 3px 0 0 var(--course-color);
+  font-weight: 600;
+}
+
+.course-swatch {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  background: var(--course-color);
+  border-radius: 2px;
+  border: none;
+}
+
+.course-open .course-swatch {
+  background: var(--course-color);
+}
+
+.course-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.course-meta {
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ─── Course Detail ────────────────────────── */
+
+.course-detail {
+  background: var(--cream);
+  margin: 0 0 var(--space-sm);
+  padding: var(--space-md);
+  border: 1px solid #eee;
+  border-top: none;
+  box-shadow: inset 3px 0 0 var(--course-color);
+}
+
+.course-detail-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0 var(--space-md);
+  margin: 0 0 var(--space-md);
+  background: transparent;
+  border-bottom: 1px solid #eee;
+}
+
+.course-illustration {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  background: var(--cream);
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  border-radius: 4px;
+}
+
+.course-detail-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--ink);
+}
+
+.course-detail-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--course-color);
+}
+
+.course-detail-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.course-resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.resource-link {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  background: white;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.resource-link:hover {
+  border-color: var(--course-color);
+  color: var(--course-color);
+}
+
+.course-open .course-meta {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.course-exams {
+  border-top: 2px solid #eee;
+  padding-top: var(--space-sm);
+}
+
+.exam-row {
+  display: flex;
+  gap: var(--space-md);
+  padding: 6px 0;
+  font-size: 12px;
+  color: var(--ink-light);
+}
+
+.exam-type {
+  flex: 1;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.exam-format {
+  color: var(--ink-faint);
+  font-weight: 300;
+}
+
+.exam-weight,
+.exam-min,
+.exam-date {
+  width: 60px;
+  text-align: right;
+}
+
+.exam-date {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ─── Exam Table Section ───────────────────── */
+
+.exam-section {
+  margin-top: var(--space-xl);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.exam-table-wrap {
+  overflow-x: auto;
+}
+
+.exam-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.exam-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: var(--space-sm) var(--space-sm);
+  border-bottom: 3px solid var(--ink);
+  background: var(--cream);
+}
+
+.exam-table td {
+  padding: 10px var(--space-sm);
+  border-bottom: 2px solid #eee;
+  color: var(--ink);
+}
+
+.exam-table tr:last-child td {
+  border-bottom: none;
+}
+
+.exam-table tr:hover td {
+  background: #FFF5EE;
+}
+
+.exam-table .exam-format {
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+/* ─── Footer ───────────────────────────────── */
+
+.footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg) var(--space-2xl);
+}
+
+.footer-line {
+  height: 3px;
+  background: var(--ink);
+  margin-bottom: var(--space-md);
+}
+
+.footer p {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+/* ─── Responsive ───────────────────────────── */
+
+@media (max-width: 800px) {
+  .landing-svg {
+    min-height: auto;
+  }
+
+  .landing-svg img {
+    max-height: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .exam-row {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .exam-weight,
+  .exam-min,
+  .exam-date {
+    width: auto;
+    text-align: left;
+  }
+}

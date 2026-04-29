@@ -1,0 +1,260 @@
+/* ═══════════════════════════════════════════════════════════════
+   Lesson Brutal — bauhaus-flavored editorial overrides for lesson*.html
+   to match the csai-hub neobrutalist system.
+
+   Loaded AFTER each lesson's inline <style>, so cascade wins. We rebind
+   the existing CSS custom properties so every component that reads them
+   updates automatically; rule-level overrides handle the brutal
+   mechanics (hard borders, square shadows, heavy geometric display).
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ── editorial monochrome (matches csai-hub --cream) ──────── */
+  --hub-cream:    #FFFDF7;   /* main paper — same as hub */
+  --hub-cream-2:  #F5F0E5;   /* panel tint */
+  --hub-cream-3:  #E5DFD0;   /* warm border */
+  --hub-ink:      #0E0E0E;   /* deep ink, near-black */
+  --hub-ink-soft: #1B2230;   /* navy-ink for canvas / illustrations */
+  --hub-ink-light:#3D3D3D;
+  --hub-ink-faint:#7A7A7A;
+
+  /* single accent token — currently bound to ink for monochrome */
+  --hub-accent: var(--hub-ink);
+
+  /* kept around for semantic states only (loss/correct chips) */
+  --hub-loss:    #6B1F1F;
+  --hub-correct: #2F4A33;
+  --hub-purple:  #2B2440;
+  --hub-yellow:  #C8A12B;
+
+  /* ── rebind the lesson palette to monochrome ──────────────── */
+  --washi-white: var(--hub-cream);
+  --washi-cream: var(--hub-cream-2);
+  --washi-warm:  var(--hub-cream-3);
+
+  --sumi-deep:   var(--hub-ink);
+  --sumi-medium: var(--hub-ink-light);
+  --sumi-light:  var(--hub-ink-faint);
+
+  --ai:        var(--hub-ink-soft);      /* canvas primary — kept navy-ink */
+  --beni:      var(--hub-loss);          /* loss / wrong (semantic only) */
+  --moegi:     var(--hub-correct);       /* correct (semantic only) */
+  --kitsune:   var(--hub-ink);           /* was orange highlight → ink */
+  --murasaki:  var(--hub-purple);        /* code ink */
+
+  /* Brutal: kill radius, kill soft shadows */
+  --radius-subtle: 0;
+  --radius-gentle: 0;
+  --radius-soft:   0;
+
+  --shadow-whisper: 2px 2px 0 var(--hub-ink);
+  --shadow-breath:  3px 3px 0 var(--hub-ink);
+  --shadow-float:   4px 4px 0 var(--hub-ink);
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Archivo Black', 'Inter', sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+}
+
+/* ── base typography ──────────────────────────────────────── */
+html, body { font-family: var(--font-sans) !important; }
+body {
+  background: var(--hub-cream) !important;
+  color: var(--hub-ink) !important;
+  line-height: 1.6 !important;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display) !important;
+  font-weight: 400 !important;     /* Archivo Black ships as a single weight */
+  letter-spacing: -0.01em !important;
+  color: var(--hub-ink) !important;
+  text-transform: uppercase !important;
+}
+h1 { letter-spacing: -0.02em !important; line-height: 0.95 !important; }
+h2 { line-height: 1.0 !important; }
+h3 { font-family: var(--font-sans) !important; font-weight: 800 !important; text-transform: none !important; color: var(--hub-ink) !important; }
+
+strong {
+  color: var(--hub-ink) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.005em !important;
+}
+em { font-style: italic; }
+
+a { color: var(--hub-ink) !important; border-bottom: 2px solid var(--hub-ink) !important; }
+a:hover { background: var(--hub-ink) !important; color: var(--hub-cream) !important; }
+
+code {
+  font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace !important;
+  background: var(--hub-cream-2) !important;
+  color: var(--hub-ink) !important;
+  border: 1px solid var(--hub-ink) !important;
+  padding: 1px 5px !important;
+}
+
+/* ── topbar — brutalize ───────────────────────────────────── */
+header.topbar {
+  background: var(--hub-cream) !important;
+  border-bottom: 3px solid var(--hub-ink) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.brand .mark {
+  color: var(--hub-cream) !important;
+  background: var(--hub-ink) !important;
+  opacity: 1 !important;
+  font-family: var(--font-display) !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+  padding: 4px 6px !important;
+  line-height: 1 !important;
+}
+.brand .title { font-weight: 700 !important; text-transform: uppercase; letter-spacing: 0.05em !important; }
+.brand .sub   { color: var(--hub-ink-faint) !important; font-weight: 600 !important; }
+.progress { background: var(--hub-cream-3) !important; height: 3px !important; border: none !important; }
+.progress > span { background: var(--hub-accent) !important; opacity: 1 !important; }
+.toc-btn, .lesson-nav a {
+  border: 2px solid var(--hub-ink) !important;
+  background: var(--hub-cream) !important;
+  color: var(--hub-ink) !important;
+  font-weight: 600 !important;
+  box-shadow: 2px 2px 0 var(--hub-ink) !important;
+  transition: transform 0.08s, box-shadow 0.08s !important;
+}
+.toc-btn:hover, .lesson-nav a:hover { background: var(--hub-accent) !important; color: var(--hub-cream) !important; }
+.toc-btn:active, .lesson-nav a:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--hub-ink) !important; }
+.lesson-nav a.active { background: var(--hub-ink) !important; color: var(--hub-cream) !important; }
+
+/* ── TOC card ─────────────────────────────────────────────── */
+.toc {
+  background: var(--hub-cream) !important;
+  border: 3px solid var(--hub-ink) !important;
+  box-shadow: 6px 6px 0 var(--hub-ink) !important;
+}
+.toc a { color: var(--hub-ink) !important; border: none !important; }
+.toc a:hover { background: var(--hub-accent) !important; color: var(--hub-cream) !important; }
+.toc li::before { color: var(--hub-accent) !important; }
+
+/* ── hero ─────────────────────────────────────────────────── */
+.hero {
+  border-bottom: 3px solid var(--hub-ink) !important;
+}
+.hero .kicker {
+  display: inline-block !important;
+  background: var(--hub-accent) !important;
+  color: var(--hub-cream) !important;
+  padding: 4px 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+}
+.hero h1 {
+  font-family: var(--font-display) !important;
+  font-weight: 900 !important;
+  font-size: clamp(40px, 6vw, 64px) !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+.hero .stage {
+  background: var(--hub-cream-2) !important;
+  border: 3px solid var(--hub-ink) !important;
+  box-shadow: 8px 8px 0 var(--hub-ink) !important;
+}
+
+/* ── steps / sections ─────────────────────────────────────── */
+section.step { border-bottom: 3px solid var(--hub-ink) !important; }
+section.step .stage-wrap { border-left: 3px solid var(--hub-ink) !important; background: var(--hub-cream-2) !important; }
+section.step .text .eyebrow {
+  display: inline-block !important;
+  background: var(--hub-ink) !important;
+  color: var(--hub-cream) !important;
+  padding: 3px 10px !important;
+  letter-spacing: 0.15em !important;
+  font-weight: 800 !important;
+  align-self: flex-start;
+}
+section.step .text h2 {
+  font-size: clamp(28px, 3.5vw, 40px) !important;
+}
+
+.canvas-host {
+  background: var(--hub-cream-2) !important;
+  border-bottom: 2px solid var(--hub-ink) !important;
+}
+
+/* ── chips / overlays ─────────────────────────────────────── */
+.chip {
+  background: var(--hub-cream) !important;
+  border: 2px solid var(--hub-ink) !important;
+  box-shadow: 2px 2px 0 var(--hub-ink) !important;
+  font-weight: 700 !important;
+  color: var(--hub-ink) !important;
+  backdrop-filter: none !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* ── controls / buttons ───────────────────────────────────── */
+.controls {
+  background: var(--hub-cream) !important;
+  border-top: 3px solid var(--hub-ink) !important;
+}
+.btn {
+  background: var(--hub-cream) !important;
+  border: 2px solid var(--hub-ink) !important;
+  color: var(--hub-ink) !important;
+  font-weight: 600 !important;
+  box-shadow: 3px 3px 0 var(--hub-ink) !important;
+  transition: transform 0.08s, box-shadow 0.08s, background 0.08s !important;
+  font-family: var(--font-sans) !important;
+}
+.btn:hover { background: var(--hub-accent) !important; color: var(--hub-cream) !important; }
+.btn:active,
+.btn.active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--hub-ink) !important;
+  background: var(--hub-ink) !important;
+  color: var(--hub-cream) !important;
+}
+
+input[type="range"] { accent-color: var(--hub-accent) !important; }
+input[type="number"], select, textarea {
+  border: 2px solid var(--hub-ink) !important;
+  background: var(--hub-cream) !important;
+  color: var(--hub-ink) !important;
+  font-family: var(--font-sans) !important;
+  padding: 4px 8px !important;
+  box-shadow: 2px 2px 0 var(--hub-ink) !important;
+}
+
+/* ── callouts ─────────────────────────────────────────────── */
+.callout, .note, .aside, blockquote {
+  background: var(--hub-cream-2) !important;
+  border: 2px solid var(--hub-ink) !important;
+  border-left: 8px solid var(--hub-accent) !important;
+  box-shadow: 4px 4px 0 var(--hub-ink) !important;
+  padding: 14px 18px !important;
+  border-radius: 0 !important;
+  color: var(--hub-ink) !important;
+}
+
+/* ── meta / footer ────────────────────────────────────────── */
+.meta, .footer, footer {
+  border-top: 3px solid var(--hub-ink) !important;
+  background: var(--hub-cream) !important;
+  font-weight: 500;
+}
+.meta strong { color: var(--hub-ink) !important; }
+
+/* ── tables ───────────────────────────────────────────────── */
+table {
+  border: 2px solid var(--hub-ink) !important;
+  box-shadow: 4px 4px 0 var(--hub-ink) !important;
+}
+th { background: var(--hub-ink) !important; color: var(--hub-cream) !important; }
+td { border-bottom: 1px solid var(--hub-cream-3) !important; }
+
+/* ── selection ────────────────────────────────────────────── */
+::selection { background: var(--hub-accent); color: var(--hub-cream); }
