@@ -502,29 +502,115 @@ input[type="range"] { accent-color: var(--coral) !important; }
    colour-code right/wrong inline; the floating tally was redundant) */
 .score { display: none !important; }
 
-/* ── slide thumbnails — paper card with hairline + mono caption ── */
+/* ── slide thumbnails — small inline marginalia, float right ── */
 .slide-thumb {
-  margin: 24px 0 8px !important;
+  display: block !important;
+  float: right;
+  clear: right;
+  width: 140px !important;
+  max-width: 140px !important;
+  margin: 4px 0 16px 20px !important;
   border: 1px solid var(--hairline) !important;
   border-radius: 0 !important;
   background: var(--paper) !important;
-  box-shadow: 4px 4px 0 var(--ink-soft) !important;
-  max-width: 360px !important;
+  box-shadow: 3px 3px 0 var(--ink-soft) !important;
   overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.12s, box-shadow 0.12s;
+  text-decoration: none;
+  color: inherit !important;
+}
+.slide-thumb:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--ink-soft) !important;
+  background: var(--paper) !important;
 }
 .slide-thumb img {
   display: block;
   width: 100%;
   border-bottom: 1px solid var(--hairline);
+  pointer-events: none;
 }
 .slide-thumb .cap {
   background: var(--paper) !important;
   color: var(--ink-faint-2) !important;
   font-family: var(--font-mono) !important;
-  font-size: 10px !important;
-  letter-spacing: 0.12em !important;
+  font-size: 9px !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
-  padding: 8px 12px !important;
+  padding: 4px 6px !important;
+  line-height: 1.3 !important;
+  pointer-events: none;
+}
+
+/* clear floats so the thumb doesn't break the next section */
+section.step .text::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ── lightbox overlay (rendered by lesson-pretext.js) ─────── */
+.slide-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 14, 14, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  z-index: 1000;
+  padding: 32px;
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+.slide-lightbox.open { opacity: 1; }
+.slide-lightbox img {
+  max-width: min(96vw, 1400px);
+  max-height: 84vh;
+  display: block;
+  border: 1px solid var(--hairline);
+  box-shadow: 8px 8px 0 var(--coral);
+  background: var(--paper);
+}
+.slide-lightbox .lb-cap {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-align: center;
+  max-width: 80vw;
+}
+.slide-lightbox .lb-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  border: 1px solid rgba(248, 246, 238, 0.6);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.slide-lightbox .lb-close:hover {
+  background: var(--paper);
+  color: var(--ink-soft);
+}
+
+@media (max-width: 700px) {
+  .slide-thumb {
+    float: none;
+    margin: 16px auto !important;
+    width: 80% !important;
+    max-width: 200px !important;
+  }
 }
 
 /* footer */

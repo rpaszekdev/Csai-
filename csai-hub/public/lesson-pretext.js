@@ -14,15 +14,15 @@
      • Ink for primary terms, faint for secondary annotation.
    ═══════════════════════════════════════════════════════════════ */
 
-import * as THREE from 'three';
+import * as THREE from "three";
 
 const FONT = '"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
 
 const TONES = {
-  ink:   '#2A2826',
-  faint: '#A8A29A',
-  paper: '#F8F6EE',
-  coral: '#C45A2A',
+  ink: "#2A2826",
+  faint: "#A8A29A",
+  paper: "#F8F6EE",
+  coral: "#C45A2A",
 };
 
 /* ── 1) Three.js text sprite ─────────────────────────────── */
@@ -30,26 +30,26 @@ function makeTextSprite(text, opts = {}) {
   const {
     color = TONES.ink,
     weight = 500,
-    size = 56,             // px in the texture canvas
-    letterSpacing = 0.06,  // em
+    size = 56, // px in the texture canvas
+    letterSpacing = 0.06, // em
     upper = true,
     bg = null,
     pad = 12,
   } = opts;
 
   const label = upper ? String(text).toUpperCase() : String(text);
-  const tracked = label.split('').join('\u200A'); // hair-space tracking
+  const tracked = label.split("").join("\u200A"); // hair-space tracking
 
   // Measure
-  const meas = document.createElement('canvas').getContext('2d');
+  const meas = document.createElement("canvas").getContext("2d");
   meas.font = `${weight} ${size}px ${FONT}`;
   const tw = Math.ceil(meas.measureText(label).width * (1 + letterSpacing));
   const th = Math.ceil(size * 1.25);
 
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement("canvas");
   canvas.width = tw + pad * 2;
   canvas.height = th + pad * 2;
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
 
   if (bg) {
     ctx.fillStyle = bg;
@@ -58,8 +58,8 @@ function makeTextSprite(text, opts = {}) {
 
   ctx.font = `${weight} ${size}px ${FONT}`;
   ctx.fillStyle = color;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
   ctx.letterSpacing = `${letterSpacing}em`;
   ctx.fillText(label, canvas.width / 2, canvas.height / 2);
 
@@ -68,7 +68,11 @@ function makeTextSprite(text, opts = {}) {
   tex.magFilter = THREE.LinearFilter;
   tex.needsUpdate = true;
 
-  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+  const mat = new THREE.SpriteMaterial({
+    map: tex,
+    transparent: true,
+    depthTest: false,
+  });
   const sprite = new THREE.Sprite(mat);
 
   // Scale to world units — label is ~0.04 world units per text-canvas pixel by default
@@ -92,9 +96,9 @@ function drawText2D(ctx, text, x, y, opts = {}) {
     color = TONES.ink,
     weight = 500,
     size = 11,
-    letterSpacing = 0.12,    // em
-    align = 'left',
-    baseline = 'middle',
+    letterSpacing = 0.12, // em
+    align = "left",
+    baseline = "middle",
     upper = true,
     bg = null,
     padX = 4,
@@ -112,11 +116,11 @@ function drawText2D(ctx, text, x, y, opts = {}) {
   if (bg) {
     const tw = ctx.measureText(label).width * (1 + letterSpacing);
     let bx = x;
-    if (align === 'center') bx -= tw / 2;
-    else if (align === 'right') bx -= tw;
+    if (align === "center") bx -= tw / 2;
+    else if (align === "right") bx -= tw;
     let by = y;
-    if (baseline === 'middle') by -= size / 2;
-    else if (baseline === 'bottom') by -= size;
+    if (baseline === "middle") by -= size / 2;
+    else if (baseline === "bottom") by -= size;
     ctx.fillStyle = bg;
     ctx.fillRect(bx - padX, by - padY, tw + padX * 2, size + padY * 2);
   }
@@ -144,6 +148,69 @@ function drawEyebrow(ctx, text, x, y, opts = {}) {
   });
 }
 
+/* ── 6) Slide-thumb lightbox — small inline previews open big ── */
+function openLightbox(src, caption) {
+  closeLightbox();
+  const lb = document.createElement("div");
+  lb.className = "slide-lightbox";
+  lb.innerHTML = `
+    <button class="lb-close" type="button">close · esc</button>
+    <img src="${src}" alt="${caption || "slide"}" />
+    <div class="lb-cap">${caption || ""}</div>
+  `;
+  document.body.appendChild(lb);
+  // next frame so the .open transition fires
+  requestAnimationFrame(() => lb.classList.add("open"));
+
+  const close = () => closeLightbox();
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb || e.target.classList.contains("lb-close")) close();
+  });
+  document.addEventListener("keydown", escClose, { once: false });
+  lb._escClose = escClose;
+  function escClose(ev) {
+    if (ev.key === "Escape") close();
+  }
+}
+
+function closeLightbox() {
+  const existing = document.querySelector(".slide-lightbox");
+  if (!existing) return;
+  if (existing._escClose)
+    document.removeEventListener("keydown", existing._escClose);
+  existing.classList.remove("open");
+  setTimeout(() => existing.remove(), 160);
+}
+
+function bindSlideThumbs(root = document) {
+  root.querySelectorAll(".slide-thumb").forEach((node) => {
+    if (node.dataset.lbBound) return;
+    node.dataset.lbBound = "1";
+    // Promote <div class="slide-thumb"> to act like a button
+    node.setAttribute("role", "button");
+    node.setAttribute("tabindex", "0");
+    const img = node.querySelector("img");
+    const cap = node.querySelector(".cap");
+    const src = img?.getAttribute("src");
+    const caption = cap?.textContent?.trim();
+    const handler = (ev) => {
+      ev.preventDefault();
+      if (src) openLightbox(src, caption);
+    };
+    node.addEventListener("click", handler);
+    node.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter" || ev.key === " ") handler(ev);
+    });
+  });
+}
+
+// Wire up on DOM ready and on dynamic insertions.
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => bindSlideThumbs());
+} else {
+  bindSlideThumbs();
+}
+
 /* ── expose for non-module inline scripts ───────────────── */
 window.Pretext = {
   TONES,
@@ -153,6 +220,9 @@ window.Pretext = {
   drawText2D,
   drawAxisRow,
   drawEyebrow,
+  openLightbox,
+  closeLightbox,
+  bindSlideThumbs,
 };
 
 export {
