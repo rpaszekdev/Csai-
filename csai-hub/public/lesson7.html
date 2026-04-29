@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Self-Attention and Transformers — Interactive Lesson</title>
+<style>
+  /* ═══════════════════════════════════════════════ Lesson Design System Editorial · Brutalist · Printbreathing space
+     ═══════════════════════════════════════════════ */
+  :root {
+    /* Washi — paper neutrals */
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+
+    /* Sumi — ink darks */
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+
+    /* Shizen — natural accents */
+    --ai:        #264E70;   /* indigo — primary */
+    --beni:      #9B4E4E;   /* dyed red — wrong / loss */
+    --moegi:     #5B7553;   /* fresh green — correct */
+    --kitsune:   #B87333;   /* fox orange — highlight */
+    --murasaki:  #4A3B5C;   /* purple — code ink */
+
+    /*spacing */
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+
+    /* Type */
+    --text-whisper: 11px;
+    --text-body: 14px;
+    --text-lead: 16px;
+    --text-subhead: 18px;
+    --text-head: 24px;
+    --text-display: 32px;
+    --text-hero: 48px;
+
+    --radius-subtle: 2px;
+    --radius-gentle: 4px;
+    --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+
+    --duration-swift: 200ms;
+    --duration-natural: 300ms;
+    --duration-deliberate: 500ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep);
+    line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  /* ─── topbar — barely there ─── */
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav { display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase; }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  /* ─── hero —opening page ─── */
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: var(--ma-5);
+  }
+  .hero h1 { max-width: 20ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+    display: flex; flex-direction: column;
+  }
+
+  /* ─── sections — breathing between chapters ─── */
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  /* overlay chips */
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  /* controls — ghost buttons, minimal */
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.ghost { /* same as .btn now */ }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  /* callouts — washi paper feel */
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout strong { color: var(--sumi-deep); }
+
+  /* predict / quiz cards */
+  .predict {
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    padding: var(--ma-5);
+    border-radius: var(--radius-soft);
+  }
+  .predict h4 {
+    margin-bottom: var(--ma-3);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  }
+  .predict > p {
+    font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3);
+  }
+  .predict .opts { display: grid; gap: var(--ma-2); }
+  .opt {
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    padding: var(--ma-3) var(--ma-4);
+    border-radius: var(--radius-gentle);
+    cursor: pointer; text-align: left;
+    font-family: inherit; font-size: var(--text-body);
+    color: var(--sumi-deep);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal {
+    display: none; margin-top: var(--ma-3);
+    color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7;
+    padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm);
+  }
+  .reveal.show { display: block; }
+
+  /* ssl code — sumi ink block */
+  .ssl-code {
+    background: var(--sumi-deep);
+    color: var(--washi-cream);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: var(--radius-soft);
+    font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+    font-size: 12.5px; line-height: 1.7;
+    white-space: pre; overflow-x: auto;
+    box-shadow: var(--shadow-breath);
+  }
+  .ssl-code .cm  { color: var(--sumi-light); }
+  .ssl-code .tok { color: var(--kitsune); }
+  .ssl-code .num { color: var(--moegi); }
+
+  /* slide thumbnail — a reference, not decoration */
+  .slide-thumb {
+    margin-top: var(--ma-3);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-gentle);
+    overflow: hidden; max-width: 360px;
+    box-shadow: var(--shadow-whisper);
+  }
+  .slide-thumb img { width: 100%; display: block; }
+  .slide-thumb .cap {
+    padding: var(--ma-2) var(--ma-3);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-light); background: var(--washi-cream);
+  }
+
+  /* quiz */
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card {
+    background: var(--washi-white);
+    padding: var(--ma-5);
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--washi-warm);
+  }
+  .q-card > p:first-child {
+    font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3);
+  }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white);
+    color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4);
+    border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm);
+    box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light);
+    font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center;
+    line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+<link rel="stylesheet" href="/lesson-brutal.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">CSAI</span>
+    <span class="title">Self-Attention and Transformers</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 7</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html">Lesson 1</a>
+    <a href="lesson2.html">Lesson 2</a>
+    <a href="lesson3.html">Lesson 3</a>
+    <a href="lesson4.html">Lesson 4</a>
+    <a href="lesson5.html">Lesson 5</a>
+    <a href="lesson6.html">Lesson 6</a>
+    <a href="lesson7.html" class="active">Lesson 7</a>
+    <a href="lesson8.html">Lesson 8</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#bottleneck">1 · The recurrence bottleneck</a></li>
+    <li><a href="#rnn-attn">2 · Attention inside an RNN</a></li>
+    <li><a href="#self-attn">3 · Self-attention — the core idea</a></li>
+    <li><a href="#qkv">4 · Q, K, V as learned projections</a></li>
+    <li><a href="#formula">5 · The full attention formula</a></li>
+    <li><a href="#multihead">6 · Multi-head attention</a></li>
+    <li><a href="#block">7 · The Transformer block</a></li>
+    <li><a href="#masked">8 · Masked self-attention</a></li>
+    <li><a href="#position">9 · Positional encoding</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">Lesson Seven · slides 1–2</div>
+    <h1>Every token, looking at every other token, all at once.</h1>
+    <p>Last lesson the encoder squeezed an entire sentence into <strong>one final hidden state</strong>. The decoder then read from that single vector. It was a bottleneck. <strong>Self-attention</strong> removes the bottleneck — every token gets to look at every other token, in parallel, with no recurrence.</p>
+    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+</div>
+
+<!-- ═══════ 1. RECURRENCE BOTTLENECK ═══════ -->
+<section class="step" id="bottleneck">
+  <div class="text">
+    <div class="eyebrow">Section 1 · slides 3–4</div>
+    <h2>Where we left off</h2>
+    <p>Recurrent networks process tokens <strong>one at a time</strong>. The hidden state at step <code>t</code> is computed from the input <code>x<sub>t</sub></code> and the previous hidden state <code>h<sub>t-1</sub></code>. To compute step 50 you must first compute steps 1 through 49. Sequential. Slow. Not parallelizable.</p>
+    <p>The encoder-decoder pattern made things worse: the entire input sequence had to fit inside the <strong>final encoder hidden state</strong>, a single fixed-size vector. The decoder then had to reconstruct the output from that one bottleneck vector.</p>
+    <div class="callout warn">
+      <strong>Two problems with pure recurrence.</strong> First, training is slow because each step waits for the previous one. Second, long sequences lose information — by the time the encoder reaches token 50, traces of token 1 have been overwritten and squashed many times.
+    </div>
+    <p class="muted">The animation shows the bottleneck: information flows left to right, gets crushed into a single state, then the decoder tries to recover it. Watch how the decoder gets <em>only one cable</em> from the encoder.</p>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>Why can't we compute hidden states <code>h<sub>1</sub></code>, <code>h<sub>2</sub></code>, <code>h<sub>3</sub></code> in parallel in a vanilla RNN?</p>
+      <div class="opts" data-q="p1">
+        <button class="opt" data-correct="false">Because the GPU isn't fast enough</button>
+        <button class="opt" data-correct="true">Because each h<sub>t</sub> depends on h<sub>t-1</sub></button>
+        <button class="opt" data-correct="false">Because the loss is non-differentiable</button>
+      </div>
+      <div class="reveal">Each hidden state is a function of the previous one. That is a strict <strong>data dependency</strong>. No matter how many cores you have, you must wait.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="bottleneck-canvas">
+      <div class="chip nw">encoder → bottleneck → decoder</div>
+      <div class="chip se" id="bottleneck-status">step 0 / 6</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="bn-play">▶ Animate flow</button>
+      <button class="btn ghost" id="bn-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 2. ATTENTION INSIDE AN RNN ═══════ -->
+<section class="step" id="rnn-attn">
+  <div class="text">
+    <div class="eyebrow">Section 2 · slides 5–8</div>
+    <h2>Attention inside an RNN</h2>
+    <p>The first patch was to keep the recurrence but let each step <strong>peek at all the earlier ones</strong>. Instead of relying on a single hidden state, every step computes a weighted sum over <em>all</em> previous hidden states. The weights say <em>which past steps matter most for the current one</em>.</p>
+    <p>This was a real improvement, but it kept two limits. <strong>All the information is still routed through hidden states</strong> built one after another. And <strong>intermediate steps cannot pay attention to future inputs</strong> — they have not been computed yet.</p>
+    <div class="callout">
+      <strong>The question on slide 7.</strong> Why can step 3 not pay attention to step 5? Because in a recurrent encoder, step 5 is computed <em>after</em> step 3. So step 3 only sees the past. That is a real handicap when the meaning of an early word depends on a later one.
+    </div>
+    <p class="muted">The heatmap on the right shows attention weights inside an RNN encoder. Each row is a query timestep; each column is a key timestep. The lower-left triangle lights up — earlier steps cannot see future ones.</p>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>If we drop the recurrent connections entirely, what becomes possible?</p>
+      <div class="opts" data-q="p2">
+        <button class="opt" data-correct="false">The model becomes smaller</button>
+        <button class="opt" data-correct="true">All inputs can be processed independently and in parallel</button>
+        <button class="opt" data-correct="false">The model needs less data</button>
+      </div>
+      <div class="reveal">Slide 8 makes this point exactly: <strong>remove the recurrent connections, process every input in parallel</strong>. That is the seed of the Transformer.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="rnn-attn-canvas">
+      <div class="chip nw">RNN-encoder attention · 6 timesteps</div>
+      <div class="chip se">lower triangle · past only</div>
+    </div>
+    <div class="controls">
+      <button class="btn ghost" id="rnn-attn-shuffle">Shuffle weights</button>
+      <div class="slider-wrap">focus <input type="range" id="rnn-attn-focus" min="0" max="100" value="50"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 3. SELF-ATTENTION CORE IDEA ═══════ -->
+<section class="step" id="self-attn">
+  <div class="text">
+    <div class="eyebrow">Section 3 · slides 14–18</div>
+    <h2>Self-attention — the core idea</h2>
+    <p>Self-attention treats representation as a <strong>retrieval task</strong>. For each token, you ask: <em>given my current state, which other tokens should I read from, and how strongly?</em></p>
+    <p>Every token plays three roles at once:</p>
+    <ul>
+      <li>It produces a <strong>query</strong> <code>q</code> — what it is looking for.</li>
+      <li>It produces a <strong>key</strong> <code>k</code> — a label saying what it offers.</li>
+      <li>It produces a <strong>value</strong> <code>v</code> — the content it would hand over if asked.</li>
+    </ul>
+    <p>Take token <em>i</em>'s query, dot-product it with every other token's key. The bigger the dot product, the better the match. Run those scores through a <strong>softmax</strong> so they form a probability distribution. Then take the <strong>weighted sum of all the values</strong>. That is the new representation of token <em>i</em>.</p>
+    <div class="callout navy">
+      <strong>Slide 18 walks the example.</strong> The two words <em>Deep</em> and <em>Learning</em> become embeddings <code>e<sub>1</sub></code>, <code>e<sub>2</sub></code>. Each gets a <code>q</code>, <code>k</code>, <code>v</code>. Score <code>q<sub>1</sub>·k<sub>1</sub></code> and <code>q<sub>1</sub>·k<sub>2</sub></code>. Softmax gives weights <code>s<sub>1</sub></code>, <code>s<sub>2</sub></code>. Output for token 1 is <code>s<sub>1</sub>·v<sub>1</sub> + s<sub>2</sub>·v<sub>2</sub></code>.
+    </div>
+    <p class="muted">Click any token on the right. Watch its query light up, its dot-products with every key compute, the softmax normalize them, and the weighted sum of values produce the output.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="qk-canvas">
+      <div class="chip nw">click a token → see its attention</div>
+      <div class="chip se" id="qk-status">no token selected</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-tk="0">Token 1</button>
+      <button class="btn" data-tk="1">Token 2</button>
+      <button class="btn" data-tk="2">Token 3</button>
+      <button class="btn" data-tk="3">Token 4</button>
+      <button class="btn" data-tk="4">Token 5</button>
+      <button class="btn ghost" id="qk-reset">Clear</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 4. Q, K, V projections ═══════ -->
+<section class="step" id="qkv">
+  <div class="text">
+    <div class="eyebrow">Section 4 · slides 15, 19–20</div>
+    <h2>Q, K, V are three learned projections</h2>
+    <p>Where do the queries, keys, and values come from? They are not three separate inputs. They are <strong>three different views of the same input</strong>, produced by three weight matrices.</p>
+    <p>Take an input vector <code>x</code> (the token embedding). Multiply it by:</p>
+    <ul>
+      <li><strong>W<sub>Q</sub></strong> to get the <strong>query</strong> <code>q = W<sub>Q</sub> x</code></li>
+      <li><strong>W<sub>K</sub></strong> to get the <strong>key</strong> <code>k = W<sub>K</sub> x</code></li>
+      <li><strong>W<sub>V</sub></strong> to get the <strong>value</strong> <code>v = W<sub>V</sub> x</code></li>
+    </ul>
+    <p>The matrices are <strong>learned during training</strong>. Nothing tells the network what a query <em>should</em> look like — it figures out, by minimising the loss, what kind of query and key are useful for this task.</p>
+    <div class="callout">
+      <strong>Why three matrices?</strong> If we used the input itself as both query and key, every token would always match itself most strongly and the attention would collapse into the identity. The separate projections let the network learn a <em>different similarity geometry</em> for searching versus offering content.
+    </div>
+    <div class="callout navy">
+      In matrix form for the whole sequence: stack the inputs into a matrix <code>X</code>, then <code>Q = X W<sub>Q</sub></code>, <code>K = X W<sub>K</sub></code>, <code>V = X W<sub>V</sub></code>. Three matrix multiplies and you have everything you need.
+    </div>
+    <p class="muted">Drag the slider on the right to change the input vector <code>x</code>. The three coloured arrows show the resulting <code>q</code>, <code>k</code>, <code>v</code>. Each is a different rotated and scaled version of <code>x</code>.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="qkv-canvas">
+      <div class="chip nw">x → (q, k, v) via three matrices</div>
+      <div class="chip se" id="qkv-status">x = (1.0, 0.5)</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">x₁ <input type="range" id="qkv-x1" min="-100" max="100" value="80"></div>
+      <div class="slider-wrap">x₂ <input type="range" id="qkv-x2" min="-100" max="100" value="40"></div>
+      <button class="btn ghost" id="qkv-randomize">Randomize Wq, Wk, Wv</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 5. THE FULL FORMULA ═══════ -->
+<section class="step" id="formula">
+  <div class="text">
+    <div class="eyebrow">Section 5 · slides 21–24</div>
+    <h2>The full attention formula</h2>
+    <p>Put the pieces together. For one whole sequence, scaled dot-product attention is:</p>
+    <div class="ssl-code"><span class="cm">// scaled dot-product attention</span>
+Attention(Q, K, V) = softmax( Q · K<sup>T</sup> / √d<sub>k</sub> ) · V</div>
+    <p>Read it left to right. <code>Q · K<sup>T</sup></code> is a matrix of <strong>raw similarity scores</strong>: row <em>i</em>, column <em>j</em> is how much token <em>i</em>'s query matches token <em>j</em>'s key. Divide by <strong>√d<sub>k</sub></strong>, where <code>d<sub>k</sub></code> is the dimension of each key. Apply <strong>softmax</strong> along each row so the weights sum to one. Multiply by <strong>V</strong> to take the weighted average of the values.</p>
+    <div class="callout warn">
+      <strong>Why divide by √d<sub>k</sub>?</strong> If <code>q</code> and <code>k</code> have dimension <code>d<sub>k</sub></code> and their entries are roughly unit-variance and independent, then the dot product <code>q · k</code> has variance proportional to <code>d<sub>k</sub></code>. Without the scaling, large <code>d<sub>k</sub></code> would push the softmax into a region where one entry dominates and the gradient vanishes. Dividing by <strong>√d<sub>k</sub></strong> keeps the variance roughly constant.
+    </div>
+    <p class="muted">Drag the slider. At low temperature (large scaling) the softmax is sharp — almost one-hot. At high temperature (no scaling, large <code>d<sub>k</sub></code>) the distribution either flattens out or collapses onto a single token. Both extremes hurt training.</p>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>If <code>d<sub>k</sub> = 64</code>, what does the formula divide the scores by?</p>
+      <div class="opts" data-q="p3">
+        <button class="opt" data-correct="false">64</button>
+        <button class="opt" data-correct="true">8 — that is √64</button>
+        <button class="opt" data-correct="false">log(64)</button>
+      </div>
+      <div class="reveal">The scaling factor is the square root of the key dimension. <code>√64 = 8</code>.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="softmax-canvas">
+      <div class="chip nw">softmax shape vs. scaling</div>
+      <div class="chip se" id="softmax-status">d<sub>k</sub> = 64 · √d<sub>k</sub> = 8.0</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">d<sub>k</sub> <input type="range" id="sm-dk" min="1" max="256" value="64"></div>
+      <button class="btn" data-sm="scaled">Scaled</button>
+      <button class="btn ghost" data-sm="raw">Unscaled</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 6. MULTI-HEAD ATTENTION ═══════ -->
+<section class="step" id="multihead">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 25–27</div>
+    <h2>Multi-head attention</h2>
+    <p>One attention layer learns one notion of <em>relevance</em>. But language has many: subject–verb agreement, coreference, syntactic role, semantic similarity. <strong>Multi-head attention</strong> runs several attention computations in parallel, each with its own <code>W<sub>Q</sub></code>, <code>W<sub>K</sub></code>, <code>W<sub>V</sub></code>.</p>
+    <p>Each <strong>head</strong> projects the input into a smaller subspace, computes attention there, and produces its own output. The outputs of all heads are <strong>concatenated</strong> and multiplied by one final matrix <strong>W<sub>O</sub></strong> to mix them back together.</p>
+    <div class="ssl-code"><span class="cm">// h heads, each with its own Q, K, V projection</span>
+head<sub>i</sub> = Attention(X · W<sub>Q</sub><sup>i</sup>, X · W<sub>K</sub><sup>i</sup>, X · W<sub>V</sub><sup>i</sup>)
+MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub></div>
+    <div class="callout">
+      <strong>Different heads, different relationships.</strong> When you visualise attention from a trained Transformer you find heads that lock onto syntactic patterns, heads that track repeated tokens, heads that look at the previous word, heads that scan the whole sentence. The model picks up these specialisations during training — none of them are designed in.
+    </div>
+    <p class="muted">The four heatmaps on the right are four different attention heads on the same six-token sequence. Each has a different bias: head 1 is local, head 2 looks at the first token, head 3 is uniform, head 4 has a few sharp spikes. None of these are hand-designed — they are the kind of patterns a trained model produces.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="multihead-canvas">
+      <div class="chip nw">4 heads · 6 tokens × 6 tokens</div>
+      <div class="chip se" id="mh-status">click a head to highlight</div>
+    </div>
+    <div class="controls">
+      <button class="btn ghost" id="mh-rebuild">Resample heads</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 7. THE TRANSFORMER BLOCK ═══════ -->
+<section class="step" id="block">
+  <div class="text">
+    <div class="eyebrow">Section 7 · slides 28–30</div>
+    <h2>The Transformer block</h2>
+    <p>One <strong>encoder block</strong> wraps multi-head self-attention in a small recipe that is the same in every Transformer:</p>
+    <ol style="padding-left: 1.5em; line-height: 1.9; color: var(--sumi-deep);">
+      <li>Take the embedded inputs (with position information added).</li>
+      <li>Run <strong>multi-head self-attention</strong>.</li>
+      <li>Add the input back (a <strong>residual connection</strong>) and apply <strong>LayerNorm</strong>.</li>
+      <li>Run a small <strong>feed-forward network</strong>, applied to each position independently.</li>
+      <li>Add another residual and another LayerNorm.</li>
+    </ol>
+    <p>That is one block. You stack <em>N</em> of them. The original paper used <code>N = 6</code> blocks for the encoder.</p>
+    <div class="callout navy">
+      <strong>LayerNorm, not BatchNorm.</strong> Slide 30 spells this out: <em>statistics are taken over the last dimension</em>. Normalising over features within a single token (rather than across the batch) makes Transformers robust to varying sequence length and small batch sizes — exactly the regime they live in.
+    </div>
+    <div class="callout">
+      <strong>Why the residual?</strong> It gives the gradient an unobstructed path back through the stack. The block then only has to learn the <em>change</em> it wants to apply, not the whole representation. The same trick that makes ResNets trainable makes deep Transformers trainable.
+    </div>
+    <p class="muted">Press ▶ to send a token through one block. Watch the residual splits before and after the attention and feed-forward sub-layers — the original signal goes through unchanged, and the sub-layer's output is added on top.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="block-canvas">
+      <div class="chip nw">one encoder block · data flow</div>
+      <div class="chip se" id="block-status">idle</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="block-play">▶ Forward pass</button>
+      <button class="btn ghost" id="block-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 8. MASKED SELF-ATTENTION ═══════ -->
+<section class="step" id="masked">
+  <div class="text">
+    <div class="eyebrow">Section 8 · slides 35–43</div>
+    <h2>Masked self-attention — the decoder's rule</h2>
+    <p>An encoder is allowed to look at the whole input. A <strong>decoder</strong> generates one token at a time and must predict the next word from the words it has already produced. If it could peek at future tokens during training, the task would be trivial — just copy the next position. So we forbid it.</p>
+    <p>The fix is a <strong>causal mask</strong>. Compute the score matrix <code>Q · K<sup>T</sup></code> as usual. Before the softmax, <strong>add a mask</strong> that puts <code>−∞</code> on every entry above the diagonal — every position that points to the future. After <code>e<sup>−∞</sup> = 0</code>, those entries contribute nothing to the softmax sum.</p>
+    <div class="ssl-code"><span class="cm">// causal mask: zeros below and on the diagonal, −∞ above</span>
+scores  = Q · K<sup>T</sup> / √d<sub>k</sub>
+masked  = scores + M               <span class="cm">// M[i,j] = −∞ if j &gt; i else 0</span>
+weights = softmax(masked)          <span class="cm">// rows still sum to 1</span>
+output  = weights · V</div>
+    <div class="callout warn">
+      <strong>Slide 35 spells out the training pair.</strong> To learn the sentence <code>"The cat sat on the mat."</code>, the model sees input <code>&lt;SOS&gt; The cat sat on the</code> and is asked to predict the target <code>The cat sat on the mat &lt;EOS&gt;</code>. The mask makes sure each prediction position only sees the tokens up to <em>and including itself</em>.
+    </div>
+    <p class="muted">Click <em>Apply mask</em>. The upper triangle of the score grid floods with deep red <code>−∞</code> entries. After softmax, those squares go to zero. Row 1 ends up with all its weight on token 1, row 2 splits between tokens 1–2, and so on — exactly slide 43.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="mask-canvas">
+      <div class="chip nw">causal mask · 6 × 6</div>
+      <div class="chip se" id="mask-status">stage: raw scores</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="mask-stage1">1 · Raw scores</button>
+      <button class="btn" id="mask-stage2">2 · Apply mask</button>
+      <button class="btn" id="mask-stage3">3 · Softmax</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 9. POSITIONAL ENCODING ═══════ -->
+<section class="step" id="position">
+  <div class="text">
+    <div class="eyebrow">Section 9 · slides 30, 32</div>
+    <h2>Positional encoding</h2>
+    <p>Self-attention is permutation-invariant. Shuffle the tokens of the input and the attention output simply shuffles the same way. That is wrong for language: <em>"the cat ate the fish"</em> is not <em>"the fish ate the cat"</em>.</p>
+    <p>The fix is to <strong>add positional information directly to the embedding</strong>. Each position <code>p</code> gets its own vector <code>PE<sub>p</sub></code>, and the input to the first block becomes <code>x = embedding(token) + PE<sub>p</sub></code>.</p>
+    <p>The original Transformer used a fixed sinusoidal encoding:</p>
+    <div class="ssl-code">PE(p, 2i)   = sin( p / 10000<sup>2i/d</sup> )
+PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
+    <p>Different dimensions oscillate at different frequencies. Low dimensions change slowly across positions; high dimensions change quickly. The model can read absolute and relative position from this fingerprint. Modern Transformers often replace the formula with <strong>learned positional embeddings</strong> or relative-position schemes — but the principle is the same: <em>position must be injected</em>.</p>
+    <div class="callout navy">
+      <strong>Why this works.</strong> Sums of sines and cosines at multiple frequencies form a kind of multi-resolution clock. The dot product between <code>PE<sub>p</sub></code> and <code>PE<sub>q</sub></code> depends only on <code>p − q</code> — so the model can in principle learn relative offsets directly.
+    </div>
+    <p class="muted">The heatmap on the right plots <code>PE</code> for positions 0–63 (rows) across 32 dimensions (columns). Notice how the leftmost columns sweep slowly while the rightmost columns oscillate quickly.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="pe-canvas">
+      <div class="chip nw">positional encoding · sinusoidal</div>
+      <div class="chip se" id="pe-status">positions 0–63 × 32 dims</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">positions <input type="range" id="pe-pos" min="16" max="128" value="64"></div>
+      <div class="slider-wrap">dims <input type="range" id="pe-dim" min="8" max="64" value="32"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ QUIZ ═══════ -->
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> What is the main reason recurrent encoders are hard to parallelize?</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">They use too much memory</button>
+        <button class="opt" data-correct="true">Each hidden state depends on the previous one</button>
+        <button class="opt" data-correct="false">They use Layer Normalization</button>
+      </div>
+      <div class="reveal">The recurrent step <code>h<sub>t</sub> = f(x<sub>t</sub>, h<sub>t-1</sub>)</code> creates a strict data dependency chain. Self-attention drops it.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q2.</strong> In self-attention, the <strong>query</strong>, <strong>key</strong>, and <strong>value</strong> for a token come from:</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">Three different input tokens</button>
+        <button class="opt" data-correct="true">Three learned projections of the same input</button>
+        <button class="opt" data-correct="false">The previous time step's hidden state</button>
+      </div>
+      <div class="reveal">The same vector <code>x</code> is multiplied by <code>W<sub>Q</sub></code>, <code>W<sub>K</sub></code>, <code>W<sub>V</sub></code> to produce three different views.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q3.</strong> The attention scores are computed as:</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">The element-wise product of Q and V</button>
+        <button class="opt" data-correct="true">The dot product of each query with each key</button>
+        <button class="opt" data-correct="false">The cosine similarity of values</button>
+      </div>
+      <div class="reveal">Score(<em>i</em>, <em>j</em>) = <code>q<sub>i</sub> · k<sub>j</sub></code>. The result is then scaled by <code>√d<sub>k</sub></code> and softmaxed.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q4.</strong> Why divide the scores by <strong>√d<sub>k</sub></strong> before the softmax?</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">To make the result invariant to batch size</button>
+        <button class="opt" data-correct="true">To keep the variance of the scores from blowing up with d<sub>k</sub></button>
+        <button class="opt" data-correct="false">It is purely a runtime optimization</button>
+      </div>
+      <div class="reveal">Without scaling, large <code>d<sub>k</sub></code> produces huge logits, the softmax saturates, and the gradient vanishes.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q5.</strong> What does multi-head attention give you that single-head does not?</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">Lower memory cost</button>
+        <button class="opt" data-correct="true">Several different attention patterns learned in parallel</button>
+        <button class="opt" data-correct="false">Permutation invariance</button>
+      </div>
+      <div class="reveal">Each head has its own <code>Q</code>, <code>K</code>, <code>V</code> projection and learns a different relationship — syntactic, positional, semantic.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q6.</strong> Inside a Transformer block, what comes immediately after multi-head self-attention?</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="true">A residual connection plus LayerNorm</button>
+        <button class="opt" data-correct="false">A second attention layer</button>
+        <button class="opt" data-correct="false">A pooling step</button>
+      </div>
+      <div class="reveal">Add &amp; Norm: residual to keep the gradient path open, LayerNorm to stabilise statistics. Then the position-wise feed-forward network.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q7.</strong> What does the causal mask in masked self-attention contain?</p>
+      <div class="opts" data-q="q7">
+        <button class="opt" data-correct="false">Random noise for regularization</button>
+        <button class="opt" data-correct="true">−∞ on every position above the diagonal</button>
+        <button class="opt" data-correct="false">Zeros everywhere; the softmax handles it</button>
+      </div>
+      <div class="reveal">Adding <code>−∞</code> to future positions before softmax forces them to <code>e<sup>−∞</sup> = 0</code> after softmax, so they contribute nothing.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q8.</strong> Why do Transformers need positional encoding?</p>
+      <div class="opts" data-q="q8">
+        <button class="opt" data-correct="false">It speeds up softmax</button>
+        <button class="opt" data-correct="true">Self-attention has no built-in notion of token order</button>
+        <button class="opt" data-correct="false">It replaces the bias term</button>
+      </div>
+      <div class="reveal">Without recurrence or convolution, attention treats the sequence as a set. Positional encoding injects order back in.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q9.</strong> In sinusoidal positional encoding, low dimensions oscillate <em>__</em> across positions and high dimensions oscillate <em>__</em>.</p>
+      <div class="opts" data-q="q9">
+        <button class="opt" data-correct="true">slowly · quickly</button>
+        <button class="opt" data-correct="false">quickly · slowly</button>
+        <button class="opt" data-correct="false">at the same rate</button>
+      </div>
+      <div class="reveal">The frequency depends on <code>10000<sup>2i/d</sup></code>. Small <code>i</code> gives a long period (slow), large <code>i</code> gives a short period (fast).</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q10.</strong> A decoder cannot attend to future tokens during training because:</p>
+      <div class="opts" data-q="q10">
+        <button class="opt" data-correct="false">It would consume too much memory</button>
+        <button class="opt" data-correct="true">It would let the model cheat by copying the answer</button>
+        <button class="opt" data-correct="false">Future tokens haven't been computed yet</button>
+      </div>
+      <div class="reveal">Future tokens are known during teacher-forced training. The mask ensures the model still predicts each position from <em>only</em> the past — that's what it must do at inference time.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  End of lesson seven<br/>
+  built from <code>7 Self-Attention and Transformers.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
+  <a href="lesson8.html">Continue to Lesson 8 · Computer Vision →</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 13</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// Safe isolation — one broken scene must never blank the whole page.
+function safeScene(name, fn) {
+  try { fn(); }
+  catch (e) { console.warn(`[scene:${name}]`, e); }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PALETTE — matches CSS Japanese tokens
+// ═══════════════════════════════════════════════════════════════════
+const COLORS = {
+  navy:  0x264E70,
+  gold:  0xB87333,
+  red:   0x9B4E4E,
+  blue:  0x3E6B8A,
+  green: 0x5B7553,
+  orange:0xB87333,
+  gray:  0x8C867A,
+  white: 0xF5F2EB,
+  black: 0x1A1A1A,
+  cyan:  0x6B8A8F,
+  ink:   0x1A1A1A,
+  lightblue: 0x7FA0BA,
+};
+const SIZES = { xs: 0.05, s: 0.1, m: 0.18, l: 0.3, xl: 0.5 };
+
+function makeScene(host, opts={}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  scene.background = null;
+  const camera = new THREE.PerspectiveCamera(45, (rect.width||1)/(rect.height||1), 0.1, 100);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 4);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(rect.width, rect.height);
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+  const key = new THREE.DirectionalLight(0xffffff, 0.6);
+  key.position.set(3, 5, 2);
+  scene.add(key);
+
+  const resize = () => {
+    const r = host.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    camera.aspect = r.width / r.height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(r.width, r.height);
+  };
+  new ResizeObserver(resize).observe(host);
+
+  return { scene, camera, renderer, controls, resize };
+}
+
+function makeLabel(text, color = '#1A1A1A', bg = null, size = 64) {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 128;
+  const ctx = c.getContext('2d');
+  if (bg) { ctx.fillStyle = bg; ctx.fillRect(0,0,c.width,c.height); }
+  ctx.font = `600 ${size}px -apple-system, Inter, sans-serif`;
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, c.width/2, c.height/2);
+  const tex = new THREE.CanvasTexture(c);
+  tex.minFilter = THREE.LinearFilter;
+  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+  const sprite = new THREE.Sprite(mat);
+  sprite.scale.set(1.0, 0.25, 1);
+  return sprite;
+}
+
+function makeSphere(size, color) {
+  const r = SIZES[size] ?? 0.15;
+  const geom = new THREE.SphereGeometry(r, 32, 32);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.55 });
+  return new THREE.Mesh(geom, mat);
+}
+function makeBox(w, h, d, color) {
+  const geom = new THREE.BoxGeometry(w, h, d);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6, transparent: true, opacity: 0.9 });
+  return new THREE.Mesh(geom, mat);
+}
+function makeLine(a, b, color, dashed=false) {
+  const mat = dashed
+    ? new THREE.LineDashedMaterial({ color, dashSize: 0.08, gapSize: 0.06 })
+    : new THREE.LineBasicMaterial({ color });
+  const geom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(...a), new THREE.Vector3(...b)]);
+  const line = new THREE.Line(geom, mat);
+  if (dashed) line.computeLineDistances();
+  return line;
+}
+function makeCylinderBetween(a, b, color, radius = 0.02) {
+  const va = new THREE.Vector3(...a), vb = new THREE.Vector3(...b);
+  const dir = new THREE.Vector3().subVectors(vb, va);
+  const len = dir.length();
+  const geom = new THREE.CylinderGeometry(radius, radius, len, 12);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6 });
+  const mesh = new THREE.Mesh(geom, mat);
+  mesh.position.copy(va).add(vb).multiplyScalar(0.5);
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), dir.clone().normalize());
+  return mesh;
+}
+function makeAxes(len = 2) {
+  const g = new THREE.Group();
+  g.add(makeLine([0,0,0],[len,0,0], COLORS.red));
+  g.add(makeLine([0,0,0],[0,len,0], COLORS.green));
+  g.add(makeLine([0,0,0],[0,0,len], COLORS.blue));
+  return g;
+}
+
+// 2D canvas helper — many of our scenes need plain pixel work.
+function make2D(host) {
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  canvas.style.display = 'block';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  function size() {
+    const r = host.getBoundingClientRect();
+    canvas.width  = Math.max(1, r.width)  * devicePixelRatio;
+    canvas.height = Math.max(1, r.height) * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  size();
+  new ResizeObserver(size).observe(host);
+  return { canvas, ctx, host };
+}
+
+// Map a normalized weight in [0,1] to a sumi/ai paper-friendly fill.
+function weightToColor(w) {
+  // 0 = washi cream, 1 = deep ai indigo
+  const t = Math.max(0, Math.min(1, w));
+  const r = Math.round(237 + (38  - 237) * t);
+  const g = Math.round(232 + (78  - 232) * t);
+  const b = Math.round(220 + (112 - 220) * t);
+  return `rgb(${r},${g},${b})`;
+}
+function negToColor(s) {
+  // s in [-1, 1], red for negative, indigo for positive, cream for zero
+  const t = Math.max(-1, Math.min(1, s));
+  if (t >= 0) return weightToColor(t);
+  const k = -t;
+  const r = Math.round(237 + (155 - 237) * k);
+  const g = Math.round(232 + (78  - 232) * k);
+  const b = Math.round(220 + (78  - 220) * k);
+  return `rgb(${r},${g},${b})`;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO — ambient attention web. Tokens around a circle, edges of varying
+// thickness pulse slowly to suggest "every token attends to every token".
+// ═══════════════════════════════════════════════════════════════════
+safeScene('hero', function () {
+  const host = document.getElementById('hero-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 4.2] });
+  controls.enableRotate = false; controls.enableZoom = false;
+
+  const N = 8;
+  const tokens = [];
+  for (let i = 0; i < N; i++) {
+    const angle = (i / N) * Math.PI * 2;
+    const x = Math.cos(angle) * 1.5;
+    const y = Math.sin(angle) * 1.5;
+    const m = makeSphere('m', i % 3 === 0 ? COLORS.gold : COLORS.navy);
+    m.position.set(x, y, 0);
+    scene.add(m);
+    tokens.push(m);
+  }
+
+  // Build all edges between tokens, store materials so we can pulse opacity
+  const edges = [];
+  for (let i = 0; i < N; i++) {
+    for (let j = i+1; j < N; j++) {
+      const mat = new THREE.LineBasicMaterial({ color: COLORS.navy, transparent: true, opacity: 0.15 });
+      const geo = new THREE.BufferGeometry().setFromPoints([tokens[i].position, tokens[j].position]);
+      const line = new THREE.Line(geo, mat);
+      scene.add(line);
+      edges.push({ line, mat, i, j });
+    }
+  }
+
+  let t = 0;
+  function loop() {
+    t += 0.012;
+    edges.forEach((e, k) => {
+      const phase = t + k * 0.35;
+      e.mat.opacity = 0.06 + Math.max(0, Math.sin(phase)) * 0.45;
+    });
+    tokens.forEach((m, k) => {
+      const s = 1 + Math.sin(t * 1.3 + k) * 0.08;
+      m.scale.set(s, s, s);
+    });
+    scene.rotation.z += 0.0006;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 1 · BOTTLENECK SCENE — encoder boxes feed into one bottleneck node,
+// which then feeds decoder boxes. Press play to watch tokens flow through.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('bottleneck', function () {
+  const host = document.getElementById('bottleneck-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0.4, 5.2] });
+  controls.enableRotate = false; controls.enableZoom = false;
+
+  // encoder column on left, decoder column on right, single bottleneck node centre
+  const encX = -2.2, decX = 2.2, midX = 0;
+  const N = 4;
+
+  const encNodes = [];
+  for (let i = 0; i < N; i++) {
+    const y = (i - (N-1)/2) * 0.6;
+    const m = makeSphere('m', COLORS.navy);
+    m.position.set(encX, y, 0);
+    scene.add(m);
+    encNodes.push(m);
+    // input arrows below
+    const inp = makeSphere('s', COLORS.gold);
+    inp.position.set(encX - 0.9, y, 0);
+    scene.add(inp);
+    scene.add(makeLine([encX - 0.9, y, 0], [encX, y, 0], COLORS.gray));
+  }
+  const decNodes = [];
+  for (let i = 0; i < N; i++) {
+    const y = (i - (N-1)/2) * 0.6;
+    const m = makeSphere('m', COLORS.green);
+    m.position.set(decX, y, 0);
+    scene.add(m);
+    decNodes.push(m);
+    const out = makeSphere('s', COLORS.gold);
+    out.position.set(decX + 0.9, y, 0);
+    scene.add(out);
+    scene.add(makeLine([decX, y, 0], [decX + 0.9, y, 0], COLORS.gray));
+  }
+  // recurrent connections inside encoder
+  for (let i = 0; i < N - 1; i++) {
+    const a = encNodes[i].position, b = encNodes[i+1].position;
+    scene.add(makeLine([a.x, a.y, 0], [b.x, b.y, 0], COLORS.navy));
+  }
+  // recurrent connections inside decoder
+  for (let i = 0; i < N - 1; i++) {
+    const a = decNodes[i].position, b = decNodes[i+1].position;
+    scene.add(makeLine([a.x, a.y, 0], [b.x, b.y, 0], COLORS.green));
+  }
+  // bottleneck node
+  const bn = makeSphere('l', COLORS.gold);
+  bn.position.set(midX, 0, 0);
+  scene.add(bn);
+  // last encoder hidden state to bottleneck
+  scene.add(makeLine([encNodes[N-1].position.x, encNodes[N-1].position.y, 0], [midX, 0, 0], COLORS.gold));
+  // bottleneck to decoder first hidden state
+  scene.add(makeLine([midX, 0, 0], [decNodes[0].position.x, decNodes[0].position.y, 0], COLORS.gold));
+
+  // pulse particle
+  const pulse = makeSphere('s', COLORS.red);
+  pulse.visible = false;
+  scene.add(pulse);
+
+  // labels
+  const encLab = makeLabel('encoder', '#3D3D3D');
+  encLab.position.set(encX, 1.6, 0); encLab.scale.set(0.9, 0.22, 1); scene.add(encLab);
+  const bnLab = makeLabel('bottleneck', '#B87333');
+  bnLab.position.set(midX, -1.5, 0); bnLab.scale.set(0.9, 0.22, 1); scene.add(bnLab);
+  const decLab = makeLabel('decoder', '#3D3D3D');
+  decLab.position.set(decX, 1.6, 0); decLab.scale.set(0.9, 0.22, 1); scene.add(decLab);
+
+  let stage = 0; let playing = false; let progress = 0;
+  const path = [
+    { from: [encX-0.9, -0.9, 0], to: [encX,    -0.9, 0] },
+    { from: [encX,    -0.9, 0], to: [encX,     0.9, 0] },
+    { from: [encX,     0.9, 0], to: [midX,     0,    0] },
+    { from: [midX,     0,    0], to: [decX,   -0.9, 0] },
+    { from: [decX,    -0.9, 0], to: [decX,     0.9, 0] },
+    { from: [decX,     0.9, 0], to: [decX+0.9, 0.9, 0] },
+  ];
+  const status = document.getElementById('bottleneck-status');
+
+  function setStatus() { status.textContent = `step ${stage} / ${path.length}`; }
+
+  document.getElementById('bn-play').onclick = () => {
+    if (playing) return;
+    playing = true; stage = 0; progress = 0;
+    pulse.visible = true; setStatus();
+  };
+  document.getElementById('bn-reset').onclick = () => {
+    playing = false; stage = 0; pulse.visible = false; setStatus();
+  };
+  setStatus();
+
+  function loop() {
+    if (playing) {
+      progress += 0.018;
+      if (progress >= 1) {
+        progress = 0; stage += 1;
+        if (stage >= path.length) { playing = false; pulse.visible = false; }
+        setStatus();
+      }
+      const seg = path[Math.min(stage, path.length-1)];
+      pulse.position.set(
+        seg.from[0] + (seg.to[0] - seg.from[0]) * progress,
+        seg.from[1] + (seg.to[1] - seg.from[1]) * progress,
+        0
+      );
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 2 · RNN-ENCODER ATTENTION HEATMAP — 6×6 lower-triangular grid of weights.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('rnn-attn', function () {
+  const host = document.getElementById('rnn-attn-canvas');
+  const { ctx, canvas } = make2D(host);
+
+  const N = 6;
+  let weights = generate();
+  let focusBias = 0.5;
+
+  function generate() {
+    // lower-triangular weights, each row roughly normalized
+    const W = [];
+    for (let i = 0; i < N; i++) {
+      const row = new Array(N).fill(0);
+      for (let j = 0; j <= i; j++) {
+        row[j] = Math.random() * 0.7 + 0.1;
+      }
+      const s = row.reduce((a,b)=>a+b,0) || 1;
+      for (let j = 0; j < N; j++) row[j] /= s;
+      W.push(row);
+    }
+    return W;
+  }
+
+  function draw() {
+    const W = weights;
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+    const pad = 50;
+    const size = Math.min(w - pad*2, h - pad*2);
+    const cell = size / N;
+
+    // bias the row dist using focusBias slider — sharpen or flatten
+    const sharp = 0.5 + focusBias * 1.8;
+    for (let i = 0; i < N; i++) {
+      let row = W[i].slice();
+      // soften / sharpen via temperature
+      row = row.map(v => Math.pow(v, sharp));
+      const s = row.reduce((a,b)=>a+b,0) || 1;
+      row = row.map(v => v/s);
+      for (let j = 0; j < N; j++) {
+        ctx.fillStyle = j > i ? '#EDE8DC' : weightToColor(row[j]);
+        ctx.fillRect(pad + j*cell, pad + i*cell, cell - 1, cell - 1);
+        if (j > i) {
+          // light cross-hatch to indicate forbidden
+          ctx.strokeStyle = '#d4cdba';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(pad + j*cell, pad + i*cell);
+          ctx.lineTo(pad + (j+1)*cell - 1, pad + (i+1)*cell - 1);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // axes labels
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (let j = 0; j < N; j++) {
+      ctx.fillText(`t${j+1}`, pad + j*cell + cell/2, pad - 16);
+    }
+    ctx.textAlign = 'right';
+    for (let i = 0; i < N; i++) {
+      ctx.fillText(`t${i+1}`, pad - 8, pad + i*cell + cell/2);
+    }
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#3D3D3D';
+    ctx.font = '600 12px -apple-system, Inter, sans-serif';
+    ctx.fillText('keys (past timesteps)', pad + size/2, pad - 32);
+    ctx.save();
+    ctx.translate(pad - 36, pad + size/2);
+    ctx.rotate(-Math.PI/2);
+    ctx.fillText('queries', 0, 0);
+    ctx.restore();
+  }
+  draw();
+
+  document.getElementById('rnn-attn-shuffle').onclick = () => {
+    weights = generate(); draw();
+  };
+  document.getElementById('rnn-attn-focus').oninput = (e) => {
+    focusBias = +e.target.value / 100; draw();
+  };
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 3 · SELF-ATTENTION CORE — five tokens. Click one and watch its query
+// dot every key, soft-max, and weight all the values.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('qk', function () {
+  const host = document.getElementById('qk-canvas');
+  const { ctx, canvas } = make2D(host);
+  const N = 5;
+  // synthetic q, k, v for 5 tokens — small 2D vectors so the demo is readable
+  const seed = 42;
+  function rand(s) { s = (s * 9301 + 49297) % 233280; return s / 233280; }
+  let s = seed;
+  const Q = [], K = [], V = [];
+  for (let i = 0; i < N; i++) {
+    s = (s*1103515245 + 12345) & 0x7fffffff;
+    Q.push([Math.cos(i*1.3 + s*0.0001) * 1.0, Math.sin(i*0.9) * 0.8 + 0.2]);
+    K.push([Math.sin(i*1.1) * 1.0,            Math.cos(i*0.7 + 1) * 0.8]);
+    V.push([0.4 + 0.5 * Math.sin(i*0.5),      0.4 + 0.5 * Math.cos(i*0.4)]);
+  }
+
+  let selected = -1;
+
+  function dot(a, b) { return a[0]*b[0] + a[1]*b[1]; }
+  function softmax(arr) {
+    const m = Math.max(...arr);
+    const e = arr.map(v => Math.exp(v - m));
+    const s = e.reduce((a,b)=>a+b,0);
+    return e.map(v => v/s);
+  }
+
+  function draw() {
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const padL = 60, padR = 60, padT = 60, padB = 80;
+    const colW = (w - padL - padR) / N;
+    const tokenY = padT + 30;
+    const scoreY = tokenY + 90;
+    const softY  = scoreY + 60;
+    const valY   = softY  + 60;
+    const outY   = valY   + 80;
+
+    // label column
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText('tokens', padL - 10, tokenY);
+    ctx.fillText('q · k', padL - 10, scoreY);
+    ctx.fillText('softmax', padL - 10, softY);
+    ctx.fillText('values', padL - 10, valY);
+    ctx.fillText('output', padL - 10, outY);
+
+    // raw scores
+    let scores = null, weights = null;
+    if (selected >= 0) {
+      scores = K.map(k => dot(Q[selected], k));
+      weights = softmax(scores);
+    }
+
+    for (let j = 0; j < N; j++) {
+      const cx = padL + colW * (j + 0.5);
+      // token square
+      const isSel = j === selected;
+      ctx.fillStyle = isSel ? '#264E70' : '#EDE8DC';
+      ctx.strokeStyle = isSel ? '#264E70' : '#d4cdba';
+      ctx.lineWidth = isSel ? 2 : 1;
+      ctx.fillRect(cx - 26, tokenY - 18, 52, 36);
+      ctx.strokeRect(cx - 26, tokenY - 18, 52, 36);
+      ctx.fillStyle = isSel ? '#F5F2EB' : '#3D3D3D';
+      ctx.font = '600 12px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(`x${j+1}`, cx, tokenY);
+
+      // score cell
+      let sval = scores ? scores[j] : 0;
+      let wval = weights ? weights[j] : 0;
+      ctx.fillStyle = scores ? negToColor(sval / 1.5) : '#EDE8DC';
+      ctx.fillRect(cx - 24, scoreY - 16, 48, 32);
+      ctx.strokeStyle = '#d4cdba'; ctx.strokeRect(cx - 24, scoreY - 16, 48, 32);
+      ctx.fillStyle = '#3D3D3D'; ctx.font = '11px -apple-system, monospace';
+      ctx.fillText(scores ? sval.toFixed(2) : '·', cx, scoreY);
+
+      // softmax bar
+      ctx.fillStyle = '#EDE8DC';
+      ctx.fillRect(cx - 24, softY - 18, 48, 36);
+      ctx.fillStyle = weights ? weightToColor(wval) : '#EDE8DC';
+      const bh = weights ? wval * 36 : 0;
+      ctx.fillRect(cx - 24, softY - 18 + (36 - bh), 48, bh);
+      ctx.strokeStyle = '#d4cdba'; ctx.strokeRect(cx - 24, softY - 18, 48, 36);
+      ctx.fillStyle = '#3D3D3D';
+      ctx.fillText(weights ? wval.toFixed(2) : '·', cx, softY + 28);
+
+      // value vector — drawn as a tiny 2D arrow inside a card
+      ctx.fillStyle = '#EDE8DC';
+      ctx.fillRect(cx - 26, valY - 22, 52, 44);
+      ctx.strokeStyle = '#d4cdba'; ctx.strokeRect(cx - 26, valY - 22, 52, 44);
+      const v = V[j];
+      ctx.strokeStyle = '#B87333'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(cx, valY); ctx.lineTo(cx + v[0]*20, valY - v[1]*16); ctx.stroke();
+      ctx.fillStyle = '#B87333'; ctx.beginPath();
+      ctx.arc(cx + v[0]*20, valY - v[1]*16, 2.5, 0, Math.PI*2); ctx.fill();
+    }
+
+    // output: weighted sum drawn at the bottom centre
+    if (weights) {
+      let out = [0, 0];
+      for (let j = 0; j < N; j++) { out[0] += weights[j]*V[j][0]; out[1] += weights[j]*V[j][1]; }
+      const cx = padL + (N * colW) / 2;
+      ctx.fillStyle = '#264E70'; ctx.strokeStyle = '#264E70';
+      ctx.fillRect(cx - 80, outY - 30, 160, 50);
+      ctx.fillStyle = '#F5F2EB';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = '600 12px -apple-system, Inter, sans-serif';
+      ctx.fillText('Σ wⱼ · vⱼ', cx, outY - 12);
+      ctx.font = '11px monospace';
+      ctx.fillText(`(${out[0].toFixed(2)}, ${out[1].toFixed(2)})`, cx, outY + 8);
+    }
+  }
+  draw();
+
+  document.querySelectorAll('#self-attn [data-tk]').forEach(btn => {
+    btn.onclick = () => {
+      selected = +btn.dataset.tk;
+      document.getElementById('qk-status').textContent = `query from token ${selected+1}`;
+      draw();
+    };
+  });
+  document.getElementById('qk-reset').onclick = () => {
+    selected = -1;
+    document.getElementById('qk-status').textContent = 'no token selected';
+    draw();
+  };
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 4 · Q, K, V projections — one input vector x, three matrices.
+// Show x, q, k, v as arrows in 2D. Drag sliders to change x.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('qkv', function () {
+  const host = document.getElementById('qkv-canvas');
+  const { ctx, canvas } = make2D(host);
+
+  // three randomly initialised 2x2 weight matrices
+  function randMat() {
+    return [
+      [(Math.random()*2-1) * 1.0, (Math.random()*2-1) * 1.0],
+      [(Math.random()*2-1) * 1.0, (Math.random()*2-1) * 1.0],
+    ];
+  }
+  let Wq = [[ 0.8, -0.5], [ 0.4, 0.9]];
+  let Wk = [[ 0.3,  0.7], [-0.6, 0.5]];
+  let Wv = [[ 0.7,  0.2], [ 0.5, -0.8]];
+
+  function mul(W, x) {
+    return [W[0][0]*x[0] + W[0][1]*x[1], W[1][0]*x[0] + W[1][1]*x[1]];
+  }
+
+  function draw() {
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const x1 = +document.getElementById('qkv-x1').value / 100;
+    const x2 = +document.getElementById('qkv-x2').value / 100;
+    const x = [x1 * 1.4, x2 * 1.4];
+    const q = mul(Wq, x);
+    const k = mul(Wk, x);
+    const v = mul(Wv, x);
+
+    document.getElementById('qkv-status').textContent =
+      `x = (${x[0].toFixed(2)}, ${x[1].toFixed(2)}) · q=(${q[0].toFixed(2)},${q[1].toFixed(2)}) · k=(${k[0].toFixed(2)},${k[1].toFixed(2)}) · v=(${v[0].toFixed(2)},${v[1].toFixed(2)})`;
+
+    // draw four small panes in a row
+    const pad = 40;
+    const paneW = (w - pad*5) / 4;
+    const paneH = h - pad*2;
+    const labels = ['x (input)', 'q = W_Q · x', 'k = W_K · x', 'v = W_V · x'];
+    const colors = ['#3D3D3D', '#264E70', '#5B7553', '#B87333'];
+    const vecs   = [x, q, k, v];
+
+    for (let i = 0; i < 4; i++) {
+      const px = pad + i * (paneW + pad);
+      const py = pad;
+      // pane bg
+      ctx.fillStyle = '#EDE8DC';
+      ctx.fillRect(px, py, paneW, paneH);
+      ctx.strokeStyle = '#d4cdba';
+      ctx.strokeRect(px, py, paneW, paneH);
+
+      // label
+      ctx.fillStyle = colors[i];
+      ctx.font = '600 12px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      ctx.fillText(labels[i], px + paneW/2, py + 8);
+
+      // axes
+      const cx = px + paneW/2, cy = py + paneH/2;
+      const scale = Math.min(paneW, paneH) * 0.32;
+      ctx.strokeStyle = '#d4cdba'; ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - scale, cy); ctx.lineTo(cx + scale, cy); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - scale); ctx.lineTo(cx, cy + scale); ctx.stroke();
+
+      // arrow
+      const vec = vecs[i];
+      const ax = cx + vec[0] * scale * 0.8;
+      const ay = cy - vec[1] * scale * 0.8;
+      ctx.strokeStyle = colors[i]; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ax, ay); ctx.stroke();
+      ctx.fillStyle = colors[i]; ctx.beginPath();
+      ctx.arc(ax, ay, 4, 0, Math.PI*2); ctx.fill();
+      // numeric
+      ctx.fillStyle = colors[i]; ctx.font = '11px monospace';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      ctx.fillText(`(${vec[0].toFixed(2)}, ${vec[1].toFixed(2)})`, cx, py + paneH - 8);
+    }
+  }
+  draw();
+
+  ['qkv-x1', 'qkv-x2'].forEach(id => document.getElementById(id).oninput = draw);
+  document.getElementById('qkv-randomize').onclick = () => {
+    Wq = randMat(); Wk = randMat(); Wv = randMat(); draw();
+  };
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 5 · SCALED SOFTMAX DEMO — show logits and resulting softmax for several
+// d_k values. As d_k grows without scaling, softmax sharpens to one-hot;
+// with √d_k scaling it stays well-behaved.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('softmax', function () {
+  const host = document.getElementById('softmax-canvas');
+  const { ctx, canvas } = make2D(host);
+
+  // base logits scaled by sqrt(d_k) of features
+  const baseScores = [0.6, 1.2, 0.9, 0.3, 0.7, 1.1, 0.4, 0.8];
+  let mode = 'scaled';
+
+  function softmax(arr) {
+    const m = Math.max(...arr);
+    const e = arr.map(v => Math.exp(v - m));
+    const s = e.reduce((a,b)=>a+b,0);
+    return e.map(v => v/s);
+  }
+
+  function draw() {
+    const dk = +document.getElementById('sm-dk').value;
+    document.getElementById('softmax-status').innerHTML =
+      `d<sub>k</sub> = ${dk} · √d<sub>k</sub> = ${Math.sqrt(dk).toFixed(2)} · mode: ${mode}`;
+
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    // simulate raw logits at this d_k: variance grows with d_k
+    const raw = baseScores.map(s => s * Math.sqrt(dk));
+    const logits = mode === 'scaled' ? raw.map(s => s / Math.sqrt(dk)) : raw;
+    const probs = softmax(logits);
+
+    const pad = 50;
+    const N = baseScores.length;
+    const halfH = (h - pad*3) / 2;
+    const colW = (w - pad*2) / N;
+
+    // top: logits
+    ctx.fillStyle = '#3D3D3D';
+    ctx.font = '600 12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    ctx.fillText(mode === 'scaled' ? 'logits AFTER ÷ √d_k' : 'raw logits (no scaling)', pad, pad - 28);
+
+    const maxAbs = Math.max(...logits.map(Math.abs), 0.5);
+    for (let i = 0; i < N; i++) {
+      const cx = pad + colW * (i + 0.5);
+      const baseY = pad + halfH;
+      const bh = (logits[i] / maxAbs) * (halfH - 10);
+      ctx.fillStyle = '#264E70';
+      ctx.fillRect(cx - colW*0.35, baseY - bh, colW*0.7, bh);
+      ctx.strokeStyle = '#d4cdba';
+      ctx.beginPath(); ctx.moveTo(pad, baseY); ctx.lineTo(w - pad, baseY); ctx.stroke();
+      ctx.fillStyle = '#6B6B6B'; ctx.font = '11px monospace';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      ctx.fillText(logits[i].toFixed(1), cx, baseY + 4);
+    }
+
+    // bottom: softmax probabilities
+    ctx.fillStyle = '#3D3D3D';
+    ctx.font = '600 12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    const bottomTop = pad*2 + halfH;
+    ctx.fillText('softmax(logits)  — probabilities', pad, bottomTop - 22);
+    for (let i = 0; i < N; i++) {
+      const cx = pad + colW * (i + 0.5);
+      const baseY = bottomTop + halfH;
+      const bh = probs[i] * (halfH - 10);
+      ctx.fillStyle = weightToColor(probs[i]);
+      ctx.fillRect(cx - colW*0.35, baseY - bh, colW*0.7, bh);
+      ctx.strokeStyle = '#d4cdba';
+      ctx.strokeRect(cx - colW*0.35, baseY - bh, colW*0.7, bh);
+      ctx.fillStyle = '#3D3D3D'; ctx.font = '11px monospace';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      ctx.fillText(probs[i].toFixed(2), cx, baseY + 4);
+    }
+  }
+  draw();
+
+  document.getElementById('sm-dk').oninput = draw;
+  document.querySelectorAll('#formula [data-sm]').forEach(b => {
+    b.onclick = () => { mode = b.dataset.sm; draw(); };
+  });
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6 · MULTI-HEAD ATTENTION — four 6×6 heatmaps, each with a different
+// attention pattern (local, anchor, uniform, sharp).
+// ═══════════════════════════════════════════════════════════════════
+safeScene('multihead', function () {
+  const host = document.getElementById('multihead-canvas');
+  const { ctx, canvas } = make2D(host);
+  const N = 6;
+  let heads = build();
+
+  function build() {
+    // four heads with different "personalities"
+    const local = [];   // head 1: heavy on diagonal and near-diagonal
+    for (let i = 0; i < N; i++) {
+      const row = [];
+      for (let j = 0; j < N; j++) {
+        const d = Math.abs(i - j);
+        row.push(Math.exp(-d*d * 0.7) + Math.random()*0.05);
+      }
+      const s = row.reduce((a,b)=>a+b,0); local.push(row.map(v=>v/s));
+    }
+    const anchor = [];  // head 2: every row attends to token 1
+    for (let i = 0; i < N; i++) {
+      const row = new Array(N).fill(0.05 + Math.random()*0.04);
+      row[0] = 0.7 + Math.random()*0.1;
+      const s = row.reduce((a,b)=>a+b,0); anchor.push(row.map(v=>v/s));
+    }
+    const uniform = []; // head 3: nearly flat, slight noise
+    for (let i = 0; i < N; i++) {
+      const row = new Array(N).fill(1).map(() => 1 + Math.random()*0.2);
+      const s = row.reduce((a,b)=>a+b,0); uniform.push(row.map(v=>v/s));
+    }
+    const sharp = []; // head 4: each row picks one or two tokens hard
+    for (let i = 0; i < N; i++) {
+      const row = new Array(N).fill(0.02);
+      const pick = (i + 2) % N;
+      const pick2 = (i + 4) % N;
+      row[pick] = 0.6; row[pick2] = 0.3;
+      const s = row.reduce((a,b)=>a+b,0); sharp.push(row.map(v=>v/s));
+    }
+    return [
+      { name: 'head 1 · local', mat: local },
+      { name: 'head 2 · anchor', mat: anchor },
+      { name: 'head 3 · uniform', mat: uniform },
+      { name: 'head 4 · sharp', mat: sharp },
+    ];
+  }
+
+  function draw() {
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const pad = 30;
+    const cols = 2, rows = 2;
+    const cellW = (w - pad*3) / cols;
+    const cellH = (h - pad*3) / rows;
+
+    heads.forEach((head, idx) => {
+      const cx0 = pad + (idx % cols) * (cellW + pad);
+      const cy0 = pad + Math.floor(idx / cols) * (cellH + pad);
+      // title
+      ctx.fillStyle = '#3D3D3D';
+      ctx.font = '600 11px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillText(head.name, cx0 + 4, cy0);
+      const gridW = cellW; const gridH = cellH - 18;
+      const gy0 = cy0 + 18;
+      const cellSize = Math.min(gridW, gridH) / N;
+      const ox = cx0 + (gridW - cellSize*N)/2;
+      for (let i = 0; i < N; i++) {
+        for (let j = 0; j < N; j++) {
+          ctx.fillStyle = weightToColor(head.mat[i][j] * 3);
+          ctx.fillRect(ox + j*cellSize, gy0 + i*cellSize, cellSize - 1, cellSize - 1);
+        }
+      }
+    });
+  }
+  draw();
+
+  document.getElementById('mh-rebuild').onclick = () => { heads = build(); draw(); };
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 7 · TRANSFORMER BLOCK — show data flow with residual connections.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('block', function () {
+  const host = document.getElementById('block-canvas');
+  const { ctx, canvas } = make2D(host);
+  let progress = 0; let playing = false;
+  const status = document.getElementById('block-status');
+
+  // sequence of nodes from bottom to top
+  const stages = [
+    { y: 0.92, label: 'Embedding + position', kind: 'in' },
+    { y: 0.74, label: 'Multi-head self-attention', kind: 'sa' },
+    { y: 0.60, label: 'Add (residual) → LayerNorm', kind: 'an' },
+    { y: 0.42, label: 'Feed-forward (per token)', kind: 'ff' },
+    { y: 0.28, label: 'Add (residual) → LayerNorm', kind: 'an' },
+    { y: 0.10, label: 'Block output', kind: 'out' },
+  ];
+
+  function draw() {
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const cx = w / 2;
+    const blockW = Math.min(w * 0.62, 360);
+
+    // residual side track on the right
+    const resX = cx + blockW/2 + 24;
+    const inY = h * stages[0].y;
+    const outY = h * stages[stages.length-1].y;
+    ctx.strokeStyle = '#d4cdba'; ctx.setLineDash([4, 4]);
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(resX, inY); ctx.lineTo(resX, outY); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // boxes
+    stages.forEach((stage, idx) => {
+      const y = h * stage.y;
+      const colorMap = {
+        in:  '#EDE8DC',
+        sa:  '#264E70',
+        an:  '#B87333',
+        ff:  '#5B7553',
+        out: '#EDE8DC',
+      };
+      const txtMap = {
+        in: '#3D3D3D', sa: '#F5F2EB', an: '#F5F2EB', ff: '#F5F2EB', out: '#3D3D3D',
+      };
+      ctx.fillStyle = colorMap[stage.kind];
+      ctx.strokeStyle = '#d4cdba';
+      ctx.fillRect(cx - blockW/2, y - 22, blockW, 44);
+      ctx.strokeRect(cx - blockW/2, y - 22, blockW, 44);
+      ctx.fillStyle = txtMap[stage.kind];
+      ctx.font = '600 13px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(stage.label, cx, y);
+    });
+
+    // central spine arrows (between boxes)
+    ctx.strokeStyle = '#8C867A'; ctx.lineWidth = 1.6;
+    for (let i = 0; i < stages.length - 1; i++) {
+      const y1 = h * stages[i].y - 22;
+      const y2 = h * stages[i+1].y + 22;
+      ctx.beginPath(); ctx.moveTo(cx, y1); ctx.lineTo(cx, y2); ctx.stroke();
+    }
+
+    // animated pulse along the route
+    if (playing) {
+      // route: bottom → top, with branch into residual side at sa-input and ff-input
+      // simple version: pulse on spine
+      const startY = h * stages[0].y - 22;
+      const endY = h * stages[stages.length-1].y + 22;
+      const py = startY + (endY - startY) * progress;
+      ctx.fillStyle = '#9B4E4E';
+      ctx.beginPath(); ctx.arc(cx, py, 5, 0, Math.PI*2); ctx.fill();
+      // residual track also lit when above sa
+      ctx.fillStyle = '#9B4E4E';
+      const resStart = h * stages[1].y;
+      const resEnd = h * stages[2].y;
+      if (progress > 0.2 && progress < 0.55) {
+        const rt = (progress - 0.2) / 0.35;
+        const rpy = resStart + (resEnd - resStart) * rt;
+        ctx.beginPath(); ctx.arc(resX, rpy, 4, 0, Math.PI*2); ctx.fill();
+      }
+    }
+
+    // legend
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText('— · — residual', resX + 12, (inY + outY)/2);
+  }
+  draw();
+
+  function loop() {
+    if (playing) {
+      progress += 0.012;
+      if (progress >= 1) { playing = false; progress = 1; status.textContent = 'pass complete'; }
+      else status.textContent = `pass: ${Math.round(progress*100)} %`;
+      draw();
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  document.getElementById('block-play').onclick = () => {
+    playing = true; progress = 0; status.textContent = 'pass: 0 %';
+  };
+  document.getElementById('block-reset').onclick = () => {
+    playing = false; progress = 0; status.textContent = 'idle'; draw();
+  };
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 8 · MASKED SELF-ATTENTION — three stages:
+//     raw scores → masked scores (upper-triangle = -inf) → softmax rows
+// ═══════════════════════════════════════════════════════════════════
+safeScene('mask', function () {
+  const host = document.getElementById('mask-canvas');
+  const { ctx, canvas } = make2D(host);
+  const N = 6;
+  // raw scores: random-ish but mostly positive
+  const raw = [];
+  for (let i = 0; i < N; i++) {
+    const row = [];
+    for (let j = 0; j < N; j++) {
+      row.push(0.4 + 0.6 * Math.sin(i*1.1 + j*0.7) + 0.5 * Math.cos(j*1.3 - i*0.5));
+    }
+    raw.push(row);
+  }
+  let stage = 1;
+  const status = document.getElementById('mask-status');
+
+  function softmax(arr) {
+    const m = Math.max(...arr.filter(v => isFinite(v)));
+    const e = arr.map(v => isFinite(v) ? Math.exp(v - m) : 0);
+    const s = e.reduce((a,b)=>a+b,0) || 1;
+    return e.map(v => v/s);
+  }
+
+  function draw() {
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const pad = 60;
+    const size = Math.min(w - pad*2, h - pad*2 - 30);
+    const cell = size / N;
+
+    let display = raw.map(r => r.slice());
+    if (stage >= 2) {
+      // apply mask: upper triangle becomes -Infinity
+      for (let i = 0; i < N; i++)
+        for (let j = i+1; j < N; j++) display[i][j] = -Infinity;
+    }
+    if (stage === 3) {
+      display = display.map(row => softmax(row));
+    }
+
+    // color scaling per stage
+    const labels = { 1: 'stage: raw scores', 2: 'stage: + causal mask', 3: 'stage: softmax along rows' };
+    status.textContent = labels[stage];
+
+    // determine value range for raw / masked
+    let vmin = Infinity, vmax = -Infinity;
+    for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+      const v = display[i][j];
+      if (isFinite(v)) { vmin = Math.min(vmin, v); vmax = Math.max(vmax, v); }
+    }
+    const span = (vmax - vmin) || 1;
+
+    for (let i = 0; i < N; i++) {
+      for (let j = 0; j < N; j++) {
+        const v = display[i][j];
+        let fill;
+        if (!isFinite(v)) fill = '#9B4E4E';
+        else if (stage === 3) fill = weightToColor(v);
+        else fill = weightToColor((v - vmin) / span);
+        ctx.fillStyle = fill;
+        ctx.fillRect(pad + j*cell, pad + i*cell, cell - 1, cell - 1);
+
+        // text
+        ctx.fillStyle = (!isFinite(v) || (stage === 3 ? v > 0.4 : (v - vmin)/span > 0.55)) ? '#F5F2EB' : '#3D3D3D';
+        ctx.font = '11px monospace';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        const label = !isFinite(v) ? '−∞' : (stage === 3 ? v.toFixed(2) : v.toFixed(1));
+        ctx.fillText(label, pad + j*cell + cell/2, pad + i*cell + cell/2);
+      }
+    }
+
+    // axis labels
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (let j = 0; j < N; j++) ctx.fillText(`k${j+1}`, pad + j*cell + cell/2, pad - 16);
+    ctx.textAlign = 'right';
+    for (let i = 0; i < N; i++) ctx.fillText(`q${i+1}`, pad - 8, pad + i*cell + cell/2);
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#3D3D3D'; ctx.font = '600 12px -apple-system, Inter, sans-serif';
+    ctx.fillText('keys', pad + size/2, pad - 36);
+    ctx.save();
+    ctx.translate(pad - 36, pad + size/2); ctx.rotate(-Math.PI/2);
+    ctx.fillText('queries', 0, 0); ctx.restore();
+  }
+  draw();
+
+  document.getElementById('mask-stage1').onclick = () => { stage = 1; draw(); };
+  document.getElementById('mask-stage2').onclick = () => { stage = 2; draw(); };
+  document.getElementById('mask-stage3').onclick = () => { stage = 3; draw(); };
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 9 · POSITIONAL ENCODING HEATMAP — sin/cos at multiple frequencies.
+// ═══════════════════════════════════════════════════════════════════
+safeScene('pe', function () {
+  const host = document.getElementById('pe-canvas');
+  const { ctx, canvas } = make2D(host);
+  const status = document.getElementById('pe-status');
+
+  function pe(p, i, d) {
+    const denom = Math.pow(10000, (2 * Math.floor(i/2)) / d);
+    return (i % 2 === 0) ? Math.sin(p / denom) : Math.cos(p / denom);
+  }
+
+  function draw() {
+    const P = +document.getElementById('pe-pos').value;
+    const D = +document.getElementById('pe-dim').value;
+    status.innerHTML = `positions 0–${P-1} × ${D} dims`;
+
+    const w = canvas.width / devicePixelRatio;
+    const h = canvas.height / devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+
+    const pad = 60;
+    const gridW = w - pad*2;
+    const gridH = h - pad*2;
+    const cellW = gridW / D;
+    const cellH = gridH / P;
+
+    for (let p = 0; p < P; p++) {
+      for (let i = 0; i < D; i++) {
+        const v = pe(p, i, D); // in [-1, 1]
+        ctx.fillStyle = negToColor(v);
+        ctx.fillRect(pad + i*cellW, pad + p*cellH, cellW + 0.5, cellH + 0.5);
+      }
+    }
+
+    // border
+    ctx.strokeStyle = '#d4cdba'; ctx.strokeRect(pad, pad, gridW, gridH);
+
+    // labels
+    ctx.fillStyle = '#3D3D3D'; ctx.font = '600 12px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    ctx.fillText('dimension i  →  (low freq)        (high freq)', pad + gridW/2, pad - 28);
+    ctx.save();
+    ctx.translate(pad - 36, pad + gridH/2); ctx.rotate(-Math.PI/2);
+    ctx.fillText('position p', 0, 0); ctx.restore();
+
+    // tick: position 0 and last
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '11px monospace';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText('0', pad - 6, pad + cellH/2);
+    ctx.fillText(String(P-1), pad - 6, pad + gridH - cellH/2);
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    ctx.fillText('0', pad + cellW/2, pad + gridH + 4);
+    ctx.fillText(String(D-1), pad + gridW - cellW/2, pad + gridH + 4);
+  }
+  draw();
+
+  ['pe-pos', 'pe-dim'].forEach(id => document.getElementById(id).oninput = draw);
+  new ResizeObserver(draw).observe(host);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz / predict answering logic
+// ═══════════════════════════════════════════════════════════════════
+let score = 0;
+const seen = new Set();
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) {
+        opts.querySelectorAll('.opt').forEach(b => {
+          if (b.dataset.correct === 'true') b.classList.add('correct');
+        });
+      }
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        const total = document.querySelectorAll('.opts').length;
+        document.getElementById('score').textContent = `Score: ${score} / ${total}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
+
+// ═══════════════════════════════════════════════════════════════════
+// Progress bar + TOC
+// ═══════════════════════════════════════════════════════════════════
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = Math.min(100, Math.max(0, window.scrollY / h * 100));
+  bar.style.width = p + '%';
+}, { passive: true });
+
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+</script>
+</body>
+</html>

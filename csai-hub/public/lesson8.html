@@ -1,0 +1,2189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Computer Vision — Interactive Lesson</title>
+<style>
+  /* ═══════════════════════════════════════════════ Lesson Design System Editorial · Brutalist · Printbreathing space
+     ═══════════════════════════════════════════════ */
+  :root {
+    /* Washi — paper neutrals */
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+
+    /* Sumi — ink darks */
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+
+    /* Shizen — natural accents */
+    --ai:        #264E70;   /* indigo — primary */
+    --beni:      #9B4E4E;   /* dyed red — wrong / loss */
+    --moegi:     #5B7553;   /* fresh green — correct */
+    --kitsune:   #B87333;   /* fox orange — highlight */
+    --murasaki:  #4A3B5C;   /* purple — code ink */
+
+    /*spacing */
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+
+    /* Type */
+    --text-whisper: 11px;
+    --text-body: 14px;
+    --text-lead: 16px;
+    --text-subhead: 18px;
+    --text-head: 24px;
+    --text-display: 32px;
+    --text-hero: 48px;
+
+    --radius-subtle: 2px;
+    --radius-gentle: 4px;
+    --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+
+    --duration-swift: 200ms;
+    --duration-natural: 300ms;
+    --duration-deliberate: 500ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep);
+    line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  /* ─── topbar — barely there ─── */
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav { display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase; }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  /* ─── hero —opening page ─── */
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: var(--ma-5);
+  }
+  .hero h1 { max-width: 20ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+    display: flex; flex-direction: column;
+  }
+
+  /* ─── sections — breathing between chapters ─── */
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  /* overlay chips */
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  /* controls — ghost buttons, minimal */
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.ghost { /* same as .btn now */ }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  /* callouts — washi paper feel */
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout strong { color: var(--sumi-deep); }
+
+  /* predict / quiz cards */
+  .predict {
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    padding: var(--ma-5);
+    border-radius: var(--radius-soft);
+  }
+  .predict h4 {
+    margin-bottom: var(--ma-3);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  }
+  .predict > p {
+    font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3);
+  }
+  .predict .opts { display: grid; gap: var(--ma-2); }
+  .opt {
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    padding: var(--ma-3) var(--ma-4);
+    border-radius: var(--radius-gentle);
+    cursor: pointer; text-align: left;
+    font-family: inherit; font-size: var(--text-body);
+    color: var(--sumi-deep);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal {
+    display: none; margin-top: var(--ma-3);
+    color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7;
+    padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm);
+  }
+  .reveal.show { display: block; }
+
+  /* ssl code — sumi ink block */
+  .ssl-code {
+    background: var(--sumi-deep);
+    color: var(--washi-cream);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: var(--radius-soft);
+    font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+    font-size: 12.5px; line-height: 1.7;
+    white-space: pre; overflow-x: auto;
+    box-shadow: var(--shadow-breath);
+  }
+  .ssl-code .cm  { color: var(--sumi-light); }
+  .ssl-code .tok { color: var(--kitsune); }
+  .ssl-code .num { color: var(--moegi); }
+
+  /* slide thumbnail — a reference, not decoration */
+  .slide-thumb {
+    margin-top: var(--ma-3);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-gentle);
+    overflow: hidden; max-width: 360px;
+    box-shadow: var(--shadow-whisper);
+  }
+  .slide-thumb img { width: 100%; display: block; }
+  .slide-thumb .cap {
+    padding: var(--ma-2) var(--ma-3);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-light); background: var(--washi-cream);
+  }
+
+  /* quiz */
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card {
+    background: var(--washi-white);
+    padding: var(--ma-5);
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--washi-warm);
+  }
+  .q-card > p:first-child {
+    font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3);
+  }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white);
+    color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4);
+    border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm);
+    box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light);
+    font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center;
+    line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+<link rel="stylesheet" href="/lesson-brutal.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">CSAI</span>
+    <span class="title">Computer Vision</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 8</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html">Lesson 1</a>
+    <a href="lesson2.html">Lesson 2</a>
+    <a href="lesson3.html">Lesson 3</a>
+    <a href="lesson4.html">Lesson 4</a>
+    <a href="lesson5.html">Lesson 5</a>
+    <a href="lesson6.html">Lesson 6</a>
+    <a href="lesson7.html">Lesson 7</a>
+    <a href="lesson8.html" class="active">Lesson 8</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#why-hard">1 · Why vision is hard</a></li>
+    <li><a href="#task-zoo">2 · The task zoo</a></li>
+    <li><a href="#cnn-recap">3 · CNNs as the workhorse</a></li>
+    <li><a href="#ssl">4 · Self-supervised learning</a></li>
+    <li><a href="#mixer">5 · MLP-Mixer</a></li>
+    <li><a href="#mamba">6 · Mamba &amp; state-space models</a></li>
+    <li><a href="#multimodal">7 · LLMs meet vision</a></li>
+    <li><a href="#next">8 · Next trends</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">Lesson Eight · the finale</div>
+    <h1>Teaching machines to see — still unsolved.</h1>
+    <p>In <strong>1966</strong>, MIT thought a summer project could "solve vision". Sixty years later, we have <strong>CNNs</strong>, <strong>transformers</strong>, <strong>state-space models</strong>, and we still can't match a toddler. This lesson is a tour of where the field is now and where it's heading.</p>
+    <div class="meta">Slides by <strong>Silvia Pintea</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+</div>
+
+<!-- ═══════ 1. WHY VISION IS HARD ═══════ -->
+<section class="step" id="why-hard">
+  <div class="text">
+    <div class="eyebrow">Section 1 · slides 1–3 · Papert 1966</div>
+    <h2>The summer that wasn't enough</h2>
+    <p>In <strong>July 1966</strong>, Seymour Papert at MIT wrote a now-famous internal memo: <em>The Summer Vision Project</em>. The goal was to assign undergraduates a few weeks each, divide the problem into "figure-ground" and "object recognition" pieces, and have a working visual system by September. The proposal still lives in MIT's archive (DSpace 1721.1/6125). It was wrong by about <strong>sixty years and counting</strong>.</p>
+    <p>Why is it so hard? Because <strong>pixels are not meaning</strong>. A digital image is just a grid of brightness values. Between that grid and the answer "this is a cat" sits an enormous gap: <strong>lighting</strong> changes the numbers, <strong>viewpoint</strong> changes them again, <strong>occlusion</strong> hides parts, <strong>scale</strong> blows them up or down, <strong>deformation</strong> reshapes them, and <strong>intra-class variation</strong> means two different cats share almost no pixels.</p>
+    <p class="muted">The pixels on the right are pulsing through a "feature extractor". Each pulse is a filter response — the network slowly building structure out of brightness alone.</p>
+    <div class="callout warn"><strong>The semantic gap.</strong> A 224×224 RGB image has about <strong>150,000 numbers</strong>. The label "cat" is one symbol. The job of any vision system is to throw away almost all of those numbers without throwing away the cat.</div>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>Why did Papert's summer project fail to solve vision?</p>
+      <div class="opts" data-q="hard1">
+        <button class="opt" data-correct="false">Computers in 1966 were too slow</button>
+        <button class="opt" data-correct="true">The gap between raw pixels and semantic meaning is enormous</button>
+        <button class="opt" data-correct="false">Cameras did not exist yet</button>
+      </div>
+      <div class="reveal">Speed was a real bottleneck, but the deeper issue is the <strong>semantic gap</strong>. Even with infinite compute, a single straight line of pixel logic cannot turn brightness into "cat". You need representations that survive lighting, viewpoint, occlusion and scale.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="why-canvas">
+      <div class="chip nw">pixels in · features out</div>
+      <div class="chip se" id="why-status">extracting…</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="why-shuffle">▶ New scene</button>
+      <div class="slider-wrap">noise <input type="range" id="why-noise" min="0" max="100" value="20"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 2. THE TASK ZOO ═══════ -->
+<section class="step" id="task-zoo">
+  <div class="text">
+    <div class="eyebrow">Section 2 · slides 13–15</div>
+    <h2>The task zoo</h2>
+    <p>"Computer vision" is not one task. It is a family. Each task takes the same input — an image — and asks for a different shape of output. The shape of the output decides the shape of the network and, more importantly, the shape of the loss.</p>
+    <p>The classic line-up:</p>
+    <ul>
+      <li><strong>Classification</strong> — one label per image. <em>Is this a cat?</em></li>
+      <li><strong>Object detection</strong> — labels <strong>plus</strong> bounding boxes. <em>Where are the cats?</em> (YOLO is the canonical fast detector, arxiv 1506.02640.)</li>
+      <li><strong>Semantic segmentation</strong> — a label for every pixel. <em>Which pixels are "cat"?</em> (U-Net, arxiv 1505.04597.)</li>
+      <li><strong>Instance segmentation</strong> — like semantic, but distinguishes individual objects. <em>Cat #1 vs cat #2.</em></li>
+      <li><strong>Image generation</strong> — start from noise, end at an image. (Diffusion models, Ho et al. 2020, arxiv 2006.11239.)</li>
+      <li><strong>Captioning &amp; VQA</strong> — image in, language out.</li>
+    </ul>
+    <p class="muted">The grid on the right shows six small previews — same input image, six different output shapes. Hover the buttons to see what each loss is measuring.</p>
+    <div class="callout">Pintea calls vision <strong>mathematically involved</strong> for a reason: it sits at the intersection of linear algebra (convolutions, transforms), probability (likelihoods, priors), optimization (gradients, regularization) and computer science (data structures, parallelism). All of those pieces show up in every paper.</div>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>What output shape does <strong>semantic segmentation</strong> produce?</p>
+      <div class="opts" data-q="zoo1">
+        <button class="opt" data-correct="false">A single class label</button>
+        <button class="opt" data-correct="false">A list of bounding boxes</button>
+        <button class="opt" data-correct="true">A class label for every pixel</button>
+      </div>
+      <div class="reveal">Semantic segmentation gives a <strong>per-pixel</strong> label. The network output is the same height and width as the input — just with channels for class probabilities instead of RGB.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="zoo-canvas">
+      <div class="chip nw">six tasks · one image</div>
+      <div class="chip se" id="zoo-status">classification</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-task="cls">Classification</button>
+      <button class="btn ghost" data-task="det">Detection</button>
+      <button class="btn ghost" data-task="seg">Segmentation</button>
+      <button class="btn ghost" data-task="ins">Instance</button>
+      <button class="btn ghost" data-task="gen">Generation</button>
+      <button class="btn ghost" data-task="cap">Caption</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 3. CNN RECAP ═══════ -->
+<section class="step" id="cnn-recap">
+  <div class="text">
+    <div class="eyebrow">Section 3 · the workhorse · ties to lesson 4</div>
+    <h2>CNNs are still the baseline</h2>
+    <p>Before we leave the safe ground of <strong>convolutional networks</strong>, remember why they work for images. Three properties: <strong>local connectivity</strong> (a pixel cares mostly about its neighbours), <strong>weight sharing</strong> (the same edge detector is useful in every patch of the image), and <strong>hierarchy</strong> (early layers find edges, middle layers find textures, late layers find object parts).</p>
+    <p>A <strong>convolution</strong> is just a small matrix — a <strong>kernel</strong> — sliding across the image. At each location it computes a weighted sum of the pixels under it. The output is a <strong>feature map</strong>: a new image where each value says how strongly that kernel responded at that location.</p>
+    <p class="muted">Drag the kernel slider on the right. Watch a 3×3 filter sweep across an 8×8 image and fill in the output map. Switch between an <strong>edge detector</strong>, a <strong>blur</strong>, and a <strong>sharpen</strong> kernel — each produces a wildly different feature map from identical pixels.</p>
+    <div class="callout navy"><strong>Why CNNs scale.</strong> One 3×3 kernel has nine weights. A fully-connected layer between two 224×224 images would have <strong>2.5 billion</strong>. Weight sharing is what makes vision feasible — and the <strong>translation equivariance</strong> you get for free is a real inductive bias, not just a parameter saving.</div>
+    <div class="callout">Lesson 4 covered CNNs in depth. Treat this as a recap: it is the <strong>baseline</strong> that every model in the rest of this lesson is trying to beat — or at least match without using convolutions at all.</div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="conv-canvas">
+      <div class="chip nw" id="conv-mode">kernel: edge</div>
+      <div class="chip se" id="conv-status">sweeping…</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-kernel="edge">Edge detector</button>
+      <button class="btn ghost" data-kernel="blur">Blur</button>
+      <button class="btn ghost" data-kernel="sharpen">Sharpen</button>
+      <button class="btn gold" id="conv-step">▶ Sweep</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 4. SELF-SUPERVISED LEARNING ═══════ -->
+<section class="step" id="ssl">
+  <div class="text">
+    <div class="eyebrow">Section 4 · slide 18</div>
+    <h2>Self-supervised learning</h2>
+    <p>Labels are expensive. Pixels are free. <strong>Self-supervised learning</strong> exploits that asymmetry: you make up a <strong>pretext task</strong> whose answer you already know from the image itself, train on millions of unlabelled photos, then fine-tune on the small labelled set you actually care about.</p>
+    <p>Three families dominate:</p>
+    <ul>
+      <li><strong>Rotation prediction.</strong> Rotate the image by 0°, 90°, 180° or 270°. Ask the network <em>which rotation was applied?</em> (Gidaris et al. 2018). The only way to win this game is to learn what objects look like upright.</li>
+      <li><strong>Masked patch reconstruction.</strong> Hide 75% of the image patches and ask the network to fill them in (MAE, He et al. 2021). Forces a global understanding of the scene.</li>
+      <li><strong>Contrastive learning.</strong> Two augmented views of the same image should land close in feature space; views of different images should land far apart (SimCLR, MoCo, DINO). No labels — just a similarity loss.</li>
+    </ul>
+    <p class="muted">The demo shows a single image rotated by a random angle. Pick the rotation you think was applied — that is exactly the supervision signal a self-supervised model trains on, billions of times.</p>
+    <div class="callout warn"><strong>Limitations Pintea highlights.</strong> Self-supervision is not magic. Pretext tasks can teach <em>shortcut features</em> — the model learns artefacts of the augmentation, not real semantics. It still needs <strong>massive compute</strong> and <strong>massive data</strong> to be competitive with supervised pre-training, and the gap to fully supervised models is real on fine-grained tasks.</div>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>What does <strong>masked patch reconstruction</strong> force the network to learn?</p>
+      <div class="opts" data-q="ssl1">
+        <button class="opt" data-correct="false">Edge detection only</button>
+        <button class="opt" data-correct="true">A global understanding of the scene from limited evidence</button>
+        <button class="opt" data-correct="false">Exact pixel-level memorization</button>
+      </div>
+      <div class="reveal">Hiding 75% of patches means local features are not enough — to fill in the missing pieces the model has to <strong>reason about the whole scene</strong>. That global representation is what transfers to downstream tasks.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="ssl-canvas">
+      <div class="chip nw">which rotation was applied?</div>
+      <div class="chip se" id="ssl-status">guess one</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-rot="0">0°</button>
+      <button class="btn ghost" data-rot="90">90°</button>
+      <button class="btn ghost" data-rot="180">180°</button>
+      <button class="btn ghost" data-rot="270">270°</button>
+      <button class="btn gold" id="ssl-new">↻ New rotation</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 5. MLP-MIXER ═══════ -->
+<section class="step" id="mixer">
+  <div class="text">
+    <div class="eyebrow">Section 5 · slides 19–20 · NeurIPS 2021</div>
+    <h2>MLP-Mixer — back to linear layers</h2>
+    <p>After ConvNets and Transformers, a 2021 paper from Google asked an awkward question: <em>do we actually need convolutions or attention?</em> <strong>MLP-Mixer</strong> (Tolstikhin et al., NeurIPS 2021, arxiv 2105.01601) answered "no" — at least if you have enough data.</p>
+    <p>The recipe is almost embarrassingly simple. Cut the image into a grid of <strong>patches</strong>. Flatten each patch into a token. Then alternate two kinds of MLP:</p>
+    <ul>
+      <li><strong>Token-mixing MLP.</strong> Mix information <em>across</em> patches but within each channel. This is the rough analogue of attention or convolution.</li>
+      <li><strong>Channel-mixing MLP.</strong> Mix information <em>across</em> channels but within each patch. This is the rough analogue of a 1×1 convolution.</li>
+    </ul>
+    <p>That's it. Two MLPs, alternated. No attention, no convolution. On ImageNet with enough pre-training, it matches ConvNets and Transformers.</p>
+    <p class="muted">The animation shows a 6×6 patch grid being processed in turn — first the rows light up (token mixing), then the columns (channel mixing). The two operations alternate.</p>
+    <div class="callout"><strong>Why this matters.</strong> Mixer is a clean <strong>existence proof</strong>: the inductive biases of convolution and attention are useful, but not strictly necessary. Given enough data, a stack of plain linear layers can catch up.</div>
+    <div class="callout warn"><strong>Limitations from the slide.</strong> Mixer "does not solve the computational costs of transformers" — token-mixing across all patches still scales poorly. And it "still requires very large datasets to train on". Without ConvNet-style inductive biases, you have to pay the data tax.</div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="mixer-canvas">
+      <div class="chip nw">6×6 patches</div>
+      <div class="chip ne" id="mixer-phase">phase: token-mixing</div>
+      <div class="chip se" id="mixer-status">step 0</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="mixer-play">▶ Run mixing</button>
+      <button class="btn ghost" id="mixer-pause">Pause</button>
+      <button class="btn ghost" id="mixer-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 6. MAMBA ═══════ -->
+<section class="step" id="mamba">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 21–23 · ICML 2024</div>
+    <h2>Mamba — state-space models</h2>
+    <p>Transformers are quadratic in sequence length. For long contexts — long videos, high-resolution images, multi-page documents — that quadratic cost hurts. <strong>Mamba</strong> borrows from <strong>control theory</strong>: a system has a hidden state that evolves over time as new inputs arrive.</p>
+    <div class="ssl-code"><span class="cm"># Discrete state-space model</span>
+h<span class="num">_t</span> = A<span class="num">_t</span> · h<span class="num">_{t-1}</span> + B<span class="num">_t</span> · x<span class="num">_t</span>
+y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num">_t</span></div>
+    <p>Per the slide, the symbols are:</p>
+    <ul>
+      <li><code>x_t</code> — the input sequence</li>
+      <li><code>y_t</code> — the output sequence</li>
+      <li><code>h_t</code> — the hidden representation</li>
+      <li><code>A_t</code> — the transition matrix for the hidden state</li>
+      <li><code>B_t</code> — the contribution of the input to the hidden state</li>
+      <li><code>C_t</code> — the transition matrix for the output</li>
+      <li><code>Δ_t</code> — the discretization function (turns the continuous-time ODE into a discrete step)</li>
+    </ul>
+    <p>The <strong>selective</strong> part of selective state-space models (Gu &amp; Dao, 2023) lets <code>A_t</code>, <code>B_t</code> and <code>Δ_t</code> depend on the input <code>x_t</code> — so the model can choose what to remember and what to forget at each step. That selectivity is what makes Mamba competitive with Transformers, while keeping inference <strong>linear</strong> in sequence length.</p>
+    <p class="muted">Drag the input slider on the right. Watch <code>h_t</code> evolve over 30 time-steps. <code>A</code> controls how much of the past leaks forward; <code>B</code> controls how strongly each new input pushes the state.</p>
+    <div class="callout navy"><strong>Linear vs quadratic.</strong> A Transformer attending over <code>N</code> tokens does <code>O(N²)</code> work. A state-space model rolls a hidden state forward in <code>O(N)</code>. For sequences of tens of thousands of tokens, that gap is everything.</div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="mamba-canvas">
+      <div class="chip nw">h_t = A·h_{t−1} + B·x_t</div>
+      <div class="chip se" id="mamba-status">A=0.85 · B=0.50</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">A <input type="range" id="mamba-A" min="0" max="100" value="85"></div>
+      <div class="slider-wrap">B <input type="range" id="mamba-B" min="0" max="100" value="50"></div>
+      <button class="btn gold" id="mamba-impulse">▶ Impulse input</button>
+      <button class="btn ghost" id="mamba-step">▶ Step input</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 7. VISION MAMBA + LIMITATIONS ═══════ -->
+<section class="step" id="vmamba">
+  <div class="text">
+    <div class="eyebrow">Section 6b · slides 22–23</div>
+    <h2>Vision Mamba — and its critics</h2>
+    <p>Mamba was originally <strong>1D</strong> — built for language and audio. <strong>Vision Mamba</strong> (L. Zhu et al., ICML 2024, arxiv 2401.09417) extends the scan to <strong>2D images</strong>: split the image into patches, then sweep the state-space model across them. Patch order matters, so they scan in multiple directions and merge.</p>
+    <p>The pitch from the slide:</p>
+    <ul>
+      <li>"Extended from 1D to 2D."</li>
+      <li>"Suitable for long distance dependencies, computationally more efficient than transformers."</li>
+    </ul>
+    <p>That second point is the real claim. On a 1024×1024 image, a Vision Transformer's attention matrix has roughly a <strong>million squared</strong> entries. A state-space sweep is linear.</p>
+    <div class="callout warn"><strong>The push-back: MambaOut.</strong> W. Xu et al., <em>"MambaOut: Do we really need mamba for vision?"</em> (CVPR 2025), argue the answer is <strong>not really</strong>. Their experiments suggest that for image classification — where long-range dependencies are limited and the input is not autoregressive — a plain ConvNet or simple gated CNN matches Vision Mamba without the complexity. State-space models shine on <strong>long sequences</strong>, but most vision tasks aren't long sequences in the language-model sense.</div>
+    <p class="muted">The animation on the right shows the 2D scan order Vision Mamba uses — a snake-like sweep that turns a grid of patches into a 1D sequence the state-space model can roll across.</p>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>The MambaOut paper's main argument is that Mamba is unnecessary for vision because:</p>
+      <div class="opts" data-q="vmamba1">
+        <button class="opt" data-correct="false">State-space models are mathematically incorrect</button>
+        <button class="opt" data-correct="true">Image classification doesn't have the long autoregressive dependencies Mamba was built for</button>
+        <button class="opt" data-correct="false">Mamba is too slow on GPUs</button>
+      </div>
+      <div class="reveal">Mamba's selectivity wins on <strong>long causal sequences</strong>. A 224×224 classification head looks at the whole image at once and doesn't need that. The MambaOut authors show plain ConvNets match Vision Mamba on standard benchmarks — so the linear-time advantage isn't being cashed in.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="vmamba-canvas">
+      <div class="chip nw">2D patches → 1D scan</div>
+      <div class="chip se" id="vmamba-status">scanning row 0</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="vmamba-play">▶ Animate scan</button>
+      <button class="btn ghost" id="vmamba-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 8. MULTIMODAL ═══════ -->
+<section class="step" id="multimodal">
+  <div class="text">
+    <div class="eyebrow">Section 7 · slide 24</div>
+    <h2>LLMs meet vision</h2>
+    <p>The dominant trend right now is <strong>multimodal</strong>: glue a vision encoder onto a language model and let them share a representation. Three architectures define the space:</p>
+    <ul>
+      <li><strong>CLIP</strong> (Radford et al. 2021). Train an image encoder and a text encoder side by side on 400M image-caption pairs. Loss: matching captions land close in a shared embedding space; mismatched ones land far. Result: a single embedding space where the word "dog" sits near pictures of dogs.</li>
+      <li><strong>LLaVA / GPT-4V / Gemini</strong>. Take a frozen CLIP-style vision encoder, project its outputs into the token space of a language model, and let the LLM treat the image as a few hundred extra tokens. The LLM does the reasoning.</li>
+      <li><strong>Diffusion + text encoders</strong>. Stable Diffusion, DALL·E, Imagen — text-conditioned image generation. The text encoder steers the noise-to-image process.</li>
+    </ul>
+    <p class="muted">Drag the text label on the right. Images move toward or away from it depending on how close their embeddings are to the prompt. This is exactly what <strong>CLIP-style retrieval</strong> does, just in 2D for clarity.</p>
+    <div class="callout"><strong>Why this is a shift.</strong> For decades, vision and language were separate fields with separate datasets and separate evaluation. Multimodal models force a <strong>shared representation</strong> — and that shared representation, not any one architecture, is what enables zero-shot classification, open-vocabulary detection, and conversational image understanding.</div>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>What is CLIP's training objective?</p>
+      <div class="opts" data-q="clip1">
+        <button class="opt" data-correct="false">Reconstruct the image from the caption</button>
+        <button class="opt" data-correct="true">Pull matching image-caption pairs together in embedding space, push mismatched pairs apart</button>
+        <button class="opt" data-correct="false">Predict the next word given the image</button>
+      </div>
+      <div class="reveal">CLIP uses a <strong>contrastive loss</strong>. There is no decoder. The whole training signal is "matching pairs close, mismatched pairs far". That single objective produces a shared embedding space rich enough to do zero-shot classification by just comparing an image to the embedding of class-name prompts.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="clip-canvas">
+      <div class="chip nw">drag the text label</div>
+      <div class="chip se" id="clip-status">prompt: "a photo of a cat"</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-prompt="cat">"a photo of a cat"</button>
+      <button class="btn ghost" data-prompt="dog">"a photo of a dog"</button>
+      <button class="btn ghost" data-prompt="car">"a red car"</button>
+      <button class="btn ghost" data-prompt="tree">"a tree at sunset"</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 9. NEXT TRENDS ═══════ -->
+<section class="step" id="next">
+  <div class="text">
+    <div class="eyebrow">Section 8 · slides 25–26</div>
+    <h2>Next trends</h2>
+    <p>Two directions Pintea singles out as "what comes next" — both already happening at the major venues.</p>
+    <p><strong>Physics-informed vision.</strong> Generative video models can produce striking clips, but they routinely violate physics: water flows uphill, objects pass through each other, lighting is inconsistent. The fix is to put a <strong>physics simulator in the loop</strong>: generate, simulate, check, regenerate. Foo et al., <em>"Physical Simulator In-the-Loop Video Generation"</em> (CVPR 2026) is one example. There is a CVPR'25 workshop dedicated to it: <a href="https://visionmeetphysics.github.io/">visionmeetphysics.github.io</a>.</p>
+    <p><strong>Embedded intelligence.</strong> A network trained on a dataset of static images is fundamentally passive. The next step is <strong>agents</strong> — robots, embodied avatars, simulated bodies — that learn by <em>interacting</em> with an environment. The agent moves, observes the consequences, and updates its model of the world. The supervision signal is the environment itself, not a human labeller.</p>
+    <p class="muted">The animation shows two agents — one in a static-image pipeline (passive), one in a closed loop with a simulator (active). Watch how the active agent corrects its own mistakes. The passive one doesn't know it made any.</p>
+    <div class="callout navy"><strong>The thread tying both together.</strong> Both trends move computer vision <strong>away from "predict labels for static images"</strong> and toward <strong>"reason about a world that responds"</strong>. The world — physical or simulated — provides corrections that no labelled dataset can.</div>
+    <div class="callout"><strong>Reading list.</strong>
+      MIT vision book — <a href="https://visionbook.mit.edu/">visionbook.mit.edu</a><br/>
+      MLP-Mixer — arxiv <a href="https://arxiv.org/abs/2105.01601">2105.01601</a><br/>
+      Vision Mamba — arxiv <a href="https://arxiv.org/abs/2401.09417">2401.09417</a><br/>
+      YOLO — arxiv <a href="https://arxiv.org/abs/1506.02640">1506.02640</a><br/>
+      U-Net — arxiv <a href="https://arxiv.org/abs/1505.04597">1505.04597</a><br/>
+      Diffusion models — arxiv <a href="https://arxiv.org/abs/2006.11239">2006.11239</a>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="next-canvas">
+      <div class="chip nw">passive · vs · active</div>
+      <div class="chip se" id="next-status">simulating…</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="next-play">▶ Run loop</button>
+      <button class="btn ghost" id="next-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ QUIZ ═══════ -->
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> What was the famous mistake in Papert's 1966 "Summer Vision Project"?</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">Choosing the wrong language</button>
+        <button class="opt" data-correct="true">Underestimating the gap between pixels and meaning</button>
+        <button class="opt" data-correct="false">Failing to invent the camera</button>
+      </div>
+      <div class="reveal">The proposal assumed vision was a few weeks of student work. The <strong>semantic gap</strong> between brightness values and category labels turned out to be a sixty-year research program.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q2.</strong> Which task outputs a class label for <strong>every pixel</strong>?</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">Image classification</button>
+        <button class="opt" data-correct="true">Semantic segmentation</button>
+        <button class="opt" data-correct="false">Object detection</button>
+      </div>
+      <div class="reveal">Detection produces bounding boxes; classification produces one label. <strong>Semantic segmentation</strong> labels every pixel — same height and width as the input.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q3.</strong> Why are CNNs so much more parameter-efficient than fully-connected networks for images?</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">They are trained on smaller datasets</button>
+        <button class="opt" data-correct="true">Weight sharing — the same kernel is reused at every spatial location</button>
+        <button class="opt" data-correct="false">They use lower-precision arithmetic</button>
+      </div>
+      <div class="reveal">A 3×3 kernel has 9 weights regardless of image size. A fully-connected layer would have one weight per (input pixel × output pixel) pair — billions for high-res images.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q4.</strong> The point of <strong>self-supervised pretext tasks</strong> like rotation prediction is to:</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">Replace the loss function with regularization</button>
+        <button class="opt" data-correct="true">Generate supervision from the image itself, so unlabelled data becomes useful</button>
+        <button class="opt" data-correct="false">Reduce model size</button>
+      </div>
+      <div class="reveal">You already know which rotation you applied — the label is free. Train on millions of unlabelled images this way, then fine-tune on the small labelled set you actually have.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q5.</strong> The two MLPs alternated inside an MLP-Mixer block are:</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">Encoder MLP and decoder MLP</button>
+        <button class="opt" data-correct="true">Token-mixing MLP and channel-mixing MLP</button>
+        <button class="opt" data-correct="false">Forward MLP and backward MLP</button>
+      </div>
+      <div class="reveal">Token-mixing mixes <strong>across patches</strong> within each channel; channel-mixing mixes <strong>across channels</strong> within each patch. No attention, no convolution.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q6.</strong> Mamba's state-space recurrence <code>h_t = A·h_{t−1} + B·x_t</code> has computational complexity:</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="false">O(N²) in sequence length, like a Transformer</button>
+        <button class="opt" data-correct="true">O(N) — linear in sequence length</button>
+        <button class="opt" data-correct="false">O(log N)</button>
+      </div>
+      <div class="reveal">A recurrence that rolls a fixed-size hidden state forward visits each token once, so the cost is <strong>linear</strong>. That is the main advantage over Transformer attention on long sequences.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q7.</strong> In the state-space model, what role does the matrix <code>A</code> play?</p>
+      <div class="opts" data-q="q7">
+        <button class="opt" data-correct="false">It projects the hidden state to the output</button>
+        <button class="opt" data-correct="true">It controls how the previous hidden state evolves into the new one</button>
+        <button class="opt" data-correct="false">It computes the loss</button>
+      </div>
+      <div class="reveal">Per the slide: <code>A_t</code> is the <strong>transition matrix for the hidden state</strong>. <code>B_t</code> mixes in the input and <code>C_t</code> projects to the output.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q8.</strong> The MambaOut paper (CVPR 2025) argues that:</p>
+      <div class="opts" data-q="q8">
+        <button class="opt" data-correct="false">Mamba is mathematically broken</button>
+        <button class="opt" data-correct="true">Mamba is unnecessary for standard vision tasks; plain ConvNets match it</button>
+        <button class="opt" data-correct="false">Mamba should replace all Transformers</button>
+      </div>
+      <div class="reveal">Their experiments show that on classification benchmarks — where there is no long autoregressive dependency to exploit — Vision Mamba's advantages don't materialise.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q9.</strong> What is the training objective of CLIP?</p>
+      <div class="opts" data-q="q9">
+        <button class="opt" data-correct="false">Cross-entropy on ImageNet labels</button>
+        <button class="opt" data-correct="true">Contrastive loss between image and text embeddings of matched captions</button>
+        <button class="opt" data-correct="false">Reconstruction loss on masked pixels</button>
+      </div>
+      <div class="reveal">CLIP pulls matching image-caption pairs together in embedding space and pushes mismatched ones apart. That single objective produces a shared image-text representation.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q10.</strong> "Physics-informed vision" means:</p>
+      <div class="opts" data-q="q10">
+        <button class="opt" data-correct="false">Adding more parameters to the network</button>
+        <button class="opt" data-correct="true">Putting a physics simulator in the loop so generations stay physically consistent</button>
+        <button class="opt" data-correct="false">Training only on physics textbooks</button>
+      </div>
+      <div class="reveal">A simulator provides corrections a labelled dataset can't — water flows downhill, objects don't overlap, light obeys conservation. The model generates, simulates, and regenerates.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q11.</strong> "Embedded intelligence" in computer vision refers to:</p>
+      <div class="opts" data-q="q11">
+        <button class="opt" data-correct="false">Running models on phones</button>
+        <button class="opt" data-correct="true">Agents that learn by interacting with an environment, not just observing static images</button>
+        <button class="opt" data-correct="false">Compressing networks with quantization</button>
+      </div>
+      <div class="reveal">"Embedded" here means <em>embodied</em>: a robot or simulated agent acts, observes consequences, and updates its world model. The supervision is the environment, not a labeller.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q12.</strong> Which of these is the <strong>fastest object detector</strong> in standard practice?</p>
+      <div class="opts" data-q="q12">
+        <button class="opt" data-correct="false">U-Net</button>
+        <button class="opt" data-correct="true">YOLO</button>
+        <button class="opt" data-correct="false">Stable Diffusion</button>
+      </div>
+      <div class="reveal">YOLO ("You Only Look Once", arxiv 1506.02640) treats detection as a single regression problem and runs in real time. U-Net is for segmentation; Stable Diffusion is a generator.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  End of lesson eight — end of the course.<br/>
+  built from <code>Computer vision.pdf</code> — Silvia Pintea, Tilburg University<br/>
+  <a href="lesson.html">Back to Lesson 1 · Multilayer Perceptrons →</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 18</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// Safe isolation — one broken scene must never blank the whole page.
+function safeScene(name, fn) {
+  try { fn(); }
+  catch (e) { console.warn(`[scene:${name}]`, e); }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// MINI SCENE DSL
+// A tiny scene description DSL where each line is one primitive.
+// Tokens:  shape size color at X Y Z [label "..."]
+// Shapes:  sphere box cylinder line dot axis plane arrow
+// Sizes:   xs s m l xl    (mapped to unit radii)
+// Colors:  navy gold red blue green orange gray white black cyan
+// ═══════════════════════════════════════════════════════════════════
+
+// Shizen (natural) palette — matches CSS Japanese design tokens
+const COLORS = {
+  navy:  0x264E70,   // ai
+  gold:  0xB87333,   // kitsune
+  red:   0x9B4E4E,   // beni
+  blue:  0x3E6B8A,   // softer ai
+  green: 0x5B7553,   // moegi
+  orange:0xB87333,   // kitsune
+  gray:  0x8C867A,   // softened sumi
+  white: 0xF5F2EB,   // washi-white
+  black: 0x1A1A1A,   // sumi-deep
+  cyan:  0x6B8A8F,   // sabi patina
+  ink:   0x1A1A1A,
+  lightblue: 0x7FA0BA,
+};
+const SIZES = { xs: 0.05, s: 0.1, m: 0.18, l: 0.3, xl: 0.5 };
+
+function makeScene(host, opts={}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  scene.background = null;
+  const camera = new THREE.PerspectiveCamera(45, rect.width/rect.height, 0.1, 100);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 4);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(rect.width, rect.height);
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+  scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+  const key = new THREE.DirectionalLight(0xffffff, 0.6);
+  key.position.set(3, 5, 2);
+  scene.add(key);
+
+  const resize = () => {
+    const r = host.getBoundingClientRect();
+    camera.aspect = r.width / r.height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(r.width, r.height);
+  };
+  new ResizeObserver(resize).observe(host);
+
+  return { scene, camera, renderer, controls, resize };
+}
+
+// ─── label helper (canvas → sprite) ────────────────────────────────
+function makeLabel(text, color = '#1A1A1A', bg = null, size = 64) {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 128;
+  const ctx = c.getContext('2d');
+  if (bg) { ctx.fillStyle = bg; ctx.fillRect(0,0,c.width,c.height); }
+  ctx.font = `600 ${size}px -apple-system, Inter, sans-serif`;
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, c.width/2, c.height/2);
+  const tex = new THREE.CanvasTexture(c);
+  tex.minFilter = THREE.LinearFilter;
+  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+  const sprite = new THREE.Sprite(mat);
+  sprite.scale.set(1.0, 0.25, 1);
+  return sprite;
+}
+
+function makeSphere(size, color) {
+  const r = SIZES[size] ?? 0.15;
+  const geom = new THREE.SphereGeometry(r, 32, 32);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.55 });
+  return new THREE.Mesh(geom, mat);
+}
+function makeBox(w, h, d, color) {
+  const geom = new THREE.BoxGeometry(w, h, d);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6, transparent: true, opacity: 0.9 });
+  return new THREE.Mesh(geom, mat);
+}
+function makeLine(a, b, color, dashed=false) {
+  const mat = dashed
+    ? new THREE.LineDashedMaterial({ color, dashSize: 0.08, gapSize: 0.06 })
+    : new THREE.LineBasicMaterial({ color });
+  const geom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(...a), new THREE.Vector3(...b)]);
+  const line = new THREE.Line(geom, mat);
+  if (dashed) line.computeLineDistances();
+  return line;
+}
+function makeCylinderBetween(a, b, color, radius = 0.02) {
+  const va = new THREE.Vector3(...a), vb = new THREE.Vector3(...b);
+  const dir = new THREE.Vector3().subVectors(vb, va);
+  const len = dir.length();
+  const geom = new THREE.CylinderGeometry(radius, radius, len, 12);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6 });
+  const mesh = new THREE.Mesh(geom, mat);
+  mesh.position.copy(va).add(vb).multiplyScalar(0.5);
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), dir.clone().normalize());
+  return mesh;
+}
+function makeAxes(len = 2) {
+  const g = new THREE.Group();
+  g.add(makeLine([0,0,0],[len,0,0], COLORS.red));
+  g.add(makeLine([0,0,0],[0,len,0], COLORS.green));
+  g.add(makeLine([0,0,0],[0,0,len], COLORS.blue));
+  return g;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO — ambient floating "pixels" that pulse into features
+// ═══════════════════════════════════════════════════════════════════
+safeScene('hero', function heroScene() {
+  const host = document.getElementById('hero-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5] });
+  controls.enableRotate = false;
+  controls.enableZoom = false;
+
+  // a 12×8 grid of small boxes, each with pseudo-image brightness
+  const cols = 12, rows = 8;
+  const cells = [];
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // make a subtle "image" — central blob + noise
+  const brightness = (x, y) => {
+    const cx = (x - cols/2) / cols, cy = (y - rows/2) / rows;
+    const r2 = cx*cx + cy*cy * 1.4;
+    return Math.exp(-r2 * 6) + 0.15 * Math.sin(x*0.6) * Math.cos(y*0.7);
+  };
+
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const b = brightness(x, y);
+      const m = makeBox(0.32, 0.32, 0.05 + Math.max(0, b) * 0.4, COLORS.navy);
+      const c = 0.2 + Math.max(0, b) * 0.7;
+      m.material.color.setRGB(c * 0.18, c * 0.32, c * 0.45);
+      m.material.opacity = 0.85;
+      m.position.set((x - cols/2 + 0.5) * 0.36, (y - rows/2 + 0.5) * 0.36, 0);
+      group.add(m);
+      cells.push({ mesh: m, x, y, base: b });
+    }
+  }
+
+  group.rotation.x = -0.35;
+
+  let t = 0;
+  function loop() {
+    t += 0.014;
+    cells.forEach(({mesh, x, y, base}) => {
+      const wave = 0.5 + 0.5 * Math.sin(t * 2.0 - x * 0.4 - y * 0.35);
+      const lift = Math.max(0, base) * (0.4 + 0.6 * wave);
+      mesh.scale.z = 0.5 + lift * 4;
+      const c = 0.2 + lift * 0.9;
+      mesh.material.color.setRGB(c * 0.30 + 0.05, c * 0.45 + 0.05, c * 0.55 + 0.07);
+    });
+    group.rotation.z = Math.sin(t * 0.3) * 0.05;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 1. WHY VISION IS HARD — pixel grid + feature pulse, with noise slider
+// ═══════════════════════════════════════════════════════════════════
+safeScene('why', function whyScene() {
+  const host = document.getElementById('why-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  const noiseEl = document.getElementById('why-noise');
+  const statusEl = document.getElementById('why-status');
+
+  let scene = 0;
+  const scenes = [
+    { name: 'cat', dots: makeBlob(0.5, 0.5, 0.18) },
+    { name: 'cat (rotated)', dots: makeBlob(0.5, 0.5, 0.18, Math.PI/4) },
+    { name: 'cat (occluded)', dots: makeBlob(0.5, 0.5, 0.18, 0, true) },
+    { name: 'cat (dim light)', dots: makeBlob(0.5, 0.5, 0.18, 0, false, 0.4) },
+  ];
+
+  function makeBlob(cx, cy, r, rot=0, occluded=false, brightness=1.0) {
+    const grid = [];
+    const N = 28;
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const fx = x/N, fy = y/N;
+        const dx = fx - cx, dy = fy - cy;
+        const rx = dx * Math.cos(rot) - dy * Math.sin(rot);
+        const ry = dx * Math.sin(rot) + dy * Math.cos(rot);
+        let v = Math.exp(-(rx*rx + ry*ry*1.6) / (2*r*r));
+        v += 0.2 * Math.exp(-((rx-0.1)**2 + (ry+0.1)**2)/0.005);
+        v += 0.2 * Math.exp(-((rx+0.1)**2 + (ry+0.1)**2)/0.005);
+        if (occluded && fx > 0.55) v *= 0.1;
+        v *= brightness;
+        grid.push(v);
+      }
+    }
+    return { N, grid };
+  }
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  let t = 0;
+  function draw() {
+    t += 0.02;
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    const noise = parseFloat(noiseEl.value) / 100;
+    const s = scenes[scene % scenes.length];
+    const N = s.N;
+    const cell = Math.min(W, H) * 0.7 / N;
+    const ox = (W - cell * N) / 2;
+    const oy = (H - cell * N) / 2 - cell * 2;
+
+    // pixel grid (left side ish)
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        let v = s.grid[y * N + x];
+        v += (Math.random() - 0.5) * noise * 0.6;
+        v = Math.max(0, Math.min(1, v));
+        const c = Math.floor(30 + 200 * v);
+        ctx.fillStyle = `rgb(${c*0.55},${c*0.7},${c*0.85})`;
+        ctx.fillRect(ox + x*cell, oy + y*cell, cell + 1, cell + 1);
+      }
+    }
+
+    // pulse — a "feature extraction" sweep
+    const sweep = (Math.sin(t) + 1) / 2;
+    const sx = ox + sweep * cell * N;
+    ctx.fillStyle = 'rgba(184,115,51,0.18)';
+    ctx.fillRect(sx, oy, cell * 2, cell * N);
+    ctx.strokeStyle = 'rgba(184,115,51,0.7)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(sx, oy, cell * 2, cell * N);
+
+    // arrow
+    const arrowY = oy + cell * N + cell * 2;
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = `${cell*0.9}px -apple-system, Inter, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText('↓ what is this?', W/2, arrowY);
+
+    // a wobbly answer
+    const guesses = ['cat?', 'dog?', 'fox?', 'cat.'];
+    const idx = Math.floor((Math.sin(t*0.5) + 1) * guesses.length / 2) % guesses.length;
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `bold ${cell*1.4}px -apple-system, Inter, sans-serif`;
+    ctx.fillText(guesses[idx], W/2, arrowY + cell * 2);
+
+    statusEl.textContent = `${s.name} · noise ${(noise*100).toFixed(0)}%`;
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  document.getElementById('why-shuffle').onclick = () => { scene++; };
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 2. THE TASK ZOO — 6-mode preview canvas
+// ═══════════════════════════════════════════════════════════════════
+safeScene('zoo', function zooScene() {
+  const host = document.getElementById('zoo-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('zoo-status');
+
+  let task = 'cls';
+  const labels = { cls: 'classification', det: 'detection', seg: 'segmentation',
+                   ins: 'instance', gen: 'generation', cap: 'caption' };
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  // synthetic scene: a "cat" blob + a "dog" blob + a "tree"
+  const objs = [
+    { x: 0.30, y: 0.55, w: 0.18, h: 0.22, label: 'cat',  color: '#B87333' },
+    { x: 0.62, y: 0.50, w: 0.22, h: 0.30, label: 'dog',  color: '#5B7553' },
+    { x: 0.85, y: 0.40, w: 0.10, h: 0.45, label: 'tree', color: '#264E70' },
+  ];
+
+  let t = 0;
+  function draw() {
+    t += 0.012;
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    // background image mock — sky + ground
+    const sky = ctx.createLinearGradient(0, 0, 0, H * 0.7);
+    sky.addColorStop(0, '#D9D2C2');
+    sky.addColorStop(1, '#E5DFD0');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, W, H * 0.7);
+    ctx.fillStyle = '#C9B98F';
+    ctx.fillRect(0, H * 0.7, W, H * 0.3);
+
+    // draw "objects" as soft blobs
+    objs.forEach(o => {
+      const cx = o.x * W, cy = o.y * H;
+      const rx = o.w * W * 0.5, ry = o.h * H * 0.5;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+      ctx.fillStyle = task === 'gen' ? `rgba(${hex(o.color)},${0.4 + 0.4*Math.sin(t+ o.x*5)})` : `rgba(${hex(o.color)},0.85)`;
+      ctx.fill();
+    });
+
+    // task overlay
+    if (task === 'cls') {
+      ctx.fillStyle = 'rgba(38,78,112,0.85)';
+      ctx.fillRect(W*0.05, H*0.05, W*0.45, H*0.13);
+      ctx.fillStyle = '#F5F2EB';
+      ctx.font = `bold ${H*0.06}px -apple-system, Inter`;
+      ctx.textBaseline = 'middle';
+      ctx.fillText('label: cat (0.91)', W*0.07, H*0.115);
+    }
+    if (task === 'det') {
+      objs.forEach(o => {
+        const x = (o.x - o.w/2) * W, y = (o.y - o.h/2) * H;
+        ctx.strokeStyle = '#264E70'; ctx.lineWidth = 4;
+        ctx.strokeRect(x, y, o.w * W, o.h * H);
+        ctx.fillStyle = '#264E70';
+        ctx.fillRect(x, y - H*0.04, ctx.measureText(o.label).width + W*0.03, H*0.04);
+        ctx.fillStyle = '#F5F2EB';
+        ctx.font = `${H*0.025}px -apple-system, Inter`;
+        ctx.textBaseline = 'middle';
+        ctx.fillText(o.label, x + W*0.012, y - H*0.02);
+      });
+    }
+    if (task === 'seg') {
+      // colour the same blob shape with semantic colors
+      objs.forEach(o => {
+        const cx = o.x * W, cy = o.y * H;
+        const rx = o.w * W * 0.5, ry = o.h * H * 0.5;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+        ctx.fillStyle = o.label === 'cat' ? 'rgba(184,115,51,0.85)'
+                       : o.label === 'dog' ? 'rgba(91,117,83,0.85)'
+                       : 'rgba(38,78,112,0.85)';
+        ctx.fill();
+      });
+    }
+    if (task === 'ins') {
+      objs.forEach((o, i) => {
+        const cx = o.x * W, cy = o.y * H;
+        const rx = o.w * W * 0.5, ry = o.h * H * 0.5;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+        const hue = 200 + i * 90;
+        ctx.fillStyle = `hsla(${hue},45%,45%,0.85)`;
+        ctx.fill();
+        ctx.fillStyle = '#F5F2EB';
+        ctx.font = `bold ${H*0.04}px -apple-system, Inter`;
+        ctx.textAlign = 'center';
+        ctx.fillText(`#${i+1}`, cx, cy);
+        ctx.textAlign = 'start';
+      });
+    }
+    if (task === 'gen') {
+      ctx.fillStyle = 'rgba(38,78,112,0.85)';
+      ctx.fillRect(W*0.05, H*0.05, W*0.6, H*0.13);
+      ctx.fillStyle = '#F5F2EB';
+      ctx.font = `bold ${H*0.04}px -apple-system, Inter`;
+      ctx.textBaseline = 'middle';
+      ctx.fillText('"a cat and a dog by a tree" → image', W*0.07, H*0.115);
+    }
+    if (task === 'cap') {
+      ctx.fillStyle = 'rgba(38,78,112,0.85)';
+      ctx.fillRect(W*0.05, H*0.82, W*0.7, H*0.13);
+      ctx.fillStyle = '#F5F2EB';
+      ctx.font = `${H*0.04}px -apple-system, Inter`;
+      ctx.textBaseline = 'middle';
+      ctx.fillText('"A cat and a dog standing in front of a tree."', W*0.07, H*0.885);
+    }
+
+    statusEl.textContent = labels[task];
+    requestAnimationFrame(draw);
+  }
+
+  function hex(h) {
+    const r = parseInt(h.slice(1,3), 16), g = parseInt(h.slice(3,5), 16), b = parseInt(h.slice(5,7), 16);
+    return `${r},${g},${b}`;
+  }
+
+  draw();
+
+  document.querySelectorAll('[data-task]').forEach(b => {
+    b.onclick = () => {
+      task = b.dataset.task;
+      document.querySelectorAll('[data-task]').forEach(x => { x.classList.add('ghost'); });
+      b.classList.remove('ghost');
+    };
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 3. CONV KERNEL SWEEP — 8×8 image, 3×3 kernel slides, output map fills
+// ═══════════════════════════════════════════════════════════════════
+safeScene('conv', function convScene() {
+  const host = document.getElementById('conv-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const modeEl = document.getElementById('conv-mode');
+  const statusEl = document.getElementById('conv-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  // input image (8×8)
+  const N = 8;
+  const img = [];
+  for (let y = 0; y < N; y++) {
+    const row = [];
+    for (let x = 0; x < N; x++) {
+      const cx = (x-N/2+0.5)/N, cy = (y-N/2+0.5)/N;
+      const v = 0.5 + 0.4 * Math.exp(-(cx*cx + cy*cy)*8) - 0.3 * Math.abs(cx);
+      row.push(Math.max(0, Math.min(1, v + (Math.random()-0.5)*0.05)));
+    }
+    img.push(row);
+  }
+
+  const kernels = {
+    edge:    [[-1,-1,-1],[-1, 8,-1],[-1,-1,-1]],
+    blur:    [[1,1,1],[1,1,1],[1,1,1]].map(r => r.map(v => v/9)),
+    sharpen: [[ 0,-1, 0],[-1, 5,-1],[ 0,-1, 0]],
+  };
+  let kernelName = 'edge';
+  let outMap = Array.from({length: N-2}, () => Array(N-2).fill(null));
+  let kx = 0, ky = 0; // kernel position
+  let auto = false;
+  let lastTick = 0;
+
+  function applyKernel(x, y) {
+    const k = kernels[kernelName];
+    let s = 0;
+    for (let j = 0; j < 3; j++)
+      for (let i = 0; i < 3; i++)
+        s += img[y+j][x+i] * k[j][i];
+    return s;
+  }
+
+  function drawCell(x, y, w, h, v, alpha=1) {
+    const c = Math.floor(20 + 220 * Math.max(0, Math.min(1, v)));
+    ctx.fillStyle = `rgba(${Math.floor(c*0.45)},${Math.floor(c*0.6)},${Math.floor(c*0.75)},${alpha})`;
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+    ctx.strokeRect(x, y, w, h);
+  }
+
+  function step() {
+    outMap[ky][kx] = applyKernel(kx, ky);
+    kx++;
+    if (kx >= N-2) { kx = 0; ky++; }
+    if (ky >= N-2) { ky = 0; kx = 0; outMap = Array.from({length: N-2}, () => Array(N-2).fill(null)); auto = false; }
+  }
+
+  function draw(now=0) {
+    if (auto && now - lastTick > 220) {
+      step();
+      lastTick = now;
+    }
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    const margin = W * 0.06;
+    const block = (W - 3 * margin) / 2;
+    const cellIn = block / N;
+    const cellOut = block / (N-2);
+
+    // input
+    const ox1 = margin, oy1 = (H - block) / 2;
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `${H*0.025}px -apple-system, Inter`;
+    ctx.fillText('input image · 8×8', ox1, oy1 - H*0.015);
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        drawCell(ox1 + x*cellIn, oy1 + y*cellIn, cellIn, cellIn, img[y][x]);
+      }
+    }
+    // kernel highlight
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(ox1 + kx*cellIn, oy1 + ky*cellIn, cellIn*3, cellIn*3);
+
+    // output
+    const ox2 = margin*2 + block, oy2 = (H - block) / 2;
+    ctx.fillStyle = '#1A1A1A';
+    ctx.fillText('feature map · 6×6', ox2, oy2 - H*0.015);
+    for (let y = 0; y < N-2; y++) {
+      for (let x = 0; x < N-2; x++) {
+        if (outMap[y][x] !== null) {
+          const v = (outMap[y][x] + 1) / 3;
+          drawCell(ox2 + x*cellOut, oy2 + y*cellOut, cellOut, cellOut, v);
+        } else {
+          ctx.fillStyle = '#F5F2EB';
+          ctx.fillRect(ox2 + x*cellOut, oy2 + y*cellOut, cellOut, cellOut);
+          ctx.strokeStyle = 'rgba(0,0,0,0.04)';
+          ctx.strokeRect(ox2 + x*cellOut, oy2 + y*cellOut, cellOut, cellOut);
+        }
+      }
+    }
+    // current output cell
+    if (ky < N-2 && kx < N-2) {
+      ctx.strokeStyle = '#B87333';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(ox2 + kx*cellOut, oy2 + ky*cellOut, cellOut, cellOut);
+    }
+
+    modeEl.textContent = `kernel: ${kernelName}`;
+    statusEl.textContent = `position (${kx},${ky}) · ${(N-2)*(N-2)} outputs`;
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  document.querySelectorAll('[data-kernel]').forEach(b => {
+    b.onclick = () => {
+      kernelName = b.dataset.kernel;
+      kx = 0; ky = 0;
+      outMap = Array.from({length: N-2}, () => Array(N-2).fill(null));
+      document.querySelectorAll('[data-kernel]').forEach(x => x.classList.add('ghost'));
+      b.classList.remove('ghost');
+    };
+  });
+  document.getElementById('conv-step').onclick = () => { auto = true; };
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 4. SELF-SUPERVISED — rotation prediction game
+// ═══════════════════════════════════════════════════════════════════
+safeScene('ssl', function sslScene() {
+  const host = document.getElementById('ssl-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('ssl-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  let actualRot = 90;
+  let chosen = null;
+  let correctCount = 0, totalCount = 0;
+
+  function newRot() {
+    const opts = [0, 90, 180, 270];
+    actualRot = opts[Math.floor(Math.random() * 4)];
+    chosen = null;
+  }
+  newRot();
+
+  // a stylized "cat face" so rotation is unambiguous
+  function drawCat(x, y, size, rot) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot * Math.PI / 180);
+    // head
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath();
+    ctx.ellipse(0, 0, size*0.5, size*0.45, 0, 0, Math.PI*2);
+    ctx.fill();
+    // ears
+    ctx.beginPath();
+    ctx.moveTo(-size*0.4, -size*0.3);
+    ctx.lineTo(-size*0.25, -size*0.6);
+    ctx.lineTo(-size*0.1, -size*0.3);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(size*0.4, -size*0.3);
+    ctx.lineTo(size*0.25, -size*0.6);
+    ctx.lineTo(size*0.1, -size*0.3);
+    ctx.closePath();
+    ctx.fill();
+    // eyes
+    ctx.fillStyle = '#1A1A1A';
+    ctx.beginPath(); ctx.arc(-size*0.18, -size*0.05, size*0.05, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc( size*0.18, -size*0.05, size*0.05, 0, Math.PI*2); ctx.fill();
+    // nose
+    ctx.fillStyle = '#9B4E4E';
+    ctx.beginPath();
+    ctx.moveTo(0, size*0.05);
+    ctx.lineTo(-size*0.06, size*0.12);
+    ctx.lineTo(size*0.06, size*0.12);
+    ctx.closePath();
+    ctx.fill();
+    // mouth
+    ctx.strokeStyle = '#1A1A1A';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(0, size*0.18, size*0.08, 0, Math.PI);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function draw() {
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    // big rotated image
+    const size = Math.min(W, H) * 0.55;
+    drawCat(W/2, H*0.42, size, actualRot);
+
+    // status + score
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `bold ${H*0.04}px -apple-system, Inter`;
+    ctx.textAlign = 'center';
+    if (chosen === null) {
+      ctx.fillText('which rotation was applied?', W/2, H*0.86);
+    } else if (chosen === actualRot) {
+      ctx.fillStyle = '#5B7553';
+      ctx.fillText(`correct! it was ${actualRot}°`, W/2, H*0.86);
+    } else {
+      ctx.fillStyle = '#9B4E4E';
+      ctx.fillText(`it was actually ${actualRot}°  (you said ${chosen}°)`, W/2, H*0.86);
+    }
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = `${H*0.025}px -apple-system, Inter`;
+    ctx.fillText(`accuracy: ${correctCount}/${totalCount}`, W/2, H*0.92);
+    ctx.textAlign = 'start';
+
+    statusEl.textContent = chosen === null ? 'guess the rotation' : `chose ${chosen}°`;
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  document.querySelectorAll('[data-rot]').forEach(b => {
+    b.onclick = () => {
+      if (chosen !== null) return;
+      chosen = parseInt(b.dataset.rot);
+      totalCount++;
+      if (chosen === actualRot) correctCount++;
+    };
+  });
+  document.getElementById('ssl-new').onclick = () => { newRot(); };
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 5. MLP-MIXER — token-mixing then channel-mixing across 6×6 patches
+// ═══════════════════════════════════════════════════════════════════
+safeScene('mixer', function mixerScene() {
+  const host = document.getElementById('mixer-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const phaseEl = document.getElementById('mixer-phase');
+  const statusEl = document.getElementById('mixer-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  const N = 6;
+  // each patch has C channels
+  const C = 4;
+  let patches = Array.from({length: N}, (_, y) =>
+    Array.from({length: N}, (_, x) =>
+      Array.from({length: C}, () => 0.3 + 0.6 * Math.random())));
+
+  let phase = 'token';
+  let step = 0;
+  let running = false;
+  let lastTick = 0;
+
+  function draw(now=0) {
+    if (running && now - lastTick > 280) {
+      lastTick = now;
+      if (phase === 'token') {
+        // token mixing — across patches in row `step`, within each channel
+        const row = step;
+        if (row < N) {
+          for (let c = 0; c < C; c++) {
+            const avg = patches[row].reduce((s,p) => s + p[c], 0) / N;
+            patches[row].forEach(p => { p[c] = 0.5 * p[c] + 0.5 * avg; });
+          }
+          step++;
+        } else {
+          phase = 'channel'; step = 0;
+        }
+      } else if (phase === 'channel') {
+        // channel mixing — across channels in patch (step), within patch
+        const col = step % N, rrow = Math.floor(step / N);
+        if (rrow < N) {
+          const p = patches[rrow][col];
+          const avg = p.reduce((s,v) => s + v, 0) / C;
+          for (let c = 0; c < C; c++) p[c] = 0.5 * p[c] + 0.5 * avg;
+          step++;
+        } else {
+          phase = 'token'; step = 0;
+        }
+      }
+    }
+
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    const size = Math.min(W, H) * 0.7;
+    const ox = (W - size) / 2;
+    const oy = (H - size) / 2;
+    const cell = size / N;
+
+    // patch grid: for each patch draw a 2×2 of channels
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const p = patches[y][x];
+        for (let c = 0; c < C; c++) {
+          const cx = c % 2, cy = Math.floor(c / 2);
+          const v = p[c];
+          const col = Math.floor(20 + 220 * v);
+          ctx.fillStyle = `rgb(${Math.floor(col*0.45)},${Math.floor(col*0.6)},${Math.floor(col*0.8)})`;
+          ctx.fillRect(ox + x*cell + cx*cell/2, oy + y*cell + cy*cell/2, cell/2, cell/2);
+        }
+        ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+        ctx.strokeRect(ox + x*cell, oy + y*cell, cell, cell);
+      }
+    }
+
+    // highlight current op
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 3;
+    if (phase === 'token' && step < N) {
+      ctx.strokeRect(ox, oy + step*cell, cell*N, cell);
+    } else if (phase === 'channel') {
+      const rrow = Math.floor(step / N), col = step % N;
+      if (rrow < N) ctx.strokeRect(ox + col*cell, oy + rrow*cell, cell, cell);
+    }
+
+    phaseEl.textContent = phase === 'token' ? 'phase: token-mixing (rows)' : 'phase: channel-mixing (patches)';
+    statusEl.textContent = `step ${step}`;
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  document.getElementById('mixer-play').onclick = () => { running = true; };
+  document.getElementById('mixer-pause').onclick = () => { running = false; };
+  document.getElementById('mixer-reset').onclick = () => {
+    running = false; phase = 'token'; step = 0;
+    patches = Array.from({length: N}, () =>
+      Array.from({length: N}, () =>
+        Array.from({length: C}, () => 0.3 + 0.6 * Math.random())));
+  };
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6. MAMBA — state-space dynamics live chart
+// ═══════════════════════════════════════════════════════════════════
+safeScene('mamba', function mambaScene() {
+  const host = document.getElementById('mamba-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('mamba-status');
+  const aEl = document.getElementById('mamba-A');
+  const bEl = document.getElementById('mamba-B');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  const T = 40;
+  let xs = new Array(T).fill(0);
+  let hs = new Array(T).fill(0);
+  let ys = new Array(T).fill(0);
+
+  function recompute() {
+    const A = parseFloat(aEl.value)/100;
+    const B = parseFloat(bEl.value)/100;
+    const C = 1.0;
+    let h = 0;
+    for (let t = 0; t < T; t++) {
+      h = A * h + B * xs[t];
+      hs[t] = h;
+      ys[t] = C * h;
+    }
+  }
+
+  function impulse() {
+    xs = new Array(T).fill(0);
+    xs[5] = 1.0;
+    recompute();
+  }
+  function stepInput() {
+    xs = xs.map((_, t) => t >= 5 ? 1 : 0);
+    recompute();
+  }
+  impulse();
+
+  aEl.oninput = recompute;
+  bEl.oninput = recompute;
+  document.getElementById('mamba-impulse').onclick = impulse;
+  document.getElementById('mamba-step').onclick = stepInput;
+
+  function draw() {
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    const padX = W * 0.08, padY = H * 0.1;
+    const plotW = W - padX * 2, plotH = (H - padY * 4) / 2;
+
+    function drawPlot(values, oy, color, name) {
+      // axis
+      ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padX, oy + plotH);
+      ctx.lineTo(padX + plotW, oy + plotH);
+      ctx.stroke();
+      // zero line
+      ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+      ctx.beginPath();
+      ctx.moveTo(padX, oy + plotH/2);
+      ctx.lineTo(padX + plotW, oy + plotH/2);
+      ctx.stroke();
+      // bars
+      const bw = plotW / T;
+      values.forEach((v, t) => {
+        const h = Math.max(-1, Math.min(1, v)) * plotH * 0.45;
+        ctx.fillStyle = color;
+        if (h >= 0) ctx.fillRect(padX + t*bw, oy + plotH/2 - h, bw - 1, h);
+        else        ctx.fillRect(padX + t*bw, oy + plotH/2, bw - 1, -h);
+      });
+      // label
+      ctx.fillStyle = '#1A1A1A';
+      ctx.font = `bold ${H*0.025}px -apple-system, Inter`;
+      ctx.fillText(name, padX, oy - H*0.005);
+    }
+
+    drawPlot(xs, padY, '#264E70', 'input  x_t');
+    drawPlot(hs, padY * 2 + plotH, '#B87333', 'hidden state  h_t');
+
+    const A = parseFloat(aEl.value)/100;
+    const B = parseFloat(bEl.value)/100;
+    statusEl.textContent = `A=${A.toFixed(2)} · B=${B.toFixed(2)}`;
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6b. VISION MAMBA — 2D snake scan animation
+// ═══════════════════════════════════════════════════════════════════
+safeScene('vmamba', function vmambaScene() {
+  const host = document.getElementById('vmamba-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('vmamba-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  const N = 8;
+  let order = [];
+  // snake order
+  for (let y = 0; y < N; y++) {
+    if (y % 2 === 0) for (let x = 0; x < N; x++) order.push([x,y]);
+    else            for (let x = N-1; x >= 0; x--) order.push([x,y]);
+  }
+  let cursor = 0;
+  let running = false;
+  let lastTick = 0;
+
+  // synthetic image
+  const img = [];
+  for (let y = 0; y < N; y++) {
+    const row = [];
+    for (let x = 0; x < N; x++) {
+      const cx = (x-N/2+0.5)/N, cy = (y-N/2+0.5)/N;
+      row.push(0.4 + 0.5 * Math.exp(-(cx*cx+cy*cy)*4));
+    }
+    img.push(row);
+  }
+  let hidden = new Array(N*N).fill(0);
+
+  function draw(now=0) {
+    if (running && now - lastTick > 130) {
+      lastTick = now;
+      cursor = (cursor + 1) % order.length;
+      // build hidden state along the scan
+      let h = 0;
+      for (let i = 0; i <= cursor; i++) {
+        const [x, y] = order[i];
+        h = 0.85 * h + 0.5 * img[y][x];
+        hidden[i] = h;
+      }
+    }
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    const size = Math.min(W, H) * 0.7;
+    const ox = (W - size) / 2;
+    const oy = H * 0.07;
+    const cell = size / N;
+
+    // draw image grid
+    for (let y = 0; y < N; y++) {
+      for (let x = 0; x < N; x++) {
+        const v = img[y][x];
+        const c = Math.floor(20 + 220 * v);
+        ctx.fillStyle = `rgb(${Math.floor(c*0.45)},${Math.floor(c*0.6)},${Math.floor(c*0.8)})`;
+        ctx.fillRect(ox + x*cell, oy + y*cell, cell, cell);
+        ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+        ctx.strokeRect(ox + x*cell, oy + y*cell, cell, cell);
+      }
+    }
+
+    // draw scan path up to cursor
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    for (let i = 0; i <= cursor; i++) {
+      const [x, y] = order[i];
+      const px = ox + x*cell + cell/2;
+      const py = oy + y*cell + cell/2;
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    // current
+    const [cx2, cy2] = order[cursor];
+    ctx.strokeStyle = '#B87333';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(ox + cx2*cell, oy + cy2*cell, cell, cell);
+
+    // hidden state strip
+    const stripY = oy + size + H*0.04;
+    const stripH = H * 0.13;
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `${H*0.024}px -apple-system, Inter`;
+    ctx.fillText('hidden state along scan', ox, stripY - H*0.008);
+    const total = order.length;
+    const sw = size / total;
+    for (let i = 0; i < total; i++) {
+      const v = hidden[i] || 0;
+      const c = Math.floor(40 + 200 * Math.min(1, v));
+      ctx.fillStyle = i <= cursor ? `rgb(${Math.floor(c*0.7)},${Math.floor(c*0.4)},${Math.floor(c*0.2)})` : '#F5F2EB';
+      ctx.fillRect(ox + i*sw, stripY, sw + 0.5, stripH);
+    }
+
+    statusEl.textContent = `scanning patch ${cursor+1}/${total}`;
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  document.getElementById('vmamba-play').onclick = () => { running = true; };
+  document.getElementById('vmamba-reset').onclick = () => {
+    running = false; cursor = 0; hidden.fill(0);
+  };
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 7. CLIP-style joint embedding — drag the text label
+// ═══════════════════════════════════════════════════════════════════
+safeScene('clip', function clipScene() {
+  const host = document.getElementById('clip-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  canvas.style.cursor = 'grab';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('clip-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  // each "image" lives at a fixed point in the embedding space
+  const images = [
+    { x: 0.22, y: 0.30, kind: 'cat',  color: '#B87333', emoji: '🐈' },
+    { x: 0.30, y: 0.45, kind: 'cat',  color: '#B87333', emoji: '🐈' },
+    { x: 0.18, y: 0.55, kind: 'cat',  color: '#B87333', emoji: '🐈' },
+    { x: 0.72, y: 0.28, kind: 'dog',  color: '#5B7553', emoji: '🐕' },
+    { x: 0.78, y: 0.40, kind: 'dog',  color: '#5B7553', emoji: '🐕' },
+    { x: 0.66, y: 0.50, kind: 'dog',  color: '#5B7553', emoji: '🐕' },
+    { x: 0.50, y: 0.78, kind: 'car',  color: '#9B4E4E', emoji: '🚗' },
+    { x: 0.45, y: 0.85, kind: 'car',  color: '#9B4E4E', emoji: '🚗' },
+    { x: 0.85, y: 0.78, kind: 'tree', color: '#264E70', emoji: '🌳' },
+    { x: 0.90, y: 0.85, kind: 'tree', color: '#264E70', emoji: '🌳' },
+  ];
+  // text prompt position — start over cats
+  let prompt = { x: 0.25, y: 0.4, text: 'a photo of a cat', kind: 'cat' };
+
+  let dragging = false;
+  function pos(e) {
+    const r = canvas.getBoundingClientRect();
+    return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
+  }
+  canvas.onmousedown = e => { dragging = true; const p = pos(e); prompt.x = p.x; prompt.y = p.y; canvas.style.cursor='grabbing'; };
+  canvas.onmousemove = e => { if (dragging) { const p = pos(e); prompt.x = p.x; prompt.y = p.y; } };
+  canvas.onmouseup = () => { dragging = false; canvas.style.cursor='grab'; };
+  canvas.onmouseleave = () => { dragging = false; canvas.style.cursor='grab'; };
+
+  document.querySelectorAll('[data-prompt]').forEach(b => {
+    b.onclick = () => {
+      const k = b.dataset.prompt;
+      const target = images.find(i => i.kind === k);
+      prompt.text = b.textContent.replace(/"/g, '');
+      prompt.kind = k;
+      // animate text to a default position near that cluster
+      const same = images.filter(i => i.kind === k);
+      const ax = same.reduce((s,i) => s + i.x, 0) / same.length;
+      const ay = same.reduce((s,i) => s + i.y, 0) / same.length;
+      prompt.x = ax; prompt.y = ay;
+      document.querySelectorAll('[data-prompt]').forEach(x => x.classList.add('ghost'));
+      b.classList.remove('ghost');
+    };
+  });
+
+  function draw() {
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    // axes / grid
+    ctx.strokeStyle = 'rgba(0,0,0,0.06)';
+    ctx.lineWidth = 1;
+    for (let i = 1; i < 5; i++) {
+      ctx.beginPath(); ctx.moveTo(W * i/5, 0); ctx.lineTo(W * i/5, H); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0, H * i/5); ctx.lineTo(W, H * i/5); ctx.stroke();
+    }
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = `${H*0.022}px -apple-system, Inter`;
+    ctx.fillText('shared image-text embedding (2D)', W*0.03, H*0.05);
+
+    // images
+    images.forEach(img => {
+      const dx = img.x - prompt.x, dy = img.y - prompt.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      const sim = Math.exp(-d*d * 18); // similarity
+      const r = H*0.04 + sim * H*0.05;
+      ctx.beginPath();
+      ctx.arc(img.x * W, img.y * H, r, 0, Math.PI*2);
+      ctx.fillStyle = img.color;
+      ctx.globalAlpha = 0.4 + 0.5 * sim;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      // halo if similar
+      if (sim > 0.5) {
+        ctx.strokeStyle = '#B87333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(img.x * W, img.y * H, r + 6, 0, Math.PI*2);
+        ctx.stroke();
+      }
+      ctx.fillStyle = '#F5F2EB';
+      ctx.font = `${H*0.03}px -apple-system, Inter`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(img.emoji, img.x * W, img.y * H);
+    });
+
+    // prompt
+    const px = prompt.x * W, py = prompt.y * H;
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `bold ${H*0.034}px -apple-system, Inter`;
+    ctx.textAlign = 'center';
+    const text = `"${prompt.text}"`;
+    const m = ctx.measureText(text);
+    ctx.fillStyle = 'rgba(245,242,235,0.92)';
+    ctx.fillRect(px - m.width/2 - 12, py - H*0.024, m.width + 24, H*0.048);
+    ctx.strokeStyle = '#1A1A1A';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(px - m.width/2 - 12, py - H*0.024, m.width + 24, H*0.048);
+    ctx.fillStyle = '#1A1A1A';
+    ctx.fillText(text, px, py);
+    ctx.textAlign = 'start';
+    ctx.textBaseline = 'alphabetic';
+
+    statusEl.textContent = `prompt: "${prompt.text}"`;
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 8. NEXT TRENDS — passive vs active loop
+// ═══════════════════════════════════════════════════════════════════
+safeScene('next', function nextScene() {
+  const host = document.getElementById('next-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('next-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * (window.devicePixelRatio || 1);
+    canvas.height = r.height * (window.devicePixelRatio || 1);
+  }
+  resize();
+  new ResizeObserver(resize).observe(host);
+
+  let running = false;
+  let t = 0;
+  // the "agent" (active) tries to reach a target while a passive label is wrong
+  let agent = { x: 0.15, y: 0.7 };
+  const target = { x: 0.85, y: 0.3 };
+  let trail = [];
+
+  document.getElementById('next-play').onclick = () => { running = true; };
+  document.getElementById('next-reset').onclick = () => {
+    running = false; agent = { x: 0.15, y: 0.7 }; trail = []; t = 0;
+  };
+
+  function draw() {
+    if (running) {
+      t += 0.018;
+      // active agent: simple gradient toward target with noise
+      const dx = target.x - agent.x, dy = target.y - agent.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d > 0.02) {
+        agent.x += dx / d * 0.004 + (Math.random()-0.5)*0.003;
+        agent.y += dy / d * 0.004 + (Math.random()-0.5)*0.003;
+        trail.push({x: agent.x, y: agent.y});
+        if (trail.length > 200) trail.shift();
+      }
+    }
+
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(0, 0, W, H);
+
+    // split panels
+    const panelW = W / 2;
+    ctx.fillStyle = '#E5DFD0';
+    ctx.fillRect(panelW - 1, 0, 2, H);
+
+    // ─── LEFT: passive ───
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `bold ${H*0.034}px -apple-system, Inter`;
+    ctx.fillText('passive', W*0.04, H*0.07);
+    ctx.font = `${H*0.022}px -apple-system, Inter`;
+    ctx.fillStyle = '#6B6B6B';
+    ctx.fillText('static image → fixed prediction', W*0.04, H*0.12);
+
+    // mock image
+    const ix = panelW * 0.18, iy = H * 0.25;
+    const iw = panelW * 0.65, ih = H * 0.35;
+    const grad = ctx.createLinearGradient(0, iy, 0, iy + ih);
+    grad.addColorStop(0, '#A6B0BA');
+    grad.addColorStop(1, '#7FA28E');
+    ctx.fillStyle = grad;
+    ctx.fillRect(ix, iy, iw, ih);
+    // a "cup" sketch
+    ctx.fillStyle = '#B87333';
+    ctx.fillRect(ix + iw*0.4, iy + ih*0.5, iw*0.18, ih*0.35);
+
+    // wrong static prediction
+    ctx.fillStyle = 'rgba(155,78,78,0.88)';
+    ctx.fillRect(ix, iy + ih + H*0.025, iw, H*0.06);
+    ctx.fillStyle = '#F5F2EB';
+    ctx.font = `bold ${H*0.025}px -apple-system, Inter`;
+    ctx.fillText('predicted: "vase"  ✗  (actually: cup)', ix + W*0.012, iy + ih + H*0.063);
+    ctx.fillStyle = '#6B6B6B';
+    ctx.font = `${H*0.022}px -apple-system, Inter`;
+    ctx.fillText('the model has no way to know it\'s wrong', ix, H*0.93);
+
+    // ─── RIGHT: active ───
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `bold ${H*0.034}px -apple-system, Inter`;
+    ctx.fillText('active', panelW + W*0.04, H*0.07);
+    ctx.font = `${H*0.022}px -apple-system, Inter`;
+    ctx.fillStyle = '#6B6B6B';
+    ctx.fillText('agent acts → simulator responds → agent adapts', panelW + W*0.04, H*0.12);
+
+    // env panel
+    const ex = panelW + panelW * 0.05, ey = H * 0.18;
+    const ew = panelW * 0.9, eh = H * 0.7;
+    ctx.fillStyle = '#F5F2EB';
+    ctx.fillRect(ex, ey, ew, eh);
+    ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+    ctx.strokeRect(ex, ey, ew, eh);
+    // grid
+    ctx.strokeStyle = 'rgba(0,0,0,0.04)';
+    for (let i = 1; i < 6; i++) {
+      ctx.beginPath();
+      ctx.moveTo(ex + ew*i/6, ey); ctx.lineTo(ex + ew*i/6, ey + eh); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(ex, ey + eh*i/6); ctx.lineTo(ex + ew, ey + eh*i/6); ctx.stroke();
+    }
+    // target
+    const tx = ex + target.x * ew, ty = ey + target.y * eh;
+    ctx.fillStyle = '#5B7553';
+    ctx.beginPath(); ctx.arc(tx, ty, H*0.025, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#1A1A1A';
+    ctx.font = `${H*0.022}px -apple-system, Inter`;
+    ctx.fillText('goal', tx + H*0.025, ty + H*0.005);
+    // trail
+    ctx.strokeStyle = 'rgba(184,115,51,0.5)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    trail.forEach((p, i) => {
+      const px = ex + p.x * ew, py = ey + p.y * eh;
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    });
+    ctx.stroke();
+    // agent
+    const ax = ex + agent.x * ew, ay = ey + agent.y * eh;
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(ax, ay, H*0.022, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#1A1A1A';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    statusEl.textContent = running ? `t=${t.toFixed(1)} · agent learning` : 'press play';
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz + progress + TOC
+// ═══════════════════════════════════════════════════════════════════
+let score = 0; const seen = new Set();
+const totalQs = document.querySelectorAll('.opts').length;
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
+        if (b.dataset.correct === 'true') b.classList.add('correct');
+      });
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        document.getElementById('score').textContent = `Score: ${score} / ${totalQs}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${totalQs}`;
+
+// Progress + TOC
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = Math.min(100, Math.max(0, window.scrollY / Math.max(1, h) * 100)) + '%';
+}, { passive: true });
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+
+// polyfill roundRect for older browsers
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+    if (r === undefined) r = 4;
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y, x + w, y + h, r);
+    this.arcTo(x + w, y + h, x, y + h, r);
+    this.arcTo(x, y + h, x, y, r);
+    this.arcTo(x, y, x + w, y, r);
+    return this;
+  };
+}
+</script>
+</body>
+</html>

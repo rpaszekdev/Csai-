@@ -99,6 +99,9 @@ export const PROGRAM = [
               { label: "Lesson 3: Optimizers", href: "/lesson3.html" },
               { label: "Lesson 4: CNNs", href: "/lesson4.html" },
               { label: "Lesson 5: Regularization", href: "/lesson5.html" },
+              { label: "Lesson 6: Recurrence", href: "/lesson6.html" },
+              { label: "Lesson 7: Transformers", href: "/lesson7.html" },
+              { label: "Lesson 8: Computer Vision", href: "/lesson8.html" },
             ],
           },
           {
