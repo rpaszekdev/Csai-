@@ -1094,10 +1094,10 @@ safeScene('why', function whyScene() {
 
   let scene = 0;
   const scenes = [
-    { name: 'cat', dots: makeBlob(0.5, 0.5, 0.18) },
-    { name: 'cat (rotated)', dots: makeBlob(0.5, 0.5, 0.18, Math.PI/4) },
-    { name: 'cat (occluded)', dots: makeBlob(0.5, 0.5, 0.18, 0, true) },
-    { name: 'cat (dim light)', dots: makeBlob(0.5, 0.5, 0.18, 0, false, 0.4) },
+    { name: 'cat', ...makeBlob(0.5, 0.5, 0.18) },
+    { name: 'cat (rotated)', ...makeBlob(0.5, 0.5, 0.18, Math.PI/4) },
+    { name: 'cat (occluded)', ...makeBlob(0.5, 0.5, 0.18, 0, true) },
+    { name: 'cat (dim light)', ...makeBlob(0.5, 0.5, 0.18, 0, false, 0.4) },
   ];
 
   function makeBlob(cx, cy, r, rot=0, occluded=false, brightness=1.0) {
