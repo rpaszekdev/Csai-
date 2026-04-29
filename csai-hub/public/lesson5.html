@@ -316,6 +316,11 @@
       <strong>Regularization</strong> is any technique that closes the gap between <strong>training error</strong> and <strong>test error</strong>. It trades a small increase in bias for a larger drop in variance — and the result is a model that <strong>generalizes</strong>.
     </div>
     <p class="muted">Click <em>resample</em> on the right: watch a straight line stay nearly the same, a sensible curve wiggle a little, and the high-degree polynomial flail wildly — that flailing is <strong>variance</strong>.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-02.png" alt="slide 2" />
+      <div class="cap">slide 2 — overfitting vs. generalisation</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="what-canvas">
@@ -343,6 +348,11 @@
     <div class="callout">
       <strong>In practice:</strong> you detect this by splitting your data into <em>train</em>, <em>validation</em>, and <em>test</em>. High train accuracy plus low validation accuracy is the fingerprint of overfitting.
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-04.png" alt="slide 4" />
+      <div class="cap">slide 4 — bias / variance trade-off</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bv-canvas">
@@ -373,6 +383,11 @@
       <strong>Why the difference?</strong> On the right: the blue contours are the data loss. The grey shape is the <em>budget</em> — how far the weights are allowed to roam. The solution sits where the contour first touches the budget. L1's diamond has sharp corners sitting on the axes, so the touch happens there. L2's round disk has no corners — it touches somewhere general.
     </div>
     <p class="muted">Slide the <strong>λ</strong> control to expand the budget. Larger λ = more regularization = smaller weights.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-06.png" alt="slide 6" />
+      <div class="cap">slide 6 — L1 and L2 weight penalties</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="ln-canvas">
@@ -402,6 +417,11 @@
       <strong>Patience.</strong> Real training curves are noisy. You cannot stop the first time validation nudges up — it might dip again. A <strong>patience</strong> of say 10 epochs means: stop only if validation has not improved for 10 straight epochs. That is the hyperparameter you tune.
     </div>
     <p class="muted">Press <em>Train</em> — the dashed vertical line shows the best-validation epoch. After that the gap opens up: pure memorization.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-07.png" alt="slide 7" />
+      <div class="cap">slide 7 — early stopping on validation loss</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="es-canvas">
@@ -429,6 +449,11 @@
     <div class="callout navy">
       <strong>Adversarial training</strong> is a relative: deliberately add tiny, carefully chosen noise that fools the current model, then train on those examples. The result is a model robust to small perturbations.
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-11.png" alt="slide 11" />
+      <div class="cap">slide 11 — data augmentation expands the training set</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="aug-canvas">
@@ -460,6 +485,11 @@
       <strong>Train vs. test.</strong> At test time you want <em>all</em> neurons active. But then each neuron receives more signal than during training. To match, either <strong>scale down</strong> at test time by <code>(1 − p)</code>, or — more common — <strong>scale up</strong> during training by <code>1 / (1 − p)</code>. This is called <em>inverted dropout</em>, and it is why <code>model.eval()</code> just turns the dropout layer off.
     </div>
     <p class="muted">Dropout is typically used in the <strong>fully-connected</strong> part of a network, not directly on convolutional feature maps (their spatial correlations make random pixel drops less useful).</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-15.png" alt="slide 15" />
+      <div class="cap">slide 15 — dropout: zero random units while training</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="do-canvas">
@@ -489,6 +519,11 @@
       <strong>Takeaway.</strong> In deep learning, the safest move when overfitting is often <em>not</em> to shrink the model — it is to <strong>make the model larger and regularize it</strong>. This is how modern giant language models work.
     </div>
     <p class="muted">The right-hand plot shows the classic U, the interpolation spike, and the modern second descent.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-21.png" alt="slide 21" />
+      <div class="cap">slide 21 — controlling network capacity</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="dd-canvas">
@@ -517,6 +552,11 @@
       <strong>At inference</strong> there is no batch. So during training the layer also tracks a <em>running average</em> of μ and σ, and uses that frozen pair when you run <code>model.eval()</code>.
     </div>
     <p class="muted">Other normalizers exist: <strong>LayerNorm</strong> (normalize across features within one sample — used in Transformers), <strong>InstanceNorm</strong> (style transfer), <strong>GroupNorm</strong> (small batches).</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson5/slide-28.png" alt="slide 28" />
+      <div class="cap">slide 28 — batch normalisation stabilises training</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bn-canvas">

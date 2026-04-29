@@ -413,6 +413,11 @@
       </div>
       <div class="reveal">An MLP needs a <strong>fixed-size</strong> input vector. A sentence (or any sequence) can be short or long. You need a model that processes <strong>one element at a time</strong> while carrying state forward.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-02.png" alt="slide 2" />
+      <div class="cap">slide 2 — sequences need memory of the past</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="memory-canvas">
@@ -450,6 +455,11 @@
       </div>
       <div class="reveal">The whole point of recurrence is <strong>weight sharing across time</strong>. One <code>W<sub>x</sub></code>, one <code>W<sub>h</sub></code>, applied <code>T</code> times. That's why the RNN can handle a sequence of any length with a fixed parameter count.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-03.png" alt="slide 3" />
+      <div class="cap">slide 3 — the recurrent cell unrolled in time</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="rnn-canvas">
@@ -478,6 +488,11 @@
     <p>Olier's framing: "you have <strong>2</strong>, <strong>3</strong>, <strong>4</strong> time steps — fine. <strong>Twenty</strong> — that product becomes a problem." Each Jacobian multiplies a derivative of <code>tanh</code>, which is at most <code>1</code> and usually much smaller. Multiply enough of those together and the signal disappears.</p>
     <p class="muted">Press ▶. A loss is created at the end. Watch the gradient signal propagate backward, multiplied by one Jacobian per step. The further back you go, the more multiplications stack up.</p>
     <div class="callout warn">Same parameters, every step. So the gradient for those parameters is the <strong>sum</strong> of contributions from <strong>every</strong> step. Long sequence → long sum → trouble at both ends.</div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-04.png" alt="slide 4" />
+      <div class="cap">slide 4 — backpropagation through time</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bptt-canvas">
@@ -512,6 +527,11 @@
       </div>
       <div class="reveal"><code>tanh'(z) = 1 − tanh²(z)</code> is bounded by <strong>1</strong> and only reaches <strong>1</strong> at <code>z = 0</code>. Anywhere else it's smaller — often a lot smaller. Multiply many such numbers and the product vanishes.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-05.png" alt="slide 5" />
+      <div class="cap">slide 5 — vanishing & exploding gradients</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="vanish-canvas">
@@ -554,6 +574,11 @@
       </div>
       <div class="reveal">The path <code>c<sub>t−1</sub> → c<sub>t</sub></code> is mostly element-wise addition, gated by the forget gate. No squashing, no contraction by Jacobians. Gradients can flow back along it freely.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-08.png" alt="slide 8" />
+      <div class="cap">slide 8 — LSTM's gates and cell state</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="lstm-canvas">
@@ -594,6 +619,11 @@
       </div>
       <div class="reveal">GRU collapses forget + input into one <strong>update</strong> gate (with its complement) and replaces output with a simpler exposure. Two gates total. LSTM keeps three plus a separate cell state.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-17.png" alt="slide 17" />
+      <div class="cap">slide 17 — GRU: a simpler gated alternative</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="gru-canvas">
@@ -630,6 +660,11 @@
       </div>
       <div class="reveal">The encoder runs through every input token and accumulates information into its hidden state. The <strong>last</strong> hidden state is taken to summarise the full sequence and is handed to the decoder.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-30.png" alt="slide 30" />
+      <div class="cap">slide 30 — encoder–decoder for variable-length output</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="seq2seq-canvas">
@@ -664,6 +699,11 @@
       </div>
       <div class="reveal">A fixed-size vector has finite capacity. As the sequence grows, every token competes for space, and the earliest tokens lose. <strong>Attention</strong> lets the decoder peek at every encoder state directly.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson6/slide-41.png" alt="slide 41" />
+      <div class="cap">slide 41 — the fixed-size bottleneck and attention's fix</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bottleneck-canvas">

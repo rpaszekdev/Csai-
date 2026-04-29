@@ -321,6 +321,11 @@
       <strong>The core question:</strong> if we can't directly tell each hidden neuron "here's what you should have produced," how can we know which way to nudge its weights?
     </div>
     <p class="muted">Answer: the network's <strong>output error</strong> gets propagated <strong>backward</strong>, neuron by neuron, using the <strong>chain rule</strong>.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson2/slide-02.png" alt="slide 2" />
+      <div class="cap">slide 2 — what backprop builds on</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="recap-canvas">
@@ -342,6 +347,11 @@
     <p>Somewhere out there is a <strong>true function</strong> that maps inputs to the correct outputs. We don't know its form — we just have <strong>examples</strong> (training data).</p>
     <p><strong>Training</strong> means adjusting <code>W</code> until our network's function looks like the true one, at least on our examples.</p>
     <div class="callout navy">A network with enough neurons is a <strong>universal function approximator</strong> — it can get arbitrarily close to any continuous function. Training is the search for the right weights.</div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson2/slide-04.png" alt="slide 4" />
+      <div class="cap">slide 4 — the network as a function approximator</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="approx-canvas">
@@ -369,7 +379,7 @@
       <strong>Try it on the right.</strong> Click anywhere on the surface to drop a ball there. It follows the gradient downhill. Start from different places — you'll land in different local minima. Real networks face this problem in thousands of dimensions.
     </div>
     <div class="slide-thumb">
-      <img src="out2/slides_png/slide-06.png" alt="slide 6" />
+      <img src="/slides/lesson2/slide-06.png" alt="slide 6" />
       <div class="cap">slide 6 — descending a 1D cross-section of the loss</div>
     </div>
   </div>
@@ -401,6 +411,11 @@
     </div>
     <p>That "every possible value" is a <strong>huge</strong> space. A modern network has millions or billions of parameters. We can't enumerate all choices — we need a smarter search. <strong>Gradient descent</strong> is that search.</p>
     <p class="muted">Each step uses the gradient to pick a slightly better set of weights than the current one. Repeat many times, and you arrive somewhere decent.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson2/slide-07.png" alt="slide 7" />
+      <div class="cap">slide 7 — gradient descent on the loss surface</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="opt-canvas">
@@ -429,7 +444,7 @@
       Each arrow is a derivative. The chain rule multiplies them all.
     </div>
     <div class="slide-thumb">
-      <img src="out2/slides_png/slide-14.png" alt="chain rule" />
+      <img src="/slides/lesson2/slide-14.png" alt="chain rule" />
       <div class="cap">slide 14 — the chain rule, in symbols</div>
     </div>
   </div>
@@ -462,7 +477,7 @@
       <strong>δ is the "error signal" of the layer.</strong> It measures how much the layer's weighted sum <code>z</code> should shift to reduce the loss. Multiply δ by the layer's input and you get the weight gradient.
     </div>
     <div class="slide-thumb">
-      <img src="out2/slides_png/slide-21.png" alt="slide 21" />
+      <img src="/slides/lesson2/slide-21.png" alt="slide 21" />
       <div class="cap">slide 21 — the three terms collapse to δ · aⁿ⁻¹</div>
     </div>
   </div>
@@ -492,6 +507,11 @@
       Backward: the output's error flows right → left through the <strong>same weights</strong>, becoming a per-layer error signal.
     </div>
     <p class="muted">Press ▶ on the right — first watch the signal go forward (blue pulses). Then the error comes back (red pulses), through the same connections, in reverse.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson2/slide-29.png" alt="slide 29" />
+      <div class="cap">slide 29 — passing gradients backward, layer by layer</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="backward-canvas">
@@ -523,6 +543,11 @@
       Repeat thousands of times.
     </div>
     <p class="muted">In libraries like <strong>PyTorch</strong> this all happens automatically via <em>autograd</em>. But under the hood it is exactly the chain rule, layer by layer.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson2/slide-34.png" alt="slide 34" />
+      <div class="cap">slide 34 — applying the weight update</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="update-canvas">
@@ -553,6 +578,11 @@
       <li><strong>ReLU</strong> — max(0, z). Not smooth at 0, but its left-and-right derivatives are well-defined (0 and 1), and that works fine in practice.</li>
     </ul>
     <p class="muted">Your choice of activation decides what <code>f'(z)</code> in the backprop equation actually is. Sigmoid's derivative is <code>σ(z)·(1 − σ(z))</code>, for example — elegant, easy to compute from the sigmoid itself.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson2/slide-35.png" alt="slide 35" />
+      <div class="cap">slide 35 — smooth surrogates make gradients exist</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="act-canvas">

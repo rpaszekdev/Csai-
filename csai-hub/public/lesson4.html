@@ -310,6 +310,11 @@
       <strong>Translation invariance</strong> — a cat is a cat whether it's in the top-left or the bottom-right.
     </div>
     <p>From those two assumptions: share one small <strong>filter</strong> across the whole image. Suddenly you have a few dozen weights instead of millions — and the network sees shifted cats for free.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-02.png" alt="slide 2" />
+      <div class="cap">slide 2 — why fully-connected fails on images</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="why-canvas">
@@ -334,6 +339,11 @@
     <div class="callout">
       Watch the 3×3 window on the right step across the input. The cell it writes to in the output is the sum of the nine products. Try different <strong>presets</strong>.
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-06.png" alt="slide 6" />
+      <div class="cap">slide 6 — the convolution operation</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="conv-canvas">
@@ -366,6 +376,11 @@
     <div class="callout navy">
       <strong>Example from the lecture.</strong> Input 5×5, filter 3×3, padding 1, stride 2. Then (5 − 3 + 2)/2 + 1 = <strong>3</strong>. The output is 3×3 — matching what you see on the right.
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-09.png" alt="slide 9" />
+      <div class="cap">slide 9 — stride and padding</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="stride-canvas">
@@ -395,6 +410,11 @@
       <strong>Why it helps.</strong> Pooling gives the network a little <strong>translation tolerance</strong> — shift the input by one pixel and the pooled output barely changes. It also cuts the number of values the next layer has to process.
     </div>
     <p class="muted">You can also downsample <em>within</em> the convolution, by using stride &gt; 1. Modern networks often mix both tricks.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-12.png" alt="slide 12" />
+      <div class="cap">slide 12 — pooling and downsampling</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="pool-canvas">
@@ -428,6 +448,11 @@
     <div class="callout">
       <strong>Counting parameters.</strong> For a 4×4 filter on an RGB input (3 channels), with 32 output filters: <code>4 · 4 · 3 · 32 + 32 = 1568</code> parameters (the last <code>+32</code> is one bias per filter). <em>Independent of image size.</em>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-15.png" alt="slide 15" />
+      <div class="cap">slide 15 — stacking conv layers into a pipeline</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="stack-canvas">
@@ -452,6 +477,11 @@
     <div class="callout">
       <strong>Where transposed convs show up.</strong> Encoder-decoders (compress then reconstruct), <strong>U-Net</strong> for segmentation, <strong>GANs</strong> that generate images from noise, and <em>colorising</em> greyscale photos.
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-22.png" alt="slide 22" />
+      <div class="cap">slide 22 — VGG / GoogLeNet / Inception</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="var-canvas">
@@ -483,6 +513,11 @@
       <strong>Why it works.</strong> If the block can't learn anything useful, <code>F(x)</code> can just go to zero and the network passes <code>x</code> through untouched. Gradients also flow backward through the shortcut — no vanishing. That <em>option to do nothing</em> is what lets ResNets go 100+ layers deep.
     </div>
     <p class="muted">When the block changes the number of channels, the shortcut needs a <strong>1×1 convolution</strong> so its shape matches the output — and the two can be added.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-31.png" alt="slide 31" />
+      <div class="cap">slide 31 — 1×1 conv and residual / identity blocks</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="res-canvas">
@@ -514,6 +549,11 @@
       <strong>YOLO — You Only Look Once</strong> — split the image into an <code>S×S</code> grid. Each cell predicts, in <strong>one pass</strong>, both what's there and a few candidate bounding boxes. Overlapping boxes are cleaned up by <em>non-max suppression</em>. Single-shot, fast enough for real time.
     </div>
     <p class="muted">Others worth knowing: <strong>SSD</strong>, <strong>RetinaNet</strong>, and increasingly transformer-based detectors like <strong>DETR</strong>.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson4/slide-41.png" alt="slide 41" />
+      <div class="cap">slide 41 — where CNNs ship in the real world</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="apps-canvas">

@@ -416,6 +416,11 @@
       </div>
       <div class="reveal">Each hidden state is a function of the previous one. That is a strict <strong>data dependency</strong>. No matter how many cores you have, you must wait.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-03.png" alt="slide 3" />
+      <div class="cap">slide 3 — recurrence's fixed-size memory bottleneck</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bottleneck-canvas">
@@ -450,6 +455,11 @@
       </div>
       <div class="reveal">Slide 8 makes this point exactly: <strong>remove the recurrent connections, process every input in parallel</strong>. That is the seed of the Transformer.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-06.png" alt="slide 6" />
+      <div class="cap">slide 6 — attention augments the recurrent decoder</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="rnn-attn-canvas">
@@ -480,6 +490,11 @@
       <strong>Slide 18 walks the example.</strong> The two words <em>Deep</em> and <em>Learning</em> become embeddings <code>e<sub>1</sub></code>, <code>e<sub>2</sub></code>. Each gets a <code>q</code>, <code>k</code>, <code>v</code>. Score <code>q<sub>1</sub>·k<sub>1</sub></code> and <code>q<sub>1</sub>·k<sub>2</sub></code>. Softmax gives weights <code>s<sub>1</sub></code>, <code>s<sub>2</sub></code>. Output for token 1 is <code>s<sub>1</sub>·v<sub>1</sub> + s<sub>2</sub>·v<sub>2</sub></code>.
     </div>
     <p class="muted">Click any token on the right. Watch its query light up, its dot-products with every key compute, the softmax normalize them, and the weighted sum of values produce the output.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-15.png" alt="slide 15" />
+      <div class="cap">slide 15 — self-attention: every token attends to every token</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="qk-canvas">
@@ -517,6 +532,11 @@
       In matrix form for the whole sequence: stack the inputs into a matrix <code>X</code>, then <code>Q = X W<sub>Q</sub></code>, <code>K = X W<sub>K</sub></code>, <code>V = X W<sub>V</sub></code>. Three matrix multiplies and you have everything you need.
     </div>
     <p class="muted">Drag the slider on the right to change the input vector <code>x</code>. The three coloured arrows show the resulting <code>q</code>, <code>k</code>, <code>v</code>. Each is a different rotated and scaled version of <code>x</code>.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-19.png" alt="slide 19" />
+      <div class="cap">slide 19 — Query, Key, Value projections</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="qkv-canvas">
@@ -554,6 +574,11 @@ Attention(Q, K, V) = softmax( Q · K<sup>T</sup> / √d<sub>k</sub> ) · V</div>
       </div>
       <div class="reveal">The scaling factor is the square root of the key dimension. <code>√64 = 8</code>.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-22.png" alt="slide 22" />
+      <div class="cap">slide 22 — softmax(QKᵀ / √d) · V</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="softmax-canvas">
@@ -582,6 +607,11 @@ MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub><
       <strong>Different heads, different relationships.</strong> When you visualise attention from a trained Transformer you find heads that lock onto syntactic patterns, heads that track repeated tokens, heads that look at the previous word, heads that scan the whole sentence. The model picks up these specialisations during training — none of them are designed in.
     </div>
     <p class="muted">The four heatmaps on the right are four different attention heads on the same six-token sequence. Each has a different bias: head 1 is local, head 2 looks at the first token, head 3 is uniform, head 4 has a few sharp spikes. None of these are hand-designed — they are the kind of patterns a trained model produces.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-25.png" alt="slide 25" />
+      <div class="cap">slide 25 — multi-head attention runs in parallel subspaces</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="multihead-canvas">
@@ -615,6 +645,11 @@ MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub><
       <strong>Why the residual?</strong> It gives the gradient an unobstructed path back through the stack. The block then only has to learn the <em>change</em> it wants to apply, not the whole representation. The same trick that makes ResNets trainable makes deep Transformers trainable.
     </div>
     <p class="muted">Press ▶ to send a token through one block. Watch the residual splits before and after the attention and feed-forward sub-layers — the original signal goes through unchanged, and the sub-layer's output is added on top.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-28.png" alt="slide 28" />
+      <div class="cap">slide 28 — the full transformer block</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="block-canvas">
@@ -644,6 +679,11 @@ output  = weights · V</div>
       <strong>Slide 35 spells out the training pair.</strong> To learn the sentence <code>"The cat sat on the mat."</code>, the model sees input <code>&lt;SOS&gt; The cat sat on the</code> and is asked to predict the target <code>The cat sat on the mat &lt;EOS&gt;</code>. The mask makes sure each prediction position only sees the tokens up to <em>and including itself</em>.
     </div>
     <p class="muted">Click <em>Apply mask</em>. The upper triangle of the score grid floods with deep red <code>−∞</code> entries. After softmax, those squares go to zero. Row 1 ends up with all its weight on token 1, row 2 splits between tokens 1–2, and so on — exactly slide 43.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-38.png" alt="slide 38" />
+      <div class="cap">slide 38 — causal / masked attention for autoregression</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="mask-canvas">
@@ -673,6 +713,11 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
       <strong>Why this works.</strong> Sums of sines and cosines at multiple frequencies form a kind of multi-resolution clock. The dot product between <code>PE<sub>p</sub></code> and <code>PE<sub>q</sub></code> depends only on <code>p − q</code> — so the model can in principle learn relative offsets directly.
     </div>
     <p class="muted">The heatmap on the right plots <code>PE</code> for positions 0–63 (rows) across 32 dimensions (columns). Notice how the leftmost columns sweep slowly while the rightmost columns oscillate quickly.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson7/slide-32.png" alt="slide 32" />
+      <div class="cap">slide 32 — positional encodings replace recurrence's order</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="pe-canvas">

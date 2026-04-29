@@ -310,6 +310,11 @@
       <strong>Think of the loss as a landscape.</strong> Each weight is a coordinate; the loss at that point is the height. Training = walking downhill. Every optimizer is a different <em>walking strategy</em>.
     </div>
     <p class="muted">Click on the surface on the right to drop a ball. It follows the gradient. Start from different places and you'll land in different valleys — welcome to the core problem.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-02.png" alt="slide 2" />
+      <div class="cap">slide 2 — gradient descent recap</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="recap-canvas">
@@ -339,6 +344,11 @@
       <strong>Noise is not always bad.</strong> The randomness of mini-batch and SGD actually helps the path <em>jump out</em> of shallow local minima that full-batch would get trapped in.
     </div>
     <p class="muted">On the right, three paths descend the same contour map. Watch how <strong>batch</strong> glides, <strong>SGD</strong> zigzags, and <strong>mini-batch</strong> lives in between.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-06.png" alt="slide 6" />
+      <div class="cap">slide 6 — full / mini / stochastic batch sizes</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="batch-canvas">
@@ -365,6 +375,11 @@
       <strong>Rolling-ball intuition.</strong> Imagine a ball rolling down a valley. It does not stop at every wiggle in the floor because it has <em>momentum</em>. The derivative is <em>acceleration</em>; β is <em>friction</em> (just under 1 so it doesn't speed up forever). The accumulated velocity <em>is</em> <code>v<sub>t</sub></code>.
     </div>
     <p class="muted">Toggle β on the right — watch plain SGD slam between the walls of the ravine while momentum glides along its floor.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-11.png" alt="slide 11" />
+      <div class="cap">slide 11 — momentum carries velocity through ravines</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="momentum-canvas">
@@ -392,6 +407,11 @@
       <strong>"A ball with a notion of where it is going."</strong> The standard ball blindly rolls; Nesterov's ball knows to slow down before the hill rises again. Less overshoot, less wasted backtracking, faster convergence.
     </div>
     <p class="muted">On the right: the <strong>blue arrow</strong> is the pure momentum step. The <strong>orange arrow</strong> is the gradient at that look-ahead point. The <strong>green arrow</strong> is the final Nesterov step — already corrected.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-16.png" alt="slide 16" />
+      <div class="cap">slide 16 — Nesterov peeks ahead before correcting</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="nesterov-canvas">
@@ -418,6 +438,11 @@
       <strong>The fatal flaw:</strong> <code>r</code> only <em>grows</em>. After many steps it becomes huge for every parameter, the effective rate collapses toward zero, and learning simply <strong>stops</strong>. There is no way back.
     </div>
     <p class="muted">On the right: two parameters. One gets many updates, one gets few. Watch the effective learning rates drift apart — and watch the frequent one <em>die</em>.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-20.png" alt="slide 20" />
+      <div class="cap">slide 20 — Adagrad adapts per-parameter learning rate</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="adagrad-canvas">
@@ -443,6 +468,11 @@
       <strong>What this fixes:</strong> no more collapse to zero. If a parameter's gradients suddenly become large, RMSprop damps it. If they become small, RMSprop gives it more room again. The rate <em>adapts continuously</em>.
     </div>
     <p class="muted">On the right: the same gradient stream through AdaGrad (cumulative) and RMSprop (moving average). See how AdaGrad climbs without bound — and RMSprop stays bounded.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-24.png" alt="slide 24" />
+      <div class="cap">slide 24 — RMSProp uses a running average of squares</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="rmsprop-canvas">
@@ -475,6 +505,11 @@
       <strong>Adam is the workhorse.</strong> It's not always best — sometimes plain SGD with momentum generalizes better — but it <em>usually</em> converges faster and needs less tuning. It is the sane default.
     </div>
     <p>On the right: four balls race from the same start. <strong>SGD</strong>, <strong>Momentum</strong>, <strong>RMSprop</strong>, <strong>Adam</strong>. Who arrives first?</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-29.png" alt="slide 29" />
+      <div class="cap">slide 29 — Adam = momentum + RMSProp + bias correction</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="adam-canvas">
@@ -502,6 +537,11 @@
       <strong>When Lion shines:</strong> large batches (gradient direction is reliable), lots of data, and tight memory. When it struggles: small batches and situations where the <em>magnitude</em> of the gradient matters. Because you throw away magnitude, use a <em>much smaller</em> learning rate.
     </div>
     <p class="muted">On the right: a summary table — memory, state kept per parameter, typical learning rate, what problem it solves.</p>
+    <div class="slide-thumb">
+      <img src="/slides/lesson3/slide-35.png" alt="slide 35" />
+      <div class="cap">slide 35 — AdamW decouples weight decay from gradient</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="summary-canvas">

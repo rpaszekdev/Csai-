@@ -413,6 +413,11 @@
       </div>
       <div class="reveal">Speed was a real bottleneck, but the deeper issue is the <strong>semantic gap</strong>. Even with infinite compute, a single straight line of pixel logic cannot turn brightness into "cat". You need representations that survive lighting, viewpoint, occlusion and scale.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-02.png" alt="slide 2" />
+      <div class="cap">slide 2 — Papert 1966 — vision is harder than expected</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="why-canvas">
@@ -453,6 +458,11 @@
       </div>
       <div class="reveal">Semantic segmentation gives a <strong>per-pixel</strong> label. The network output is the same height and width as the input — just with channels for class probabilities instead of RGB.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-13.png" alt="slide 13" />
+      <div class="cap">slide 13 — the modern computer-vision task zoo</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="zoo-canvas">
@@ -480,6 +490,11 @@
     <p class="muted">Drag the kernel slider on the right. Watch a 3×3 filter sweep across an 8×8 image and fill in the output map. Switch between an <strong>edge detector</strong>, a <strong>blur</strong>, and a <strong>sharpen</strong> kernel — each produces a wildly different feature map from identical pixels.</p>
     <div class="callout navy"><strong>Why CNNs scale.</strong> One 3×3 kernel has nine weights. A fully-connected layer between two 224×224 images would have <strong>2.5 billion</strong>. Weight sharing is what makes vision feasible — and the <strong>translation equivariance</strong> you get for free is a real inductive bias, not just a parameter saving.</div>
     <div class="callout">Lesson 4 covered CNNs in depth. Treat this as a recap: it is the <strong>baseline</strong> that every model in the rest of this lesson is trying to beat — or at least match without using convolutions at all.</div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-16.png" alt="slide 16" />
+      <div class="cap">slide 16 — the CNN backbone — ties to lesson 4</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="conv-canvas">
@@ -519,6 +534,11 @@
       </div>
       <div class="reveal">Hiding 75% of patches means local features are not enough — to fill in the missing pieces the model has to <strong>reason about the whole scene</strong>. That global representation is what transfers to downstream tasks.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-18.png" alt="slide 18" />
+      <div class="cap">slide 18 — self-supervised pretraining</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="ssl-canvas">
@@ -550,6 +570,11 @@
     <p class="muted">The animation shows a 6×6 patch grid being processed in turn — first the rows light up (token mixing), then the columns (channel mixing). The two operations alternate.</p>
     <div class="callout"><strong>Why this matters.</strong> Mixer is a clean <strong>existence proof</strong>: the inductive biases of convolution and attention are useful, but not strictly necessary. Given enough data, a stack of plain linear layers can catch up.</div>
     <div class="callout warn"><strong>Limitations from the slide.</strong> Mixer "does not solve the computational costs of transformers" — token-mixing across all patches still scales poorly. And it "still requires very large datasets to train on". Without ConvNet-style inductive biases, you have to pay the data tax.</div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-19.png" alt="slide 19" />
+      <div class="cap">slide 19 — MLP-Mixer (NeurIPS 2021)</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="mixer-canvas">
@@ -587,6 +612,11 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
     <p>The <strong>selective</strong> part of selective state-space models (Gu &amp; Dao, 2023) lets <code>A_t</code>, <code>B_t</code> and <code>Δ_t</code> depend on the input <code>x_t</code> — so the model can choose what to remember and what to forget at each step. That selectivity is what makes Mamba competitive with Transformers, while keeping inference <strong>linear</strong> in sequence length.</p>
     <p class="muted">Drag the input slider on the right. Watch <code>h_t</code> evolve over 30 time-steps. <code>A</code> controls how much of the past leaks forward; <code>B</code> controls how strongly each new input pushes the state.</p>
     <div class="callout navy"><strong>Linear vs quadratic.</strong> A Transformer attending over <code>N</code> tokens does <code>O(N²)</code> work. A state-space model rolls a hidden state forward in <code>O(N)</code>. For sequences of tens of thousands of tokens, that gap is everything.</div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-21.png" alt="slide 21" />
+      <div class="cap">slide 21 — Mamba — selective state-space models (ICML 2024)</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="mamba-canvas">
@@ -626,6 +656,11 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
       </div>
       <div class="reveal">Mamba's selectivity wins on <strong>long causal sequences</strong>. A 224×224 classification head looks at the whole image at once and doesn't need that. The MambaOut authors show plain ConvNets match Vision Mamba on standard benchmarks — so the linear-time advantage isn't being cashed in.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-22.png" alt="slide 22" />
+      <div class="cap">slide 22 — Vision Mamba on images</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="vmamba-canvas">
@@ -662,6 +697,11 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
       </div>
       <div class="reveal">CLIP uses a <strong>contrastive loss</strong>. There is no decoder. The whole training signal is "matching pairs close, mismatched pairs far". That single objective produces a shared embedding space rich enough to do zero-shot classification by just comparing an image to the embedding of class-name prompts.</div>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-24.png" alt="slide 24" />
+      <div class="cap">slide 24 — CLIP and vision-language alignment</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="clip-canvas">
@@ -695,6 +735,11 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
       U-Net — arxiv <a href="https://arxiv.org/abs/1505.04597">1505.04597</a><br/>
       Diffusion models — arxiv <a href="https://arxiv.org/abs/2006.11239">2006.11239</a>
     </div>
+    <div class="slide-thumb">
+      <img src="/slides/lesson8/slide-25.png" alt="slide 25" />
+      <div class="cap">slide 25 — what's next for visual representation</div>
+    </div>
+
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="next-canvas">
