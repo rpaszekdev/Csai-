@@ -14,19 +14,20 @@ export default function BrainPreview({ regions }) {
     if (!container) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a1a);
+    scene.background = null;
     const width = container.clientWidth;
     const height = container.clientHeight;
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
     camera.position.set(0, 20, 280);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-    const dir = new THREE.DirectionalLight(0xffffff, 0.85);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    const dir = new THREE.DirectionalLight(0xffffff, 1.0);
     dir.position.set(60, 80, 100);
     scene.add(dir);
 
@@ -99,14 +100,12 @@ export default function BrainPreview({ regions }) {
           if (!active) return;
           obj.traverse((child) => {
             if (child.isMesh) {
-              const c = region.color;
-              const color = new THREE.Color(c[0] / 255, c[1] / 255, c[2] / 255);
               child.material = new THREE.MeshStandardMaterial({
-                color,
-                emissive: color,
-                emissiveIntensity: 0.4,
-                transparent: true,
-                opacity: 0.95,
+                color: 0x1a1a1a,
+                emissive: 0x000000,
+                emissiveIntensity: 0,
+                roughness: 0.85,
+                metalness: 0.0,
                 side: THREE.DoubleSide,
               });
             }

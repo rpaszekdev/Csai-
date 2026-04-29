@@ -1,10 +1,17 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getNote, getSectionImages, listNotes } from "../lib/pregeneratedNotes";
 import { detectRegions } from "../data/brain-regions";
-import BrainPreview from "./BrainPreview";
+import { useMeasuredBody } from "../lib/useMeasuredBody";
+
+const BODY_FONT = '13px "IBM Plex Mono"';
+const BODY_LINE_HEIGHT = 22;
+
+// Width reserved on the right of the body for the vertical line separator.
+// Kept in sync with `.editorial-body--wrapped { padding-right }` in styles.css.
+const LINE_GUTTER = 480;
 
 const TAG_REGEX = /\[(EXAM|PROF EMPHASIS)\]/g;
 
@@ -14,9 +21,7 @@ function renderTaggedText(text) {
   let match;
   let index = 0;
   while ((match = TAG_REGEX.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
-    }
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
     const isExam = match[1] === "EXAM";
     parts.push(
       <span
@@ -51,54 +56,53 @@ function processChildren(children) {
   return children;
 }
 
-function slugify(text) {
-  return String(text)
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+function buildMarkdownComponents(slides) {
+  // Mutable counter shared across the render; ReactMarkdown walks the tree
+  // top-down, so headings are visited in document order — each one consumes
+  // the next slide thumbnail.
+  let h2Index = 0;
 
-function flattenChildren(children) {
-  if (typeof children === "string") return children;
-  if (Array.isArray(children)) return children.map(flattenChildren).join("");
-  if (children && children.props) return flattenChildren(children.props.children);
-  return "";
-}
-
-function buildHeadingComponents() {
-  const make = (Tag) =>
-    function Heading({ children, ...rest }) {
-      const text = flattenChildren(children);
-      const id = slugify(text);
-      return (
-        <Tag id={id} {...rest}>
-          {processChildren(children)}
-        </Tag>
-      );
-    };
   return {
-    h1: make("h1"),
-    h2: make("h2"),
-    h3: make("h3"),
-    h4: make("h4"),
+    p: ({ children }) => <p>{processChildren(children)}</p>,
+    li: ({ children }) => <li>{processChildren(children)}</li>,
+    strong: ({ children }) => <strong>{processChildren(children)}</strong>,
+    h2: ({ children }) => {
+      const slide = slides[h2Index++];
+      return (
+        <div className="editorial-section-head">
+          <h2>{processChildren(children)}</h2>
+          {slide && (
+            <aside className="editorial-slide-aside">
+              <a href={slide.url} target="_blank" rel="noreferrer">
+                <img src={slide.url} alt={slide.caption} loading="lazy" />
+              </a>
+              <div className="editorial-slide-cap">Slide {slide.slide}</div>
+            </aside>
+          )}
+        </div>
+      );
+    },
   };
 }
 
-const headingComponents = buildHeadingComponents();
-
-const markdownComponents = {
-  ...headingComponents,
-  p: ({ children }) => <p>{processChildren(children)}</p>,
-  li: ({ children }) => <li>{processChildren(children)}</li>,
-  strong: ({ children }) => <strong>{processChildren(children)}</strong>,
-};
+// Keep one thumbnail per slide number — duplicates from the same slide page
+// would just stack identical images down the gutter.
+function dedupeSlides(images) {
+  const seen = new Set();
+  const out = [];
+  for (const img of images) {
+    if (seen.has(img.slide)) continue;
+    seen.add(img.slide);
+    out.push(img);
+  }
+  return out;
+}
 
 function shortLabel(title) {
   const match = title.match(/Module\s*(\d+)\s*Lecture\s*(\d+)/i);
   if (match) return `M${match[1]}L${match[2]}`;
-  if (/midterm/i.test(title)) return "Midterm";
-  return title.slice(0, 12);
+  if (/midterm/i.test(title)) return "Mid";
+  return title.slice(0, 6);
 }
 
 function cleanMarkdown(md) {
@@ -109,41 +113,92 @@ function cleanMarkdown(md) {
     .replace(/^---\s*\n+/m, "");
 }
 
-function buildToc(md) {
-  if (!md) return [];
-  const lines = md.split("\n");
-  const items = [];
-  for (const line of lines) {
-    const m = line.match(/^(#{2,3})\s+(.+?)\s*$/);
-    if (!m) continue;
-    const level = m[1].length;
-    const text = m[2].replace(/\[EXAM\]|\[PROF EMPHASIS\]/g, "").trim();
-    if (!text || /study notes for exam preparation/i.test(text)) continue;
-    items.push({ level, text, id: slugify(text) });
+function parseLectureTitle(title = "") {
+  const match = title.match(
+    /Module\s*(\d+)\s*[—\-]?\s*Lecture\s*(\d+)\s*[:\-]\s*(.+)/i,
+  );
+  if (match) {
+    return {
+      module: match[1].padStart(2, "0"),
+      lecture: match[2].padStart(2, "0"),
+      name: match[3].trim(),
+    };
   }
-  return items;
+  return { module: "00", lecture: "00", name: title };
 }
+
+const TODAY = new Date().toISOString().slice(0, 10);
 
 export default function NotesView() {
   const { sectionId } = useParams();
   const note = useMemo(() => getNote(sectionId), [sectionId]);
-  const cleanedMarkdown = useMemo(() => cleanMarkdown(note?.markdown), [note?.markdown]);
-  const slideImages = useMemo(() => getSectionImages(sectionId, "slide"), [sectionId]);
+  const cleanedMarkdown = useMemo(
+    () => cleanMarkdown(note?.markdown),
+    [note?.markdown],
+  );
+  const slideImages = useMemo(
+    () => dedupeSlides(getSectionImages(sectionId, "slide")),
+    [sectionId],
+  );
+  const markdownComponents = useMemo(
+    () => buildMarkdownComponents(slideImages),
+    [slideImages],
+  );
   const notes = useMemo(() => listNotes(), []);
   const detectedRegions = useMemo(
     () => (note ? detectRegions(note.markdown).slice(0, 6) : []),
     [note],
   );
-  const toc = useMemo(() => buildToc(cleanedMarkdown), [cleanedMarkdown]);
+  const meta = note ? parseLectureTitle(note.title) : null;
+  const cardIndex = useMemo(
+    () => notes.findIndex((n) => n.sectionId === sectionId),
+    [notes, sectionId],
+  );
+
+  // The vertical line.svg separator reserves a fixed gutter on the right.
+  // One width band — pretext just measures against the narrower column.
+  const getMaxWidth = useMemo(
+    () => (_y, containerWidth) => containerWidth - LINE_GUTTER,
+    [],
+  );
+
+  const [bodyHeight, , bodyMeasureRef] = useMeasuredBody(cleanedMarkdown, {
+    font: BODY_FONT,
+    lineHeight: BODY_LINE_HEIGHT,
+    getMaxWidth,
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--cog-body-height", `${Math.round(bodyHeight)}px`);
+    return () => {
+      root.style.removeProperty("--cog-body-height");
+    };
+  }, [bodyHeight]);
 
   return (
-    <div className="notes-layout">
-      <nav className="notes-lecture-strip">
+    <div className="editorial">
+      <header className="editorial-hero">
+        <div className="editorial-num">{meta ? meta.module : "00"}</div>
+        <div>
+          <p className="editorial-eyebrow">
+            {meta
+              ? `Module ${meta.module} · Lecture ${meta.lecture} — ${meta.name}`
+              : note?.title || "Lecture"}
+          </p>
+        </div>
+        <p className="editorial-card">
+          Card #{cardIndex >= 0 ? cardIndex + 1 : "?"} of {notes.length} ·
+          Tilburg University · {TODAY}
+        </p>
+      </header>
+
+      <nav className="editorial-chips">
         {notes.map((n) => (
           <Link
             key={n.sectionId}
             to={`../notes/${n.sectionId}`}
-            className={`notes-lecture-chip ${n.sectionId === sectionId ? "active" : ""}`}
+            className={`editorial-chip ${n.sectionId === sectionId ? "active" : ""}`}
             title={n.title}
           >
             {shortLabel(n.title)}
@@ -151,90 +206,29 @@ export default function NotesView() {
         ))}
       </nav>
 
-      <div className="notes-grid">
-        <article className="notes-main">
-          {note ? (
-            <>
-              <header className="notes-main-head">
-                <h2 className="notes-main-title">{note.title}</h2>
-                <div className="notes-main-meta">
-                  <span className="notes-meta-chip">{note.sources.length} sources</span>
-                  <span className="notes-meta-chip">{note.images.length} img</span>
-                </div>
-              </header>
+      {detectedRegions.length > 0 && (
+        <ul className="editorial-region-list">
+          {detectedRegions.map((r) => (
+            <li key={r.id}>{r.name}</li>
+          ))}
+        </ul>
+      )}
 
-              {slideImages.length > 0 && (
-                <div className="notes-image-strip">
-                  {slideImages.map((img, i) => (
-                    <a
-                      key={i}
-                      href={img.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="notes-image"
-                    >
-                      <img src={img.url} alt={img.caption} loading="lazy" />
-                    </a>
-                  ))}
-                </div>
-              )}
-
-              <div className="notes-body">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  components={markdownComponents}
-                >
-                  {cleanedMarkdown}
-                </ReactMarkdown>
-              </div>
-            </>
-          ) : (
-            <div style={{ padding: "var(--space-lg)" }}>
-              <p>
-                Note not found for section <code>{sectionId}</code>.
-              </p>
-            </div>
-          )}
-        </article>
-
-        <aside className="notes-side-rail">
-          <div className="notes-brain-card">
-            <div className="notes-brain-head">Regions in this lecture</div>
-            <BrainPreview regions={detectedRegions} />
-            {detectedRegions.length > 0 && (
-              <ul className="notes-brain-legend">
-                {detectedRegions.map((r) => (
-                  <li key={r.id}>
-                    <span
-                      className="notes-brain-dot"
-                      style={{
-                        background: `rgb(${r.color[0]}, ${r.color[1]}, ${r.color[2]})`,
-                      }}
-                    />
-                    {r.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {toc.length > 0 && (
-            <nav className="notes-toc">
-              <div className="notes-toc-head">On this page</div>
-              <ul>
-                {toc.map((item, i) => (
-                  <li
-                    key={`${item.id}-${i}`}
-                    className={`notes-toc-item lvl-${item.level}`}
-                  >
-                    <a href={`#${item.id}`}>{item.text}</a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
-        </aside>
-      </div>
+      <article
+        className="editorial-body editorial-body--wrapped"
+        ref={bodyMeasureRef}
+      >
+        {note ? (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={markdownComponents}
+          >
+            {cleanedMarkdown}
+          </ReactMarkdown>
+        ) : (
+          <p>Note not found for section {sectionId}.</p>
+        )}
+      </article>
     </div>
   );
 }
