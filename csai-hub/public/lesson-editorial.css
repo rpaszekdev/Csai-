@@ -498,18 +498,9 @@ input[type="range"] { accent-color: var(--coral) !important; }
   margin-bottom: 12px !important;
 }
 
-/* score badge — mono pill */
-.score {
-  background: var(--paper) !important;
-  color: var(--ink-soft) !important;
-  border: 1px solid var(--ink-soft) !important;
-  box-shadow: 4px 4px 0 var(--ink-soft) !important;
-  font-family: var(--font-mono) !important;
-  font-size: 10px !important;
-  letter-spacing: 0.16em !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-}
+/* score badge — hidden across all lessons (the predicts/quiz still
+   colour-code right/wrong inline; the floating tally was redundant) */
+.score { display: none !important; }
 
 /* footer */
 footer {
