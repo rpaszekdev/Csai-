@@ -118,71 +118,71 @@ header.topbar::before {
   color: var(--ink-soft) !important;
 }
 
-/* ── hero — ghost numeral + module crumb + topic illustration ── */
+/* ── hero — keep original 2-col (prose left, canvas right) ── */
 .hero {
-  display: grid !important;
-  grid-template-columns: 220px 1fr minmax(280px, 360px) !important;
-  align-items: start !important;
-  gap: 32px !important;
-  padding: 48px 40px 32px !important;
+  /* keep the lesson's original grid-template-columns from inline CSS;
+     just pad/border in the editorial palette and add a ghost backdrop */
   border-bottom: 1px solid var(--hairline) !important;
   background: var(--paper) !important;
   position: relative;
 }
 .hero > div:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
-/* the kicker (e.g. "Lesson Six") becomes an outlined ghost numeral */
+/* ghost numeral — absolute backdrop behind the title, NOT a column */
 .hero .kicker {
-  display: block !important;
-  font-family: 'Inter', var(--font-mono) !important;
-  font-size: 200px !important;
-  font-weight: 200 !important;
-  line-height: 0.85 !important;
-  color: transparent !important;
-  -webkit-text-stroke: 1.5px var(--ink-faint-2) !important;
-  letter-spacing: -0.04em !important;
+  display: inline-block !important;
   background: none !important;
   padding: 0 !important;
-  text-transform: uppercase !important;
-  user-select: none;
-}
-/* hide the body's word — only show the ghost numeral derived from data */
-.hero .kicker::after {
-  content: attr(data-num);
-  display: block;
-}
-.hero .kicker > * { display: none !important; }
-.hero .kicker:not([data-num]) {
-  /* fallback — mono pre-title if the lesson hasn't set data-num */
+  color: var(--ink-soft) !important;
+  font-family: var(--font-mono) !important;
   font-size: 11px !important;
   font-weight: 500 !important;
-  line-height: 1 !important;
-  color: var(--ink-soft) !important;
-  -webkit-text-stroke: 0 !important;
   letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+}
+.hero .kicker[data-num]::before {
+  content: attr(data-num);
+  position: absolute;
+  top: 8px;
+  left: 0;
+  font-family: 'Inter', var(--font-mono);
+  font-size: clamp(140px, 18vw, 240px);
+  line-height: 0.85;
+  font-weight: 200;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink-faint-2);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.55;
 }
 
-/* hero h1 — small mono crumb above the lesson body, not a 64px slab */
+/* hero h1 — keep big and structural, swap to mono display */
 .hero h1 {
   font-family: var(--font-mono) !important;
-  font-size: 13px !important;
+  font-size: clamp(28px, 3.6vw, 44px) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.16em !important;
+  letter-spacing: 0.02em !important;
   color: var(--ink-soft) !important;
   text-transform: uppercase !important;
-  line-height: 1.5 !important;
-  margin: 0 0 12px !important;
+  line-height: 1.1 !important;
+  margin: 0 0 16px !important;
+  position: relative;
+  z-index: 1;
 }
 .hero p {
   font-family: var(--font-mono) !important;
-  font-size: 13px !important;
+  font-size: 13.5px !important;
   color: var(--ink-soft) !important;
   line-height: 1.7 !important;
-  max-width: 60ch;
+  max-width: 56ch;
+  position: relative;
+  z-index: 1;
 }
 .hero .meta {
   font-family: var(--font-mono) !important;
@@ -193,31 +193,29 @@ header.topbar::before {
   margin-top: 24px !important;
   border-top: 1px solid var(--hairline) !important;
   padding-top: 12px !important;
+  position: relative;
+  z-index: 1;
 }
 .hero .meta strong { color: var(--ink-soft) !important; font-weight: 600 !important; }
 
-/* hero illustration cell — third grid column hosts the canvas */
+/* hero stage — keep the original right-side canvas frame */
 .hero .stage {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  height: auto !important;
-  min-height: 300px;
-  align-self: end;
+  background: var(--paper) !important;
+  border: 1px solid var(--hairline) !important;
+  box-shadow: 6px 6px 0 var(--ink-soft) !important;
+  border-radius: 0 !important;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── steps — single column reading flow, no big right canvas ── */
+/* ── steps — KEEP the original 2-col grid (prose left / stage right) ── */
 section.step {
-  display: block !important;
   border-bottom: 1px solid var(--hairline) !important;
-  padding: 56px 40px !important;
-  min-height: 0 !important;
   background: var(--paper) !important;
+  /* deliberately no display/grid override — fall through to inline CSS */
 }
 section.step .text {
-  padding: 0 !important;
-  max-width: 64ch !important;
-  display: block !important;
+  /* keep original padding/grid placement, just narrow type */
 }
 section.step .text .eyebrow {
   display: block !important;
@@ -285,23 +283,19 @@ section.step .text code {
   padding: 0 4px !important;
 }
 
-/* the right canvas stage — full-width strip after the prose */
+/* the right canvas stage — keep the original sticky right rail */
 section.step .stage-wrap {
-  border: 1px solid var(--hairline) !important;
   border-left: 1px solid var(--hairline) !important;
   background: var(--paper) !important;
-  margin-top: 32px;
+  /* preserve original layout — no margin-top, no full-width override */
 }
 section.step .stage {
-  position: static !important;
-  height: auto !important;
-  display: block !important;
+  /* keep position: sticky; top: 54px; height: calc(100vh - 54px) from inline */
+  background: var(--paper) !important;
 }
 .canvas-host {
   background: var(--paper) !important;
   border-bottom: 1px solid var(--hairline) !important;
-  height: 380px;
-  min-height: 320px;
 }
 
 /* ── chips — fade them out so canvas-baked labels lead ─────── */
@@ -540,15 +534,10 @@ footer a:hover { background: transparent !important; color: var(--ink-soft) !imp
 section.step .stage-wrap { background: var(--paper) !important; }
 .hero .stage { background: transparent !important; }
 
-/* ── responsive — hero collapses, single column ─────────── */
-@media (max-width: 1024px) {
-  .hero { grid-template-columns: 160px 1fr !important; }
-  .hero .stage { grid-column: 1 / -1; min-height: 240px; }
-  .hero .kicker { font-size: 140px !important; }
-}
+/* ── responsive — let the lesson's own media queries collapse ── */
 @media (max-width: 700px) {
-  .hero { grid-template-columns: 1fr !important; padding: 32px 20px !important; }
-  .hero .kicker { font-size: 96px !important; }
-  section.step { padding: 40px 20px !important; }
-  .quiz, footer { padding: 40px 20px !important; }
+  .hero .kicker[data-num]::before {
+    /* on small screens, drop the ghost numeral — it overlaps the prose */
+    display: none;
+  }
 }
