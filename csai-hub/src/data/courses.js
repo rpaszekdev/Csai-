@@ -43,9 +43,10 @@ export const PROGRAM = [
               },
             ],
             resources: [
-              { label: "Lessons", href: "/lesson.html" },
-              { label: "Q&A (RAG)", href: "#" },
-              { label: "Flashcards", href: "#" },
+              { label: "Roadmap", href: "/courses/cog-neuro/roadmap" },
+              { label: "Lessons", href: "/courses/cog-neuro/notes" },
+              { label: "Quizzes", href: "/courses/cog-neuro/quiz" },
+              { label: "Brain Quiz", href: "/courses/cog-neuro/brain-quiz" },
             ],
           },
           {

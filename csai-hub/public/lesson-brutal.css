@@ -258,3 +258,158 @@ td { border-bottom: 1px solid var(--hub-cream-3) !important; }
 
 /* ── selection ────────────────────────────────────────────── */
 ::selection { background: var(--hub-accent); color: var(--hub-cream); }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE — hamburger drawer (≤ 820px)
+   The topbar collapses to: [CSAI mark] [title] [progress] [☰].
+   The hamburger toggles a full-width drawer holding the lesson
+   nav + contents, with a backdrop. Injected by lesson-mobile.js.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hamburger button — hidden on desktop, visible on mobile. */
+.nav-burger {
+  display: none;
+  width: 40px; height: 40px;
+  background: var(--hub-cream) !important;
+  border: 2px solid var(--hub-ink) !important;
+  box-shadow: 2px 2px 0 var(--hub-ink) !important;
+  padding: 0 !important;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+.nav-burger span {
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--hub-ink);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+body.nav-open .nav-burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+body.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+body.nav-open .nav-burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Drawer + backdrop — closed by default; opened by body.nav-open. */
+.nav-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(86vw, 360px);
+  height: 100dvh;
+  background: var(--hub-cream) !important;
+  border-left: 3px solid var(--hub-ink) !important;
+  box-shadow: -6px 0 0 var(--hub-ink);
+  padding: 72px 24px 32px;
+  z-index: 200;
+  transform: translateX(105%);
+  transition: transform 0.22s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+body.nav-open .nav-drawer { transform: translateX(0); }
+
+.nav-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(14, 14, 14, 0.45);
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+body.nav-open .nav-backdrop { opacity: 1; pointer-events: auto; }
+
+.nav-drawer-label {
+  font-family: var(--font-display) !important;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hub-ink-faint) !important;
+  border-bottom: 2px solid var(--hub-ink);
+  padding-bottom: 4px;
+  margin-top: 8px;
+}
+.nav-drawer-list,
+.nav-drawer .lesson-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  font-size: 14px !important;
+}
+.nav-drawer .lesson-nav a {
+  display: block;
+  padding: 10px 12px !important;
+  text-align: left;
+  width: 100%;
+}
+.nav-drawer-toc {
+  position: static !important;
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+.nav-drawer-toc ol { list-style: none; padding: 0; margin: 0; }
+.nav-drawer-toc li { font-size: 14px; padding: 8px 0; border-bottom: 1px dashed var(--hub-cream-3); }
+.nav-drawer-toc li:last-child { border-bottom: none; }
+.nav-drawer-toc li::before { content: "—  "; color: var(--hub-ink-faint); }
+.nav-drawer-toc a { color: var(--hub-ink) !important; border: none !important; }
+.nav-drawer-toc a:hover { background: var(--hub-ink) !important; color: var(--hub-cream) !important; }
+
+body.nav-open { overflow: hidden; }
+
+@media (max-width: 820px) {
+  /* Collapse the topbar into a tight mobile bar. */
+  header.topbar {
+    padding: 10px 14px !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+  }
+  .brand { gap: 8px !important; min-width: 0; flex: 1 1 auto; align-items: center !important; }
+  .brand .mark { font-size: 11px !important; padding: 3px 5px !important; flex: 0 0 auto; }
+  .brand .title {
+    font-size: 13px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  .brand .sub { display: none !important; }
+
+  /* Lesson links + Contents button move into the drawer. */
+  header.topbar > .lesson-nav { display: none !important; }
+  header.topbar > .toc-btn { display: none !important; }
+
+  /* Show the hamburger. */
+  .nav-burger { display: inline-flex !important; }
+
+  /* Progress bar becomes a thin line at the very top of the screen. */
+  .progress {
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    height: 3px !important;
+    z-index: 250;
+  }
+
+  /* Hero stack tweaks for narrow screens. */
+  .hero { padding: 28px 18px !important; gap: 18px !important; }
+  .hero h1 { font-size: clamp(32px, 9vw, 44px) !important; }
+  .hero .stage { height: 280px !important; min-height: 0 !important; }
+
+  section.step .text { padding: 32px 18px !important; }
+  section.step .stage { height: 56vh !important; }
+
+  /* Buttons / chips a touch tighter so they don't overflow. */
+  .btn { padding: 8px 12px !important; font-size: 13px !important; }
+}
+
+@media (max-width: 480px) {
+  .brand .title { font-size: 12px !important; }
+  .nav-drawer { width: 92vw; }
+}

@@ -1,5 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import CourseIllustration from "./CourseIllustration";
+
+function ResourceLink({ resource }) {
+  const isInternal = resource.href.startsWith("/courses/");
+  if (isInternal) {
+    return (
+      <Link to={resource.href} className="resource-link">
+        {resource.label}
+      </Link>
+    );
+  }
+  return (
+    <a href={resource.href} className="resource-link">
+      {resource.label}
+    </a>
+  );
+}
 
 export default function Course({ course }) {
   const [open, setOpen] = useState(false);
@@ -39,9 +56,7 @@ export default function Course({ course }) {
           {course.resources.length > 0 && (
             <div className="course-resources">
               {course.resources.map((r) => (
-                <a key={r.label} href={r.href} className="resource-link">
-                  {r.label}
-                </a>
+                <ResourceLink key={r.label} resource={r} />
               ))}
             </div>
           )}
