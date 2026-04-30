@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W07 — Multimodal Learning</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">07</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 04 · Lecture 01 —</span>
+      <h1 class="hero-title">Multimodal Learning, Interaction &amp; Communication</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>51 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip active" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip" href="./lecture-09.html">L09</a>
+  <a class="chip pending" href="./lecture-10.html">L10</a>
+  <a class="chip pending" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-01.png" target="_blank">
+          <img src="./week07-slides/slide-01.png" alt="Slide 01 — Title slide" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 01</span>Title — Multimodal Learning</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-08.png" target="_blank">
+          <img src="./week07-slides/slide-08.png" alt="Slide 08 — Mitchell's ML definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 08</span>Mitchell's ML definition</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">0. Source Note</div>
+
+      <div class="callout">
+        <div class="callout-label">Slide-only notes <span class="badge prof">Prof</span></div>
+        <p>This lecture has <strong>slide-only notes</strong> — no audio transcript was available for Week 07. The deck below was built from <strong>51 slides</strong> by Murat Kirtay (with material co-authored by Verena V. Hafner). Where slides reference external sources (CMU MMML course, Baltrušaitis et al. survey, deeplearningbook.org) you should consult the originals for depth.</p>
+      </div>
+
+      <p>The lecture sits inside <strong>Module 04 — Learning &amp; Communication</strong>, after Week 05 (Reinforcement Learning) and Week 06 (Unsupervised Learning). It pivots from <em>single-modality</em> learning to fusing <strong>vision, depth, touch, audio, and proprioception</strong> into a single robot pipeline.</p>
+
+      <p>The slide deck opens with administrative reminders — guest lecture by <strong>Dimosthenis Kontogiorgos</strong> (MIT CSAIL) on <em>Explanations as Communicative Acts in Human-Robot Miscommunication</em>, the <strong>AI4Robotics workshop</strong> recordings, the running schedule, and the practical sessions where you continue your group projects with HCI principles (affordances, feedback, color usage).</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-08.png" target="_blank">
+          <img src="./week07-slides/slide-08.png" alt="Slide 08 — Mitchell ML definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 08</span>Tom Mitchell, T/E/P</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-10.png" target="_blank">
+          <img src="./week07-slides/slide-10.png" alt="Slide 10 — Robot example T/E/P" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 10</span>iCub example T/E/P</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-11.png" target="_blank">
+          <img src="./week07-slides/slide-11.png" alt="Slide 11 — What is multimodal ML" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>What is multimodal ML?</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. From ML to Multimodal ML</div>
+
+      <p>The lecture re-grounds machine learning in <strong>Tom Mitchell's classic definition</strong> before extending it to multiple modalities.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · Mitchell <span class="badge">Exam</span></div>
+        <p><em>"A computer program is said to learn from experience <strong>E</strong> with respect to some class of tasks <strong>T</strong> and performance measure <strong>P</strong>, if its performance at tasks in T, as measured by P, improves with experience E."</em></p>
+        <p style="margin-top:10px;">Be ready to <strong>identify E, T, and P</strong> in a robot scenario — the slide poses this as an in-class exercise.</p>
+      </div>
+
+      <h3>Worked example — iCub object recognition</h3>
+      <table>
+        <thead><tr><th>Symbol</th><th>What it is</th><th>iCub instance</th></tr></thead>
+        <tbody>
+          <tr><td><strong>T</strong></td><td>Task</td><td>Object recognition with <strong>color and depth</strong> data</td></tr>
+          <tr><td><strong>E</strong></td><td>Experience</td><td>The <strong>iCub multisensor dataset</strong></td></tr>
+          <tr><td><strong>P</strong></td><td>Performance measure</td><td>Accuracy, precision, recall, <strong>F1 score</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · Multimodal ML <span class="badge">Exam</span></div>
+        <p><em>"<strong>Multimodal Machine Learning</strong> is the study of computer algorithms that learn and improve through the use and experience of data from <strong>multiple modalities</strong>."</em></p>
+        <p style="margin-top:8px;">Source: <a href="https://cmu-multicomp-lab.github.io/mmml-course/fall2023/" target="_blank" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">CMU MMML course (Fall 2023)</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-12.png" target="_blank">
+          <img src="./week07-slides/slide-12.png" alt="Slide 12 — What is modality" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 12</span>Five senses + proprioception</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-13.png" target="_blank">
+          <img src="./week07-slides/slide-13.png" alt="Slide 13 — Why multimodal" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Why we need it</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. What Is a Modality?</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · core <span class="badge">Exam</span></div>
+        <p>A <strong>modality</strong> is <em>"sensory data that are associated with different aspects of the observed phenomena."</em></p>
+      </div>
+
+      <p>For humans, the canonical list is the <strong>five senses</strong> — sight, hearing, touch, taste, smell — plus <strong>proprioception</strong> (the sense of where your body parts are in space). For a robot the modalities map to its sensor suite: <strong>color cameras, depth sensors, microphones, tactile pads, joint encoders</strong>.</p>
+
+      <h3>Why we need multimodal learning <span class="badge">Exam</span></h3>
+      <p>Two reasons recur on the slides — memorise both:</p>
+      <ol>
+        <li>To form a <strong>robust sensory representation</strong> — if one modality is noisy or missing, others compensate.</li>
+        <li>To leverage the <strong>complementary characteristics of modalities</strong> — depth disambiguates what color cannot, audio confirms what touch suggests.</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-label">Concept · brain analogy <span class="badge prof">Prof</span></div>
+        <p>The slide illustrates this with a <strong>perception pipeline</strong>: object → sensory organs (color, depth, tactile, taste) → cortical processing → unified <strong>representation</strong>. The cortex is the integrator. A multimodal robot is the engineering analogue.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-14.png" target="_blank">
+          <img src="./week07-slides/slide-14.png" alt="Slide 14 — Five challenges in MMML" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 14</span>Five MMML challenges</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. Five Challenges in Multimodal ML</div>
+
+      <p>From the <strong>Baltrušaitis, Ahuja &amp; Morency (2018)</strong> survey — a canonical taxonomy and a likely exam target.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Taxonomy · five challenges <span class="badge">Exam</span></div>
+        <ol>
+          <li><strong>Representation</strong> — how to represent multimodal data <em>(pixels, signals, symbols, etc.)</em>. <strong>★ focus of this lecture.</strong></li>
+          <li><strong>Translation</strong> — how to map data from one modality to another (e.g. caption an image, describe a sound).</li>
+          <li><strong>Alignment</strong> — how to identify direct relations between modalities (which word lines up with which video frame).</li>
+          <li><strong>Fusion</strong> — how to <em>join</em> information from two or more modalities <em>(data level, decision level, intermediate)</em>. <strong>★ focus of this lecture.</strong></li>
+          <li><strong>Co-learning</strong> — how to transfer knowledge between modalities (a label-rich modality teaching a label-poor one).</li>
+        </ol>
+        <p style="margin-top:10px;">The slide explicitly says: <em>"We will focus on representation and fusion."</em> The other three are named so you recognise them on the exam — you do not need to reproduce algorithms for them.</p>
+      </div>
+
+      <p>The slide also notes the deck uses <strong>"representation" and "features" interchangeably</strong> — a small but exam-relevant terminology choice. Source: Baltrušaitis, T., Ahuja, C., &amp; Morency, L. P. (2018). <em>Multimodal machine learning: A survey and taxonomy.</em> IEEE TPAMI 41(2), 423–443.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-15.png" target="_blank">
+          <img src="./week07-slides/slide-15.png" alt="Slide 15 — Representation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Representation overview</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-16.png" target="_blank">
+          <img src="./week07-slides/slide-16.png" alt="Slide 16 — CNN visualizations" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>CNN-Explainer</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-17.png" target="_blank">
+          <img src="./week07-slides/slide-17.png" alt="Slide 17 — Color and depth" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Color + depth as matrices</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-18.png" target="_blank">
+          <img src="./week07-slides/slide-18.png" alt="Slide 18 — Text and speech vectors" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 18</span>Text + speech as vectors</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. Representation — From Raw Data to Vectors</div>
+
+      <p>Before fusion you need a <strong>representation</strong> of each modality. The slides emphasise that <em>what your robot "sees" is not what you see</em>: a color image is a <strong>raw matrix of RGB values</strong>, a colorized depth map is another matrix, audio is a 1-D waveform, text is a token sequence.</p>
+
+      <p>The slides ask, repeatedly:</p>
+      <ul>
+        <li>How can we represent <strong>text data</strong> as a vector?</li>
+        <li>How can we represent <strong>speech</strong> as a vector?</li>
+        <li>How can we represent <strong>color and depth</strong> as a vector?</li>
+      </ul>
+
+      <p>This is the <em>representation</em> challenge from the taxonomy — and once everything is a vector, you can fuse.</p>
+
+      <h3>Hand-crafted vs learned representations <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Approach</th><th>How features are made</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Hand-crafted</strong></td>
+            <td>Designed by humans using classical algorithms</td>
+            <td><strong>SIFT, SURF, HOG</strong> for images; OpenCV's feature detectors</td>
+          </tr>
+          <tr>
+            <td><strong>Learned (non-hand-engineered)</strong></td>
+            <td>Extracted automatically by a deep network</td>
+            <td><strong>CNN</strong> features for images; <strong>AENet</strong> for audio</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Desired specifications <span class="badge prof">Prof</span></div>
+        <p>A good multimodal representation must:</p>
+        <ol>
+          <li><strong>Map similar concepts to similar points</strong> — different carrots cluster together, far from cars, in the embedding space.</li>
+          <li>Be <strong>robust to noise</strong> — small input perturbations should not flip the prediction.</li>
+          <li>Have a strategy for <strong>missing data</strong> — when one modality drops out (sensor fault, occlusion) the system must still respond.</li>
+        </ol>
+      </div>
+
+      <p>The slide refers to <a href="https://poloclub.github.io/cnn-explainer/" target="_blank" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">CNN-Explainer</a> for an interactive view of how convolutional layers build features layer-by-layer — useful intuition for why "automatic feature learning" gradually replaced hand-crafted SIFT/HOG.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-19.png" target="_blank">
+          <img src="./week07-slides/slide-19.png" alt="Slide 19 — Unimodal to multimodal" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 19</span>Hey iCub! — bring carrot</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-26.png" target="_blank">
+          <img src="./week07-slides/slide-26.png" alt="Slide 26 — iCub setup" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>iCub sensor suite</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-27.png" target="_blank">
+          <img src="./week07-slides/slide-27.png" alt="Slide 27 — Unimodal models" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Five unimodal models</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-33.png" target="_blank">
+          <img src="./week07-slides/slide-33.png" alt="Slide 33 — Problems with unimodal" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>Why unimodal fails</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. Toy Example — iCub Multimodal Object Recognition</div>
+
+      <p>The whole second half of the lecture is built around <strong>one running example</strong>: the <strong>iCub humanoid</strong> recognising household objects from five sensor streams.</p>
+
+      <h3>iCub sensor suite</h3>
+      <ul>
+        <li>Two <strong>color cameras</strong> in the eyes (left + right).</li>
+        <li>One <strong>Realsense D435i</strong> mounted just above the eyes — provides RGB + depth.</li>
+        <li><strong>Touch sensor</strong> in the left hand.</li>
+        <li><strong>Microphone</strong>.</li>
+      </ul>
+
+      <p>This gives <strong>five modalities</strong>: iCub left camera, iCub touch, Realsense color, Realsense depth, and iCub microphone.</p>
+
+      <h3>Unimodal baseline</h3>
+      <p>The naïve approach — train <strong>five separate models</strong>, one per modality. Each outputs a <strong>discrete probability distribution over objects</strong>. The slides show this five-model layout repeating across slides 27–32 to drill the picture.</p>
+
+      <div class="callout">
+        <div class="callout-label">Diagnosis · why unimodal breaks <span class="badge prof">Prof</span></div>
+        <p>"Two of the five models cannot correctly recognise the objects. <strong>Why?</strong>"</p>
+        <p style="margin-top:8px;"><strong>External reasons:</strong></p>
+        <ul>
+          <li>Noise in the environment.</li>
+          <li>Miscalibrated sensors.</li>
+        </ul>
+        <p><strong>Model-related reasons:</strong></p>
+        <ul>
+          <li>Wrong model selection.</li>
+          <li>Non-regularised weights.</li>
+          <li>Using <strong>raw data</strong> as input (no feature extraction).</li>
+        </ul>
+        <p style="margin-top:8px;">This motivates <em>both</em> reasons for multimodal integration introduced earlier — robustness <em>and</em> complementarity. Multiple weak streams &gt; one strong stream when conditions vary.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-35.png" target="_blank">
+          <img src="./week07-slides/slide-35.png" alt="Slide 35 — Deep vs traditional MMML" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 35</span>Deep vs traditional MMML</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-37.png" target="_blank">
+          <img src="./week07-slides/slide-37.png" alt="Slide 37 — Three fusion techniques" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>Three fusion strategies</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. Multimodal Fusion — Three Strategies</div>
+
+      <p>This is the <strong>core technical content</strong> of the lecture and the most exam-likely block. Multimodal fusion is the fourth challenge in the Baltrušaitis taxonomy — joining information from two or more modalities. There are <strong>three places</strong> in the pipeline where you can do it.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Three fusion strategies <span class="badge">Exam</span></div>
+        <table style="margin-top:6px;">
+          <thead><tr><th>Strategy</th><th>Where the fusion happens</th><th>Also called</th></tr></thead>
+          <tbody>
+            <tr><td><strong>a) Data-level</strong></td><td><strong>Before</strong> the ML algorithm — fuse the inputs</td><td><strong>Early</strong> fusion</td></tr>
+            <tr><td><strong>b) Decision-level</strong></td><td><strong>After</strong> the ML algorithm — fuse the model outputs</td><td><strong>Late</strong> fusion</td></tr>
+            <tr><td><strong>c) Intermediate</strong></td><td><strong>Inside</strong> the model — fuse intermediate layers / representations</td><td><em>(deep-only)</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Source: <em>Deep Multimodal Learning: A Survey on Recent Advances and Trends</em> — referenced repeatedly in the slides. Note that <strong>intermediate fusion only exists for deep models</strong> (it requires intermediate-layer activations to fuse).</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-38.png" target="_blank">
+          <img src="./week07-slides/slide-38.png" alt="Slide 38 — Data level fusion" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 38</span>Data-level fusion</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-40.png" target="_blank">
+          <img src="./week07-slides/slide-40.png" alt="Slide 40 — Data level fusion details" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 40</span>How to fuse inputs</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. Data-Level (Early) Fusion</div>
+
+      <p>The simplest strategy. <strong>Pre-process each modality, glue the inputs together, feed one model.</strong></p>
+
+      <h3>Mechanics — what does "glue together" mean?</h3>
+      <ul>
+        <li><strong>Concatenate raw inputs</strong> — stack the vectors / matrices.</li>
+        <li><strong>Reduce input dimension</strong> — PCA or similar before concatenation.</li>
+        <li>Use <strong>hand-crafted features</strong> from each modality, then concatenate.</li>
+      </ul>
+
+      <p>You then train <strong>one model</strong> on the fused input and read off a single discrete probability distribution over objects.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Hidden assumption <span class="badge">Exam</span></div>
+        <p>Data-level fusion implicitly assumes <strong>conditional independence among modalities</strong>. The slide flags this with a question: <em>"depth and color (?)"</em> — are color and depth really conditionally independent? They are not — they describe the same scene from the same viewpoint. Data-level fusion gets away with this in practice but it is a known weakness.</p>
+      </div>
+
+      <p>Other limitations: all modalities must share <strong>compatible dimensions</strong> after preprocessing, and you commit to <strong>one model architecture</strong> for the whole stack — so you cannot use a CNN for images and an SVM for depth at the same time.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-41.png" target="_blank">
+          <img src="./week07-slides/slide-41.png" alt="Slide 41 — Decision level fusion" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 41</span>Decision-level fusion</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-43.png" target="_blank">
+          <img src="./week07-slides/slide-43.png" alt="Slide 43 — When to use decision level" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 43</span>When to use it</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Decision-Level (Late) Fusion</div>
+
+      <p>The opposite of data-level fusion — train <strong>one model per modality</strong>, let each emit its own decision, then combine the decisions.</p>
+
+      <h3>Mechanics</h3>
+      <ul>
+        <li>Employ <strong>different (or the same) models</strong> for different modalities.</li>
+        <li>Collect decisions from each separately-trained model.</li>
+        <li>Fuse the decisions by <strong>averaging</strong>, <strong>sum-then-max</strong>, or <strong>meta-learning</strong>.</li>
+        <li>Recognise the family — this is <strong>ensemble learning</strong>.</li>
+      </ul>
+
+      <div class="callout exam">
+        <div class="callout-label">When to use decision-level fusion <span class="badge">Exam</span></div>
+        <ul>
+          <li>The modalities are <strong>uncorrelated</strong>.</li>
+          <li>The modalities have <strong>different dimensions</strong> (you can't easily concatenate).</li>
+          <li>You want to <strong>exploit different ML models per modality</strong> — e.g. <strong>CNNs for image, SVM for depth, MLPs for touch</strong>.</li>
+        </ul>
+      </div>
+
+      <p>The toy diagram on slide 41 shows it plainly: five sensors → five models (Model 1…5) → five decisions → one fused final output. Each branch is independent up to the last step.</p>
+
+      <p>Trade-off: decision-level fusion <strong>throws away cross-modal correlations</strong> that might exist before the decision step. If color and depth share information, late fusion misses it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-45.png" target="_blank">
+          <img src="./week07-slides/slide-45.png" alt="Slide 45 — Intermediate fusion" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 45</span>Intermediate fusion diagram</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-46.png" target="_blank">
+          <img src="./week07-slides/slide-46.png" alt="Slide 46 — Multimodal Keras" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 46</span>Keras multimodal arch</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. Intermediate Fusion</div>
+
+      <p>The deep-learning sweet spot — fuse <strong>inside</strong> the model rather than at the inputs or outputs.</p>
+
+      <h3>Mechanics</h3>
+      <ul>
+        <li>Each modality enters its own subnetwork (CNN for color, MLP for depth, etc.).</li>
+        <li>At some intermediate layer, the per-modality activations are projected into a <strong>shared / joint representation</strong>.</li>
+        <li>A final dense layer maps the joint representation to outputs.</li>
+        <li>Features are <strong>non-hand-crafted</strong> — learned end-to-end from data.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Design heuristic <span class="badge prof">Prof</span></div>
+        <p><strong>Fuse similar modalities together.</strong> The slide groups e.g. (left camera + Realsense color) before fusing with (depth + touch). The architecture decision is "which modalities are siblings?" — that determines where in the network they meet.</p>
+      </div>
+
+      <p>The slide references a <strong>Keras visualisation</strong> with CNNs for color and MLPs for depth as a concrete example of an intermediate-fusion architecture.</p>
+
+      <h3>Why intermediate often wins</h3>
+      <p>You get the best of both worlds: <strong>per-modality feature learning</strong> (like decision-level) plus <strong>cross-modal interaction</strong> in the joint representation (like data-level). The shared representation can absorb correlations that late fusion ignores.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-44.png" target="_blank">
+          <img src="./week07-slides/slide-44.png" alt="Slide 44 — Three open questions" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 44</span>Three open questions</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-48.png" target="_blank">
+          <img src="./week07-slides/slide-48.png" alt="Slide 48 — Intermediate vs decision" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 48</span>Intermediate &gt; decision</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-49.png" target="_blank">
+          <img src="./week07-slides/slide-49.png" alt="Slide 49 — Noisy camera input" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 49</span>Noisy-camera test</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-50.png" target="_blank">
+          <img src="./week07-slides/slide-50.png" alt="Slide 50 — Implications of results" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 50</span>Implications</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Use Case — Rotation-Invariant Object Recognition</div>
+
+      <p>The lecture closes on <strong>a research result</strong> from Kirtay &amp; Hafner: comparing <strong>decision-level vs intermediate fusion</strong> for rotation-invariant object recognition.</p>
+
+      <p>Three open questions surveyed by the literature (slide 44):</p>
+      <ol>
+        <li>Which is the <strong>better fusion method</strong>?</li>
+        <li>Which <strong>modalities should be fused together</strong>?</li>
+        <li>How can we <strong>determine the model architecture</strong>?</li>
+      </ol>
+
+      <p>The toy experiment fed a <strong>random-noise camera input</strong> to test how each fusion method holds up when one modality fails.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Result · two implications <span class="badge">Exam</span></div>
+        <p>The slides explicitly tie the result back to the two motivations introduced at the start:</p>
+        <ol>
+          <li><strong>Robust sensory representation.</strong> Random noise in the camera did not destroy the intermediate-fusion architecture's accuracy — the other modalities carried it.</li>
+          <li><strong>Complementary characteristics.</strong> Unimodal models already achieve high accuracy. <strong>Combining them into a multimodal architecture <em>increases</em> accuracy further.</strong></li>
+        </ol>
+        <p style="margin-top:8px;">In the head-to-head, <strong>intermediate fusion outperformed decision-level fusion</strong> on this task — the joint representation was more robust to single-modality corruption than averaging independent decisions.</p>
+      </div>
+
+      <h3>The interaction &amp; communication framing</h3>
+      <p>The lecture's title also names <em>Interaction</em> and <em>Communication</em>. The slide deck threads this lightly via the <strong>"Hey iCub! Bring me the object"</strong> motif — the robot needs to fuse <strong>language</strong> (spoken request) with <strong>vision</strong> and <strong>depth</strong> (find the object) and <strong>proprioception/touch</strong> (grasp it). Multimodal fusion is the substrate for grounded human-robot communication. The Week 08 lecture (Affective &amp; Social HRI / RRI) builds directly on this.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week07-slides/slide-51.png" target="_blank">
+          <img src="./week07-slides/slide-51.png" alt="Slide 51 — More resources" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 51</span>Further reading</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">11. Further Resources</div>
+
+      <ul>
+        <li><strong>CMU MMML course (Fall 2023)</strong> — <a href="https://cmu-multicomp-lab.github.io/mmml-course/fall2023/" target="_blank" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">cmu-multicomp-lab.github.io/mmml-course</a>. The reference graduate-level course on multimodal ML.</li>
+        <li><strong>Baltrušaitis, Ahuja &amp; Morency (2018)</strong> — <em>Multimodal machine learning: A survey and taxonomy</em>. IEEE TPAMI 41(2). The taxonomy slide 14 is built on.</li>
+        <li><strong>Deep Multimodal Learning: A Survey on Recent Advances and Trends</strong> — source for the data-level / decision-level / intermediate fusion split.</li>
+        <li><strong>AENet</strong> — <em>Learning Deep Audio Features for Video Analysis</em>, <a href="https://arxiv.org/pdf/1701.00599.pdf" target="_blank" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">arXiv 1701.00599</a>.</li>
+        <li><strong>OpenCV feature-extraction tutorials</strong> — <a href="https://docs.opencv.org/master/db/d27/tutorial_py_table_of_contents_feature2d.html" target="_blank" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">opencv.org feature2d</a>.</li>
+        <li><strong>CNN-Explainer</strong> — <a href="https://poloclub.github.io/cnn-explainer/" target="_blank" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">poloclub.github.io/cnn-explainer</a> — interactive intuition for learned features.</li>
+        <li><strong>deeplearningbook.org</strong> — Goodfellow, Bengio &amp; Courville, the textbook reference for the representation chapter.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Mitchell's T/E/P</strong> still defines learning. For a multimodal robot: T = task (object recognition), E = the multisensor dataset, P = accuracy / precision / recall / F1.</li>
+      <li><strong>Modality = sensory data about one aspect of a phenomenon.</strong> For robots: color, depth, touch, audio, proprioception.</li>
+      <li><strong>Two reasons for multimodal learning</strong> — robust representation + complementary modalities. Memorise both.</li>
+      <li><strong>Five MMML challenges (Baltrušaitis):</strong> representation, translation, alignment, fusion, co-learning. The lecture focuses on representation and fusion.</li>
+      <li><strong>Hand-crafted (SIFT/SURF/HOG) vs learned (CNN/AENet)</strong> features — modern multimodal pipelines favour the latter.</li>
+      <li><strong>Three fusion strategies:</strong> data-level (early, fuse inputs), decision-level (late, fuse outputs / ensemble), intermediate (fuse inside the network in a joint representation).</li>
+      <li><strong>Decision-level fusion fits when</strong> modalities are uncorrelated, have different dimensions, or warrant different models per modality (CNN for image, SVM for depth, MLP for touch).</li>
+      <li><strong>Intermediate fusion empirically wins</strong> the rotation-invariant object recognition use case — and stays robust when one modality is replaced by random noise.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 51; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week07-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week07-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week07-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(51, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 51`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week07-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week07-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+</script>
+</body>
+</html>

@@ -1307,6 +1307,7 @@
   --ink-soft: #2A2826;
   --ink-faint-2: #A8A29A;
   --teal: #2BA39A;
+  position: relative;
   background: var(--paper);
   background-image:
     radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.012) 0, transparent 40%),
@@ -1467,6 +1468,96 @@
 
 .editorial-body h1 {
   display: none;
+}
+
+/* Section heading + matching slide thumbnail. The aside is pulled into
+   the right gutter using negative margin so body text keeps its column
+   width and the thumbnail floats alongside the heading. */
+.editorial-section-head {
+  position: relative;
+}
+
+.editorial-slide-aside {
+  float: right;
+  width: 220px;
+  margin: 0 -260px var(--space-md) var(--space-lg);
+  clear: right;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint-2);
+}
+
+.editorial-slide-frame {
+  position: relative;
+  display: block;
+  /* PowerPoint slides are 16:9. Stretch the hand-drawn frame to the same
+     aspect so its ink border traces the slide's outer edge exactly. */
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  /* Crop anything outside the wrapper — the hand-drawn SVG has internal
+     padding inside its 1536×1024 viewBox, so we scale the frame up and
+     clip overflow so the ink reaches the wrapper edges. */
+  overflow: hidden;
+}
+
+.editorial-slide-img {
+  position: absolute;
+  /* Centered inside the frame with breathing room on every edge — the
+     slide never touches the ink border. */
+  top: 10%;
+  left: 8%;
+  width: 84%;
+  height: 80%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+
+.editorial-slide-frame-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* `preserveAspectRatio="none"` via stretched <img> sizing — but <img>
+     can't override SVG's preserveAspectRatio. Instead we render the frame
+     as a stretched background so it follows the wrapper aspect ratio. */
+  pointer-events: none;
+  user-select: none;
+  display: none;
+}
+
+/* Stretchable frame: background-size: 110% 115% scales the SVG slightly
+   past the wrapper bounds so its hand-drawn ink (which sits inside the
+   SVG viewBox padding) reaches the visible wrapper edges. The wrapper's
+   `overflow: hidden` clips off the bleed cleanly. */
+.editorial-slide-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/cog-neuro/slide-frame.svg") center / 110% 115% no-repeat;
+  pointer-events: none;
+}
+
+.editorial-slide-cap {
+  margin-top: 6px;
+  color: var(--orange);
+}
+
+@media (max-width: 1200px) {
+  .editorial-slide-aside {
+    width: 160px;
+    margin-right: -180px;
+  }
+}
+
+@media (max-width: 900px) {
+  .editorial-slide-aside {
+    float: none;
+    width: 100%;
+    margin: var(--space-sm) 0 var(--space-md);
+  }
 }
 
 .editorial-body h2 {
@@ -1716,5 +1807,583 @@
 
   .editorial-card {
     grid-column: 1 / -1;
+  }
+}
+
+/* ─── Annotations: floating popover, upper-right panel, jump flash ────── */
+
+/* Soft paper-yellow used for inline highlights and accents. Kept editorial
+   (not the orange/coral course accent) so saved annotations read like a
+   highlighter pass over the page. */
+.editorial { --annot-yellow: #F4E27A; --annot-yellow-soft: rgba(244, 226, 122, 0.45); }
+
+.editorial-body mark.annot-mark {
+  background: var(--annot-yellow);
+  color: var(--ink);
+  padding: 0 1px;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-color 0.12s ease;
+}
+
+.editorial-body mark.annot-mark:not(.annot-mark-pending):hover {
+  background: #F0D550;
+}
+
+.editorial-body mark.annot-mark-pending {
+  cursor: text;
+}
+
+/* Live drag-highlight: while the user is selecting text inside the body,
+   render the native browser selection in the same paper-yellow as a saved
+   mark — so the preview matches the eventual annotation. */
+.editorial-body ::selection {
+  background: var(--annot-yellow, #F4E27A);
+  color: var(--ink);
+}
+.editorial-body ::-moz-selection {
+  background: var(--annot-yellow, #F4E27A);
+  color: var(--ink);
+}
+
+/* Margin-anchored popover: sits in the right gutter of the editorial body
+   at the same vertical band as the highlighted mark. The vertical position
+   is set inline (`top` prop) by AnnotationsLayer; the horizontal position
+   is fixed inside the gutter via `right`. */
+.annot-popover {
+  position: absolute;
+  top: 0;
+  right: 96px;
+  z-index: 30;
+  width: 280px;
+  background: #FBF8EE;
+  border: 1px solid var(--ink);
+  box-shadow: 0 1px 0 rgba(31, 30, 32, 0.06), 2px 2px 0 rgba(31, 30, 32, 0.18);
+  padding: 10px 12px 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+@media (max-width: 1100px) {
+  .annot-popover {
+    right: 40px;
+    width: 240px;
+  }
+}
+
+@media (max-width: 900px) {
+  .annot-popover {
+    position: fixed;
+    top: auto !important;
+    bottom: 16px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+.annot-popover-snippet {
+  font-style: italic;
+  color: var(--ink-faint-2, #A8A29A);
+  margin-bottom: 8px;
+  max-height: 48px;
+  overflow: hidden;
+  font-size: 10.5px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  border-left: 2px solid var(--annot-yellow, #F4E27A);
+  padding-left: 8px;
+}
+
+.annot-popover-input {
+  width: 100%;
+  border: 1px solid rgba(31, 30, 32, 0.35);
+  background: transparent;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  padding: 6px 8px;
+  resize: vertical;
+  min-height: 44px;
+  color: var(--ink);
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.annot-popover-input:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.annot-popover-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.annot-popover-actions button {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-soft, var(--ink));
+  cursor: pointer;
+}
+
+.annot-popover-actions button:hover {
+  border-color: var(--ink);
+}
+
+.annot-popover-delete {
+  margin-right: auto;
+  color: var(--ink-faint-2, #A8A29A) !important;
+}
+
+.annot-popover-delete:hover {
+  color: var(--ink) !important;
+  border-color: rgba(31, 30, 32, 0.35) !important;
+}
+
+.annot-popover-save {
+  background: var(--ink) !important;
+  color: var(--cream) !important;
+  border-color: var(--ink) !important;
+}
+
+/* Upper-right panel — sits over the brain corner, brain stays as decoration. */
+.annot-panel {
+  position: absolute;
+  top: 92px;
+  right: 24px;
+  z-index: 5;
+  font-family: "IBM Plex Mono", monospace;
+  pointer-events: auto;
+  width: auto;
+  max-width: 320px;
+}
+
+.annot-panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.annot-panel-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.annot-panel-toggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.annot-panel-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.annot-panel-count {
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.annot-panel-list {
+  margin-top: 10px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  max-height: 60vh;
+  overflow-y: auto;
+  width: 320px;
+}
+
+.annot-panel-empty {
+  padding: 14px;
+  font-size: 11px;
+  color: var(--ink-faint-2, #888);
+  font-style: italic;
+}
+
+.annot-card {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(31, 30, 32, 0.15);
+}
+
+.annot-card:last-child {
+  border-bottom: none;
+}
+
+.annot-card-jump {
+  flex: 1;
+  text-align: left;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.annot-card-jump:hover {
+  background: var(--annot-yellow-soft, rgba(244, 226, 122, 0.45));
+}
+
+.annot-card-snippet {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.annot-card-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.annot-card-remove {
+  flex: 0 0 auto;
+  border: none;
+  background: transparent;
+  color: var(--ink-faint-2, #888);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 12px;
+  line-height: 1;
+}
+
+.annot-card-remove:hover {
+  color: var(--ink);
+}
+
+@keyframes annot-flash-pulse {
+  0%   { background: transparent; }
+  20%  { background: var(--annot-yellow, #F4E27A); }
+  100% { background: transparent; }
+}
+
+.annot-flash {
+  animation: annot-flash-pulse 1.6s ease-out;
+}
+
+@media (max-width: 900px) {
+  .annot-panel {
+    top: 110px;
+    right: 12px;
+    max-width: 260px;
+  }
+  .annot-panel-list {
+    width: 260px;
+  }
+}
+
+/* ─── Roadmap — pure editorial list (no cards) ───────────────────────── */
+
+.roadmap-list {
+  --rl-gutter: 96px;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink);
+  padding-right: 480px; /* clear room for the right-gutter line + brain */
+  position: relative;
+}
+
+.roadmap-list-head {
+  margin: var(--space-md) 0 var(--space-xl);
+}
+
+.roadmap-list-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint-2);
+  margin: 0 0 var(--space-md);
+}
+
+.roadmap-list-title {
+  font-family: var(--font-display, "Archivo Black"), "Helvetica Neue", sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-md);
+  color: var(--ink);
+  max-width: 18ch;
+}
+
+.roadmap-list-meta {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.roadmap-list-dot {
+  color: var(--ink-faint-2);
+}
+
+.roadmap-list-rule {
+  height: 0;
+  border-top: 1px solid var(--hairline);
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+
+/* Module ── numeral + uppercase title + meta on one line ───────── */
+
+.roadmap-mod {
+  margin-bottom: var(--space-md);
+}
+
+.roadmap-mod-head {
+  display: grid;
+  grid-template-columns: var(--rl-gutter) 1fr auto;
+  align-items: baseline;
+  column-gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.roadmap-mod-num {
+  font-family: var(--font-display, "Archivo Black"), sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink-faint-2);
+  letter-spacing: -0.02em;
+}
+
+.roadmap-mod-title {
+  font-family: var(--font-display, "Archivo Black"), sans-serif;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  margin: 0;
+  color: var(--ink);
+}
+
+.roadmap-mod-meta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint-2);
+  white-space: nowrap;
+}
+
+.roadmap-mod-priority {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.roadmap-mod-priority.high {
+  color: var(--coral, var(--orange));
+}
+
+.roadmap-mod-dot {
+  opacity: 0.6;
+}
+
+.roadmap-mod-topics {
+  grid-column: 2 / -1;
+  margin: 0 0 var(--space-md) calc(var(--rl-gutter) + var(--space-md));
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-faint-2);
+  max-width: 80ch;
+}
+
+/* Lecture rows — indented under module, two lines each ─────── */
+
+.roadmap-lect-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) calc(var(--rl-gutter) + var(--space-md));
+}
+
+.roadmap-lect {
+  padding: var(--space-sm) 0;
+  border-top: 1px dotted var(--hairline);
+}
+
+.roadmap-lect:first-child {
+  border-top: none;
+}
+
+.roadmap-lect-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.roadmap-lect-check {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--ink);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(2px);
+}
+
+.roadmap-lect-check:hover {
+  background: rgba(214, 86, 46, 0.1);
+}
+
+.roadmap-lect-check.checked {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.roadmap-lect-code {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  min-width: 56px;
+}
+
+.roadmap-lect-name {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.roadmap-lect-spacer {
+  flex: 1;
+}
+
+.roadmap-lect-chapter {
+  font-style: italic;
+  font-size: 11px;
+  color: var(--coral, var(--orange));
+  white-space: nowrap;
+  border: 1px solid currentColor;
+  padding: 1px 8px;
+}
+
+.roadmap-lect-sub {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-top: 4px;
+  margin-left: calc(14px + 14px);
+  font-size: 11px;
+  color: var(--ink-faint-2);
+  flex-wrap: wrap;
+}
+
+.roadmap-lect-concepts {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.roadmap-lect-actions {
+  display: inline-flex;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.roadmap-lect-action {
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border: 1px solid var(--ink-faint-2);
+  padding: 2px 8px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.roadmap-lect-action:hover {
+  color: var(--cream);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.roadmap-list-footer {
+  margin-top: var(--space-xl);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint-2);
+  text-align: left;
+}
+
+@media (max-width: 1100px) {
+  .roadmap-list {
+    padding-right: 280px;
+    --rl-gutter: 64px;
+  }
+  .roadmap-mod-num {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .roadmap-list {
+    padding-right: 0;
+    --rl-gutter: 0px;
+  }
+  .roadmap-mod-head {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+  .roadmap-mod-num {
+    font-size: 32px;
+  }
+  .roadmap-mod-meta {
+    flex-wrap: wrap;
+  }
+  .roadmap-mod-topics,
+  .roadmap-lect-list {
+    margin-left: 0;
+  }
+  .roadmap-lect-sub {
+    margin-left: 0;
   }
 }

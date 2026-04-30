@@ -1,0 +1,1498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W04 — Embodiment</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+
+  /* ─── transcript ─── */
+  .transcript {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-faint);
+  }
+  .transcript summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: baseline; gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .transcript summary::-webkit-details-marker { display: none; }
+  .transcript summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 22px; font-weight: 400; line-height: 1;
+    color: var(--rust);
+  }
+  .transcript[open] summary::after { content: "−"; }
+  .transcript-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); font-weight: 700;
+  }
+  .transcript-meta {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .transcript-body {
+    padding: 28px 0 12px;
+    max-width: 760px;
+  }
+  .transcript-search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--ink-faint);
+    background: var(--paper);
+    font-family: inherit;
+    font-size: 12px; letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .transcript-search:focus { outline: none; border-color: var(--ink); }
+  .transcript-body p {
+    font-size: 13px; line-height: 1.9;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .transcript-body p mark {
+    background: rgba(168, 79, 42, 0.25);
+    color: var(--ink);
+    padding: 0 2px;
+  }
+
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">04</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 02 · Lecture 02 —</span>
+      <h1 class="hero-title">Embodiment in Autonomous Systems</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>37 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip active" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip" href="./lecture-09.html">L09</a>
+  <a class="chip" href="./lecture-10.html">L10</a>
+  <a class="chip" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-05.png" target="_blank">
+          <img src="./week04-slides/slide-05.png" alt="Slide 05 — Descartes quote" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 05</span>Descartes — "I think therefore I am"</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-06.png" target="_blank">
+          <img src="./week04-slides/slide-06.png" alt="Slide 06 — Nietzsche quote" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 06</span>Nietzsche — body &gt; wisdom</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-07.png" target="_blank">
+          <img src="./week04-slides/slide-07.png" alt="Slide 07 — Today's questions" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 07</span>Today's questions</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. Two Quotes, Two Schools of Thought</div>
+
+      <p>Lecture 04 opens with a deliberately staged collision between two philosophers — the lecture's "mandatory quotes". The whole week sits in the tension between them.</p>
+
+      <table>
+        <thead><tr><th>Quote</th><th>School</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>"I think, therefore I am."</strong> — Descartes</td>
+            <td><strong>Classical / cognitivist:</strong> intelligence = abstract symbol manipulation. The body is a vessel; the mind could in principle be ported anywhere.</td>
+          </tr>
+          <tr>
+            <td><strong>"There is more intelligence in your body than in your best wisdom."</strong> — Nietzsche</td>
+            <td><strong>Embodied:</strong> the body is a <em>contributor</em> to intelligence, not its container. Cognition is grounded in a physical, situated agent.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Prof stance <span class="badge prof">Prof</span></div>
+        <p>"Body is also a contributor of the intelligence — and we will have a stance on this school of thought. Why? Because in your project you will do <strong>embodied agents</strong>. We will treat <strong>having a body as a prerequisite for being intelligent in robotics.</strong>"</p>
+      </div>
+
+      <h3>The five framing questions for the lecture <span class="badge">Exam</span></h3>
+      <ol>
+        <li>Do we need a <strong>body</strong> to be considered an intelligent agent?</li>
+        <li>What is the role of the body in <strong>cognition / emotion</strong>?</li>
+        <li>What is it like to <strong>be a robot</strong>?</li>
+        <li><strong>Where does the body end?</strong> Where does the external world start?</li>
+        <li>Can you have a <strong>sense of self</strong> without having a body?</li>
+      </ol>
+
+      <p>Painter's brush, the dinosaur scene in <em>Jurassic Park</em>, your phone — these were all probes from the prof to push you on Q4. Empathy, tool-use and pain-by-proxy all suggest the boundary of "self" leaks past the skin.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-08.png" target="_blank">
+          <img src="./week04-slides/slide-08.png" alt="Slide 08 — What is embodiment" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 08</span>Embodiment + morphology defined</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-09.png" target="_blank">
+          <img src="./week04-slides/slide-09.png" alt="Slide 09 — Exam questions on ChatGPT, Pepper, Nao" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 09</span>Exam — ChatGPT vs Pepper/Nao</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-10.png" target="_blank">
+          <img src="./week04-slides/slide-10.png" alt="Slide 10 — Answers" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 10</span>Pepper/Nao = YES</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. What Is Embodiment? + Morphology</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Definitions · core <span class="badge">Exam</span></div>
+        <p><strong>Embodiment</strong> — the term used to indicate <strong>agents that possess a physical body</strong>. (In simulation, we say "<strong>virtually embodied</strong>" — but unless stated otherwise, "embodied" defaults to <em>physical</em>.)</p>
+        <p style="margin-top:10px;"><strong>Morphology</strong> — how the parts of that body, made of <strong>different materials</strong>, are <strong>arranged</strong>. Morphology <strong>constrains the behavior</strong> of the robot.</p>
+      </div>
+
+      <p>Concrete consequence of the morphology constraint: a human-morphology robot solves tasks on land but is helpless underwater; a fish-morphology robot is the inverse. <strong>If you want a behavior, design the morphology that affords it.</strong></p>
+
+      <h3>Morphology categories you must be able to label <span class="badge">Exam</span></h3>
+      <ul>
+        <li><strong>Human</strong> morphology — Pepper, Nao, Affetto baby robot, hyper-realistic Affetto.</li>
+        <li><strong>Animal / zoomorphic</strong> — Unitree dog, fish, octopus arm. The starfish-shaped soft robot = "starfish-shaped animal morphology" (NOT "hand" — the prof said this will be marked wrong).</li>
+        <li><strong>Specialized / hybrid</strong> — Osaka restaurant waiter robot resembles a plate-shaped serving morphology.</li>
+        <li><strong>Plant-based / abstract</strong> — sometimes "no clear morphology" is the right answer.</li>
+      </ul>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam · the canonical question <span class="badge">Exam</span></div>
+        <p><strong>Q1:</strong> "Is ChatGPT an embodied agent?" — <strong>NO.</strong> ChatGPT alone has <strong>no physical body</strong>. Our definition <em>requires</em> a body. (Even the prof's note: he asked GPT itself, and it answered "no, I am not embodied.")</p>
+        <p style="margin-top:10px;"><strong>Q2:</strong> "Are Pepper and Nao embodied agents?" — <strong>YES.</strong> Both possess a physical body that exists in the real environment.</p>
+        <p style="margin-top:10px;"><strong>Twist (lecture discussion):</strong> if you connect ChatGPT as the cloud brain of a Pepper robot, the <em>combined system</em> can be considered an embodied agent. Standalone LLM ≠ embodied; LLM + physical body interacting with the world = embodied.</p>
+      </div>
+
+      <p>Note for the exam: the slide PDF originally typoed "Pepper and Nao = YES" with the answer column blank — the lecture confirmed the answer.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-11.png" target="_blank">
+          <img src="./week04-slides/slide-11.png" alt="Slide 11 — Dead fish swims, brainless robot walks" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>Dead fish, brainless walker</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-27.png" target="_blank">
+          <img src="./week04-slides/slide-27.png" alt="Slide 27 — Are passive walkers robots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Are passive walkers robots?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-28.png" target="_blank">
+          <img src="./week04-slides/slide-28.png" alt="Slide 28 — YES they are robots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 28</span>YES — body does the brain's job</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. Two Provocations — Dead Fish &amp; Passive Walker</div>
+
+      <p>Recall from <strong>Week 01</strong>: the prof asked "do we really need a brain to generate behavior?" and showed a passive walker. Week 04 returns to that thread and pushes harder.</p>
+
+      <h3>The dead trout</h3>
+      <ul>
+        <li>A <strong>dead fish</strong>, placed upside-down in flowing water, <strong>still swims</strong> — apparently perfectly.</li>
+        <li>It has a body. It has <strong>no motor control coming from the brain</strong>. It only has environmental interaction with the water.</li>
+        <li>Yet swimming behavior emerges.</li>
+      </ul>
+
+      <h3>The passive walker (callback to W01)</h3>
+      <ul>
+        <li>An artificial system with <strong>no motors, no sensors, no electricity, no brain</strong>.</li>
+        <li>Walks down a slight incline using <strong>only its weight, its leg geometry, and gravity</strong>.</li>
+        <li>Same lesson as the trout: an intelligent-looking <em>function</em> emerges from <strong>body × environment</strong>, no controller required.</li>
+      </ul>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam · classic question <span class="badge">Exam</span></div>
+        <p><strong>"Passive walkers are brainless — so are they robots?"</strong></p>
+        <p style="margin-top:10px;"><strong>YES, they are robots.</strong> Recall the 6 elements (W01): body, sensors, actuators, brain, environment, function. The passive walker satisfies them <strong>because its body performs the same function as the brain</strong> — the morphology IS the controller.</p>
+      </div>
+
+      <p>This is exactly the Nietzsche-side evidence the prof needs: "the body is doing something. And that something is called <strong>embodied intelligence</strong> or <strong>embodied cognition</strong>."</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-12.png" target="_blank">
+          <img src="./week04-slides/slide-12.png" alt="Slide 12 — Classical vs modern" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 12</span>Classical vs modern intelligence</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-13.png" target="_blank">
+          <img src="./week04-slides/slide-13.png" alt="Slide 13 — Brain alone vs interaction" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Focus on interaction</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-14.png" target="_blank">
+          <img src="./week04-slides/slide-14.png" alt="Slide 14 — Brain Body Environment trio" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 14</span>BRAIN · BODY · ENVIRONMENT</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. Classical vs Modern Approach to Intelligence</div>
+
+      <p>The lecture explicitly contrasts two paradigms. <strong>Know the contrast cold for the exam.</strong></p>
+
+      <table>
+        <thead>
+          <tr><th>Aspect</th><th>Classical (cognitivist)</th><th>Modern (embodied)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Locus of intelligence</td>
+            <td><strong>Brain &amp; central processing</strong> — symbols, algorithms, abstract computation.</td>
+            <td><strong>Brain × Body × Environment</strong> — cognition emerges from system-environment interaction.</td>
+          </tr>
+          <tr>
+            <td>Body</td>
+            <td>Optional; an output channel.</td>
+            <td>Required — physical instantiation that <em>shapes</em> the cognition.</td>
+          </tr>
+          <tr>
+            <td>Environment</td>
+            <td>Modeled as input data.</td>
+            <td>A constitutive partner — the agent <em>is in</em> a world it perturbs.</td>
+          </tr>
+          <tr>
+            <td>Picture used in slides</td>
+            <td>Person sitting still, "thinking."</td>
+            <td>Person <strong>juggling</strong> — coupled to objects in real time.</td>
+          </tr>
+          <tr>
+            <td>Aligned with</td>
+            <td>Descartes, GOFAI, AlexNet-style deep learning on disembodied datasets.</td>
+            <td>Nietzsche, Pfeifer &amp; Scheier, Bongard, modern robotics.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Three components <span class="badge prof">Prof</span></div>
+        <p>Embodied intelligence has <strong>three components: BRAIN, BODY, ENVIRONMENT</strong>. Sometimes the body can absorb the brain's role (passive walkers), but ideally all three interact and intelligence <em>emerges</em> from that coupling.</p>
+      </div>
+
+      <p>Why the prof bans simulators for the demo day: "<strong>simulations are doomed to fail</strong> because we cannot simulate reality. That's why we are avoiding simulations as embodied-intelligence researchers." You may train in simulation; you must <strong>show physical robots on demo day</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-15.png" target="_blank">
+          <img src="./week04-slides/slide-15.png" alt="Slide 15 — Pfeifer Scheier quote" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Pfeifer &amp; Scheier — the motto</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-16.png" target="_blank">
+          <img src="./week04-slides/slide-16.png" alt="Slide 16 — Same algorithm, different bodies" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>Same brain, different bodies</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-22.png" target="_blank">
+          <img src="./week04-slides/slide-22.png" alt="Slide 22 — Pfeifer How the body shapes the way we think" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>Pfeifer's three-bot diagram</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. Pfeifer &amp; Bongard — How the Body Shapes the Way We Think</div>
+
+      <p>The lecture is adapted from the book <em><strong>How the Body Shapes the Way We Think: A New View of Intelligence</strong></em> by <strong>Rolf Pfeifer</strong> and <strong>Josh Bongard</strong>. The prof: "old book, content still super valid… it will change your perspective on what intelligent systems are."</p>
+
+      <div class="callout">
+        <div class="callout-label">The motto <span class="badge prof">Prof</span></div>
+        <p>"<strong>Intelligence cannot merely exist in the form of an abstract algorithm but requires a physical instantiation, a body.</strong>" — Pfeifer &amp; Scheier. Repeated multiple times. <em>"That's our motto."</em></p>
+      </div>
+
+      <h3>Pfeifer's "Crazy Bird" thought experiment</h3>
+      <p>Three creatures, <strong>identical control</strong> (wheels rotating at constant speed), <strong>different bodies</strong> → three radically different behaviors emerge. The prof asked the class three times: "<em>does it make sense?</em>"</p>
+
+      <ul>
+        <li>You cannot blame the controller — the controller is the same.</li>
+        <li>Therefore the difference comes from the <strong>shape and the materials</strong>.</li>
+        <li>Identical brain + different bodies = different behavior. Identical body + different brains = different behavior. <strong>Both halves matter.</strong></li>
+      </ul>
+
+      <h3>Embodied, simulated, embodied non-collocated <span class="badge">Exam</span></h3>
+      <p>Pfeifer's textbook gives three deployment configurations:</p>
+      <ol>
+        <li><strong>Embodied</strong> — physical robot acting in the real environment.</li>
+        <li><strong>Simulated</strong> — virtual robot in a virtual environment (virtually embodied).</li>
+        <li><strong>Embodied non-collocated</strong> — physical robot whose brain runs elsewhere (cloud). The brain is <em>elsewhere</em> from the body but they interact in real time.</li>
+      </ol>
+      <p><em>(The prof noted the original figure caption mixes left/right labels — read the diagram itself, not the caption.)</em></p>
+
+      <p>This is the structural justification for why a Pepper robot driven by a cloud LLM still counts as embodied: the brain doesn't have to live <em>inside</em> the skin.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-17.png" target="_blank">
+          <img src="./week04-slides/slide-17.png" alt="Slide 17 — Held and Hein kitten experiment" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Held &amp; Hein kittens</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-18.png" target="_blank">
+          <img src="./week04-slides/slide-18.png" alt="Slide 18 — ImageNet vs infants" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 18</span>AlexNet vs baby Joe</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-19.png" target="_blank">
+          <img src="./week04-slides/slide-19.png" alt="Slide 19 — Why robots should be embodied" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 19</span>Why robots should be embodied</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. The Role of Body &amp; Movement in Cognition</div>
+
+      <h3>Held &amp; Hein active vs passive kittens</h3>
+      <p>Two kittens raised in identical visual environments, but only one could move freely; the second was <strong>passively transported</strong> by the first.</p>
+      <ul>
+        <li><strong>Active kittens</strong> — developed <strong>normal visual perception</strong>; could climb stairs, avoid drop-offs.</li>
+        <li><strong>Passive kittens</strong> — significant, <strong>permanent</strong> visual-perception deficits. Functionally blind on a visual cliff. Could not recover.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Lesson <span class="badge">Exam</span></div>
+        <p>Same brain. Same visual input. Only <strong>self-generated movement</strong> differed. Conclusion: <strong>perception requires action</strong>. The brain alone cannot rescue the system. Body + environment + agency are co-constitutive.</p>
+      </div>
+
+      <h3>ImageNet (AlexNet) vs Baby Joe</h3>
+      <table>
+        <thead><tr><th>System</th><th>Inputs needed</th><th>Generalization</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>AlexNet (disembodied CNN)</strong></td>
+            <td>~15 million high-res images, 2,200 categories, GPU clusters.</td>
+            <td>Achieves classification accuracy only after massive training; brittle to viewpoint/material change.</td>
+          </tr>
+          <tr>
+            <td><strong>Baby Joe (~2 yrs old)</strong></td>
+            <td><strong>One example</strong> + a name + the ability to handle the object.</td>
+            <td>"Generalizes that name in an adult-like manner." Sees an Albert Heijn cup once → recognizes a Starbucks cup as <em>a cup</em> weeks later.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The infant's secret is <strong>multimodal embodied interaction</strong>: rotating, mouthing, banging, looking — extracting <strong>invariant representations</strong> through the body. AlexNet has no body and no agency, so it must brute-force what an embodied agent gets cheaply.</p>
+
+      <div class="callout">
+        <div class="callout-label">Why robots should be embodied <span class="badge prof">Prof</span></div>
+        <p>"Embodied (robotic) models that share some <strong>bodily and sensorimotor features</strong> with the organism they are supposed to model might be preferable to purely computational or mathematical models." (Kirtay et al., 2020.) → To study human affordances, use a humanoid with hands; you cannot study grasping without a graspable body.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-20.png" target="_blank">
+          <img src="./week04-slides/slide-20.png" alt="Slide 20 — Synthetic methodology" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>Understanding by building</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-21.png" target="_blank">
+          <img src="./week04-slides/slide-21.png" alt="Slide 21 — Ant synthetic methodology" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 21</span>The ant principle</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-23.png" target="_blank">
+          <img src="./week04-slides/slide-23.png" alt="Slide 23 — Four bodies" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 23</span>Four bodies (Ziemke)</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. Synthetic Methodology + The Four Bodies</div>
+
+      <h3>Synthetic methodology — "understanding by building" <span class="badge">Exam</span></h3>
+      <p>If you want to understand a phenomenon, <strong>build a system that does it</strong>. To understand human walking, build a walking robot. To understand ant locomotion, build an ant-bot.</p>
+
+      <p>The ant slide (slide 21) is a beautifully compact lesson. Three steps:</p>
+      <ol>
+        <li><strong>(a) Direct mapping</strong> of observed ant behavior into an internal representation.</li>
+        <li><strong>(b) Using that representation</strong> to control a walking robot — <em>fails</em>. Too complex, too brittle.</li>
+        <li><strong>(c) Apply a much simpler model</strong> — a Braitenberg-style architecture — and the robot suddenly walks plausibly.</li>
+      </ol>
+
+      <p>The simpler model turns out to be a <em>better explanation</em> of the original ant behavior. Lesson: <strong>extract principles, do not 1:1 reverse-engineer biology</strong>. Simplify, then build.</p>
+
+      <p>You'll follow this approach in your project: don't try to clone an animal — extract the locomotion / sensing principle and instantiate it cheaply.</p>
+
+      <h3>Tom Ziemke's four bodies <span class="badge">Exam</span></h3>
+      <p>Cognitive Robotics Ch. 11 (Ziemke). The four ways an agent can be said to "have a body":</p>
+
+      <table>
+        <thead><tr><th>Body</th><th>What it is</th><th>Robotics relevance</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Social body</strong></td><td>The body as it appears to others — gestures, openness, signals.</td><td>HRI: Pepper, Cutie — invites interaction.</td></tr>
+          <tr><td><strong>Sensorimotor body</strong></td><td>The body that interacts with the environment via sensors + motors.</td><td><strong>Most central for roboticists.</strong> Maps directly to W01's sensors-actuators-controller loop.</td></tr>
+          <tr><td><strong>Living body</strong></td><td>Self-regulating, homeostatic body. Manages energy, hormones, temperature.</td><td>Battery management, thermal regulation, "artificial homeostasis."</td></tr>
+          <tr><td><strong>Lived body</strong></td><td>The body as <em>experienced</em> from the inside — phenomenology, sense of self.</td><td>Most philosophical; consciousness territory. The lecture skips this in depth.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">In-class philosophical probe <span class="badge prof">Prof</span></div>
+        <p>Zlatev's claim: <em>"a robot with bodily structures, interaction patterns, and development similar to those of human beings could possibly recapitulate [human] ontogenesis, leading to emergence of intentionality, consciousness, and meaning."</em></p>
+        <p style="margin-top:10px;"><strong>Agree or disagree?</strong> The prof's position: not a binary. It depends on the definition of consciousness and on whether perfect functional / structural replication suffices. Open question — but practically, "if you replicate everything, the robot does what you do" is a defensible <em>functionalist</em> position.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-25.png" target="_blank">
+          <img src="./week04-slides/slide-25.png" alt="Slide 25 — Morphological computation defined" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 25</span>Morphological computation</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-26.png" target="_blank">
+          <img src="./week04-slides/slide-26.png" alt="Slide 26 — Morphological computation in robots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Soft robots of tomorrow</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-29.png" target="_blank">
+          <img src="./week04-slides/slide-29.png" alt="Slide 29 — Advantages and implications" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>Advantages &amp; implications</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Morphological Computation</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · core <span class="badge">Exam</span></div>
+        <p><strong>Morphological computation</strong> = the ability of the <strong>body</strong> to perform the same function as the <strong>brain</strong>. "<em>Offloading computation from the brain to the body.</em>"</p>
+      </div>
+
+      <h3>The two regimes <span class="badge">Exam</span></h3>
+      <ul>
+        <li><strong>Brain co-determines</strong> the actions of the robot — quasi-passive walkers walking on flat terrain (need a controller pulse to keep going).</li>
+        <li><strong>Body co-determines</strong> the actions of the robot — pure passive walkers (no controller, downhill only).</li>
+      </ul>
+
+      <p>The same passive walker continuum from W01 is now formalized: morphological computation is the <em>name</em> for what the passive walker is doing.</p>
+
+      <h3>Advantages</h3>
+      <ul>
+        <li>The robot can perform <strong>regulations that would be difficult or impossible</strong> to perform via the brain alone (e.g. compliant, real-time soft contact).</li>
+        <li>Robots can produce <strong>"complex" behavior with "simple" brains</strong> — or no brain.</li>
+        <li>Computational cost goes down; mechanical compliance handles what kinematics couldn't.</li>
+      </ul>
+
+      <h3>Implications</h3>
+      <ul>
+        <li>The functions played by body and brain are <strong>not separated</strong>.</li>
+        <li>The role of the brain <strong>cannot be explained without considering the role of the body</strong>, and vice versa.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Cecilia Laschi · soft robotics <span class="badge prof">Prof</span></div>
+        <p>"The use of soft materials and continuum deformations and stiffening make control more difficult in computational terms using traditional model-based robot control approaches. Therefore, <strong>the robots of tomorrow will benefit from the interconnection and interaction between morphological computation and soft robotics</strong>."</p>
+        <p style="margin-top:10px;"><em>Cecilia Laschi (the prof's PhD advisor's PhD advisor) — note the lineage. The "Poseidona" octopus-arm drone gripper is her lab's flagship demonstration.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-30.png" target="_blank">
+          <img src="./week04-slides/slide-30.png" alt="Slide 30 — Body adaptation evolution voxels" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 30</span>Voxel-bot evolution</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-31.png" target="_blank">
+          <img src="./week04-slides/slide-31.png" alt="Slide 31 — Xenobots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 31</span>Xenobots — living robots</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-33.png" target="_blank">
+          <img src="./week04-slides/slide-33.png" alt="Slide 33 — Brain-body co-evolution Half-Cheetah" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>Brain-body co-evolution</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. Evolving Bodies — Voxel-bots, Xenobots, Co-evolution</div>
+
+      <p>Three escalating examples of <strong>letting the body itself become the design variable</strong>.</p>
+
+      <h3>(1) Voxel-bot evolution — three cell types</h3>
+      <ul>
+        <li><strong>Goal:</strong> assemble cubic cells in a 10×10×10 voxel grid that can walk fastest on a planar surface.</li>
+        <li><strong>Three cell types:</strong>
+          <ul style="margin-top:6px;">
+            <li><strong>Bone</strong> — rigid, fixed shape.</li>
+            <li><strong>Tissue</strong> — soft, deformable.</li>
+            <li><strong>Muscle</strong> — periodically contracts and expands (red expand-then-contract; another muscle does opposite phase).</li>
+          </ul>
+        </li>
+        <li><strong>Sensorless</strong> (except local expansion/contraction state) and <strong>brainless</strong> — locomotion comes <em>exclusively</em> from morphology.</li>
+        <li>Genetic algorithm produces increasingly fast walkers — "<em>more muscle is generally faster, but morphology decides the gait</em>."</li>
+      </ul>
+
+      <h3>(2) Xenobots — living robots</h3>
+      <ul>
+        <li>AI evolves morphologies in simulation from <strong>passive (skin) and contractile (cardiac) cells</strong>.</li>
+        <li>Researchers then <strong>build the evolved morphology with actual living frog stem cells</strong> (no genetic modification).</li>
+        <li>Behaviors realized in vivo:
+          <ul style="margin-top:6px;">
+            <li>Swim through aqueous environments <strong>for days</strong> without human intervention.</li>
+            <li>"Go see, remember, come back, and tell" — fluoresce red after exposure to blue light.</li>
+            <li><strong>Self-replicate</strong> — pile up loose stem cells into copies of themselves (Bongard's most recent experiment).</li>
+          </ul>
+        </li>
+        <li>Bongard: a faster AI now optimizes a "blob of virtual soft material" into a useful soft robot in <strong>30 seconds on a laptop</strong> — by zooming in on inefficiencies and tweaking neurons / lengthening legs to remove trial-and-error.</li>
+      </ul>
+
+      <h3>(3) Brain–body co-evolution (Half-Cheetah)</h3>
+      <table>
+        <thead><tr><th>Component</th><th>Setup</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Body</strong></td><td>~11 cylindrical elements connected with hinge joints (general bauplan).</td></tr>
+          <tr>
+            <td><strong>Brain</strong></td>
+            <td>
+              Feed-forward neural net.<br/>
+              <em>Sensors:</em> contact sensors, segment velocity/orientation, joint angle.<br/>
+              <em>Motors:</em> torque applied to actuated joints.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul>
+        <li><strong>Hand-designed morphology</strong> + evolved brain → baseline.</li>
+        <li><strong>Co-evolved brain &amp; body</strong> → outperforms baseline. Evolution discovers a morphology suited to the locomotion task.</li>
+      </ul>
+
+      <h3>Ideal co-evolution criteria</h3>
+      <ol>
+        <li><strong>Simple</strong> — a small set of elementary elements (analogous to amino acids).</li>
+        <li><strong>High expressive power</strong> — wide phenotype spectrum, speciation under natural selection.</li>
+        <li><strong>Evolvable</strong> — supports genetic variation; small genetic edits → meaningful morphological/behavioral edits.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-32.png" target="_blank">
+          <img src="./week04-slides/slide-32.png" alt="Slide 32 — Brain body co-evolution intro" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 32</span>Co-evolve brain + body?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-34.png" target="_blank">
+          <img src="./week04-slides/slide-34.png" alt="Slide 34 — Co-evolution results" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 34</span>Results — co-evo wins</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week04-slides/slide-37.png" target="_blank">
+          <img src="./week04-slides/slide-37.png" alt="Slide 37 — Bongard 5-min intro to embodied AI" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>Bongard's 5-minute intro</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Implications for AI &amp; Robotics Design</div>
+
+      <p>Synthesizing what the lecture argues you should now believe as a designer of autonomous systems:</p>
+
+      <ol>
+        <li><strong>Don't put intelligence only in the controller.</strong> A clever body buys you behaviors that no controller could afford.</li>
+        <li><strong>Pick morphology to fit the task and environment.</strong> A soft, octopus-style arm picks up an egg <em>and</em> a 260× body-weight bucket of water — same body, no morphology change required. A rigid claw can't.</li>
+        <li><strong>Use synthetic methodology.</strong> Start from the simplest body that could exhibit the principle, then add. (Braitenberg-style minimalism applies again.)</li>
+        <li><strong>Use the environment.</strong> The dead trout and passive walker work because the world is doing computation for them. Design <em>with</em> physics, not against it.</li>
+        <li><strong>Multimodal interaction beats data scale.</strong> Baby Joe vs AlexNet: the embodied agent generalizes from one example because it can <em>act</em> on the object. Build for action loops, not just inference.</li>
+        <li><strong>Embodied AI must "push the world."</strong> Bongard: an LLM-only system cannot become truly intelligent unless it perturbs the world physically. This is the stake the lecture plants for the rest of the course.</li>
+      </ol>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam-style question (likely) <span class="badge">Exam</span></div>
+        <p>Given Pfeifer's three-bot demonstration (same controller, three bodies, three behaviors): <strong>explain why the behavior differs and what concept this illustrates.</strong></p>
+        <p style="margin-top:10px;"><strong>Answer:</strong> The difference is not in the controller — that is identical (constant motor speed). It comes from <strong>morphology and material</strong>. Different shapes and materials produce different couplings with the environment, hence different emergent behaviors. This illustrates <strong>morphological computation</strong> and the <strong>embodied</strong> view of intelligence.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Project guidance <span class="badge prof">Prof</span></div>
+        <p>Last year a group inflated a <strong>glove with air</strong> to play rock–paper–scissors — pure morphological-computation move. You're not <em>required</em> to do soft robotics for the project, but you are encouraged to <strong>think about your robot's body as a design knob</strong>, not just its controller.</p>
+      </div>
+
+      <h3>Embodied Intelligence online conference (announcement slide 36)</h3>
+      <ul>
+        <li>Free, online. The professor strongly recommends registering.</li>
+        <li>Themes raised: What is (embodied) intelligence? How does computation arise from embodiment? How does language emerge? How do we measure complexity? What can <em>not</em> be done by computational intelligence? What ethical questions arise from EI?</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Embodiment</strong> = an agent that possesses a <strong>physical body</strong>. Default reading is <em>physical</em>; "virtually embodied" only when stated. <strong>ChatGPT alone is NOT embodied; Pepper / Nao ARE.</strong></li>
+      <li><strong>Morphology</strong> = how the body's parts (different materials) are arranged. Morphology <strong>constrains</strong> the agent's possible behaviors — and is therefore a design knob, not just an aesthetic.</li>
+      <li><strong>Two schools:</strong> Classical (Descartes / GOFAI / AlexNet) puts intelligence in the brain. <strong>Modern / embodied</strong> (Nietzsche / Pfeifer / Bongard) requires <strong>BRAIN × BODY × ENVIRONMENT</strong>.</li>
+      <li><strong>Dead fish + passive walker</strong> prove brainless systems can display intelligent behavior — body and environment together do the computation. Passive walkers <em>are</em> robots because the body performs the brain's function.</li>
+      <li><strong>Pfeifer's "Crazy Bird":</strong> identical control + three different bodies → three different behaviors. The body, not the brain, was the variable.</li>
+      <li><strong>Held &amp; Hein kittens:</strong> same brain + same visual input — but only the kitten that <em>moved itself</em> developed normal vision. <strong>Perception requires action.</strong></li>
+      <li><strong>Synthetic methodology</strong> = "understanding by building." Don't reverse-engineer biology 1:1; <strong>extract principles</strong>, build the simplest model that exhibits them (the ant example).</li>
+      <li><strong>Four bodies (Ziemke):</strong> social, <strong>sensorimotor</strong> (most relevant for us), living, lived.</li>
+      <li><strong>Morphological computation</strong> = body performs the function of the brain. Lets robots "produce complex behavior with simple brains, or no brain at all." Soft robotics + morphological computation = the prof's bet on the future of robotics.</li>
+      <li><strong>Voxel-bots, xenobots, brain-body co-evolution</strong> all point the same way: when the body is a free variable, simpler controllers solve harder tasks. <strong>Bongard's takeaway: AI must push the world, or it isn't really intelligent.</strong></li>
+    </ol>
+  </div>
+  <details class="transcript">
+    <summary>
+      <span class="transcript-eyebrow">Lecture transcript</span>
+      <span class="transcript-meta">11,170 words · auto-generated (Whisper)</span>
+    </summary>
+    <div class="transcript-body">
+      <input type="text" id="transcriptSearch" class="transcript-search" placeholder="search the transcript…" />
+      <p>videos are available and I want to be sure that available for all so if you check it and say it is okay that you can reach panoporto it works perfect so like this one It works perfect, so there is a one announcement actually if you cannot access with the link in here Okay, so please listen then I will not receive any question later If this thing does not work either it has to work, you have to come and click this link on a photo. And from here you will go and select the lecture videos. Of course it doesn't, yeah, here. Classroom recording, then you will see the available videos.</p>
+      <p>So second and the third week should be available. Please be sure that you can access CE Watch on your mobile device or the PC. All right, so for today's lecture we will go and introduce the embodied intelligent systems and the role of the body for the intelligence. So it will be a nice topic for you.</p>
+      <p>Maybe later you can think about some internship or the thesis projects for your future studies. And it is somehow my research area. So if you want a detailed answer for any of your questions after the lecture, we can go and discuss in detail. And what we did previously, we did control and the controllers and the brains for the robot.</p>
+      <p>For this, we mentioned about the action decision and perception loop. Back in here we show, and the feedback control, and some inverse and forward kinematics. We also introduced the basic primitives and the paradigms to control these primitives to generate the robot behavior for your agents. So it has been two weeks.</p>
+      <p>Do you have any question for this lecture? Or you already forget what we introduced? So it has been two weeks. Do you have any questions for this lecture?</p>
+      <p>Or you already forget what we introduced? And today's lecture is adapted from these books, especially this one. How the body shapes the way we think. It is a bit older book but still the content is super valid.</p>
+      <p>If you can find it online you can read it. If not just ask me probably I have the PDF not PDF but the hard copy of this book and I can share with you then you can you can read it. It is very very interesting a book and it will change somehow your perspective on what is being intelligent systems and why we need bodies for our robots especially it is good for researcher and the students like you because oftentimes we are using just computers here and somehow the performance of the system is a few metrics and a few curves in the computer but here the authors are convincing they actually propose some nice thesis about why or intelligent systems should possess the body in order to be true intelligent and we will go and reintroduce a few it is from them and discuss with you and you will adopt this uh concepts that we introduce in this lecture into your project and it will of course you will ask during the exam so just be sure that you understand the basic concepts from this lecture. And a few announcements.</p>
+      <p>I couldn't realize that in March, end of the March, and the beginning of April, we have a two weeks vacation. Okay. So you can confirm me if I'm wrong. Previously, this deadline was 27 March March but I changed to 20 March.</p>
+      <p>Unless all of you wants to do some homework or project proposal during your vacation I can convert to March 27. But I think from here to here you have an almost one month and it will be enough for you to prepare for project proposal. I already changed the deadline in the Canvas, so be careful and be prepared about this deadline. All of your group members were assigned to your group.</p>
+      <p>Please do not change your group members were assigned to your group. Please do not change your group. If you want to change for some reason, please contact me first, and then we will find a solution for your situation. If you have any problem, please first try to solve problem by yourself within your group.</p>
+      <p>Then involve me, and you can involve also the exam board and other units in the department to resolve your problem. And one thing that I can suggest to you, please contact with your group as early as possible. Have a WhatsApp group or Discord group for the assignments. And do not wait until last minute for your project proposals or the other assignments otherwise if you cannot submit and if you miss the receipt deadlines for this assignments then you cannot get your grade for the project for the group project so be careful about okay yeah for the remaining practical session it will be much more hands-on and we will introduce a lot of coding and you already download the Arduino IDE in your computer and this week we will go a bit further and the circuits will be more complex like you will code a simply simple right hand back vehicle and we will introduce also a photo resistor ultrasound and a few other sensors that you will use for your project so and a few other sensors that you will use for your project.</p>
+      <p>So please, at least three or two people from the group, attend the practical session that you can transfer your knowledge to other group members too. Otherwise, it will be a bit hard to follow the rest of the practice session and complete your project. I know we can use the GPT and other generative AI tools, but you are free to use them. You have to know every single detail of every function that you put on the Arduino, and you will be responsible, and we will expect you to explain to us about the code functions and everything that you display for us for the group project.</p>
+      <p>As a personal recommendation, I will not suggest you to use directly the GPT code for your Arduino. First, try to code by yourself, probably you will fail. Then, try to debug with the GPT instead of asking pure working code from the GPT. So, that will be actually a bit better approach for you.</p>
+      <p>Otherwise, we will have a bit problem for the grading and for the other stuff for your course project. For this practical session, please assemble your car kit. Even though some of you will not do the car project or the car related project, please assemble your car and get familiar with your kit and the sensor and motors that you will use. Even though you will not use the car, but you will use the car components for preparing your project.</p>
+      <p>So it will be a good exercise for you to assemble the car and see what is missing and what you can do or what you can extend on top of the existing structures that we provide to you okay that is the my news and the administrative stuff to you do you have any question related to your Arduino kit for the sessions, assignments, group formation. And for the group who are not doing the Arduino project, at least one of you can attend the practice session and get familiar with the concepts that we are introducing because you will be responsible for the Arduino project in your exam too. Cool. So let's start for today's lecture.</p>
+      <p>Of course, we need some mandatory quotes. You're probably familiar with this phase. And this is Descartes, and he said that, I think therefore I am. Of course, we will butcher their ideas and not give the full perspective of their stance.</p>
+      <p>But here we will have one opponent of Descartes, which is Nietzsche. And what he says is that, in the one school of thought, Descartes said that thinking is not for being. But on the other hand Nietzsche said that there is more intelligence in your body than in your best of wisdom so we can safely say that Nietzsche is indicating something related to body for us okay so body in this case is an also a contributor of the intelligence and we will have an stance on this school of thought. Why?</p>
+      <p>Because in your project you will do embodied agents. So we will think that body or having body is a prerequisite for being intelligent in robotics. A few questions. So in the era of the let's say AI and programming, we on your time to arrive to your house.</p>
+      <p>Or we are calling some smartphones, intelligent. Or booking agent. You are saying that, okay, check my calendar. And with that calendar, find me a flight within that price range from Amsterdam to Helsinki, for instance.</p>
+      <p>And in this case, we don't have a strong body. But we know that humans possess the body, and it is a physical body, and we are attributing the intelligence to humans. In this case, I want to ask you, do we need a body to be considered as an intelligent? And we know some, let's say, entities in the nature, like this wood, for instance, it possesses a body, but we cannot say that it is intelligent, or this desk.</p>
+      <p>This wood, for instance, it possesses a body, but we cannot say that it is intelligent. Or this desk. What's the opposite? Okay, we were coming to that point, actually.</p>
+      <p>So hold your question. And we are saying the or body and back and and what what is what is the border for my body okay okay if I step out from my skin it means that my body ends or I can extend my body to something else first is the tool that I want to I am using it. Oftentimes, painters say that, OK, my brush is an extension of my body. And they are correct, actually.</p>
+      <p>They can use this specifically as a part of their body. So what do you think about where your body ends? so what do you think about where your body ends if you think just in your brain or in your skin or in your own body then why are we getting upset while watching a movie for instance in movie let's say one character is having an accident, okay, and some part of their limbs are eaten by a dinosaur, in Jurassic Park, for instance, but we are still getting upset for it. And it is not our body, we know that, but we are still getting some painful experience from watching this scene. we know that but we are still getting some painful experience from this watching this scene and in this case can we say that our body is extended to the other entities in our uh in our uh in our world so what is your argument for it as an intelligent agent I am confined in my body or I can extend my body to something else too or what is the evolutionary advantage of it to be upset while somebody is having an unlucky accident. because you can exert control over your environment, but if you are only, let's say, an intelligent without the money, and let's say you're somewhere in a server, then someone can turn off the server. Okay.</p>
+      <p>Yeah, that's one argument. If you are intelligent, then you can escape the unwanted situation, especially if you have a buddy, and buddy can move from one place to another. Okay. Anything else?</p>
+      <p>Like babies, for instance. They have a buddy, but do you think they are intelligent? Technically, yes. What kind you think they are intelligent?</p>
+      <p>Technically yes. What kind of intelligence they are possessing? It's a very basic intelligence. Okay, and how about this charger?</p>
+      <p>It is non-intelligent. Why? It can make a computation? It cannot make a computation.</p>
+      <p>It cannot make a computation. It can make a computation, actually. Oh. Huh?</p>
+      <p>Yeah, like in the, I mean, you can add some if checks in here if it charges OK, turn on the LED. That basic level intelligence? It's not intelligent. It's all intelligence that's creating input and generating output.</p>
+      <p>OK. And what is the task in that sense? Okay. And what is the task in that sense?</p>
+      <p>Okay, look. If I am generating input for a given... Sorry, output for a given input, means that I am intelligent? For the stone.</p>
+      <p>Okay. Your input is kicking the stone and the output is replacing the stone from one place to another. Yeah. We're going to stop here because it gets very, very, very, output is replacing the stone from one place to another okay so you don't like philosophical discussion on the actually we need to discuss on it okay because we need some foundations about what we are talking about something like that then otherwise we will not have a boundary about the intelligence now turning off and turning on and off for this charger can be intelligent but for the human if you say that i can close my eyes and open it it's intelligent so we can it can be questionable okay for the core concepts, please do not forget these two concepts.</p>
+      <p>One of them is the embodiment. In our case, embodiment is possessing a physical body. In the simulation, we can say that they are possessing a virtual body, but oftentimes if we say that embodiment, we are talking about the physical body. And another concept is morphology.</p>
+      <p>Morphology is, okay, you now have a physical body, and how this body is arranged. For human, we know that we are five-fingered. We have a head, two eyes, one nose, and some other organs too and with this morphology basically i am constraining my intelligence okay like now on the terrain we can talk we can solve the problem but if you put me now under the sea probably i cannot display any intelligent behavior from it. In the sense that I cannot go and open the door if this is an underwater environment.</p>
+      <p>So basically, your morphology is constraining your behavior. It means that if you want from a robot to display one behavior, then you can play with its morphology. Like here, this is a FETTO robot from Japan, and it's an actual robot, like a physical robot. It's not an avatar or a simulation.</p>
+      <p>Now, the question, is it embodied? Yes, because it has a physical body. Let's see this one actually, that will be much more interesting. This is a hyper-realistic version of the Afetto.</p>
+      <p>Researchers are using this one as a baby robot for inducing the pain and assessing the role of the pain for the robots. But for us this is just an embodied agent and its morphology is based on human morphology. In the exam we will ask question what are the morphologies of this robots resembling to. Then for this one you will say human and for this one you will say human and for this one.</p>
+      <p>So soft robotics actually category and here you are seeing the it is embodied why because it is possessing a physical body in the environment. The morphology is star-shaped. Soology is star-fish shaped morphology. In one of the previous question, actually some of the students say that this looks like a hand, but it really doesn't look like a hand.</p>
+      <p>It may look at somehow deformed hands, but in reality we will not accept this answer in the exam. So if you say animal morphology, it's fine. If you say starfish shaped animal morphology, it's also fine, but not hand. And here you have an, actually this is my photo from Osaka, a robot in the restaurant and its morphology.</p>
+      <p>Sorry, the first question, is it embodied? Yes. Because it has a physical body. And what kind of morphology it possesses?</p>
+      <p>Human, animal, abstract? Not what? Not human, animal, but it's very specialized. Okay, so when you look to this robot, it resemble to what?</p>
+      <p>I think it would be. Yeah. It makes sense. You can imagine like this.</p>
+      <p>This is my plate. I am a waiter, and you see the same thing existing here. I can put something on top of this plate. So like I am waiting something, and it is displaying the same behavior.</p>
+      <p>So we can say that this is an embodied agent and it displays partially human body or human morphology. You see this one is a bit hard to get and the answer, it means that probably this one will not be in the exam. But if something is super clear, then we will ask in the them like affect the robot. We will attribute a lot of stuff for the body, then that's why in the demo day you will see a lot of robot bodies with different types of morphologies, like a zoomorphic one.</p>
+      <p>This one, I don't know what kind of morphology it is. This one is a bit human and animal hybrid. You can see this one is also, I don't know too much. This is plant-based.</p>
+      <p>There is no morphology probably in here. No morphology. We cannot easily say that this looks like an animal, human or some other biological entities in the nature. But you get it, you will have a lot of options to create your own embodied intelligent agent.</p>
+      <p>And these are just for inspiration and later we can go and later we will go in the practice session in detail to design a body for your robot and we will also have some professional and off-the-shelf robots like this one is a cutie robot from our lab and you see it exists in the real environment with real body it means that it's embodied and if you check it as eyes and the size it exists in the real environment with real body, it means that it's embodied. If you check it as eyes and the size, it means that it looks like a kid. You see the interaction with the kid is a bit more natural than interaction with the adult humans in here. So we can easily say that, okay, the embodiment display a factor for this interaction between human and the kid and the robot and adult and the robot.</p>
+      <p>We also have this unitary robot and it is dog-like morphology. Of course, you cannot expect him to bark, but still it has a foreleg and with the body. Without tail, you can say that this is a dog. And this is the small version of it, puppy, dog-puppy stuff.</p>
+      <p>And here we have a human hand morphology actually. Here we also have a robot arm. Arm, it looks like an, let's say human arm. Of course, it's not perfectly resembled because at the end we don't have a finger.</p>
+      <p>It doesn't have a finger. Here's the small version of this robot arm. So embodiment and embodiment-related keywords are a pretty important role, actually, even though we are not realizing at first glance, but we are taking granted. And it is super important for us to learn it, know it, and be sure that we are using correctly.</p>
+      <p>Okay, this is your exam question. Okay, this is your exam question. All of us and one of your peers also asked, do you think Chachapiti is an embodied agent? If yes, explain.</p>
+      <p>If no, also explain. And do you think Pepper and Now robots in here are embodied agents so which one are embodied which now on the pepper okay okay who says this all of you of course and who say this guy perfect we need some brave argumentative students Perfect. We need some brave the physical body. Okay.</p>
+      <p>It dies. But you can, in the controller, we said that the brain can stay in the cloud. Okay. And if you make a connection with chat GPT with this, let's say, pepper robot.</p>
+      <p>Then all of a sudden, chat GPT becomes in a body data. Are you sure? Or maybe, yeah, it is intelligent Are you sure? Then it becomes embodied agent or not?</p>
+      <p>Yes or no? Okay. Any more arguments? We said that ChetGPT alone is not embodied, but if you connect ChetGPT with this robot, will suddenly be embodied agent or not?</p>
+      <p>Come on. Go hard. Go.. Chechip itself does not move, but you can use as a brain controller,.</p>
+      <p>GHP itself does not move, but you can use as a brain controller and put on the robot, and robot will move. There are some examples.. No, you are seeing correctly, but now I'm trying to push you in a different territory. Go.</p>
+      <p>I think because GHP is a language model, it only takes language as an input, or I don't think it's really an embodied agent because it cannot take input from the environment. Oh, no, this is not correct. You can put a camera and put on the GHGT and say that's what you are seeing in the scene. It's not textual.</p>
+      <p>The initial versions are text-based, but now it becomes multimodal. Okay. More arguments? Actually, I should ask an essay, write an essay about this.</p>
+      <p>Go. I don't think that it would become a different body because that body would still not belong to Chechnya. That body is just a random body that we gave to it. But they are fundamentally different things, right?</p>
+      <p>So they are not different things right so they are not like one united they do not suddenly become one united organism because of that ok so we could just like exchange that body for some other body and like it would be still the same body and like it would be still the same but the pages like now it would be a different one so okay then i forget about chpd and you develop your own language model and you are putting inside to your robot so what's the difference your llm and the openai is 11. one is living in cloud one is living in the robot yes okay more arguments if yes i mean if the brain is not part of is not one with the body that you cannot say that the agent is the body because the brain and the controller and the body are separate and we have seen that for a robot you need both the controller and the sensors and actuators so then they become like one only has the controller and the other one only has the actuators and sensors. So they become two, I would say, not fully developed raw parts. Okay, okay. Yeah, there are a lot of different answers within the wide spectrum.</p>
+      <p>We will not go and say that, okay, this is wrong, this is wrong, this approach is wrong, but we will stick with our definition. One thing that we can say that chatGPT alone is not an embodied agent. So be sure that in the exam, you accept this definition and you accept this answer. ChatGPT alone is not an embedded agent.</p>
+      <p>If you put the ChatGPT into this robots, and GPT not specific to ChatGPT, any GPT or any LLM can learn. While interacting with the environment and changing the robots behavior and executing the task. Now, we can say that these two entities together can be an embodied agent. So to eliminate all confusions that you have, I asked JetGPT three years ago actually, two or three years ago, and I said that are you embodied agent, please explain in detail.</p>
+      <p>Basically, asking an exam question and it says that no, I am not an embodied agent. So, Church-EPT alone is not an embodied agent. Why? Our definition requires it has to possess a body.</p>
+      <p>That's why it's not an embodied agent. It has to possess a body. That's why it's not an embodied agent. Can you ask Cheche Pity now?</p>
+      <p>Can you ask Cheche Pity now, are you embodied agent? Oh, no. No? Maybe I don't even know how it's acting if you encounter.</p>
+      <p>Okay, ask Gemini. Whatever LLM you have. OK, how are you? OK, I asked, Latat is,, it's not an embodied agent.</p>
+      <p>OK, and the same thing with the. It does not have a physical body. Exactly, Lakan. We are requiring, requiring in our definition to have a physical body, that's why it's not embodied.</p>
+      <p>Here you see these are not AI generated images, these are taken from the lab and these robots are real, so we are assuming that they are embodied. You already see these videos before, but better to see it again here you are seeing some fish and the fish is now we'll try to swim and you see the it is swimming somehow perfectly yeah just check this part of the fish but in reality this fish is upside down which means that it's already dead. But it can still swim. And we know that if you are dead, then your brain function does not exist.</p>
+      <p>But your body exists. And body is displaying somehow perfect swimming behavior. If I didn't say that this is an dead trout or that fish you will not understand if i only give this video to you so now again the question becomes okay what is going on with this body okay basically there is no motor control coming from the brain and only it has environmental interaction with the water and it can display a swimming as a behavior like an alive animal and this behavior is somehow displayed in this passive walker tool like remember we said that and its own weight, without any motors, sensors, computers, or electricity. And this robot can walk without any motors, sensors, computer, or electricity.</p>
+      <p>The same thing again in here. This one biological system has no brain. It's already dead, can't swim. And one artificial system has no brain, no sensor, no electricity, I guess no motors too, still can display the intelligent behavior or intelligent function.</p>
+      <p>So that purely says something about the quote that we refer at the beginning, like there is more intelligence in your body than in your best of wisdom. So the body is doing something. And that something is called embodied intelligence or embodied cognition. And previously we had a classical approach.</p>
+      <p>We only focus on the brain and central processing. Okay, if you develop an intelligent algorithm, it will be enough for you to call it as an intelligent. Or we can access truly intelligent systems by only focusing the algorithms but now the paradigms are shifting and we are looking for other options which is called modern approach or embodied intelligence approach and this one is not only focusing on the brain but but also focus the brain, body, and environment. Like here, she's only thinking about the brain, what's going on in here, but here she's juggling a lot of task and interacting with the environment.</p>
+      <p>We will call this one classical approach, and this one is modern approach, both for AI and both for robotics and for cognition too. At the end of this course, basically, you will be a perfect engineer for the modern approach or modern AI. Why? Because you have to display an embodied agent for your course project.</p>
+      <p>And we are basically proposing three things. One is brain. One is body, another one is the environment. In some cases, we don't need brain because body can overtake the brain function, but ideally, we should possess a brain, body, and the environment to get the truly intelligent systems or robots.</p>
+      <p>Does it make sense? No. That's why we call in the robotic community, simulations are doomed to fail because we cannot simulate the reality in the simulators. That's why we are avoiding simulations as an embodied intelligence researcher.</p>
+      <p>That's why we are not allowing you to use the simulator for this course. You can use for training, but at the end you have to show when physical robots for the demo day. This book is quite a nice book. If you have time, please check it at this day, who is the authors, Josh Bongard and Pfeiffer.</p>
+      <p>The author of this book is PhD advisor of my post-doc PI. So it means that I'm a secondary of these guys. If you have a question, you can go and ask me in detail and we will try to answer after the lectures. We mentioned that you should also prepare an embodied agent and this is the one of them..</p>
+      <p>Turn away or approach? Turn away. Turn away, approach, and stop. Okay.</p>
+      <p>Turn away. And it's, it is embodied. Why robot and it possesses a body a bird-like one a brain an Arduino as a controller and the environment you see her hand and other agents in the environment so it's a perfect example of the body, brain and environment combination and that's why we can call that this agent is an embodied agent or embodied robot of the body-brain and environment combination, and that's why we can call that this agent is an embodied agent or embodied robot. Is this clear?</p>
+      <p>Because it will be an exam question, and you need to perfectly answer this question. Otherwise, I will take an personal insult if you cannot answer this question, because I am repeating a lot and I really, really want you to understand this part. Because in the literature and in the research, you will see a lot of people are doing the simulation stuff. It is good, it is super nice.</p>
+      <p>But at that, if you cannot transfer it to the real body, for us as a roboticist, does not make sense too much. So the motto or motto is the intelligence cannot only exist in the form of abstract algorithm, but it requires a physical instantiation body. That's our motto. You see a lot of robots designed in this line.</p>
+      <p>And now you will see a perfect example by the author himself, Rolf Pfeiffer. And let's see. Ah, there's some more here. The first one we call crazy bird thank you very much okay so you saw very different behaviors now it turns out that the control is what you see in the lower right corner it's just the wheels turning at a constant speed.</p>
+      <p>Now the control is exactly the same for all three creatures, if I may call them creatures, but they behave in very different ways. So how is that possible? It cannot be because the control is different, because that's the same, has to be something else. Well, it's the morphology, it's the shape and the materials from which they're built.</p>
+      <p>Now, Crazy Bird was not only doing one thing, I mean it was doing several things, but the control for Crazy Bird is also exactly the same. And you see it's very interesting, like you have a robot and the only thing is changing their body, and the control is the same. Like it's the same brain for different bodies, and of course their behavior will be different. Does it make sense?</p>
+      <p>I'm really, really asking this question. Does it make sense? You have one control algorithm. It's just constant speed with the motors.</p>
+      <p>It's rotating. And you are just changing the bodies. And displayed behaviors are different for each bodies. Does it make sense?</p>
+      <p>Perfect. And you can use actually this kind of behavior for your course project too, but a bit more intelligent one, not a random behavior in that sense. And it is almost the same thing with the bright emerald vehicle remember one algorithm you can play with the number of the sensors number of the motors and at the end you will get the different behavior from your agents okay and of course in the cognitive science literature we have a lot of arguments for this kind of behavior like, and what's the name? If you remember this experiment from the two kitten, everything is the same for this kitten.</p>
+      <p>Not everything, but the most of the kitten are the same they are i guess somehow they were born in the same time actually and one is freely moving and another one is just confined so it cannot use its uh its legs and at the end that passive At the end, that passive kitten becomes blind. Like after the experiment, if you put them on the next stairs, the active kitten will climb the stairs, but the passive kitten cannot climb the stairs. Problem in here is permanent. problem in here is permanent this kitten couldn't recover actually from the experiment so again the brain is the same let's assume the same both of the kitten brain are similar only changing is the environment so with the same function same brain if I change the environment I can completely destroy behavior of the one agent and make the other agent much more capable so again the idea is working here we cannot expect that okay only brain can recover everything in here like an algorithm brain can recover everything in here like an algorithm but body and environment also plays the role so again that will be a take-home message for you so if you want to make a one intelligent being or the robots we need a body we need a brain and we need an environment for it and we will say that all three will interact each other and the intelligence will emerge yes or like the perception of a body is it enough to perceive that you have a body or do you need an actual body because in a simulated environment a robot may think that it has a body and so it cannot because for example in lucid dreaming for example when you dream and you can still move around and do something, right? You don't really have a body in that dream.</p>
+      <p>I mean, you have a body, but it's constricted. And you don't even have an environment in a sense that your environment is just your brain, right? So is it really like, is an illusion of the body enough? Okay, you see how philosophical stuff are appearing in here.</p>
+      <p>That's why this is the most dangerous lecture, actually. Okay, I will give a bit concrete answer to your question. If you are using simulator and simulators are physically realistic enough to model the whole world, then we can argue that perception of the body will be enough. But currently, we don't have any computation to simulate the exact things happening in the real world and the simulated world.</p>
+      <p>For the simple task, yes, it can be done. But for the much more complex task, you cannot do this. Okay? And for the lucid dreaming and other stuff, at the end of this lecture, there will be one video for five minutes by George Bongard, one of the authors of this book.</p>
+      <p>Okay. This book. And it will say that, okay, this kind of LLMs or simulators cannot be truly intelligent unless they push the world. Okay, because if you push the world, you will learn something.</p>
+      <p>I'm pushing this one and I see that it's not light enough for me to move it. So that's why I cannot call that okay. If you don't expose the body, you cannot be intelligent. Sorry.</p>
+      <p>You cannot be intelligent if you don't expose the body. So let's give a 15 minutes break and we will continue. Meanwhile, if you have a question about your projects, group members, and other stuff, please come here and we will answer. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>I've never been seen before on Earth. So starting about five years ago, we started working on what have now become known as the xenobots. What we did was we asked the AI to take these frog cells and rearrange them in a way to produce some desired function. We asked a xenobot to go see, remember, come back, and tell.</p>
+      <p>We placed it in a petri dish, we placed some very small glass beads in the petri dish, we had these bots move around, we placed a blue light in the far side of the dish and any of these xenobots that came into contact with blue light that blue light triggered a genetic cascade inside the body of the xenobot so that when we retrieve the bots from the dish they would glow red so we're sort of putting our xenobots through the paces of early robotics, simple things that we might want our robots to do, like go see, remember, come back. In our most recent experiment, we asked the AI to design a xenobot not that would walk or would swim, but would self-replicate. It is a little bit scary to think about self-replicating machines, but as a scientist, I feel that it's our moral responsibility to understand and study self-replication in such a safe environment. And the Xenobots, a genetically unmodified set of frog cells, is a safe place to be.</p>
+      <p>Designing a complex machine is not a trivial matter because you have a lot of interdependent components. So how do you simultaneously improve parts of a complex machine, like a car or a robot, and not break what you already have? Up till now, we've been able to create AI that can design robots for us, that can simultaneously improve all the parts of a robot. But it takes the AI weeks and weeks of running on a supercomputer to do that, to produce just one potential machine.</p>
+      <p>So now we have a new AI that is also able to design a robot for us. It can do it in 30 seconds on a laptop. Now the AI watches an individual simulated bot, and whenever that bot is a little bit inefficient, if it stumbles or it fails to pick up the object we want it to pick up, the AI zooms in on that error and works backwards. It goes backwards into the body and brain of the bot and identifies what were the issues that caused that inefficiency in the behavior to arrive in the first place.</p>
+      <p>By doing that, it's able to not only identify the source of these inefficiencies or errors, it's also able to know exactly how to tweak a neuron here, lengthen a leg there, to make that bot a little bit more efficient the next time out. And by doing that, it removes trial and error. The AI very quickly is able to optimize a blob of virtual soft material into a useful and safe and soft robot. If we start to put AI into physical bodies, into autonomous cars, into drones, into humanoid robots that are interacting directly with people here in the real world, of course that's a dangerous prospect.</p>
+      <p>But that's not how we do things with our children. We give them safe environments, both for themselves and for us. We allow them safe environments both for themselves and for us. We allow them to gradually learn how to operate these fantastically complicated but also full of opportunity machines.</p>
+      <p>So as we start to embody AI in the real world what we need to figure out is how to create safe places for them. What if robots could move like an octopus, grip like an elephant trunk, and adapt like nature itself? Meet Spyrops. Researchers at the University of Science and Technology of China have developed a new kind of soft robot inspired by the natural flexibility of octopus arms and elephant trunks.</p>
+      <p>While many robotic arms can grasp and manipulate items, they still lag behind nature's dexterity and precision in many cases. And unlike robots that rely on claw-like grippers, spyrobs use their entire body to move and manipulate objects. Instead of just grabbing, they can bend, wrap, and adjust their shape to interact with objects more naturally. Through testing, researchers found SpyRob was able to grip objects of various sizes and shapes with a success rate of over 95% thanks in part to its simple design.</p>
+      <p>It operates using just a few cables, which allow it to adjust its grip from different angles. During tests, SpyRob was able to gently pick up fragile objects like eggs and strawberries, perform rapid high-precision objects like eggs and strawberries, perform rapid high precision tasks like catching tennis balls, and pick up and transport a bucket of water 260 times its own weight. They can also navigate tight spaces, wrap around obstacles, and adapt to unpredictable environments. And according to researchers, can even handle objects as tiny as an ant.</p>
+      <p>And since Spirubs doesn't rely on complex motors or costly materials it can be manufactured quickly and relatively cheaply its simple design also means there are fewer components that could fail like nature okay let's start all right All right. Here's another actually important idea about why intelligence requires body environments and brain. This is a bit old slide but still valid. At that time, we had a very a very famous network called AlexNet.</p>
+      <p>Currently, it becomes obsolete actually. But AlexNet actually one of the success story in the deep learning literature, and it's achieved the highest accuracy can be obtained in the ImageNet dataset. Here, you are seeing that AlexNet can process five million images, and it can categorize over 2,000 labels, and it can use and get high accuracy by using the convolutional neural network. To do this, it needs a lot of computation actually.</p>
+      <p>At that time, of course, it was not common to use the GPUs for computing the machine learning algorithms. But it starts in a very nice timing and it becomes abundant and now everybody is using it. But in here, what we have a baby, let's say this baby Joe for some reason. With that baby Joe, after his second birthday, it can infer the whole category by using single image or single interaction.</p>
+      <p>Like if you give a toy to the baby, what baby will do, basically, he basically use all of the sensors that he has, like put this object into the other hand and put in the mouth and play with it, change the orientation, and get the invariance representation of the object that he can see and interact. And after it see one cup, let's say, this is Albert Heine cup, and after let's say two, three weeks, if you show the Starbucks cup, that baby Joe will understand that it's a cup and it can interact with the cup with a specific motion and the interaction. So it means that with a simple objects, with a single instance, it can categorically actually infer different types of objects. This is the, let's say, beauty of the evolution and beauty of the human sensory and the brain structure.</p>
+      <p>But here we have just computation. We cannot expect, for instance, AlexNet to achieve the same efficiency that we have a baby job. If you cannot give this single object to the AlexNet, and it can rotate, it can learn, and it can interact with this object and learn any kind of the next object that you show in the same category classified correctly. So that's why this kind of algorithms alone will not be intelligent in the perspective of the embodied intelligence and and cognition that we introduced so having body and interacting with objects and with the world with your body then it gives some advantages over having one deep learning model.</p>
+      <p>We need embodiment because we cannot study robotics with only equations or with only formal concepts. Of course, we can do, but it will be just an intellectual exercise for us, and we can publish some papers or do some theoretical contribution to the study. But if we are not using the actual robot bodies or the actual hardware, then it means that something is missing. Something is missing and we can follow one approach to complete that missing components and we will call this approach is synthetic metallurgy which means that if you want to understand something you have to build it okay and that something can be the complex behavior of the ant okay how ants are locomoting each other in the environment, moving from one place to another while avoiding the obstacle.</p>
+      <p>And one thing that we can consider, let's replicate. Whatever we are seeing in the actual organism, let's get one-to-one map and replicate in the hardware. Of course, at the end, what will happen? It will fail.</p>
+      <p>There are some experiments like they want to introduce frog-like robots at the end. They couldn't actually reverse engineer the actual frog with the robotic frog. Instead, what they did, they extracted principles. And that extracting principles actually is important for us, which means that for understanding an ant, I don't need to create an artificial ant.</p>
+      <p>What I need, extract from the locomotion principles from the ant, then apply in the basic structure of the ant on my hardware. And you are also familiar with this. Like Breit-Hemberg vehicle, for instance. It is a super simplistic toolkit that we have as a roboticist with a few sensors and a few It is super simplistic toolkit that we have as a roboticist.</p>
+      <p>With a few sensors and a few motors, we can achieve the complex behavior. We call this flow of building is synthetic methodology. If I want to understand the robot, sorry, I understand them, let's say perception, for me, it's better to build a camera or a robot that use a camera with a very simple functions. Then I can study the complex behavior that this robots can perform.</p>
+      <p>So the idea is, if you want to understand something, build it but you don't need to create a one-to-one map between the existing model and the model that you want to build on your robot. So simplify as much as possible. You will follow this approach in your project. We are also in our lab and in our research, we are also following this approach.</p>
+      <p>We have now a Pepper robot which is an off-shelf humanoid robot that we can buy from the vendors, but we are also allowing our students to create their own robot types. For instance, this robot is printed and assembled by a few of our students, and we are slowly trying to actually integrate this robots into our research for understanding the human-robot interaction. Here we are following the synthetic methodology. We want to understand non-verbal communication between human and robot.</p>
+      <p>So instead of creating a superhuman like robot, what we have, we have just an simplified version of them. Which is not super realistic degree of the freedom or super realistic of the fingers, we just have a robotic component of them. The research showed that actually if you have an embodied agent in the experiments, the interaction between human and that embodied robot becomes a bit different. They did one experiment with Tor of the Hanoi experiment, and they put an actual robot, this is a pioneer mobile robot in the same room, that participants get the feedback from the robot.</p>
+      <p>They put also this image of this robot into a computer screen and did the same experiment. They just use the simulated version of them and this is a simulation. The participant actually rate the intelligence of the robots in this experiment. First one is this one, co-located and embodied agent in the same room.</p>
+      <p>Another one is co-located but virtually embodied agent in the same room, and the last one is the simulated one. So it means that if the experiment is designed with the actual robots, it means that their perceived intelligence is higher for the human. So we can use this kind of tricks actually for our experiments too. Of course we mentioned the embodiments and there are a lot of different types of bodies and this kind of bodies are, I guess, derived from the human studies, but we can also adapt for our robots.</p>
+      <p>One is the social body. Like you are in the coffee shop, and some of the friends are approaching to you. And based on your body language and your social openness, you are inviting to interact with you or not interacting with you. This is the body type that's visible to others.</p>
+      <p>So other can see that you are smiling or you are having an open gestures and you are inviting some friends to interact with you. It's important for our robots because we want our robot to be interactive. Another one is the sensory motor body, which means that your robot is interacting with the environment, and it is just related to environment. Like I'm here, I have one sensor.</p>
+      <p>Let's say this is my motor encoder, and this is my tactile sensor, and I am interacting with my environment. These are my environment. That becomes my sensory motor body. The third type of the body is living body, basically your homeostasis.</p>
+      <p>How you are managing your hormones, your self-regulated stuff. The last one is the lived body. This is a bit philosophical one. One that you are experiencing a sense of self.</p>
+      <p>We will not go in detail about the living body because it's a bit more philosophical. But for us as roboticists, sensory motor body is important because robots are composed of the sensors and the motors and in between we have controllers. And if the robot, of course, are employed to do some social task for human-robot interaction, and that social body and their components are also important for us. Now, another philosophical discussion.</p>
+      <p>Could you please read this one and give me just one answer? Yes, I agree with Zoltan. Sorry, I agree with Zlatan or no I disagree with Zlatan. Just read it and then.</p>
+      <p>Okay, who agree with Zolotif? Come on. Are you agree or disagree with Zlatan? Basically, if you build a robot that displays the same thing that I have.</p>
+      <p>Okay. So, would it be enough for its intentionality, like its goal-oriented consciousness and the meaning? Come on. That was one of the most electrified discussions that should happen in this lecture.</p>
+      <p>Is there a very big difference that depends on the definition of consciousness or of meaning? Okay, remove everything, make it intelligent. Like if you replicate everything that robot has. Then again, it depends on the definition of it.</p>
+      <p>No, it can display everything that robot has. No, it can display everything that I can do in this class. If you consider me as an intelligent behavior. Okay, then if my robot do the same thing.</p>
+      <p>Okay. And what is the metric for you? Well, the metric for me is, well, does it look like it can achieve some goal, some complex goal? And does it employ its body for it?</p>
+      <p>And can it reasonably perceive the changes in its environment? Okay, so it means that if you replicate a complete body of me, brain of me, and behavior of me, that robot will be intelligent. Okay. More?</p>
+      <p>Come on, we should have more interesting ideas. Say that no, this is not good. Go. So by complete replication mean all body parts, all organs.</p>
+      <p>Everything. Everything. Everything, let's see. But artificially, okay, you cannot be as soft as like this.</p>
+      <p>So it's not biologically replicating human? No, it should be artificially. I can use the available technology that replicates me. So is should be artificially i can use the technology available technology that replicates me so is it the same or is it not the same i mean the same what do you mean you cannot copy paste me yeah i can yeah well because then you don't replicate us but the function will be the same like you have a camera instead of my eye of my eye exactly with the all actual technology that you can have you are replicating me and saying that this is intelligent is it possible or it will be intelligent if yes no don't worry, you cannot offend me.</p>
+      <p>Okay, just say that. Okay, which school of thought are you? Intelligence is just a behavior or there is something going on? Like now, I may be talking to you in an intelligent way, but my mind is in a different place.</p>
+      <p>Maybe tonight's a football match or tonight's another activities that I will do. Just think about it like this. In here, the concept that we are giving to you is not a binary, actually. And these kind of questions are mostly philosophical stance, and it will be later important in your life once we reach the technology level that can replicate to us like artificial organs okay so then we can discuss about okay whether having a robot that perfectly resemble us and perfectly function as and perfectly executing tasks like us will be intelligent or not.</p>
+      <p>And another component that we need to introduce is morphological computation. Remember that morphology is how your body is shaped. And with that shape, you are constraining the behavior, constraining the intelligence. Like you cannot put a fish on the terrain and expect that same intelligent behavior will be displayed by the fish on the sea.</p>
+      <p>Here we have one beautiful concept actually. So if your body is performing the same function as your brain, then it means that your body is performing a morphological computation. So ideally, we will expect that this passive walker should get some information from the sensor processed in the controller and generate the motion commands for the motors but in reality none of them is exist on this robot that's why this robots body has to perform all the components that control has to do okay so that's why we call that this robot is performing a morphological computation. So offloading computation from the brain to body is a morphological computation.</p>
+      <p>The passive walkers are one of the well-known example for it. We also have a quasi-passive walker in here, which means that the robot can decide that. If terrain is, let's say, a bit, it has a slope in here, like we have with this treadmill, the body decide that it has to perform a morphological computation rather than receiving a command from the controllers. But in some terrains, like the terrain is a plot, then it needs to perform action given by its controller.</p>
+      <p>That's why it's called quasi-passive walkers. OK. And one of the best example is this octopus robot for the morphological computation. And this is Cecilia, my PhD advisor.</p>
+      <p>And she gives some motivation to the young researchers. Not to me at that time, but at least now we can take it. She said that the use of soft materials and continuum deformation and stiffening make control more difficult in computational terms. She's right, actually.</p>
+      <p>In traditional robots, we need what? We need inverse and forward kinematics, for instance. And we learned that for some computation, there won't be a solution. Or some computation, there will be a solution that we cannot afford it.</p>
+      <p>It can be intractable. afford it. It can be intractable with giving the computation power and the time that we cannot perform the optimum solution for the behavior. And therefore, the robots of tomorrow, this is a very interesting keyword, robots of tomorrow, will benefit from interconnection and interaction between morphological computation and soft robotics. Which means that the robots that we will see in the future will use this morphological computation extensively.</p>
+      <p>It doesn't mean that they are not using it currently, but in the future it will be much more extensively, they will use it. She and her team designed this beautiful robot it's called Poseidon like a Poseidon but it's a drone and this octopus robot arm and ideally if you want to calculate or create a mathematical model for this robots for its behavior it is super hard but with its morphology actually if you just play with a few strings then you can generate the behavior of the octopus for this robot okay like we will see okay we already know this one like in here let's say let's go with this one and you see there is no sensor like there is no camera for this robot okay to reach the object and grasp it and bring it back to you and for your project for instance if you are doing the same experiment, what you have to do? You have to calculate some kinematics to reach that point and open your gripper enough and pick the object and get it back. And you have to do a lot of computation in that sense.</p>
+      <p>But here we are not doing this kind of computations you see with single technology you can create a lot of different type of actions on the different objects it is somehow related to biological organisms. Why? Because these kind of organisms are not living in a specific fixed set of the environment. Everything is changing.</p>
+      <p>Seasons are changing, the fish are changing, the rocks are changing, and the environmental conditions are changing and they have to adapt. And that's why the inspiration from nature for the soft robotics and the morphological computation is important for us Yeah. But body is playing role of the brain. If I ask in the exam, assume that they are robots.</p>
+      <p>But if you put they are not robots in a traditional sense, then I will also accept. Here, one of the experiment that I show in the video. Ideally, I show that grasping this kind of objects and safely, especially, is super hard for our robot because our robot doesn't know what is inside this cup. While it's moving, they have to also understand and model the physics of the liquid inside maybe it's super dangerous and acidic stuff if they drop on the human subject and they will destroy them but here we have a that confidence actually employ the this kind of robots that you can safely actually, round around the object, turn around the object and bring them in a specific position.</p>
+      <p>While doing the less computation, but you do a lot of computation, but you are personally doing less computation. So with this kind of behavior you can create a lot of different type of action to solve the complex tasks like this one and you see the same behavior Researchers at the University of Science and Technology of China have developed a new kind of soft robot inspired by the natural flexibility. And you see the same behavior works for different types of objects, especially the soft objects like a hat, clothes, or other types of soft fabrics. And you will see it will perfectly grasp it and move some....arms and elephant trunks.</p>
+      <p>While many robotic arms can grasp and manipulate items, they still lag behind nature's dexterity and precision in many cases. And unlike... Like for this robot, it's a gripper, yeah? So if you put an object that is exceeding the size of that grip, it will not perform the same function.</p>
+      <p>But for this robot robot you will see you are changing the object robot is the same it can perform still the tasks that's why morphological computation becomes important for the robot and soon as chichida said in her slide will be one of the direction for future of robotics. This is again a Poseidona robot and we are witnessing actually how, just consider this robot again, how body brain which doesn't exist for this robot, but it exists, the brain function exists in the body, performs super well in the environment. Change the environment to the textile company, change the environment to your office or your kitchen, you will find the same task for this robot to perform. Otherwise, if you are using the traditional robots that we introduced in the lecture and bring it to the lecture, every time you have to change the robot.</p>
+      <p>Sometimes you will change robot gripper from the actual gripper to sucker gripper or suction gripper. But here, you don't need to do it. Just change your formation, and you will perform the same function. All right.</p>
+      <p>So, up until now, did you get what I am emphasizing in here? Morphological computation is important and you can do the complex behavior by using the same morphology, same robot time to achieve the different tasks in different environment. So, that will be a nice actually uh thought okay or background thought while you are designing for your robot for this project of course we will not expect you to do it but there was a one group actually last year they did with glow but they pumped they pumped air in the glow and the glow is changing its formation and playing the rock paper scissors stuff so it was very interesting I will find a video later and show it to you you can still use and be inspired with the soft robotics stuff but ideally it is hard and it requires some material science knowledge actually to develop and this kind of robots in here. Okay, that is good.</p>
+      <p>Now, let's go and understand the simplicity behind this kind of mechanisms. This is a very famous experiment. And here, you are creating simulated robots. Later, he will also show us the actual robot.</p>
+      <p>And with this robot you have three types of cells. One is a bone cell. It means that it is fixed. Another one is a soft cell between the bones.</p>
+      <p>And the last one is the muscle muscle which means that it can expand and contract just these three basic mechanisms and let's see what kind of behavior you can display with these three So, very nice usage of the HCI and colors. Each color display, different function for the robots, and red is muscle, blue is the tissue, and this one is muscle. Sorry, yeah muscle, but this muscle can first expand and contract. The red one is doing the opposite.</p>
+      <p>First contract and expand, and the bone is blue. Basically, it doesn't change the shape. Now, come on what is going on come on let me open in the YouTube, it will be easy. Okay.</p>
+      <p>So you have these four components, and you will design a robot that runs faster. And the behavior of the robot is governed with genetic algorithms, and you will see how interesting it is. and just assess your understanding like we said that this red is that was what muscle and the blue was tissue and others are muscles okay so you will expect that more muscle will be faster than the others. But that's it. It's a perfect example of the morphological computation and the embodied intelligence.</p>
+      <p>The governing algorithm is the same, but if you change the body, you will see different type of the gates for these robots. Terrible background music choice. You see, if you increase the muscle, and your robot is trying to run. At the end, let's say, let's stop here.</p>
+      <p>At the end you will expect that the more muscle will make you run faster and you will get more distance. And it's somehow true. See the red muscle and the green muscles are abundant in this robot type. And if you change the, play with the morphology, you will get the different kind of behavior actually with the same algorithm.</p>
+      <p>And this researcher is quite interesting interesting stuff with the real cells with real a frog cells actually okay you are here you are manipulating the biology of the organisms, which is quite interesting actually, but inspired by that embodied intelligence, that study that they did for the simulation. This is a frog cell, I would say. this is the frog cell I would say okay and now they will create an actual cell cell by creating actually they will inject or put some muscle tissue on this embryo or larva whatever but this is a biological one okay it lives in the actual biological and you see it gets almost similar behavior 75x speed. Yeah, and if you rotate it, actually it cannot move it. Because the contraction is in the...</p>
+      <p>Okay, that's good. And you will see the similar computer-generated behavior also replicated in the... Okay, that's good. And you will see the similar computer-generated behavior also replicated in the biological systems.</p>
+      <p>And here it is... You can see as a drug delivery. So your robot is taking some drug and delivering it to some internal tissues. Now it is destroying the organism and seeing whether it will recover or not.</p>
+      <p>Okay, that is expected in the nature. Okay. And this is how replacing the cell, muscle cells, cells and other tissues between this. And if I remember correctly, they said that this operator does not drink a coffee.</p>
+      <p>Operator, the one who is doing this operation, does not drink a coffee. She or he has a perfect stable hands okay screening but the idea is simple yeah like and you are generating behavior from the computers and the simulation and it has an functionally equivalent in the uh functionally equivalent entities in the nature. That is the idea of the actually embodied intelligence. This kind of stuff, of course, it's in their infancy and later we will see a lot of different stuff in the medical robotics domain.</p>
+      <p>Instead of swallowing a pill, you will swallow this kind of robots. Then this kind of robots will do some drug delivery in one part of your body to another one. Of course, currently it sounds like in science fiction, but I am sure definitely in my lifetime, I will see this kind of technologies. Cool.</p>
+      <p>We are finishing today's lecture with one announcement. There will be one free to attend online conference called Embodied Intelligence. In this March, I guess, March 20 something, there will be a lot of actually presentations some lectures if you are interested go and check it and of course Cecilia is here and this kind of researchers are frontiers of what they are doing and you will see a lot of interesting experiments, a lot of interesting papers and you can also make some connections in there so that is my last word for this lecture. See you on Thursday in practical session.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you...</p>
+    </div>
+  </details>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 37; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week04-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week04-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week04-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(37, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 37`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week04-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week04-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/week04-slides\/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+
+  // ─── transcript search ───
+  const searchEl = document.getElementById("transcriptSearch");
+  if (searchEl) {
+    const paragraphs = Array.from(document.querySelectorAll(".transcript-body p"));
+    const originals = paragraphs.map(p => p.textContent);
+    searchEl.addEventListener("input", () => {
+      const q = searchEl.value.trim();
+      paragraphs.forEach((p, i) => {
+        const text = originals[i];
+        if (!q) {
+          p.textContent = text;
+          p.style.display = "";
+          return;
+        }
+        const hit = text.toLowerCase().includes(q.toLowerCase());
+        p.style.display = hit ? "" : "none";
+        if (hit) {
+          const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          p.innerHTML = text.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
+        }
+      });
+    });
+  }
+
+</script>
+</body>
+</html>

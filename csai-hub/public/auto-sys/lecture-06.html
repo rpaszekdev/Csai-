@@ -1,0 +1,1402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W06 — Unsupervised Learning</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+
+  /* ─── transcript ─── */
+  .transcript {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-faint);
+  }
+  .transcript summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: baseline; gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .transcript summary::-webkit-details-marker { display: none; }
+  .transcript summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 22px; font-weight: 400; line-height: 1;
+    color: var(--rust);
+  }
+  .transcript[open] summary::after { content: "−"; }
+  .transcript-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); font-weight: 700;
+  }
+  .transcript-meta {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .transcript-body {
+    padding: 28px 0 12px;
+    max-width: 760px;
+  }
+  .transcript-search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--ink-faint);
+    background: var(--paper);
+    font-family: inherit;
+    font-size: 12px; letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .transcript-search:focus { outline: none; border-color: var(--ink); }
+  .transcript-body p {
+    font-size: 13px; line-height: 1.9;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .transcript-body p mark {
+    background: rgba(168, 79, 42, 0.25);
+    color: var(--ink);
+    padding: 0 2px;
+  }
+
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">06</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 03 · Lecture 02 —</span>
+      <h1 class="hero-title">Unsupervised Learning in Autonomous Systems</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>39 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip active" href="./lecture-06.html">L06</a>
+  <a class="chip pending" href="./lecture-07.html">L07</a>
+  <a class="chip pending" href="./lecture-08.html">L08</a>
+  <a class="chip pending" href="./lecture-09.html">L09</a>
+  <a class="chip pending" href="./lecture-10.html">L10</a>
+  <a class="chip pending" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-11.png" target="_blank">
+          <img src="./week06-slides/slide-11.png" alt="Slide 11 — Unsupervised differs from supervised and RL" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>The 3 ML schools</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-12.png" target="_blank">
+          <img src="./week06-slides/slide-12.png" alt="Slide 12 — Unsupervised learning, no labeled data" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 12</span>No labeled data</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-13.png" target="_blank">
+          <img src="./week06-slides/slide-13.png" alt="Slide 13 — K-means, competitive learning, SOM agenda" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Today's roadmap</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. Three Schools of Machine Learning</div>
+
+      <p>The lecture frames itself with <strong>Yann LeCun's cake analogy</strong>: machine learning is a cake — <strong>reinforcement learning is the cherry</strong> on top, <strong>supervised learning is the icing</strong>, and <strong>unsupervised learning is the actual cake</strong>. The bulk of structure that has to be discovered in the world is unlabeled.<span class="badge prof">Prof</span></p>
+
+      <p>Most ML courses (Stanford, Tilburg, etc.) heavily favour supervised learning. Kirtay points out there is rarely a course dedicated entirely to unsupervised learning, even though for <strong>roboticists it is the most relevant family</strong>. This whole lecture is the corrective.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · core <span class="badge">Exam</span></div>
+        <p><strong>Unsupervised learning differs from supervised and reinforcement learning</strong>:</p>
+        <ul>
+          <li>The aim is <strong>not</strong> to map input → output by minimizing a cost function.</li>
+          <li>There is <strong>no explicit reward function</strong> to tune the behaviour of the network.</li>
+          <li>There is <strong>no explicit score / metric</strong> to judge "how good" a behaviour is.</li>
+        </ul>
+      </div>
+
+      <h3>Three-way comparison <span class="badge">Exam</span></h3>
+      <table>
+        <thead>
+          <tr><th>School</th><th>Signal</th><th>Goal</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Supervised</strong></td>
+            <td>Labeled (x, y) pairs</td>
+            <td>Learn a function f(x)→y by minimizing a loss</td>
+            <td>CNN image classification (ImageNet, AlexNet)</td>
+          </tr>
+          <tr>
+            <td><strong>Reinforcement</strong></td>
+            <td>Scalar reward from the environment</td>
+            <td>Learn a policy π(s)→a that maximizes return</td>
+            <td>Robot trying actions, getting +10 / −10</td>
+          </tr>
+          <tr>
+            <td><strong>Unsupervised</strong></td>
+            <td><strong>No labels, no reward</strong></td>
+            <td><strong>Discover structure</strong> (clusters, prototypes, manifolds)</td>
+            <td>K-means, competitive learning, <strong>SOM</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The motivation is biological too. Humans learn from observation: when somebody touches a hot stove, you don't need a label "this is a hot stove" — you infer the structure. Babies are not given labelled environments. Neither are robots in the wild.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-15.png" target="_blank">
+          <img src="./week06-slides/slide-15.png" alt="Slide 15 — Unsupervised learning in robotics, data points to cluster" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Cluster the data points</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-16.png" target="_blank">
+          <img src="./week06-slides/slide-16.png" alt="Slide 16 — When to use unsupervised learning" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>When to reach for it</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. Why Unsupervised Matters for Robots</div>
+
+      <p>For robots, three pressures push us toward unsupervised methods:</p>
+
+      <div class="callout exam">
+        <div class="callout-label">When to use unsupervised <span class="badge">Exam</span></div>
+        <ol>
+          <li>We have <strong>a lot of sensory data</strong> and we <strong>cannot hand-label</strong> it.</li>
+          <li>We do <strong>not have a reward function</strong> to guide behaviour.</li>
+          <li>We <strong>cannot construct a score / loss function</strong> to train the network.</li>
+        </ol>
+      </div>
+
+      <h3>The data deluge</h3>
+      <p>A robot has a camera, distance sensors, sonar, photoresistors, position encoders, IMUs, force/torque sensors, and increasingly an <strong>artificial skin</strong> (e.g. iCub has tactile patches with thousands of <em>taxels</em>). If a robot just hangs around for 20 minutes, the volume of recorded frames and sensor readings is enormous — labelling each frame ("there is a person in this image, there is a chair in this image") is impossible.<span class="badge prof">Prof</span></p>
+
+      <h3>No reward in the wild</h3>
+      <p>RL needs an operator-assigned reward (hit obstacle = −10, reach goal = +10). Outside curated tasks, there is no such signal. Unsupervised methods extract structure <em>without</em> a reward function.</p>
+
+      <h3>Cost of error</h3>
+      <p>RL is also <strong>physically expensive</strong> — letting a real robot try random actions can damage the robot or hurt people. So we collect raw sensory data, feed it through unsupervised methods, and discover useful prototypes safely.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof example <span class="badge prof">Prof</span></div>
+        <p>"You want a robot to grasp a phone — should it use the left hand or right hand?" Initially the robot doesn't know. You collect tactile / position samples while it manipulates objects, then <strong>cluster</strong> the data. The red cluster ends up as left-handed objects, the blue cluster as right-handed. <em>No labels were ever provided.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-17.png" target="_blank">
+          <img src="./week06-slides/slide-17.png" alt="Slide 17 — K-means pseudocode" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>K-means pseudocode</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-18.png" target="_blank">
+          <img src="./week06-slides/slide-18.png" alt="Slide 18 — K-means convergence criteria" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 18</span>Convergence criteria</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-19.png" target="_blank">
+          <img src="./week06-slides/slide-19.png" alt="Slide 19 — K-means more formal" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 19</span>Formal version</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-20.png" target="_blank">
+          <img src="./week06-slides/slide-20.png" alt="Slide 20 — K-means iterations animation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>Iteration animation</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. K-Means Clustering</div>
+
+      <p>You met <strong>K-means</strong> already in HCI for persona segmentation. Here it returns as the entry-level unsupervised algorithm.</p>
+
+      <p>The name decomposes: <strong>K</strong> = number of <strong>clusters</strong>, <strong>means</strong> = the cluster centres are updated to the <strong>mean</strong> of their assigned points.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">K-means · pseudocode <span class="badge">Exam</span></div>
+        <ol>
+          <li>Choose number of clusters <strong>K</strong>.</li>
+          <li>Set <strong>cluster centres randomly</strong>.</li>
+          <li><strong>Until convergence:</strong>
+            <ul>
+              <li>For each input: compute distance to every <strong>cluster centre</strong>; assign the input to the <strong>closest centre</strong>.</li>
+              <li>For each cluster centre: <strong>move the centre to the mean</strong> of the inputs assigned to that cluster.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <h3>Convergence criteria</h3>
+      <ul>
+        <li><strong>Fixed number of iterations</strong> — simplest. Stop after N steps.</li>
+        <li><strong>Threshold on movement</strong> — stop once centres move less than ε (e.g. 0.05 in x and y) between iterations.</li>
+      </ul>
+
+      <p>Kirtay walked the class through a live visualization: with K=2 the centres start randomly, then "snap" toward the dense regions until they sit roughly in the middle of each cluster. He called this out as exam material.<span class="badge">Exam</span></p>
+
+      <h3>Choosing K — how do you pick the number of clusters?</h3>
+      <ul>
+        <li><strong>Visualize the data</strong> first.</li>
+        <li><strong>Domain knowledge</strong> — e.g. you know the robot has two hands, so K=2.</li>
+        <li><strong>Run for several K</strong> (2, 3, 4, …) and pick the best.</li>
+        <li><strong>Elbow method</strong> and <strong>silhouette score</strong> are formal choices (mentioned, not derived).</li>
+      </ul>
+
+      <h3>Mean vs median — the noise problem <span class="badge">Exam</span></h3>
+      <p>K-means uses the <strong>mean</strong>, which is sensitive to outliers. Example given in lecture: salaries 30, 20, 10, 40, then add a single 1000. The mean shifts to 220 — a number that doesn't even exist in the dataset. If the robot's downstream decision depends on this average, the cluster centre is now wrong.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Mean vs median complexity <span class="badge">Exam</span></div>
+        <p><strong>Mean</strong> is robust to compute but <strong>sensitive to outliers</strong>: complexity <code>O(n)</code> — sum + divide.</p>
+        <p><strong>Median</strong> is <strong>robust to outliers</strong> (sort then pick middle) but more expensive: complexity <code>O(n log n)</code> on unsorted data.</p>
+        <p>So K-means stays with the mean because <strong>n log n &gt; n</strong>; you trade noise robustness for speed. <em>Use median only if you know your data has heavy outliers.</em></p>
+      </div>
+
+      <p>Practical advice from the slide: <strong>eliminate outliers before running K-means</strong>, or move to k-medoids / k-medians when the dataset is dirty.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-21.png" target="_blank">
+          <img src="./week06-slides/slide-21.png" alt="Slide 21 — K-means choosing K and outliers" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 21</span>Choosing K, outliers</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-22.png" target="_blank">
+          <img src="./week06-slides/slide-22.png" alt="Slide 22 — Competitive learning paradigm" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>Competitive paradigm</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-23.png" target="_blank">
+          <img src="./week06-slides/slide-23.png" alt="Slide 23 — Supervised vs competitive learning" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 23</span>Supervised vs competitive</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-24.png" target="_blank">
+          <img src="./week06-slides/slide-24.png" alt="Slide 24 — Competitive learning, neuron activation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 24</span>Neuron activation</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. Competitive Learning</div>
+
+      <p><strong>Competitive learning</strong> is the bridge from K-means to the brain-inspired models. Same paradigm: no cost function, no reward function. The twist is that the "cluster centres" are now the <strong>weight vectors of neurons</strong>, and the neurons <strong>compete</strong> to represent the input.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Competitive learning · core idea <span class="badge">Exam</span></div>
+        <p>Form a <strong>unit (or neuron)</strong> which becomes <strong>activated for similar inputs</strong>. The activation of a neuron <strong>increases as the distance between its weight vector and the input vector decreases</strong>.</p>
+      </div>
+
+      <h3>Supervised vs competitive — a single picture</h3>
+      <p>In supervised learning, an input vector <code>[0.42, 0.12, …, 0.18]</code> is run through forward + backward passes, with a label and a loss. In competitive learning, the <strong>same input vector</strong> is just compared (by Euclidean distance) against each unit's weight vector — no label, no loss, no backprop.</p>
+
+      <h3>Winner-take-all algorithm</h3>
+      <div class="callout exam">
+        <div class="callout-label">Pseudocode · WTA <span class="badge">Exam</span></div>
+        <ol>
+          <li><strong>Initialize</strong> the weights for each unit.</li>
+          <li>For each input, compute the <strong>Euclidean distance</strong> from the input vector to <strong>each unit</strong>.</li>
+          <li>Select the unit with the <strong>smallest Euclidean distance</strong> — this is the <strong>winner unit</strong>.</li>
+          <li><strong>Update only the weights of the winner unit</strong>: <code>w ← w + α (x − w)</code>.</li>
+        </ol>
+        <p>α (alpha) is the <strong>learning rate</strong>, α &gt; 0. The size of the input vector and the unit weight vector must be the <strong>same</strong>.</p>
+      </div>
+
+      <h3>The role of the learning rate <span class="badge">Exam</span></h3>
+      <ul>
+        <li><strong>α = 0</strong> → weights never update. The network is frozen and learns nothing.</li>
+        <li><strong>α = 1</strong> → the winner's weight vector jumps directly onto the latest input. Catastrophic forgetting — every new sample overwrites whatever was learned before.</li>
+        <li><strong>0 &lt; α &lt; 1</strong> → the weight vector slides smoothly toward the input. In SOM, α is also <strong>annealed</strong> (reduced over iterations) so the map stabilizes.</li>
+      </ul>
+
+      <h3>What competitive learning gives you</h3>
+      <p>The weight vectors become <strong>prototypes</strong>. The training process moves these prototypes toward the input distribution. Useful for:</p>
+      <ul>
+        <li><strong>Clustering</strong> the input.</li>
+        <li><strong>Vector quantization</strong> — compress a huge input space into a small codebook of prototypes.</li>
+        <li><strong>Feature extraction</strong> — extract features in an unsupervised way.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-25.png" target="_blank">
+          <img src="./week06-slides/slide-25.png" alt="Slide 25 — Winner-take-all pseudocode" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 25</span>WTA pseudocode</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-26.png" target="_blank">
+          <img src="./week06-slides/slide-26.png" alt="Slide 26 — Role of the learning rate" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Learning rate</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-27.png" target="_blank">
+          <img src="./week06-slides/slide-27.png" alt="Slide 27 — Weight vectors as prototypes" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Prototypes</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-28.png" target="_blank">
+          <img src="./week06-slides/slide-28.png" alt="Slide 28 — Self-organizing map intro" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 28</span>SOM intro</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. Self-Organizing Maps (SOM / Kohonen)</div>
+
+      <p>The <strong>Self-Organizing Map</strong> — also called the <strong>Kohonen map</strong> — is a <strong>variation of competitive learning</strong>. It is the headline algorithm of this lecture and the most exam-worthy structure to memorize.<span class="badge">Exam</span></p>
+
+      <div class="callout exam">
+        <div class="callout-label">SOM · structural definition <span class="badge">Exam</span></div>
+        <ul>
+          <li>Self-organizing map is a <strong>variation of competitive learning</strong>.</li>
+          <li>Units are arranged on a <strong>1-D string-like</strong> or <strong>2-D lattice-like</strong> structure (a grid of neurons).</li>
+          <li>Units that are <strong>close to each other in the lattice</strong> respond to <strong>similar inputs</strong> and end up with <strong>similar weights</strong>.</li>
+        </ul>
+      </div>
+
+      <p>The lattice itself is the magic. K-means and basic competitive learning have <strong>independent</strong> cluster centres — moving one says nothing about the others. In a SOM, neurons have a <strong>topological neighbourhood</strong>: when the winner updates, its neighbours update too (more weakly). The result is a <strong>topology-preserving map</strong> — similar inputs activate <em>nearby</em> neurons on the grid.</p>
+
+      <h3>SOM algorithm — winner-take-all <em>plus</em> neighbourhood</h3>
+      <div class="callout exam">
+        <div class="callout-label">SOM · pseudocode <span class="badge">Exam</span></div>
+        <ol>
+          <li><strong>Initialize</strong> the weights for each unit.</li>
+          <li>For each input, compute the <strong>Euclidean distance</strong> for every unit.</li>
+          <li>Select the unit with the smallest distance — the <strong>winner / Best Matching Unit (BMU)</strong>.</li>
+          <li><strong>Update the winner's weights</strong>: <code>w_p ← w_p + α (x − w_p)</code>.</li>
+          <li><strong>Update the neighbours' weights</strong> too, scaled by a <strong>neighbourhood function</strong> <code>damp(i, p)</code>: <code>w_i ← w_i + α · damp(i, p) · (x − w_i)</code>.</li>
+        </ol>
+        <p><strong>Notes:</strong> α is a learning rate &gt; 0, <strong>reduced over iterations</strong>. The neighbourhood radius is also typically reduced over time. Input size and unit weight size must match.</p>
+      </div>
+
+      <h3>What a trained SOM looks like</h3>
+      <p>After training, the lattice has <strong>self-organized</strong>: similar input vectors fire neurons in the same region of the grid. Classic example — feed a SOM a bunch of documents; the trained map clusters similar document contents into nearby neurons (a 2D semantic atlas you can browse with your eyes).<span class="badge prof">Prof</span></p>
+
+      <h3>Limitations and variations <span class="badge">Exam</span></h3>
+      <ul>
+        <li><strong>Sensitive to weight initialization</strong> — different random seeds can produce significantly different final maps.</li>
+        <li><strong>Training duration grows</strong> with the dimensions of the network (bigger lattice = slower training).</li>
+        <li><strong>Different SOMs can find different similarities</strong> for the same inputs — the map is not unique.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-29.png" target="_blank">
+          <img src="./week06-slides/slide-29.png" alt="Slide 29 — SOM units close respond similar inputs" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>Topology preservation</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-30.png" target="_blank">
+          <img src="./week06-slides/slide-30.png" alt="Slide 30 — SOM document clustering example" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 30</span>Document clustering</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-31.png" target="_blank">
+          <img src="./week06-slides/slide-31.png" alt="Slide 31 — SOM algorithm winner-take-all + neighborhood" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 31</span>Winner + neighbours</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-32.png" target="_blank">
+          <img src="./week06-slides/slide-32.png" alt="Slide 32 — SOM iterations" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 32</span>SOM iterations</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-33.png" target="_blank">
+          <img src="./week06-slides/slide-33.png" alt="Slide 33 — More SOM iterations" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>SOM converging</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-34.png" target="_blank">
+          <img src="./week06-slides/slide-34.png" alt="Slide 34 — SOM limitations and use cases" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 34</span>Limits + use cases</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. K-Means vs Competitive vs SOM</div>
+
+      <p>All three are unsupervised "find-the-groups" algorithms. They differ in what they store and how they update.</p>
+
+      <table>
+        <thead>
+          <tr><th>Property</th><th>K-Means</th><th>Competitive Learning</th><th>SOM</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>What is learned</strong></td>
+            <td>K cluster centres (means)</td>
+            <td>Weight vectors of N units</td>
+            <td>Weight vectors on a lattice</td>
+          </tr>
+          <tr>
+            <td><strong>Update rule</strong></td>
+            <td>Centre ← mean of assigned points</td>
+            <td>Winner shifts toward input by α</td>
+            <td>Winner <strong>+ neighbours</strong> shift toward input</td>
+          </tr>
+          <tr>
+            <td><strong>Topology preserved?</strong></td>
+            <td>No</td>
+            <td>No</td>
+            <td><strong>Yes</strong> — neighbour units stay similar</td>
+          </tr>
+          <tr>
+            <td><strong>Output dimensionality</strong></td>
+            <td>K labels</td>
+            <td>N prototypes</td>
+            <td>2-D map you can <em>visualize</em></td>
+          </tr>
+          <tr>
+            <td><strong>Outlier sensitivity</strong></td>
+            <td>High (mean)</td>
+            <td>Lower (single-step shift)</td>
+            <td>Lower (annealed α + neighbourhood smoothing)</td>
+          </tr>
+          <tr>
+            <td><strong>Robotic use case</strong></td>
+            <td>Quick segmentation, prototyping</td>
+            <td>Online vector quantization</td>
+            <td><strong>Multimodal sensor mapping</strong>, ERA, SOIMA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Mental model</div>
+        <p>K-means → "where are the centres?" Competitive → "which neuron wins?" SOM → "<strong>which neuron wins, and how does the map deform around it?</strong>" Each step adds structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-35.png" target="_blank">
+          <img src="./week06-slides/slide-35.png" alt="Slide 35 — Epigenetic Robot Architecture (ERA)" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 35</span>ERA — epigenetic = developmental</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-36.png" target="_blank">
+          <img src="./week06-slides/slide-36.png" alt="Slide 36 — SOM-based architectures for robots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 36</span>SOM stacks for robots</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-37.png" target="_blank">
+          <img src="./week06-slides/slide-37.png" alt="Slide 37 — SOIMA self-organized internal models" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>SOIMA architecture</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-38.png" target="_blank">
+          <img src="./week06-slides/slide-38.png" alt="Slide 38 — Growing SOM unsupervised skill transfer paper" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 38</span>Growing SOMs paper</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. SOM-Based Architectures for Robots</div>
+
+      <p>Why does Kirtay spend so much time on SOMs? Because SOMs are the <strong>building block of several developmental robot architectures</strong>. Two are name-checked explicitly.</p>
+
+      <h3>Epigenetic Robot Architecture (ERA) <span class="badge">Exam</span></h3>
+      <div class="callout">
+        <div class="callout-label">ERA — epigenetic == developmental</div>
+        <ul>
+          <li>The <strong>units of the architecture are SOMs</strong>.</li>
+          <li>Each SOM processes a <strong>different modality</strong> (vision, touch, proprioception, audio…).</li>
+          <li>Because the modalities are wired into a shared system, a <strong>missing modality</strong> can be <strong>reconstructed</strong> from the others.</li>
+          <li>An open-source <strong>Python library (PyERA)</strong> exists.</li>
+          <li>Source: Morse, Greeff, Belpaeme &amp; Cangelosi (2010).</li>
+        </ul>
+      </div>
+
+      <h3>SOIMA — Self-Organized Internal Models Architecture <span class="badge">Exam</span></h3>
+      <div class="callout">
+        <div class="callout-label">SOIMA — sensory-motor schemes</div>
+        <ul>
+          <li>Units are again <strong>SOMs</strong>.</li>
+          <li>Implements <strong>both forward and inverse models</strong> in the <strong>same architecture</strong> — i.e. predict next sensor state from action, and predict action needed to reach a sensor state.</li>
+          <li>Supports <strong>missing-modality reconstruction</strong>.</li>
+          <li>Performs <strong>sensorimotor mapping</strong> — the bridge from raw sensor flow to motor commands without labels.</li>
+          <li>Source: Hermosillo-Valadez (2016), <em>Frontiers in Robotics and AI</em>.</li>
+        </ul>
+      </div>
+
+      <p>Beyond these, the slides reference a paper on <strong>distributed Growing Self-Organizing Maps</strong> for unsupervised <strong>skill transfer</strong> between autonomous robots — i.e. one robot teaches another a skill without labelled training data. Worth a glance for projects.</p>
+
+      <div class="callout">
+        <div class="callout-label">Why this matters for the exam <span class="badge">Exam</span></div>
+        <p>If the exam asks "name a SOM-based robotic architecture and what it does", you should be able to answer <strong>ERA</strong> (multimodal, missing modality reconstruction) or <strong>SOIMA</strong> (forward + inverse models in one place). These are concrete examples of <strong>unsupervised learning solving a real robotics problem</strong>.</p>
+        <p>Connect the dots with Lecture 4 (Embodiment): SOM-based architectures are how a robot <em>self-organizes</em> its sensorimotor experience without a labelled curriculum — the algorithmic side of "form follows function".</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week06-slides/slide-39.png" target="_blank">
+          <img src="./week06-slides/slide-39.png" alt="Slide 39 — Software stack for unsupervised learning" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 39</span>Tooling — scikit, MiniSom, PyERA</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Tooling &amp; Practical Tips</div>
+
+      <p>The frameworks for unsupervised learning are <strong>not as mature</strong> as those for deep learning or RL — Kirtay is honest about this. Here is the working stack he recommends:</p>
+
+      <table>
+        <thead><tr><th>Library</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>scikit-learn</strong></td>
+            <td><strong>K-means</strong>, mini-batch K-means, mean-shift, plus dimensionality reduction (PCA, t-SNE). Default toolbox.</td>
+          </tr>
+          <tr>
+            <td><strong>TensorFlow</strong></td>
+            <td><strong>Customized</strong> unsupervised methods — autoencoders, custom competitive layers, anything you have to roll yourself.</td>
+          </tr>
+          <tr>
+            <td><strong>MiniSom</strong></td>
+            <td>Generic <strong>self-organizing map</strong> implementation — drop-in for SOM experiments.</td>
+          </tr>
+          <tr>
+            <td><strong>PyERA</strong></td>
+            <td>Implementation of the <strong>Epigenetic Robotic Architecture</strong> with object-oriented SOM units. Use this if you want stacked / multimodal SOMs.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>scikit-learn's algorithm decision tree <span class="badge">Exam</span></h3>
+      <p>Kirtay walked through the official scikit-learn cheat sheet:</p>
+      <ol>
+        <li><strong>&lt; 50 samples?</strong> Don't run any learning algorithm — fit it in memory, use a lookup table with hard-coded actions.</li>
+        <li><strong>More data?</strong> Are you predicting a <strong>category</strong> (door open / closed) or a <strong>quantity</strong> (joint angle for a stop gesture)?</li>
+        <li><strong>Categorical + labelled?</strong> Use a supervised classifier.</li>
+        <li><strong>Categorical + unlabelled?</strong> Move to <strong>unsupervised</strong>.</li>
+        <li><strong>Number of clusters known?</strong> Use <strong>K-means</strong>.</li>
+        <li><strong>Number of clusters unknown?</strong> Use <strong>mean-shift</strong> or <strong>mini-batch K-means</strong>.</li>
+      </ol>
+
+      <h3>Other unsupervised methods (mentioned but not deep-dived)</h3>
+      <ul>
+        <li><strong>Hopfield networks</strong> — <strong>auto-associative memories</strong>. Train with audio + visual; at test time, present visual only and recover the associated audio.</li>
+        <li><strong>Hierarchical Temporal Memory (HTM)</strong> — neuroscience-inspired model for extracting <strong>temporal correlations</strong> in input streams.</li>
+        <li><strong>Autoencoders</strong> — multi-layer perceptron with a <strong>bottleneck</strong>; trained to reproduce the input. Once trained, the bottleneck is a compressed <strong>latent space</strong> useful as features.</li>
+        <li><strong>Visualization methods</strong> — PCA, t-SNE, UMAP — useful for <em>looking at</em> high-dimensional sensor data, not the focus of this lecture.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Project tip <span class="badge prof">Prof</span></div>
+        <p>For Week 06 there is <strong>no formal teaching session</strong>. Bring your Arduino kit, the instructors will be there to help debug circuits and discuss DC / servo motor drivers. Use the time to <strong>commit to a project idea</strong> — anything from gesture-controlled cars to teddy-bear emotion readers (real prior-year demos) is on the table.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Three schools of ML:</strong> supervised (labels + loss), reinforcement (reward), <strong>unsupervised (neither)</strong>. LeCun's cake: unsupervised <em>is</em> the cake.</li>
+      <li><strong>Unsupervised motivation for robots:</strong> too much sensory data to label, no reward function in the wild, no constructible loss. Three bullets — likely an exam item.</li>
+      <li><strong>K-means pseudocode:</strong> pick K, place centres randomly, repeat {assign each input to nearest centre, move centre to mean of its inputs} until convergence. <strong>Convergence</strong> = fixed iterations or centre movement &lt; threshold.</li>
+      <li><strong>Mean vs median:</strong> mean is O(n) but sensitive to outliers; median is O(n log n) but robust. K-means uses mean; eliminate outliers first.</li>
+      <li><strong>Competitive learning:</strong> winner-take-all. Compute Euclidean distance from input to every unit's <strong>weight vector</strong>; only the <strong>winner updates</strong>: <code>w ← w + α(x − w)</code>. α=0 freezes, α=1 forgets everything.</li>
+      <li><strong>SOM = competitive learning + topology.</strong> Units sit on a <strong>1-D string or 2-D lattice</strong>. Update <strong>winner AND neighbours</strong>, scaled by a neighbourhood function. Result: similar inputs land on nearby grid units (topology-preserving map).</li>
+      <li><strong>SOM limitations:</strong> sensitive to initialization, training scales with lattice size, different SOMs can find different similarities — the map is not unique.</li>
+      <li><strong>SOM-based robot architectures:</strong> <strong>ERA</strong> (epigenetic = developmental, multimodal, missing-modality reconstruction) and <strong>SOIMA</strong> (forward + inverse models, sensorimotor mapping). Concrete answers if asked "where is unsupervised learning used in robotics?".</li>
+      <li><strong>Tooling:</strong> scikit-learn for K-means + dim. reduction, MiniSom for SOMs, PyERA for stacked architectures, TensorFlow for custom autoencoders. The space is less mature than DL / RL.</li>
+      <li><strong>Mental hierarchy:</strong> K-means → competitive learning → SOM. Each step adds structure (means → weight vectors → topology). Memorize the pseudocodes — they are the most likely exam targets.</li>
+    </ol>
+  </div>
+  <details class="transcript">
+    <summary>
+      <span class="transcript-eyebrow">Lecture transcript</span>
+      <span class="transcript-meta">6,077 words · auto-generated (Whisper)</span>
+    </summary>
+    <div class="transcript-body">
+      <input type="text" id="transcriptSearch" class="transcript-search" placeholder="search the transcript…" />
+      <p>Thank you. Sorry. Did you fix the error out? No.</p>
+      <p>Thank you. I'm doing some other stuff actually. You shouldn't see. Okay.</p>
+      <p>Perfect. All right. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Okay. Let's start for today's lecture. It will be on unsupervised learning for autonomous systems. I know in your courses you are seeing machine learning and mostly it is supervised learning, but here we will give a brief actually introduction to the unsupervised learning.</p>
+      <p>If you recall in the HCI, we already mentioned about at least one method about unsupervised learning. Do you remember it? Yes, no. You forgot?</p>
+      <p>You passed the exam and forgot? Okay. It was K-means, if you remember, for segmenting the personas. Here, we will go and introduce in detail.</p>
+      <p>What we did previously, we introduced adaptivity and reinforcement learning. Do you have any questions about methods, formalization of the reinforcement learning or adaptivity? No? I will take it as a no.</p>
+      <p>Yeah, I know that it's called learning. Yeah, from the previous session, yes. Today, we will introduce different type of learning methods. One of them is the K-means, and we will also introduce the competitive learning and its variations.</p>
+      <p>Variations will come in the form of self-organizing maps. We will understand that, okay, why we need this unsupervised learning methods for our robotic application. Of course, we cannot show the actual real robot demo in here, but you might get some inspiration for your project. For this week's practical session, formally have not nothing to teach okay so with your current knowledge you should be able to complete your project but for this week's lecture we will show some tips and tricks and tips and tricks for best practice of using your kit and generating ideas and implementing on the Azure robot.</p>
+      <p>And please attend the practice session if you are still missing some components. I know many of you missed the C motor, the one with the yellow color. We soldered them and it will be ready for you to collect. We will also bring some extra kits, so we do around six, seven of them.</p>
+      <p>If your group has three kits, you can also borrow another one, so that won't be a problem. In this case, we are verifying ourselves that we provide enough kit for each group and they can do their project. Since we said that there won't be any teaching, but we will stay there and try to help you actually for designing your circuits, implementing them, and deciding what kind of projects that you can do for your project. So it will be important, actually, this session, because after this session, you will decide that, okay, I have an idea to implement either the available components that we talked about, or you will come up with one random sensor stuff, and we will say that, okay, use it or don't use it.</p>
+      <p>Or do not buy it, we have in our inventory. Or buy it by yourself, then after project finished you can take your components with you. Okay, and for the project ideas, please bring as much as possible. Sometimes students can go and overshoot the learning goals and create a more complex project.</p>
+      <p>That's very welcome unless you can show us that you can finish the project on time. For the groups, members who are not contributing to project, if they miss one assignment, let's say starting from the proposal, which means that they can only submit a receipt. So we should be super clear about it. Just remember from previous year from from HCI, what we did.</p>
+      <p>You can only get 60 percent of the maximum rate that you can get from actual group project. Imagine that you get your group projects or your group members get 100 for this project, but one of the group member didn't contribute it. Then he or she cannot submit the same project. He has to or she has to extend some parts of the project and provide a receipt application.</p>
+      <p>With that receipt application, maximum grade that he or she can get is 60. So if your group gets, let's say, less than 60, apply for a receipt. But if you are getting higher than 60, do not apply for the receipt because the maximum you will get is the 60. In the practice session, we will go in detail, but just be reminded that contact with your group members early, form a group ideas early, because they will be responsible for contribution of the project.</p>
+      <p>Another thing that somehow students are complaining, it's okay or I am complaining sometimes, this kind of kits are for hobby-level projects, which is somehow true, but in reality, with this kind of hobby-level kits, you can also create a complex project. And just be reminded that the electronic revolution or the PC revolution starts from this kind of kits. And I attach one super nice essay from make magazine please go and if you need some motivation read this short essay and you will see that okay in some cases actually people start from the having kids to have an super complex systems like here, you see Wozniak and Jobs. There is one nice quote about them.</p>
+      <p>Let's see. Where it is? Apple. Yeah.</p>
+      <p>What's that? Two steves, Jobs and Wozniak, literally build Apple from kids, which is correct. There's another quote of it, Jobs. For the future actually, what the author said that there may be no Steve Jobs of kids which is a bit wrong because we have an Rdnew.</p>
+      <p>There is surely no Steve Jobs without kids. That's correct. If you check the history of the app, actually you will understand what this means. So do not underestimate the available kids and components that you have.</p>
+      <p>You can definitely create in much more interesting projects that you are seeing on the lectures that we are providing it or on the YouTube. Just use your imagination and combine some kits and use ISRU approach, which means that in-situ resource utilization. is through approach which means that in situ resource utilization. A few project that I promised some of the groups that I will show in the lectures, one of them is this one. By doing a hand gesture, you can start around and then show me the demo. start around and then this is just an a plastic glove Again?</p>
+      <p>Now record me while I am recording. You have to do a shaka symbol, so like pinky and top. It's a surfer's bow. Yeah, you have to do it on the last beep.</p>
+      <p>So just beep, beep, beep, beep. And then you have to do it again to start moving around. It didn't read it. You have to do it really round.</p>
+      <p>Yes. It didn't read it. You have to do it really on the go. So you only have to do it once, then it starts, and then you can just relax your hand and do it on the road you want.</p>
+      <p>Yes. OK. Done. You have to do it again.</p>
+      <p>It starts a new round, and then you can relax your hand and do as you want. Yeah, you got the idea, actually. In the demo day it will be like this. Me and Bozong will swarm around and ask questions about your implementation and try the demo by our staff too.</p>
+      <p>And other faculty members will be there, but they will ask questions, they will see your demo, but they will not affect for your grading okay so we will be in charge of your grading you don't need to show up your best skills to the to the faculty members but you should answer all questions and there was another demo by some students and they did a teddy bear application. You're looking good. Keep going and let's get this knowledge logged in. So you can see it's happening.</p>
+      <p>So in the teddy bear there is a camera and based on camera it reads the facial expression and decides what kind of emotion the participant has. And based on this it will give us some motivational quotes or motivational sentences. It moves the arm and setting the angles to move the arm and then... And this is with the servo motor.</p>
+      <p>Here at the end it says predict the motion. Can you show the retroface? And this is with the servo motor. It's hard to achieve the neutral phase, actually.</p>
+      <p>And that's how it's caused from this.............. So the idea that that will be a learning companion for the students. It will stay next to your desk and read your facial expression based on your emotion. It will encourage you actually what you are reading.</p>
+      <p>These students are invited to my office actually to ask. I asked some detailed questions about their systems, how they work, then they successfully actually deliver this project, which is quite good. It's a Raspberry Pi project and a combination of the sensory motor integration that we will show in this lecture, which is quite good. Okay.</p>
+      <p>Yeah, this is the information that we will provide and go in detail in the practice session, but you should already know that from the hci we will follow the same policy okay if you get uh 18 or 8 from your group project and if you submit for for reset then you the maximum that you can get is it will be 60. okay so it will be a bit meaningless actually submitting a receipt for this great but if it's 50 then you can try to submit for the receipt and just be careful about this policy and do not complain last minute okay and your grades can be different than your group members okay if you fail to contribute it then you have to extend the function of the whatever your group members okay if you fail to contribute it then you have to extend the function of the whatever your group members are doing okay now we are moving okay before moving do you have any questions especially about the practice session no then let's move it for today's lecture then let's move it for today's lecture this is a nice analogy by Jan de Koon one of the godfather of deep learning and what he says actually imagine that machine learning is a cake and the cherry on top is the reinforced learning okay and what's in icing the place that less than the under the cherry it's the supervised learning but the actual sorry actual actual content that you will get and you will enjoy more is hidden in the unsupervised learning. And if you go and check the curriculum of most machine learning courses in Stanford, in Tilburg University, I'm comparing the same. You will see that most of them are in here, supervised learning. I'm comparing the same.</p>
+      <p>You will see that most of them are in here, supervised learning. They are giving some information about RL and unsupervised learning, but I couldn't find one course that is just dedicated for unsupervised learning. You can find it in the statistical learning department, but for the deep learning stuff, I couldn't find it actually. Of course, just educated for the unsupervised learning.</p>
+      <p>For reinforcement learning, yes, we have a lot, but still the things going on the unsupervised learning, it's still not that popular compared to these two. And as a roboticist, we should have some motivation to use unsupervised learning, and we will go in detail for a while. And one of the things that actually comes from from our experience actually, we mostly learning by observing. Like somebody touched a hot stove, okay, and they suddenly use their reflexes and move their hands.</p>
+      <p>Okay. Then I'm learning that, okay, if I touch the stove, then I will experience the same thing. Okay. So nobody is going and labeling that this is touch, this is a stove, this is hot stove, do not touch it.</p>
+      <p>Okay. There is no labeling the real. Go. What's your question?</p>
+      <p>Basically, we have a form of learning by past experience. It's called learning by observation. Yes. Okay.</p>
+      <p>That is the thing that actually it is important because we cannot have a time for the, let's say, infants or the babies to go and label everything in their environment and say that okay look at this is a blackboard look at this is a slide look at this is a chalk so we don't have this kind of luxury in our life and the same thing for the robot we have an we need to somehow form an understanding of the environment by using unlabeled data or unstructured data. That's why we are using unsupervised learning. So to briefly mention that the difference between the most common school of thought or the categories of the machine learning, the first one is the supervised learning. You should be familiar with it.</p>
+      <p>We have a label of each data. Then we are training our algorithms by using these labels, and using validation set for extraction hyper-parameters, and using the test set to record our performance. The success story actually comes from here like and that part makes uh deep learning most popular approach in the literature actually thanks to cnn's by alex net and another uh method is the category is the reinforcement learning and This is different than this one. You can put data in a batch form and train your reinforcement learning algorithm, but in reality, we don't have this kind of luxuries.</p>
+      <p>So your robots are trying something in the environment, some action, and observing the result of the reaction, and using that as a state information. By repeating this, they are learning states and action association with their reward and they're performing well by trying an error approaching. It's very costly, especially for the robots. So we cannot allow robots to just go and try some random especially for the robots.</p>
+      <p>So we cannot allow our robots to just go and try some random actions in the environment. It will damage itself or damage the human around it. So this is a bit hard for us. That's why we are using the simulation environment.</p>
+      <p>The lastly is the unsupervised learning. Here, some interesting things are occur actually okay so in the supervised learning somebody has to label this for me all of them are Apple but one is the red Apple another one is the green Apple everyone is just a toy or carton so I cannot have that Instead, I will have some clever tricks. Clever tricks to group these inputs that has a similarity next to each other. And we will use this approach by using the competitive learning in a few slides later.</p>
+      <p>So the motivation is quite here for the robot perspective. Maybe the same story will not be true for the HCI research, but just we are interested in robotics, and these are the reasons that we have to use unsupervised learning. The one thing that we have is sensory data. We have lot of them and we have a lot of sensors position information we have a cameras we have a distance sensors we have a sonar we have an i don't know photo resistor we have an chemistry store we have we have some other type of the resistor like here i call now robot has a skin resistor like here I call now robot is a skin and if you touch some of this skin patches then now robot will have an input of the that region has a some force on it okay so it can give us some information about where are the patches are being touched by external agents we also have this eye cup skin we have one in the lab I couldn't I forget to bring actually one in the lab not the full skin but a few patches of them like this we are putting on the eye cup body and they're trying to push one of them and instead of pixel they have a taxa which means that the position that you are touching the robot is known by the robot but they have a lot of them and combined with the camera that will exceed actually maybe or hard disk okay or we cannot hide a set of PhD students and go and label the all data that we have on this kind of robot.</p>
+      <p>So that's why we have to use some unsupervised learning for the tests that we are interested in. And another reason that we are using unsupervised learning, in reinforcement learning we have an operator-generated or operator-assigned reward function. If you hit the obstacle, then reward is minus 10. If you reach the goal, then reward is plus 10, for instance.</p>
+      <p>And these are assigned by the operator. But in this case, we don't have any reward function to guide us. So that's another reason that we have any reward function to guide us. So that's another reason that we have to use unsupervised learning.</p>
+      <p>And the one and the basic reason that we cannot afford to label all data that we have. If robot is just hanging around for 20 minutes, imagine how many times that it will get. So how many images that it will record by its camera. We cannot go and say that, okay, for each frame, there's a person in this image, there's a chair in this image, there is a projection device in this image, so we cannot afford this.</p>
+      <p>That's why we are using unsupervised learning okay okay and uh many of you use scikit-gen for your machine learning project yes no okay and in scikit actually this is a nice somehow, a decision tree for you to decide that whether you should use an unsupervised learning. If yes, what kind of methods is available for you? So first of all, if your task requires less than 50 samples. Do not apply any learning.</p>
+      <p>Why? Because you can fit this data into your memory and just create a one lookup table for your robot, and it will generate hard-coded predefined actions for each data. So recording 50 data samples is quite easy for us, and we can do without any problem. But if the task is super complex, cannot be solved by the 50 samples, then your research is a bit stuck.</p>
+      <p>What you can do, go and collect more data but in some medical applications we don't have that data it's a rare disease we cannot have a random data to collect it by random patients but for the robots we have that luxury we have a lot of data in fact we are followed by the data then let's say you have a one uh you collect a lot of data and now it's exceeding a 50 sample then you can go say that okay what i am predicting a categorical uh label or categorical output which means that okay cats dogs and so on and stuff or I am predicting some quantity like a regression the categorical data will be zero for the door is open and one for door is closed that's categorical data you will give the images and the robot will decide that whether the door is open and the quantity that can be okay how long your uh this joint the shoulder joint should move to make a stop gesture for instance okay that will be a category not categorical but you are creating the quant to some number then let's go with this task, this example the door is open or not yes, data is labeled then data is labeled yeah, data is labeled then go with the standardized learning algorithms if it's not labeled then we can use our unsupervised learning algorithms. If the number of the categories that you know, like the number of the segments in your data, the door is closed or not, closed is one category and not closed is another category, you can go here. But if it is unknown, you have a door but that door is for the classroom door. How about door from microwave for instance?</p>
+      <p>Or door from the taxi, your car? Or door from some furniture. You don't know the number of the categories that exist in your data. Then you can go with using the mini-shift or use the mini-batch k-means or if it's just known for yourself, for you, for this example, just use the k-means.</p>
+      <p>Then you will see that K-means will separate the input space for you, images for closed door, images for open door. That is just a trick for you to decide which kind of algorithms that you need for the unsupervised learning. Of course, there are some methods are not existing here. Then you have to get additional actually additional paper reading or the textbook information what kind of unsupervised learning method exists and one of them is Hopfield network which is auto associative memories you are trying a network with the audio and visual information and during the testing you are giving the visual information it can generate audio or voice errors we also run some neuroscience inspired models this is called hdm hierarchical temporal memory and it is used for extracttemporal correlation in your input space.</p>
+      <p>You don't need to learn it but just have an idea about some neuroscience inspired models. We also have an autoencoder. For a known input we are generating the same output or noisy output. Then we are training our multilayer perceptron in gear and this is called bottleneck.</p>
+      <p>So for a given age you can generate the basically X in gear. It's a bit complicated but if you know multilayer perceptron here you are just doing the inverse of it and the generated same output for the input so the learned part is here bottleneck part then once you lost this part you can still generate the output and another one today we will go and into this in detail is self organized maps which called SOM and it's a form of competitive learning algorithm you are using unlabeled data then if you lose one of them you can generate another and we will go in detail here we also have some visualization methods it's unsupervised learning visualization methods but that will not be our focus. We will focus on the self-organizing maps. Let's say for a robotic application, you have this data point.</p>
+      <p>This data point can be some data points related to robots tasked with the left-handed and the right-handed stuff, manipulating some objects with the left hand or the right hand. But initially, your robot doesn't know. You are saying that, OK, grasp the phone. Now your robot should decide whether it has to use left hand or right hand.</p>
+      <p>Here, initially, we are collecting the data. Some of them for the left hand stuff, chalk, is some objects in here. I'm collecting a lot of data. Then, of course, the position is the same or similar.</p>
+      <p>There is a correlation between this object and my left hand position. Then I want to do is this kind of clustering for them. And let's say a red part will be robots left hand and the blue part will be robots right hand. So after the training or the after the data collection I have to use some unsupervised learning methods which clearly decide for me that my robot should use its left hand or right hand okay and of course we can use for a different kind of task for it okay like imagine that your robot has a different type of touch sensors has a different type of touch sensors.</p>
+      <p>One can give the mechanical property of the touched object, which means that the temperature information or how friction exists in this object. Another one is just bumper, whether you touched or not, or with how many fingers that you touched or not. And this kind of stuff also can be used for the swarm robotics, which means that multiple robots exist for the task. Then you can say that some robots are equipped with some sensors, another robot equipped with a different type of sensors, and you want to understand that which robot that you can employ for the task okay we already introduced this one why because we have a lot of sensor we cannot afford to label them we don't have a reward function for each behavior that's why we are using unsupervised learning at this so up to now the motivation is clear, yeah?</p>
+      <p>You understand that why we are using the unsupervised learning, at least for the robots? Yes, no, or you need more examples? No? It's clear?</p>
+      <p>Okay. If you like that kind of stuff, we can go in detail. And let me also give a few examples for the robot type. Remember that form follows function.</p>
+      <p>You cannot expect the octopus robot has the same motors or sensors like this robot hand. So it means that, okay, whatever you are using in here, you should represent with the number as a sensor and collect different samples in, let's say, C bases. And, of course, the number of samples will be high and the noise will be high. You cannot label for yourself.</p>
+      <p>Then you have to employ this robot and employ unsupervised learning on top of it and solve your task and the first example will be k-means which is quite easy okay you already did it in the in the HCI for extracting your personas from the user studies. The idea is you have this bunch of data and they are unlabeled and you want to cluster them. Cluster them means that the one that's who are close to each other should be within the same clusters. Like imagine you get a new application, iCanvas again, and you collect a lot of data from your users, and you want to cluster based on their education level.</p>
+      <p>Like students or their parents or the course instructor for instance. With this case, you should have some understanding that, okay, how many cluster exist in your data? For instance, in this dataset, how many cluster should exist? Yes, two.</p>
+      <p>We have a clear separation of this class. The one thing that you have to use it, first visualize it. Then you should be clear that something repeating in your sample terms are repeating your data. Then apply the simple K-means algorithm.</p>
+      <p>K-means that's number of the clusters, and means that you have to do something with the means or average of them. What I can think about it, first, assign the cluster centers randomly. For this one, I am assigning this one with the orange and this one blue dot. Left part of the robot and the right hand of the robot and the left hand of the robot.</p>
+      <p>Then I have to follow this pseudocode for each input, which means that for each dataset, I have to calculate the distance. Distance between this sample to this cluster center, distance between this sample to this cluster center. Which one is bigger? This one to this one is bigger than this one to this one.</p>
+      <p>It means that this sample belongs to this cluster. Does it make sense? Perfect. Now, we did for the single sample, we have to do for all of them.</p>
+      <p>Then once we do for all of them, for a single iteration, what we have to do? Take the average of the samples exist in this cluster and in this cluster take the average of it then update your cluster centers towards that average. Does it make No? Yes?</p>
+      <p>Maybe? Okay. Then attend what will happen. Recenter again, then calculate the distance again, assigns the data point again, and move the cluster centers by the dataset existing that cluster.</p>
+      <p>Over time, you will average it and you will see that one orange dot will move to here. that cluster. Over time, you will average it and you will see that one dot, let's say that's orange dot will move to here. It will stay in the almost center of the cluster. Another one will move to here.</p>
+      <p>Now, we will have a class separation of this inputs. Now, I cannot go and continue until I'm run out of electricity or battery. What I need to do, I can do some stopping criteria, and this can be iterates one other times and it will be enough to cluster this dataset. You can use your domain knowledge, or you can say that, okay, I will give you some threshold.</p>
+      <p>For the x position it will be 0.05 for the y position it will be 0.05 okay at the end is if these positions are not changing within that limit just stop that will be my convergence criteria that i can stop convergence that I can stop. This is a bit more formal version of it. For the first iteration, nothing exists because you didn't perform the clustering technique. For the second iteration, you will assign your cluster center randomly.</p>
+      <p>Then over time, some of them will be painted in purple, another one will be painted in red. And let's go and check one example here. I hope it's still alive. Okay.</p>
+      <p>So let's go with a bit quite easy. Here, what we can see, oh, this is not super good. Let's go with the move. Yeah, this one.</p>
+      <p>In here, how many cluster that I can extract? Okay, two. I will assign my two in here. And for each iteration, I should say some step.</p>
+      <p>It's okay. It doesn't accept my two. Okay, let's go with the tree. But it should accept all the tree, right?</p>
+      <p>Now, I can see through it. So, first step will be center the cluster coordinates or the centers randomly. That can be in here too. Since it is learning, it has to approach the cluster be in here too.</p>
+      <p>Since it is learning, it has to approach the cluster centering here. First step, divided by me here, and that division means that the data points in this region belongs to this cluster. Then what I need to do, average it or take the means and move it again. You will see.</p>
+      <p>Move it again, move it again. After a few steps, you see I have converged in a very nice position. My cluster center, one of them in here, one of them here. Does this make sense?</p>
+      <p>That will be in the exam. That will be in the exam. Now, of course, I cannot go and blindly use this approach because it has some limitation. So where does this K comes from, for instance?</p>
+      <p>It can come from that's my domain knowledge because I conduct the experiment with two hands for the robot. It can also come that when I see the visualization of the dataset, I can extract three or two different clusters, or I can run for two clusters, three clusters, four clusters, then pick up the best one. There are also some formal methods above and methods but we will not go into it. Now, we are using the k-means, but using the mean is dangerous for us.</p>
+      <p>Imagine that among this class, we are conducting some experiment about average salary per student then let's say one of them has 300 euro 100 euro 1000 euro and 3000 euro whatever if you include me I'm assuming that nobody is earning more than their professor, for instance. I will be an outlier for that dataset. If you average it, I will bring the average close to me. Yeah?</p>
+      <p>Imagine that you are doing the survey about the CEOs in the world. Then, or computer science graduates, okay, in the world, then computer science graduates in the world, then average computer science graduate gets 5K per month. But if you include Mark Zuckerberg, he's also a computer science person, he didn't graduate, or Bill Gates, his wealth or his salary will basically shift towards, shift the mean towards his range. So that's why using the mean is not good.</p>
+      <p>So how can I avoid it? Do you have any idea? I don't want to use mean. What other things are available for me?</p>
+      <p>No. I can use median. So do you remember what median is? You should remember, come on.</p>
+      <p>Sort the data and pick the middle one. That will be your median. Why it is good for us? Because I will eliminate the noise.</p>
+      <p>Imagine that this is my datasets, 30, 20, 10, 40. So most of the data is two digits in here. But here we have 1,000. It's a four-digit number for us.</p>
+      <p>So my mean becomes this, 220, which even does not exist in my data set. So if I make a prediction or or if I make a classification, or perform a task based on this number, it will fail. So that's why instead of means, I can use the median. And that will be an exam question.</p>
+      <p>Now, for instance, if it's that advantage to me, okay, I can eliminate noise. Why I am not using it? There should be some reason. And the reason might be a computational complexity.</p>
+      <p>You all get the data science, sorry, data structure and algorithm scores. You know that big O notation. Okay. So what is the complexity of this vector to calculate the mean?</p>
+      <p>What will be the complexity of this vector to calculate the median? But do not restrict yourself with this vector two. That vector can be 10,000 elements. So what's the complexity of the mean?</p>
+      <p>I think it will be O and. Why? Because you have to add elements and that divide by. So you have to search from the beginning to end, and you have to visit each elements in the element.</p>
+      <p>So you can do with the n. N is referring to? Number of elements. Okay.</p>
+      <p>Exist. Number of values. Okay. Number of values exist in this array.</p>
+      <p>Okay. So what will be the median complexity of this vector do something why sorting an array okay and after, you are not doing anything, yeah? Well, we are just picking the number that's... And if the array is unsorted?</p>
+      <p>What do you mean unsorted? Like an array can be sorted in here. Will that n will change for the median? If it's sorted then, yeah.</p>
+      <p>So there's two cases here? Yeah. Okay. But it is unsorted I guess.</p>
+      <p>But you shouldn't make this assumption. For this vector, yes, it's unsorted. But that can be another case that it's sorted for. Okay.</p>
+      <p>Well, I meant for unsorted. For unsorted, it will be nLogan. Yeah. And this will be a higher n.</p>
+      <p>Okay. Cool. Did you get it, why we are not using median? No?</p>
+      <p>Yes? Okay. nLogan is greater than n or not? n can be any number. Guys? It becomes greater and greater, the difference becomes greater and greater as time.</p>
+      <p>Okay, exactly. As the number of values. Okay, but others, do you understand? n log n is greater than n. Do you agree?</p>
+      <p>Yes? For all cases? Okay. Then convince Ivo during the break.</p>
+      <p>So we are giving a break in 45, please be here. here. Okay. Where's my... Oh, yeah.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. © transcript Emily Beynon</p>
+    </div>
+  </details>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 39; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week06-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week06-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week06-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(39, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 39`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week06-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week06-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/week06-slides\/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+
+  // ─── transcript search ───
+  const searchEl = document.getElementById("transcriptSearch");
+  if (searchEl) {
+    const paragraphs = Array.from(document.querySelectorAll(".transcript-body p"));
+    const originals = paragraphs.map(p => p.textContent);
+    searchEl.addEventListener("input", () => {
+      const q = searchEl.value.trim();
+      paragraphs.forEach((p, i) => {
+        const text = originals[i];
+        if (!q) {
+          p.textContent = text;
+          p.style.display = "";
+          return;
+        }
+        const hit = text.toLowerCase().includes(q.toLowerCase());
+        p.style.display = hit ? "" : "none";
+        if (hit) {
+          const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          p.innerHTML = text.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
+        }
+      });
+    });
+  }
+
+</script>
+</body>
+</html>

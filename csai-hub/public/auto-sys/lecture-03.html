@@ -1,0 +1,1629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W03 — Controllers (Brains)</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+
+  /* ─── transcript ─── */
+  .transcript {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-faint);
+  }
+  .transcript summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: baseline; gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .transcript summary::-webkit-details-marker { display: none; }
+  .transcript summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 22px; font-weight: 400; line-height: 1;
+    color: var(--rust);
+  }
+  .transcript[open] summary::after { content: "−"; }
+  .transcript-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); font-weight: 700;
+  }
+  .transcript-meta {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .transcript-body {
+    padding: 28px 0 12px;
+    max-width: 760px;
+  }
+  .transcript-search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--ink-faint);
+    background: var(--paper);
+    font-family: inherit;
+    font-size: 12px; letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .transcript-search:focus { outline: none; border-color: var(--ink); }
+  .transcript-body p {
+    font-size: 13px; line-height: 1.9;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .transcript-body p mark {
+    background: rgba(168, 79, 42, 0.25);
+    color: var(--ink);
+    padding: 0 2px;
+  }
+
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">03</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 02 · Lecture 01 —</span>
+      <h1 class="hero-title">Controllers (Brains) in Autonomous Systems</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>44 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip active" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip" href="./lecture-09.html">L09</a>
+  <a class="chip" href="./lecture-10.html">L10</a>
+  <a class="chip" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-05.png" target="_blank">
+          <img src="./week03-slides/slide-05.png" alt="Slide 05 — Sea squirt quote (Daniel Dennett)" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 05</span>Dennett · sea squirt</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-06.png" target="_blank">
+          <img src="./week03-slides/slide-06.png" alt="Slide 06 — Control theory map" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 06</span>Control theory map</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. Recap &amp; Why a Brain at All?</div>
+      <p>Last week: <strong>sensors and actuators</strong>, plus <strong>Braitenberg vehicles</strong> — minimalist agents that already display "intelligent" behavior with almost no controller. This week we add the missing piece: the <strong>controller</strong>, which the prof uses interchangeably with the word <strong>"brain"</strong> to draw the analogy with biological systems.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof opener · Dennett quote <span class="badge prof">Prof</span></div>
+        <p><em>"The juvenile sea squirt wanders through the sea searching for a suitable rock or hunk of coral to cling to and make its home for life. For this task, it has a rudimentary nervous system. When it finds its spot and takes root, it doesn't need its brain anymore, so it eats it!"</em> — <strong>Daniel Dennett</strong></p>
+        <p style="margin-top:10px;">Take-home: <strong>no movement → no need for a brain.</strong> Brains exist to generate action. The controller is the bridge between sensing and acting; without movement requirements, even biology drops it.</p>
+      </div>
+
+      <p>Control theory is a huge field — feedback control, adaptive control, robust control, model predictive control, swarm control, kinematics, RL. A full semester per topic would still not be enough. <strong>This lecture introduces the basics</strong> needed to wire a closed-loop controller for the project robot.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p>"Today's lecture is one of the <strong>hardest topics in robotics</strong>. Make sure you understand the concepts and details — the slides can get dense." Translation: do not skim.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-08.png" target="_blank">
+          <img src="./week03-slides/slide-08.png" alt="Slide 08 — Situatedness definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 08</span>Situatedness</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-09.png" target="_blank">
+          <img src="./week03-slides/slide-09.png" alt="Slide 09 — Situated vs non-situated robot exam question" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 09</span>Exam · which is situated?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-10.png" target="_blank">
+          <img src="./week03-slides/slide-10.png" alt="Slide 10 — Action–perception loop" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 10</span>Action-perception loop</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. Situatedness &amp; the Action–Perception Cycle</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition <span class="badge">Exam</span></div>
+        <p><strong>Situatedness</strong> = the robot exists in a <strong>complex, dynamic, unstructured environment that strongly affects its behavior</strong>. Examples: a museum tour-guide robot navigating crowds, two robot teams playing soccer, a guide robot helping a vision-impaired child in a public space.</p>
+      </div>
+
+      <p>If the environment is <strong>complex + dynamic + unstructured</strong>, the robot is <em>situated</em>. If something changes, the robot must <strong>adapt</strong> — and that is exactly why we need a controller.</p>
+
+      <h3>Exam question · situated vs non-situated <span class="badge">Exam</span></h3>
+      <p>The slide shows two pictures: <strong>(A)</strong> robots playing football against each other, <strong>(B)</strong> an industrial robot arm in a fixed cell. Which is situated, and why?</p>
+      <p><strong>Answer:</strong> Figure A. The environment is dynamic (other agents moving), complex (ball trajectory, opponent strategy), and unstructured. The robot must <strong>react in real time</strong> to teammates, opponents, and ball state. Figure B has fixed obstacles and predetermined motions — non-situated.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof exam tip <span class="badge prof">Prof</span></div>
+        <p>"In the exam, please <strong>read the full question</strong>. First state which figure is situated, <strong>then explain why</strong>. If you write the definition word-for-word, that's fine."</p>
+      </div>
+
+      <h3>The action–perception loop</h3>
+      <p>The endless loop every situated robot runs:</p>
+      <ol>
+        <li>Robot determines actuator state from <strong>current and previous</strong> sensor observations.</li>
+        <li>Action <strong>alters the robot/environment relation</strong> — and possibly the environment itself.</li>
+        <li>New sensor reading → next decision → next action. <strong>This generates behavior.</strong></li>
+      </ol>
+      <p>Two roles of robot actions: <strong>(1)</strong> achieve goals, <strong>(2)</strong> alter the perceptual / physical environment. Both run continuously inside the loop.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-13.png" target="_blank">
+          <img src="./week03-slides/slide-13.png" alt="Slide 13 — Why controllers" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Why we need controllers</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-14.png" target="_blank">
+          <img src="./week03-slides/slide-14.png" alt="Slide 14 — Controller-perception-action diagram" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 14</span>Controller block diagram</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. What Is a Controller?</div>
+
+      <p>A controller is the <strong>algorithmic block between sensors and actuators</strong>. It uses perceived sensory information to <em>decide</em> which actions to perform.</p>
+
+      <table>
+        <thead><tr><th>Block</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Perception</strong> (sensors)</td><td>Reads the environment — encoders, camera, IR, touch, microphone.</td></tr>
+          <tr><td><strong>Controller</strong> (brain)</td><td>Maps sensor input → motor command using current + previous state.</td></tr>
+          <tr><td><strong>Action</strong> (actuators)</td><td>Motors / grippers execute the command and modify the environment.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Action vs Behavior <span class="badge">Exam</span></div>
+        <p><strong>Action</strong> = a <em>motor command</em> — go left, go right, raise leg, close gripper.</p>
+        <p><strong>Behavior</strong> = what an external observer <em>sees</em> the robot doing — obstacle avoidance, wall following, light seeking. <strong>Behavior is composed of a sequence of actions.</strong></p>
+        <p>The controller produces actions; the actions, taken together, produce behavior.</p>
+      </div>
+
+      <p>Why do we need a controller? Because the real world is <strong>dynamic, unpredictable, unstructured</strong>. To make a decision under those conditions, a situated robot needs an algorithm that can compute "what to do next" on the fly.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-15.png" target="_blank">
+          <img src="./week03-slides/slide-15.png" alt="Slide 15 — Open vs closed loop control" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Open vs closed loop</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-16.png" target="_blank">
+          <img src="./week03-slides/slide-16.png" alt="Slide 16 — Microwave open loop example" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>Open loop · microwave</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-17.png" target="_blank">
+          <img src="./week03-slides/slide-17.png" alt="Slide 17 — Closed loop Braitenberg lover" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Closed loop · Braitenberg</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. Open Loop vs Closed Loop</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Core distinction <span class="badge">Exam</span></div>
+        <table>
+          <thead><tr><th></th><th>Open loop</th><th>Closed loop</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Parameters</strong></td><td>Set in advance, fixed</td><td>Sensor data continuously influences behavior</td></tr>
+            <tr><td><strong>Mechanism</strong></td><td>"Run for 30 s" — no feedback</td><td>Uses <strong>error</strong> to generate action; goal is to <strong>minimise error</strong></td></tr>
+            <tr><td><strong>Guarantees</strong></td><td>Desired result <em>often not</em> guaranteed</td><td>Adapts to environment changes</td></tr>
+            <tr><td><strong>Example</strong></td><td>Microwave timer</td><td>Braitenberg "lover" agent</td></tr>
+            <tr><td><strong>Used in autonomous robots?</strong></td><td>Rarely</td><td><strong>Yes — almost always</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Open-loop · the microwave</h3>
+      <p>You set the timer to 30 s. The microwave runs for 30 s regardless of whether the food is cold, frozen, or already burning. <strong>Semi-autonomous</strong>: needs user input, no awareness of the desired output. If the user gives the wrong time → burnt or cold meal.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof analogy · open-loop robot <span class="badge prof">Prof</span></div>
+        <p>If you code a robot "move 40 cm forward, then rotate left", it works <em>in a known empty space</em>. Put an obstacle at 20 cm and the robot keeps trying to move 40 cm — motors grind, gears strip, battery drains. <strong>Open-loop fails the moment reality differs from the script.</strong></p>
+      </div>
+
+      <h3>Closed-loop · Braitenberg lover</h3>
+      <p>The Braitenberg "lover" agent <strong>follows a moving light</strong>. When the light moves, the robot adapts. Why is this closed-loop?</p>
+      <ul>
+        <li>It does <strong>not</strong> follow a pre-programmed plan.</li>
+        <li>It changes behavior <strong>based on real-time sensor input</strong> (light intensity).</li>
+        <li>If the light moves, the robot's trajectory changes — adaptive by construction.</li>
+      </ul>
+
+      <h3>Side question · is the Braitenberg lover autonomous? <span class="badge">Exam</span></h3>
+      <p><strong>Yes.</strong> All three conditions from Week 1 are met: (1) no human is intervening with the robot directly — a human moves the <em>light</em>, not the robot, (2) the environment is unstructured, (3) it operates for a prolonged time. The human controlling the light is part of the environment, not part of the robot's command pipeline.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-19.png" target="_blank">
+          <img src="./week03-slides/slide-19.png" alt="Slide 19 — Inverse and forward kinematics intro" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 19</span>Kinematics intro</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-20.png" target="_blank">
+          <img src="./week03-slides/slide-20.png" alt="Slide 20 — Forward vs inverse kinematics" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>Forward vs inverse</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. Kinematics — Forward vs Inverse</div>
+
+      <p>Two complementary tasks in robot kinematics. <strong>Both will be on the exam at the conceptual level</strong>; you will <em>not</em> have to solve any equations.</p>
+
+      <table>
+        <thead><tr><th>Type</th><th>Given</th><th>Compute</th><th>Difficulty</th><th># solutions</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Forward kinematics</strong></td>
+            <td>Sequence of joint angles / motor commands</td>
+            <td>Final position of the end-effector</td>
+            <td>Easy (basic trigonometry)</td>
+            <td>Always <strong>one</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Inverse kinematics</strong></td>
+            <td>Desired end-effector position in space</td>
+            <td>Joint angle sequence to reach it</td>
+            <td><strong>Hard</strong></td>
+            <td><strong>Zero, one, or many</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Why inverse can have 0/1/many solutions <span class="badge">Exam</span></div>
+        <ul>
+          <li><strong>Zero:</strong> the target is out of reach (too far, blocked).</li>
+          <li><strong>One:</strong> rare — only one valid joint configuration exists.</li>
+          <li><strong>Many:</strong> the same end-effector pose can be achieved by multiple joint configurations (think elbow-up vs elbow-down).</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Prof scope note <span class="badge prof">Prof</span></div>
+        <p>"This will be exam question. You will <strong>not solve anything</strong>, but you should be responsible for <strong>understanding the concept</strong>." Forward kinematics works out to e.g. <code>x = L1·cos α + L2·cos(α+β)</code>; you don't need to memorise it, just know the structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-21.png" target="_blank">
+          <img src="./week03-slides/slide-21.png" alt="Slide 21 — Closed loop control system r y u" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 21</span>r · y · u variables</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-22.png" target="_blank">
+          <img src="./week03-slides/slide-22.png" alt="Slide 22 — Closed loop control feedback diagram" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>e = r − y feedback</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. Closed-Loop Feedback Control</div>
+
+      <p>The mechanical heart of every closed-loop controller. Three quantities — <strong>memorise these</strong>:</p>
+
+      <div class="callout exam">
+        <div class="callout-label">The three variables <span class="badge">Exam</span></div>
+        <table>
+          <thead><tr><th>Symbol</th><th>Name</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><strong>r</strong></td><td>Reference value</td><td>Specification of the task / desired state. e.g. position relative to a shelf, distance of gripper to object.</td></tr>
+            <tr><td><strong>y</strong></td><td>Output</td><td>The <em>actual</em> measured state of the robot. e.g. distance to the object right now.</td></tr>
+            <tr><td><strong>u</strong></td><td>Control value</td><td>What the controller outputs to the robot — e.g. motor power settings. <strong>Robots can't use r directly</strong>; r must be translated into u.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout exam">
+        <div class="callout-label">The error equation <span class="badge">Exam</span></div>
+        <p style="font-size:18px; color:var(--ink); text-align:center; margin:18px 0;"><strong>e = r − y</strong></p>
+        <ul>
+          <li>The output <strong>y is fed back</strong> to the controller.</li>
+          <li>y is compared with reference r → <strong>error e</strong>.</li>
+          <li>The control algorithm uses <strong>e</strong> to generate the control signal <strong>u</strong>, which drives the robot.</li>
+          <li><strong>Goal: minimise e.</strong></li>
+        </ul>
+      </div>
+
+      <p>With each iteration, the error shrinks. The robot creeps toward the reference. <strong>e never quite hits zero</strong> in real hardware (more on that below) — but it gets within an acceptable threshold.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p>"All focus is just <strong>how I can reduce my error to achieve my goal</strong> — that's the closed-loop feedback control mechanism for all robots." If you remember nothing else from this lecture, remember <em>e = r − y</em>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-24.png" target="_blank">
+          <img src="./week03-slides/slide-24.png" alt="Slide 24 — On/off control example" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 24</span>On-off control</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-25.png" target="_blank">
+          <img src="./week03-slides/slide-25.png" alt="Slide 25 — Bang-bang oscillation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 25</span>Bang-bang oscillation</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-26.png" target="_blank">
+          <img src="./week03-slides/slide-26.png" alt="Slide 26 — Bang-bang behavior breakdown" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Why bang-bang oscillates</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. On-Off (Bang-Bang) Control</div>
+
+      <p>The simplest closed-loop strategy. The robot is either at full speed or stopped — nothing in between.</p>
+
+      <ul>
+        <li>Constant <strong>reference value r</strong> — e.g. "stop 10 cm from the object".</li>
+        <li><strong>error = reference − measured</strong>.</li>
+        <li>Measured value comes from a proximity / distance sensor.</li>
+        <li>If error &gt; 0 → motors forward. If error &lt; 0 → motors reverse. If error = 0 → stop.</li>
+      </ul>
+
+      <h3>Why bang-bang almost never reaches zero error</h3>
+      <p>In real hardware there is always <strong>sensor noise + software/hardware delay</strong>. Walk through the sequence:</p>
+      <ol>
+        <li>Robot approaches the object at <strong>full speed</strong>.</li>
+        <li>It crosses the reference distance — but reading the sensor and computing the error <strong>takes time</strong>.</li>
+        <li>By the time the controller decides "stop", the robot has <strong>overshot</strong>.</li>
+        <li>Now error is negative → motors reverse at <strong>full speed</strong>, overshoot back the other way.</li>
+        <li>Repeat forever. Plot looks like a triangle wave around r.</li>
+      </ol>
+
+      <div class="callout exam">
+        <div class="callout-label">Bang-bang downside <span class="badge">Exam</span></div>
+        <p>On-off control generates <strong>high wear and tear on the motors</strong> (constant full-speed reversals) and <strong>cannot reach the exact reference</strong>. It oscillates around r forever.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Prof remark <span class="badge prof">Prof</span></div>
+        <p>"In reality this is hard to achieve <em>zero error</em>. There will be some delay — I am reading my sensory information, processing it and making a decision — and that creates delay. <strong>I will never achieve zero error.</strong>"</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-27.png" target="_blank">
+          <img src="./week03-slides/slide-27.png" alt="Slide 27 — Proportional control intro" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Proportional control</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-29.png" target="_blank">
+          <img src="./week03-slides/slide-29.png" alt="Slide 29 — Effect of gain" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>Effect of gain</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-30.png" target="_blank">
+          <img src="./week03-slides/slide-30.png" alt="Slide 30 — PI and PID controllers" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 30</span>PI · PID (not on exam)</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Proportional (P) Control</div>
+
+      <p>Fix the bang-bang oscillation by making the motor command <strong>proportional to the error</strong>: the closer you are, the slower you go.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">P-controller equation <span class="badge">Exam</span></div>
+        <p style="font-size:18px; color:var(--ink); text-align:center; margin:18px 0;"><strong>u = K · e</strong></p>
+        <p><strong>K</strong> = the <strong>gain</strong> — the multiplicative factor of the control algorithm. Idea: <em>"reduce your speed more as the error gets smaller"</em>.</p>
+      </div>
+
+      <h3>Effect of gain on robot behaviour</h3>
+      <table>
+        <thead><tr><th>Gain</th><th>Behavior</th><th>Curve shape</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Low gain</strong></td>
+            <td>Robot approaches reference <strong>slowly</strong>. May never quite reach r in available time.</td>
+            <td>Dotted blue · slow rise</td>
+          </tr>
+          <tr>
+            <td><strong>High gain</strong></td>
+            <td>Robot approaches reference <strong>faster</strong>, reasonable settling.</td>
+            <td>Dashed red · fast rise, slight overshoot</td>
+          </tr>
+          <tr>
+            <td><strong>Excessive gain</strong></td>
+            <td>Controller behaves like <strong>bang-bang again</strong> — oscillates around r.</td>
+            <td>Green · oscillating, unstable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Key fact <span class="badge">Exam</span></div>
+        <p><strong>Oscillation = unstable controller.</strong> Tuning the gain is mostly trial-and-error: read papers using similar robots/tasks, try values, observe.</p>
+      </div>
+
+      <h3>Beyond P · PI and PID</h3>
+      <div class="callout">
+        <div class="callout-label">Prof scope note <span class="badge prof">Prof</span></div>
+        <p>"We will <strong>not ask any questions in the final exam about</strong> the integral or derivative terms — only the <strong>proportional</strong> part." Slide 30 (PI / PID) is reading-only. If interested, see Matlab Control Systems videos and Peter Corke's book.</p>
+      </div>
+
+      <p>For completeness: <strong>PI</strong> adds an integral term that eliminates steady-state error (accumulates past error). <strong>PID</strong> adds a derivative term that damps overshoot (reacts to rate of change). Industrial sweet spot — and a lot of money in the industrial domain depends on tuning these well.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-34.png" target="_blank">
+          <img src="./week03-slides/slide-34.png" alt="Slide 34 — What is a paradigm" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 34</span>What is a paradigm?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-35.png" target="_blank">
+          <img src="./week03-slides/slide-35.png" alt="Slide 35 — Open vs closed world assumption" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 35</span>Open vs closed world</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-36.png" target="_blank">
+          <img src="./week03-slides/slide-36.png" alt="Slide 36 — Robot primitives Sense Plan Act" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 36</span>Sense · Plan · Act primitives</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. Robotic Paradigms — Sense, Plan, Act</div>
+
+      <p>Beyond the math of feedback, we need a <strong>mental model</strong> of how a situated robot operates. Welcome to <strong>robotic paradigms</strong>.</p>
+
+      <h3>What is a paradigm?</h3>
+      <p>"A <strong>paradigm</strong> is a basic framework of assumptions, principles and methods from which the members of the community work." Different camps in robotics solve the same problem with very different paradigms (hand-coded, learning-based, RL, classical control). All can be correct — but you should pick one consciously for your project.</p>
+
+      <h3>Closed world vs open world <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Assumption</th><th>What it means</th><th>Failure mode</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Closed world</strong></td>
+            <td>The robot has access to a <strong>world model containing everything it needs</strong> to know to accomplish the task.</td>
+            <td>"Success of the robot depends on how well the human programmer can think of everything."</td>
+          </tr>
+          <tr>
+            <td><strong>Open world</strong></td>
+            <td>World model is <strong>dynamic</strong>; robot <strong>cannot access</strong> everything it needs.</td>
+            <td>"Closed-world assumption cannot be applied to that particular domain."</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam pattern · which is open world? <span class="badge">Exam</span></div>
+        <p>The slide compares two robot teams. <strong>Robot soccer = open world</strong> (multiple agents, unpredictable opponents, dynamic ball). <strong>Synchronised robot dance = closed world</strong> (prescribed maneuvers, fixed sensors, no surprises). Justification: open-world environments are too complex to be modelled by a single human programmer.</p>
+      </div>
+
+      <h3>Robot primitives</h3>
+      <p>Like primitive data types in programming (int, float, byte), robotics has <strong>three primitives</strong> — every paradigm is built by combining them:</p>
+      <ol>
+        <li><strong>Sense</strong> — gather information using sensors (camera matrices, joint encoders, IR distance, etc.).</li>
+        <li><strong>Plan</strong> — create a world model and decide the next move (logic / neural / rule-based engine).</li>
+        <li><strong>Act</strong> — generate actuator commands to execute the action.</li>
+      </ol>
+      <p><strong>The paradigm = how you wire these three primitives together.</strong> Not every paradigm uses all three.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-39.png" target="_blank">
+          <img src="./week03-slides/slide-39.png" alt="Slide 39 — Hierarchical deliberative paradigm Shakey" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 39</span>Hierarchical · Shakey</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-40.png" target="_blank">
+          <img src="./week03-slides/slide-40.png" alt="Slide 40 — Sense to plan to act flow" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 40</span>Sense → Plan → Act</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Hierarchical (Deliberative) Paradigm</div>
+
+      <p>The <strong>oldest</strong> paradigm. Wiring: <strong>Sense → Plan → Act</strong>, strictly sequential. Every cycle: observe everything, build a full world model, plan the next move, then execute it.</p>
+
+      <ul>
+        <li><strong>Sense</strong> — provides full representation of the environment.</li>
+        <li><strong>Plan</strong> — logic / neural / rule-based engine decides actions from that representation.</li>
+        <li><strong>Act</strong> — the robot's motor behaviour executes the plan.</li>
+      </ul>
+
+      <h3>Strengths &amp; weaknesses</h3>
+      <table>
+        <thead><tr><th>+ Strengths</th><th>− Weaknesses</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Accurate <em>once</em> the plan is computed</td>
+            <td><strong>Slow</strong> — one full sense+plan+act cycle per action</td>
+          </tr>
+          <tr>
+            <td>Good for known, static environments</td>
+            <td>Ignores the <strong>dynamic aspect</strong> of the environment</td>
+          </tr>
+          <tr>
+            <td>Explicit world model — debuggable</td>
+            <td>Not <strong>biologically realistic</strong> — no reflex-like fast loops</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Historical anchor · Shakey <span class="badge prof">Prof</span></div>
+        <p><strong>Shakey the Robot</strong> (SRI, late 1960s) was the canonical hierarchical robot. The <em>GoTo</em> program planned a route by computing whether obstacles lay on a direct path. If they did, sub-goals near the obstacle were inserted. Once the plan was complete, Shakey executed it.</p>
+        <p>Quote from <em>Introduction to AI Robotics</em>: <em>"Unfortunately, the flow of events ignored biological evidence that sensed information can be directly coupled to an action, which is why the sensed information input is blacked out."</em></p>
+      </div>
+
+      <p>If your robot is a Shakey-style system with many sensors, every action requires re-sensing-replanning-reacting. As the sensor count and computation grow, <strong>the system becomes physically infeasible or extremely slow</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-41.png" target="_blank">
+          <img src="./week03-slides/slide-41.png" alt="Slide 41 — Reactive paradigm" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 41</span>Reactive paradigm</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-42.png" target="_blank">
+          <img src="./week03-slides/slide-42.png" alt="Slide 42 — Reactive limitations" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 42</span>Reactive limits</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">11. Reactive Paradigm</div>
+
+      <p><strong>Rodney Brooks</strong>' provocation: <em>remove planning</em>. Wiring shrinks to <strong>Sense → Act</strong>. Sensor signals are filtered/modulated and routed directly to actuators.</p>
+
+      <ul>
+        <li>Connects <strong>action with sensing</strong> — no internal world model.</li>
+        <li>Sensors produce continuous signals; after light modulation (e.g. a filter), they enable the robot to act.</li>
+        <li><strong>Biological agents display intelligent behaviour with this paradigm</strong> — e.g. avoiding light, tracking prey.</li>
+        <li><strong>Braitenberg vehicles are reactive controllers</strong> by construction.</li>
+      </ul>
+
+      <h3>Trade-offs</h3>
+      <table>
+        <thead><tr><th>+ Strengths</th><th>− Weaknesses</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Very fast</strong> — short tight loop, no deliberation</td>
+            <td><strong>Cannot save information</strong> — no internal state</td>
+          </tr>
+          <tr>
+            <td>Biologically plausible</td>
+            <td>No internal representation of the environment</td>
+          </tr>
+          <tr>
+            <td>No advanced algorithm knowledge required</td>
+            <td><strong>Cannot learn</strong> from experience</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Prof example · the fly that won't quit <span class="badge prof">Prof</span></div>
+        <p>"For a biological agent with reactive control, it doesn't matter if it's a virtual fly or something is moving in front of it — <strong>it will just attack it</strong>. <strong>There is no learning.</strong> Something is changing, but you are behaving the same way." Useful behaviour, but no adaptation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-43.png" target="_blank">
+          <img src="./week03-slides/slide-43.png" alt="Slide 43 — Hybrid deliberative reactive paradigm" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 43</span>Hybrid paradigm</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">12. Hybrid Deliberative / Reactive Paradigm</div>
+
+      <p>If hierarchical is too slow and reactive can't learn — combine them.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Hybrid wiring <span class="badge">Exam</span></div>
+        <p style="font-size:14px; color:var(--ink); text-align:center; margin:14px 0;"><strong>[First] Hierarchical/Deliberative → Plan</strong></p>
+        <p style="font-size:14px; color:var(--ink); text-align:center; margin:14px 0;"><strong>[Then] Reactive → Sense-Act</strong></p>
+        <p>You <strong>plan first</strong> (using deliberative reasoning, world model), then run a <strong>reactive sense-act loop</strong> while executing — fast obstacle response built on top of a coherent global plan.</p>
+      </div>
+
+      <h3>Why combine?</h3>
+      <ul>
+        <li><strong>Get speed</strong> from the reactive sense-act loop (handles dynamic environments in real time).</li>
+        <li><strong>Get adaptability + planning</strong> from the deliberative layer (long-horizon goals, world model).</li>
+        <li><strong>Caveat:</strong> requires parallel processing — plan and react must run side-by-side. More engineering effort.</li>
+      </ul>
+
+      <h3>Side-by-side <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Paradigm</th><th>Wiring</th><th>Speed</th><th>Memory / learning</th><th>Real-world fit</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Hierarchical</strong></td>
+            <td>Sense → Plan → Act</td>
+            <td>Slow</td>
+            <td>Yes (world model)</td>
+            <td>Static, known</td>
+          </tr>
+          <tr>
+            <td><strong>Reactive</strong></td>
+            <td>Sense → Act</td>
+            <td>Very fast</td>
+            <td>None</td>
+            <td>Dynamic but simple</td>
+          </tr>
+          <tr>
+            <td><strong>Hybrid</strong></td>
+            <td>Plan, then Sense-Act in parallel</td>
+            <td>Fast (reactive layer) + planned</td>
+            <td>Yes</td>
+            <td>Best balance</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Prof framing <span class="badge prof">Prof</span></div>
+        <p>"We are <strong>orthogonally planning</strong> the task — getting benefits of being fast in the environment <em>plus</em> learning the environment dynamics." For your project robot, hybrid is usually the right target.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-36.png" target="_blank">
+          <img src="./week03-slides/slide-36.png" alt="Slide 36 — Robot 7 kicks ball" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 36</span>Robot 7 · kick the ball</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">13. Worked Example — "Make Robot #7 Kick the Ball"</div>
+
+      <p>Slide 36 ends with this exam-style prompt: <em>As a roboticist, your assignment is to enable robot #7 to kick a ball. Detail the specific robot primitives — Sensing, Planning, and Acting — that robot #7 will use, including examples for each stage.</em></p>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample answer template <span class="badge">Exam</span></div>
+        <table>
+          <thead><tr><th>Primitive</th><th>For "kick the ball"</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Sense</strong></td>
+              <td><strong>Camera</strong> to detect the ball position and the goal; <strong>joint encoders</strong> to know each leg joint angle; possibly an <strong>IMU</strong> for balance.</td>
+            </tr>
+            <tr>
+              <td><strong>Plan</strong></td>
+              <td>If ball is in front of the robot at kicking distance → raise the kicking leg, swing it through the ball trajectory. Could be hand-coded rules, a state machine, or an RL policy. (Note: <em>"in the real robot reinforcement learning will almost always fail"</em> — prof.)</td>
+            </tr>
+            <tr>
+              <td><strong>Act</strong></td>
+              <td>Joint-position commands to leg motors that raise the leg and swing it through; balance corrections via the support leg.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Bonus concept the prof name-dropped during a student question: <strong>motion primitives</strong> — when a high-level controller ("press the buy button" / "kick the ball") delegates to a lower-level controller that handles the fine motor sequence. Cognition picks the goal; motion primitives execute the trajectory.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week03-slides/slide-44.png" target="_blank">
+          <img src="./week03-slides/slide-44.png" alt="Slide 44 — Practical wrap-up" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 44</span>Practical session</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">14. Practical Tie-In · Arduino as the Brain</div>
+
+      <p>The lecture closes by physically pointing at the controller in your kit: the <strong>Arduino board is the brain of your robot</strong>. The TinkerCad demos showed:</p>
+
+      <ul>
+        <li>A bare circuit (LED + button) <strong>has no controller</strong> — a human is the brain pressing the button.</li>
+        <li>Add an <strong>Arduino + photoresistor</strong> → the Arduino reads light intensity and modulates the LED. <strong>That is a closed-loop reactive controller.</strong></li>
+        <li>Replace the LED with a <strong>motor</strong> + add two photoresistors → you have a Braitenberg vehicle on an Arduino.</li>
+        <li>You should drive motors through a <strong>motor controller / H-bridge</strong>, not directly off Arduino pins — higher voltage with lower-voltage logic. Otherwise the board burns.</li>
+      </ul>
+
+      <h3>Action items for this week</h3>
+      <ul>
+        <li><strong>Form your group before 12 February</strong> — otherwise random allocation. Once assigned, no swaps without prof approval.</li>
+        <li>Check the <strong>list of components</strong> on Canvas against your Arduino kit. Note what's missing and ask Bozhong (RTA) at the practical session — <em>do not buy anything yourself</em>.</li>
+        <li>Install <strong>Arduino IDE 2.3.7</strong> (latest) on your laptop. Fall-back: legacy 1.8.3 if 2.3.7 misbehaves. Bring a working IDE to the practical.</li>
+        <li>Bring your Arduino kit + <strong>4 AA batteries</strong> to the practical session.</li>
+        <li>Optional reading: <em>Elements of Robotics</em>, Chapter 6 (control theory) — covers the integral and derivative terms not on the exam but useful for the project.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Brain = controller.</strong> No movement, no need for a brain (Dennett's sea squirt). The controller maps sensor input to actuator output and is what makes situated behaviour possible.</li>
+      <li><strong>Action ≠ Behavior.</strong> Action = motor command (go left). Behavior = what observers see (obstacle avoidance). Behavior is composed of actions. <em>Likely fill-in-the-blank exam target.</em></li>
+      <li><strong>Open loop = parameters fixed in advance, no feedback</strong> (microwave). <strong>Closed loop = sensor data continuously influences behavior, error drives control</strong> (Braitenberg lover). Autonomous robots use closed loop.</li>
+      <li><strong>Memorise e = r − y.</strong> r = reference (desired), y = output (measured), u = control signal. Goal: minimise e. This equation is the heart of feedback control.</li>
+      <li><strong>Bang-bang oscillates.</strong> Hardware delay + sensor noise → robot overshoots r forever. Generates motor wear. Never reaches zero error.</li>
+      <li><strong>Proportional control · u = K · e.</strong> Slow down as you approach. Low gain = sluggish; high gain = fast; <strong>excessive gain → bang-bang again</strong> (oscillation = unstable). Only the P term is on the exam.</li>
+      <li><strong>Forward kinematics easy</strong> (joint angles → end position, basic trig). <strong>Inverse kinematics hard</strong> (end position → joint angles; can have 0, 1, or many solutions). You will <em>not</em> solve, but must understand the concept.</li>
+      <li><strong>Three robot primitives:</strong> Sense, Plan, Act. The paradigm is how you wire them.</li>
+      <li><strong>Hierarchical (Sense→Plan→Act):</strong> accurate, slow, ignores dynamics — Shakey. <strong>Reactive (Sense→Act):</strong> fast, biological, no memory or learning — Braitenberg. <strong>Hybrid:</strong> plan first, then run reactive loop in parallel — best for situated robots.</li>
+      <li><strong>Closed-world assumption</strong> = robot has full world model (programmer thought of everything). <strong>Open-world</strong> = dynamic environment, robot can't access everything. Open-world ⇒ situated robot ⇒ closed-loop control + reactive/hybrid paradigm.</li>
+    </ol>
+  </div>
+  <details class="transcript">
+    <summary>
+      <span class="transcript-eyebrow">Lecture transcript</span>
+      <span class="transcript-meta">10,827 words · auto-generated (Whisper)</span>
+    </summary>
+    <div class="transcript-body">
+      <input type="text" id="transcriptSearch" class="transcript-search" placeholder="search the transcript…" />
+      <p>So make sure that you understand the concepts and the details in this lecture. And what we did previously, we introduced our sensors and the Breitham-Bark vehicles. Do you have any questions about it? No?</p>
+      <p>Okay. And today we will move to controllers, and sometimes we will call controller as a brain, brain of your robot to make an analogy between the biologically inspired systems like humans or the animals, and we will use controller and brain interchangeably in this lecture. For a practical session, today you need to do, this week you need to do, okay, a few homework. So before moving to practical session, if you don't have a group, please form it and this week I will allocate randomly if you already, if you don't have any group.</p>
+      <p>And I will also add some random students to your group, if your group is two, one, or three people. So be careful and just form your group before the 12th of February. Otherwise, you will find a random group member or you will find yourself in a random group stuff. You shouldn't change your group after my assignment.</p>
+      <p>And if you change your group after my assignment, it will create another mess. Just approach me during the practical session, and we will find and solve your group-related problems. And this week, I will not be available in the practical session, but I will be available online and Bozon will take care of your practical session so please be extra friendly to RTA. You need to do one thing before coming to the two things.</p>
+      <p>The first one is the go canvas and check this document. It's called a list of components, and compare what exists in that document in your Arduino kit. Probably, there will be some missing components then you will collect from Boson. That list of components will basically enable you to create an car like autonomous systems.</p>
+      <p>Of course, your project requires additional sensors. I don't know, you will do water planting system, then you may need additional sensor and ask Bosong and he will provide you. Starting from next practice session, we will also move to coding part of our robots. We will use Arduino-like environment.</p>
+      <p>Of course, you are free to use NVIDIA Jetsons or Raspberry Pi if you have an experience with it. But all of you should download this Arduino IDE. IDE means that Integrated Development Environment. So you will find everything related to coding Arduino in this software package and the interface.</p>
+      <p>Please install the latest one, Arduino 2.3.7. And we also have one legacy version of it. In case it doesn't work, then you can download it. It is 1.8.3.</p>
+      <p>And if you go to Arduino website, you will find the legacy one here. In case this one doesn't work, then you can try to install this one. And in the computers, in the practical session, we already installed this legacy ID in there. But please, everyone who has Arduino kit, who has a group, and everyone in this class has to install this ID in here.</p>
+      <p>Otherwise, you cannot code your robot and it will create additional hassle for us to install for you. So be prepared and install this one before you come into lecture. Let's see okay so that will be the interface will be quite a friendly you don't need to do a lot of stuff or busy with terminal just if you install everything will be fine but you need some syntax level understanding of C or C++ if you already know then we will teach you with a few examples blinking LEDs or or by timber like a vehicles then after this experience you can you will be ready for coding another autonomous systems for your project. Tinkercad also will provide an interface for Arduino.</p>
+      <p>So you can literally code in Tinkercad and copy paste in here, and you will see after a few changes, it might work. So this is the practical session information. There is one glitch in Panopotto and the lecture videos are inaccessible by students. I don't know why.</p>
+      <p>I tried to make it public, but it doesn't work. I will try to fix this week. If not, then I will go to IT and fix it for the incoming videos. Okay, these are the admin stuff and some basic questions.</p>
+      <p>Now we will have to move our lecture, but before moving, do you have any question about your kids and the practical sessions. Just check this list and note somewhere your missing components. Do not buy anything before asking us, and Boson will provide you and download this one on your computer, and that will be fine. So we are moving to today's lecture and we will show a lot of stuff today.</p>
+      <p>Let's start today's quote by Daniel Dennett. I guess he passed away two years ago. In here, you are seeing one sea creature or animal, and it's called the juvenile sea squirts and what is good about this being okay is just wandering around on the oceans okay and try to look for a home spot for itself and once it's set up okay it's settled down in some specific place, so it doesn't need to move anymore. The first thing that it does actually, just try to eat its brain.</p>
+      <p>Why? Because it doesn't need any movement in its life, then it just eats its brain. So this show us actually brain is a bit important for us or for the animals at least to generate the movements and if you are not moving then you don't need your brain and the continuation of this code is leading to offensive sentence towards professors okay He said that actually. If professors also get the tenure and they are also behaving in the same way.</p>
+      <p>So it's a bit offensive. But if you want to offend me, you can just complete this quote. And today's lecture is a bit hard actually. One of the hardest topic in the robotics.</p>
+      <p>But the time does not allow us and syllabus also does not allow us to go in detail. Ideally, in each component of the control theory, we should have a one full semester course. That can be a feedback controller, that can be robust controller, that can be reinforcement learning, or model predictive control, whatever we have. But we will go and just introduce super basic stuff about the feedback controller that you will use for your project.</p>
+      <p>And here is the basic map of the control theory, and you will see a lot of stuff, actually. If you are, let's see, where is the... Yeah, you will see a lot of different type of stuff. Whether you are busy with the swarm systems, like multi-agent systems, you can go and check the control algorithms for swarm systems.</p>
+      <p>Or if you are interested in navigation stuff, you can move to A star for instance, to navigate maze for your robot and solve the problem. Or you are interested in kinematics of the robots that we will show today, then you can go and check the feedback control. So it is quite mathematically oriented and people are suffering to learn this concept but once you learn it then you will be definitely a different type of person or a different type of robotics roboticist actually in the in the community and for your future career but i will give just pointer if you are interested we can go in unnecessary details about the models and the math behind it and of course our robots are different it means that their brain has to be different yeah like in for instance if you have a multiple robot their control mechanisms should be different than if you have a robot arm. So we cannot generalize it.</p>
+      <p>So for each robot type or for each robot task, we might have single, double, or multiple control algorithms. And historically, it is one of the most populated area of the robotics because previously robots are not that abundant in the literature or in the labs. Thanks to the Chinese vendors, nowadays it's getting quite cost-friendly. People try to actually model them with the MATLAB, with the simulators.</p>
+      <p>This one is, for instance, from one of the MATLAB developer of the control theory toolbox. But here we have an actual robots and we can just adopt a few different type of algorithms and implement our robot and see their behavior. If you are super interested, go check this Handbook of Robotics. It's very, very big.</p>
+      <p>But if you can find the PDF of it, I'm sure you know how to find it, and go and check it and go table of the content, and go check the feedback controls in there. We need robots to have a robust control algorithm because we want our robot to be situated in the real environment. Which means that robot has to exist in the complex dynamic environment to achieve their tasks in an autonomous way. That's why we need our robot to be intelligent.</p>
+      <p>To make our robot more intelligent, we need more robust control algorithms. Robust means that if you change the environment, robot behavior shouldn't change. That's why we call this jadedness like in this cartoon. You see the environment is quite different than the environment in here that you are seeing it.</p>
+      <p>So here, all obstacles are fixed. Like this table cannot move by itself. But here, we are seeing that one person with vision disability, it can navigate in the environment. We are seeing also some other entities in the environment.</p>
+      <p>They can increase the complexity of the environment, be more dynamic, and or robot, let's say this one, will try to navigate in the environment, they can increase the complexity of the environment, be more dynamic, and our robot, let's say this one, will try to navigate in the environment in a situated way to help this kid in here. So basically, we need a control algorithm to be implemented in our robot to solve the problem in a complex, complex dynamic unstructured environment. If your environment is complex, dynamic and unstructured, it means that you are deploying your robot in a situated environment. If something is changed, your robot has to adopt it.</p>
+      <p>Here is the exam question. So just check these two photos and tell me which robots are situated. For instance, in the exam, you should first say that, okay, which, let's say this is figure A, figure B, which one is shaded? You?</p>
+      <p>A. A, this one, yeah? Yeah. And why?</p>
+      <p>The robots themselves move in an environment in which other robots also move, and they kind of interact with each other? So environment is dynamic for instance. That is one of the conditions of the stuff. Of course, it's complex.</p>
+      <p>It has to react to what's going on, right? Exactly. It has to react on the ball, on his own team player and the other team players. So it's quite complex, unstructured, and the dynamic environment.</p>
+      <p>And if your robot is basically deployed in this environment and making score against the other team, so it means that your robot is situated in the unknown environment and achieving its task. And in the exam, please read the full question. First say that the robots in the figure A are situated and you have to explain why. The explain why is if you write this definition, it will be fine.</p>
+      <p>Cool. Let's move. Action perception cycle, we already mentioned about this one. It's vicious cycle, endless cycle that robot is acting in the environment based on the sensory observation and the changing it.</p>
+      <p>By changing it, it has to act it again. This one is continuously happening for our robots. Robots make an action. That's here.</p>
+      <p>Robot make an action. See, environment is changing. And with this observation, it has to do an, what's the term? It's called the endless loop.</p>
+      <p>Usually, our robots are working in the endless loop and acting in these two states. Action state that they have to perform, and the observation state they have to see and evaluate the situation and generate the action. Between these two action and observation, we have a control of all of it. Like you have a set of sensors and your robot is getting the information from the environment, and you are sending this information to the controller and controller generates motor command for you.</p>
+      <p>This is a very, very minimalistic robot. It's called Hello. I don't remember its name, but it's very, very minimalistic stuff, and it will go and pick some stuff on the shelf and deliver to the other people in the environment. One thing that this robot has to do is perform an action.</p>
+      <p>The first thing that we are using robots action is achieving the goal. Achieving goal is here to just move the one shelf and pick one product from there. While doing so, robots are altering, changing the environment. That makes actually robotic hard because first, your actions are affecting the environment and changing the environment.</p>
+      <p>You have to adopt it, and the people's or other agents also in the environment imagine there is a two robot and let's say one robot go before this robot and pick up the same product in here and one it reaches then you it will understand that that product doesn't exist on the shelf so it shouldn't go and perform a gripping action. Instead, it should go and communicate with the operator, say that there is no product in the shelf. Of course, all of them are still hand-wavy, and we will go in detail how we can create this action, observation, and the control sequence for our robot. And we already see in the uh in the practical session how we can generate the actions for our robot how we can generate it do you remember what component that you need in your arduino kit to generate action for your robot come on we start with m to generate action for your robot?</p>
+      <p>Come on. You start with M. Who said? Okay, you need some motors actually to generate actions for your robot.</p>
+      <p>And now you have a motor. How you can generate actions for that motor just randomly behaving yeah actuations are the motor part now how that actuation can generate an action based on what's like start with s like I'm start with s no yes state yeah you can go but not the sensor yeah based on the sensor observation sensor reading the control algorithm will send some commands for your motors and it will generate the actions for you. Of course, it comes with a lot of hassle for us. We have to be super skillful for algorithm, understand how electricity works, understand how we can put electronic components in specific order to achieve action or to achieve our goals.</p>
+      <p>Why we need it? Because the world is super, super convoluted and unstructured, dynamic, and complex. If we want to achieve, let's say human-like behavior for our robots, they have to be smart. This being smart condition is lying in here actually for your controller.</p>
+      <p>That's not only condition, but it's the significant part of the intelligence comes from here. Because we see in the Breitenberg vehicles, they don't have a brain basically. They are not learning anything, but they can still achieve the intelligent behavior. But here, if you increase the, let's say, robot brain capacity or the controller capacity, it means that you will get much more interesting and intelligent behavior from your robot.</p>
+      <p>And one thing that you should learn, difference between action and behavior. Action is your motor command, going left, going right. And the behavior is what you observe from your robot. Behavior, action is going left, going right.</p>
+      <p>But behavior can be obstacle avoidance, for instance. So do not forget behavior composed of set of actions. And for your control algorithm basically will generate these actions and at the end you will get your robot behavior. And yeah, what else?</p>
+      <p>Yeah, we already mentioned here, but just do not forget this circle in here. Usually we call perception and action, but here we are also adding the controller algorithm too. If it's for instance just a Breitenberg vehicle, we don't need that controller in here too much. Still, we have some components of the controller, but not as complex as the one that we will see now.</p>
+      <p>Okay. We have two models of the... Yeah, two control models for our robot. One of them is open loop.</p>
+      <p>Another one is closed loop. Open loop is you are setting your parameters in advance, like your microwave appliance, home appliance at home. What you are doing, you are having a pizza and putting inside it and they close the door and they rotating some buttons on it. A rotating button is timing, let's say.</p>
+      <p>Just for 30 seconds and for that amount of heat, apply on the pizza and give it to me okay here all parameters are set set in advance okay and it's called open loop and it's open because once parameter is set you cannot change it the equivalency in the robotics is like that put your robot in here let's say I have some robots here yeah this is the one of the robot body and this is the another one this is the for the open loop I can code in advance say that okay move 40 centimeter then rotates to the left then rotates in this position then move it again at that you will see it is avoided also but that is not an the thing that we want. Imagine that now you are putting robot in here. They all settle in here. And initially you said that move 40 centimeter, yeah?</p>
+      <p>And it will go and try to move 40 centimeter. Then it will not go. What will happen okay for initial one we said that go and move 40 centimeters it move and it stop and it rotates but here it can move yes but cannot move for something but it will do it will try to continuously move its motors yes so it has to move that 40 centimeters. And at that, it cannot reach that 40 centimeters, and the gear of these motors will be actually... it will be broken at that.</p>
+      <p>Or you will run out of battery, and it will not work. So the idea that for the autonomous systems, we are mostly not using this open-loop controller. Because remember, the robot has to work in unstructured environment. It means that you don't know what is environment formation before you starting the experiment or the task.</p>
+      <p>To eliminate this one, we have a closed-loop controller. Here, nothing is set in advance, but you are giving the command to your robot. You are saying that, okay, avoid this obstacle. And let's say the robot has some sensor on it and try to reach and if the distance between the robot and the obstacle is below the threshold it will avoid the obstacle by rotating in some degree.</p>
+      <p>Here also it detects the edge otherwise it will drop. Then it will rotate again and it will move. And with this closed loop control no matter the obstacle's shape or the position in the environment it will behave the same way. Always avoid the obstacle shape or the position in the environment it will behave the same way always avoid the obstacle okay and to do this we have a one super nice mechanisms which called feedback we already introduced feedback into hci and now we will go in formal details about how you can give the feedback for your robot is about how you can give the feedback for your robot.</p>
+      <p>We already make this one clear. Here's our Brittenberg vehicle experiments. Now, you see this one is permanent law, and this one is the law but seeking for other options too. In law but seeking other options too.</p>
+      <p>Now, tell me why this behavior is closed-loop behavior. Because the island adapt to its environment, it doesn't follow a pre-programmed plan. Perfect. It changes the plan first in time.</p>
+      <p>Perfect. You see the light is changing position, and the robots are adapting to that position. So that's why we can call that this is a closed-loop controller. Is it clear?</p>
+      <p>If it's open-loop controller, what will happen? If the lights position will change, then after one change, it will not follow anymore the light. Okay, so, and these robots are autonomous or not? These are all exam questions.</p>
+      <p>The Breit-Hemberg vehicles are autonomous or not? Yes, no, maybe? I would say yes. Cool.</p>
+      <p>Why? or not yes no maybe cool why so first you should your answer is correct but it needs to be have three conditions one humans are not interacting or intervening the process two they are moving on the unstructured environment. And what was the third one? They prolonged the amount of time. After one action, if it's running out of battery and cannot perform the same action, so it means that it's not autonomous.</p>
+      <p>So in the video, they are not autonomous? They not autonomous. So in the video they are not. They are autonomous.</p>
+      <p>Why? They are autonomous. They are or not? They are.</p>
+      <p>There is a human controlling the light. Human controlling light, that's not controlling the robot. If the human explicitly tells the robot what to do, then it will not be autonomous anymore, but the other robot is responding to of human you can also put, for instance, a nice experiment. Put light on top of another robot.</p>
+      <p>Okay. And then make it random behavior, and they will follow. So that's a nice project if you are interested, actually. Okay?</p>
+      <p>All right. Now we are moving a bit dance slides. Okay? Now, we are moving a bit to dance slides.</p>
+      <p>If you want, we can create a very nice questions from this dance slides, but by default, we will not ask in the exam. If it's not asked in the exam, you will find one warning in here. The slides are not part of the exam, but here they are okay so we will move to you know much more uh formal methods of the robotics actually in here so the first one is the uh robot kinematics okay so we mentioned that yeah robots are part of the physics of the environment. If we need some behavior from our robots, we need to solve some physical equations.</p>
+      <p>Here is the basic physical equations are, let's say, F equals n times a. Everybody knows it. If we start from there, then we can derive some equations for our robot. From there, then we can derive some equations for our robot.</p>
+      <p>Based on these equations, we will define inverse and forward kinematics. Forward is quite easy, which means that you have a this robot okay and this robot has some motors one in here second third fourth and fifth so you have a fifth five robot five motors in here and for the forward one is basically say that if you move let's say this motor for 20 90 degree and the second one 90 degree another one for 90 degree and the last one let's say from 0 degree and here if you move let's say it's 80 degree back here so we move our motors in a specific angles and by this forward kinematics we can calculate where our endpoint is so for a given motor commands or the motor angles you are calculating the position of your endpoint. Usually the origin is here, robot base, not here. And we are calculating from here.</p>
+      <p>You can assume that there is an, let's say, x, y direction in here, if it's 2D. But this one is 3D. And we also need to consider the z direction in here. And it is quite easy to calculate.</p>
+      <p>If you have a basic geometry and analytic geometry knowledge, we can easily compute it. And the second one is inverse kinematics. This is a bit hard, which means that for a given position in the space, and your robot wants to reach that position, what will be your configuration let's say this is the robot and this is the object and I am giving the position command here just go and pick up this phone in the center of that object. Then your control algorithm will be inverse one and they change the joint direction okay until it reach here and let's say here, oh no, here and it will open because you can only control the motors in open and let's say cannot teach let's say it it will take it and the mood so for a given position in the space you are control algorithm generating the angles for your joints.</p>
+      <p>That becomes inverse kinematic. You can use gradient the same. Yeah, you can use it to solve it, but it is only one method for this one. So, does it make sense?</p>
+      <p>And inverse kinematic can be single zero solution or multiple solution why multiple? For different angles you can achieve the same behavior and why zero? Maybe you cannot reach it okay it will be far enough no matter what you do no it's mine it's my robot i can broke it but you cannot okay uh yeah uh for instance the problem is the same but your robot cannot reach it so that becomes zero solution and the one solution So that becomes zero solution. And the one solution, if you have one solution, then you will be lucky because computing the inverse kinematics is quite, quite hard.</p>
+      <p>And that's why we will not ask in the exam. But if you took an intro to robotics lecture in another department, or if we have finally in this department robotic courses in a formal way, you will see at least two, three lectures will be dedicated to inverse and forward kinematics and how to solve. So did you get it? It will be exam question.</p>
+      <p>You will not solve anything, unfortunately, but you should be responsible for understanding the concept. Cool. So let's go and do a bit more maths in here. So my question will be, you have this two linked R with two joints, one joint in here, another joint in here, and this one also called the degree of freedom.</p>
+      <p>Two degree of freedom in here. So with this formation that i know what will be my position of the end effector okay for a given length of l1 and l2 you have to calculate the end position of this robot in here. Position of this robot is like this one. This is what we call end effector.</p>
+      <p>Usually, end position is either in the middle or in the middle of this. So here, we have to decompose the problem, and the first part will be solve this part. So, what will be the length of x dot in here? Anyone wants to try?</p>
+      <p>Because at the end, I want to know this part, yeah? From here to here and here to here. The y dot is given in here. I will calculate it.</p>
+      <p>It's not given, but I will calculate. If I calculate y dot and the y dot dot, then I can add two of them and know the horizontal distance of this and the node horizontal was a distance of this and a vector, and the same with the vertical one. So vertical distance in here, horizontal distance in here. So what will be the, let's say, x dot in here?</p>
+      <p>How we can solve it? No? You already know it. I can guarantee that you already know it.</p>
+      <p>Try. Okay. OK. OK, let's make a super.</p>
+      <p>This is an. You have x axis in here, and let's say Y axis in here. And initially your robot is staying here. Initially your robot is staying here.</p>
+      <p>For that part, the starting part. This is L1. Then you want to, it's same like here, then you want to move like this. Then you are moving like this.</p>
+      <p>And this moment is alpha degree. And the only thing that you have, L1 and the alpha is a degree, and you have to solve this part, x, y. Let's say x dot y dot, because x zero by zero is here. What will be that path?</p>
+      <p>I have a question. Do you know alpha already or not? We are looking for general solutions. No matter the value of alpha, you have to solve it.</p>
+      <p>Versus for the alpha, let's say, 30 and 60. Do you remember this one? l over 2, l1 over 2 is here and l1 over 2 times square root 3 is here but we will go in the generic version of it, we don't need the exact numbers Yeah, what will be the length of here? Cosine alpha l1. Okay.</p>
+      <p>Cosine alpha times l1. Anything else? Here. Come on.</p>
+      <p>Come on guys. Yeah, this is cos alpha. l1 times cos alpha and here, sine alpha, and if you go with the l1 sine alpha, it's here, then that becomes x and that becomes Y and you solve it and no matter what you put alpha as in here this is a generic solution it can be 30, 1 degree, 100 degree whatever the degree it will solve it and now we solve for this part. And we know this already. Now we have to move the other part.</p>
+      <p>And for the other part, you will just move the coordinate systems from here to there. Then solve it in the same way. The L2 times alpha plus beta will be, cos of alpha plus beta will be here, and sine of alpha plus beta will be here, and you have to add up together. Then you will basically solve the kinematic equations for this robot.</p>
+      <p>It's quite easy. Literally, it's very easy. With basically two equation, you can find all solution exists for this robot arm. Of course, it's a simple robot arm with two links.</p>
+      <p>In reality, you see this is a simple robot arm, basically, with five links. And the dimension of the link or degree of freedom of the robot is increased. Then you need to change and adopt your equations in here. Do you want this kind of question in the exam?</p>
+      <p>No? Okay. Cool. But bear in mind that you can solve with your analytic geometry backgrounds this kind of stuff.</p>
+      <p>This is forward kinematic. It is easy to solve if you know basic trigonometric functions. But for the inverse kinematic, it's hard. For a given point in the space, I have to reconfigure my joints to reach that space or remove that space.</p>
+      <p>Remember, we have a zero, either zero, one, or multiple solutions for this. Go and check the reading materials for this week. I already put it. If you have questions, then we can solve during the practical sessions.</p>
+      <p>Cool. So we need to be a bit more quick. To do this, basically to solve the kinematic equations, we need some mechanisms of feedback. Why feedback?</p>
+      <p>Because during the movement movement like the problem here during the movements we can we have to assess our self whether we reach the point or not like I want to answer this phone with this position and the grasp with the phone body here and what i can do i cannot oftentimes jump directly to here it will be a bit unrealistic especially working for the robots but what i can do i can first say that move here and check whether your current coordinates current position match with this one or not. Of course not. Then error is high. And with each time, you are reducing your error.</p>
+      <p>Now you are in the almost zero error. Then if you are in the certain threshold, you can grasp this object. So does it make sense? Does it make sense?</p>
+      <p>No? Yes? Okay. The error can be like here.</p>
+      <p>Okay. We don't have any color stuff. This is your known position, goal. And to reach this goal, you cannot directly jump it.</p>
+      <p>And you can do it once. For this kind of robots, you cannot do it. What you can do, you are slowly, slowly moving there. And initially, error is like this, very big.</p>
+      <p>And then you are slowly moving. Error is decreasing. And at the end, you are reaching the position that you want, which means that error is almost never 0, but within the threshold, it's close to 0. And that is the feedback that we are providing to our systems.</p>
+      <p>That is the thing that's called Feedback Control. It's a host of three value for us, and each of them are number. In this case, let's say the position is this place, and this is our reference number, x, y, z coordinate of the goal position that we want to be there. Then my current state is y.</p>
+      <p>It's not a variable, it's a vector. Then difference between these two becomes error. Initially, you will see that error is super high, like here that we are at the beginning of the movement. Then, I am putting this error into my control algorithm.</p>
+      <p>Control algorithm generates the U. U is the joint configuration of your robot. So for a given error, what will be your current configuration to minimize it. Then you are giving this U to your robot because robot has to move.</p>
+      <p>At that, it's a closed-loop systems. If you perform this sequence again and again, you will see your error rate is minimizing and you are reaching your destination. Later it will be much more clear because we will give some examples. The only thing that you should consider is the feedback and feedback comes from your error that you make.</p>
+      <p>Your goal is to minimize that feedback and feedback comes from your error that you make. Your goal is to minimize that feedback and your friends already say gradient descent. Gradient descent is a good way to discover local minimum points in the function. So that's why one way to solve it is the gradient descent, but it's not the only way.</p>
+      <p>Yeah. All focus is just how I can reduce my error to achieve my goal, and that's the closed-loop feedback control mechanisms for all robots. So let's give a break. In 45, we'll be here.</p>
+      <p>Then we will move to a bit more interesting stuff. Can you come here and let's try a panel photo together? All right. I have a classroom recording.</p>
+      <p>Thank you. So, Panapot should work actually. Now, you can also see the cluster recordings from the Canvas. You can come and touch it.</p>
+      <p>It's your work. It's the same thing that you have. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. um to be fair um i don't know it.. Let's start the second part.</p>
+      <p>So we already mentioned about the feedback controller, and the feedback comes in the form of error. All we want to reduce the error and to give the better feedback for a robot to generate the behavior or action. One approach is actually called on and off or bang-bang algorithm, which is quite simple but try to understand better because it will get a bit complicated. Here again, we have a constant reference value where I want to be, which means that the goal position of your robot, and we call it a reference value for it, and measure the value.</p>
+      <p>Measurement comes from the sensing. And you will have somehow a position encoder in here. And it will say that, OK, you now move 20 degrees in that direction. And this distance, or the difference between reference value and the value that you are measuring, will give you a feedback.</p>
+      <p>And that feedback will be error. For instance, if your error is 0, it means that you have to stop because you already achieved your goal. And if your error is negative, in this case, can be, then your robot has to move in opposite direction. If it is positive other than zero, then it means that you have to move the other direction.</p>
+      <p>Does it make sense? It does. Because in robotics, it already has to make sense you are supposed to slow down when you are here and when you are there so that you don't overshoot no no no we will come to that later in the second step this is the on and off like this is your let's say this is your goal state everybody can see it let's say goal state x and y and I will put my robot in here let's say in the middle, I have a current state x dot y dot and all I want to do is move from this to this so here what I have is my initial position and the distance between these two are quite high which means that my error is quite high does that make sense? yeah so you move forward. Now I will move forward.</p>
+      <p>And with each movement I am calculating the error. So now we are still too far. Yeah, too far and my error is lower than when I am here, but still it is high. Then I am moving here, error becomes, let's say, zero.</p>
+      <p>Then we stop. here error becomes let's say zero then I am stopping and that becomes my control of others is that check your current position measure position compared with your goal if it's zero stop in reality this is hard to achieve because there will be some delay that I am reading my sensory information, processing it and make a decision that will create some delay. And I will never achieve zero error. What will happen? I came here and I have some delay.</p>
+      <p>Then I will calculate my position in here and I will check it's not my goal position. What I will need to do, go back and when I come back then I will recalculate again and error is not zero I will go like this. Does it make sense? does it make sense error usually cannot be 0 why because we have a software and hardware delay in robotics that's why we almost never achieve 0 error ok so when it's bigger than 0 we move it back ok ok ok Okay. And we call this one a bang-bang because if we draw the figure, you will see there are some ups and levels like triangles.</p>
+      <p>Okay. Like here. So this is your reference volume, the one that you want to reach. And with each reading, you are decreasing your distance error.</p>
+      <p>But when you are coming here, then some delay occurs. You are overshooting coming here. Oh, you said that, okay, my position changed and goal is, I'm not in the goal. I'm going back, coming here, here, here.</p>
+      <p>You will never reach your R position in here. So error is useful for you, but still does not lead to best position that you have. What I want to do is simple, play with the error. And the only thing that I can control is the error.</p>
+      <p>So my motor command, that is the error. And the only thing that I can control is the error. So my motor command that is the error. And I can, in the same example here, what I can do, you have a super higher than speed up when you're approaching your goal position reduce your speed and of course still it's backward, but less than the previous one.</p>
+      <p>Yep. Just see that we have one gain parameter, and we are reducing our error by this parameter. And now you will see this concept is, will be important for us. You can check this one.</p>
+      <p>This is a homework for you. Just check it. Then, sorry. Here, I have an error calculated my measure of the position and the reference one, the goal position, and I am multiplying with one factor which is called gain.</p>
+      <p>The finding this gain is super, super problematic. Initially, you will try a lot of values and read a lot of papers that use the same robots and the same test that you are achieving it. Then based on this one, you will power your motors basically, and overall, you will get this kind of behavior okay so reduce your speed while you are approaching you approaching to your R level okay and this is called proportional control method why because we are manipulating or the playing with the error by multiplying with one constant value. And that becomes your gain.</p>
+      <p>And to control the gain, basically it's a bit of trial and error. For instance, if your gain is too much, then the distance that you will travel will be too much and at then you will get something like bang bang like a algorithm yeah it's a green that is the too excessive and if it is too low then you will have an everything a behavior like this with the dotted blue one. So at the end, you may not reach your goal position again, but still you are performing much better than the previous one. This is called P, part of PID algorithm which is proportional.</p>
+      <p>You can also extend it into the proportional and the integral one, and you will see you are minimizing the error perfectly. If you integrate and put the derivative on the error term too, you will get this kind of very nice algorithm and behavior. We will not go in detail, but if you read the elements of robotics for optional readings, then you will understand it and you will not be responsible for integral and the derivative part of it, but we will ask the proportional part of it. This is one of the famous actually figures in robotics like and you if you open it and or plot your robot behavior you will get this kind of error stuff okay but you get the bang bang on and off and proportional one yeah like you are moving but you cannot stop yourself at the exact same point and you are moving backward, moving forward, backward, forward, backward.</p>
+      <p>That becomes on-off and if you are proportionally decreasing your speed it becomes peak control for your robot. Yeah, we just give quite simple examples in here, but if you are interested, you can download MATLAB. It's free for our students and play with it with the control theory toolbox. If you are into Python, then you can go and check this textbook.</p>
+      <p>I have a hard copy one if you want I can bring to you, and you can play with it. You can also find it online and play with the Python algorithms in here. This kind of control algorithms actually it is quite popular in the industrial domain, and there are a lot of money inside it. So because if you reduce your error by certain percent, it means that the robot is efficient with that certain percent, and in return, you will get more budget, more money for the other stuff that you are doing.</p>
+      <p>So it's quite important topic actually for us and for the roboticist. And now we have to move in different approaches for robotics. And here you are seeing a lot of different type of robots. And almost all of them are acting in the loop that we showed before.</p>
+      <p>Like sense the environment, plan it how you are using this information, and act sense the environment planet how we are using this information and act in the environment and if you have all this tree it becomes that you have a one paradigm of your robot to how to control it and generate the behavior for your so let's make some exercise in here. With this robot, what will be, or this robot, what will be the sense part of this robot? What kind of sensor this robot should possess if it wants to touch you? Yes, what kind of sensor?</p>
+      <p>Sensor? What kind of sensor this robot should have? Position sensors, like angle sensors. Yeah, like position encoders.</p>
+      <p>I need to understand what's my angle in each joint position. Okay. Maybe camera to detect the length of this part. Okay.</p>
+      <p>To understand that how much that I will open my and the factor. Okay. And what will be the plan? Which plan should I use?</p>
+      <p>Like should I use proportional controller bang-bang controller or other types of controller so you can use let's say reinforcement learning to this one okay but in the real robot reinforcement learning will almost always fail. And for the action, since you sense the environment, you plan your actions, and now we have to execute it. And that becomes changing joint position of each joint that will move you to the specific position that you want. And if you combine all of them intelligently, then you have one paradigm to control your robot.</p>
+      <p>And it is a bit hard task. And later, we will go in detail and explain in super, super detailed way with you. And we will use the keyword paradigm in here. Usually, in the philosophy of science, we have some paradigms.</p>
+      <p>It is initiated by Thomas Kuhn. If you remember Apple's some slogans like a paradigm shift is coming from all this book. It's basically a principled way that you are looking for a problem and solving it. Like let's say for the planning paradigm, somebody will be in favor of using the hand-coded stuff.</p>
+      <p>So they have one paradigm, and then other people will say that let's use learning-based stuff, deep neural network. That's another paradigm. The last paradigm will be, let's say reinforcement learning. People will come say that, okay, the best way to solve this problem is the RL stuff.</p>
+      <p>The one hardcore robots will come say that, okay, we don't need anything. Let's move to the control theory and solve from there. So all people will have a different types of paradigm and all of them will be correct for a given solution. But oftentimes, people are in the one camp, one school of thought, and they're following this one paradigm to solve their tasks.</p>
+      <p>Here, we will not take any position, just introduce it to you, and you can adopt one of them, solve your practical project. And to solve it, we need to also make some assumption. And one of the assumption is the closed world, which means that your robot behavior is as good as your domain knowledge. Like I'm a programmer of this robot and my only task is from here to here so I know that my length of the robot, length of the gripper and the aperture of the gripper and I know everything in this robot and everything in this task I don't need to make any assumption so it means that my world is closed and I have all information for me to achieve the task.</p>
+      <p>Another one is the open world problem. This is the hard one because there will be some dynamic aspect of the environment that as a roboticist you may not foresee. What will be in here, let's say my robot will go and touch it, but your colleague will come and grab this phone and start to talk. Since we are doing the same task at the same time, I cannot compete with him, and it means that my assumption will fail. my assumption will fail.</p>
+      <p>So to be much more specific, if you can see all parameters in the environment and code your robot, then you are following the closed one. But if you cannot see the all parameters available in the environment for your robot, then you are following the open world assumption. Oftentimes, all problems are exist in here like you cannot for instance predict in the mobile robot behavior in outside why because you cannot predict the flow of the wind you cannot predict that okay how many people's will pass by your robot. Cool, so based on these two concepts, tell me which one is open world robots in this team.</p>
+      <p>The right one because the environment is very unpredictable. Multiple agents, the variations in the response of the world, etc. And in the left one, you can use prescriptive maneuvers, minimal sensors. Exactly.</p>
+      <p>Like here, you have a lot of different type of parameters that you cannot predict. One parameter can be number of watchers in here or audience in here. Why? Because when they clap it or when they make a sound, these robots will process it.</p>
+      <p>So, they cannot predict this behavior of the environment. The environment is complex enough, cannot be modeled by a single human programmer. That's why we can say that this is an open-world robots or robots that are working in open world assumption and this one is predefined movement everything is ready if you change one item in the environment and the test will fail so these are working in the closed world assumption okay and this is quite we go in detail and mention it but that will be one of your exam questions. Like here, with the sensing, planning, and acting, we're calling them these primitives, like primitives in the programming environment.</p>
+      <p>Okay, what are the primitive data types in programming? Primitive data types, like int and float and byte and short and long. in programming yeah these are the primitive data type that you are using here is also you are cutting in X X becomes the position of something here also for the sensory we can say that for the camera then you have an mattresses for the camera stuff then we an mattresses for the camera stuff then we are calling this one is the motor sorry robot primitives and we have to combine these primitives to make an make a be enabled or robot to display display a behavior to achieve a task okay here is the task is go there and the kick in here and the sensing can be camera information joint position planning can be if you see the ball in front of you just raise your leg and the kick the ball and the action is raising the leg and the kick in the ball and the planning is just a given the motor command for the actions okay we already mentioned this one okay now how I can connect to each other let's say for the by time at wiggle how I should connect sensing with acting and with planning. Do you remember? I say with the lower agent.</p>
+      <p>Lower agent means that it will see the stimulus in the environment and be as close as possible to that stimulus. Then which one I need? one I need this robot is a bright amber critical lower agent and this is the object that it loves and what kind of formation sense this one here intensity is quite low I approach it it is getting higher getting maximum and I can stay in here so for the retumbat vehicle basically we don't need planning but But we need sensing and acting. So if you have all of them, you don't need to use all of them. Based on your task, you may use selectively a few of them and combine them.</p>
+      <p>And the first paradigm that we are using is called hierarchical or deliberative paradigm. This is the oldest scenario. And this is the one of the oldest robots actually, Sheikhi. Let's see.</p>
+      <p>You said it would be low quality. Do a quote then. And you see it's shaking. The GoTo program plans a route by first computing whether any obstacles lie on a direct path.</p>
+      <p>If so, points near the obstacle are set up as subgoals. After Shakey computes a route, he traverses it to the goal. Another intermediate. Yeah, here what we have, we have a sensing and sensing information goes to, data goes to planning and planning, do some planning, actually planning.</p>
+      <p>Again, this is the door, this is the object, distance is between object and you is, I don't know, 20 centimeters. So this kind of stuff are planned and planned holistically. For each step, you have to do this one again and again. So you have a sensing for all things in the environment, and you are positioning yourself.</p>
+      <p>Then making one action and sensing again, making planning and acting until you achieve your goal. The key word here is you need to represent your environment, which means that you have to understand that where is the obstacle, where is your goal, and where is your current position. By planning basically, you will make sure that your current measure position is close to your goal position that you want or you want to achieve. But this one is quite slow.</p>
+      <p>Why? Because you need to make sensing, planning, acting in the same loop basically. Imagine that this shaky is a bit prehistoric actually, very, very alter robot but imagine that we are making making a shaky standard for our robots then it has to get all information in the environment and perform one action and do the same thing again perform another action do the same thing again and based on the number of the sensor and the number of the computation that this robot has to do in its board it may not be physical it can achieve but it can achieve super small so that's why actually we are saying that this is the oldest paradigm and it has some problem because once the planning is done it assumes that the environment is not changing but in reality it can change like let's say you already calculated distance in here and the all joint angles but once you try to reach it then another person will grab this one and you will not achieve the task so basically it ignores the dynamic aspect of the environment but if environment is not changing then this is your best goal best product that to use it learning even though the tasks we give these walls were made to plan and coordinate just watch it and it will be quite nostalgic actually for you to to do okay and this is not biologically realistic because some of the behavior that we have, like a reflex, like mechanisms cannot be explained with this paradigm. So people say that, some smart people, you already know it, Rene Brooks, said that, okay, let's remove the planning or learning.</p>
+      <p>With this kind of then it becomes act and the sensing primitives. If you connect them together, it becomes like a Breitenberg-Wickel-like mechanisms. Here is superfast. Unlike the planning part, it is superfast and it is biologically realistic, and you don't need advanced algorithm knowledge actually, for achieving this to solve task with this paradigm.</p>
+      <p>But it has some problems. Because if you only sense and act, it means that you are not thinking. Whatever that behavior you are displaying, you will display continuously. So you will not learn anything basically based on this behavior and this is the biological part of it let's see it okay it just sense and act okay sense and act sense and act if it's smart or intelligent then after a few action basically it has to stop because it has to understand that it's not getting any calorie yeah with this hunting behavior but unfortunately it is not aware of it and it will do continuously and you see that actually for this biological agent, it doesn't matter if it's a virtual fly or something is moving in front of it, it will just attack it.</p>
+      <p>So there is no learning. I hope you understand this one clearly. You don't have basically sense of the environment. Something is changing, but you are behaving the same way.</p>
+      <p>Something is changing, you are behaving the same way. Exam question is changing, but you are following the same strategy to pass the exam. So of course, some smart people, the robots will come that, okay, we have a high derivative paradigm which is hierarchical, and the reactive one, why not combine these two? Of course, if you combine these two, you will get some advantage of it, but some disadvantage of it too.</p>
+      <p>What you can do basically, you will get some advantage of it but some disadvantage of it too and what you can do basically first you can start with the planning okay I see the environment and my task is this one then one sensor information comes it and I plan everything to act so it's a bit of it problem problematic in here because we need to consider some parallel processing in here. Like planning, I have to achieve the task from here to open this door, but some things are around, and I make one action and sense the information and replant again and do the same thing again so it becomes a bit hassle for you to do it but it provides some advantage of it okay because if your planning is good then you can adapt in the environment remember for the reactive one we only have this part of it, act and sense. But here, we are orthogonally actually planning the task. So we are getting benefits of being fast in the environment with learning the environment dynamics.</p>
+      <p>So we almost finished our today's task and today's slides. But don't leave. We have to talk a few other stuff. if you click and the LED will turn up now you see this LED but do you have any controller in this circuit so somebody from the outside just clicking here and the LEDs turn off and the turn on the other controller to control the behavior of this lady no yeah and what we need imagine your are doing it what we need to include in this example something that we can control yeah and that will be your arduino kit and you should assume that this arduino kit is the brain part of your uh your sorry this arduino board is being part of your robot and let's see here so this is the new here it's very good like it you see the this USB cable it's not inside but when I click the simulation it will go inside so it's a USB cable, it's not inside, but when I click the simulation it will go inside. So it's a good feedback.</p>
+      <p>And you see it is actually turned on. And this is the photo resistor, which means that if you increase the lights on top of it, you can change the behavior of your components it can be motor it can be LED like here if I put more lights then my LED will go fade away and it will turn off if it's almost zero light then this LED will happily blink which means that it is somehow achieving a that your agent is liking in the dark environment, like cockroaches basically. It's like a dark environment. This one is a controller for you.</p>
+      <p>This is the brain of your robot. You will learn this practical session to how to code it let's say this is the new one okay with basically this kind of 20 lines of code you can get this kind of behavior okay and now let's change the LED, basic LED, to the motor. It's not a good electronic design for electronic circuits, but we will give just an example. Like here.</p>
+      <p>This is the photo resistor, and if I increase the light on top of it you will see it will rotate. Actually you are not supposed to connect load heavy components directly to the Arduino, you are supposed to use a driver to have control of a higher voltage with a lower voltage. Exactly, you should be careful but since since it's a simulator, I can do it. Like in real life.</p>
+      <p>Yeah, if you do it in real life, then you will see this kind of stuff. It will not explode, but it will burn out. You will burn this board in here. And if you burn this board, basically, you will just change the board.</p>
+      <p>And you will have a great penalty on the gosh yeah but we have a lot of our new free arduino so you can you can experiment it but if you broke too often then we need to talk okay cool so the more that i am increasing the light it means that the more that is rotating so based on this formation if i add if i add another another motor in here okay this is the for the single motor controller and imagine this is the photoregister but it's not then you will definitely get the Brittenberg type behavior yes exactly we put two sensors on a which can move yeah this is the basic form of the Brittenberg but of course we will not do this kind of circuit we will do a bit more complex one it's called uh with the motor what's the motor controller board what is that okay let's go i guess this one I guess this one. And that will be your next, next, next circuit. This one. So this is the previous one.</p>
+      <p>And it will explode. Not explode, but it will be damaged. But here with this motor controller, you can control two of them, and here is just one of them and if you run it I hope it will run yes but it's not running because there is no input anyway you will see you will see later a lot for this. Where's the sensor part of it?</p>
+      <p>Probably this is the temporal solution for it. Anyway, you cannot do with this photoresistor, it has to be with a motor control like it. The motor controller allows you to control a higher voltage with a lower voltage so that you don't burn your Arduino kit yeah exactly basically you don't need this motor control if you have some transistor and other stuff but we will go with the motor control okay we finish our lecture today and please attend the practical session be nice to Bozong I will not be there but I will be online so if you have a question I can I mean motor control you need but you can do without Need, but you can do without motor controller. But if you give a transistor, then it will either be or nothing.</p>
+      <p>Or nothing, no, no, you can change it. But it's harder looking. Yeah, of course it will be harder. It's not linear anymore.</p>
+      <p>And your board will look like this, a lot of components. That's good. Because if you check the data sheet of the motor controller, you will see some H-bridge. And with that H-bridge you can create by yourself too.</p>
+      <p>Thank you. Yes, lady. What is this? Hi, you have your own?</p>
+      <p>No taking. But today I don't see any of these. No, because it's quite simple. I only take notes if there's a last surprise.</p>
+      <p>Like, how does, what is it good when you have a lower level controller? Like... No, I know what you mean. I know what you mean.</p>
+      <p>How does... what is it called when you have a lower level controller to help you do a high level objective? Like I want to press the buy button because my cognition says that this is in an uptrend. What is it called when I have a lower level controller that guides my hand to the buy button? Okay, it's called motion primitives.</p>
+      <p>Yeah. Primitive. Yeah, motion primitives. Motion primitives.</p>
+      <p>Cool. Because if you change the motion primitives together, you can have 10% more compensation. Like the trading part of my hand doesn't guide my hand, my brain doesn't guide my hand straight to the buy button. But it tells the lower level level primitive to do that.</p>
+      <p>Are you a trader? Yeah. What do I trade in? Stalks?</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you.</p>
+    </div>
+  </details>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 44; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week03-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week03-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week03-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(44, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 44`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week03-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week03-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+
+  // ─── transcript search ───
+  const searchEl = document.getElementById("transcriptSearch");
+  if (searchEl) {
+    const paragraphs = Array.from(document.querySelectorAll(".transcript-body p"));
+    const originals = paragraphs.map(p => p.textContent);
+    searchEl.addEventListener("input", () => {
+      const q = searchEl.value.trim();
+      paragraphs.forEach((p, i) => {
+        const text = originals[i];
+        if (!q) {
+          p.textContent = text;
+          p.style.display = "";
+          return;
+        }
+        const hit = text.toLowerCase().includes(q.toLowerCase());
+        p.style.display = hit ? "" : "none";
+        if (hit) {
+          const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          p.innerHTML = text.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
+        }
+      });
+    });
+  }
+
+</script>
+</body>
+</html>

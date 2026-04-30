@@ -17,15 +17,46 @@ function saveDone(set) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify([...set]));
 }
 
+// Module title in roadmap data: "Module 1: History & Methodology" → split into
+// numeral ("01") and short title ("History & Methodology").
+function splitModuleName(name = "") {
+  const m = name.match(/Module\s*(\d+)\s*:\s*(.+)/i);
+  if (!m) return { num: "··", title: name };
+  return { num: m[1].padStart(2, "0"), title: m[2].trim() };
+}
+
+// Lecture title in roadmap data: "Module 1 Lecture 1: Methods" → code "M1·L1"
+// and short title "Methods".
+function splitLectureTitle(title = "") {
+  const m = title.match(/Module\s*(\d+)\s*Lecture\s*(\d+)\s*:\s*(.+)/i);
+  if (!m) return { code: "L?", name: title };
+  return { code: `M${m[1]}·L${m[2]}`, name: m[3].trim() };
+}
+
+// "Weeks 3-4 — Ch. 5" → "wk 3–4". Strip the chapter portion since chapter
+// references are already shown per-lecture.
+function shortWeeks(weeks = "") {
+  const m = weeks.match(/Weeks?\s*(\d+(?:\s*[-–]\s*\d+)?)/i);
+  if (!m) return weeks.toLowerCase();
+  return `wk ${m[1].replace(/\s*-\s*/, "–")}`;
+}
+
+function daysUntil(dateStr) {
+  if (!dateStr) return null;
+  const target = new Date(dateStr + "T00:00:00");
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const diff = Math.round((target - today) / (1000 * 60 * 60 * 24));
+  return diff;
+}
+
 export default function RoadmapView() {
   const [done, setDone] = useState(() => loadDone());
 
   const allLectureIds = useMemo(() => {
     const ids = [];
     for (const phase of STATIC_ROADMAP.phases) {
-      for (const lecture of phase.lectures ?? []) {
-        ids.push(lecture.id);
-      }
+      for (const lecture of phase.lectures ?? []) ids.push(lecture.id);
     }
     return ids;
   }, []);
@@ -33,6 +64,7 @@ export default function RoadmapView() {
   const completed = allLectureIds.filter((id) => done.has(id)).length;
   const total = allLectureIds.length;
   const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
+  const daysLeft = daysUntil(STATIC_ROADMAP.exam_date);
 
   useEffect(() => {
     saveDone(done);
@@ -48,86 +80,114 @@ export default function RoadmapView() {
   };
 
   return (
-    <>
-      <header className="roadmap-header">
-        <span className="roadmap-eyebrow">Study Roadmap</span>
-        <h2 className="roadmap-title">{STATIC_ROADMAP.name}</h2>
-        <p className="roadmap-meta">Exam: {STATIC_ROADMAP.exam_date}</p>
+    <div className="roadmap-list">
+      <header className="roadmap-list-head">
+        <p className="roadmap-list-eyebrow">Study Roadmap</p>
+        <h1 className="roadmap-list-title">{STATIC_ROADMAP.name}</h1>
+        <p className="roadmap-list-meta">
+          <span>Exam {STATIC_ROADMAP.exam_date}</span>
+          {daysLeft !== null && daysLeft >= 0 && (
+            <>
+              <span className="roadmap-list-dot">·</span>
+              <span>{daysLeft} days remaining</span>
+            </>
+          )}
+          <span className="roadmap-list-dot">·</span>
+          <span>{pct}% complete</span>
+        </p>
       </header>
 
-      <div className="roadmap-progress">
-        <span className="roadmap-progress-label">Overall progress</span>
-        <div className="roadmap-progress-bar">
-          <div className="roadmap-progress-fill" style={{ width: `${pct}%` }} />
-        </div>
-        <span className="roadmap-progress-pct">{pct}%</span>
-      </div>
+      <div className="roadmap-list-rule" aria-hidden="true" />
 
-      {STATIC_ROADMAP.phases.map((phase) => (
-        <section key={phase.name} className="phase-card">
-          <header className="phase-card-head">
-            <div>
-              <h3 className="phase-name">{phase.name}</h3>
-              <p className="phase-weeks">{phase.weeks}</p>
+      {STATIC_ROADMAP.phases.map((phase) => {
+        const { num, title } = splitModuleName(phase.name);
+        return (
+          <section key={phase.name} className="roadmap-mod">
+            <div className="roadmap-mod-head">
+              <span className="roadmap-mod-num">{num}</span>
+              <h2 className="roadmap-mod-title">{title}</h2>
+              <span className="roadmap-mod-meta">
+                <span
+                  className={`roadmap-mod-priority ${phase.priority || ""}`}
+                >
+                  {(phase.priority || "—").toUpperCase()}
+                </span>
+                <span className="roadmap-mod-dot">·</span>
+                <span>{phase.exam_weight}% exam</span>
+                <span className="roadmap-mod-dot">·</span>
+                <span>{shortWeeks(phase.weeks)}</span>
+              </span>
             </div>
-            <div className="phase-tags">
-              <span className={`phase-priority ${phase.priority}`}>{phase.priority}</span>
-              <span className="phase-weight">{phase.exam_weight}% exam</span>
-            </div>
-          </header>
 
-          {phase.topics?.length > 0 && (
-            <div className="phase-topics">
-              {phase.topics.map((t) => (
-                <span key={t} className="topic-chip">{t}</span>
-              ))}
-            </div>
-          )}
+            {phase.topics?.length > 0 && (
+              <p className="roadmap-mod-topics">
+                {phase.topics.join(" · ")}
+              </p>
+            )}
 
-          {phase.lectures?.map((lecture) => {
-            const isDone = done.has(lecture.id);
-            return (
-              <article key={lecture.id} className="lecture-card">
-                <div className="lecture-row">
-                  <button
-                    type="button"
-                    className={`lecture-checkbox ${isDone ? "checked" : ""}`}
-                    onClick={() => toggle(lecture.id)}
-                    aria-pressed={isDone}
-                    aria-label={`Mark ${lecture.title} as ${isDone ? "incomplete" : "done"}`}
-                  >
-                    {isDone ? "✓" : ""}
-                  </button>
-                  <span className="lecture-title">{lecture.title}</span>
-                  <div className="lecture-actions">
-                    {lecture.sectionId && (
-                      <Link to={`../notes/${lecture.sectionId}`} className="lecture-action">Notes</Link>
-                    )}
-                    {lecture.sectionId && (
-                      <Link
-                        to={`../quiz/${lecture.sectionId}/multiple_choice`}
-                        className="lecture-action"
+            <ul className="roadmap-lect-list">
+              {phase.lectures?.map((lecture) => {
+                const isDone = done.has(lecture.id);
+                const { code, name } = splitLectureTitle(lecture.title);
+                return (
+                  <li key={lecture.id} className="roadmap-lect">
+                    <div className="roadmap-lect-row">
+                      <button
+                        type="button"
+                        className={`roadmap-lect-check ${isDone ? "checked" : ""}`}
+                        onClick={() => toggle(lecture.id)}
+                        aria-pressed={isDone}
+                        aria-label={`Mark ${lecture.title} as ${isDone ? "incomplete" : "done"}`}
                       >
-                        Quiz
-                      </Link>
-                    )}
-                  </div>
-                </div>
-                {(lecture.key_concepts?.length || lecture.readings?.length) > 0 && (
-                  <div className="lecture-meta">
-                    {lecture.key_concepts?.map((c) => (
-                      <span key={c} className="lecture-concept">{c}</span>
-                    ))}
-                    {lecture.readings?.map((r) => (
-                      <span key={r} className="lecture-reading">{r}</span>
-                    ))}
-                  </div>
-                )}
-              </article>
-            );
-          })}
-        </section>
-      ))}
-    </>
+                        {isDone ? "✓" : ""}
+                      </button>
+                      <span className="roadmap-lect-code">{code}</span>
+                      <span className="roadmap-lect-name">{name}</span>
+                      <span className="roadmap-lect-spacer" />
+                      {lecture.readings?.length > 0 && (
+                        <span className="roadmap-lect-chapter">
+                          {lecture.readings[0]}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="roadmap-lect-sub">
+                      <span className="roadmap-lect-concepts">
+                        {(lecture.key_concepts || []).join(" · ")}
+                      </span>
+                      <span className="roadmap-lect-actions">
+                        {lecture.sectionId && (
+                          <Link
+                            className="roadmap-lect-action"
+                            to={`../notes/${lecture.sectionId}`}
+                          >
+                            notes
+                          </Link>
+                        )}
+                        {lecture.sectionId && (
+                          <Link
+                            className="roadmap-lect-action"
+                            to={`../quiz/${lecture.sectionId}/multiple_choice`}
+                          >
+                            quiz
+                          </Link>
+                        )}
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="roadmap-list-rule" aria-hidden="true" />
+          </section>
+        );
+      })}
+
+      <footer className="roadmap-list-footer">
+        {completed} of {total} lectures complete · Tilburg University ·{" "}
+        {STATIC_ROADMAP.exam_date}
+      </footer>
+    </div>
   );
 }

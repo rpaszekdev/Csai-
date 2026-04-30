@@ -65,8 +65,41 @@ export const PROGRAM = [
               },
             ],
             resources: [
-              { label: "Lessons", href: "#" },
-              { label: "Q&A (RAG)", href: "#" },
+              {
+                label: "L01 — Intro & Logistics",
+                href: "/auto-sys/lecture-01.html",
+              },
+              {
+                label: "L02 — Sensors & Braitenberg",
+                href: "/auto-sys/lecture-02.html",
+              },
+              {
+                label: "L03 — Controllers (Brains)",
+                href: "/auto-sys/lecture-03.html",
+              },
+              { label: "L04 — Embodiment", href: "/auto-sys/lecture-04.html" },
+              {
+                label: "L05 — Reinforcement Learning",
+                href: "/auto-sys/lecture-05.html",
+              },
+              {
+                label: "L06 — Unsupervised Learning",
+                href: "/auto-sys/lecture-06.html",
+              },
+              { label: "L07 — Multimodal", href: "/auto-sys/lecture-07.html" },
+              {
+                label: "L08 — Affective & Social HRI",
+                href: "/auto-sys/lecture-08.html",
+              },
+              {
+                label: "L09 — Cognitive Robotics",
+                href: "/auto-sys/lecture-09.html",
+              },
+              {
+                label: "L10 — Simulation Environments",
+                href: "/auto-sys/lecture-10.html",
+              },
+              { label: "L11 — Exam Review", href: "/auto-sys/lecture-11.html" },
             ],
           },
           {

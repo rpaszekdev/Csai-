@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W10 — Simulation Environments</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">10</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 05 · Lecture 02 —</span>
+      <h1 class="hero-title">Simulation Environments for Autonomous Systems</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>41 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip" href="./lecture-09.html">L09</a>
+  <a class="chip active" href="./lecture-10.html">L10</a>
+  <a class="chip" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-05.png" target="_blank">
+          <img src="./week10-slides/slide-05.png" alt="Slide 05 — Brooks mandatory quote" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 05</span>Brooks &mdash; &ldquo;doomed to succeed&rdquo;</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-06.png" target="_blank">
+          <img src="./week10-slides/slide-06.png" alt="Slide 06 — Mandatory question" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 06</span>Why Rodney complains</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. The Brooks Provocation &mdash; &ldquo;Doomed to Succeed&rdquo;</div>
+
+      <p>Week 10 opens with a deliberately uncomfortable framing. Before any tool tour, Murat plants a famous line from <strong>Rodney Brooks</strong> at the centre of the lecture and refuses to move on until the implication has been chewed.</p>
+
+      <div class="callout">
+        <div class="callout-label">Mandatory quote <span class="badge">Exam</span></div>
+        <p><em>&ldquo;The problem with simulations is that they are doomed to succeed.&rdquo;</em> &mdash; <strong>Rodney Brooks</strong></p>
+        <p style="margin-top: 10px;"><strong>Mandatory question:</strong> <em>Why does Rodney complain about simulators?</em></p>
+      </div>
+
+      <p>The complaint is not that simulators are useless &mdash; it&rsquo;s that a simulator is a <strong>closed world</strong> built by the same engineer who writes the controller. Physics, sensor noise, friction, lighting, contact dynamics, and timing are <strong>assumptions baked into the simulator</strong>. So if your controller works in sim, it has only proven that it works <strong>against your own assumptions about the world</strong> &mdash; not against the world itself.</p>
+
+      <p>That&rsquo;s the seed of what later in robotics literature became called the <strong>reality gap</strong>: the distance between simulated success and real-world failure. Brooks&rsquo;s line is the lecture&rsquo;s spine &mdash; every section after it is either a reason to use simulators anyway, or a warning about how to use them honestly.</p>
+
+      <div class="callout">
+        <div class="callout-label">Source note</div>
+        <p>This page is built from the <strong>slide deck only</strong>. There is <strong>no transcript</strong> for Week 10, so the prose around each slide is reconstructed from the bullet content, the running theme, and Murat&rsquo;s usual framing of these topics in earlier lectures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-07.png" target="_blank">
+          <img src="./week10-slides/slide-07.png" alt="Slide 07 — Why we need robot simulators" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 07</span>Why simulate at all</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-08.png" target="_blank">
+          <img src="./week10-slides/slide-08.png" alt="Slide 08 — Wikipedia definition of robotics simulator" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 08</span>What is a sim?</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. Why Simulate? &mdash; The Trade-off Slide</div>
+
+      <p>If simulators are doomed to succeed, why use them at all? Slide 07 lays out the answer as a two-column trade. On the <strong>cost side</strong> of working with real hardware:</p>
+
+      <ul>
+        <li><strong>Costly in case of accidents</strong> &mdash; a humanoid that falls over is a repair bill, not a respawn.</li>
+        <li><strong>Safety concern for operators</strong> &mdash; a 30 kg arm running buggy code is a hazard.</li>
+        <li><strong>Time and budget</strong> &mdash; physical iterations are slow, and most labs cannot afford parallel hardware.</li>
+      </ul>
+
+      <p>On the <strong>benefit side</strong> of running in simulation:</p>
+
+      <ul>
+        <li><strong>Your computer can be your lab</strong> &mdash; no booking, no setup, no teardown.</li>
+        <li><strong>Fast prototyping</strong> &mdash; reset is a keypress, not an afternoon.</li>
+        <li><strong>More time for algorithm development</strong> rather than dealing with hardware quirks (broken cables, flat batteries, drift).</li>
+      </ul>
+
+      <h3>Definition <span class="badge">Exam</span></h3>
+
+      <div class="callout">
+        <div class="callout-label">Definition</div>
+        <p>A <strong>robotics simulator</strong> is &ldquo;a simulator used to create an application for a physical robot <strong>without depending on the physical machine</strong>, thus saving cost and time. In some cases, such applications can be transferred onto a physical robot (or rebuilt) <strong>without modification</strong>.&rdquo; <em>(Wikipedia, slide 08)</em></p>
+      </div>
+
+      <p>Two phrases in that definition do the heavy lifting. &ldquo;<strong>Without depending on the physical machine</strong>&rdquo; explains the economic case. &ldquo;<strong>Without modification</strong>&rdquo; is the aspiration &mdash; and the same aspiration Brooks is sceptical of. Sim-to-real transfer is rarely free; this lecture is largely about the conditions under which that transfer is honest.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-09.png" target="_blank">
+          <img src="./week10-slides/slide-09.png" alt="Slide 09 — Simulation vs computer graphics" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 09</span>Sim vs game engine</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-10.png" target="_blank">
+          <img src="./week10-slides/slide-10.png" alt="Slide 10 — Equations vs impression" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 10</span>Equations vs impression</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-11.png" target="_blank">
+          <img src="./week10-slides/slide-11.png" alt="Slide 11 — Comparison continued" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>Comparison cont.</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-12.png" target="_blank">
+          <img src="./week10-slides/slide-12.png" alt="Slide 12 — F = ma physics" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 12</span>F = ma</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. Simulation vs Computer Graphics</div>
+
+      <p>The next four slides set up an opposition that students often blur: a <strong>physics simulator is not a game engine</strong>, even though both produce moving 3D pictures.</p>
+
+      <table>
+        <thead><tr><th>Physics simulator</th><th>Computer graphics / game engine</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Uses equations</strong> &mdash; the next frame is computed from physical laws (Newtonian mechanics, contact forces, friction, gravity).</td>
+            <td><strong>Gives an impression</strong> &mdash; the next frame is whatever <em>looks</em> right; physics is approximated, scripted, or faked when convenient.</td>
+          </tr>
+          <tr>
+            <td>Behaviour is <strong>governed by physics</strong>. Recall <strong>F = ma</strong>.</td>
+            <td>Behaviour is <strong>governed by the storyboard</strong>. The hero never trips unless the writer wants them to.</td>
+          </tr>
+          <tr>
+            <td>An object you didn&rsquo;t script can still move &mdash; because forces act on it.</td>
+            <td>An object you didn&rsquo;t animate sits still.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Why this matters</div>
+        <p>If you train a controller in a <strong>game engine</strong>, your robot is learning to satisfy a <em>visual</em> environment, not a physical one. Forces, mass, inertia, and contact dynamics are the bridge to the real robot. <strong>In simulations, your agent&rsquo;s behaviour is governed by physics</strong> &mdash; that&rsquo;s the entire reason the bridge is even there.</p>
+      </div>
+
+      <p>The slide deck links out to <strong>myphysicslab.com</strong> as a small in-browser demonstration that physics-driven motion is computed, not animated.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-13.png" target="_blank">
+          <img src="./week10-slides/slide-13.png" alt="Slide 13 — Physics-based simulator definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Physics-based sim</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-14.png" target="_blank">
+          <img src="./week10-slides/slide-14.png" alt="Slide 14 — Dynamical system definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 14</span>Dynamical system</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-15.png" target="_blank">
+          <img src="./week10-slides/slide-15.png" alt="Slide 15 — Combining the two definitions" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Combine 1) and 2)</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. Physics-Based Simulators &amp; Dynamical Systems</div>
+
+      <p>Murat now stitches two definitions together to land a precise statement of what a physics-based simulator actually <em>is</em>.</p>
+
+      <div class="callout">
+        <div class="callout-label">Definition 1 &mdash; Simulation <span class="badge">Exam</span></div>
+        <p>&ldquo;Simulation is the process of using a computer to <strong>approximate how a dynamic system</strong> (here a robot) <strong>evolves in time</strong>. To this end, if the computer relies on the <strong>laws of physics</strong> to predict the behaviour of the dynamic system of interest, then the simulation is called <strong>physics based</strong>.&rdquo;</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Definition 2 &mdash; Dynamical system <span class="badge">Exam</span></div>
+        <p>&ldquo;In physics, a <strong>dynamical system</strong> is described as a particle or ensemble of particles whose state varies over time and thus obeys <strong>differential equations</strong> involving time derivatives.&rdquo; <em>(Wikipedia)</em></p>
+      </div>
+
+      <p>Slide 15 deliberately stacks the two definitions and then asks: <strong>based on (1) and (2), what can you simulate?</strong> The trick is that the answer is hidden inside the definitions:</p>
+
+      <ul>
+        <li>Anything whose state can be described as <strong>variables that change over time</strong>.</li>
+        <li>Anything whose evolution can be expressed as <strong>differential equations</strong>.</li>
+        <li>Anything whose behaviour is <strong>predictable from physical laws</strong>.</li>
+      </ul>
+
+      <p>That&rsquo;s the formal answer. The slide deck then gives a more practical answer in the next batch of slides: you can simulate <strong>the world</strong> &mdash; if you can model the right four (then six) categories of stuff.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-16.png" target="_blank">
+          <img src="./week10-slides/slide-16.png" alt="Slide 16 — What can you simulate? The world" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>&ldquo;the world&rdquo;</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-17.png" target="_blank">
+          <img src="./week10-slides/slide-17.png" alt="Slide 17 — Four physical element types" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Four element types</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-18.png" target="_blank">
+          <img src="./week10-slides/slide-18.png" alt="Slide 18 — Add sensors and actuators" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 18</span>+ sensors + actuators</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-20.png" target="_blank">
+          <img src="./week10-slides/slide-20.png" alt="Slide 20 — Legged locomotion question" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>Legged locomotion Q</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. What Can You Actually Simulate?</div>
+
+      <p>Slides 16&ndash;18 are the &ldquo;ingredients list&rdquo; of a physics-based robot simulator. To simulate <strong>the world</strong> you need to capture the physics of <strong>four kinds of things</strong>, then add <strong>two more</strong> for the robot itself.</p>
+
+      <h3>The four world elements <span class="badge">Exam</span></h3>
+      <ol>
+        <li><strong>Rigid bodies</strong> &mdash; the easy case. Constant shape, contact via collision detection. Most industrial robots, table legs, walls, boxes.</li>
+        <li><strong>Compliant (deformable, soft) bodies</strong> &mdash; bend, stretch, deform. Cloth, soft grippers, soft skin, flexible cables.</li>
+        <li><strong>Fluids</strong> &mdash; hardest of the four. Water, blood, mud. Often skipped or coarsely approximated in robotics simulators.</li>
+        <li><strong>Terrains</strong> &mdash; ground geometry and material. Hard floor vs gravel vs grass changes contact dynamics dramatically.</li>
+      </ol>
+
+      <h3>Plus two robot-side elements <span class="badge">Exam</span></h3>
+      <ol start="5">
+        <li><strong>Sensors</strong> &mdash; cameras, lidar, IMU, touch. The simulator must produce <em>plausible sensor readings</em>, not just correct physics.</li>
+        <li><strong>Actuators</strong> &mdash; motors, joints, soft actuators. Must convert commanded torques/velocities into the same forces a real motor would produce.</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-label">Why the list matters</div>
+        <p>The <strong>four-plus-two</strong> list is the operational answer to the question raised on slide 15. Each item is a <strong>place where the reality gap can open up</strong>. A simulator that nails rigid bodies but fakes deformables will let you train manipulation policies that work on blocks but fall apart on cloth. A simulator that fakes sensor noise will give you controllers that don&rsquo;t generalise to a real camera.</p>
+      </div>
+
+      <h3>Provocation question</h3>
+
+      <div class="callout">
+        <div class="callout-label">Mandatory question</div>
+        <p><em>How can you model legged locomotion (walking, running, jumping) <strong>without using any animations</strong>?</em></p>
+        <p style="margin-top: 10px;"><em>What is one of the physical systems used to generate legged locomotion for humanoid robots?</em></p>
+      </div>
+
+      <p>The point of the provocation is to make &ldquo;animation&rdquo; a dirty word. If your humanoid walks because you scripted a walk-cycle, you have a game character, not a robot. To get walking out of a simulator you have to model <strong>joints, torques, contact, balance, and gravity</strong> &mdash; the same ingredients as the real world. Classical answer: <strong>spring-loaded inverted pendulum</strong> (SLIP) and related compass-gait or ZMP-based dynamic walkers, evaluated <em>through</em> a physics engine, not painted on top of one.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-21.png" target="_blank">
+          <img src="./week10-slides/slide-21.png" alt="Slide 21 — Web-based simulators" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 21</span>Web-based simulators</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-22.png" target="_blank">
+          <img src="./week10-slides/slide-22.png" alt="Slide 22 — PyBullet" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>PyBullet</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-23.png" target="_blank">
+          <img src="./week10-slides/slide-23.png" alt="Slide 23 — qiBullet for Pepper/Nao" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 23</span>qiBullet</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-24.png" target="_blank">
+          <img src="./week10-slides/slide-24.png" alt="Slide 24 — MuJoCo" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 24</span>MuJoCo</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-25.png" target="_blank">
+          <img src="./week10-slides/slide-25.png" alt="Slide 25 — iCub Humanoid Simulator" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 25</span>iCub simulator</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-26.png" target="_blank">
+          <img src="./week10-slides/slide-26.png" alt="Slide 26 — Gazebo with ROS" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Gazebo / ROS</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. The Simulator Tour</div>
+
+      <p>Slides 21&ndash;26 walk through six concrete simulators. Two flavours: <strong>web-based</strong> (no install, low ceiling) and <strong>locally installed</strong> (full control, steeper learning curve). The deck deliberately mixes hobbyist and research-grade options.</p>
+
+      <h3>Web-based, by difficulty</h3>
+      <table>
+        <thead><tr><th>Tier</th><th>Tool</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Easy</strong></td>
+            <td>Open Roberta Lab</td>
+            <td>Block-based, education-first. <code>lab.open-roberta.org</code></td>
+          </tr>
+          <tr>
+            <td><strong>Intermediate</strong></td>
+            <td>RobotBenchmark</td>
+            <td>Webots-powered challenges in the browser. <code>robotbenchmark.net</code></td>
+          </tr>
+          <tr>
+            <td><strong>Advanced</strong></td>
+            <td>Neurorobotics Platform</td>
+            <td>HBP-spawned, cloud-based, links spiking neural nets to bodies. <code>neurorobotics.net</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Locally installed, research-grade</h3>
+      <table>
+        <thead><tr><th>Simulator</th><th>What it&rsquo;s good for</th><th>Notable detail</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>PyBullet</strong></td>
+            <td>Physics for robotics, games, VFX, ML &mdash; <strong>focus on sim-to-real transfer</strong></td>
+            <td>Reads <strong>URDF, SDF, MJCF</strong> body files; integrates with game engines, VR headsets, OpenAI Gym, TensorFlow RL.</td>
+          </tr>
+          <tr>
+            <td><strong>qiBullet</strong></td>
+            <td>Customised for <strong>Pepper</strong> and <strong>NAO</strong> (SoftBank Robotics)</td>
+            <td>API close to NAOqi · Linux only · no MacOS · sparse docs vs NAOqi.</td>
+          </tr>
+          <tr>
+            <td><strong>MuJoCo</strong></td>
+            <td>Free, open-source, <strong>fast and accurate</strong> physics for robotics, biomechanics, graphics</td>
+            <td>Used heavily for <strong>reinforcement learning</strong> benchmarks and contact-rich manipulation.</td>
+          </tr>
+          <tr>
+            <td><strong>iCub Simulator</strong></td>
+            <td>The <strong>iCub humanoid</strong> &mdash; cognitive and developmental robotics</td>
+            <td>Combines <strong>Open Dynamics Engine</strong> + OpenGL · uses <strong>YARP</strong> middleware.</td>
+          </tr>
+          <tr>
+            <td><strong>Gazebo / ROS</strong></td>
+            <td>General-purpose research workhorse</td>
+            <td>Detailed docs · <strong>seamless ROS integration</strong> · steep learning curve.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Sim-to-real</div>
+        <p>PyBullet is the only one in this list whose mission statement explicitly mentions <strong>sim-to-real transfer</strong>. That&rsquo;s the formal name of the bridge Brooks complained about. The fact that a flagship simulator advertises itself by that phrase tells you the field has accepted the reality gap as a first-class research problem rather than a footnote.</p>
+      </div>
+
+      <h3>Bridging sim and real</h3>
+      <p>Slide 27 makes a small but important note: a simulator is not just for offline experiments &mdash; you can also <strong>link a virtual robot to an actual robot</strong>, running the controller against a digital twin while the physical body mirrors the result. That&rsquo;s how platforms like the Neurorobotics Platform manage closed-loop physical experiments.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-27.png" target="_blank">
+          <img src="./week10-slides/slide-27.png" alt="Slide 27 — Linking virtual to actual" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Virtual to actual</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-28.png" target="_blank">
+          <img src="./week10-slides/slide-28.png" alt="Slide 28 — Which simulation software to use" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 28</span>Which sim to pick</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. Which Simulator Should You Use?</div>
+
+      <p>Slide 28 is the one to memorise &mdash; it&rsquo;s the lecture&rsquo;s decision tree, written out in plain English.</p>
+
+      <h3>Decide by deployment style</h3>
+      <ul>
+        <li><strong>Web-based simulator</strong> &mdash; if you don&rsquo;t want to deal with the installation hassle. Trade-off: less control, fewer features.</li>
+        <li><strong>Locally installed simulator</strong> &mdash; if you have time to climb the learning curve and want <strong>full control over your environment</strong>.</li>
+      </ul>
+
+      <h3>Decide by support model</h3>
+      <ul>
+        <li>All of these are <strong>open-source</strong>, which is good for inspection but means there&rsquo;s no help desk. <strong>You should solve your own problem or find a solution from the web.</strong> Forum-archaeology is part of the job.</li>
+      </ul>
+
+      <h3>Decide by robot type <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>If you&rsquo;re working with...</th><th>...use</th></tr></thead>
+        <tbody>
+          <tr><td>Humanoid (developmental / cognitive robotics)</td><td><strong>iCub simulator</strong></td></tr>
+          <tr><td>Spiking neural networks integrated with a body</td><td><strong>Neurorobotics Platform</strong></td></tr>
+          <tr><td>Pepper / NAO</td><td><strong>qiBullet</strong></td></tr>
+          <tr><td>Reinforcement learning benchmarks</td><td><strong>MuJoCo</strong></td></tr>
+          <tr><td>General-purpose ROS-based stack</td><td><strong>Gazebo</strong></td></tr>
+          <tr><td>Sim-to-real transfer / Python-first ML</td><td><strong>PyBullet</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">How to phrase it on the exam</div>
+        <p>The exam-friendly answer to &ldquo;which simulator?&rdquo; is <strong>three sentences</strong>: (1) name the robot or task, (2) name the matching simulator, (3) justify with one line referring to integration / robot fit / paradigm fit. Don&rsquo;t list all six.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-29.png" target="_blank">
+          <img src="./week10-slides/slide-29.png" alt="Slide 29 — Suggestions disclaimer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>Toolchain pivot</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-30.png" target="_blank">
+          <img src="./week10-slides/slide-30.png" alt="Slide 30 — GNU/Linux" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 30</span>GNU/Linux</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-31.png" target="_blank">
+          <img src="./week10-slides/slide-31.png" alt="Slide 31 — Dual boot or VM" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 31</span>Dual boot / VM</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-32.png" target="_blank">
+          <img src="./week10-slides/slide-32.png" alt="Slide 32 — Terminal" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 32</span>Terminal</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. The Toolchain Pivot &mdash; OS &amp; Terminal</div>
+
+      <p>Slide 29 is a soft pivot: Murat openly admits the rest of the deck is <strong>only suggestions</strong>, not exam content. But he insists the suggestions would be <strong>great assets for your background, especially if you&rsquo;re considering work in AI, ML, or Robotics</strong>. The deck then walks through the working environment of a researcher who actually ships robotics code.</p>
+
+      <h3>Operating system</h3>
+      <ul>
+        <li>A <strong>GNU/Linux-based OS</strong> will facilitate development progress &mdash; most robotics tooling (ROS, Gazebo, qiBullet, iCub) is built and tested on Linux first.</li>
+        <li>You will solve more bugs faster because the <strong>forum answers exist</strong>. StackOverflow, ROS Answers, GitHub issues &mdash; all skewed Linux.</li>
+        <li>You don&rsquo;t need a new computer: use <strong>dual boot</strong>, or run a <strong>virtual machine</strong>.</li>
+      </ul>
+
+      <h3>Terminal / konsole</h3>
+      <ul>
+        <li>Not every machine you&rsquo;ll use has a GUI &mdash; <strong>servers and HPC clusters don&rsquo;t</strong>.</li>
+        <li>You don&rsquo;t need to click, drag and drop. With a terminal you can be <strong>super-efficient</strong>.</li>
+        <li>Every command is composable: pipes, redirection, scripts. You can replay the same workflow on any machine.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Why this is in a simulator lecture</div>
+        <p>It&rsquo;s in the same lecture because <strong>simulators are heavyweight pieces of software</strong>. Most of the friction is not &ldquo;how does the physics work?&rdquo; &mdash; it&rsquo;s &ldquo;why won&rsquo;t the GPU driver load?&rdquo;, &ldquo;why is the ROS topic empty?&rdquo;, &ldquo;why does the URDF parser segfault?&rdquo;. The toolchain section is Murat front-loading the boring infrastructure problems so the simulator section doesn&rsquo;t collapse on first contact with reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-33.png" target="_blank">
+          <img src="./week10-slides/slide-33.png" alt="Slide 33 — Python 3" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>Python 3</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-34.png" target="_blank">
+          <img src="./week10-slides/slide-34.png" alt="Slide 34 — Virtual environments" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 34</span>Virtual envs</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-35.png" target="_blank">
+          <img src="./week10-slides/slide-35.png" alt="Slide 35 — Virtual env workflow" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 35</span>Create / workon / install</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-36.png" target="_blank">
+          <img src="./week10-slides/slide-36.png" alt="Slide 36 — pip" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 36</span>pip</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. Python, Virtual Environments &amp; pip</div>
+
+      <p>Slide 33: Python 3 is the lingua franca of machine learning and is easy to learn, read, and adapt for ML projects. It comes with a deep ecosystem of ML and data-science libraries. Murat points to <code>codingbat.com/python</code> and the Stanford CS231n NumPy tutorial as warm-up material.</p>
+
+      <h3>Virtual environments <span class="badge">Recommended</span></h3>
+
+      <div class="callout">
+        <div class="callout-label">Definition</div>
+        <p>A <strong>virtual environment</strong> is &ldquo;a cooperatively isolated runtime environment that allows Python users and applications to install and upgrade Python distribution packages <strong>without interfering with the behaviour of other Python applications</strong> running on the same system.&rdquo; <em>(docs.python.org)</em></p>
+      </div>
+
+      <ul>
+        <li>Use <strong>virtualenvwrapper</strong> to create an isolated Python environment.</li>
+        <li>Organises all software packages in <strong>one place</strong>.</li>
+        <li>For team projects: <strong>eliminates development conflicts</strong> among project members &mdash; everyone runs the same dependency set.</li>
+        <li>Useful for <strong>reproducible research</strong> &mdash; lock the environment, ship the lockfile.</li>
+      </ul>
+
+      <h3>The four-verb workflow</h3>
+      <ol>
+        <li><strong>Create</strong> &mdash; <code>mkvirtualenv myproject</code></li>
+        <li><strong>Workon</strong> &mdash; activate it before doing anything</li>
+        <li><strong>Install a package</strong> &mdash; <code>pip install ...</code> happens <em>inside</em> the env</li>
+        <li><strong>Exit</strong> (deactivate) &mdash; back to the system Python</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-label">Why this matters for simulators</div>
+        <p>Robotics simulator stacks are <strong>infamous for dependency hell</strong>: incompatible NumPy versions, conflicting CUDA toolkits, ROS packages that demand a specific Python. Virtual environments are not optional &mdash; they&rsquo;re what stops your Week 10 PyBullet experiment from breaking your Week 06 unsupervised-learning code.</p>
+      </div>
+
+      <h3>pip &mdash; the package manager</h3>
+      <ul>
+        <li>Python is a <strong>batteries-included</strong> language &mdash; basics like string manipulation are built in.</li>
+        <li>With <strong>pip</strong>, you install packages that aren&rsquo;t in the standard library: NumPy, PyBullet, MuJoCo bindings, scikit-learn, matplotlib, and so on.</li>
+        <li>Pip resolves dependencies automatically &mdash; but it does <em>not</em> resolve them well across environments. That&rsquo;s the virtualenv&rsquo;s job.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-37.png" target="_blank">
+          <img src="./week10-slides/slide-37.png" alt="Slide 37 — Scikit-learn and Matplotlib" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>scikit-learn / matplotlib</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-38.png" target="_blank">
+          <img src="./week10-slides/slide-38.png" alt="Slide 38 — Useful Python packages" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 38</span>Useful packages</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-39.png" target="_blank">
+          <img src="./week10-slides/slide-39.png" alt="Slide 39 — Git" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 39</span>Git</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-40.png" target="_blank">
+          <img src="./week10-slides/slide-40.png" alt="Slide 40 — IDEs" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 40</span>IDEs</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-41.png" target="_blank">
+          <img src="./week10-slides/slide-41.png" alt="Slide 41 — Text editors" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 41</span>Text editors</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Libraries, Git, IDEs, Editors</div>
+
+      <p>The final stretch is a quick rundown of supporting tools. None of it is exam-bearing &mdash; all of it is what real robotics researchers actually use day-to-day.</p>
+
+      <h3>Core ML &amp; viz libraries</h3>
+      <ul>
+        <li><strong>scikit-learn</strong> &mdash; Python-based machine learning. Classical ML algorithms (SVMs, random forests, k-means, PCA), great for sanity-check baselines on sensor data before reaching for deep models.</li>
+        <li><strong>Matplotlib</strong> &mdash; the workhorse plotting library. Interactive visualisation of trajectories, sensor traces, learning curves.</li>
+        <li><strong>Seaborn</strong> &mdash; built on top of matplotlib; quicker for statistical plots.</li>
+      </ul>
+
+      <h3>Git &mdash; version control</h3>
+      <ul>
+        <li><strong>Git</strong> is a <strong>distributed version control system</strong>.</li>
+        <li>Use it for <strong>coordination and collaboration</strong> &mdash; especially relevant for the team project.</li>
+        <li>Every commit is a checkpoint; every branch is a safe place to experiment.</li>
+      </ul>
+
+      <h3>IDEs &amp; editors</h3>
+      <table>
+        <thead><tr><th>Tool</th><th>When to reach for it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>PyCharm</strong></td><td>Full-fat Python IDE &mdash; debugger, refactor, test runner. Heavy.</td></tr>
+          <tr><td><strong>Spyder</strong></td><td>Scientific Python &mdash; Jupyter-like REPL embedded.</td></tr>
+          <tr><td><strong>VS Code</strong></td><td>Lightweight, extensible. Probably the modal choice in 2026.</td></tr>
+          <tr><td><strong>IDLE</strong></td><td>Ships with Python. Use only for tiny scripts.</td></tr>
+          <tr><td><strong>emacs / nano / vim</strong></td><td>SSH into a cluster &mdash; you don&rsquo;t get to install an IDE there. Learn at least one.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Definition</div>
+        <p>An <strong>integrated development environment</strong> is &ldquo;a software application that provides comprehensive facilities to computer programmers for software development.&rdquo; <em>(Wikipedia)</em></p>
+      </div>
+
+      <p>Text editors close the deck because they&rsquo;re the tool you&rsquo;ll need <strong>when none of the other tools are available</strong>: <strong>lightweight, language-agnostic, extensible</strong>. If you&rsquo;re ssh&rsquo;d into a cluster machine running a simulation overnight, you don&rsquo;t install PyCharm &mdash; you edit the config in <strong>nano</strong> and re-run.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week10-slides/slide-04.png" target="_blank">
+          <img src="./week10-slides/slide-04.png" alt="Slide 04 — Final exam info" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 04</span>Exam logistics</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">11. Logistics &mdash; Final Exam</div>
+
+      <ul>
+        <li>The exam date listed on slide 04 is <strong>12-06-2024</strong> (from the original deck; check <strong>MyTimeTable</strong> for the current run&rsquo;s date and time).</li>
+        <li><strong>Don&rsquo;t forget to register</strong>.</li>
+        <li><strong>Next week (Week 11)</strong> Murat will go through <strong>sample exam questions</strong> together &mdash; expect heavy reuse of the &ldquo;mandatory&rdquo; questions from across the course.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Likely seeds for exam questions <span class="badge prof">Prof</span></div>
+        <p>From this lecture specifically:</p>
+        <ul style="margin-top: 8px;">
+          <li><strong>Why does Rodney Brooks complain about simulators?</strong> &mdash; explain the &ldquo;doomed to succeed&rdquo; line.</li>
+          <li><strong>Define a physics-based simulator</strong> and a <strong>dynamical system</strong>.</li>
+          <li><strong>What can you simulate?</strong> &mdash; the <strong>4 + 2</strong> element list.</li>
+          <li><strong>Simulator vs game engine</strong> &mdash; equations vs impression.</li>
+          <li><strong>Pick a simulator for a given robot/task</strong> and justify in one sentence.</li>
+          <li><strong>How would you model legged locomotion</strong> without animation?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Brooks&rsquo;s warning:</strong> simulators are <em>doomed to succeed</em> because the engineer who writes the controller also wrote the world. A working sim is evidence of self-consistency, not of reality.</li>
+      <li><strong>Why simulate anyway:</strong> safety, cost, speed, and the ability to use your laptop as a lab. The trade-off slide (07) is the canonical justification.</li>
+      <li><strong>Definition:</strong> a robotics simulator builds an application for a physical robot <em>without depending on the physical machine</em>; physics-based means the next state is computed from physical laws, not authored.</li>
+      <li><strong>Sim is not a game engine:</strong> physics simulators use <strong>equations</strong>, game engines give an <strong>impression</strong>. <strong>F = ma</strong> is the slogan.</li>
+      <li><strong>The 4 + 2 element list</strong> is the operational answer to &ldquo;what can you simulate?&rdquo;: rigid bodies, deformable bodies, fluids, terrains &mdash; plus sensors and actuators. Each is a place where the reality gap can open.</li>
+      <li><strong>Simulator decision tree:</strong> humanoid &rarr; iCub · spiking nets &rarr; Neurorobotics Platform · Pepper/NAO &rarr; qiBullet · RL &rarr; MuJoCo · ROS stack &rarr; Gazebo · sim-to-real / Python ML &rarr; PyBullet.</li>
+      <li><strong>Web-based vs locally installed:</strong> web for zero-install convenience, local for full control and the willingness to climb a learning curve.</li>
+      <li><strong>The toolchain pivot:</strong> Linux + terminal + Python 3 + virtualenv + pip + Git + a real editor. Not exam-bearing, but Murat positions it as a research-survival kit.</li>
+      <li><strong>Reproducibility:</strong> isolated environments and versioned code are how a simulator experiment becomes a result you can defend &mdash; and how you avoid breaking your other coursework.</li>
+      <li><strong>Logistics:</strong> Week 11 walks through sample exam questions; this lecture seeds at least the Brooks quote, the 4+2 list, and the simulator-picking question.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 41; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week10-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week10-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week10-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(41, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 41`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week10-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week10-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+</script>
+</body>
+</html>

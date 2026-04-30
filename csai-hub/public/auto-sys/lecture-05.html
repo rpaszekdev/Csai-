@@ -1,0 +1,1670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W05 — Reinforcement Learning</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+
+  /* ─── transcript ─── */
+  .transcript {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-faint);
+  }
+  .transcript summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: baseline; gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .transcript summary::-webkit-details-marker { display: none; }
+  .transcript summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 22px; font-weight: 400; line-height: 1;
+    color: var(--rust);
+  }
+  .transcript[open] summary::after { content: "−"; }
+  .transcript-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); font-weight: 700;
+  }
+  .transcript-meta {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .transcript-body {
+    padding: 28px 0 12px;
+    max-width: 760px;
+  }
+  .transcript-search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--ink-faint);
+    background: var(--paper);
+    font-family: inherit;
+    font-size: 12px; letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .transcript-search:focus { outline: none; border-color: var(--ink); }
+  .transcript-body p {
+    font-size: 13px; line-height: 1.9;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .transcript-body p mark {
+    background: rgba(168, 79, 42, 0.25);
+    color: var(--ink);
+    padding: 0 2px;
+  }
+
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-01.html" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">05</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 03 · Lecture 01 —</span>
+      <h1 class="hero-title">Adaptivity &amp; Reinforcement Learning in Autonomous Systems</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>49 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip active" href="./lecture-05.html">L05</a>
+  <a class="chip pending" href="./lecture-06.html">L06</a>
+  <a class="chip pending" href="./lecture-07.html">L07</a>
+  <a class="chip pending" href="./lecture-08.html">L08</a>
+  <a class="chip pending" href="./lecture-09.html">L09</a>
+  <a class="chip pending" href="./lecture-10.html">L10</a>
+  <a class="chip pending" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-05.png" target="_blank">
+          <img src="./week05-slides/slide-05.png" alt="Slide 05 — Darwin quote" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 05</span>The Darwin (mis)quote</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-10.png" target="_blank">
+          <img src="./week05-slides/slide-10.png" alt="Slide 10 — Adaptivity definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 10</span>Adaptivity defined</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-11.png" target="_blank">
+          <img src="./week05-slides/slide-11.png" alt="Slide 11 — Methods to achieve adaptivity" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>Methods for adaptivity</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. What Is Adaptivity?</div>
+
+      <p>The lecture opens with a (famously misattributed) <strong>Darwin quote</strong>: <em>"It is not the strongest of the species that survives, nor the most intelligent, but the one most adaptable to change."</em> The prof points out the quote is an <strong>internet legend</strong> — Darwin never wrote it. The sentiment, however, frames the week: <strong>adaptivity is what we want to engineer into autonomous systems</strong>.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · core <span class="badge">Exam</span></div>
+        <p><strong>Adaptivity</strong> is "to develop the <strong>behavioral and cognitive skills</strong> required to perform a desired function." (Nolfi, <em>Behavioral and Cognitive Robotics</em>)</p>
+        <p style="margin-top:10px;">"More adaptive = more intelligent" — for the purposes of this course.</p>
+      </div>
+
+      <h3>Methods to achieve adaptivity</h3>
+      <ul>
+        <li><strong>Evolutionary methods</strong> — population-level adaptation</li>
+        <li><strong>Learning from Demonstration (LfD)</strong> — copy a human teacher</li>
+        <li><strong>Reinforcement Learning (RL)</strong> — trial-and-error, reward-guided</li>
+        <li>… and others (developmental, intrinsic motivation, etc.)</li>
+      </ul>
+
+      <p>This lecture covers <strong>LfD</strong> and <strong>RL</strong>. The exam frequently mixes adaptivity terminology with the operant conditioning callback from Week 1 (Skinner) — recognise reward-based learning as the bridge.</p>
+
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p>Two competing schools of thought: <strong>"Reward is enough"</strong> (Silver / DeepMind) — reward suffices for intelligence. <strong>"Reward is not enough"</strong> — other mechanisms (curiosity, intrinsic drives) are required. The prof refuses to commit to either camp; expect this distinction on the exam.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-12.png" target="_blank">
+          <img src="./week05-slides/slide-12.png" alt="Slide 12 — LfD definition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 12</span>LfD paradigm</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-13.png" target="_blank">
+          <img src="./week05-slides/slide-13.png" alt="Slide 13 — Demonstrate, train, evaluate" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Demo → train → eval</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-14.png" target="_blank">
+          <img src="./week05-slides/slide-14.png" alt="Slide 14 — Why LfD is useful" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 14</span>Why LfD is useful</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. Learning from Demonstration (LfD)</div>
+
+      <p><strong>Learning from Demonstration</strong> (a.k.a. <strong>imitation learning</strong>, <strong>programming by demonstration</strong>) is a paradigm for enabling robots to autonomously perform new tasks <strong>without analytical decomposition or hand-coded behavior</strong>. The robot's controller is <strong>derived from observations of a human's own performance</strong>.</p>
+
+      <p>The general workflow is always the same:</p>
+
+      <div class="callout">
+        <div class="callout-label">General LfD pipeline <span class="badge">Exam</span></div>
+        <p><strong>Demonstrate → Train a model → Evaluate</strong></p>
+        <p style="margin-top:8px;">You need a robot capable of the task and a <strong>demonstrator (operator)</strong> who can effortlessly perform it.</p>
+      </div>
+
+      <h3>Why we need LfD</h3>
+      <ul>
+        <li><strong>Formal description of tasks is hard</strong> — recall <strong>inverse kinematics</strong> from earlier weeks: it can have <em>one</em>, <em>many</em>, or <em>no</em> solutions, and is painful to derive analytically.</li>
+        <li><strong>Daily activities</strong> are easy for humans but <strong>computationally expensive for robots</strong> (folding shirts, flipping omelets).</li>
+        <li><strong>Not enough roboticists</strong> exist to write controllers for every possible task. LfD lets <strong>end-users</strong> teach robots — <strong>expert knowledge is not necessary</strong>.</li>
+        <li>Robots become <strong>flexible / re-trainable</strong> — same robot, different demonstrations, different tasks.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Prof's economic argument <span class="badge prof">Prof</span></div>
+        <p>"What's the salary of a senior robotic software engineer?" Hand-coding a kitchen robot to open a washing machine, grasp varied dishware, and place items would take a PhD student <em>"forever"</em>. <strong>Roboticists are expensive — LfD amortizes their effort across tasks.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-15.png" target="_blank">
+          <img src="./week05-slides/slide-15.png" alt="Slide 15 — LfD types" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Three LfD types</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-17.png" target="_blank">
+          <img src="./week05-slides/slide-17.png" alt="Slide 17 — Exam matching" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Match-the-image exam</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-20.png" target="_blank">
+          <img src="./week05-slides/slide-20.png" alt="Slide 20 — ALOHA 2 teleoperation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>ALOHA 2 platform</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. Three Types of LfD</div>
+
+      <p>The prof was emphatic: <strong>"In the exam I will not accept 'kinematic teaching'. It is <em>kinesthetic</em>."</strong> Spelling matters. <span class="badge prof">Prof</span></p>
+
+      <table>
+        <thead><tr><th>Type</th><th>How it works</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Kinesthetic teaching</strong></td>
+            <td>Robot's actuators in <strong>passive mode</strong>; experimenter <strong>physically manipulates</strong> the robot to force the desired behavior.</td>
+            <td>Grab a robot arm by hand, guide it through a pouring motion, record joint trajectories.</td>
+          </tr>
+          <tr>
+            <td><strong>Teleoperation</strong></td>
+            <td>Actuators controlled by experimenter through a <strong>joystick / haptic device / web slider / VR rig</strong>. No direct contact with the robot.</td>
+            <td>ALOHA 2 bimanual teleoperation; Wizard-of-Oz HRI prototyping.</td>
+          </tr>
+          <tr>
+            <td><strong>Direct imitation of human behavior</strong></td>
+            <td>Training set generated from <strong>observation of a human</strong> displaying the behavior. Robot watches, doesn't touch.</td>
+            <td>Camera-based imitation; MediaPipe finger tracking.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam · match-the-image <span class="badge">Exam</span></div>
+        <p>The slide deck explicitly flags this as <strong>"a possible exam question"</strong>: shown three photos of a robot being trained, identify which is <strong>kinesthetic / teleoperation / direct imitation</strong>.</p>
+        <p style="margin-top:10px;"><strong>Decision tree:</strong></p>
+        <ul style="margin-top:8px;">
+          <li>Human <strong>physically holds</strong> the robot → <strong>kinesthetic</strong></li>
+          <li>Human uses a <strong>controller / joystick / handle</strong> at a distance → <strong>teleoperation</strong></li>
+          <li>Human is <strong>not touching anything</strong>, robot <strong>watches</strong> → <strong>direct imitation</strong></li>
+        </ul>
+      </div>
+
+      <p>The prof showed <strong>MediaPipe</strong> (Google) — a finger / hand-tracking library that can be used for direct imitation (e.g. clap detection, gesture-to-swarm-formation). One former Berlin master student built such a teleoperation pipeline in under a week and is now a tech lead at <strong>1X Robotics</strong> (the NEO humanoid). <span class="badge prof">Prof</span></p>
+
+      <p><strong>For the group project</strong>: you can show MediaPipe / teleoperation as a demo, but the project robot itself <strong>must be autonomous</strong> — teleoperation alone violates the autonomy definition from Week 01.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-22.png" target="_blank">
+          <img src="./week05-slides/slide-22.png" alt="Slide 22 — Outdoor navigation RL" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>RL: outdoor navigation</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-25.png" target="_blank">
+          <img src="./week05-slides/slide-25.png" alt="Slide 25 — RL framework summary" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 25</span>Reward-guided trial &amp; error</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-26.png" target="_blank">
+          <img src="./week05-slides/slide-26.png" alt="Slide 26 — Cumulative discounted reward" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Goal: max cumulative reward</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. The RL Framework</div>
+
+      <p><strong>Reinforcement Learning</strong> is <strong>reward-guided trial-and-error learning</strong> in which an <strong>agent</strong> learns complex behaviors (e.g. navigation) by <strong>interacting with the environment</strong>. The prof's framing of when to use RL is exam-critical:</p>
+
+      <div class="callout exam">
+        <div class="callout-label">RL is for problems that are… <span class="badge">Exam</span></div>
+        <p><strong>Easy to evaluate, hard to solve.</strong></p>
+        <p style="margin-top:10px;">Examples: a soccer match (look at the scoreboard — easy to evaluate; playing well — hard). Chess (checkmate is binary; playing well is combinatorial). Atari (the score is given; how to win is not).</p>
+      </div>
+
+      <h3>The five core terms <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Term</th><th>Symbol</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Agent</strong></td>
+            <td>—</td>
+            <td>Decision-maker. Robot, chatbot, gambling agent, stock-tracker, medical agent.</td>
+          </tr>
+          <tr>
+            <td><strong>Environment</strong></td>
+            <td>—</td>
+            <td>Everything the agent interacts with. Navigation area, T-shape maze, board game.</td>
+          </tr>
+          <tr>
+            <td><strong>State</strong></td>
+            <td>s</td>
+            <td><strong>Observation</strong> the agent receives — sensory information. E.g. odometry + camera + sonar reading.</td>
+          </tr>
+          <tr>
+            <td><strong>Action</strong></td>
+            <td>a</td>
+            <td>What the agent <em>does</em>. Constrained by hardware. "Move left 1 m", "ask card / open card".</td>
+          </tr>
+          <tr>
+            <td><strong>Reward</strong></td>
+            <td>r</td>
+            <td>A <strong>numeric value</strong> that guides agent behavior. Can be <strong>−1, 0, 1</strong> or any number — <strong>negative rewards are allowed</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam trap · sign of reward <span class="badge">Exam</span></div>
+        <p>True/false: <em>"Reward must be positive."</em> → <strong>FALSE.</strong> Students wrongly associate reward with their grades. Reward can be <strong>negative, zero, or positive</strong>. A typical scheme: +5 for goal, −2 for hitting an obstacle, 0 for an idle step.</p>
+      </div>
+
+      <h3>State / action design choices</h3>
+      <ul>
+        <li><strong>State and action definitions depend on your approach.</strong></li>
+        <li>Spaces can be <strong>continuous</strong> (real-valued joint angles, real positions) or <strong>discrete</strong> (grid-based; "left / right / up / down").</li>
+        <li>The environment can be <strong>dynamic</strong>: moving obstacles, objects the robot itself displaces, wind / noise.</li>
+      </ul>
+
+      <p><strong>Goal of the agent:</strong> learn the actions that <strong>maximize the (cumulative discounted) reward</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-29.png" target="_blank">
+          <img src="./week05-slides/slide-29.png" alt="Slide 29 — MDP tuple" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>MDP tuple ⟨S, A, P, R, γ⟩</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-32.png" target="_blank">
+          <img src="./week05-slides/slide-32.png" alt="Slide 32 — Markov property" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 32</span>Markov property</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-33.png" target="_blank">
+          <img src="./week05-slides/slide-33.png" alt="Slide 33 — Memoryless property" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>Memoryless / chess example</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. The Markov Decision Process (MDP)</div>
+
+      <p>Every well-formed RL problem is described by an <strong>MDP</strong>. This is the single most exam-rich definition of the lecture.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">MDP definition <span class="badge">Exam</span></div>
+        <p>A <strong>Markov Decision Process</strong> is a tuple <code>⟨S, A, P, R, γ⟩</code>:</p>
+        <ul style="margin-top:8px;">
+          <li><strong>S</strong> — set of possible <strong>states</strong></li>
+          <li><strong>A</strong> — set of possible <strong>actions</strong></li>
+          <li><strong>P</strong> — <strong>policy / state-action transition probability</strong></li>
+          <li><strong>R</strong> — <strong>reward function</strong> for each (state, action) pair</li>
+          <li><strong>γ (gamma)</strong> — <strong>discount factor</strong> determining whether current or future reward is more valuable</li>
+        </ul>
+      </div>
+
+      <h3>Properties to remember</h3>
+      <ul>
+        <li>The number of states and actions can be <strong>finite or infinite</strong>.</li>
+        <li>The agent's behavior is defined by a <strong>policy π</strong> — a <strong>distribution of actions over the set of states</strong>.</li>
+        <li>The current state <strong>contains all information</strong> needed to choose the next action — <strong>history is irrelevant</strong>.</li>
+      </ul>
+
+      <div class="callout exam">
+        <div class="callout-label">Markov (memoryless) property <span class="badge">Exam</span></div>
+        <p>"The current state of the agent contains all necessary information about the world. The history of the state is not important to decide the next state." — <strong>"Make sure that you understand this property"</strong> (slide 33). <span class="badge prof">Prof</span></p>
+        <p style="margin-top:10px;">Example (D. Silver, rephrased): in <strong>chess</strong>, you don't need to remember every previous move — the <strong>current state of the board</strong> is enough to decide the next move. Therefore chess satisfies the Markov property.</p>
+      </div>
+
+      <h3>Fully vs partially observable</h3>
+      <table>
+        <thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Fully observable MDP</strong></td>
+            <td>Current state contains <strong>all</strong> information.</td>
+            <td>Chess (you see the whole board); a football near your foot with the goal visible.</td>
+          </tr>
+          <tr>
+            <td><strong>Partially observable MDP (POMDP)</strong></td>
+            <td>Some information is hidden — agent must infer state.</td>
+            <td>Poker (opponent's cards are hidden); robot in fog with limited camera FOV.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The course holds you responsible for <strong>recognizing whether a given problem is Markov / fully observable</strong>, not for solving POMDPs. <span class="badge prof">Prof</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-36.png" target="_blank">
+          <img src="./week05-slides/slide-36.png" alt="Slide 36 — Policy" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 36</span>Policy π(s,a)</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-37.png" target="_blank">
+          <img src="./week05-slides/slide-37.png" alt="Slide 37 — Value function" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>Value function</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. Policy &amp; Value Function</div>
+
+      <p>Two interlocking concepts. Get them mixed up on the exam at your peril.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Definitions <span class="badge">Exam</span></div>
+        <p><strong>Policy π(s,a)</strong>: a distribution over actions for each state — i.e. <em>"in state s, the probability of choosing action a"</em>. The agent's behavior is the policy.</p>
+        <p style="margin-top:10px;"><strong>Optimal policy π*(s,a)</strong>: a policy that maximises the expected cumulative reward. <strong>There may be more than one optimal policy.</strong></p>
+        <p style="margin-top:10px;"><strong>Value function V(s) / Q(s,a)</strong>: <em>"how good a state — or a (state, action) pair — is under the policy π"</em>. It tells you how valuable being in s (and taking a) is in expectation.</p>
+      </div>
+
+      <h3>Why both?</h3>
+      <ul>
+        <li>The <strong>policy</strong> says <em>what to do</em>.</li>
+        <li>The <strong>value function</strong> says <em>how good doing it is</em>.</li>
+        <li>Optimal policy ↔ optimal value function — they are tied: π* picks the action with the highest Q-value in every state.</li>
+      </ul>
+
+      <p>In a 5×5 grid world, the goal is "find the optimal policy that reaches the red squares (food, charging) in the <strong>minimum number of actions</strong>." If the agent is dropped in the middle and the four red squares are at equal Euclidean distances, there are <strong>four optimal policies</strong>, each one valid.</p>
+
+      <div class="callout">
+        <div class="callout-label">Multiple optima <span class="badge prof">Prof</span></div>
+        <p>"Optimal policy can be one, two, and multiple. Due to the noise in the environment, the robot will choose one of them and it will be a <strong>near-optimal solution</strong>." Real robots almost never sit on the true optimum — they orbit it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-38.png" target="_blank">
+          <img src="./week05-slides/slide-38.png" alt="Slide 38 — Q-learning" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 38</span>Q-learning</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-39.png" target="_blank">
+          <img src="./week05-slides/slide-39.png" alt="Slide 39 — Q update function" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 39</span>Q update function</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. Q-Learning &amp; The Update Rule</div>
+
+      <p><strong>Q-learning</strong> is the canonical value-based RL algorithm covered in this course. It maintains a table — one entry per (state, action) pair — and updates each entry based on observed rewards.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">The Q-learning update rule <span class="badge">Exam</span></div>
+        <p>Memorise this. The exam may ask you to <strong>identify the components</strong>, <strong>predict behavior</strong> when α or γ go to extremes, or <strong>apply</strong> it on a tiny grid.</p>
+        <p style="margin-top:14px; font-size:13px; line-height:2; padding:14px; background:var(--paper-2); border-left:3px solid var(--rust);">
+          <strong>Q(s,a) ← Q(s,a) + α · [ r + γ · max<sub>a'</sub> Q(s',a') − Q(s,a) ]</strong>
+        </p>
+        <p style="margin-top:10px;">Where:</p>
+        <ul style="margin-top:8px;">
+          <li><code>Q(s,a)</code> — current value estimate of taking action <em>a</em> in state <em>s</em></li>
+          <li><code>α (alpha)</code> — <strong>learning rate</strong> — how much new information overrides old</li>
+          <li><code>r</code> — <strong>reward</strong> received after taking action <em>a</em></li>
+          <li><code>γ (gamma)</code> — <strong>discount factor</strong> — importance of future reward</li>
+          <li><code>max<sub>a'</sub> Q(s',a')</code> — <strong>greedy estimate</strong> of best future value from the next state</li>
+          <li>The bracketed term is the <strong>TD (temporal-difference) error</strong>.</li>
+        </ul>
+      </div>
+
+      <h3>α and γ — the multiplicative trap <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Parameter</th><th>Value = 0</th><th>Value = 1</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>α (learning rate)</strong></td>
+            <td>Q never updates — agent learns nothing.</td>
+            <td>Q is replaced entirely by the new estimate — old info discarded.</td>
+            <td>Controls <strong>how aggressively</strong> the agent overwrites past experience.</td>
+          </tr>
+          <tr>
+            <td><strong>γ (discount factor)</strong></td>
+            <td>Agent <strong>fully myopic</strong> — only cares about immediate reward.</td>
+            <td>Agent values future reward as much as immediate (no discount).</td>
+            <td>Controls <strong>how far ahead</strong> the agent plans.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Prof's hint · slide 39 <span class="badge prof">Prof</span></div>
+        <p>"Remember: it is multiplicative. <strong>What happens if it is 0 or 1?</strong>" The prof said this twice, once for α and once for γ. Treat it as a fill-in-the-blank.</p>
+      </div>
+
+      <h3>Picking the action</h3>
+      <p>Once the Q-table is trained, action selection is greedy: at every state, choose the action with the <strong>maximum Q-value</strong>:</p>
+      <p style="font-size:13px; padding:12px; background:var(--paper-2); border-left:3px solid var(--rust);">
+        <strong>π*(s) = argmax<sub>a</sub> Q(s,a)</strong>
+      </p>
+      <p>In a small grid world, the values <strong>increase as the agent gets closer to the goal</strong>. This was the heat-map demo from the live grid demo — the gradient pushes the policy uphill toward reward.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-40.png" target="_blank">
+          <img src="./week05-slides/slide-40.png" alt="Slide 40 — Where does reward come from" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 40</span>Reward origin</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-41.png" target="_blank">
+          <img src="./week05-slides/slide-41.png" alt="Slide 41 — Challenges in RL" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 41</span>RL challenges</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-42.png" target="_blank">
+          <img src="./week05-slides/slide-42.png" alt="Slide 42 — Neural networks help" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 42</span>Neural nets as a fix</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Where Does Reward Come From? &amp; The 5 Challenges</div>
+
+      <p>The provocative question: <strong>"Where does reward come from?"</strong> In humans, reward is generated <em>internally</em> by our biological system. In robots, reward is <strong>a signal from the environment</strong> — typically <strong>application-specific</strong> and <strong>hand-crafted</strong> by a domain expert.</p>
+
+      <div class="callout">
+        <div class="callout-label">Hand-crafted reward — the limit <span class="badge prof">Prof</span></div>
+        <p>If your reward function is hand-crafted, your robot's intelligence is <strong>capped by your domain knowledge</strong>. The instant the environment exits your expertise (dynamic obstacles, novel objects, weather), the reward function fails — and so does the agent. <strong>Automatic / intrinsic reward generation</strong> is an open research problem (the prof's PhD topic).</p>
+      </div>
+
+      <h3>Five RL challenges <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Challenge</th><th>What goes wrong</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Credit assignment problem</strong></td>
+            <td>Which past action led to the reward you just got? Same as backprop's "which weight contributed to this loss?" — but harder, because the "weights" are entire action histories.</td>
+          </tr>
+          <tr>
+            <td><strong>High number of states</strong></td>
+            <td>Real-world state spaces don't fit in memory. A 32×32 image alone is a 1,024-dim vector. Q-tables explode.</td>
+          </tr>
+          <tr>
+            <td><strong>Exploration vs exploitation</strong></td>
+            <td>Should the agent <strong>try new actions</strong> (explore) or <strong>repeat the known good ones</strong> (exploit)?</td>
+          </tr>
+          <tr>
+            <td><strong>Non-differentiability of the real world</strong></td>
+            <td>Real environments have noise, surprise, partial observability. Real reward functions may not even be differentiable.</td>
+          </tr>
+          <tr>
+            <td><strong>Agent modifies the environment while learning</strong></td>
+            <td>You can't collect a static dataset — every action changes future states. <strong>No batch mode for data collection.</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Exploration vs exploitation strategies</h3>
+      <table>
+        <thead><tr><th>Strategy</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>ε-greedy (epsilon-greedy)</strong></td>
+            <td>With probability <strong>ε</strong>, take a random action (explore); with probability <strong>1−ε</strong>, take argmax-Q (exploit). Decay ε over time.</td>
+          </tr>
+          <tr>
+            <td><strong>Softmax / Boltzmann</strong></td>
+            <td>Sample actions proportionally to their Q-values via a softmax — high-Q actions chosen more often, but never zero.</td>
+          </tr>
+          <tr>
+            <td><strong>Pure greedy</strong></td>
+            <td>Always argmax. Risk: agent locks onto a suboptimal action and never tries alternatives.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Restaurant analogy <span class="badge prof">Prof</span></div>
+        <p>"Visit the same restaurant you like again and again, or sometimes try a different restaurant to maximize your reward function." That's exploration vs exploitation in everyday life.</p>
+      </div>
+
+      <p>To <strong>partially answer</strong> the high-state-count and continuous-domain challenges, classical RL is paired with <strong>neural networks</strong> — leading to <strong>Deep RL</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-43.png" target="_blank">
+          <img src="./week05-slides/slide-43.png" alt="Slide 43 — Husky DQN" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 43</span>Husky + DQN</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-44.png" target="_blank">
+          <img src="./week05-slides/slide-44.png" alt="Slide 44 — DQN architecture" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 44</span>DQN architecture</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-47.png" target="_blank">
+          <img src="./week05-slides/slide-47.png" alt="Slide 47 — Atari DQN" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 47</span>Atari DQN (Mnih 2015)</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. From Q-Tables to Deep RL (DQN)</div>
+
+      <p>Q-tables work fine for a 5×5 grid (25 states × 4 actions = 100 Q-entries). They <strong>do not scale</strong> to camera-driven robots or continuous control.</p>
+
+      <div class="callout">
+        <div class="callout-label">The clever trick <span class="badge">Exam</span></div>
+        <p>Replace the Q-table with a <strong>neural network</strong>. The network takes the <strong>state (camera image, lidar, encoders)</strong> as input and outputs a <strong>Q-value for each action</strong>. This is <strong>Deep Q-Network (DQN)</strong>.</p>
+      </div>
+
+      <h3>Husky robot DQN example</h3>
+      <ul>
+        <li><strong>Robot</strong>: Husky mobile robot with <strong>laser, camera, position encoders</strong>.</li>
+        <li><strong>Method</strong>: DQN selects actions to find reward locations in a square arena.</li>
+        <li><strong>Network</strong>: 3 hidden layers, trained with <strong>RMSProp</strong>, 400 iterations × 36 steps.</li>
+        <li><strong>Output</strong>: predicted Q-values for each action primitive (forward, left, right, back).</li>
+        <li>Robot ends up moving like a rat — analogous to <strong>grid cells in the hippocampus</strong> from cognitive science.</li>
+      </ul>
+
+      <h3>Atari DQN — Mnih et al. 2015 <span class="badge">Exam</span></h3>
+      <p>The breakthrough paper — <em>Human-level control through deep reinforcement learning</em>, Nature 518:529–533.</p>
+      <ul>
+        <li>Input: <strong>raw pixel state</strong> of an Atari game.</li>
+        <li>Output: action selection.</li>
+        <li>Result: <strong>matched or beat human performance</strong> on classic arcade games using only RL.</li>
+        <li>Sparked the modern Deep RL boom (AlphaGo, OpenAI Five, etc.).</li>
+      </ul>
+
+      <h3>Multi-agent emergent behavior — OpenAI Hide-and-Seek</h3>
+      <p>The video shown in lecture: hiders &amp; seekers trained via <strong>self-play</strong>. With only the simple rules <em>"don't get spotted" / "spot them"</em>, agents <strong>spontaneously</strong>:</p>
+      <ol>
+        <li>Learn to chase / flee.</li>
+        <li>Hiders learn to <strong>build shelters</strong> from boxes.</li>
+        <li>Seekers learn to <strong>jump using ramps</strong>.</li>
+        <li>Hiders <strong>lock the ramps</strong> away.</li>
+        <li>Seekers discover <strong>"box surfing"</strong> by exploiting the physics engine.</li>
+        <li>Hiders respond by <strong>collecting all boxes</strong> before fortifying.</li>
+      </ol>
+      <p>None of this was incentivised — it emerged from <strong>competition + self-play co-evolution</strong>. Sometimes agents even <strong>find bugs in the physics engine</strong> and exploit them — a recurring sim-to-real headache.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-23.png" target="_blank">
+          <img src="./week05-slides/slide-23.png" alt="Slide 23 — Outdoor navigation state" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 23</span>State definition</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-27.png" target="_blank">
+          <img src="./week05-slides/slide-27.png" alt="Slide 27 — Action set" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Discrete action set</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Worked Example — Husky Charging Station</div>
+
+      <p>The prof's running concrete example. Use this on the exam if asked for "design an MDP for…".</p>
+
+      <h3>Setup</h3>
+      <ul>
+        <li><strong>Environment</strong>: an outdoor area discretised into a grid (a top-down camera supplies the state).</li>
+        <li><strong>Goal</strong>: reach the <strong>red charging station</strong>, no matter where the robot is initially placed.</li>
+        <li><strong>Sensors</strong> (state inputs): <strong>color data, depth data, position encoders</strong>.</li>
+        <li><strong>Actions</strong>: <strong>move forward, turn left, turn right, move backward</strong> (or grid moves of 5–10 m).</li>
+      </ul>
+
+      <h3>Reward shaping</h3>
+      <table>
+        <thead><tr><th>Outcome</th><th>Reward</th></tr></thead>
+        <tbody>
+          <tr><td>Reach charging station</td><td><strong>+5</strong></td></tr>
+          <tr><td>Hit an obstacle</td><td><strong>−2</strong></td></tr>
+          <tr><td>Step taken, nothing special happened</td><td><strong>0</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Training loop</h3>
+      <ol>
+        <li>Initialise Q-table to zeros (or small random).</li>
+        <li>For each episode: place robot somewhere, repeat:
+          <ul style="margin-top:6px;">
+            <li>Observe state s.</li>
+            <li>Pick action a (ε-greedy).</li>
+            <li>Execute, observe reward r, new state s'.</li>
+            <li>Update Q(s,a) using the update rule.</li>
+            <li>s ← s'.</li>
+          </ul>
+        </li>
+        <li>Repeat until <strong>all states visited often enough</strong> and ε is small — then optimal policy emerges.</li>
+      </ol>
+
+      <p>After training, Q-values <strong>increase as you approach the goal</strong>. Drop the robot anywhere; it follows the gradient. With four equidistant charging stations, there are four optimal policies — the agent finds whichever it converges to first.</p>
+
+      <div class="callout">
+        <div class="callout-label">Sim-to-real gap <span class="badge prof">Prof</span></div>
+        <p>"Today's lecture prioritises simulation studies. Eventually, our aim is to train the model in simulation and expect it to work in real life — which is <strong>not the usual case</strong>." Reducing the sim-to-real gap is itself a research field.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-48.png" target="_blank">
+          <img src="./week05-slides/slide-48.png" alt="Slide 48 — Resources David Silver" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 48</span>D. Silver lectures</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-49.png" target="_blank">
+          <img src="./week05-slides/slide-49.png" alt="Slide 49 — pymdp" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 49</span>pymdp library</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-04.png" target="_blank">
+          <img src="./week05-slides/slide-04.png" alt="Slide 04 — Practical session components" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 04</span>Practical: motor circuits</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">11. Resources &amp; Practical Session</div>
+
+      <h3>Reading list</h3>
+      <ul>
+        <li><strong>Sutton &amp; Barto — Reinforcement Learning: An Introduction (2nd edition)</strong>. Free, open-source. <em>"If you want to read one book about reinforcement learning, start from here. Use the second edition, not the first."</em> <span class="badge prof">Prof</span></li>
+        <li><strong>David Silver lectures</strong> — <code>https://www.davidsilver.uk/teaching/</code>. The classic intro to MDP/RL.</li>
+        <li><strong>pymdp</strong> — <code>https://github.com/infer-actively/pymdp</code> — Python library for MDP-style tasks.</li>
+        <li><strong>Mnih et al. 2015</strong> — <em>Human-level control through deep reinforcement learning</em>, Nature 518:529–533. The Atari DQN paper.</li>
+        <li><strong>Spinning Up in Deep RL</strong> (OpenAI) — modern Deep RL tutorial.</li>
+      </ul>
+
+      <h3>Practical session this week</h3>
+      <ul>
+        <li>New circuit components: <strong>photoresistor, transistor, sonar (ultrasound), motors</strong>.</li>
+        <li><strong>TinkerCad Braitenberg circuit</strong> — connects back to Week 02.</li>
+        <li>Motor driving (1, 2, 4 motors) — <strong>directly used in the group project</strong>.</li>
+        <li>If your <strong>H-bridge is broken</strong>, ask the prof — replacements available.</li>
+        <li>You will be tested on the practical content in the final exam — <strong>do not skip</strong>.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Project + LLM warning <span class="badge prof">Prof</span></div>
+        <p>The prof noticed students using AI tools blindly. <strong>You are allowed to use them, but you must understand every component you cite.</strong> If you fail to explain a basic question on demo day, your <strong>individual grade will be downgraded</strong> — even if your group's grade is high.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week05-slides/slide-29.png" target="_blank">
+          <img src="./week05-slides/slide-29.png" alt="Slide 29 — MDP recap" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>MDP recap</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">12. Comparison Cheatsheet — LfD vs RL</div>
+
+      <table>
+        <thead><tr><th>Dimension</th><th>Learning from Demonstration</th><th>Reinforcement Learning</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Supervision signal</strong></td>
+            <td>Expert demonstrations (state→action pairs)</td>
+            <td>Scalar reward</td>
+          </tr>
+          <tr>
+            <td><strong>Needs an expert?</strong></td>
+            <td><strong>Yes</strong> — quality of demos = ceiling on quality of policy</td>
+            <td>No — but reward function still hand-crafted</td>
+          </tr>
+          <tr>
+            <td><strong>Sample efficiency</strong></td>
+            <td>High (few demos can teach a task)</td>
+            <td>Low (millions of trials typical)</td>
+          </tr>
+          <tr>
+            <td><strong>Generalisation beyond expert</strong></td>
+            <td>Hard — agent can't outperform demonstrator</td>
+            <td>Possible — agent can discover novel strategies (AlphaGo move 37)</td>
+          </tr>
+          <tr>
+            <td><strong>Failure mode</strong></td>
+            <td>Garbage-in-garbage-out demos; covariate shift</td>
+            <td>Reward hacking; sparse-reward stalls</td>
+          </tr>
+          <tr>
+            <td><strong>Best applied when…</strong></td>
+            <td>Task is hard to formalise but easy to demonstrate (cooking, folding clothes)</td>
+            <td>Easy to evaluate, hard to solve (games, navigation, optimization)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>On-policy vs off-policy <span class="badge">Exam</span></h3>
+      <p>Not heavily emphasised in lecture, but a likely fill-in-the-blank:</p>
+      <table>
+        <thead><tr><th>Algorithm</th><th>Type</th><th>Update target</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Q-learning</strong></td>
+            <td><strong>Off-policy</strong></td>
+            <td>Uses <strong>max</strong> over next-state actions — assumes greedy future even if behavior is exploratory.</td>
+          </tr>
+          <tr>
+            <td><strong>SARSA</strong></td>
+            <td><strong>On-policy</strong></td>
+            <td>Uses the <strong>actual next action</strong> the agent took (s, a, r, s', a') — learns the policy it is actually following.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Mnemonic</strong>: SARSA = the algorithm uses State-Action-Reward-State-Action — the next action <em>it will actually take</em>. Q-learning is bolder — it dreams of the optimal future even while exploring.</p>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Adaptivity</strong> = developing behavioral &amp; cognitive skills to perform a desired function (Nolfi). LfD and RL are this lecture's two methods.</li>
+      <li><strong>Three LfD types</strong>: <strong>kinesthetic teaching</strong> (touch the robot), <strong>teleoperation</strong> (controller), <strong>direct imitation</strong> (watch only). The exam will show photos and ask you to label them. <em>Spelling: it is "kinesthetic", not "kinematic".</em></li>
+      <li><strong>RL framework</strong>: agent + environment exchange (state, action, reward) over time. Goal = maximise <strong>cumulative discounted reward</strong>. Use RL for problems that are <strong>easy to evaluate, hard to solve</strong>.</li>
+      <li><strong>MDP tuple ⟨S, A, P, R, γ⟩</strong> — five symbols, memorise. Markov property = <strong>current state contains all info</strong>; history is irrelevant. Chess is fully observable; poker is partially observable.</li>
+      <li><strong>Reward can be negative, zero, or positive</strong>. The "must be positive" trap is a common true/false target.</li>
+      <li><strong>Q-learning update rule</strong>: <code>Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') − Q(s,a)]</code>. Know what α=0/1 and γ=0/1 do.</li>
+      <li><strong>Policy</strong> = what to do. <strong>Value function</strong> = how good doing it is. Optimal policies may be <strong>multiple</strong>; real robots converge to <strong>near-optimal</strong>.</li>
+      <li><strong>Five RL challenges</strong>: credit assignment, state explosion, exploration vs exploitation, real-world non-differentiability, agent changing the environment.</li>
+      <li><strong>Deep RL / DQN</strong> replaces the Q-table with a neural network — handles continuous, high-dimensional state spaces. Mnih 2015 (Atari) is the canonical reference.</li>
+      <li><strong>Reward source</strong> is the unsolved question: hand-crafted reward limits the agent to your domain knowledge; intrinsic / automatic reward generation is open research.</li>
+    </ol>
+  </div>
+  <details class="transcript">
+    <summary>
+      <span class="transcript-eyebrow">Lecture transcript</span>
+      <span class="transcript-meta">11,378 words · auto-generated (Whisper)</span>
+    </summary>
+    <div class="transcript-body">
+      <input type="text" id="transcriptSearch" class="transcript-search" placeholder="search the transcript…" />
+      <p>Okay, let's start for today's lecture. We will introduce adaptivity and reinforcement learning for robotics. Unfortunately, we cannot go in detail and explain in the formal way, but we will just give the basics and then you can understand that. If I give a problem to you in the exam or if you have a problem in the real life, whether you can solve with the reinforcement learning or programming by demonstration or the methods for adaptivity.</p>
+      <p>What we did previously, we introduced embodied intelligence. Specifically, we mentioned that the intelligence will arise through interaction with the brain, body, and the environment. So do you have any question about embodied intelligence or embodiment? I assume that you already understand that why we require the body for intelligence and for our robots.</p>
+      <p>But today's lecture will be very different because we will prioritize actually the simulation studies. Eventually, our aim will be to train the model in the simulation and expect that it will work in the real life, which is not the usual case. But we will see that how we can actually reduce the gap between the simulation and the real life. Today's context will be based on this famous book.</p>
+      <p>It is free and open source and if you want to read one book about reinforcement learning, start from here. And use the second version of it, not the first one. And it's updated and you can easily find the Python implementation for each exercise that they have. Okay, then let's go.</p>
+      <p>For the practice session, if you didn't assemble your car, please do it. And this week's circuit will be motor driving, yes. About which I've got a problem, my major-grade driver appears to be half broken. Half broken, then we will provide you in the practice session.</p>
+      <p>Or if you want to take it now, after the lecture, you can follow me to the office, then I will give it to you. Then after the lecture, we can go and I can give it to you. And the only thing that is the H-bridge is not working here for you? Yeah, the H-bridge.</p>
+      <p>Okay, then we can give it to you. The H-bridge, only one side. Okay, that is a bit uncommon, but that's fine. I can give extra one, then you can work with it.</p>
+      <p>Okay, I can give extra one. Your project may not be actually for the car related stuff but still please do it because you will learn a lot of knowledge that you can transfer into your actual project. And that's it. And this week's practice session will be important actually.</p>
+      <p>That is one of the things that you will use commonly for your project and it will be related to motors. We will know how to drive the motors starting from the one, two, and even four of them. So please do not miss it. At least one or two people from each group, it will be sufficient.</p>
+      <p>But if you miss it, please check it also to Canvas the that week's presentation and don't forget that you will be responsible for that presentations and the thing that we learned from the practice sessions too okay and if you remark that actually I'm observing during the lectures and during the practice session some of you are using the AI tools okay we are allowing you to use it, but do not use blindly. And if you already follow some advanced tutorials, please do it responsibly. Okay? Like probably the items that you are using for the advanced tutorials, we will not introduce, and you can still use it, but please understand it.</p>
+      <p>If you are using one component that we didn't introduce for the practice session, and you will be responsible to explain that it's function. So you can use it, feel free to use it, but understand that why you are using it and its behavior. One thing that we will apply this year a bit more intensely and in detail, we will invite you and if you see that some problems occur with your project and you couldn't explain the basic question that we ask in the demo day, then your individual grade will be downgraded. So it shouldn't be a surprise that one group member gets eight, then other one gets six or gets zero for the same assignment.</p>
+      <p>For the one that who are using a different type of robots, please attend the practice session and show us your progress. Especially ask Bosong that if you face any problem related to your Cobalt or the other robots that you are using for your project okay so do you have any question related to practice session no okay you already submit your first assignment and i will go and not give too much detail about detailed command about your assignment. So this is for you and for your group to get familiar to each other and form the group and brainstorm about your ideas. But the assignment in March 20 all group member has to be responsible and the contribution statement in that report will show you that whether you can continue for your for your project or not so please take care and communicate your group members earlier and I really do not want to involve with your group dynamics I would prefer to solve in the more formal way like if we cannot solve within a one meeting together with you i will ask you to contact with the uh the consistency we are not talking about you then i will ask you to contact with the exam board and we will solve in a more formal way okay finally we finally, we are entering today's lecture.</p>
+      <p>Let's start with great, powerful Darwin. And what he says in here, he said that it is not the strongest of the species who survive, nor the most intelligent. Basically, your power and your intelligence doesn't mean anything for your survival. But if you adopt a change, it will be sufficient for your survival but if you adopt a change it will be sufficient for your survival purpose okay then you can distribute your offspring and the species that you can survive so do you agree with this statement no yes but you can expect that this kind of statements said by the Darwinian.</p>
+      <p>Actually, it is an Internet legend. This quote does not belong to him, and it is distributing immensely especially in the Reddit. So be careful that you shouldn't trust that okay what everything said with the next to its picture. But here, the keyword is, we will not go and discuss the Darwin's idea in here or Darwin's supposed ideas, the idea attributed to Darwin here, but we will be mostly focused on the adaptive system and the adaptive changes in the environment.</p>
+      <p>We will relate to this actually to the intelligence. So the more adaptive you are, it means that you are more intelligent in our case for this lecture. Of course, one of the thing that we can give adaptivity to our robot is reinforcement learning. Who previously didn't heard this two words together, reinforcement learning?</p>
+      <p>Everybody know them and at least have a hand-wavy and basic ideas about reinforcement learning. One of the component of the RL is the reward. Here you are seeing two different school of thoughts. One school of thought by David Silver and the DeepMind team said that reward is enough.</p>
+      <p>Reward is enough for being adaptive. Reward is enough for being intelligent. Reward is enough for solving complex problems in complex environments. Another researcher said that reward is not necessary.</p>
+      <p>So there should be another mechanisms for being intelligent and adaptive. Now, which camp we should be in here as a roboticist? Let's say for your group project, your task is create the adaptivity, so increase the adaptivity of your robot, and which idea you should follow? Probably the one with few parts because.</p>
+      <p>Okay. And let me ask a bit provocative question to you. Where does this reward come from? No, no.</p>
+      <p>Who assigned that reward to the robot? Coder, yeah. The reward comes from the external environment. But for the humans, reward is generated by your system, biological system.</p>
+      <p>Although high-grade can be a motivating factor, and it will increase your reward but usually reward rewards are internal for the human system and now we want to make all robot intelligence not to have an reward from externally so it means that your robots intelligence is constrained with your domain knowledge. Like if it's navigating environment and environment is fixed, then you can say that, okay, if you follow 20 meters, you will see an obstacle, then go turn around the obstacle. But what if there is dynamic obstacles in the environment? The obstacles can move also.</p>
+      <p>Can you create a reward system for your agent? No? Yes? Is it necessary?</p>
+      <p>No. Yeah, that kind of stuff is important. Okay. You can create one algorithm, can work in a simple specific environment, but when something is changing that environment, your algorithm will fail and of course your robot and the task will fail so that's why we will not be belong to any company here okay but we will give enough uh enough uh enough information that once you read this paper, then you can decide by yourself.</p>
+      <p>And who has a dog? Do you have any pet dog? Okay. Can he drive a car?</p>
+      <p>Are you sure? I am getting it. So if I show that one dog is driving the car, it means that it is more intelligent than us maybe okay let's see but do you believe he can drive a car or she can drive a car yes if he wants to okay let's see okay Okay. Let's go.</p>
+      <p>Yeah. Good. Yeah. Good boy.</p>
+      <p>Good boy. Good boy. Good boy. Good boy.</p>
+      <p>Nice. Good. Right. Good boy.</p>
+      <p>Ready? Ready? Turn. Turn.</p>
+      <p>Turn. Turn. Turn. Turn.</p>
+      <p>Good boy, good boy. Two, two, two. Two, two, two. Two, two, two.</p>
+      <p>Good boy. Good boy. Good boy, good boy. Good boy, wait.</p>
+      <p>And three, three. Good boy. Three, boom. Boom.</p>
+      <p>Good boy. Boom. Good boy. You see, in Animal Kingdom, actually, we can train them to be our driver.</p>
+      <p>We don't need a self-driving car in that sense. But the keyword in here is the instructor. You will see instructor is changing her voice and giving the smarties to the dog, and that is reinforcing actually dogs behavior for the driving. We will do the same thing for our robots too.</p>
+      <p>The one that you said that, okay, I am giving my reward to to the robot and this kind of stuff may be transferable for the humans but it's not transferable for the robots okay let's go and make it a bit more formal so we will define the adaptivity as an behavioral and cognitive skills, the development of behavior and cognitive skills to perform a desired function. So if the desired function is opening this part, what I need to develop? Just to open and close this one. This is my task, or your robot task.</p>
+      <p>What you need to develop as a behavior skill. First, I have to learn the dexterity manipulation. I have to manipulate my fingers and I have to see that, okay, this object. If I grab this object from here, then it will be not successful for me, but in here it will be successful.</p>
+      <p>But very big but in here, if I change the position of the object, if I am doing the same task again under some changes, it means that I am adapting the environment and the changes for this task. This task may require a behavioral change, like I need to associate sensory and motor development for my robot or cognitive task. Cognitive task can be an attention, like my task is here to open and close this one, but instead of I'm using this mouse and clicking some places, it means that my attention is in different place. So I need to develop some behavioral and cognitive skills to perform the one function in the environment. cognitive skills to perform one function in the environment.</p>
+      <p>And the ways to achieve adaptivity is super, super diverse. But here we will focus on the two important and now trending topics in the literature. The first one will be learning from demonstration. If you read the paper related to imitation learning, related to programming by demonstration, or learning from demonstration will be the same.</p>
+      <p>In our case it will be the same. But we will use keyword LFR, like a learning from demonstration. So, we will focus on the LDF, LFR, whatever. Here it is quite, quite interesting task.</p>
+      <p>This kind of behavior that previously we showed with the small robot hand, what we need, we need to solve some kinematic equations and in some settings we already know that it cannot be solved but here what we are doing it actually using an human as an operator to control the robot that controller can be remote controlled or literally grasping robot hand and performing the action. So we are basically showing some demonstration and robot observe us and perform the same function. We can pre-train it using this technique first, and then train it in reinforcement learning with a real cat moving around and a human scoring the robot. Is that possible?</p>
+      <p>I mean, many tasks will be possible, but you should have an expertise of a human to teach your robot. So if your data is clean enough to demonstrate the examples oftentimes the action will be possible with the limitation of your robot hardware okay like if your task requires to this one throw this one super fast okay maybe your robot cannot achieve that dexterity maybe your robots cannot achieve that dexterity yeah if it has an error what you can do go what does inverse kinematics mean what does forward kinematics mean? You get the desired position and you calculate the angles needed for that, like this angle, this angle, this angle, this angle. If I want my finger to be here, I need these angles.</p>
+      <p>OK, and the thing that you are describing is inverse or forward? Inverse. Are you sure? OK. yeah i calculated the angles okay okay if you are saying that okay in the space 3d space you have a one coordinate to reach and based on that coordinate to reach you are adjusting your motor commands that becomes inverse okay but if you are changing that okay what will happen if your this joint is that angle and this joint is that angle what will be and the position of your effector that becomes forward forward and it won't I'm not sure I understand that.</p>
+      <p>Okay. For forward kinematics. Imagine this is a robot hand. And I'm just saying that, okay, this motor.</p>
+      <p>Go to 90 degrees. Then you can calculate the position of the end effector. That is forward. Now I am saying that the same robot in here, robot hand in here.</p>
+      <p>Go and reach that position in the space. Now what you need? You need to calculate the angles from the position encoders to reach this coordinate angle. That becomes inverse.</p>
+      <p>We said that inverse might have a one solution, many solution, or no solution. So that's why it is indicating that it is quite hard to formalize the inverse kinematics. So there is no specification of the problem? It depends on the problem in inverse there can be only one solution then you can easily solve it exactly yeah that's the exactly it the inverse will take the position of the goal, and then we calculate the inverse from the value.</p>
+      <p>It comes from that also. But it's clear in here. We said that calculating inverse kinematic is quite hard for our robots, and if I am taking my robot hand and making him to reach the position, then I don't need to calculate the inverse kinematic for it. So when is it useful?</p>
+      <p>Which one? Inverse. When you know the solution exists. Okay.</p>
+      <p>That's a useful for instance. Or when usually it's industrial setting, inverse kinematics can be easily calculated and they use it. But for the kitchen-like environment, it is you need a lot of dexterity and we are not using that. mathematics can be easily calculated and they use it. But for the kitchen-like environment, it is you need a lot of dexterity, and we are not using that.</p>
+      <p>You can still use it and they perform the task, but if you can collect the data from the experts, then it will be better to use learning from demonstration. The idea that somebody has to demonstrate, and that guy should be sure that this demonstrator has an expertise and can perform the task very well, because we want to learn from the successful task. Based on this demonstration, we are recording from the image with the camera and the position encoders in the temporal domain with each time I know that my position and colors and the camera image then I am training a one model that model can be machine learning algorithm that gives an output for you to follow the joint information or joint data. Then I will evaluate on the actual model performance for my robot.</p>
+      <p>And the evaluation metric can be different, but oftentimes we are using for the grasping, for instance, attempts of successful grasp, number of the attempt for successful grasp, that's one metric. Another one is time to complete. If the action requires, let's say, 10 minutes to perform, it's better not to do it, yeah? Let's say you are spending 10 minutes to perform and open and close this washing machine, or your robot is trying to do it.</p>
+      <p>So it doesn't needs to be learned. Yeah, you can just go and open and take care of the dishes by yourself. That is very interesting paradigm to learn actually. Why?</p>
+      <p>Because we are literally removing the formal details of how robots should generate the action, but we are using the human action to guide our robot. What will be the advantage of having this kind of system? The robot can be very flexible. Flexible?</p>
+      <p>Yeah, you can re-learn, you can re-train it for different tasks. Exactly. Like, imagine in your kitchen environment, you need to perform a lot of tasks. And ideally, as a roboticist, you should code different algorithms for different type of tasks.</p>
+      <p>Like for reaching, that will be one component. Another one will be grasping. Another one will be take this one to go and put in somewhere else or shaking for some reason to mixing the ingredient. So we don't want to actually do this kind of tasks.</p>
+      <p>But why we don't want to do it? Is there any decision for it? Ideally, we are roboticists, we are happy to solve robotics problem and these are the three different robot problems. Why we don't want to do it?</p>
+      <p>Any? If the robot doesn't have long term memories, only learns the task at hand, then you must be sure that the operator basically does it perfectly every time or something like even a small error could affect it. Yeah, that can be one of the reasons. Another, think about economically. one of the reason another think about economically like what will be the salary of senior robotic software engineer dating how much you will pay someone to perform this task on your robot perform this task on your robot?</p>
+      <p>Give some random numbers. And how long it will take? OK, let me be more specific. You are a professor in our laboratory, new professor.</p>
+      <p>And you are hiring a PhD student to perform justice tasks. You will have one humanoid robot, your task for your PhD project is open the door of the washing machine, keep one item from the washing machine, not one item but the series of the different items, plates, cups, knife, whatever, and put on this surface. How long it will take for her or him to solve this problem? Like forever, because it consists of a lot of components, including training the model and to transfer the human, to calculate the angles of the human and then put it on the robot.</p>
+      <p>How to train a model that takes the position of the human hand and transfer it to the robot. In short, it will be super hard to do it. Here, PhD students are a bit lucky because they get much more money than compared to Italy. So you can say that it is worthwhile to pursue this kind of PhD topic.</p>
+      <p>But again, the number of the robotic engineers or the PhD students working in this domain is quite limited, and you don't want them to spend all of the time they have for specific problem to solve some formal equations and implement on the robot and if the environment is changed, then you have to implement it again. That is one reason because hiring the roboticists are quite expensive. And maybe in the break I can show how much money that you can get to be a robotic engineer. And some tasks are hard, actually, to formally describe it.</p>
+      <p>Like for the reaching and the grasping, it is easy. But how about doing the same task for, let's say, rotating a wheel of a submarine under the sea? We sometimes don't know how to mathematically decompose this kind of task for us. So that's why this is another reason that we are using learning from demonstration.</p>
+      <p>The things that we often take it granted, like in the kitchen for instance, flipping the omelet or cutting your bread or preparing a simple sandwich takes a lot of time for the robots but any human with two hands probably they can do in five minutes the most complex sandwich let's say but for our robot it will take a lot of time all right so these are the stuff that we are considering learning from it will take a lot of time. All right. So these are the stuff that we are considering. Learning from demonstration or imitation learning is a good target for roboticists to learn, to invest, and to get the data and perform the task.</p>
+      <p>And of course, the field is quite wide. But there are three different approaches to solve this problem. We will have a demonstration, we will train a model, and we will evaluate it. The first one is kinesthetic teaching.</p>
+      <p>Learned, okay. In the exam, I will not accept kinematic teaching. I will not accept some changes in this world. It is kinesthetic, and it's quite easy, which means that you are giving your robot in a resting position, so all actuators are in a passive mode.</p>
+      <p>Then you are grabbing your robot arm or whatever the joint that you want to make the task. Then you are moving your robot here and comes to here and grasp its finger down with the finger that becomes kinesthetic teaching because you are not formally solving the equation and you are just guiding your robot to perform the same action that you want to perform later. Then you are collecting this kinesthetic data, then train the model and evaluate it. That's also.</p>
+      <p>Another one is the teleoperation. We used a lot for the human-robot interaction experiment. Remember Wizard of Oz as a prototyping approach. Here, basically, the operator oftentimes does not touch the robot, but use some interfaces and some hardwares to perform the task.</p>
+      <p>That hardware can be a joystick or game controller, or just a web interface that you can change some sliders and the robot will perform the task. The last one is the direct imitation of the human behavior. Basically, your robot is sitting in front of a human and without touching, without guiding or controlling. Watch the human how it performs, then it will perform by itself And Here are the example Now can you tell me which one it is kinesthetic teaching?</p>
+      <p>Or learning a direct imitation from human or teleoperation? This one. This one is learning by imitation because human doesn't manipulate the robot directly but uses their body to show what the robot is supposed to do and that other one is kinesthetic teaching because the human moves the robot manually. The last one.</p>
+      <p>This one. Yeah. This one is kinesthetic teaching? Yeah.</p>
+      <p>This one? Who has different idea? Just let me show it. Kinesthetic teaching, teleoperation, and direct imitation of human behavior.</p>
+      <p>Make a wild guess. This one. It cannot be direct limitation because they are in contact, and it cannot be kinesthetic, but it can be teleoperation. Why?</p>
+      <p>You see there is another operator in here, and they're teleoperating the robot with this apparatus actually. But in this figure you see, the experimenter will touch the robot and drive it, and the robot will perform the puring the water or call out into the mug. So you see the difference between these three. One is just observing the human, one is you are touching the robot and perform the action, another one is you are controlling the robot.</p>
+      <p>This kind of stuff will be exam question two. This kind of stuff will be exam question two. This one actually, my student from Berlin, actually he did in one week, less than one week as a master degree student, and now he's working at TechLead in the 1x Robotics in Norway. The one that who developed the NEO.</p>
+      <p>You remember the NEO robot? Yeah, he's working in that company now. If you want to do or integrate something into your group project too, you can also use this media pipe, which is quite nice interface and easy to use you can easily operate your robots but in our case we will not allow you to operate your robots why because we need your robot has to be autonomous but you can show it actually that interface exists and the implementation is quite easy you cannot see me here Implementation is quite easy. I cannot see me here.</p>
+      <p>This is media pipe interface, and you see it can segment my fingers. Now, we can also do with the two of them. Basically, with this one, you can do direct imitation of human behavior, like clapping for instance. So this is effectively the closest you can get to emulating how humans can learn by demonstration.</p>
+      <p>Humans learn? Humans can also learn by demonstration. Yeah. This is the closest thing we have to emulate that in a robot.</p>
+      <p>Yeah, exactly. have to emulate that robot yeah exactly yeah this is the for instance what you can do for the one that who wants to do multiple car project like you will have a swarm of robots with three of them and you will make this gesture and your algorithm will extract this triangle and the shape formation of your robot will be triangle. Or you will do, I don't know, this kind of gesture. Then your robot do some other task. not in a long time ago they use this part this part of your finger to control a excavator like a robot so with this one they match this joint with the excavator and the excavator doing this the it's the actual actual actual let's say a soil digging like here so this is media pipe it is quite easy to use it if you can use it it will be quite quite interesting stuff that you can do it like you can basically with media pipe easily recognize the rock, paper, scissors game. Okay.</p>
+      <p>And now it is becoming super popular because the famous labs and the famous companies are creating their own robot types for learning from demonstration. And here is one of the example they call a platform and you are sitting you are sitting in this platform and controlling your robot for performing the tasks okay like this one is pick and place it really seems that it is easy for human yeah I can but for our robot it's very hard actually like now this robot is learning to steal money from the from the quick okay but in reality it is very very hard like and this one requires precision for instance and pure ink it's okay like yeah this is also in super-previous science. One of the hardest tasks actually for this kind of robots, gradually we are solving them, is the interaction with soft materials like your t-shirt for instance, shirts. Folding them and putting them on the drawer, it is a bit hard for our robots.</p>
+      <p>If you solve it basically, you will cause a lot of people to be unemployed in the Amazon waiting house or in the famous clothes companies for instance. And the people are getting actually, getting into this research area recently, in a very sharply and in a very efficiently and you will see in coming five years we will have a lot of example for this example for this and who knows maybe you hire a one robot who is trained with this kind of setup or algorithms okay After you graduate, having your house, and having your house, maybe you will recruit one robot instead of doing it. Now, we somehow understand the learning from demonstration. Do you have any question? from demonstration we have any question because that first 20 slides are super super important if you are into in the robotics that will be very nice sweet spot for next five years actually to work in and dedicate a lot of resources for yourself and be one of the let's say pioneer in this field so the field is quite open and the people are working on it if you dedicate your PhD duration for this kind of problem definitely you will be one of the one of the most wanted person in the robotics area and the machine learning area to work with all right now we are moving to reinforced learning this is another another uh wide concept but we will not go in super detail unfortunately before going this let's get intuition without even introducing it okay so it is quite simple get intuition without even introducing it.</p>
+      <p>So it is quite simple. If you already know, it will be a bit boring, but let's do from scratch. Here, this is our robot, and our robot is trying to reach this goal. I don't know if you can see, but the environment is a grid.</p>
+      <p>This is four by four grid and there is no obstacles. So your robot can go in that way, in that way, in that way, in that way, in that way. At the end of training, what we are assuming robot will, no matter where I put the robot, it will find the shortest route to reach this goal. So to find the shortest route to reach this goal, what I need to do, I need to give a reward to my robot.</p>
+      <p>And my robot reward can be zero for each step that it takes but it didn't reach the goal okay that will be one of the reward and the another reward can be if you are reaching no matter where you are in this positions when you reach the goal position then I will give more rewards which means that time okay and what will happen at the end my robot will avoid less rewarded position and it will try to reach the high rewarded position as early as possible. So let's do it with one step. This is starting position and my robot took in here. Another step in here, another step in here, another step in here, another step here.</p>
+      <p>But something happened and it preferred from here to here. And that's normal because in the beginning my robot is explorative. It wants to explore as much as possible in the environment. In the sense that you can say that the robot is curious to see the other states in the environment.</p>
+      <p>Go back again, go back in here, here, here. Still, I didn't reach it. It's gone to the initial stuff and it took a lot of time for him to reach. This is the typical reinforcement learning behavior.</p>
+      <p>For classical robotics guide, then you can solve with the single step, but here I have to try a lot of stuff. Good luck here. Still didn't go. One time I'm there.</p>
+      <p>Again, I have to try a lot of time to reach my goal. And the thing that you should understand that each square in here is a state. State is I have performed one action and I find myself in the environment. I am recording the sensory data.</p>
+      <p>And that is my state. I'm performing another action and seeing the environment. That's my state. I'm performing another action and seeing the environment, that's my state.</p>
+      <p>And, unluckily, I go back and I see that I'm in the same state but now some of you change it is it is let's say a gesture. Now state is different. That is one of the problems because when I am acting in the environment I am seeing some changes in the state so I'm not fixed and my algorithm has to deal with it and another thing is the action action can be predefined like for a self-driving car if you see the traffic lights and if it's red, then slowly, slowly just rate yourself and stop at the end. That will be one action.</p>
+      <p>For answering this phone, if you hear it is ringing, then go and listen to who is talking here. That can be another action. Or you are playing a poker, and you can ask a more card or you can open your card. These are two different actions.</p>
+      <p>So action of your robot is basically constrained by its motors in the hardware. At the end, my goal is to go and find this. Okay, now see how this arrows are changing. And it will do super fast, so be careful.</p>
+      <p>You see it already find the shortest path. And this one is not allowed. This one is not allowed. This is not allowed.</p>
+      <p>Let's do again. Of course, it's the optimum solution and it cannot improve further. We said that wherever you put your robot, it will act optimally. Let's wherever you put your robot it will act optimally let's say you put your robot in here what it has to do do not go here yeah instead go here and once you are here then go to down once you are in down then go to the right then once you are in right go to the left and you are literally learning step by step and let's go to make it a bit let's put some more in here and let's put one more in here.</p>
+      <p>If the theory is correct, after the training, the robot will definitely go in that way. Let's see. You see, robot is interacting with the environment and learning there's the obstacle in here instead of going this direction. Whenever I put him, then it will go in that direction.</p>
+      <p>Let's do once more and I will show the heat map okay and let's go with the one one wall to I will put wall in here and in here so there is only one single address for your robot. Let's train it. You see the number of the, sorry, heat map is showing that there's a gradient in here, more rather than this part. So it means that robot will prefer and to go in that way.</p>
+      <p>So for the small task, small environment, it can perform optimally but instead of working with this grid world if you are working in the real world then everything will be messed up okay and in the second part of the lecture we will go and introduce in detail so we now have a one some 10 minutes break or 30 minutes break and we will start at 45 and if you have a question about the material or the practice session just come here and ask Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Okay, let's start one minute early. So we're given basic intuition with the simple grid world, but if we are scaling up to this real world robots, it will be quite hard. Here we will assume that let's say our assignment is instead of knowing where to go from the start to goal position, and we will do in the continuous domain like this robot has to do. From Berlin to Pisa, this robot has to do.</p>
+      <p>From Berlin to Pisa, this robot has to drive and what it can do, previously we say that this is an perception action and decision problem. But here we have to use the reinforcement learning terminology. Instead of perception, we will use state. Basically, state contains the all perceptual information that you need to make a decision.</p>
+      <p>For the action that requires from your robot based on the robot hardware, it's a wheeled robot, then you can go say that, okay, turn left and go one meter away, turn right and go one meter away. Important component in here is the reward. So we have to give a good reward for our robot to perform the action. And with each good action, we will increase the reward.</p>
+      <p>Increase the reward, that means that we will give the same reward, but cumulatively it will increase. And at the end, robot will associate the state action pairs with the high reward. So instead of going to low reward state action pair, robot will go to the high reward one. So this is the basic intuition.</p>
+      <p>We can define it as a basically trial and error learning, and that's why we are not using it for actual robots too much. Why? Because initial investment for the hardware to try an error for robots, it is quite expensive, and we are not in comfort to use, let's say, 100 humanoid robots to perform the basic actions for our robot. And one thing that you should learn, please learn this one carefully.</p>
+      <p>We are employing reinforcement learning for easy to evaluate but hard to perform. Again, I will say again, we are using reinforcement learning for easy to evaluate, but hard to solve or perform. Like here, you have a bunch of robots, they are playing a soccer together, and it is super easy to evaluate who is the winning. What we need to do, we need to just go and check the scoreboard.</p>
+      <p>Here, you are seeing the one team is winning eight and zero. We can automatically say that this team is winner team. But under the hood, there are a lot of stuff are going. Like this black jersey, the robots will need to find the location of the ball, and it will try to go there.</p>
+      <p>Once it is there, it will detect the line. Once it detects the line, it will position itself in the other part of the line. Then once it performs this one, then it will kick. But it will kick either towards its team member or towards the goal frame.</p>
+      <p>Again, you are seeing a lot of stuff going on under the hood, but it is easy to evaluate. Just check the scoreboard, but hard to solve it. In this kind of examples, we can use reinforcement learning freely. Again, we cannot use it too much in the robots, but first train the model in this nation and see it is on the actual robots.</p>
+      <p>One typical, I will come to later. Another typical application area of the reinforcement learning is the board games. Like the chess for instance, learning is the board games. Like the chess, for instance.</p>
+      <p>That's a perfect board game. And it is easy to evaluate because at the end, if you do a checkmate, then it means that you won the game. But it is hard to play because the combination and the expertise of your opponents will play an important role for you. Okay. and the expertise of your opponents will play important role for you.</p>
+      <p>So the basic concepts are, we have a state that contains all information that we need, and we have an action. Between this state and action, we have an reward, and that tells us as a signal how we are behaving. If I find a good state and action pairs, then it means that I will get the high reward. In the opposite case, I will get the low reward.</p>
+      <p>And by this trial and error, at the end, I will have one policy or multiple policy to approach the optimum, let's say, decision-making. And, of course, for a robot, we are both lucky and unlucky. Why? Because we have a lot of sensor to represent the state.</p>
+      <p>Dealing with this sensor space, which is super high dimension, imagine for a single image, say 30 by 32, what do we have? You have an array of 1,024. With each action that 1,024 is changing. Then we have our actions.</p>
+      <p>Actions can be simple as move forward, turn left, and turn right. It can be pre-coded. So you can have a luxury of this setting your action in here. Why?</p>
+      <p>Because we are driving a car. A car only perform specific actions. Now, if we guess the dimension of input is quite high, let's say 32 by 32 in here, 32 by 32 in here, position encoder, let's say we have a four wheel and it can be controlled with four motor. It can be 2,048 plus 10, plus 10, it will be 30.</p>
+      <p>But in reality, this one will not work in the actual real environment. We need to increase the resolution. So that's why reinforcement learning is hard topic for the roboticist. We have one notation, Q means the value.</p>
+      <p>For a given state and action, how valuable for your agent to state in that state and action pair is represented by Q. Then for the, let's say, one state observation, one state, you can associate with one action, then you can extract the value of that state action pairs. Note that it is subscribed by T, which means that over the time you have to perform multiple state and action appears to reach the optimal policy for your agent. More formally, don't worry, this will be quite easy to understand and we will not go in detail like Bellman equations, but here we will just give the formal way to introduce this reinforcement learning agent.</p>
+      <p>You have an agent. Agent can be anything. It can be a decision-making algorithm for your portfolio to make a stock exchange. Or it can be a robot that opens the door. it can be a robot that opens the door, or it can be a medical agent that decides your vaccine combination, for instance.</p>
+      <p>This agent is governed by some notions, and this notions comes from a Markov decision process, and we will introduce later what does it mean. But you can understand that the MDP or Markov decision process is a tuple and this tuple has five different parameters. The first parameter is the set of possible states. For example, in here it was 5 by 5.</p>
+      <p>This is the number of states. 5 by 5, it means we have 25 states. Then we have an action. Number of the action in here was, I guess, up, down, left, and right, 4. So for each action, like you are seeing in here, sorry, for each state, you have four action.</p>
+      <p>Here is the state action one that we mentioned. State zero, action zero, and the best thing that you can do with the state action pair is going to right. Let's follow it. State zero, and action will be going right.</p>
+      <p>So zeroed action going right. In here, I have to go here. So still again, and I am in state one, and what kind of action that I need to do is zero. Yeah, it's a zeroed action and it will be most valuable action for me to perform.</p>
+      <p>Because in here, if I go, then I cannot go outside of the arena or my environment. At the end, I will associate with each state action pairs, then that will be my best policy. Here, I also have an action. We mentioned that action is constrained with your hardware for your robot.</p>
+      <p>And here we also have a policy. Policy is a transition probability for you. You are in a one-state, and you can perform four actions. You are in a one state and you can perform four actions.</p>
+      <p>And based on this policy matrix or probabilities, you can choose which action to take. And at the end, you will perform, let's say, ideally you have to perform in front of the main times to get the best policy that you can extract from this environment. times to get the best policy that you can extract from this environment. That will give you in which state, which action is possible for you and which action you have to take based on the value function. Remember, value function in here is QST.</p>
+      <p>If this is the highest compared to the all available actions, then you will choose this action. Lastly, you have a reward. Reward can be fixed, which means that if you go in the goal location, then give the 10, but for each intermediate steps, give zero or give minus one. The reward, please learn that can be negative two.</p>
+      <p>This is an exam question or true-false question. Usually, students are thinking that reward has to be positive because they are directly associating with their grades. But in here, reward can be negative zero or positive two. The discount factor is basically say that, okay, should I use the immediate reward for my decision or should I discount it for my future actions?</p>
+      <p>Now, we will see them in action. Okay. One thing that we mentioned about the Markov decision process, in action. OK.</p>
+      <p>Yeah. One thing that we mentioned about the Markov decision process, this has to be known in advance. For your agent, if it belongs to Markov property, Markov decision property or process, it means that the current state has all information for your agent to decide what it has to perform next. That's important.</p>
+      <p>The current state has all information for you, for your agent to make a decision. For instance, in the chess, you are seeing that your opponent moves and nothing is hidden. So the chess belongs to fully observable Markov. But for the poker, for instance, you cannot see your opponent's hand, but you still have to make a decision.</p>
+      <p>And in this case, it's not fully Markov, but it is partially observable Markov process. But in our course, you will be responsible whether it's Markov or not. Okay. An example in here, you see Magnus in here.</p>
+      <p>And this is, let's say, his opponent. And the opponent will play the classical movement in here. After this action, Markus can decide what kind of action that he has to perform. Why?</p>
+      <p>Because the current state of the board provides all information that Magnus has to perform. Replace Magnus with your robot or with your robot R. It means that both of you have an perfect information to make a decision. Is this clear?</p>
+      <p>Is this clear? Please say yes. No? Yes. say yes no yes do you have any question or can you give me one example that you can assume that it is fully observable Markov decision process?</p>
+      <p>Yes, go. And why? Okay. Another example.</p>
+      <p>Not board game. Give some different games.. Yeah, that's true. I mean, if you give this example in the exam, I will accept it.</p>
+      <p>Cool. Yeah, you find that football next to your leg, and you know where is the frame. You don't need to assume that, okay, who gave me the pass that I reached this thing, this state. Or whether this, my team member gave me a pass with the left leg or right leg I don't care I find a ball in front of me and what I need to do decide whether I should frame or give a pass to my team member. okay now for the different agent type it doesn doesn't need to be hardware or the software.</p>
+      <p>Simulated agent can be pure software one, like a gambling agent or like a stock tracker for you. Here, let's say we have our robot. It's called Husky robot, Husky mobile robot. It's a bit expensive actually.</p>
+      <p>That Husky robot has to go to the charging station. The place that's with red color is a charging station for your Husky robot, and your robot is following this grid world. You should assume that this grid world is superimposed on top of this environment like this. superimposed on top of this environment like this okay then I am giving my reward to my robot if you reach if you reach this charging station then I will reward by five okay if you hit an obstacle in the environment, I will reward you by minus two, let's say. And if you make an action, but nothing happened, you didn't hit the obstacle or you didn't reach the charging station, I will give you a zero to you.</p>
+      <p>I will give you a zero to you. So overall, what will be my expectation? The robot will perform a series of the action to reach or to maximize its cumulative reward. In this case, after I train my agent, it has to find the closest charging station no matter where I put it.</p>
+      <p>So in this case, my state will be this camera. This is a top camera of your robot. It can detect the colors and it can move only, let's say, in four type of action, left, right, and up and down by five meters or 10 meters. At then, if I perform my task in here, let's say I sufficiently trained, no matter where I put my robot, it will go automatically the closest place to charge itself.</p>
+      <p>And this robot will be, I will assume that environment is Markov and fully observable. Then it will be governed by MDP, Markov decision process. And that's it actually. So what will happen for my policy?</p>
+      <p>At the end, let's say I train my robot and I am putting my robot in the middle of the maze and my policy will be something like that. Prefer one of them, probably it's close to this one. Then with the Euclidean distance, it will go here, here, here. At that, it can make some mistake due to the noise in the environment.</p>
+      <p>But if I am sure that I visit all available states enough time, and I reduce my exploration rates, then it is guaranteed that I can find one of the optimal policy. Optimal policy can be one, two, and multiple one. Why? Because if I put this robot in the middle of the maze or in the middle of the area, the Euclidean distance are same for each of them.</p>
+      <p>So it means that there is four different optimum solution for this example. But due to the noise in the environment, robot will choose one of them and it will be a near optimal solution for you or near optimal policy for you. It does make sense or not? No?</p>
+      <p>You can think about like this actually, exactly like this. This is my robot and this is my environment, and this is my one charging station. Let me read all again. Here are the values that you are reading in here, this is 0, 0.</p>
+      <p>This is initial state action pairs, and over time, I will look for it and be sure that this state information for this one, will be higher than these two. Just look at the first one. That's the train again. You see this state, let's say zero one, and my action for going right is much higher than the other two action.</p>
+      <p>You see my agent is somehow visiting the same step, same step in an infinitely many time or highly enough time that extract the optimal policy. Here, we have the same thing again in here. The highest one is here, 0.2. The other is 0.1, 0.1.</p>
+      <p>Here, we have a 0.3. You will see that actually, the closer that you are getting for your goal, the value of the state will increase. At the end, no matter where I put my robot, it will perform optimally and find its goal location. Does it make sense at least intuitively?</p>
+      <p>We will not expect any formal details for you. not expect any formal details for you. And I can skip this one, but let me make it appropriate. So my goal is find the closest charging station for my agent, and I know that the environment is fully observable. So I can assume that Markov property for my agent and I know that the environment is fully observable okay so I can assume that Markov property exists in the environment and what I can do for each state and action for each state I am making an action and receiving reward from the environment and using this reward to update my queue function.</p>
+      <p>Then making another one and seeing the reward from the environment and updating my queue function. And over time I am doing again and again until I find the best policy for myself to go and reach my goal. In this case it will be opening the tool. And this equation here is for a given state you are extracting the maximum available, maximum valuable state, a maximum or a maximum value will state a maximum value for Q function available for that state like here.</p>
+      <p>Like here. You are in the states and comparing the all Q values for each state, then you are selecting the maximum one. Over time, if you do the same thing in each state, you will find the maximum available states for you to achieve for your goal. Okay.</p>
+      <p>Then I will skip this slide. You will not be responsible, but check it in your free time and learn that what will happen this learning rate and this Gamma for this Q function when I put zero, when I put 10, and when I put minus five, for instance. Here is the transfer, but just try to do it by yourself. Again, the one of the thing that we need to discuss, where does the reward come from?</p>
+      <p>Initially, we said that reward come from the operator, who knows the task very well, and who can guide your robot to perform reinforcement learning to solve the solution. But in reality, if you check some cognitive models, this is one of the model that I worked during my PhD actually, and I was super surprised that the reward, everything is here is super defined. From thalamus, you can go to sensory cortex, from there you can go to amygdala and orbital frontal cortex, everything is clear. But here you will see this reward arrow comes out of nothing.</p>
+      <p>So that was actually one of my research question, how I can create an internal reward function for my robot to perform a task. Of course, if you are very well experienced in the domain, then you can create a handcrafted reward function. But at the end, you will fail because your robot will face the domain that you are not expert, that you can easily extract a reward function for them. So that's why we need somehow an automatic reward generation for our robots too.</p>
+      <p>That's also one of the open research question in this domain. Of course, we are currently reinforcement learning is quite popular in the literature, and we also have one reinforcement learning course in the master degree in CSI, but I guess you can attempt if you like to. It comes with challenging problem. In machine learning, you already know the credit assignment problem.</p>
+      <p>Have you ever heard it? Did you get the machine learning class? At this once provides learning algorithm, you develop it? Yes, no?</p>
+      <p>Yes. Guys, yes or no? Did you take any machine learning course? Okay.</p>
+      <p>Yeah. Perfect. In that course, you see a supervised learning algorithm? Yes.</p>
+      <p>Okay. Perfect. You work with the neural networks at this single-layer perceptron. Do you remember the perceptron has n weights, and you are training with the loss function with backpropagation?</p>
+      <p>The finding that which weight is responsible for high loss. That is the somehow created the same problem. In reinforcement learning, you are performing a lot of actions, and you are saying that which action will be related to high rewards for a given state. That's the one the problem because doing this task is quite hard.</p>
+      <p>Imagine with an reinforcement learning algorithm where you have a 10 million weights and you are looking for which weight is responsible for high loss for a given function, or which weight is responsible for less reward compared to the others and in here we had a five by five uh super smooth environment yeah it's quite easy to work in the grid world but in reality we have a lot okay maybe infinite number of the states maybe infinite number of the states. One thing that your agents should be explorative or exploitative, which means that visit the same state again and again, going to same restaurant that you like again and again, or sometimes try different restaurant to maximize your reward function. That's also still one of the biggest problem that we have to solve. Probably the hardest one is this one, real world may not be differentiable.</p>
+      <p>We know that we are working or we are assuming that the task that we are dealing with for machine learning, we are dealing with differentiable functions. Like your function at the end has a property to be differentiated. But in real life, we don't know actually whether this function is differentiable. Like function of calling, answering this phone.</p>
+      <p>We don't know what's this function. transferring this form. We don't know what's this function. Or function of, I don't know, function of properly ironing and folding this kind of short spaces. We don't know what actual function of this.</p>
+      <p>And lastly, that's also another stuff for robotics is quite pain. Once your agent act in the environment, it change the environment. It hits the obstacle and obstacle move a bit forward. And again, if you visit the same state, the state will be different.</p>
+      <p>The information will be different. And this is the thing that we need to also solve it. that we need to also solve it as a robot says, if we want to work with robots who can perform the action outside of the laboratory setting. Why in the real life we have a wind for instance. Something happen and you have a wind, then you have a noise for your microphone for instance.</p>
+      <p>So that is the thing that actually we should know in advance actually. What kind of problem that we are targeting and what kind of difficulties we have with our algorithms that we want to solve. We cannot go in detail but if you're interested, go and attend at least one of the course from the deep reinforcement learning in the master degree. You will see that actually how super complex problems can be solved by the reinforcement learning.</p>
+      <p>Of course, in some cases, instead of going with the Q-table, like here we have, for five by five, we have that amount of Q-table, 25 state and action pairs. But in real life, we cannot have a Q-table. Why most of the time we are working in the continuous domain? Like imagine that you have a wheeled robot and it has to rotate in certain amount of time and the move and the performance and action in the environment.</p>
+      <p>You can still discretize it, but it's better to work in the continuous environment as continuous domain. One of the clever tricks actually they did is putting a neural network instead of using a Q-table between your input and the output layer. Output here will be a value function. How valuable for your robot to perform a one action by having this input.</p>
+      <p>That input will be a camera. Then if you train this network in a good way, you will reach some conclusion that I can show in here. This is our robot and it's using the vanilla deep reinforcement learning. It requires a lot of trial and error for us to make this one work.</p>
+      <p>You see the footstep of your robot is in here, and robot is behaving like a rat actually in the environment. If you remember from cognitive science, this rat like mammalians have an grid cells in the hippocampus area, and we formulate grid cells like this, and by using the position encoders and the discrete cell, robot is trying to find the food location. All of them happen with the deep reinforcement learning architecture. I guess it's not super deep but still it's deep.</p>
+      <p>The success story comes from this Atari games actually. It's nothing robotic, but a lot of good stuff happened in here for the deep learning. After this paper, the domain, actually research domain speed up and a lot of people are investing their time, money, and to achieve this nice results have you read this paper no go read this paper after the textbook if you are into it into the reinforcement learning it's getting old but still a lot of stuff that can be referred to this paper. And they claim that they are achieving the human level performance or beating the human level performance in the classic arcade game by just using the reinforcement learning. they are giving the image, like an image of the state of the game to the algorithm, and at times they are generating the actions for this.</p>
+      <p>So you are seeing here it is outperforming the actually human and still it is 2015 it is quite old actually for this domain probably you can improve this results a bit with the current algorithms and here is the interesting interesting actually work by multi-agent reinforcement learning and with the simple rules let's see competition led to the evolution of increasingly intelligent life forms today we ask if comparably simple rules and multi-agent competition can also lead to intelligent behavior in a new virtual world these agents are playing hide and seek these agents have playing hide and see these agents have just begun learning but they've already learned to chase and run the red agent is trying to laser beam up the bruised one ouch on urgent behavior in a new virtual world these agents are playing hide and seek these agents have just begun learning but they've already learned to chase and run away this is a hard world for a hider who has only learned to flee however after training in millions of rounds of hide and seek the hiders find a solution the hiders learn to use rudimentary tools to their advantage by grab and this is your environment and you have to hide yourself from this agent and by only using this this box in the environment and this box is around the seeker actually can go on top of it and reach this area and these are the boxes that you can close this gate in here. But see how it will smartly actually avoid this. so, the hiders must learn to collaborate, accomplishing tasks that would be impossible for any single individual. The hiders are not the only ones who can learn to use tools. After many generations of failing to break into the shelter, the seekers learn to jump over obstacles using ramps.</p>
+      <p>However, after many millions of rounds of having their shelter breached, the hiders learn to take away the primary tool the seekers have at their disposal. their shelter breached, the hiders learn to take away the primary tool the seekers have at their disposal. Note that we did not explicitly incentivize any of these behaviors. As each team learns a new skill, it implicitly changes the challenges the other team faces, creating a new pressure to adapt. We've also put these agents into a more open-ended environment, randomizing the objects, team sizes, and walls.</p>
+      <p>In this world, they learn to construct their own shelter from scratch, requiring that they arrange multiple objects into precise structures. To prevent seekers from using the ramps, the hiders move them to the edge of the play area and lock them in place. We originally believed this would be the final strategy that the agents learn. However, we found that after more training, the seekers discovered that they Yeah, that's true. many boxes as they can before constructing their fort in order to defend against box surfing so how do agents acquire these skills they're trained using reinforcement learning an algorithm inspired by the way animals on earth learn the agents play thousands of rounds of hide and seek in parallel for many days they train against each other as well as past versions of themselves using an algorithm called self-play co-evolution and competition on Earth led to the...</p>
+      <p>You see, this is a bit hard for robots to actually create this kind of agent and replicate the same environment that we have in here. But once we extract the policy and train the agent enough for simple tasks, we can replicate the same behavior on robots, but this is not always possible. In some cases, actually, they can also find a bug in the physics engine. Like Hydra and SIG, if it's there in the open environment, then for the Hydra agent, if it runs super fast and put a distance between itself and the seeker, and it can run forever.</p>
+      <p>In this case, it means that it cannot be caught by Hydra and it can get the reward and perform the same action again and again. Okay. These are a lot of stuff that we introduce in here, but this is just a basic introduction. If you are willing to go in detail, start with this lecture.</p>
+      <p>It is not introducing the deep reinforcement learning just based on this book, it's an excellent resource. Go and download them and put in your archive. If Internet somehow goes away or something happened to these videos, we should have some backup of this video. So please go and check in detail.</p>
+      <p>If you are interested not in reinforcement learning but just pure MDP style tasks, there's a Python library for it, it's called PyMDP. If you are into deep reinforcement learning and the up-to-date stuff, go and check this spinning up with RL. It will take, let's say, six months to understand and code, but with the Gemini stuff, you can do less amount of time. So, if you're interested, I would suggest go and check these resources.</p>
+      <p>If you're interested in more advanced, go and ask Giacomo, he will be much more ready to give them more advanced resources for you. So that's it and see you in Thursday in practice. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+    </div>
+  </details>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 49; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week05-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week05-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week05-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(49, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 49`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week05-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week05-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/week05-slides\/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+
+  // ─── transcript search ───
+  const searchEl = document.getElementById("transcriptSearch");
+  if (searchEl) {
+    const paragraphs = Array.from(document.querySelectorAll(".transcript-body p"));
+    const originals = paragraphs.map(p => p.textContent);
+    searchEl.addEventListener("input", () => {
+      const q = searchEl.value.trim();
+      paragraphs.forEach((p, i) => {
+        const text = originals[i];
+        if (!q) {
+          p.textContent = text;
+          p.style.display = "";
+          return;
+        }
+        const hit = text.toLowerCase().includes(q.toLowerCase());
+        p.style.display = hit ? "" : "none";
+        if (hit) {
+          const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          p.innerHTML = text.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
+        }
+      });
+    });
+  }
+
+</script>
+</body>
+</html>

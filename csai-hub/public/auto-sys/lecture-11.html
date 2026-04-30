@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W11 — Exam Review</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">11</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 06 · Lecture 01 —</span>
+      <h1 class="hero-title">Selected Topics &amp; Exam Review</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>31 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip" href="./lecture-09.html">L09</a>
+  <a class="chip" href="./lecture-10.html">L10</a>
+  <a class="chip active" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-01.png" target="_blank">
+          <img src="./week11-slides/slide-01.png" alt="Slide 01 — Exam review and final words" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 01</span>The last lecture</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-09.png" target="_blank">
+          <img src="./week11-slides/slide-09.png" alt="Slide 09 — Robots from AIR-Lab" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 09</span>AIR-Lab robots</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. The Last Lecture — Framing</div>
+      <p>This is the <strong>final lecture</strong> of Autonomous Systems — a hybrid <strong>recap + exam-prep workshop</strong>. The professor walks through <strong>twelve worked exam-style questions</strong> drawn from every module of the course. There is <strong>no transcript</strong>; everything below is reconstructed from the slide deck.</p>
+
+      <div class="callout">
+        <div class="callout-label">Source caveat <span class="badge">Slide-only</span></div>
+        <p>These notes are <strong>slide-only</strong> — no audio transcript exists for Week 11. Where the slide showed only a question, the answer below is the worked answer the professor revealed on the next slide; where a slide showed only a question with no follow-up reveal, the answer is reconstructed from the relevant earlier lecture and marked accordingly.</p>
+      </div>
+
+      <h3>The framing message</h3>
+      <ul>
+        <li>"It is a perfect time to be a roboticist." Robotics is a top trend area in 2024 (IFR top-5).</li>
+        <li>The HCI + Autonomous Systems curriculum gives a <strong>good starting point</strong>; an extra 1-2 years of robotics research is a competitive advantage in academia or industry.</li>
+        <li>The lecture closes with: <em>"Good luck with your exams."</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-10.png" target="_blank">
+          <img src="./week11-slides/slide-10.png" alt="Slide 10 — General info and a few rules" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 10</span>Exam format rules</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-11.png" target="_blank">
+          <img src="./week11-slides/slide-11.png" alt="Slide 11 — Any question about the format" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>Format Q&amp;A</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. How the Exam Works</div>
+
+      <p>The exam is a <strong>combi-exam</strong> with approximately <strong>40 questions</strong> spanning every lecture, every practical session, and every <strong>compulsory reading</strong>.</p>
+
+      <table>
+        <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Format</strong></td><td>Combi: open-ended · fill-in-the-blank · true/false</td></tr>
+          <tr><td><strong>Question count</strong></td><td>~40 total</td></tr>
+          <tr><td><strong>Coverage</strong></td><td>All lectures + all practicals + compulsory readings</td></tr>
+          <tr><td><strong>Weight</strong></td><td>60% of final mark (project = 40%)</td></tr>
+          <tr><td><strong>Pass threshold</strong></td><td>&gt; 5.5 on the exam</td></tr>
+          <tr><td><strong>Resit</strong></td><td>Available — register on time via MyTimeTable</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Logistics · don't miss <span class="badge">Exam</span></div>
+        <p>Check <strong>MyTimeTable / Emails / Canvas</strong> for the exam date — and <strong>do not forget to register</strong>. An unregistered student cannot sit the exam, regardless of preparation. Slide 11 explicitly opens the floor for format questions; clarify ambiguities <em>before</em> exam day, not during.</p>
+      </div>
+
+      <h3>What "combi" means in practice</h3>
+      <ul>
+        <li><strong>Open-ended</strong> — multi-sentence written answers (e.g. "describe the behavior of...", "explain the role of...").</li>
+        <li><strong>Fill-in-the-blank</strong> — single-term recall (e.g. <em>Q-value</em>, <em>reward</em>, <em>plan</em>, <em>act</em>).</li>
+        <li><strong>True/False</strong> — often <strong>compound</strong> (sub-question A and sub-question B graded independently).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-12.png" target="_blank">
+          <img src="./week11-slides/slide-12.png" alt="Slide 12 — Question 1 Braitenberg" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 12</span>Q1 — Braitenberg V1</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-13.png" target="_blank">
+          <img src="./week11-slides/slide-13.png" alt="Slide 13 — Q1 answer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Q1 worked answer</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. Sample Q1 — Braitenberg Vehicle 1</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q1 <span class="badge">Exam</span></div>
+        <p><em>Describe the behavior of <strong>Braitenberg Vehicle 1</strong> in an open-ended environment where temperature varies. Recall that this vehicle has <strong>one temperature sensor directly connected to the actuator</strong>.</em></p>
+        <p>Assumptions: temperature cannot be negative; two consecutive readings will not be the same.</p>
+      </div>
+
+      <h3>Worked answer</h3>
+      <p>Vehicle 1 has a <strong>single sensor directly wired to a single motor</strong>. The actuator's velocity is therefore <strong>directly proportional</strong> to the sensor reading.</p>
+
+      <ul>
+        <li>In <strong>cold</strong> areas the temperature reading is low → the motor receives a small signal → the vehicle <strong>slows down</strong>.</li>
+        <li>In <strong>hot</strong> areas the reading is high → the motor receives a larger signal → the vehicle <strong>speeds up</strong>.</li>
+        <li>Because temperature is non-negative and consecutive readings are never identical, the vehicle <strong>never stops</strong> — there is always some forward motion.</li>
+      </ul>
+
+      <p><strong>Key concept being tested:</strong> the <strong>direct sensor-to-actuator coupling</strong> defining Vehicle 1. No controller, no memory, no thresholding — pure reactive behavior emerging from a hard-wired connection.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-14.png" target="_blank">
+          <img src="./week11-slides/slide-14.png" alt="Slide 14 — Q2 proprioceptive sensors" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 14</span>Q2 — sensor T/F</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-15.png" target="_blank">
+          <img src="./week11-slides/slide-15.png" alt="Slide 15 — Q2 answer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Q2 answer</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-16.png" target="_blank">
+          <img src="./week11-slides/slide-16.png" alt="Slide 16 — Q3 embodied agents" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>Q3 — embodiment</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-17.png" target="_blank">
+          <img src="./week11-slides/slide-17.png" alt="Slide 17 — Q3 answer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Q3 answer</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. Sample Q2 &amp; Q3 — True/False (Sensors, Embodiment)</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q2 <span class="badge">Exam</span></div>
+        <p>Mark each sentence <strong>True</strong> or <strong>False</strong>:</p>
+        <p>(a) <em>A proprioceptive sensor measures the quantities related to the internal state of the agent.</em></p>
+        <p>(b) <em>Cameras located on a robot's forehead are types of proprioceptive sensors.</em></p>
+      </div>
+
+      <h3>Worked answer — Q2</h3>
+      <ul>
+        <li>(a) <strong>True.</strong> By definition, <strong>proprioceptive</strong> sensors measure the robot's <strong>own internal state</strong> — joint angles, motor torque, battery level, encoder counts.</li>
+        <li>(b) <strong>False.</strong> A camera measures <strong>quantities external</strong> to the robot (the scene). It is therefore <strong>exteroceptive</strong>, not proprioceptive — even when mounted on the forehead.</li>
+      </ul>
+
+      <p><strong>Trap:</strong> the location of the sensor on the robot's body is a <em>distractor</em>. Categorisation depends on <strong>what the sensor measures</strong>, not where it lives.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q3 <span class="badge">Exam</span></div>
+        <p>You see two robots: <strong>Affetto</strong> (an android child face, left) and a <strong>soft walking robot</strong> (right). Mark each as <strong>True</strong> or <strong>False</strong>:</p>
+        <p>(a) <em>Both robots are examples of embodied agents.</em></p>
+        <p>(b) <em>The soft walking robot has the morphology of a human hand.</em></p>
+      </div>
+
+      <h3>Worked answer — Q3</h3>
+      <ul>
+        <li>(a) <strong>True.</strong> Both have a <strong>physical body</strong> situated in the environment — they are physically embodied agents. Affetto is rigid; the walker is soft. Both qualify.</li>
+        <li>(b) <strong>False.</strong> The soft walker has the <strong>morphology of a leg / walker</strong>, not a hand. Morphology = <strong>shape and structure</strong>, and the question hinges on knowing what each form looks like.</li>
+      </ul>
+
+      <p><strong>Concept tested:</strong> "embodied agent" applies broadly (rigid <em>and</em> soft); <strong>morphology</strong> describes the bodily form, not the material.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-18.png" target="_blank">
+          <img src="./week11-slides/slide-18.png" alt="Slide 18 — Q4 passive walkers and morphological computation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 18</span>Q4 — passive walkers</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-19.png" target="_blank">
+          <img src="./week11-slides/slide-19.png" alt="Slide 19 — Q5 industrial robots and morphological computation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 19</span>Q5 — industrial robots</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. Sample Q4 &amp; Q5 — Morphological Computation</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q4 <span class="badge">Exam</span></div>
+        <p><em>Why are <strong>passive walkers</strong> considered a good example of <strong>morphological computation</strong>? Write a few sentences.</em></p>
+      </div>
+
+      <h3>Worked answer — Q4</h3>
+      <p>A <strong>passive walker</strong> is a legged robot that walks down a slight incline using <strong>only gravity and the geometry of its legs</strong> — it has <strong>no controller, no motors, no sensors</strong>. The walking gait <strong>emerges from the body alone</strong>: the mass distribution, joint placement, and pendulum dynamics of the legs <em>are</em> the computation.</p>
+      <p>This is the textbook illustration of <strong>morphological computation</strong>: the body is performing work that would otherwise need an algorithm. It demonstrates that <strong>embodiment can substitute for explicit control</strong> — a core thesis of the embodiment lectures (Pfeifer &amp; Bongard).</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q5 <span class="badge">Exam</span></div>
+        <p><em>Why can <strong>industrial robots</strong> that perform precise pick-and-place tasks <strong>not</strong> be considered agents performing morphological computation? Write a few sentences.</em></p>
+      </div>
+
+      <h3>Worked answer — Q5</h3>
+      <p>Industrial pick-and-place arms are <strong>rigid, fully actuated</strong>, and operate under <strong>centralised computer control</strong>. Every joint angle, gripper force and trajectory is <strong>explicitly computed</strong> by the controller; the body offloads <strong>nothing</strong>. The morphology is shaped for <strong>repeatability and stiffness</strong>, not to exploit dynamics.</p>
+      <p>In morphological computation, the body's <strong>physics replace control</strong> (passive compliance, pendulum gait, soft-fingered grasping). In an industrial arm, the body is just a <strong>passive executor</strong> of commands — there is no offloading. Therefore the agent does not perform morphological computation.</p>
+
+      <div class="callout">
+        <div class="callout-label">Trap <span class="badge">Exam</span></div>
+        <p>Don't confuse "the robot has a body" with "the robot uses morphological computation". <strong>Every</strong> physical robot has a body. The question is whether the <strong>body's dynamics do work that would otherwise need a controller</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-20.png" target="_blank">
+          <img src="./week11-slides/slide-20.png" alt="Slide 20 — Q6 sensor classification" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>Q6 — sensor taxonomy</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-21.png" target="_blank">
+          <img src="./week11-slides/slide-21.png" alt="Slide 21 — Q7 hybrid paradigm" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 21</span>Q7 — hybrid paradigm</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-22.png" target="_blank">
+          <img src="./week11-slides/slide-22.png" alt="Slide 22 — Q7 answer Act and Plan" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>Q7 answer</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. Sample Q6 &amp; Q7 — Sensors, Hybrid Paradigm</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q6 <span class="badge">Exam</span></div>
+        <p><em>In the lectures we used a figure to classify sensor types. Write the sensor type of <strong>Box A</strong> (highlighted in red) and <strong>define passive sensors</strong>.</em></p>
+      </div>
+
+      <h3>Worked answer — Q6</h3>
+      <p>Box A in the standard course taxonomy refers to <strong>passive sensors</strong> (the alternative branch is active sensors). The categorisation distinguishes how the sensor obtains its measurement.</p>
+      <p><strong>Passive sensor (definition):</strong> a sensor that <strong>measures energy already present</strong> in the environment without emitting any signal of its own. It "listens" rather than "probes".</p>
+      <ul>
+        <li>Examples: <strong>cameras</strong> (capture ambient light), <strong>microphones</strong> (capture ambient sound), <strong>thermometers</strong>, <strong>passive IR motion sensors</strong>.</li>
+        <li>Contrast with <strong>active sensors</strong> (lidar, sonar, structured-light depth) which emit a signal and measure its reflection.</li>
+      </ul>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q7 <span class="badge">Exam</span></div>
+        <p><em>The <strong>hybrid deliberate/reactive paradigm</strong> can be visualised in the figure above. Write the functions represented by boxes <strong>A</strong> and <strong>B</strong>.</em></p>
+      </div>
+
+      <h3>Worked answer — Q7</h3>
+      <p>The three primitives of the classical robot-architecture taxonomy are <strong>Sense</strong>, <strong>Plan</strong>, and <strong>Act</strong>. The <strong>hybrid</strong> paradigm uses all three but reorganises the flow: a deliberative layer plans long-horizon, a reactive layer maps Sense → Act in tight loops, and the planner only intervenes when the reactive layer cannot handle the situation.</p>
+      <ul>
+        <li><strong>Box A = Act</strong> — the actuator-side primitive that closes the perception-action loop.</li>
+        <li><strong>Box B = Plan</strong> — the deliberative primitive that sits above pure reaction.</li>
+      </ul>
+
+      <p><strong>Concept tested:</strong> the three architectures from the controllers lecture — <em>reactive</em> (Sense → Act), <em>deliberative</em> (Sense → Plan → Act), and <em>hybrid</em> (both, with arbitration).</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-23.png" target="_blank">
+          <img src="./week11-slides/slide-23.png" alt="Slide 23 — Q8 haptic device LfD" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 23</span>Q8 — LfD type</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-24.png" target="_blank">
+          <img src="./week11-slides/slide-24.png" alt="Slide 24 — Q8 answer teleoperation" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 24</span>Q8 — Teleoperation</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-25.png" target="_blank">
+          <img src="./week11-slides/slide-25.png" alt="Slide 25 — Q9 fill in the blanks RL" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 25</span>Q9 — RL blanks</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-26.png" target="_blank">
+          <img src="./week11-slides/slide-26.png" alt="Slide 26 — Q9 answer reward Q-value" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Q9 answer</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. Sample Q8 &amp; Q9 — LfD &amp; Reinforcement Learning</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q8 <span class="badge">Exam</span></div>
+        <p><em>An operator controls a robot via a <strong>haptic device</strong>. What is the type of <strong>learning from demonstration (LfD)</strong> addressed in this experiment?</em></p>
+      </div>
+
+      <h3>Worked answer — Q8</h3>
+      <p>The answer is <strong>Teleoperation</strong>. In LfD, the three canonical demonstration channels are:</p>
+      <ul>
+        <li><strong>Kinesthetic teaching</strong> — the human physically moves the robot's joints (zero-force / gravity-comp mode).</li>
+        <li><strong>Teleoperation</strong> — the human controls the robot remotely through a <strong>master device</strong> (joystick, haptic, motion-tracker). The robot mirrors the operator's commands while sensors record the trajectory.</li>
+        <li><strong>Observation / shadowing</strong> — the human performs the task with their own body and the robot watches via cameras.</li>
+      </ul>
+      <p>A haptic device is the <strong>archetypal teleoperation interface</strong>: it transmits motion commands to the robot and force feedback back to the operator. Hence the answer is teleoperation.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q9 <span class="badge">Exam</span></div>
+        <p><em>Fill in the blanks:</em></p>
+        <p>(A) In RL, the <strong>1) ___________</strong> is the term used to represent the numerical feedback that indicates the success or desirability of an action and/or state.</p>
+        <p>(B) During the RL experiment the agent updates its <strong>2) ___________</strong> based on observed rewards and the estimated future rewards.</p>
+      </div>
+
+      <h3>Worked answer — Q9</h3>
+      <ul>
+        <li><strong>1) reward</strong> — the scalar feedback signal from the environment.</li>
+        <li><strong>2) Q-value</strong> (also accepted: <strong>Q-function</strong>, <strong>Q-table</strong>) — the action-value estimate the agent improves at each step using the Bellman update.</li>
+      </ul>
+
+      <p><strong>Concept tested:</strong> the vocabulary of Q-learning. Reward is the <em>signal</em>; Q-value is the <em>estimate</em> the agent maintains and improves. Don't confuse the two.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-27.png" target="_blank">
+          <img src="./week11-slides/slide-27.png" alt="Slide 27 — Q10 controller role" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>Q10 — controller role</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-28.png" target="_blank">
+          <img src="./week11-slides/slide-28.png" alt="Slide 28 — Q10 answer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 28</span>Q10 answer</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-29.png" target="_blank">
+          <img src="./week11-slides/slide-29.png" alt="Slide 29 — Q11 electronic components" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>Q11 — components</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-30.png" target="_blank">
+          <img src="./week11-slides/slide-30.png" alt="Slide 30 — Q12 electronic components answer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 30</span>Q12 answer</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Sample Q10–Q12 — Controllers &amp; Hardware</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q10 <span class="badge">Exam</span></div>
+        <p><em>What is the <strong>role of the controller</strong> in autonomous systems? Frame your answer in the context of the <strong>action-perception cycle</strong>.</em></p>
+      </div>
+
+      <h3>Worked answer — Q10</h3>
+      <p>The controller is the <strong>brain of the robot</strong>. It <strong>regulates the state of the actuators based on the current and previous states of the sensors</strong>.</p>
+      <p>In the <strong>action-perception cycle</strong>:</p>
+      <ol>
+        <li><strong>Perception</strong> — sensors sample the environment and the robot's own internal state.</li>
+        <li><strong>Decision</strong> — the controller maps that sensor history (current + past) to a motor command.</li>
+        <li><strong>Action</strong> — actuators execute the command, changing the world (or the robot's pose) — which the next perception step picks up.</li>
+      </ol>
+      <p>The controller is what <strong>closes the loop</strong>: without it, sensors and actuators would not be coordinated. Whether reactive, deliberative, or learned, the controller's defining role is this <em>sense → decide → act</em> mapping over time.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Sample exam Q11 / Q12 <span class="badge">Exam</span></div>
+        <p><em>Give the names of <strong>two electronic circuit components</strong> you used in your hardware project and describe their functions. Use cases also accepted.</em></p>
+      </div>
+
+      <h3>Worked answer — Q11/Q12</h3>
+      <p>The professor explicitly notes: <strong>any two components are accepted</strong>, and you do <strong>not need to be precise</strong> in the function description.</p>
+
+      <table>
+        <thead><tr><th>Component</th><th>Sample function / use case</th></tr></thead>
+        <tbody>
+          <tr><td><strong>LED</strong></td><td>Visual indicator — used to <strong>debug</strong> the circuit (e.g. confirm a digital pin is HIGH).</td></tr>
+          <tr><td><strong>Resistor</strong></td><td>Limits current — protects LEDs and digital pins from over-current.</td></tr>
+          <tr><td><strong>Camera (or USB camera module)</strong></td><td>Captures images of the environment for perception.</td></tr>
+          <tr><td><strong>Ultrasonic distance sensor (HC-SR04)</strong></td><td>Measures distance to obstacles using time-of-flight; used for obstacle avoidance.</td></tr>
+          <tr><td><strong>Servo motor</strong></td><td>Actuator — converts a PWM signal into precise angular position; used for steering or arm joints.</td></tr>
+          <tr><td><strong>Breadboard / jumper wires</strong></td><td>Prototyping infrastructure — connects components without soldering.</td></tr>
+          <tr><td><strong>Arduino microcontroller</strong></td><td>The "brain" board — runs the controller code and drives the I/O pins.</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Strategy for the exam:</strong> pick <strong>two components you actually used</strong> (so you can defend the answer if asked). One sensor + one actuator is a safe pair.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-31.png" target="_blank">
+          <img src="./week11-slides/slide-31.png" alt="Slide 31 — Good luck with your exams" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 31</span>Good luck</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. Concept Recap by Week</div>
+
+      <p>The 12 sample questions tile the entire course. Use this map to spot which week each question came from — and to plan revision time.</p>
+
+      <table>
+        <thead><tr><th>Wk</th><th>Topic</th><th>Sample Q hits</th></tr></thead>
+        <tbody>
+          <tr><td>01</td><td>Definition of autonomous systems · 3 conditions</td><td>Background for all</td></tr>
+          <tr><td>02</td><td>Sensors &amp; actuators · Braitenberg vehicles · passive vs active sensors</td><td><strong>Q1, Q2, Q6</strong></td></tr>
+          <tr><td>03</td><td>Controllers · reactive / deliberative / hybrid paradigm</td><td><strong>Q7, Q10</strong></td></tr>
+          <tr><td>04</td><td>Embodiment · morphological computation · passive walkers</td><td><strong>Q3, Q4, Q5</strong></td></tr>
+          <tr><td>05</td><td>Reinforcement learning · Q-learning vocabulary</td><td><strong>Q9</strong></td></tr>
+          <tr><td>06</td><td>Unsupervised learning</td><td>—</td></tr>
+          <tr><td>07</td><td>Multimodal learning, interaction, communication</td><td>—</td></tr>
+          <tr><td>08</td><td>Affective &amp; social HRI · learning from demonstration</td><td><strong>Q8</strong></td></tr>
+          <tr><td>09</td><td>Cognitive robotics</td><td>—</td></tr>
+          <tr><td>10</td><td>Simulation environments</td><td>—</td></tr>
+          <tr><td>—</td><td>Practical / Arduino kit</td><td><strong>Q11, Q12</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Pattern <span class="badge prof">Prof</span></div>
+        <p>Notice the <strong>weighting</strong>: <strong>Weeks 02–05 + practicals</strong> generated the bulk of the sample questions. These are the <strong>foundational</strong> weeks and the <strong>most testable</strong>. Weeks 06–10 are conceptually richer and harder to question in fill-in-the-blank style — expect them as <strong>open-ended</strong> "explain in a few sentences" prompts on the real exam.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-15.png" target="_blank">
+          <img src="./week11-slides/slide-15.png" alt="Slide 15 — Sensor T/F answer" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>T/F gotcha</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Common Mistakes &amp; Traps</div>
+
+      <p>Patterns the sample questions deliberately exploit. Internalise these before walking into the exam.</p>
+
+      <ol>
+        <li><strong>Sensor location ≠ sensor type.</strong> A camera on the forehead is still <strong>exteroceptive</strong>. The category depends on <strong>what is measured</strong>, never on placement.</li>
+        <li><strong>"Embodied" includes soft robots.</strong> Don't restrict the term to rigid humanoid arms — soft walkers and grippers are equally embodied.</li>
+        <li><strong>Morphology = shape, not material.</strong> A soft robot can have the morphology of a leg, an arm, or a tentacle. Don't conflate softness with hand-likeness.</li>
+        <li><strong>Morphological computation requires offloading.</strong> Having a body is not enough — the body's <strong>physics must replace control</strong>. Industrial arms have bodies but do <strong>not</strong> perform morphological computation.</li>
+        <li><strong>Reward ≠ Q-value.</strong> Reward is the <strong>signal</strong> from the environment. Q-value is the agent's <strong>estimate</strong>. Mixing these in fill-in-the-blanks is a free point lost.</li>
+        <li><strong>Hybrid ≠ reactive ≠ deliberative.</strong> Know the three paradigms and what flow each implies (Sense→Act vs Sense→Plan→Act vs both with arbitration).</li>
+        <li><strong>Teleoperation vs kinesthetic vs observation.</strong> Three flavours of LfD. A haptic master is teleoperation; physically grabbing the robot's arm is kinesthetic; watching a human is observation.</li>
+        <li><strong>Compound T/F is graded per part.</strong> Q2 has parts (a) and (b); each is independent. Don't assume both halves share an answer.</li>
+        <li><strong>"Open-ended" wants concepts, not novels.</strong> A few precise sentences with the right vocabulary scores higher than three paragraphs of vague prose.</li>
+        <li><strong>Vehicle 1 has no controller.</strong> The Braitenberg sequence: V1 = single sensor → single motor. V2/V3 add crossings, inhibition, and produce more complex behavior. Know which vehicle does what.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week11-slides/slide-11.png" target="_blank">
+          <img src="./week11-slides/slide-11.png" alt="Slide 11 — Format Q&A" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 11</span>Final tips</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">11. Final Tips — Strategy on Exam Day</div>
+
+      <ul>
+        <li><strong>Read the assumptions.</strong> Q1 spelled out two assumptions ("temperature non-negative", "consecutive readings differ"). Use them in your answer — they're load-bearing.</li>
+        <li><strong>Name the concept first, then explain.</strong> "This is morphological computation: the body…" beats a long preamble.</li>
+        <li><strong>Use course vocabulary verbatim.</strong> <em>Reward · Q-value · proprioceptive · exteroceptive · passive · active · embodied · morphological computation · teleoperation · action-perception cycle.</em> If you write "the body computes things by itself" instead of "morphological computation", you're throwing points away.</li>
+        <li><strong>Answer T/F decisively.</strong> Don't hedge. If the question grades both parts, mark each unambiguously.</li>
+        <li><strong>For "describe behavior" questions, narrate the loop.</strong> "Sensor reads X → controller maps to Y → actuator does Z → environment changes → next reading."</li>
+        <li><strong>Hardware questions: pick what you actually built.</strong> Q11/Q12 explicitly accept any two components. Choose ones you can defend.</li>
+        <li><strong>Time budget.</strong> ~40 questions in a fixed window — roughly 1.5–2 minutes each. Don't over-invest in a single open-ended question.</li>
+        <li><strong>Register for the exam.</strong> Slide 10 says it twice. Unregistered = no exam = no resit pathway.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Final Exam-Prep Tips</div>
+    <ol>
+      <li><strong>Twelve sample questions = the exam's DNA.</strong> Master the worked answer to each — they are the closest thing to a leaked exam you will get.</li>
+      <li><strong>Weeks 02–05 + practicals dominate.</strong> Sensors, Braitenberg, controllers, embodiment, RL vocabulary, and your Arduino kit are the safest revision targets.</li>
+      <li><strong>Combi-exam means three answer styles.</strong> Practice writing in <em>all three</em> formats: open-ended, fill-in-the-blank, true/false (graded per sub-part).</li>
+      <li><strong>Memorise the term pairs.</strong> Reward / Q-value · proprioceptive / exteroceptive · passive / active sensor · reactive / deliberative / hybrid · kinesthetic / teleoperation / observation.</li>
+      <li><strong>Definitions before nuance.</strong> "Autonomous = without intervention + prolonged + partially unknown env" is a one-line answer that unlocks dozens of points across questions.</li>
+      <li><strong>Use the assumptions printed in the question.</strong> They are not decoration — they constrain the correct answer (see Q1).</li>
+      <li><strong>Action-perception cycle</strong> is the framing for any controller question. Sense → Decide → Act → world changes → next sense.</li>
+      <li><strong>Morphological computation needs offloading.</strong> Body alone ≠ morphological computation. Body <em>replacing</em> control = morphological computation.</li>
+      <li><strong>Pass requires both halves.</strong> Exam &gt; 5.5 AND project deliverables submitted. Prepping the exam doesn't replace handing in the report.</li>
+      <li><strong>Register, double-check date, sleep.</strong> Slide 10's logistics line is also exam advice — show up calm, registered, on time.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 31; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week11-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week11-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week11-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(31, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 31`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week11-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week11-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+</script>
+</body>
+</html>

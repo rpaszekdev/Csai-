@@ -2,9 +2,15 @@ import { useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getNote, getSectionImages, listNotes } from "../lib/pregeneratedNotes";
+import {
+  getNote,
+  getSectionImages,
+  getSlidePages,
+  listNotes,
+} from "../lib/pregeneratedNotes";
 import { detectRegions } from "../data/brain-regions";
 import { useMeasuredBody } from "../lib/useMeasuredBody";
+import AnnotationsLayer from "../components/AnnotationsLayer";
 
 const BODY_FONT = '13px "IBM Plex Mono"';
 const BODY_LINE_HEIGHT = 22;
@@ -73,8 +79,24 @@ function buildMarkdownComponents(slides) {
           <h2>{processChildren(children)}</h2>
           {slide && (
             <aside className="editorial-slide-aside">
-              <a href={slide.url} target="_blank" rel="noreferrer">
-                <img src={slide.url} alt={slide.caption} loading="lazy" />
+              <a
+                href={slide.url}
+                target="_blank"
+                rel="noreferrer"
+                className="editorial-slide-frame"
+              >
+                <img
+                  className="editorial-slide-img"
+                  src={slide.url}
+                  alt={slide.caption}
+                  loading="lazy"
+                />
+                <img
+                  className="editorial-slide-frame-overlay"
+                  src="/cog-neuro/slide-frame.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
               </a>
               <div className="editorial-slide-cap">Slide {slide.slide}</div>
             </aside>
@@ -136,10 +158,13 @@ export default function NotesView() {
     () => cleanMarkdown(note?.markdown),
     [note?.markdown],
   );
-  const slideImages = useMemo(
-    () => dedupeSlides(getSectionImages(sectionId, "slide")),
-    [sectionId],
-  );
+  // Prefer full slide-page renders (one PNG per PowerPoint slide). Fall back
+  // to the extracted figure thumbnails for sections without a converted deck.
+  const slideImages = useMemo(() => {
+    const pages = getSlidePages(sectionId);
+    if (pages.length > 0) return pages;
+    return dedupeSlides(getSectionImages(sectionId, "slide"));
+  }, [sectionId]);
   const markdownComponents = useMemo(
     () => buildMarkdownComponents(slideImages),
     [slideImages],
@@ -213,6 +238,13 @@ export default function NotesView() {
           ))}
         </ul>
       )}
+
+      <AnnotationsLayer
+        key={sectionId}
+        sectionId={sectionId}
+        bodyRef={bodyMeasureRef}
+        markdown={cleanedMarkdown}
+      />
 
       <article
         className="editorial-body editorial-body--wrapped"

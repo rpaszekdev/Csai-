@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W01 — Intro to Autonomous Systems</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">01</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 01 · Lecture 01 —</span>
+      <h1 class="hero-title">Intro to Autonomous Systems &amp; Course Logistics</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>51 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip active" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip pending" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip" href="./lecture-09.html">L09</a>
+  <a class="chip pending" href="./lecture-10.html">L10</a>
+  <a class="chip pending" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-06.png" target="_blank">
+          <img src="./week01-slides/slide-06.png" alt="Slide 06 — Exam and projects" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 06</span>Exam &amp; pass requirements</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-17.png" target="_blank">
+          <img src="./week01-slides/slide-17.png" alt="Slide 17 — Project deliverables and deadlines" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 17</span>Project deliverables</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-15.png" target="_blank">
+          <img src="./week01-slides/slide-15.png" alt="Slide 15 — Plagiarism and LLM policy" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>LLM &amp; plagiarism policy</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">1. Course Structure &amp; Grading</div>
+      <p>The course has <strong>two graded components</strong>. Both must be addressed to pass.</p>
+
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Weight</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Final exam</strong></td>
+            <td>60%</td>
+            <td>Combi-exam covering <strong>all lectures</strong>, all practical sessions, and all <strong>compulsory readings</strong>. ~40 open-ended &amp; fill-in-the-blank questions. Must score <strong>&gt; 5.5</strong> to pass. Resit available.</td>
+          </tr>
+          <tr>
+            <td><strong>Practical / team project</strong></td>
+            <td>40%</td>
+            <td>Build a real autonomous robot with the Arduino kit. <strong>No full resit</strong> for the group project.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout exam">
+        <div class="callout-label">Exam · trap <span class="badge">Exam</span></div>
+        <p>Pass the <strong>final exam alone</strong> ≠ pass the course. You must <strong>also</strong> hand in every project deliverable and show up at Demo Day. Other deliverables are pass/fail; only the report is numerically graded.</p>
+      </div>
+
+      <h3>Project deadlines (tentative)</h3>
+      <table>
+        <thead><tr><th>Date</th><th>Deliverable</th></tr></thead>
+        <tbody>
+          <tr><td>20 Feb</td><td>Team formation</td></tr>
+          <tr><td>5 Mar</td><td>Member roles &amp; SWOT analysis</td></tr>
+          <tr><td>21 Mar</td><td>Project proposal &amp; prototyping</td></tr>
+          <tr><td>8 May</td><td>Demo day</td></tr>
+          <tr><td>16 May</td><td>Project report</td></tr>
+          <tr><td>30 May</td><td>Project report — <em>resit</em></td></tr>
+        </tbody>
+      </table>
+
+      <h3>LLM &amp; plagiarism policy</h3>
+      <ul>
+        <li>You <strong>may</strong> use LLMs (e.g. ChatGPT) for assignments.</li>
+        <li>You <strong>must declare</strong> which parts were LLM-generated. If plagiarism software flags it and you didn't disclose → reported to the Examination Board.</li>
+        <li>You must be able to <strong>explain every component</strong> the LLM produced (code, circuits, controller logic).</li>
+        <li><strong>No personal / sensitive data</strong> in prompts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-29.png" target="_blank">
+          <img src="./week01-slides/slide-29.png" alt="Slide 29 — Definition of autonomous systems" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>The 3 conditions</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-31.png" target="_blank">
+          <img src="./week01-slides/slide-31.png" alt="Slide 31 — Final exam question (Spigler)" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 31</span>The Spigler claim</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">2. What Is an Autonomous System?</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Definition · core <span class="badge">Exam</span></div>
+        <p><strong>Autonomous [robot] systems</strong> are systems capable of operating:</p>
+        <ol>
+          <li><strong>without human intervention</strong></li>
+          <li><strong>for prolonged periods of time</strong></li>
+          <li><strong>in partially unknown environmental conditions</strong></li>
+        </ol>
+        <p style="margin-top:10px;"><em>(Source: Nolfi — Behavioral and Cognitive Robotics: An Adaptive Perspective)</em>. The course follows this definition. <strong>All three conditions must be satisfied.</strong></p>
+      </div>
+
+      <p>Why this matters: many systems pass <em>one</em> condition (a thermostat operates without intervention) but fail the others. The combination is what separates a control system from an autonomous one.</p>
+
+      <h3>Final-exam framing question</h3>
+      <div class="callout">
+        <div class="callout-label">Final exam · sample <span class="badge">Exam</span></div>
+        <p><em>Prof. James Spigler claims: "a simulated agent that works in a fully known environment, e.g., a factory environment, with a predefined set of actions, is an example of an autonomous system."</em></p>
+        <p><strong>Agree or disagree, and explain.</strong></p>
+      </div>
+
+      <p><strong>Disagree.</strong> Spigler's setup violates condition (3) — a fully known environment is not <em>partially unknown</em>. A predefined action set with no adaptation also strains condition (1) operationally — the human pre-specified every behavior. The agent is <strong>automated</strong>, not autonomous.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-33.png" target="_blank">
+          <img src="./week01-slides/slide-33.png" alt="Slide 33 — What makes a robot a robot" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>Six robot elements</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-37.png" target="_blank">
+          <img src="./week01-slides/slide-37.png" alt="Slide 37 — Virtually embodied robot" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>Simulations count too</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">3. What Makes a Robot a Robot?</div>
+
+      <p>An <strong>artificial system (robot)</strong> is defined by <strong>six</strong> elements:</p>
+
+      <ol>
+        <li><strong>Body</strong> — physical structure</li>
+        <li><strong>Sensors</strong> — perceive the environment</li>
+        <li><strong>Actuators</strong> — act on the environment</li>
+        <li><strong>Brain (controller)</strong> — maps sensor input → actuator output</li>
+        <li><strong>Environment</strong> — physical and possibly social</li>
+        <li><strong>Function</strong> — exhibits behavior performing a task</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p>The course considers <strong>simulated robots as virtually embodied robots — YES, they are robots</strong>. But unless stated otherwise, "robot" defaults to a <strong>physically embodied</strong> robot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-40.png" target="_blank">
+          <img src="./week01-slides/slide-40.png" alt="Slide 40 — The body" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 40</span>Rigid vs soft</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">4. The Body</div>
+      <ul>
+        <li>Physical structure of the robot.</li>
+        <li><strong>Task &amp; environment drive design</strong> — "form follows function" (HCI principle).</li>
+        <li>Material spectrum: <strong>rigid</strong> (most industrial robots) ↔ <strong>soft</strong> (compliant, safer for human contact).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-43.png" target="_blank">
+          <img src="./week01-slides/slide-43.png" alt="Slide 43 — What is a sensor" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 43</span>SABIAN — count the sensors</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-44.png" target="_blank">
+          <img src="./week01-slides/slide-44.png" alt="Slide 44 — Proprioceptive vs exteroceptive sensors" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 44</span>Proprio vs exteroceptive</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">5. Sensors</div>
+
+      <p>A <strong>sensor</strong> is "a device that measures some physical quantity in the environment".</p>
+
+      <p>Examples: cameras, lidar / laser / IR rangefinders, microphones, touch sensors, position encoders.</p>
+
+      <h3>Two categories <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Type</th><th>Measures</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Proprioceptive</strong></td>
+            <td>Internal state of the robot itself</td>
+            <td>Joint position, joint angle, battery level</td>
+          </tr>
+          <tr>
+            <td><strong>Exteroceptive</strong></td>
+            <td>Quantities external to the robot</td>
+            <td>Camera, tactile sensor, microphone</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Sensors can also be <strong>simulated</strong> in virtual environments — you'll do this in the practicals.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-45.png" target="_blank">
+          <img src="./week01-slides/slide-45.png" alt="Slide 45 — Actuators" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 45</span>The actuators</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">6. Actuators</div>
+
+      <p>Actuators <strong>convert stored energy into movement</strong>, allowing the robot to move and modify the environment.</p>
+
+      <ul>
+        <li><strong>Electric motors</strong> — most common</li>
+        <li><strong>Pneumatic actuators</strong> — compressed air; high force, low precision</li>
+        <li><strong>Soft actuators &amp; active material objects</strong> — emerging field</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-46.png" target="_blank">
+          <img src="./week01-slides/slide-46.png" alt="Slide 46 — The brain (controller)" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 46</span>Sensors → controller → actuators</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-48.png" target="_blank">
+          <img src="./week01-slides/slide-48.png" alt="Slide 48 — Passive walkers" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 48</span>Passive walkers</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-49.png" target="_blank">
+          <img src="./week01-slides/slide-49.png" alt="Slide 49 — What is wrong with this fish" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 49</span>The fish provocation</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">7. The Brain (Controller)</div>
+
+      <ul>
+        <li>The brain <strong>regulates the state of the actuators</strong> using <strong>current and previous</strong> sensor states.</li>
+        <li>Typically a computer <strong>embedded</strong> in the robot's body.</li>
+        <li>Can also live <strong>outside</strong> the robot — <strong>cloud-enabled robotics</strong>.</li>
+        <li>Function the controller enables, e.g.: <em>wall-following</em>.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Prof challenge <span class="badge prof">Prof</span></div>
+        <p><strong>Do we really need a brain to generate behavior?</strong></p>
+        <p>The provocation comes from <strong>passive walkers</strong> — robots that walk down a slight incline using only gravity and clever leg geometry, no controller at all. <strong>Embodiment can substitute for computation.</strong> This thread continues in Week 04 (Embodiment).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-26.png" target="_blank">
+          <img src="./week01-slides/slide-26.png" alt="Slide 26 — Mandatory questions" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>Recurring course themes</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">8. Mandatory Conceptual Questions</div>
+
+      <p>The professor explicitly listed these — they're <strong>likely seeds for exam questions</strong> and recur throughout the course<span class="badge prof">Prof</span></p>
+
+      <ul>
+        <li>What does <strong>autonomous</strong> mean?</li>
+        <li>Are <strong>you</strong> an autonomous system?</li>
+        <li>Do autonomous systems need <strong>emotions</strong>?</li>
+        <li>Would you <strong>trust</strong> an autonomous system — and would one trust you?</li>
+        <li>Is there a link between <strong>cognition and autonomy</strong>?</li>
+        <li>What is the <strong>simplest autonomous life form</strong>?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-16.png" target="_blank">
+          <img src="./week01-slides/slide-16.png" alt="Slide 16 — Lecture topics overview" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>Full schedule overview</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">9. Tentative Course Schedule</div>
+      <table>
+        <thead><tr><th>Wk</th><th>Topic</th></tr></thead>
+        <tbody>
+          <tr><td>01</td><td>Intro to Autonomous Systems &amp; Logistics</td></tr>
+          <tr><td>02</td><td>Robotics: Sensors &amp; Actuators · Braitenberg Vehicles</td></tr>
+          <tr><td>03</td><td>Controllers (Brains)</td></tr>
+          <tr><td>04</td><td>Embodiment</td></tr>
+          <tr><td>05</td><td>Reinforcement Learning</td></tr>
+          <tr><td>06</td><td>Unsupervised Learning</td></tr>
+          <tr><td>07</td><td>Multimodal Learning, Interaction, Communication</td></tr>
+          <tr><td>08</td><td>Affective &amp; Social HRI / RRI</td></tr>
+          <tr><td>09</td><td>Cognitive Robotics</td></tr>
+          <tr><td>10</td><td>Simulation environments</td></tr>
+          <tr><td>11</td><td>Selected topics + exam-question solving</td></tr>
+          <tr><td>12-13</td><td>Invited speakers</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-51.png" target="_blank">
+          <img src="./week01-slides/slide-51.png" alt="Slide 51 — Mandatory TinkerCad assignment" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 51</span>Mandatory — TinkerCad</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week01-slides/slide-50.png" target="_blank">
+          <img src="./week01-slides/slide-50.png" alt="Slide 50 — Optional Webots assignment" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 50</span>Optional — Webots</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-text">
+      <div class="section-eyebrow">10. Action Items (Week 01)</div>
+      <ul>
+        <li><strong>Mandatory:</strong> create a <strong>TinkerCad</strong> account using your <code>tilburguniversity.edu</code> email — circuit simulation starts soon.</li>
+        <li><strong>Optional:</strong> browse <a href="https://webots.cloud/proto?keyword=robot" target="_blank" style="color: var(--rust); border-bottom: 1px solid currentColor; text-decoration: none;">webots.cloud</a> to get familiar with sensor/actuator models.</li>
+        <li>Collect your <strong>Arduino kit</strong> on Canvas-listed time slots — bring student card.</li>
+        <li>Read: <em>How to read a paper</em> (Keshav) + <em>Ten simple rules for reading a scientific paper</em>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Definition (3 conditions):</strong> autonomous = no human intervention + prolonged operation + partially unknown environment. Miss any one → not autonomous.</li>
+      <li><strong>Robot anatomy:</strong> body, sensors, actuators, brain, environment, function — six pieces.</li>
+      <li><strong>Sensor split:</strong> proprioceptive (internal state) vs exteroceptive (external state) — easy fill-in-the-blank target.</li>
+      <li><strong>Brain ≠ always required.</strong> Passive walkers show embodiment can replace computation; foreshadows Week 04.</li>
+      <li><strong>Simulated robots count</strong> in this course, but unless stated, "robot" = physically embodied.</li>
+      <li><strong>Pass requirements:</strong> exam ≥ 5.5 AND project deliverables submitted AND demo day attended.</li>
+      <li><strong>LLM use is allowed</strong> if disclosed and you can explain every part. Silent use = Examination Board referral.</li>
+      <li><strong>Spigler-style exam question</strong> tests whether you can apply the 3-condition definition to a counter-example.</li>
+    </ol>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 51; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week01-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week01-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week01-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(51, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 51`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week01-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week01-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+</script>
+</body>
+</html>

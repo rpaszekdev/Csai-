@@ -1,0 +1,1312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W09 — Cognitive Robotics</title>
+<style>
+  :root {
+    --paper:     #F2EDE0;
+    --paper-2:   #ECE6D6;
+    --ink:       #1A1A1A;
+    --ink-soft:  #2B2B2B;
+    --ink-mute:  #8A8270;
+    --ink-faint: #C5BEAE;
+    --rule:      #1A1A1A;
+    --hair:      #1F1F1F;
+    --rust:      #A84F2A;
+    --rust-soft: #C46A3F;
+    --highlight: rgba(168, 79, 42, 0.10);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-feature-settings: "ss01", "calt";
+  }
+
+  /* ─── thin rust top accent ─── */
+  .rust-bar {
+    height: 4px; width: 100%;
+    background: var(--rust);
+  }
+
+  /* ─── topbar ─── */
+  header.topbar {
+    display: flex; align-items: center;
+    padding: 22px 36px 18px;
+    border-bottom: 1px solid var(--ink-faint);
+    gap: 28px;
+  }
+  .back {
+    color: var(--ink); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .back:hover { color: var(--rust); }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand .mark {
+    width: 14px; height: 14px;
+    background: var(--rust);
+  }
+  .brand .name {
+    font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .crumbs {
+    margin-left: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  /* ─── tab nav ─── */
+  nav.tabs {
+    display: flex; gap: 38px;
+    padding: 16px 36px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  nav.tabs a {
+    position: relative;
+    padding: 10px 0 14px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  nav.tabs a.active {
+    color: var(--ink); font-weight: 700;
+  }
+  nav.tabs a.active::after {
+    content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+    background: var(--ink);
+  }
+
+  /* ─── hero section ─── */
+  .hero {
+    position: relative;
+    padding: 56px 36px 32px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 36px; align-items: end;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .hero-left {
+    display: flex; flex-direction: column; gap: 22px;
+    position: relative;
+  }
+  .hero-num {
+    font-size: clamp(180px, 22vw, 320px);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink-faint);
+    font-weight: 400;
+    user-select: none;
+  }
+  .hero-title-block {
+    display: flex; flex-direction: column; gap: 8px;
+    margin-top: 6px;
+  }
+  .hero-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-title {
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-weight: 600; line-height: 1.4;
+  }
+  .hero-meta {
+    margin-top: auto;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .robot-illu {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── lecture chip strip ─── */
+  .chips {
+    display: flex; gap: 36px;
+    padding: 22px 36px;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .chip {
+    position: relative;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .chip.active {
+    color: var(--ink); font-weight: 700;
+  }
+  .chip.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+    background: var(--ink);
+  }
+  .chip.pending { color: var(--ink-faint); }
+
+  /* ─── slide thumbnail strip ─── */
+  .slide-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+    gap: 14px; overflow-x: auto;
+    padding: 28px 36px 32px;
+    border-bottom: 1px solid var(--ink-faint);
+    scrollbar-width: thin;
+  }
+  .slide-strip::-webkit-scrollbar { height: 6px; }
+  .slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+  .slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+
+  .slide-thumb {
+    all: unset;
+    position: relative; display: block;
+    border: 1px solid var(--ink-faint);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
+  }
+  .slide-thumb:hover { border-color: var(--ink); }
+  .slide-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(0.2);
+  }
+  .slide-thumb .num {
+    position: absolute; bottom: 0; left: 0;
+    background: var(--ink); color: var(--paper);
+    padding: 2px 7px;
+    font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  }
+
+  /* ─── article body ─── */
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 36px 120px;
+  }
+  article section {
+    margin-bottom: 72px;
+    clear: both;
+  }
+  article section::after { content: ""; display: block; clear: both; }
+  article section:last-child { margin-bottom: 0; }
+  article section .col-text { min-width: 0; }
+  /* slides cluster — floats right, text wraps around */
+  article section .col-slides {
+    float: right;
+    width: 320px;
+    margin: 0 0 24px 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  /* single-slide cluster — narrower, single column */
+  article section .col-slides:has(> figure:only-child) {
+    width: 200px;
+    grid-template-columns: 1fr;
+  }
+
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  article p {
+    font-size: 14px; line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  article p strong, article li strong, td strong {
+    font-weight: 700; color: var(--ink);
+    background: transparent;
+  }
+
+  article ul, article ol {
+    margin-left: 0; padding-left: 0; list-style: none;
+    margin-bottom: 16px;
+  }
+  article li {
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink-soft);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  article ul > li::before {
+    content: "·";
+    position: absolute; left: 4px; top: -2px;
+    color: var(--rust);
+    font-size: 18px;
+  }
+  article ol { counter-reset: ol; }
+  article ol > li {
+    counter-increment: ol;
+    padding-left: 32px;
+  }
+  article ol > li::before {
+    content: counter(ol, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    color: var(--rust);
+    font-size: 11px; letter-spacing: 0.1em;
+    font-weight: 600;
+    line-height: 1.85 * 14px / 11px;
+  }
+
+  /* sub-heading inside section */
+  article h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-mute);
+    margin-top: 28px; margin-bottom: 12px;
+  }
+
+  /* ─── exam / prof badges ─── */
+  .badge {
+    display: inline-block; vertical-align: 1px;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid var(--ink-faint);
+    color: var(--ink-mute);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+  /* ─── callouts (hand-drawn line + small label) ─── */
+  .callout {
+    position: relative;
+    padding: 22px 0 22px 40px;
+    margin: 24px 0;
+  }
+  .callout::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background-image: url("./line.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+  .callout-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ─── tables ─── */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 18px 0 24px;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 14px 12px 0;
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  th {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  td { color: var(--ink-soft); line-height: 1.7; }
+
+  /* ─── slide reference inline ─── */
+  .ref {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink-mute); text-decoration: none;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .ref:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ─── slide figure (in right column) ─── */
+  figure.slide-embed {
+    margin: 0;
+    display: block;
+  }
+  figure.slide-embed a {
+    display: block;
+    cursor: zoom-in;
+    border: 1px solid var(--ink-faint);
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    position: relative;
+  }
+  figure.slide-embed a:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  figure.slide-embed a::after {
+    content: "+";
+    position: absolute; top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: var(--ink); color: var(--paper);
+    font-size: 11px; line-height: 18px; text-align: center;
+    font-weight: 700;
+    opacity: 0; transition: opacity 0.15s ease;
+  }
+  figure.slide-embed a:hover::after { opacity: 1; }
+  figure.slide-embed img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: contrast(1.02);
+  }
+  figure.slide-embed figcaption {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 500;
+    line-height: 1.5;
+  }
+  figure.slide-embed figcaption .num {
+    color: var(--rust); margin-right: 6px;
+  }
+  /* slide-row spans full row inside col-slides grid */
+  .slide-row { display: contents; }
+
+  /* ─── lightbox ─── */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(20, 18, 14, 0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    cursor: zoom-out;
+    backdrop-filter: blur(2px);
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 100%; max-height: 92vh;
+    object-fit: contain;
+    border: 2px solid var(--paper);
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 36px; height: 36px;
+    font-family: inherit; font-size: 16px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-meta {
+    position: absolute; bottom: 24px; left: 28px;
+    color: var(--paper);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--paper); color: var(--ink);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ─── key takeaways ─── */
+  .takeaways {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+  }
+  .takeaways .section-eyebrow {
+    color: var(--ink); font-weight: 700;
+  }
+  .takeaways ol > li::before { color: var(--rust); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 800px) {
+    article section .col-slides,
+    article section .col-slides:has(> figure:only-child) {
+      float: none; width: 100%; margin: 0 0 24px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  }
+  @media (max-width: 720px) {
+    header.topbar, nav.tabs, .chips, .slide-strip, article { padding-left: 22px; padding-right: 22px; }
+    .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+    .hero-num { font-size: 160px; }
+    .hero-right { order: -1; }
+    .crumbs { display: none; }
+    nav.tabs { gap: 22px; overflow-x: auto; }
+    .chips { gap: 22px; overflow-x: auto; }
+  }
+
+  /* ─── transcript ─── */
+  .transcript {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-faint);
+  }
+  .transcript summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex; align-items: baseline; gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .transcript summary::-webkit-details-marker { display: none; }
+  .transcript summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 22px; font-weight: 400; line-height: 1;
+    color: var(--rust);
+  }
+  .transcript[open] summary::after { content: "−"; }
+  .transcript-eyebrow {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); font-weight: 700;
+  }
+  .transcript-meta {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .transcript-body {
+    padding: 28px 0 12px;
+    max-width: 760px;
+  }
+  .transcript-search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--ink-faint);
+    background: var(--paper);
+    font-family: inherit;
+    font-size: 12px; letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .transcript-search:focus { outline: none; border-color: var(--ink); }
+  .transcript-body p {
+    font-size: 13px; line-height: 1.9;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .transcript-body p mark {
+    background: rgba(168, 79, 42, 0.25);
+    color: var(--ink);
+    padding: 0 2px;
+  }
+
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="#" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">09</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 05 · Lecture 01 —</span>
+      <h1 class="hero-title">Cognitive (Developmental) Robotics</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Murat Kirtay</span>
+      <span>1 source</span>
+      <span>45 slides</span>
+      <span>04 / 29</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="robot-illu" src="./robot.svg" alt="Autonomous Systems mascot robot" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHIPS -->
+<div class="chips">
+  <a class="chip" href="./lecture-01.html">L01</a>
+  <a class="chip" href="./lecture-02.html">L02</a>
+  <a class="chip" href="./lecture-03.html">L03</a>
+  <a class="chip" href="./lecture-04.html">L04</a>
+  <a class="chip" href="./lecture-05.html">L05</a>
+  <a class="chip" href="./lecture-06.html">L06</a>
+  <a class="chip" href="./lecture-07.html">L07</a>
+  <a class="chip" href="./lecture-08.html">L08</a>
+  <a class="chip active" href="./lecture-09.html">L09</a>
+  <a class="chip" href="./lecture-10.html">L10</a>
+  <a class="chip" href="./lecture-11.html">L11</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SLIDES -->
+<div class="slide-strip" id="slideStrip"></div>
+
+<!-- ═══════════════════════════════════════════════════════ BODY -->
+<article>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-05.png" target="_blank">
+          <img src="./week09-slides/slide-05.png" alt="Slide 05 — Turing's mandatory quote" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 05</span>Turing's child-machine quote</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-06.png" target="_blank">
+          <img src="./week09-slides/slide-06.png" alt="Slide 06 — CoDeRs framing" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 06</span>Inspiration for CoDeRs</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">1. Turing's Child-Machine Argument</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Mandatory quote <span class="badge">Exam</span></div>
+        <p><em>"Instead of trying to produce a programme to simulate the adult mind, why not rather try to produce one which simulates the child's? If this were then subjected to an appropriate course of education, one would obtain the adult brain. […] Our hope is that there is so little mechanism in the child brain that something like it can be easily programmed."</em></p>
+        <p style="margin-top:10px;">— <strong>Alan Turing</strong>, 1950</p>
+      </div>
+
+      <p>This single paragraph is the founding charter for <strong>Cognitive Developmental Robotics (CoDeRs)</strong>. Turing's bet: rather than hand-engineer the adult mind, build a learner that grows. The course he envisioned is precisely what developmental robotics tries to give a robot — <strong>online interaction</strong>, <strong>bodily feedback</strong>, and <strong>graduated experience</strong>.</p>
+
+      <p>Why this matters for week 09: the entire lecture is structured around <strong>cognition that develops</strong>, not cognition that is loaded. Every architectural decision in the rest of the slides flows from Turing's frame.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-08.png" target="_blank">
+          <img src="./week09-slides/slide-08.png" alt="Slide 08 — What is a cognitive system" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 08</span>What is a cognitive system?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-13.png" target="_blank">
+          <img src="./week09-slides/slide-13.png" alt="Slide 13 — Definition of cognitive robotics" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 13</span>Course definition</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-09.png" target="_blank">
+          <img src="./week09-slides/slide-09.png" alt="Slide 09 — Cognitive robotics timeline" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 09</span>Cognitive robotics timeline</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">2. What Is Cognitive Robotics?</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Course definition <span class="badge">Exam</span></div>
+        <p><strong>"Cognitive robotics is the field that combines insights and methods from AI, as well as cognitive and biological sciences, to robotics."</strong></p>
+        <p style="margin-top:10px;">— Cognitive Robotics ch. 1 (course textbook). This is the working definition for the exam.</p>
+      </div>
+
+      <p>The discipline sits at a <strong>three-way intersection</strong> — it borrows representations and learning algorithms from <strong>AI</strong>, theories of mind and behavior from <strong>cognitive science</strong>, and grounding in real bodies and brains from <strong>biology / neuroscience</strong>.</p>
+
+      <h3>How it differs from earlier weeks</h3>
+      <ul>
+        <li><strong>vs Behavioral robotics</strong> (Brooks, week 03): behavior-based subsumption can produce intelligent <em>action</em>, but no internal world model. Cognitive robotics adds memory, anticipation, planning.</li>
+        <li><strong>vs Classical AI</strong>: classical AI treats cognition as symbol manipulation in a body-less brain. Cognitive robotics insists cognition is <strong>situated</strong>, <strong>embodied</strong>, and <strong>developed</strong>.</li>
+        <li><strong>vs Reinforcement learning</strong> (week 05): RL optimises a single policy. Cognitive robotics composes <em>multiple</em> capabilities — perception, attention, memory, planning — into a single agent.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-15.png" target="_blank">
+          <img src="./week09-slides/slide-15.png" alt="Slide 15 — Six attributes of cognition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 15</span>Six attributes of cognition</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-16.png" target="_blank">
+          <img src="./week09-slides/slide-16.png" alt="Slide 16 — Two views of cognition" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 16</span>Two views of cognition</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">3. The Six Attributes of Cognition</div>
+
+      <div class="callout exam">
+        <div class="callout-label">Six attributes <span class="badge">Exam</span></div>
+        <p>A system is cognitive when it exhibits these six capabilities together:</p>
+        <ol>
+          <li><strong>Perception</strong> — making sense of sensory input</li>
+          <li><strong>Attention</strong> — selecting what matters from the stream</li>
+          <li><strong>Action selection</strong> — picking the next thing to do</li>
+          <li><strong>Memory</strong> — storing and recalling past experience</li>
+          <li><strong>Learning</strong> — updating from interaction</li>
+          <li><strong>Reasoning</strong> — drawing inferences and planning</li>
+        </ol>
+      </div>
+
+      <p>Two extras commonly added in the literature: <strong>Metacognition</strong> (thinking about one's own thinking — knowing what you don't know) and <strong>Prospection</strong> (evaluating possible futures before acting).</p>
+
+      <h3>Two views of cognition <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>View</th><th>Cognition is…</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Cognitivist</strong></td>
+            <td>Symbol manipulation. Cognition = computation over internal symbolic representations.</td>
+            <td>GOFAI, classical planners, expert systems</td>
+          </tr>
+          <tr>
+            <td><strong>Emergent</strong></td>
+            <td>A self-organising process arising from <strong>brain × body × environment</strong> coupling.</td>
+            <td>Connectionism, dynamical systems, embodied / enactive cognition</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The course leans <strong>emergent</strong>, but a real cognitive robot usually borrows from both — symbolic planning on top of embodied perception.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-19.png" target="_blank">
+          <img src="./week09-slides/slide-19.png" alt="Slide 19 — Goals achieved by cognitive robots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 19</span>How cognitive robots achieve goals</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-20.png" target="_blank">
+          <img src="./week09-slides/slide-20.png" alt="Slide 20 — Why cognition is useful" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 20</span>Why cognition is useful for robots</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">4. Why Cognition Is Useful for Robots</div>
+
+      <p>A cognitive robot achieves its goals by:</p>
+      <ul>
+        <li><strong>Perceiving</strong> the environment</li>
+        <li><strong>Paying attention</strong> to the events that matter</li>
+        <li><strong>Anticipating</strong> the need for some action</li>
+        <li><strong>Planning</strong> what to do</li>
+        <li><strong>Anticipating the outcome</strong> as it executes the action</li>
+        <li><strong>Learning</strong> from the resultant interaction</li>
+        <li><strong>Adapting</strong> to change</li>
+      </ul>
+
+      <div class="callout exam">
+        <div class="callout-label">Two reasons cognition matters <span class="badge">Exam</span></div>
+        <ol>
+          <li><strong>Autonomy in everyday environments</strong> — anticipating outcomes before acting and adapting to changes / unforeseen situations.</li>
+          <li><strong>Effective interaction with humans</strong> — inferring goals and intentions of the person being interacted with, so the robot can behave helpfully. <em>Humans like to engage with cognitive agents</em> — cognition fosters HRI (callback to week 08).</li>
+        </ol>
+      </div>
+
+      <p>Note the loop: cognition lets the robot survive the messy real world (point 1), and the messy real world includes humans (point 2). The two reasons aren't separate — interacting with people is the hardest "everyday environment".</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-22.png" target="_blank">
+          <img src="./week09-slides/slide-22.png" alt="Slide 22 — Single architecture question" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 22</span>One architecture for all abilities?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-24.png" target="_blank">
+          <img src="./week09-slides/slide-24.png" alt="Slide 24 — Taxonomy of cognitive architectures" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 24</span>Taxonomy of cognitive architectures</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-33.png" target="_blank">
+          <img src="./week09-slides/slide-33.png" alt="Slide 33 — More on cognitive architectures" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 33</span>More on cognitive architectures</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">5. Cognitive Architectures</div>
+
+      <p>A <strong>cognitive architecture</strong> is a unified blueprint that ties together memory, perception, action selection, learning, and reasoning into one running system. The key claim: rather than building each capability separately, a cognitive architecture provides the <em>scaffolding</em> in which capabilities interoperate.</p>
+
+      <h3>Three families <span class="badge">Exam</span></h3>
+      <table>
+        <thead><tr><th>Family</th><th>Approach</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Symbolic / cognitivist</strong></td>
+            <td>Cognition = symbol manipulation; explicit declarative + procedural memory; production rules.</td>
+            <td><strong>ACT-R</strong>, <strong>Soar</strong>, <strong>SS-RICS</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Emergent / connectionist</strong></td>
+            <td>Cognition emerges from sub-symbolic dynamics — neural networks, self-organisation, dynamical systems.</td>
+            <td>SOIMA, DAC (Distributed Adaptive Control)</td>
+          </tr>
+          <tr>
+            <td><strong>Hybrid</strong></td>
+            <td>Symbolic planning on top of sub-symbolic perception &amp; motor control. Most modern systems are hybrid.</td>
+            <td>iCub cognitive architecture, CRAM, Cog</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Open question <span class="badge prof">Prof</span></div>
+        <p>"Is it possible to integrate <strong>all</strong> these abilities into a single architecture?" Slide 22 poses this directly. There is no agreed answer — every architecture so far makes trade-offs. Symbolic ones are interpretable but brittle. Emergent ones are robust but opaque. Hybrid ones inherit both problems and add an integration cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-27.png" target="_blank">
+          <img src="./week09-slides/slide-27.png" alt="Slide 27 — SOIMA architecture" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 27</span>SOIMA — Self-Organised Internal Models</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-28.png" target="_blank">
+          <img src="./week09-slides/slide-28.png" alt="Slide 28 — SOIMA detail" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 28</span>SOIMA detail</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-29.png" target="_blank">
+          <img src="./week09-slides/slide-29.png" alt="Slide 29 — Apply SOIMA in your project" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 29</span>Apply SOIMA in your project</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">6. SOIMA — A Concrete Architecture</div>
+
+      <p><strong>SOIMA</strong> = <strong>Self-Organised Internal Models Architecture</strong>. The reference architecture used in this lecture as a worked example of an <em>emergent</em> cognitive architecture (Hermosillo-Valadez 2016).</p>
+
+      <h3>Four ingredients</h3>
+      <ul>
+        <li>The <strong>units of the architecture are Self-Organising Maps (SOMs)</strong> — direct callback to week 06 unsupervised learning.</li>
+        <li>It <strong>implements forward and inverse models</strong> in the same architecture (forward = predict next sensor state given an action; inverse = predict the action that produces a desired sensor state).</li>
+        <li>It can <strong>reconstruct missing modalities</strong> — given vision, fill in the expected proprioception, and vice versa. This builds on week 07 multimodal learning.</li>
+        <li>It performs <strong>sensorimotor mapping</strong> — connecting raw sensor patterns to motor commands without hand-coded labels.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Project tip <span class="badge prof">Prof</span></div>
+        <p>Slide 29 explicitly says: "You can also employ these concepts for your project." If your group project needs sensorimotor learning without supervision, a SOM-based architecture is a very defensible choice.</p>
+      </div>
+
+      <p>The SOIMA design is exam-relevant because it packages four earlier-week concepts (SOMs, forward/inverse models, multimodal fusion, sensorimotor coupling) into one architecture. Expect a question that asks you to identify which capabilities a given architecture provides.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-35.png" target="_blank">
+          <img src="./week09-slides/slide-35.png" alt="Slide 35 — Developmental trajectory of human infants" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 35</span>Infant developmental trajectory</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-36.png" target="_blank">
+          <img src="./week09-slides/slide-36.png" alt="Slide 36 — Developmental robotics" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 36</span>Developmental robotics</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-37.png" target="_blank">
+          <img src="./week09-slides/slide-37.png" alt="Slide 37 — Characteristics of human development" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 37</span>Characteristics of human development</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">7. Developmental Robotics</div>
+
+      <p><strong>Developmental robotics</strong> is the operational arm of Turing's child-machine idea: build robots that <em>grow into</em> their abilities by interacting with the environment, rather than receiving a fully-formed adult policy.</p>
+
+      <p>The premise (slide 36): the learning targets we want from autonomous robots are <em>quite similar</em> to the tasks human infants solve in their first years — recognising agents, controlling limbs, producing speech, predicting outcomes, building social attachments. Why not borrow the trajectory?</p>
+
+      <div class="callout exam">
+        <div class="callout-label">Four characteristics of human development <span class="badge">Exam</span></div>
+        <p>"Human development is characterised by <strong>online, crossmodal, continuous, open-ended learning.</strong>"</p>
+        <ul>
+          <li><strong>Online</strong> — learning happens <em>while</em> the child interacts with the environment, not in an offline batch mode.</li>
+          <li><strong>Crossmodal</strong> — different modalities and cognitive domains are acquired in <em>parallel</em> and interact with each other (vision shapes audition, audition shapes language, etc.).</li>
+          <li><strong>Continuous</strong> — there is no clean start/stop boundary between phases of learning.</li>
+          <li><strong>Open-ended</strong> — learning is a <em>lifelong</em> process; new skills keep being added on top of old ones.</li>
+        </ul>
+      </div>
+
+      <p>Most current ML systems violate <em>all four</em> characteristics. They train offline, on one modality, in a single phase, with a fixed goal. That gap is what developmental robotics is trying to close.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-38.png" target="_blank">
+          <img src="./week09-slides/slide-38.png" alt="Slide 38 — What can we learn from children" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 38</span>Lessons from children</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-39.png" target="_blank">
+          <img src="./week09-slides/slide-39.png" alt="Slide 39 — What can we learn from chimps" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 39</span>Lessons from chimps</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-40.png" target="_blank">
+          <img src="./week09-slides/slide-40.png" alt="Slide 40 — How about cognitive robots" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 40</span>How about cognitive robots?</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-42.png" target="_blank">
+          <img src="./week09-slides/slide-42.png" alt="Slide 42 — Why we need development" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 42</span>Why we need development</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">8. Why Development, Not Just Learning?</div>
+
+      <p>Slide 42 asks the obvious challenge: <em>"Can't we just learn? Why do we need development?"</em> Three answers:</p>
+
+      <h3>Answer 1 — Body changes</h3>
+      <p>An infant's body grows. Limbs lengthen, weight shifts, balance has to be re-acquired. A robot's body can also change — wear, damage, modular reconfiguration. <strong>Pure learning assumes a fixed body</strong>; development assumes the body is a moving target.</p>
+
+      <h3>Answer 2 — Curriculum</h3>
+      <p>Children don't learn calculus before they learn to count. Skills are layered: motor babbling → reaching → grasping → tool use. Each stage <strong>scaffolds</strong> the next. Trying to learn the top of the stack without the bottom is intractable. Developmental robotics calls this <strong>curriculum learning</strong> — and modern ML has rediscovered the idea (curriculum learning, growing networks).</p>
+
+      <h3>Answer 3 — Open-endedness</h3>
+      <p>A "learning" agent has a fixed objective. A "developing" agent <strong>changes its own objectives</strong> as it grows — it discovers new things to be curious about, new goals to pursue. <strong>Intrinsic motivation</strong> (curiosity, novelty-seeking) is the operational mechanism.</p>
+
+      <div class="callout">
+        <div class="callout-label">Cross-species comparison <span class="badge prof">Prof</span></div>
+        <p>The lecture explicitly compares what we can learn from <em>children</em> (slide 38), <em>chimps</em> (slide 39), and what we want from <em>cognitive robots</em> (slide 40). The point isn't to copy biology 1:1 — it's to extract <strong>principles</strong> (synthetic methodology, week 04 callback) that scale to artificial agents.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-32.png" target="_blank">
+          <img src="./week09-slides/slide-32.png" alt="Slide 32 — Cognitive robotics beyond labs" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 32</span>Beyond research labs</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-34.png" target="_blank">
+          <img src="./week09-slides/slide-34.png" alt="Slide 34 — Cognitive robotics deployment" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 34</span>Real-world deployment</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-30.png" target="_blank">
+          <img src="./week09-slides/slide-30.png" alt="Slide 30 — Why study cognitive robotics" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 30</span>Why study cognitive robotics?</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">9. Cognitive Robotics Beyond Research Labs</div>
+
+      <p>Why do we study cognitive robotics? Two parts on the slide, with a half-joking third:</p>
+      <ul>
+        <li><strong>Scientific</strong> — building cognitive architectures is a way to <em>test theories of cognition</em>. If your model of attention can't make a robot pick the right object on a table, the model is incomplete.</li>
+        <li><strong>Engineering</strong> — robots that need to operate in households, hospitals, and unstructured workplaces need cognitive abilities; pre-programmed scripts don't generalise.</li>
+        <li>Slide 31's bonus: <strong>"+ Cognitive robotics is fun!"</strong> — the prof's own line, half a joke and half not. Working at the intersection of three rich fields is rare and energising.</li>
+      </ul>
+
+      <h3>Where it shows up outside the lab</h3>
+      <ul>
+        <li><strong>Assistive robots</strong> — caregiving, rehabilitation. Requires reading intent, planning safe actions, learning user preferences.</li>
+        <li><strong>Educational robots</strong> — peer-tutors and language partners. Requires memory of past interactions, social cues, theory of mind.</li>
+        <li><strong>Autonomous vehicles</strong> — anticipating other agents' intentions is a cognitive task masquerading as perception.</li>
+        <li><strong>Industrial collaboration (cobots)</strong> — picking up where the human left off requires inference, not just pre-programming.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col-slides">
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-18.png" target="_blank">
+          <img src="./week09-slides/slide-18.png" alt="Slide 18 — Synthetic methodology callback" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 18</span>Synthetic methodology — callback</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-26.png" target="_blank">
+          <img src="./week09-slides/slide-26.png" alt="Slide 26 — Ok but how" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 26</span>"Ok! But how?"</figcaption>
+      </figure>
+      <figure class="slide-embed">
+        <a href="./week09-slides/slide-44.png" target="_blank">
+          <img src="./week09-slides/slide-44.png" alt="Slide 44 — Closing" loading="lazy"/>
+        </a>
+        <figcaption><span class="num">slide 44</span>Closing</figcaption>
+      </figure>
+    </div>
+    <div class="col-text">
+      <div class="section-eyebrow">10. Building a Cognitive Robot — Synthetic Methodology Revisited</div>
+
+      <p>Slide 18 is a deliberate callback to <strong>week 04 (Embodiment) §7 — Synthetic Methodology</strong>. The recipe stays the same here, applied to cognition:</p>
+
+      <ol>
+        <li><strong>Pick a cognitive ability</strong> you want to model (attention, memory, action selection).</li>
+        <li><strong>Identify principles</strong> from cognitive / biological science — not literal mechanism.</li>
+        <li><strong>Build the simplest robot</strong> that exhibits the principle.</li>
+        <li><strong>Test on real interaction</strong>, then iterate.</li>
+      </ol>
+
+      <p>The mistake to avoid: <strong>do not try to copy the human brain at the wiring level</strong>. The biology is there to inspire; the engineering is yours. SOIMA does this — it doesn't copy the cortex, it borrows the principle of self-organising sensorimotor maps.</p>
+
+      <div class="callout exam">
+        <div class="callout-label">How weeks 1-9 connect <span class="badge">Exam</span></div>
+        <p>The exam loves "putting it together" questions. Cognitive robotics is the integration point:</p>
+        <ul>
+          <li><strong>Week 02 sensors / actuators</strong> → physical perception &amp; action layer</li>
+          <li><strong>Week 03 controllers</strong> → action-perception cycle, hybrid architectures</li>
+          <li><strong>Week 04 embodiment</strong> → why a body is necessary for cognition</li>
+          <li><strong>Week 05 RL</strong> → learning policies through interaction</li>
+          <li><strong>Week 06 unsupervised / SOMs</strong> → self-organising sensorimotor representations (SOIMA's core)</li>
+          <li><strong>Week 07 multimodal</strong> → fusing vision + touch + audition into a coherent percept</li>
+          <li><strong>Week 08 social HRI</strong> → cognition that includes <em>other minds</em></li>
+          <li><strong>Week 09 cognitive robotics</strong> → the architecture that makes them work as one agent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="takeaways">
+    <div class="section-eyebrow">Key Takeaways</div>
+    <ol>
+      <li><strong>Turing's child-machine quote</strong> is the founding charter for cognitive (developmental) robotics. Build the <em>learner</em>, not the adult policy.</li>
+      <li><strong>Course definition:</strong> "Cognitive robotics is the field that combines insights and methods from AI, as well as cognitive and biological sciences, to robotics."</li>
+      <li><strong>Six attributes of cognition:</strong> perception, attention, action selection, memory, learning, reasoning. Plus metacognition + prospection. Likely a fill-in-the-blank.</li>
+      <li><strong>Two views:</strong> cognitivist (symbol manipulation) vs emergent (brain × body × environment). Course leans emergent; modern systems are usually hybrid.</li>
+      <li><strong>Three architecture families:</strong> symbolic (ACT-R, Soar), emergent (SOIMA, DAC), hybrid (iCub). Know one example from each.</li>
+      <li><strong>SOIMA</strong> packages four earlier-week concepts (SOMs, forward/inverse models, multimodal fusion, sensorimotor mapping) into one architecture.</li>
+      <li><strong>Two reasons cognition matters:</strong> autonomy in everyday environments + effective interaction with humans.</li>
+      <li><strong>Four characteristics of human development:</strong> <em>online, crossmodal, continuous, open-ended</em>. Modern ML violates all four — the gap is what dev robotics tries to close.</li>
+      <li><strong>Why development, not just learning:</strong> bodies change, skills scaffold (curriculum), goals open-end via intrinsic motivation.</li>
+      <li><strong>Synthetic methodology applies again</strong> — extract principles from biology, don't copy mechanism. Cognitive robotics is the integration layer that ties weeks 02-08 into one agent.</li>
+    </ol>
+  </div>
+  <details class="transcript">
+    <summary>
+      <span class="transcript-eyebrow">Lecture transcript</span>
+      <span class="transcript-meta">10,843 words · auto-generated (Whisper)</span>
+    </summary>
+    <div class="transcript-body">
+      <input type="text" id="transcriptSearch" class="transcript-search" placeholder="search the transcript…" />
+      <p>.. Okay, let's start for today's lecture. We will go and discuss about cognition and development in autonomous systems especially for robotics. It will be somehow engaging to talk if you are interested in cognition and I guess one of the reason that you are here in our departments were Department of cognitive science and AI so it will be a nice combination of the AI systems plus cognition for you and what we did a previously we introduced the effective and effective human robot and robot robot interaction if you have any questions from the previous session please ask it now i never received any questions for this slide so it's okay for you if you if you don't have a question yeah for the practical practical, there are some problems with the practical.</p>
+      <p>Attendance is super low and you only have three weeks remained. So please attend the practicals. At least for each group, one or two group members should attend and ask the questions. If you already did your stuff or you don't have a question that's fine but please attend practice session because last-minute requests will not be accepted okay if you are not coming to practical but sending an email just before the demo day hey I need this component can you provide me the answer is no okay so we cannot do this okay that's why you should interact with us in advance and we will bring we will bring the components that you need for your project we already bring one for your for your peer and another one we will bring the Jetson nano but it is it will travel from a long distance and maybe not today but tomorrow you can visit the mind lab and pick up from boson okay then we will communicate with you maybe you can also take today the practice sessions are a bit important because you will have any questions from the practical session so even though you will have any questions from the practical sessions.</p>
+      <p>Even though you will maybe you are already working on the advanced robotics stuff but you still need to answer the content that we are introducing during the practical sessions. Okay. So after today we only have two lectures, which is quite good. We finished a lot and we only need two more weeks.</p>
+      <p>And next week please attend if you are considering especially doing some careers in robotics. I will go out of some topics, introduce the simulation environments, which is quite popular nowadays, and maybe prepare a few demos in here that you can engage for your project. Currently, I'm supervising seven bachelor degree students, and three of them are doing actually some simulation environment for robotics. are doing actually some simulation environment for robotics you may be later interested in doing your thesis in this area too so it will be quite useful please don't miss the next week lecture and in the last week we will introduce current trends in the autonomous robotics okay what is the common areas that we need to deploy our robots in the in the in and we will also solve exam questions I prepared around the 15 questions and we will go and try to answer together it's not planned but I will let you know in advance there will be a one-week gap between these two weeks next week we will do this one but but maybe next week we will do the last session. And course evaluation will also be open on the 20th of April.</p>
+      <p>So please do not miss to give us feedback. Just that you know this kind of updates. And for today we will go with the quality robotics and the main text will be this book this will be our main text and this is a freely available textbook please go and check the you don't need to read a cover to cover but just to produce the table of content and the f five chapters we already provided in the recommended readings for this week. Another inspiration of this lecture is this course by David Vernon.</p>
+      <p>And it is quite interesting course, but a bit formal, coarse but a bit formal, which means that you need to brush up your calculus and the linear algebra background, plus some programming, then you can get this kind of content. Ideally, before starting this department, my midterm goal is to prepare something like this but over time I understand that this is a wrong approach okay for our for our student background and if you are willing to learn this area I will highly recommend go and check the each section of this course first then try to modernize it okay because this course was given i guess 15 years ago the syllabus topic still valid but it's not updated like here they are using the the vernon used the ross one but now rose 2 becomes the industry standard. We are using ROS2 most. Okay.</p>
+      <p>And today's mandatory quote is from this guy. Who is this guy? I don't know. Really?</p>
+      <p>You don't know? Okay, surprising. Anyone else? Yes?</p>
+      <p>Alan Turing. Alan Turing, yeah, he's Alan Turing. Who is he? So, guys, you know, the Turing complete missing me.</p>
+      <p>And the Turing incomplete miss. What else? Here, come. With, like weekend what is the he's yeah that's computers okay do you know what is uh trincoman is like the whole thing problem okay what is holding problem like if you can statically analyze if a program will eventually hold or not hot means that stop or the stop or the give the error what's holding means like you are calculating a factorial when do you know that or how then you will know that the thing you can analyze statically, that the thing will eventually stop.</p>
+      <p>But for a Turing complex system, then you can define programs that it's impossible to analyze if it could eventually stop or not. Okay. Okay. Yeah, the thing that we discussed in here is a bit formal way of the computer science, and they are very good concepts please go and learn i guess you already know from your algorithm algorithms and data structure lecture but go and deeply learn for this one what is halting problem what is turing complete what is mp complete what is tractability this kind of stuff will open a lot of stuff a lot of options for you and another kind of stuff will open a lot of stuff a lot of options for you and another way that this guy this guy means the Turing the talent ring contribute actually he broke the enigma surprise surprise surprise Enigma is or also student association and we have a one Yeah, so.</p>
+      <p>Yeah, okay. So this is a free advertisement for Enigma. Please go and support them. Okay, cool.</p>
+      <p>You? Sorry? Like this is about the machinery. And what it says?</p>
+      <p>It says that we shouldn't try to create a program that is already complete in its operation. Instead? Instead, we should create a program that can learn to do that. Yeah, exactly.</p>
+      <p>Instead of having to try to emulate the adult brain, which is already complete and learned very well and achieving the tasks nicely what we need to do we need to simulate the child brain okay so the child brain everything is open-ended and it is that child learns learning from observation from the reward and from the experience so we need to create the mechanisms computational mechanisms that enable or agents to learn like a child and that's the basic idea behind the cognitive developmental robotics and now we will go in detail what it means this is the some of the definitions that I adopted from the web, from a slide. So now just take your time for two minutes and adopt one definition, which one you will use for your robot, for your project, or for this course, which one we have to use. And don't forget that you're a roboticist. In here, you are not a cognitive't forget that you're a roboticist in here you are not a cognitive scientist but you are a roboticist and give me a one definition that you will adopt for your robotics Clubs.</p>
+      <p>That's fine, that's fine. And yeah, you choose the... Okay, yeah, that's the one. Another definitions that you will adopt for your project.</p>
+      <p>I mean, you can select the same one, or just select one of them, then we can go and discuss. Okay, which one you select? What's cognition? And why do you think that people are coming up different definition for the same concepts?</p>
+      <p>For instance, why this is not enough for us? An artificial cognitive system is a system that's able to perceive its surrounding environment with multiple sensors, merge this information, reason about it, learn from it, interact with the outside world. Wouldn't this be enough? Why we need a cognitive self-aware processing of information?</p>
+      <p>Why we need this one? Just to ask about processing information, when you are aware that you are processing information? Yeah, but for the biological agents, for the artificial agents, can you claim that they are aware or self-aware? Actually, when you are processing information, it's important because there is a latency between the robot getting the input and producing the output, and you need to correct for that.</p>
+      <p>Yeah, that's the... That will belong in here, anti-entropy. OK, yeah, just be aware that, OK, whenever we introduce the concepts, definitely this is not the only one concept. If you say the robots to a few other roboticists, definitely they will come up with a new definition or the definition that belongs to one school of thought, not another.</p>
+      <p>And in our lecture as a roboticist, we're always interested in the numbers. And the thing that actually I want to adopt or frame the cognitive robotics is the last definition. So the the cognitive robotics is the last definition okay so the last definition because the last definition will give us some idea about the entropy what's entropy do you know noise error unpredictability and anti-entropy is the ability to compensate for that for example if the wind is trying to blow the robot to the right and it's correct to those okay okay what else can be entropy like an your now sitting structure in this class. Is it...</p>
+      <p>Emotion. Student behavior when sitting in the classroom. That's true. For instance, it is...</p>
+      <p>We cannot say that, okay, you are dispersed a lot. Okay, a few students in here, a few students in there, and mostly concentrated in the FE variables. So that will be one type of the distribution. Another distribution is like this one, a bit equal to every place.</p>
+      <p>And for our robot also, we should think about that, okay, how we can increase the regularity in the environment. If your robot is somehow destroying the regularity in the environment, then they are entropy engine, not anti-entropy engine so we cannot classify them as an autonomous robots if you take for instance one function of the cognition can you name it one function of the cognition attention for instance decision making for instance if my attention while talking to you is here then i am increasing the irregularity in the environment, so you cannot say that, okay, I'm a cognitive agent in here. So this kind of stuff will be important later, but just think that whatever we are doing, we have to deal with the numbers, and this definition will give us a number. And the history of the cognitive robotics is quite, quite long.</p>
+      <p>So in 50 years, have a walter robots these are tortoise basically navigating the environment when the charging is below a certain threshold the robots autonomously go and find its charging station and these are the super super simple uh example of the uh cognitive robotics Then we have a shaky. Remember one of our lectures we introduced the planning, acting, and sensing. We give information about the shaky. These are the break-and-break vehicles, just a reactive controller.</p>
+      <p>These are the Darwin robots. I didn't work with them. This is the Kepera. Yes, I work with them.</p>
+      <p>These are the Kepera comes from work with them and these are the caper comes from a balcony and they are mobile robots and we put some sensor on top of it and try to map the environment and this is the cb2 japanese child robot this is the icab robot and this is the chichigas my speech supervisors a robot octopus and you see this robots have a super different shapes from the legged one from the octopus tentacle one and from the wheeled one so when we say the cognition cognition is not belong to only humans and animals that can be belong to belong to robots too with the different type of shapes. And if this robot or one of them are decreasing the irregularity in the environment, we can classify them as a cognitive robot. That's the basic idea. It doesn't need to be a fully functional humanoid robot or fully functional wheeled robot.</p>
+      <p>It can be in any form. The only one thing that we want from them decrease the irregularity in the environment or act as an anti entropy engine so this is the one exam question let's say here you know who she is no okay go her YouTube channel and follow her. She's in, I forgot her name. Simone, Simone Gertz.</p>
+      <p>Okay. Queen of shitty robots. She has a very, very interesting YouTube channel about, you know, in her earlier work, she just created some random robots and they're behaving quite, quite wildly. widely and here we also have a PR2 robot and imagine that this PR2 robot can cook or prepare your morning breakfast successfully in here so based on this definition which one is belong to I have better anti-entropy. Any other ideas?</p>
+      <p>And why Simone's robot is not a cognitive robot in this case? When we ask in the exam, please formulate your answers within this definition. We said that cognitive robots is an autonomous autoentropy engine and here it's not decreasing the entropy or decreasing the irregularity, it's just messing up in the similar space which is unsuccessfully carrying out the task. But here PR2, we are assuming that it is successfully preparing your morning breakfast.</p>
+      <p>Then we can say that this robot is increasing the regularity in the environment. Increasing the regularity in the environment, that's why it's cognitive robots. And that will be one of your exam questions, so please pay attention about the definition and how to formulate your answer. And whenever you see this kind of question, please do not make any assumption.</p>
+      <p>Do not say that, oh, Simone is creating a robot for just messing up her face while putting a lipstick. Do not mention this one. Or if you select this one, that okay during the exam i taught in this way no don't do this a lot of students are coming up with a super super creative excuses or reasoning but here i am showing you this robot is successfully completing the task this is not and this is increasing the regularity environment this is not that's why it's a cognitive robot to this one okay and we definition or based on our definition we can be inspired from a lot of things but since we are roboticists we have to stick ourselves in some domains okay and one of the domain is the robotics of course and. And another one is the AI.</p>
+      <p>AI here is an umbrella term for the machine learning too. Okay, machine learning, symbolic learning, knowledge systems, if-then rules, rule-based systems, and everything can be in goes in here. Then of course, we are not, we are not restricting ourselves by synthetic science or synthetic disciplines, we also have cognitive and biological science. So it means that if you are using robots based on the models that are inspired by the biological and cognitive science, which it can be an ai model then probably you are working on the cognitive robotics like uh let's say one of your group project who can assess that whether their project is belong to cognitive robotics or not?</p>
+      <p>My project does not belong to cognitive robotics because there is not complex cognition of information. And why you are looking for a complex cognition? A simple movement also can be a bacteria. It does not have any of what the hell am I doing. bacteria no no no you don't need to you don't need to no no no like remember this one we see simple retina quickles to complex eye cover so we don't need to go and mention that all robots are super complex.</p>
+      <p>So what was your group project about? You two here. Scale of noise. Scale of noise, okay.</p>
+      <p>We have a robot here, yeah, at least. You have a robot here yeah at least you have a robot in here then uh what is the control algorithm like an if i make a some scary noise i don't know how to do it but the scary noise robot will run away from me okay so basically it's a reactive controller you have a one input and robot is doing the output and this is purely resembles the bottom at because okay and of course we cannot say that we have an a super direct inspiration from the biology but still we know that if you imagine that robot is a chicken and if you are making some scary noise that it will leave or that robot is a frog if you put some shadow on that robot with some sounds then it will stay away from you so again we can say that okay your robot project is the cognitive robots that's okay so you don't need to go and create a super complex systems for your project and to be in the area of the cognitive robots this kind of basic systems also still satisfy and that will be perfect examples okay and we have another three pillars of the cognitive robotics one is the we are trying to model or get inspired by the human-like or any my animal like behavior and intelligence and we need to make a system level integration like a decision-making plus sensory motor skills. Of course, we cannot do this one by just focusing on robotics, just focusing on the AI or the biological and cognitive science. What we need, we need to integrate all of them together. what we need we need to integrate all of them together and what we need we need to integrate all of them together and if you somehow combine all of them we only have six domains or six elements of the cognition the first one is anticipate like a predict what will happen then if you are failing or if you are successfully anticipating then you can learn from it and at the end of this loop you will adapt from your environment adapt to your environment and of course the only thing that we should be aware of action action perception rule if you are doing action and perception by adapting anticipating and learning then we are gaining the autonomy and the whole elements in here will satisfy a cognition of course it is very hard to come up with uh it's very hard to come up with a full full circuit for a single robot like your for your robot for instance you don't have any learning for your robot for trophy for your robot you don't have any learning it is just an stimulus and reaction stimulus and reaction so basically you are just skipping this part of in your in your in your in your learning in your loop in your action perception book and they probably are not anticipating anything because it's just an stimulus and action there is no anticipation here you are not saying that okay my robot will turn left and see another obstacle.</p>
+      <p>If it's not seeing that, then it will move that way. You are not saying this one. So it is not anticipating, but your robot is adapting. Adapting means that if I change the obstacle, if I, let's say, I will not shake this one.</p>
+      <p>If I make this kind of noise, it will scare the robot. If I make this kind of noise, it will scare the robot. If I make this kind of noise, it will scare the robot, for instance. So we can say that it's slightly adapting in the environment.</p>
+      <p>How it's achieving? It's achieving by completing this action and perception. So for, let's say biological systems, if you lose one of them what will happen? If you lose your learning ability?</p>
+      <p>We learn that in cognitive neuroscience. Not if you lose a part of the brain. Yeah, but for the brain we have a bit of specialty, brain is plastic, it can adapt it. But let's say you completely forget how to learn.</p>
+      <p>So you cannot learn anything. What will happen? Can you be autonomous? You won't learn anything.</p>
+      <p>Sorry? You won't learn anything. You won't learn anything. What will happen if you don't learn anything?</p>
+      <p>You will stay at the same spot. Yeah. You will not adopt it. You will not anticipate it, and you will just be somehow a vegetative state actually okay so this is these are quite important and uh yeah we already answered this stuff so do we actually need to integrate all of them for our projects for our robots projects for all robots yeah that's true but assume that instead of Arduino you are using cloud computing and iterating in your robot That's good.</p>
+      <p>Okay, yeah, you can do it, using policy optimization to limit the divergence between the old model and the new model. Okay, yeah, you can do it, but please be careful about your money. Okay, I don't want you to lose your money. And that will not be a good autonomous system project.</p>
+      <p>Okay, just a point. And we already see that, okay, types of cognition and one type of it is the classical AI approach. We are seeing just a computation as a part of cognition and intelligence. But since we are roboticists, we are somehow not rejecting, but we do not belong to this school of thought, and we are considering ourselves as an embodied AI researcher. we are considering ourselves as an embodied AI researcher.</p>
+      <p>And here, remember what we mentioned, we mentioned that cognition or the intelligence will emerge from the interaction between environment, brain, and body. So these are the three pillars of the embodied AI, and we will be mostly focusing on this part while mentioning the cognition. yeah but the problem in here we are robots I want to make you a robot this is not that just another AI engineer okay you are a robot that's why you have to consider the body as a part of intelligence and of course it is very very hard to do it and one of the approach that we are following is the Richard Feynman's quote which called that what I cannot create I cannot understand and that is the thing that our motto for the cognitive robotics and you will see that all cognitive robotics lab have their own robots they are building from scratch and in our lab we also consider ourselves as a cognitive roboticist that's why we also have an our own 3d printed or created robots and of, if you also want to be part of this kind of research contact not to me but to Bozong, to ask for the projects or the internship projects or the thesis projects for the research. You will recall this, this is the synthetic methodology. Instead of fully trying to imitate or replicate the human body in here, we are just going and functionally replicating it.</p>
+      <p>So this one is bigger than my hand, or the average human hand, but it is functional for us because we can grasp more objects with this hand for some tests, for some objects, and that's why we have an somehow a luxury of the designing or on agent for the given the task and of course it's a very very long procedure and almost one year that students spend time with this robot of course we also have this iCub robot. It is an European, I will say European project for the cognitive robotics. This robot is particularly important because it's one of the best testbed in cognitive robotics. What we expect from this kind of cognitive robots, they have to perceive their environment.</p>
+      <p>What does perception means that? Employ your sensors and read your sensory data and create or formulate your environment or represent your environment. Then we also expect from cognitive robots to pay attention. Like if there is an important event going on for your project or for your task robot has to perform attention towards that task and space like and predict what will happen if I if you perform this if you perform this action like for the robot if this is on the edge it shouldn't touch it to touch it and then this object will fell down and it has to plan okay what will happen if i give this input will you reach your goal or what will be the consequences of your current action and the current action and the sensor input and of course if you perform this you will eventually learn so if you know that or if you anticipate that okay what kind of outcomes that you can expect from your actions then you actually will learn and by learning you will also adapt the changes okay and of course these are the desiderata which means that the thing that we absolutely want for our robots, but it is super, super hard to achieve all of them or even one of them on the actual robot.</p>
+      <p>So that's why we don't have that luxury. And that's why for your projects, you shouldn't have that aim to finish 100% working robot or cognitive robots for your project. And can we create a robot without cognition? Absolutely, yes.</p>
+      <p>But we know that from our experiments or from our daily life, cognition is useful thing to learn. What we mean the cognition, remember, reducing the entropy or reducing the irregularity in the environment and first it will allow a robot to perform tasks autonomously in the everyday environment like imagine that this is your robot and your robot is anticipating okay oh the hand of this guy is injured. How can I help him? So instead of giving these objects next to his hand, I will open the tap and put water in his mouth.</p>
+      <p>So that's one way to understand why we need cognition for a robot. And it's also important for us to, it can infer, predict our action, goals, and intention, which means that if you are in a collaborative scenario like this one, and if you put these cubes next to each other with some gaps, what you are doing, you are probably creating somehow a bridge-like mechanism. And this robot, instead of giving an additional cube to you like this one okay if it can understand your goal or intention it will just provide a stick for you then you will put on top of this cube and build your structure in there so that's why this kind of functions or the elements of the cognition is important for us as a roboticist. And eventually if you manage to deploy them on the robot, then they will have enough intelligence to collaborate with us, to make our life more productive and to live among us too of course these are the long list or shopping list for the cognition and now the question comes okay is it possible to integrate all of them in a single architecture like remember that controller that we see is the hybrid architecture and the deliberative architecture and the reactive one.</p>
+      <p>And now, remember this kind of architecture that we introduced before. And is it possible to integrate all of them in a single architecture? Just think about your project. In your projects, if you force force yourself can you integrate all of them okay instead of Arduino use GPUs you can you do it but it can be made easy if we use pre-trained causal language models and try to train them to the task like change of task, reasoning.</p>
+      <p>Okay, with that pre-trained language model, which problems you are solving? Attention. Done? Like we can have soft attention, transformer attention, or hard attention, reinforcement learning, head turning behind the ear.</p>
+      <p>Okay, okay, that's the attention one how about the reasoning reasoning like we can combine like language models with can you do it or not I would say 30% confidence. Okay, that's still high for you. Okay, so in your projects, can you integrate all of them into a single robot with an architecture? I mean, yeah, current technology.</p>
+      <p>Okay, I'm allowing you to go a bit further for the future technology too i would think yes because uh first answer for current technology and tell tell what's missing and how you can integrate in the future technology feature technology scaling of what computation robots hardware okay and what kind of computation you need okay yeah any gpu can do parallel, but what kind of GPU you need? I feel like just explaining computations in our language, but you don't need to date the center of the human. But for the human, we have first your inheritance from your parents, parents or parents, and you need seven years of childhood to get data for training. But I feel like humans do have all these capabilities, so I think it would be theoretically possible to fit everything into a single architecture.</p>
+      <p>Okay. Yeah, that's okay. How about any other of you? Criticize your colleague's idea.</p>
+      <p>So basically it says that, okay, if it's possible for human, why not for robots? Yeah, I'm summing up correctly yeah eventually i can in the future what is the uh drawback for it come on you are a css student you should you should be bold to answer this kind of questions. Imagine that you are writing your next LinkedIn post or blog post. Why it is possible or impossible to replicate this kind of cognitive abilities on the robots?</p>
+      <p>Just think about it. And of course, somehow this makes a lot of researchers actually spend a lot of time for what we need for the cognitive architectures to be complete and to function in the human environment. And one of them is David Vernon. You will remember him in the course that I introduced.</p>
+      <p>And he said that, OK, this is the data for cognitive architectures first item in his list is value systems and motives motivations and it has to have an value system then physical embodiment that's good then attention prospective action multiple modes of learning like a reinforcement learning supervised learning unsupervised learning and internal stimulation simulation like it has to simulate the actions that it will perform and what will be its consequences consequences yeah this kind of systems come but each coming from different person and if you go and literature you will find this kind of tree and each node industry is an cognitive architecture so we have a lot of cognitive architecture, and each one of them are addressing one of or a few of them, this kind of elements. And still we don't have a fully functional cognitive architecture that can be deployed and displayed. It's all behavior. It's all behavior in here yes me you have a question that where the robot makes a model of the environment instead of simply maximizing the reward function?</p>
+      <p>That is one way to do it, but I will show another way. Yeah, this is the types of... How far do you run? Yeah, just in the second lecture I will show it.</p>
+      <p>In the second session I will show it. Yeah, you will have this kind of code of architectures, and it's a bit hard to survive in this domain because some of them are quite old, some of them are not developed anymore and a few surviving one is the one of them is solar and you if you go and check their diagrams and you will see that what we have in the or elements of cognition we also have in here one of them was memory and of course we have a multiple different type of memory remember from HCI we have an short term memory sensory memory and the long term memory and here we also have an different types of memory structure like procedural semantic episodic one and we also have some perception module and I don't remember what's the stm in here but it goes to the stm we also have some action module after doing all of this process including decision making you are performing an action okay and these are all our hand wave structure that we are saying that okay action should stay here memory memory should stay here. I don't know. This remaking should stay here and we're connecting them with these arrows.</p>
+      <p>But in reality, these are all of the Mara software packages. Still, this is super old, like 20 something years old. Twenty something, yeah. Almost 20 something years old and still one, yeah.</p>
+      <p>Almost 20 something years old, and still one of the architecture in the development. And if you compare this figure with the current one, you will see a lot of things are changing. People are adding the reinforcement learning inside it. People are adding new types of episodic memory or associative memory inside it.</p>
+      <p>So it's a some ongoing ongoing development and let's give a break in here then we, next lecture I will. So let's give a break. In 50 minutes we will start. Where is my… Just do one.</p>
+      <p>Thank you. Thank you. Oh wow! Is this a computer robot or not?</p>
+      <p>No. Actually, it is partially computer robot because you make high level commands and the robot transmitting to low level commands to the motors. Let's see. Yay!</p>
+      <p>I like this. I like this. I like this. I like this.</p>
+      <p>I like this. I like this. I like this. I like this.</p>
+      <p>I like this. I like this. I like this. I like this.</p>
+      <p>I like this. I like this. I like this. I like this.</p>
+      <p>I like this. I like this. I like this. I like this.</p>
+      <p>I like motors. Let's see. Yay! All right.</p>
+      <p>Can I try it? No. Okay. Because it will drop under.</p>
+      <p>I don't want to pay. Okay, just use this one. It's not... Actually, you are going to be a robot It does use this one.</p>
+      <p>It's actually a cognitive robot, because you make high level commands to it using the controller. It doesn't translate it into low level commands. It's motor. Did I get that correct?</p>
+      <p>It is kind of correct. But we didn't define the task. It's tasks. Like you make high levels of head to go forward or backward.</p>
+      <p>That's why it's much faster than the horizontal. Can you tell me how fast is the walk? Good. Can it walk up and down there?</p>
+      <p>Yeah, it can climb the stairs. Okay. Thank you. Okay, take it to your class.</p>
+      <p>Yeah, I'm trying.. I'm trying to exit the. Shut down.. Thank you.</p>
+      <p>Thank you. No questions. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. And And this was the robot that in the previous year actually we invite her to speak in our ACI class but this year very bit unfortunate we cannot invite her. Okay let's start and among them we will pay attention about anticipating and or prediction of the prediction as a cognition cognitive elements for it and we know that okay if your robot can predict your action or intention or your goal it can be much more helpful for you.</p>
+      <p>We will introduce somehow, we can computationally model this prediction onto your robots. The easiest way that you do, we show before this lecture is in the unsupervised learning, we introduced the self-organizing map. With this map, we introduced the internal models. What we did, basically, we have two types of internal models.</p>
+      <p>One of them is inverse. Another one is the forward model. With the inverse one, what we have, we have a current sensory state and the next sensory state. Your current sensory state is this one, and the next sensory state is this one.</p>
+      <p>And what kind of action that it will bring from here to here, you will just move. Your robot just move from right to left, or pick from right to left. And that right to left is in here. It's the M.</p>
+      <p>So if you fit this M with current sensory state, you will get what? You will get the prediction of what will be the next sensory state. Back here, this is the first state, and this is your action. What will be the sensory representation of this state is here.</p>
+      <p>And if you do it repeatedly, then you will learn, and the robot will learn interaction with the human partner and you will learn internal model of the actually environment and that interaction dynamics okay and here you see there is no reward there is no loss function or the labeled actions what we can, we can use unsupervised learning to learn the internal models of the environment. Okay, just check the, or unsupervised learning lecture and you will find this architecture in details that we explained. Here is much more detailed version of it. Yes, me.</p>
+      <p>Actually, when I heard of unsupervised learning, I thought of auto-regressive models and auto-encoders and all that stuff. Yeah, this is just a few models of it. I have this idea that sometimes if you want to do reinforcement learning for your robot, you want to minimize reinforcement learning as much as possible. Like you pre-trained Yes, you shouldn't do this one, but you are an machine learning engineer and you can decide by yourself which model to use which model to avoid but you are right it's better not to use uh direct reinforcement learning on the robot because it's a trial and error learning and we don't want our robot to be broken okay up to now we introduced cognitive robotics and this person is one of the, not founding father but one of the leading researchers in cognitive robotics, David Vernon, and he said that there are two reasons people study cognitive robotics.</p>
+      <p>One of them is building smarter robots, that's it. That's one of the targets more autonomous more intelligent more interactive robots another one that's remember our motto what i cannot create i do not understand and that is our second aim in here we want to understand cognition by cognition again we mean that how we can become an uh or robots can become an anti-entropy engine and interact in the environment and solve the task another one this is mine stuff it is really fun because if you are working in cognitive robotic domain you will have an access to a lot of different type of robots starting from the mobile robot capara to the icab robot this pepper robot this no robots a lot of them and it is fun and if you go and work with the quality robotics laboratories definitely people are from different background and you will increase your knowledge in two three years by factor of ten so i will definitely suggest you to go check this spend some time in this domain. It's not restricted in the laboratory environment. There are some growing trends about how we can deploy this cognitive functions on the industrial robots too.</p>
+      <p>Surprise, you see David Verlaine here. He's also pioneering, employing the cognitive robots in the industry settings. He also come up with some digital data or the list that we want to employ on robots. Like, cognitive robots should be safe, reliable, and transparent during the operation.</p>
+      <p>Cognitive robots should also be able to self-assessment. If something is going wrong and he has to test or assess that, whether it is on failure or the failure comes from the interaction partners and if you're interested actually a bit more industrial part of this research area you can go and check go and read this paper it's a bit old i guess 10 years old but still valid the the ideas in here and as i said before if you come up if you see or known quantity robots is definitely you will have and their own architecture too these are my colleagues whether we develop a one architecture which simulates not simulate but which propose that we need to integrate developmental components into the robots. And this component comes from the Piaget and Vygotsky. And it's very easy to read paper.</p>
+      <p>If you are interested, go and check this study too. Who knows, maybe you will just employ one of them in your bachelor thesis. And this is one of the companies that claims that they will employ this kind of computer robots into the working environment. It's called Neuro Robotics.</p>
+      <p>Let's check if it's still Neuro Robotics. Oh yeah, they survived. You see still there, selling motto is the cognitive robotics in the era of human robot collaboration. Which means that if you develop some background on this domain, definitely you can go and work or make an internship, have an internship in this in this company okay it's growing lots i didn't know okay so do you have any question related to cognition and cognitive robotics.</p>
+      <p>Its elements. How you are applying or deploying it. No? Yes?</p>
+      <p>Not yet? Do you have any question? No? Everything is clear?</p>
+      <p>Perfect. Okay. Now we are leaving the cognition and moving towards the development. Now we are leaving the cognition and moving towards the development.</p>
+      <p>Here is one of the most misunderstood concept in the, I would say in the robotics. If you come up with in a conference and say that I am a developer at robotics, they will first assume that are you developing the software? But in reality, no, we are not developing the software. We are somehow aiming to, our first motto comes from Alan Turing, we want to simulate the human, not adult brain, but the child brain.</p>
+      <p>To do this, we want to do it in a structured way, which comes from the developmental psychology and the neuroscience. We want to emulate the developmental psychology and the neuroscience and we want to emulate the developmental trajectory of the kids or babies in our robots and you will see that in this slides babies are doing a lot of stuff okay these little creatures are really super smart and they can do various sensory motor skills and we almost want all of them exist in our robot. Like one of them can be responding to their mother's voice or their interaction partner or caregivers voice. We also want from this from our robots too and in here you will see the passes objects from one hand to another okay like imagine that in the collaborative setting your robot has a one uh your robot has one object in a far away and it can pass from one hand to another one to pass to the uh collaborator and here also here also, and these were quite hard problem actually.</p>
+      <p>And if you go and check six years ago, eight years ago, all robots are walking forward, because it was a bit hard for them to walk backward. But now they solve this problem actually, robot can go backwards and forward too so what this shows shows basically here we have some functions that baby display but all robots cannot and what are this limitation comes from I want to emulate all of them in here to my robot but I am limited with what kind of limitations time yes and what kind of limitation let's say I want to do I want to start here, or the birth of my robot, assembling a robot, and come up until in here. It can walk forward, backward. You see that quadruped in here can do easily.</p>
+      <p>And if I throw it, it will just push it with its hands. How long it will just push it with its eighth hand how long it will take let's say all of us in this class start to make a robot that will follow this development trajectory at the end we will we will bring a product onto the market how long it will take for us and what will be limitation and what will be limitation okay let me make concrete for your group project you want to develop the development the robotics starting from scratch until that part that it can move backward and forward if you hand in any object to him, it will just grasp and put in appropriate places. How long it will take? And what will be limiting factor for us?</p>
+      <p>What kind of resource? Hardware, software? Okay don't have the hardware. I call it software.</p>
+      <p>OK. Basically, you are starting from scratch. That's good. What do you need?</p>
+      <p>Let's say, OK, I'm an investor, and I can give a lot of money to you. What kind of? Yes? Formation, perception.</p>
+      <p>Perception of what? Like a? Perception. Perception of what?</p>
+      <p>We need a lot of further development. For developmental robots, we need a lot of sensor data. Sensor data, okay. Yeah, one of them is the hardware, and one part of the hardware is the sensor.</p>
+      <p>What else? Okay, engineers wield and assembled the robot and actors like a to teach the robots like second demonstrators what else yeah we will make a product yeah you make a product and sell to this company. Sell to this company. Or instead of Nura, we will make a Merua.</p>
+      <p>Okay. Or Mura. Come on, guys. Think about it.</p>
+      <p>What do you need as a company to build this kind of robot sensor money engineers the robot you will make it and not buy it that will be easy go to Amazon and buy the robot and sell it okay anyway just think about it okay I can for the future if you want to have your own company and think about what kind of inspiration that comes from this one and you can build for your robots and it's not an easy task okay and then now let's check for the babies and the for instance in the babies you will see in the uh mount five they can they are busy with their hands a lot especially hands and they can suck their fingers or the interact their environment with the hands and they are paying attention to the other people's hands when they are acting the objects on the objects and in the month of time they can imitate the movements okay like an invitation learning and they can in the month of 10, they can imitate the movements, like imitation learning. And they can, in the month of 11, they can grasp and carry objects and hand in the objects to others. And if you check this list, basically, they are quite similar to what we want to achieve for our robots. But not, we cannot, for instance, still have the agility of the babies for our robots for some tasks, or the learning capacity of the babies that they can display for our task.</p>
+      <p>And why? Because developmental trajectory is online, which means that it's not a batch-based learning. In the supervised learning learning what we have, we have a data set, and a huge amount of data set, and you are learning at once, and the testing with the remaining data. But for your baby you cannot say that, okay.</p>
+      <p>Sleep for three weeks, then wake up for one or two. Or play with some random stuff for two weeks then play only for a one one objects for the rest of your life we said it's it's online because it can generate its own experiment experiment so experience a data set and learn from it one thing that we don't have in the uh developmental robotics or developmental ai or machine learning we don't have a model okay we don't have a model of the environment we don't have a model of the task we don't have a model of the other interaction partner and we are developing that model okay we are constructing that model and that is the one of the distinguished point of the development of AI or machine learning so basically we are not in the luxury that we have a data set here we can go and learn from that data set and the learning is also a cross model for the developmental agents like babies. What this means that kids or babies can acquire a lot of information by their multiple senses. Like whenever, for instance, you hand in one object, they will put that object to their mount and try to achieve it.</p>
+      <p>And why? Because they want to experience that object with a lot of sensory they want to experience that object with a lot of sensory input it's not like and here is your vision data learn it then make a classification here's your proper reception data learn it and make an aggressive it can all that baby can learn all at the same time and in the parallel way and the one thing that's also the last thing that we can say that these are the agents that can learn continuously or in an opponent's fashion okay like you all of you become once upon a time with become you become a baby but you didn't you didn't stop learning how old are you on average 20 something okay 21 okay you're too young okay 20 is one let's say but still you are learning yeah probably that learning will continue until you are 81 years old. If you leave. Probably you will outlive 81.</p>
+      <p>And remember this lecture, okay? Question yourself whether you are still learning or you are not learning. Yeah, that's the thing that actually we, our babies are already doing, but we want to implement on the robots too. So that will be exam question.</p>
+      <p>What are the characteristics of developmental learning? You will say that online, cross-model, and open-ended. That will be a fill in the blank question for you. Please do not use the synonyms in here.</p>
+      <p>Okay now this is the interesting part and this kid that young gentleman here is observing one adult in here and you will see that we'll have some problem and the one good thing about this young agent in here nobody isn't instructing him they are in the corner of the room and he's observing the environment so what happens basically that baby is super smart yeah like an air it can anticipate that the intention of, what is the thing that they should be doing and doing the other thing, that the other person is missing for them. Exactly. If you check the list for cognition, the attention, he's paying attention to this guy, which is more informative for him. Action, he's going to until that door and opening, gras opening the door and they're inferring the intention of the others in the environment these are super simple stuff for the for the for the biological agents like us but for the robots they are still still hot.</p>
+      <p>Okay, let's go. This time, watch this guy. Let's see. So instead of babies, here we have a chimp.</p>
+      <p>So instead of babies, we have a chimp. And you see operator will just try to grasp one object. Of course, she cannot grasp. And the chimps will...</p>
+      <p>And that's the thing that we want from all robots too. You will deploy them in a task and something will go wrong and they will be in the loop to fix what's going wrong and it will fix this problem for you. And they are very, very basic for us we somehow assume that this is granted for the human being and the animals but in reality replicating this kind of simple behaviors on the artificial system is quite quite hard and no matter how much money we have we still are lacking actually to have an agility stuff. And this is Yukio Nagai, one of the leading figure in the developmental robotics from Tokyo University.</p>
+      <p>And she's adopting actually this experiment and getting inspired with this experiment and deploying on the robot. And let's see how she can do it. Send it to generate the algorithmic agents. Here in the scenario, the robot is observing the human who tried to achieve the goal, either to cover the red marker or push the blue button.</p>
+      <p>But this person could not achieve the goal because of the long distance from the machine. And then the robot was predicting their expected state and also detect the prediction error. Here our idea is that the minimization of prediction error, which is corresponding to the active inference mechanism, can be utilized as a trigger for robots to generate its own action. Here the robot looks as if it's helping the persons.</p>
+      <p>Although the robot does not have any social motivation for helping, but the robot just tries to minimize its own prediction error. But as a result, it could help the persons. So from this experiment, we suggest that the social, the cognitive abilities will be emerged from their very simple mechanism that is the minimization of the prediction error. Did you get some idea?</p>
+      <p>Like the task in here is just moving the objects from one place to another or covering the red dot in here and you will see the human hand is quite short. It cannot perform the task. And the robot is predicting. Humans want to cover that red dot, but it cannot do it.</p>
+      <p>And that's why you will have one error in here. Let's see where it is. And another example is an emotion estimation because you see that and we also show that anyway yeah like here you see you see this uh small uh spike in here it means that this is an error and robot has to recover from this error and instead of A robot has to recover from this error, and instead of pushing a human to do it, it will just put its own hand on that red area. And still, this is only one example and quite limited in the laboratory setting.</p>
+      <p>Imagine that you are doing this one for a highly mission-critical stuff, like in a surgery. for a highly mission critical stuff. Okay, like in a surgery. Stuff like that. Imagine that there is one patient on the table and you need to hand over one, I don't know, scissor, but you cannot reach it.</p>
+      <p>Robot can infer it and reach for you and hand it to you. This kind of stuff can be done within the cognitive robotics domain but still it is in early days and we cannot successfully transfer from the laboratory experiment to the industrial setting okay and why it is important? Because we cannot hard code or robot actions in every case. Imagine that if you are playing with a kid and just hanging this one on the top of his head, he will try to reach it, yeah?</p>
+      <p>But he will not try to reach it for the same action he will not perform the same action again again reach with the left hand right hand and try to do it is both hands so we can say that okay this kind of actions are emerging and overall that will they will understand that the predictive control of these actions which means that they can predict the action and its consequences. Like moving the subject from here to here, it will fall down. And over time, they will try and learning the predictive part of their actions. Of course, we also have some prospection, which means that memory in the future or action in the future.</p>
+      <p>What will happen if I go and open this door for instance? That's the memory in the future or the action in the future. What will happen? I will see that the door will be open, okay that's the memory in the future or the action in the future what will happen I will see that the door will be open or I will see a few other students are going in front of me okay again all of them are somehow by learning yet I can you need to learn the prediction and action sequences and the consequence of the actions and we are mentioned that this is the learning so if it's learning then why we need the development and the answer is simple because learning requires model okay what kind of model that you use for machine learning projects models what kind of models use what kind of architecture that you used come on you are taking a machine learning course yeah what kind of model you used for an uh for an exam for an i don't know assignments for an exam for another no assignments okay that's one and one yes k Okay, do not say the...</p>
+      <p>No more regression, please. Please, anything other than regression. Okay, you read my mind, okay. Policy gradient, ascent policy gradient.</p>
+      <p>Okay, perfect. What else do we have? Generative adversarial network. Okay, perfect, another one.</p>
+      <p>Go, go, another one. Just name it. Mini max tree expansion. I mean, alpha, beta, root, another one.</p>
+      <p>Just name it. Mini, max, three, expansion. I mean, alpha, beta, root, big, three, agorida. Okay, yeah, these are all of them are models, yeah.</p>
+      <p>And we know these models in advance. Why? Because we know what kind of problem that we are tackling. But in real life, babies don't know what's the problem that they are tackling.</p>
+      <p>What they are doing, basically, they are generating the model by themselves and try to fine-tune it by themselves and that's why we call they are learning in an online fashion and in an open-ended fashion so they don't know the model and how to optimize this model for this is what is the model for for baby crying or stopping the to cry the baby okay that's one i think or what's the model that when you open your arm baby running towards you what's the model yeah that can be modeled by this one but does baby know the policy gradient so what they are doing they are generating this kind of models by themselves of course there is no recipe recipe for the babies that okay oh this is a policy gradient method. This is a neural network. This is an SPM. So your baby doesn't know this one.</p>
+      <p>And this is one of the important stuff. Okay, so please learn well, pay attention to this slide very well, and it will be on the exam. Okay, then what else we can see? We don't need to go on this slide because we are repeating ourself.</p>
+      <p>And if you are interested, actually, three years, no, not three years ago, wow. Five years ago, actually, there was one workshop about cognitive architectures for the robots. It's quite interesting event. You can go and listen the talks of the leading figures in cognitive architectures.</p>
+      <p>These two researchers will be familiar with you because we are following their textbook asada san and angelo and go and just read this or the not read but watch their talks it will be quite inspiring actually especially asada one talks it will be quite inspiring actually especially as other one you will see he's introducing his cognitive architecture in here and somehow a robot application will be around but I cannot see in here maybe I don't yeah you will definitely see some of the robots from his experiment angelo if you watch it you will see a lot of iCub experiments from his slides which is quite interesting actually and if you By no point in most performance point, they can always be on the base. Which is quite interesting actually. If you watch this video and read his few papers and come up to me and say that, okay, Murat, I read Angelos this paper, and I see that we have the same settings like on Pepper robot or now robot, can we do or add additional functionality to his architecture? I will say yes yes let's do it but if you say that murat i am here just to let's do another robotic project with you i will say i don't have time okay so if you want to be part of this kind of studies and the work please be sure that you already know or that this read some of the state of art papers and this kind of links and this kind of workshops are best way to obtain actually this kind of knowledge and you will be ready for the for the doing a much more interesting and advanced projects and overall this will be our lecture and we finish it do you have any questions this one I mean we mostly introduced what exists this one will be in the exam yeah because it's important okay like and and what kind of question that i can ask from here tell me i would like to do the exam tell me one of the questions from this slides and i will add two exam but reach to the exam level quality okay don't say okay what is learning or what is the first three letter of the learning okay don't go in that okay yeah what is the difference between learning traditional learning or machine learning and the developmental learning points I can mention in one setting you have a model another setting you don't have a model that will be answer it is hard question is it hard question or toward okay then let's say I really cannot go simple simple than this one Just learn that, not for the exam, but as a knowledge.</p>
+      <p>For the machine learning, you have a model. No model, and you're optimizing that model. But in the developmental learning, you don't have that model. Your agent, your algorithm, your robots generate that model by itself and try to optimize it.</p>
+      <p>Is this clear? Is it like reinforcement learning? Model-based reinforcement learning. generate that model by itself and try to optimize it is it clear a model based reinforcement learning it is it's a one way to do it okay but not exactly as it for yeah of course the other ways is this one. One of the ways in here, in here that prediction error minimization.</p>
+      <p>Another way is to learn the internal models, like this one. Another model is the cultural architectures basically. This kind of ways that you can do it. Okay.</p>
+      <p>For the practice session, I see a lot of students are missing it and not coming it. This is not a good signal. And with this attendance, you are getting my familiarity. Actually, I become much more familiar to you, to your projects.</p>
+      <p>And I will understand that quite easily, that what you are doing for your projects. But otherwise, at the last minute, if you are bringing me some projects, then we will go in a super detailed, and I have to be sure that you know every kind of details that you are working for your projects. So don't miss this opportunity. Visit all the practice sessions, acquire your missing components.</p>
+      <p>Otherwise, in this last minute, requests will not be granted. Then see you in the practice sessions. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you.</p>
+      <p>Thank you. Thank you. Thank you. Thank you. © transcript Emily Beynon</p>
+    </div>
+  </details>
+</article>
+
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // ─── build top slide strip ───
+  const strip = document.getElementById("slideStrip");
+  for (let i = 1; i <= 45; i++) {
+    const n = String(i).padStart(2, "0");
+    const a = document.createElement("a");
+    a.href = `./week09-slides/slide-${n}.png`;
+    a.className = "slide-thumb";
+    a.dataset.slide = String(i);
+    a.innerHTML = `<img src="./week09-slides/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+    strip.appendChild(a);
+  }
+
+  // ─── lightbox ───
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxMeta = document.getElementById("lightboxMeta");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+
+  let currentSlide = 1;
+
+  function slideUrl(n) {
+    return `./week09-slides/slide-${String(n).padStart(2, "0")}.png`;
+  }
+
+  function openLightbox(n) {
+    currentSlide = Math.max(1, Math.min(45, n));
+    lightboxImg.src = slideUrl(currentSlide);
+    lightboxImg.alt = `Slide ${currentSlide}`;
+    lightboxMeta.innerHTML = `<span class="num">slide ${String(currentSlide).padStart(2, "0")}</span>${currentSlide} / 45`;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function step(delta) {
+    openLightbox(currentSlide + delta);
+  }
+
+  // Click delegation — any <a> pointing to ./week09-slides/slide-XX.png
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href*="week09-slides/slide-"]');
+    if (!link) return;
+    e.preventDefault();
+    const match = link.href.match(/week04-slides\/slide-(\d+)\.png/);
+    if (match) openLightbox(parseInt(match[1], 10));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+  lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+
+  // ─── transcript search ───
+  const searchEl = document.getElementById("transcriptSearch");
+  if (searchEl) {
+    const paragraphs = Array.from(document.querySelectorAll(".transcript-body p"));
+    const originals = paragraphs.map(p => p.textContent);
+    searchEl.addEventListener("input", () => {
+      const q = searchEl.value.trim();
+      paragraphs.forEach((p, i) => {
+        const text = originals[i];
+        if (!q) {
+          p.textContent = text;
+          p.style.display = "";
+          return;
+        }
+        const hit = text.toLowerCase().includes(q.toLowerCase());
+        p.style.display = hit ? "" : "none";
+        if (hit) {
+          const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          p.innerHTML = text.replace(new RegExp(escaped, "gi"), m => `<mark>${m}</mark>`);
+        }
+      });
+    });
+  }
+
+</script>
+</body>
+</html>
