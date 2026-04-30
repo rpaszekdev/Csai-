@@ -1958,49 +1958,62 @@
   background: var(--ink) !important;
   color: var(--cream) !important;
   border-color: var(--ink) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Upper-right panel — sits over the brain corner, brain stays as decoration. */
+.annot-popover-kbd {
+  font-size: 11px;
+  line-height: 1;
+  opacity: 0.85;
+  letter-spacing: 0;
+}
+
+/* Margin thumbnail nav: appears once the user has saved at least one note,
+   each row jumps to that highlight in the body. Pinned to the viewport so
+   it stays visible as the user scrolls through long notes. */
 .annot-panel {
-  position: absolute;
-  top: 92px;
+  position: fixed;
+  top: 24px;
   right: 24px;
-  z-index: 5;
+  z-index: 40;
   font-family: "IBM Plex Mono", monospace;
   pointer-events: auto;
   width: auto;
-  max-width: 320px;
+  max-width: 280px;
+  transition: opacity 0.15s ease;
+}
+
+.annot-panel--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .annot-panel-toggle {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink);
-  background: var(--cream);
-  border: 2px solid var(--ink);
+  color: var(--ink-soft, var(--ink));
+  background: rgba(248, 246, 238, 0.92);
+  border: 1px solid rgba(31, 30, 32, 0.45);
   cursor: pointer;
-  box-shadow: 3px 3px 0 var(--ink);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 1px 0 rgba(31, 30, 32, 0.06);
+  transition: background-color 0.12s ease, border-color 0.12s ease;
 }
 
 .annot-panel-toggle:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--ink);
-}
-
-.annot-panel-toggle:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--ink);
+  background: var(--annot-yellow-soft, rgba(244, 226, 122, 0.45));
+  border-color: var(--ink);
 }
 
 .annot-panel-icon {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1;
 }
 
@@ -2014,26 +2027,21 @@
 }
 
 .annot-panel-list {
-  margin-top: 10px;
-  background: var(--cream);
-  border: 2px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  background: #FBF8EE;
+  border: 1px solid rgba(31, 30, 32, 0.45);
+  box-shadow: 2px 2px 0 rgba(31, 30, 32, 0.18);
   max-height: 60vh;
   overflow-y: auto;
-  width: 320px;
-}
-
-.annot-panel-empty {
-  padding: 14px;
-  font-size: 11px;
-  color: var(--ink-faint-2, #888);
-  font-style: italic;
+  width: 280px;
 }
 
 .annot-card {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid rgba(31, 30, 32, 0.15);
+  border-bottom: 1px solid rgba(31, 30, 32, 0.1);
 }
 
 .annot-card:last-child {
@@ -2042,8 +2050,11 @@
 
 .annot-card-jump {
   flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
   text-align: left;
-  padding: 10px 12px;
+  padding: 8px 10px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -2056,22 +2067,45 @@
   background: var(--annot-yellow-soft, rgba(244, 226, 122, 0.45));
 }
 
+.annot-card-num {
+  flex: 0 0 auto;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint-2, #888);
+  width: 18px;
+  padding-top: 2px;
+  text-align: right;
+}
+
+.annot-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .annot-card-snippet {
-  font-size: 11px;
+  font-size: 10.5px;
   font-style: italic;
-  color: var(--ink-soft);
-  line-height: 1.45;
+  color: var(--ink-faint-2, #888);
+  line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .annot-card-note {
-  margin-top: 6px;
-  font-size: 12px;
+  margin-top: 4px;
+  font-size: 11px;
   color: var(--ink);
-  line-height: 1.45;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .annot-card-remove {

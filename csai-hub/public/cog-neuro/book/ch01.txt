@@ -1,0 +1,1044 @@
+1
+
+Cognitive Neuroscience:
+Definitions, Themes,
+and Approaches
+INTRODUCTION
+Cognitive neuroscience is a relatively new discipline that has arisen
+from the recent marriage of neuroscience, a biomedical field that has
+flourished both conceptually and technically during the past century,
+and cognitive science, a field of study rooted in the long-standing
+interest of natural philosophers and psychologists in understanding
+human mental processes. Consistent with these progenitors, research
+in cognitive neuroscience integrates investigations of brain structure
+and function, and seeks to measure cognitive abilities and behavior to
+understand how the human brain works at all levels.
+Despite its relative youth, cognitive neuroscience has rapidly become
+one of the most active areas of scientific inquiry. Much of that excitement
+comes from the questions that cognitive neuroscientists investigate,
+which range from basic perceptual and motor processing to complex
+thoughts and emotions. Why do we remember some events but not others? How do we understand the minds of others in social interactions?
+How do our brains represent different goals when faced with a complex
+decision?
+To address these kinds of questions, cognitive neuroscientists study
+both human and non-human animals with a diverse set of tools. Some
+researchers monitor single neurons as they respond to stimuli, while
+others track overall changes in processing-related metabolism in the
+brain. Some examine the effects of brain damage on cognitive functions,
+while others temporarily inactivate specific brain regions to disrupt
+function. These diverse methods allow cognitive neuroscientists and
+even beginning students to examine the brain as it functions. Cognitive
+neuroscience, however, is not defined simply by the topics it studies or
+by the tools it employs. It seeks to build on its parent fields by developing new models of cognitive functions that integrate ideas from both
+neuroscience and cognitive science. This chapter introduces the definitions, themes, and approaches that are fully developed in the rest of the
+book.
+
+2 ■ CHAPTER 1
+
+Cognition
+Cognition is a Latin term that means “the faculty of knowing.” In practice, however, it refers to the set of processes (cognitive functions) that allow humans and
+
+many other animals to perceive external stimuli, to extract key information and
+hold it in memory, and ultimately to generate thoughts and actions that help
+reach desired goals. Cognition is sometimes described as processing carried out
+by the mind, but that description introduces problems, not least because mind
+is a notoriously difficult term to define. In common parlance, the mind consists of our subjective, conscious experiences. Modern researchers rarely study
+only those aspects of a cognitive function that are accompanied by conscious
+experience. Many important aspects of cognition and behavior occur without
+conscious experience either because they arise too rapidly (e.g., when a goalie
+dives to stop a shot) or because they occur automatically in the background of
+current processing (e.g., as our moment-to-moment experiences become transformed into our memories). In recognition of the difficulty in defining these
+terms, in this chapter (and the book as a whole) we restrict the use of mind to the
+subjective sense of self, and we use cognition or cognitive functions to describe the
+specific sorts of information processing studied by cognitive neuroscientists.
+
+Natural philosophy and early psychology
+The phenomenology of cognition has always raised philosophical questions.
+How do we perceive the world? What are the contents of our minds? Can we
+freely control our behavior? Without experimental means to understand mental life, philosophers historically drew conclusions about cognition based on
+introspection and reasoning. In the nineteenth century, the first true scientists
+to address these sorts of issues (“psychologists”) built models of mental processes through behavioral observation and experimental manipulation. Many
+of these pioneers (e.g., Wilhelm Wundt, Hermann von Helmholtz, and William
+James) were trained as physicians and thus kept contact with developments in
+the emerging discipline of neuroscience, even as they focused their efforts on
+mental life. Many of their experimental methods (e.g., psychophysical judgment,
+memorization for later testing) are still in use today as ways of quantifying the
+processes of cognition.
+
+Behaviorism
+By the beginning of the twentieth century there was a growing dissatisfaction
+with the lack of systematic progress in the study of mental processes. Aspects
+of mental life like language and reasoning seemed largely intractable, and experimental methods like introspection and subjective judgments seemed inherently imprecise. As a result, psychology in that era, especially in North America,
+came to be dominated by a new emphasis on highly controlled experiments that
+matched objective external stimuli to measurable behavior (Figure 1.1). This
+approach, called behaviorism, rejected subjective work on mental functions as
+being outside the domain of proper scientific inquiry.
+Experiments carried out by behaviorists like John Watson and B. F. Skinner
+examined how changes in stimulus presentation (e.g., food rewards to a hungry
+experimental animal) could shape how individuals adapt their behavior to
+the demands of the environment. This research proved to be extraordinarily
+successful. The simple recognition that food rewards made rats more likely
+to engage in whatever behavior occurred immediately before the reward—a
+process Skinner called “operant conditioning”—led to an explosion of interest
+in methods for reinforcing or discouraging specific behaviors. Because the
+basic processes of learning were thought to be a common feature of species
+with complex nervous systems, the typical subjects of psychological research
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+Figure 1.1 Research methods in behaviorist experiments In the early part of the
+twentieth century, researchers called “behaviorists” studied psychological functions
+using simple experiments conducted primarily on non-human animals. One of the
+pioneers of behaviorist research, B. F. Skinner, is shown here in his laboratory.
+Skinner and other researchers measured how changes in stimulus presentation (e.g.,
+how often a reward is delivered) influence the subsequent behavior of the animal,
+and they used such data to create models of learning, memory, and other functions.
+
+were non-human animals—rats and pigeons in particular. But the behaviorist
+approach was enthusiastically applied to human problems as well, including
+challenges in education, treatment of addiction, and criminal rehabilitation.
+Thus, behaviorism advanced the scientific understanding of behavior in
+important ways, including the development of stimulus-response learning
+paradigms that remain widely used. It also grounded psychology firmly in
+an objective experimental approach. Yet the very strengths of behaviorism
+set the stage for its eventual demise. The focus of behaviorists on learning
+from rewards led them to ignore other cognitive functions. Although they did
+not deny the existence of mental states and the cognitive functions that those
+states implied, behaviorists dismissed those states as inappropriate topics for
+scientific study, arguing that psychological concepts could be discussed only in
+terms of the experimental manipulations that evoked them (a view sometimes
+called “operationism”). Ignoring complex mental states made experiments more
+tractable but needlessly reduced the scope of psychology by excluding the study
+of cognitive functions other than learning.
+
+Cognitive science
+In the mid-twentieth century, a confluence of factors revived the legitimacy
+of psychological research on cognitive functions. One factor was the advent
+of computational science. Research from the burgeoning field of information
+theory gave new insights into perception, memory, and motor performance.
+An example comes from a study in the 1950s by the psychologist George Miller,
+who showed that people are able to represent only about 7 unique items at one
+time, a finding often described as the span of “immediate memory.” Yet most
+of the experiments Miller reported do not involve the number 7 or memory at
+all. Instead, the research focused on basic perceptual tasks—what is now often
+called “psychophysics”—whose results were described using computational
+terms like “information” and “bits.” In fact, because perceptual judgments
+can represent only about 2.5 bits of information, Miller argued that memory
+
+■ 3
+
+4 ■ CHAPTER 1
+(A) Behaviorism
+
+Stimulus
+
+Response
+
+(B) Cognitivism
+
+Stimulus
+
+Response
+
+Figure 1.2 Contrasting behaviorist and cognitive approaches to research
+(A) Behaviorists tried to explain behavior using only stimuli and responses, avoiding any reference to the underlying mental processes. They did not necessarily deny
+the existence of internal mental states, but instead argued that mental states could
+not be defined independently of experimental operations (e.g., stimulus-response
+relationships). (B) In contrast, cognitive scientists have sought to explain the information processing that intervenes between stimuli and behavior. Those models assume
+that cognitive functions (the black arrows in this schematic diagram) act upon stored
+information (colored circles), transforming that information in the service of adaptive
+behavior.
+
+processes must “recode” more complex stimuli (e.g., the approximately 20 bits
+in a 7-digit phone number) into smaller units for cognitive processing. Memory,
+for Miller, was not a passive representation of sensory stimuli, but an active
+recoding of the information the stimuli carried.
+As information theory became instantiated in physical hardware, computers provided a new model for mental processes, one that included symbolic
+representations and hidden layers of meaning. The allied field of artificial intelligence suggested that elementary computations could combine in unexpected
+ways to support complex reasoning. The metaphor of “mind as computer” soon
+became a staple in psychology.
+At about the same time, researchers in psychology and the other social sciences
+began to reject the simplicity of the behaviorist research agenda and to explore
+more complex aspects of mental life (Figure 1.2). Thus, in the 1950s and 1960s,
+some leading psychologists challenged the behaviorist concept of operationism, arguing that psychological states and processes exist independently of the
+experiments that defined them. Perhaps the most telling blow to behaviorism
+was delivered by the linguist Noam Chomsky. In a review of Skinner’s book
+Verbal Behavior, Chomsky argued convincingly in 1959 that behaviorism could
+never explain the structural and generative properties of mental phenomena
+such as human language. More damningly still, he showed that the inferences
+drawn by behaviorists could not eliminate psychological states; on the contrary,
+their experiments could not account for even simple elements of real-world
+behavior. Emboldened by these criticisms, psychologists began to involve more
+human participants in their research—although research in non-human animals
+is still a major component—and to investigate high-level, conscious processes.
+Research on the processes of cognition has since become a large and independent field of study. Many psychologists and others now consider themselves cognitive scientists. The term cognitive science unifies research on mental
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+processes regardless of the specific topic, experimental approach, method, or
+even discipline. It focuses on information processing associated with cognitive
+functions (e.g., the chapters of this textbook), and includes research with human
+participants, studies in non-human animals, and computational simulation of
+cognitive functions. Cognitive scientists come from a variety of disciplines—
+cognitive psychology, social psychology, psychiatry, neurobiology, linguistics,
+and even philosophy, among others—which introduces a range of perspectives.
+These scientists share an interest in characterizing the phenomena and behavior
+associated with specific cognitive functions, and in creating cognitive models
+that describe the underlying psychological processes.
+Cognitive models, like the stimulus-response models created by behaviorists, predict how sensory input leads to some behavioral output. They differ,
+however, in that they posit psychological processes and internal states whose
+properties are based on factors extrinsic to a specific experiment. Importantly,
+the psychological processes invoked in cognitive science models do not necessarily map onto specific physical processes in the brain, and many cognitive
+scientists are not especially interested in such mappings. It is enough that the
+models make some sense of complex cognitive phenomena, provide insights
+into the common outcomes of different experiments, and facilitate generalizations about experimental results.
+The elements of cognitive models are sometimes called psychological constructs, in recognition of the fact that they are created to help explain diverse
+phenomena without reference to their ultimate causes in the brain. Constructs
+play an important role in many scientific disciplines; in particular, they can
+spark new and unexpected research directions. For many areas within cognitive
+science, careful experimentation and the gradual refinement of psychological
+constructs has led to remarkable progress. At the same time, however, many
+psychologists recognized that new developments in neuroscience held promise
+for grounding psychological constructs in neurobiological processes. Conversely,
+many neuroscientists grew increasingly interested in phenomena that had previously been limited to the province of cognitive psychology. How could the study
+of cognition be integrated with the methods of neuroscience? And why would
+knowing something about the brain improve our understanding of cognitive
+functions? Answering these questions requires some understanding of how
+neuroscientists approach the study of mental processes using the tools of biology.
+
+Neuroscience
+Nervous systems are found in all but the simplest animals. The field of neuroscience is concerned with how the nervous systems of humans and other animals
+are organized and function. Early knowledge about nervous system function
+came primarily from clinical cases and took a relatively holistic view of brain
+function (Figure 1.3A,B), although more was known about brain structure (Figure 1.3C). Despite lacking experimental methods, physician-scientists made remarkable inferences about brain function. The imperial Roman physician Galen
+had essentially no tools other than careful observation, yet he recognized that
+damage to the brain could have effects on cognition, and he took steps to protect the brains of his patients during surgery. The state of knowledge changed
+only slowly over the succeeding centuries: physicians knew that cognition
+was generated by the brain, but they lacked ways to systematically investigate
+cognition or to heal its deficits.
+By the early nineteenth century, physicians with a scientific bent had become
+particularly interested in the functional properties of the cerebral cortex. It was
+by then clear that damage to the cerebrum from war wounds and other causes
+led to a variety of effects. Some individuals seemed little affected by cerebral
+
+■ 5
+
+6 ■ CHAPTER 1
+(A)
+
+(B)
+
+(D)
+
+XXVII
+
+VI
+
+XX
+
+IV
+XXV
+
+IX
+
+X
+
+XXIV
+
+XX
+
+II
+
+VI
+II
+
+XV
+
+XI
+
+(C)
+
+XV XX
+
+XX
+
+III
+
+I
+
+I
+
+XV
+
+VI
+
+I
+
+II
+
+XV
+
+XI
+
+X
+
+V
+
+IV
+II
+
+I
+
+Figure 1.3 Early depictions of the brain (A) In his brain dissections, Italian artist
+and polymath Leonardo da Vinci injected hot wax into the ventricular cavities, which
+allowed him to make some of the earliest descriptions of those fluid-filled structures.
+In line with the ideas of many of his contemporaries in the Renaissance, Leonardo
+mapped different functions onto different parts of the ventricular system. (Drawings
+circa 1508.) (B) René Descartes likewise believed that the ventricles were critical for
+brain function, in that they contained psychic “spirits” that flowed from the pineal
+gland (shown here in a drawing from 1662). In his framework, the single pineal gland
+was the seat of the mind. Note, however, that this simplistic view of brain function
+belies Descartes’ keen eye for brain structure (C). (D) As described in the text, the
+phrenological maps devised by Franz Joseph Gall in the early nineteenth century
+supposed that the bony protrusions on the skull indicated the relative strength of
+functions such as the “reproductive instinct” (I) and “firmness of purpose” (XXVII).
+
+damage, while others had selective deficits of one faculty; and still others were
+greatly impaired by what seemed like minimal damage. The German physician
+and anatomist Franz Joseph Gall had long suspected that differences among
+individuals in their cognitive functions and personality traits were associated
+with different parts of the cerebral cortex, and he hypothesized that the size of
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+■ 7
+
+the cerebral cortex (and thus the extent of the function or trait) could be mapped
+by measuring bumps on the overlying skull (Figure 1.3D).
+Gall’s hypothesis led to a new approach to studying brain function called
+phrenology. The phrenologists in the first half of the nineteenth century mapped
+the skulls of ordinary people, scholars, patients in mental hospitals, and even
+non-human animals. From these measurements, they constructed detailed maps
+that assigned different functions and traits—memory, color vision, vanity, moral
+fiber, and many others—to different parts of the cortex. Over the succeeding
+decades, phrenology faded as it gradually became clear that the measurements
+of the skull made by Gall and his followers bore no relation to the underlying
+structure of the brain, let alone its function. Although the term phrenologist is
+nowadays applied dismissively to someone who describes the brain in nonscientific
+terms, phrenology made an important contribution to modern neuroscience: it
+introduced the idea that different parts of the brain contribute to different sorts
+of information processing. This idea is now known as localization of function.
+Only in the second half of the nineteenth century did rigorous experimental
+approaches to neuroscience begin to flourish, typically as physiological research
+in non-human animals or in brain tissue that was examined with rapidly
+developing techniques of microscopy and cell staining. The identification of
+neurons (Figure 1.4) as separate cells by the Spanish neuroanatomist Santiago
+Ramón y Cajal in the decades just before the turn of the twentieth century was
+a major turning point. This finding implied that cognitive processes are carried
+out by large populations of neurons.
+Parallel and indeed earlier work on the electrical properties of neurons
+showed that signals are transmitted long distances along neuronal axons by
+action potentials. By the early twentieth century, researchers had developed
+recording techniques that could track changes in these electrical signals, and
+
+(A)
+
+(B)
+Mitochondrion
+
+Endoplasmic
+reticulum
+
+Dendrites
+Nucleus
+Cell body
+
+Dendrite
+
+Cell
+body
+
+Golgi
+apparatus
+
+Synapse
+Axon
+
+Figure 1.4 The neuron (A) A photograph of cortical neurons that
+have been stained using modern versions of the methods developed by
+Santiago Ramón y Cajal. (B) Neurons have three basic parts: (1) a cell
+body that contains the nucleus and most of the neuron’s metabolic
+machinery; (2) an axon that carries information to other cells via its synaptic
+endings; and (3) multiple dendrites that receive inputs from synapses with
+other nerve cells. (A courtesy of A.-S. LaMantia and D. Purves.)
+
+Ribosomes
+Axon
+
+8 ■ CHAPTER 1
+they had begun to explore the chemical substances that neurons use to stimulate
+the cells they contact. These neurotransmitters are now known to be released by
+the terminals of neuronal axons at specialized contacts called synapses, where
+the transmitters then bind to receptor molecules on target neurons and other
+cells, thus altering the membrane potential of the cell contacted. The action of
+neurotransmitters at synapses was soon understood to be the major way that
+information travels between cells in nervous systems. Understanding how neurotransmitters contribute to brain function remains an important goal for both
+basic and clinical neuroscience. Moreover, the signaling processes of neurons
+require energy derived from oxygen and metabolites supplied by the vascular
+system, and measurements of increased energy consumption and blood flow
+in active brain regions provide the bases for the imaging methods essential to
+many brain studies today, as will be described in Chapter 2.
+By the early twentieth century, neuroscientists possessed the experimental
+techniques for addressing questions about functional localization in a rigorous
+way as evident in the pioneering studies of functional localization and reflex
+circuitry in experimental animals by the English physiologist Charles Sherrington.
+The translation of this work to humans came from studies by neurosurgeons
+like Wilder Penfield, who sought better ways of mapping the cerebral cortex in
+order to minimize the damage to normal brain tissue as he removed a tumor or
+a focus of epileptic seizures. At the outset of a neurosurgical session, Penfield
+applied weak electrical currents to the exposed cerebral cortex of the patient.
+When current was delivered to the cortex immediately behind the central sulcus, a patient might report feeling a tap on the finger or a brushing sensation
+on the leg. Changing the location of stimulation and monitoring the resulting
+sensations allowed Penfield to create a systematic map of the somatosensory
+
+(A)
+Area 1
+
+Figure 1.5 Mapping function in
+the human primary somatosensory
+cortex (A) Shown in color are key
+regions of the primary and secondary
+somatosensory cortex. (B) Electrical
+stimulation of these regions of the
+cerebral cortex—in the brains of
+patients undergoing neurosurgery
+in advance of epilepsy surgery—
+evokes sensations whose perceived
+location depends on the part of
+cortex being stimulated. Stimulations
+near the top of the brain generated
+sensations perceived to arise in
+the feet and legs, while stimulation
+on the side of the brain led to sensations in the face and lips. (C) This
+smaller reconstruction of the body (or
+“homunculus”) portrays the size of
+each body region proportionally to its
+representation in the somatosensory
+cortex. Note that the amount of
+somatosensory cortex devoted to
+the hands and face is much larger
+than the relative body surface in
+these regions. (After Penfield and
+Rasmussen 1950; Corsi 1996.)
+
+Primary
+somatosensory
+cortex (S1)
+
+Area 2
+Area 3a
+Area 3b
+
+Secondary
+somatosensory
+cortex (S2)
+
+Trunk
+Neck
+Head
+Shoulder
+Arm
+Elbow
+Forearm
+
+(B)
+
+Medial
+
+Leg
+Foot
+Toes
+Genitalia
+
+Hand
+Digit 5
+4
+3
+2
+Thumb
+Eyes
+Nose
+Face
+Upper lip
+Lower lip
+Chin
+
+Throat
+Tongue
+Teeth, jaw, gums
+Lateral
+
+(C)
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+cortex (Figure 1.5); the same approach revealed the organization of the motor
+cortex, as well as some of the structural organization of the frontal lobes.
+Electrical stimulation, however, was only one of the many approaches eventually used by modern neuroscience. Studies of cellular physiology revealed
+how single neurons change their firing rate in response to specific information,
+as in the exquisite sensitivity of neurons in primary visual cortex to a bar of
+light moving through a particular part of visual space. Clinical neuroscience
+has now shown that neurological conditions such as Parkinson’s disease and
+Alzheimer’s disease reflect specific cellular problems, while psychiatric disorders such as depression arise from neurotransmitter dysfunction, which has
+led to the development of a plethora of drugs that have proved to be effective
+treatments. Against this impressive backdrop, the study of cognition represents
+only a small component of a much larger field.
+
+Cognitive Neuroscience: The Neurobiological
+Approach to Cognition
+Cognitive neuroscience is defined by work at the intersection of cognitive science
+and neuroscience. Thus, cognitive neuroscientists must have grounding in both
+of these domains. They must be able to think about the cognitive processes that
+shape our behavior and the contents of our mental lives, and understand cognitive psychology and related fields. But they must also be able to relate those
+processes and theories to underlying brain function, which requires proficiency
+in the key findings and the tools of neuroscience. Cognitive neuroscience thus
+combines all the difficulties of measuring brain function with all the problems
+of trying to accurately assess cognition and behavior, as well as the complexities
+of trying to link them together. These goals distinguish cognitive neuroscience
+from other disciplines—chemistry, physics, and molecular biology, to name a
+few—whose boundaries are better defined.
+This interdisciplinary nature of the field can cause problems. For example,
+one common misconception is that cognitive neuroscience simply maps the
+brain regions that are activated during a psychological process, in what is sometimes called the search for neural correlates of cognition. Popular descriptions
+of cognitive neuroscience research often feed into this misconception when
+they describe the research approach as putting someone in an MRI scanner
+to find the brain region that supports morality, forgetfulness, or impulsiveness. Nonetheless, understanding the neural correlates of a function plays an
+important role. For example, when researchers showed that prefrontal cortex
+neurons increase their firing rate while information is held in memory, that
+new knowledge sparked research on the role of that brain region in a range of
+executive processes. It should be clear, however, that the ambitions of cognitive
+neuroscience go well beyond creating maps of brain function.
+Much current research combines information about brain structure and function to create neurobiologically grounded models of cognition. For some cognitive
+functions, the contributions of neuroscience have been obvious and dramatic.
+Models of perception and of motor control have been transformed by findings
+from neuroscience, and it is impossible to consider how these functions work
+without reference to what is now known of their underlying neural substrates.
+For other cognitive functions as well, evidence from neuroscience has shaped the
+direction of ongoing debates in the field. For example, research on attention had
+long debated the issue of whether attention filters perceptual stimuli at initial
+stages of processing, before features of a stimulus are integrated into a percept,
+or only later, after perceptual processing is largely complete. By recording brain
+activity while participants performed attention tasks, investigators eventually
+obtained clear evidence that attentional filters operate at both levels.
+
+■ 9
+
+10 ■ CHAPTER 1
+The development of cognitive neuroscience models also has important practical applications. An example is studies of individual differences. Understanding
+how and why people differ in their cognitive abilities is a major area of research
+in psychology, medicine, and epidemiology. By linking individual differences in
+cognition to individual differences in brain function, researchers have begun to
+understand the neural bases for both typical and atypical cognition at any stage of
+the human life span. Differences in cognitive abilities can provide a link between
+genes and behavior as well. Many of the genes that bear on individual variation in
+cognitive functions presumably exert their effects by altered expression in specific
+brain systems. Understanding how these different systems interact to support
+particular function can guide genomic analyses in health and disease states.
+In summary, cognitive neuroscience seeks to create biologically grounded
+models of cognitive function. Such models draw inspiration from prior work
+in cognitive science, while accommodating new developments and findings
+in neuroscience. As a result, cognitive neuroscience models can inform and
+constrain prior cognitive science models, and point out new directions for
+neuroscience research.
+
+Methods: Convergence and Complementarity
+By combining elements of cognitive science and neuroscience, cognitive neuroscience gains access to a wealth of research techniques. It can take advantage
+of the diverse paradigms of cognitive scientists, some employing very simple
+and controlled experiments while others evoke more natural and open-ended
+behavior. It can apply any of the various neuroscience methods appropriate for
+measuring or manipulating the physiological processes described in the previous section: the electrical signaling of neurons, the activity of neurotransmitters,
+and their supporting metabolic processes.
+The experimental and methodological diversity allows cognitive neuroscientists to explore a given topic in many different ways—and it provides many
+paths for beginning researchers to explore in their careers. Yet methodological
+diversity is not necessarily an advantage. Each new experimental paradigm or
+neuroscience technique presents a new set of challenges, any of which may serve
+as a barrier to entry for new researchers. Why do we need so many research
+methods? Wouldn’t progress be faster if we focused on one technique and then
+used only that technique to study all aspects of cognition? The answer to both
+questions is simple. Using multiple methods provides two critical advantages:
+convergence and complementarity.
+Convergence describes the approach of combining results from multiple
+experimental paradigms to illuminate a single theoretical concept. This approach
+long predates cognitive neuroscience. Renaissance scholars recognized that
+scientific progress could be made not simply by recording facts about the world,
+but by developing new theories that combined a number of disparate insights into
+a common framework. More recently, the application of converging methods to
+psychology helped shift that field away from behaviorism. As described earlier
+in this chapter, many psychologists believed that behaviorist research was too
+sterile: its focus on stimulus-response relationships omitted many of the most
+interesting aspects of our internal mental lives. No matter what experiment a
+psychologist conducted, a strident behaviorist could explain the experiment’s
+results by postulating a new stimulus-response relationship—and that relationship, considered in isolation, would be a more parsimonious explanation than a
+theory that assumed an internal state. But how could psychologists demonstrate
+the existence of internal mental states that could not be measured directly?
+The answer came from convergence: Suppose the cognitive psychologist ran
+experiment after experiment, each using different stimuli and methods, and
+all of the experiments converged on a similar conclusion. Any one experiment
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+could be called into question, but the set of experiments would be much more
+difficult to reject.
+Research in cognitive neuroscience requires the same sort of convergence across
+paradigms. Suppose that “social cognition,” which will be introduced in Chapter
+11, is the topic of interest. To evoke the relevant cognitive processes, a cognitive
+neuroscientist might create an experiment in which participants view videos of
+people engaged in social interactions and then think about what those people
+are themselves thinking. Would observing activation in one brain region, like the
+lateral parietal cortex, mean that the function of the region was social cognition?
+No, because a single experiment cannot uniquely identify a cognitive function.
+Viewing videos of social interactions may engage processes related to social
+perception, selective attention, recognition memory, and emotion, among many.
+The diversity of cognitive processes engaged by even a simple task may
+seem like a fundamental limitation—and it does make it more difficult for
+cognitive neuroscientists to apply results from a single experiment to real-world
+problems. But when the same result is observed across a range of experimental
+tasks (e.g., consistent activation in lateral parietal cortex in different social
+cognition tasks), then that commonality leads to a stronger inference than
+could be drawn from any one experiment. Convergence is often facilitated by
+meta-analytic methods (Box 1A), which are becoming increasingly central to
+cognitive neuroscience research.
+Cognitive neuroscience also benefits from the complementarity of its research
+methods, each of which provides a different sort of information about brain
+function. Because brain function is expressed through many diverse physiological changes, cognitive neuroscientists use a welter of research methods
+that provide insight into different aspects of physiology: functional magnetic
+resonance imaging (fMRI), electroencephalography (EEG), positron emission
+tomography (PET), transcranial magnetic stimulation (TMS), single-neuron
+recording, neurological disorders, lesion studies, assessments of behavior, and
+others. None of these techniques provide a complete accounting of brain function.
+As will be considered in more detail in Chapter 2, measurement techniques
+vary widely in the aspects of brain function they record (Figure 1.6). Some
+techniques provide information about brain metabolism (PET) and blood
+
+■ 11
+
+Figure 1.6 Neuroscience techniques
+differ in their spatial and temporal
+resolution The vertical axes illustrate
+spatial resolution in terms of distance
+(left) and the corresponding brain
+structures (right). The horizontal
+axis illustrates temporal resolution.
+This graph demonstrates that
+different techniques provide different
+advantages and disadvantages.
+Techniques that involve data
+collection from human participants
+tend to operate at relatively coarser
+spatial scales than those that
+record from non-human animals.
+Electrophysiological techniques that
+provide excellent temporal resolution
+in human participants (e.g., scalp
+ERPs) have the disadvantage of
+relatively lower spatial resolution
+compared to neuroimaging techniques
+(e.g., functional MRI). As will be
+discussed extensively in Chapter 2,
+cognitive neuroscience research often
+applies a range of techniques to a
+single experimental question. EEG,
+electroencephalography; ERPs, eventrelated potentials; fMRI, functional
+magnetic resonance imaging; MEG,
+magnetoencephalography; PET,
+positron emission tomography; TMS,
+transcranial magnetic stimulation.
+
+1m
+Brain
+
+Scalp ERPs
+
+10 cm
+
+TMS
+MEG
+Human optical
+
+1 cm
+
+EEG
+Gyrus
+Voxel
+(fMRI)
+
+Lesion (animal)
+
+fMRI
+
+Human intracranial ERPs
+
+Lesion
+(human)
+
+Drug
+manipulations
+
+PET
+
+1 mm
+Cortical
+column
+
+Animal optical techniques
+100 μm
+
+Neuron
+
+Single-unit recording
+
+10 μm
+
+1 μm
+
+Axon
+(diameter)
+
+Patch-clamp recording
+
+Synapse
+0.1 μm
+1 ms
+
+10 ms
+
+100 ms
+
+1s
+
+1 min
+
+1 hr
+
+1 day
+
+1 wk
+
+1 yr
+
+12 ■ CHAPTER 1
+
+■ BOX 1A CONVERGENCE THROUGH META-ANALYSIS
+
+C
+
+for these new brain imaging techniques.
+cognitive neuroscience literature. The
+ognitive neuroscience has grown
+Although this example focused on neufirst is qualitative meta-analysis, in which
+dramatically over the past several
+roimaging techniques, its methods could
+a research team first identifies a comdecades. Every year thousands of
+accommodate any approach in cognitive
+prehensive set of studies on the same
+new studies are published, spanning all of
+neuroscience.
+cognitive function and then looks for
+the research methods and cognitive funcIn the second of the primary meta-ansimilarities among their results. Most
+tions described throughout this textbook.
+alytic approaches, researchers use quanThe diversity of current research illustrates review articles approach the cognitive
+neuroscience literature in this manner. An titative meta-analyses to combine results
+how cognitive neuroscience has grown
+from multiple studies into a single statistiearly example summarized 275 studies
+into a vibrant, mature discipline. Yet this
+cal framework. In recent years, quantitathat used PET and fMRI to study cognisuccess points to an important challenge:
+tive approaches have been extensively
+tive functions (Table A). That number
+How can researchers integrate results
+applied to functional and structural MRI
+seems small compared to the vast exfrom many studies to improve their inferdata. In a typical analysis technique—
+panse of the current literature, but at the
+ences about cognitive functions?
+now often called activation likelihood
+time of this article’s publication (2000), it
+Methods for combining informarepresented a major fraction of functional estimation—coordinates of fMRI activation across multiple studies are called
+tion found in many studies are extracted
+neuroimaging research. For each study,
+meta-analysis techniques (i.e., “analyand used to create a probabilistic map
+the authors identified the type of function
+ses of analyses”). While meta-analyses
+of the combined data (Figure B). Brain
+studied and the task used (e.g., “Pernow play an important role in all scientific
+regions that are reliably activated across
+ception: face matching”) and then the
+disciplines, they have several particularly
+many studies have high significance
+specific brain region in which activation
+important advantages for cognitive neuvalues and are highlighted on the overlaid
+was observed. Each of the major cogniroscience. Most generally, they improve
+color maps. Quantitative analyses of this
+tive functions exhibited a characteristic
+the power and precision with which resort can improve statistical power, as
+pattern of results, providing validation
+searchers can detect and specify conclusions. Nearly all studies in cognitive
+neuroscience involve relatively
+(A)
+small samples; typical are electrophysiological studies of 2 to
+Perception of Faces
+3 monkeys, neuropsychological
+Occipitotesting of a handful of patients
+Temporal
+temporal
+with brain lesions, and functional
+MRI or EEG recording from 20 to
+38
+Ins 42
+22
+21
+20
+Mt
+37
+19
+18
+17
+STUDY
+30 research subjects. By combining data across multiple studies,
+Grady et al. 1994
+x
+x
+x
+researchers increase the effective
+Haxby et al. 1994
+x
+x
+sample size for their analyses, allowing the identification of effects
+Haxby et al. 1995
+x
+x
+x
+that replicate across studies.
+Sergent et al. 1992
+x
+x
+The advantages of metaanalyses go well beyond simple
+N. Kapur et al. 1995
+x
+x
+x
+x
+replication. Because different
+cognitive neuroscientists always
+Puce et al. 1995
+x
+x
+x
+approach a research question in
+Clark et al. 1996
+x
+different ways—through different
+experimental tasks or different
+Puce et al. 1996
+x
+x
+methods for data collection—any
+single study’s results might be
+Kanwisher et al. 1997
+x
+attributable to an idiosyncratic
+McCarthy et al. 1997
+x
+feature of its experiment. Those
+idiosyncratic features (e.g., the
+Clark et al. 1998
+x
+specific demographics of a subject sample) will average out over
+Source: CABEZA AND NYBERG 2000.
+many studies, leaving only what is
+(A) Qualitative meta-analyses. Meta-analyses combine data from many studies to facilitate stronger
+common to all the studies. Thus,
+inferences than could be drawn from any one study in isolation. An early approach to meta-analysis
+meta-analyses may be especially
+relied on the authors’ matching experimental tasks from specific studies (left column) to subregions of
+important for understanding the
+the brain, represented here by numbers corresponding to Brodmann areas within the cerebral cortex
+neural basis of complex cogniand by abbreviations for other brain regions: ins, insula; mt, medial temporal/hippocampus. As shown,
+tive functions that can be evoked
+a variety of tasks involving the visual perception of human faces evoked activation in a region of the
+within a wide range of contexts.
+ventral temporal lobe (Brodmann area 37, which includes the fusiform gyrus), although other regions
+Three primary approaches
+were found to be activated in different studies. (After Cabeza and Nyberg 2000.)
+to meta-analysis dominate the
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+■ 13
+
+■ BOX 1A (continued)
+(B)
+
+References
+CABEZA, R. AND L. NYBERG (2000) Imaging
+cognition II: An empirical review of 275
+PET and fMRI studies. J. Cogn. Neurosci.
+12: 1–47.
+
+(B) Quantitative meta-analyses. This screen shot from the
+NeuroSynth meta-analysis program (http://neurosynth.org)
+combines maps of activation coordinates reported in many
+hundreds of experiments, each of which was coded according
+to the specific cognitive functions it evoked. Shown are three
+cross sections through the meta-analytic map for “decision
+making,” which combined data from more than 40 studies
+that explored different aspects of that function. Consistently
+activated in those studies were the insula (at crosshair) and
+basal ganglia, each of which will be discussed in more detail
+in Chapter 14.
+
+described previously, but also can distinguish subtle functional differences within
+a brain region. In addition, their need for
+only minimal human input increases their
+objectivity. Some cognitive neuroscience
+researchers have begun to create automated systems that can evaluate many
+hundreds of studies, allowing a keywordbased search of the larger literature (see
+http://neurosynth.org).
+Finally, semantic (or ontological) metaanalyses combine studies according to
+similarity in their underlying concepts. In
+the growing area called scientometrics,
+meta-analytic methods are applied to
+the text content and citations of research articles. Patterns of co-citations
+(e.g., articles on working memory tend
+to also cite articles on executive function) or of co-occurrences of terms in
+articles can be used to identify relationships between concepts, which in turn
+can be combined into semantic maps of
+the literature. Even more ambitious are
+approaches that attempt to break down
+complex cognitive functions into their
+core processes, on the basis of prior
+research, and then separate activation
+associated with each of those processes
+(see http://cognitiveatlas.org for an example). As will be discussed throughout
+this book, the major cognitive functions
+(e.g., executive control) can often be
+separated into several processes (e.g.,
+response inhibition, task switching), and
+different executive control tasks may tap
+
+EICKHOFF, S. B., A. R. LAIRD, C. GREFKES, L.
+E. WANG, K. ZILLES AND P. T. FOX (2009)
+Coordinate-based activation likelihood
+estimation meta-analysis of neuroimaging
+data: A random-effects approach based on
+empirical estimates of spatial uncertainty.
+Hum. Brain Mapp. 30: 2907–2926.
+POLDRACK, R. A. (2006) Can cognitive
+processes be inferred from neuroimaging
+data? Trends Cogn. Sci. 10: 59–63.
+POLDRACK, R. A., Y. O. HALCHENKO AND S.
+J. HANSON (2009) Decoding the large-scale
+structure of brain function by classifying
+mental states across individuals. Psychol.
+Sci. 20: 1364–1372.
+
+into different sets of processes. By examining data across many distinct tasks,
+researchers can identify brain regions or
+functional networks that tend to load on
+specific processes (Figure C).
+(C)
+
+(C) Semantic meta-analyses. Eight common psychological tasks were coded according to the
+cognitive functions they required (e.g., working memory, decision making, response inhibition).
+Then, multivariate pattern analyses (see Chapter 2) were used to identify networks of brain
+regions that were consistently activated together and that were associated with similar combinations of cognitive functions. The network shown here—which includes the basal ganglia,
+hippocampus, and medial prefrontal cortex—was most activated in tasks that involved decision making and executive function, particularly when dealing with information held in memory.
+The size of the words above the images indicated the relative association between this network
+and each cognitive function; for example, this network has stronger links to functions such as
+decision making and memory than to functions such as speech and reasoning. (From Poldrack
+et al. 2009.)
+
+14 ■ CHAPTER 1
+oxygenation (fMRI) induced by neural activity. Others indicate how single
+neurons send information (single-unit recording) or integrate information from
+other neurons (local field potentials and EEG). And the techniques vary in
+whether they are more sensitive to rapid changes in brain activity or to slower
+changes, and whether they collect information from single neurons, small portions of the brain, or the brain as a whole. Perturbation techniques (TMS, drug
+administration, lesion studies), by contrast, alter brain function, and thus can
+be used to evaluate how specific brain regions or systems contribute causally
+to specific cognitive processes. Each technique carries distinct strengths and
+limitations, so the results obtained from multiple techniques are much more
+compelling than results derived from only a single approach.
+Every subsequent chapter will highlight the ways in which multiple experimental paradigms and research methods combine to provide a richer
+understanding of the neural basis of cognition. Even though many aspects
+of cognition may at first seem particular to human cognitive function (e.g.,
+language or reasoning), research using animal models often informs research
+in human participants, and vice versa. Convergence and complementarity also
+apply across research topics. Often there are striking commonalities in the sets
+of brain regions engaged by seemingly different sorts of tasks (e.g., selective
+visual attention and decision making), which can spur researchers to investigate processes that might be common across domains of cognition. Cognitive
+neuroscientists must develop facility with a variety of research methods, even
+if they do not use all (or even most) of those methods in their own research.
+
+Conclusions
+Cognitive neuroscience provides a rich opportunity for students, despite the
+inherent complexity of human mental life and the need to develop some familiarity with the strengths and limitations of many different technical approaches.
+Given its remarkable breadth, exploring cognitive neuroscience in a textbook
+is a daunting task. To make the job manageable, this book takes an explicitly
+student-centered approach. Each chapter includes fundamental background
+material, as well as examples of recent developments in the field. The sequence
+of cognitive functions progresses from basic perceptual and attentional processes, through memory and emotions, to executive processes, decision making,
+and finally evolution and development. There is ample coverage of research
+methods, and how conclusions about cognitive function are best understood
+by applying multiple experimental approaches and considering a variety of
+data. The aim in every chapter is to describe how cognitive neuroscience has
+extended the scientific scope of both cognitive psychology and neuroscience.
+As authors, our primary goal is to help students gain an appreciation of
+the intellectual and methodological principles of this exciting new discipline,
+which combines many of the best qualities of the social and natural sciences.
+By understanding the approach of cognitive neuroscience and its conclusions,
+students will gain a deeper understanding of the cognitive capabilities that
+define human beings.
+
+COGNITIVE NEUROSCIENCE: DEFINITIONS, THEMES, AND APPROACHES
+
+■ 15
+
+Summary
+1. Cognitive science seeks to understand the information processing associated with
+functions like perception, memory, and decision making.
+2. Neuroscience seeks to characterize the structure and function of the nervous
+system.
+3. Cognitive neuroscience is a new discipline that applies research methods from
+neuroscience to the functions and behaviors studied by cognitive science.
+4. Cognitive neuroscientists use diverse research methods and experimental paradigms to develop models of mental function and behavior.
+
+Additional Reading
+Important Original Papers
+CHOMSKY, N. (1959) A review of B. F.
+Skinner’s Verbal Behavior. Language 35:
+56–58.
+GARNER, W. R., H. W. HAKE AND C. W.
+ERIKSEN (1956) Operationism and the
+concept of perception. Psychol. Rev. 63:
+149–159.
+
+MILLER, G. A. (1956) The magical number
+seven, plus or minus two: Some limits
+on our capacity for processing information. Psychol. Rev. 3: 81–97.
+
+Books
+FINGER, S. (1994) Origins of Neuroscience.
+Oxford: Oxford University Press.
+PURVES, D., G. J. AUGUSTINE, D. FITZPATRICK, W. C. HALL, A.-S. LAMANTIA AND
+
+Go to the COMPANION WEBSITE
+sites.sinauer.com/cogneuro2e
+for quizzes, animations, flashcards,
+and other study resources.
+
+L. E. WHITE (2012) Neuroscience, 5th Ed.
+Sunderland, MA: Sinauer.
+SKINNER, B. F. (1938) The Behavior
+of Organisms. New York:
+Appleton-Century-Crofts.
+
+

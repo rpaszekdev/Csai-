@@ -5,8 +5,6 @@ import ExamTable from "./components/ExamTable";
 import LandingSvg from "./components/LandingSvg";
 import CogNeuroDashboard from "./courses/cog-neuro/routes/CogNeuroDashboard";
 import RoadmapView from "./courses/cog-neuro/routes/RoadmapView";
-import NotesIndex from "./courses/cog-neuro/routes/NotesIndex";
-import NotesView from "./courses/cog-neuro/routes/NotesView";
 import QuizIndex from "./courses/cog-neuro/routes/QuizIndex";
 import QuizSession from "./courses/cog-neuro/routes/QuizSession";
 import BrainQuizView from "./courses/cog-neuro/routes/BrainQuizView";
@@ -48,8 +46,6 @@ function App() {
       <Route path="/courses/cog-neuro" element={<CogNeuroDashboard />}>
         <Route index element={<RoadmapView />} />
         <Route path="roadmap" element={<RoadmapView />} />
-        <Route path="notes" element={<NotesIndex />} />
-        <Route path="notes/:sectionId" element={<NotesView />} />
         <Route path="quiz" element={<QuizIndex />} />
         <Route path="quiz/:sectionId/:quizType" element={<QuizSession />} />
         <Route path="brain-quiz" element={<BrainQuizView />} />

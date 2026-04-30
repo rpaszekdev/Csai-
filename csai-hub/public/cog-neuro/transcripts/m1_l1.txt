@@ -1,0 +1,1891 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+Yeah, I. So good morning, everyone.
+
+Please grab a seat. Still feels a little light out of the 140 plus enrolments that we have, but this is what it is.
+
+All right. Uh, good morning, everyone. And, uh, welcome to got into neuroscience.
+
+So I think I've seen you guys all before.
+
+It's introduction to cognitive science, right? Last year.
+
+Uh, so, uh, you know who I am? You know who the other lecturer is.
+
+But I'm going to sort of refresh your brain a little bit. Um, so this course is thought by, uh, me and, uh, Doctor Sylvia.
+
+Colin.
+
+So again, I have, uh, I all the Bachelor of Arts, for Christ's sake, in, uh, computational linguistics, effectively from the University of Groningen,
+
+then change to cognitive basically, uh, behavioural and cognitive neurosciences, including as well and completed my PhD there already 12 years ago.
+
+Uh, after that, I spent eight and a half years wandering around in Germany, uh, first as a postdoc,
+
+then as a principal investigator, until I moved to um, uh, Tilburg here in 2022, where I am now an associate professor.
+
+And I had the neural computation of language lab.
+
+Uh, and since 2024, I believe I'm actually the head of the computational models of brain and, uh, Brain and Behaviour Research Unit,
+
+which is one of the five pillars of the research centre, cognitive science and artificial intelligence.
+
+My colleague, uh, Doctor Sylvie Colin, who you all know holds a, uh, BSc in biology, I believe, and a masters in neuroscience.
+
+After she completed the PhD in 2018 from the prestigious Dundas Institute in Nijmegen,
+
+she went to the even more prestigious Princeton University, where she spent two years studying memory.
+
+And ever since 2020, uh, she's an, uh, assistant professor in this, um, uh, university, also in our department.
+
+Uh, and yeah, we, as you know, we teach everything together and we start to collaborate as well.
+
+So we go supervise a PhD student nowadays and start looking for, uh,
+
+other potential collaborations on the intersection between language, my field and, um, memory.
+
+So, uh, but this car is definitely not going to be a success without the help of others.
+
+Because this is, as you may know, if you've heard about this car is a logistically very involved course.
+
+Uh, so we have two Tas, uh, who, uh, basically completed the course before.
+
+Uh, so we've got Ben Ferrari on the.
+
+I don't know if you know him, uh, very enthusiastic, uh, good student who is now, uh, writing his bachelor thesis under my supervision, actually.
+
+And, uh, um. Emma Foggy, um, who is also writing our bachelor thesis under my supervision this semester.
+
+And then we have IMCa for Dan was out there in the corner.
+
+Uh, IMCa used to be at the air on this course, but she actually, um,
+
+became a PhD student within the department and the, uh, manager of the brain and behaviour lab at Mind Labs.
+
+My lab, just the place where the practicals of this course will take place.
+
+And she will, uh, offer technical support as what we will be doing in this course is doing actual, uh, neuro, uh, neuroscience experiments.
+
+So we will be working with EEG hardware. More about that later.
+
+Uh, IMCa will support that. And Bernd and Emma will be there to really help you complete the assignments.
+
+So just as a general introduction, so what is this course about.
+
+And I can sort of introduce this course better done with this, uh, beautiful image.
+
+Uh, unfortunately, I've never been able to find a high res version of it, so we have to deal with this one, but it's good enough.
+
+So it's about the brain and it's about the brain.
+
+And, uh, in the broadest sense of the of the, uh, the word.
+
+So it's about the cortex. So which is the outer shell of the brain, uh, which is basically where our neural mouse is, uh, located.
+
+It's about, uh, white matter connectivity between, uh, neurones or brain cells, as you see.
+
+Uh, so this basically is white region up here is white matter. So to show connectivity between brain regions.
+
+So connectivity plays an immense role in, uh, the way the brain implements cognitive functions.
+
+But it's not just about the cortex because there's so much more about, uh,
+
+the brain than just talking about frontal regions and like, uh, occipital regions for vision.
+
+Uh, or like, um, you may have heard that the brain consists of two halves, right?
+
+Or the two hemispheres. What the squares will actually dive into a lot is what we call cortical regions.
+
+So subcortical meaning underlying the cortex, so underlying the outer shell of the brain where we have structures like uh,
+
+the thalamus the amygdala and the hippocampus.
+
+Um, and we'll talk about how those systems, for instance, interface the relay of information from uh, our peripherals.
+
+So our arms, legs, um, and other sensors and how these are basically being relayed to the cortex, how the cortex relays information back.
+
+We talk about the cerebellum, uh, how this, uh, may have started as an error correction mechanism for motor movement,
+
+but has evolved into a general sort of error correction mechanism,
+
+uh, which is one of those cases where nature seems to be a really smart, uh, piece of machinery for those who haven't read it.
+
+Uh, The Blind Watchmaker by Richard Dawkins. Uh, excellent title to sort of get at this point of how powerful evolution is.
+
+Um. So that's in a broad sense, what this course will be about.
+
+And I will introduce the topics that will address in particular in a second.
+
+Um, because after successful completion of this course, um,
+
+you should be able to review the strengths and the limitations of different investigative methods used in cognitive neuroscience.
+
+So in the first two weeks, I will introduce many of those methods and their strengths and weaknesses.
+
+I will today, for instance, talk a little bit about EEG, which is the method that we will be using mostly in the practicals.
+
+The reason for this is that the EEG is relatively cheap. Um, the, uh, I will talk about the strengths of EEG, how we can get a very fine grained,
+
+uh, idea of, uh, what is going on and when, but not where the signal is coming from.
+
+Uh, but we will also talk about, um,
+
+a more involved and way more expensive neuroimaging methods like functional magnetic resonance imaging or fMRI, uh,
+
+where we have to place people in a scanner and we can actually get these beautiful images right,
+
+of brain activity over the, over the brain, uh, and within the brain.
+
+Um, but we will also discuss how these methods are, again, limited by the fact that they, uh,
+
+are basically based on blood flow and therefore a very indirect measure of neural activity.
+
+And we will, um, uh, talk about, uh, other methods than just neuroimaging methods.
+
+So we will talk about interventions. We will talk about how we can learn from broken brains.
+
+All right. So whenever a, uh, we have patients with um, uh, strokes or, uh, tumours, we can actually learn something from, hey,
+
+what is going on in those people and what can that how can that inform us, uh, even though, um, and I suboptimal manner about, uh, the healthy brain.
+
+We'll see an example if we see multiple examples of computational modelling and how we can use
+
+computational modelling to actually complement methods from neuroimaging to better understand cognition.
+
+Um, and then we will actually focus on a list of cognitive functions which include action control basically motor movements.
+
+So the fact that you can actually move your limbs and can navigate the world, uh,
+
+memory and which will be, uh, show the obviously emotion, social cognition and decision making.
+
+So what happens when you go on a complete gambling rampage somewhere in Las Vegas?
+
+I will tell you something about the neuroscience and something about my own experience there.
+
+Um, and then we will summarise cognitive theories.
+
+Really? Um, basically. Ah, you should be able to summarise cognitive theories related to these functions.
+
+Recall the anatomical brain regions involved. Okay.
+
+And I'm going to be immediately clear what this course will not be like is what I sometimes call neuro geography.
+
+I don't need you to like I'm super bad at geography.
+
+You ask me where Namibia lies and I go like, uh, somewhere on the planet, right?
+
+So I will not be asking you to do that. What I will be do.
+
+Well, what we will be doing is actually providing you with the relevant cues.
+
+So we could do hot match questions on the exam where you have to complete circuits.
+
+Right. So you get all the brain regions have faults. And you should basically, um, understand which brain regions talk to, which, uh,
+
+other brain regions and how they together, um, underlie cognitive functions.
+
+And, uh, as such, you should be able to explain, uh, the cognitive neural processes supporting these functions.
+
+Um, you should be able to illustrate the connection between current research and cognitive neuroscience and,
+
+um, uh, theories on the cognitive functions.
+
+And this is the last point, right. Participate in and report on experiments related to cognitive functions.
+
+And this is where the practicals come in. So you will actually be, uh, conducting experiments yourself.
+
+And, um. Uh.
+
+Report on that in the form of basically Jupyter notebooks and R markdown scripts, etc.
+
+So like I said before, this course is, um, rather involved logistically,
+
+both in terms of how the lectures are organised and in terms of how the practicals are organised.
+
+Okay. So I'm going to try and explain this as good as I possibly can.
+
+And if you were taking this course five years ago, prior to me taking over,
+
+it would have been way more complex and I stripped a lot of the overhead already from it.
+
+But it's still, uh, a very informal course that really, uh, requires your cooperation.
+
+So how this course is organised is that it consists of six modules.
+
+And each of those modules, um, is two weeks each.
+
+Okay. And in these six modules, we cover six topics in cognitive neuroscience.
+
+So history and methodology which is what we will be starting with today.
+
+Motor control which is what we will start with in uh week uh module two.
+
+Basically that memory emotion and social cognition executive function and decision making.
+
+And the idea is that each module consists of a weekly plenary session, which is the first week of the the two week,
+
+uh, module slot, basically, and the bi weekly practical session in smaller groups.
+
+So this should be in your schedule. And these typically happen in the second week of each two week module slot.
+
+And in the second, uh, week you will basically be conducting a, uh, neuroscience experiment.
+
+And it could be EEG.
+
+We also have a, I believe, one behavioural, um, one virtual reality experiment in there where we actually wear virtual reality goggles,
+
+um, that are directly related to the, um, uh, content of the lectures, basically.
+
+So the topics that we cover in a cover in the, uh, respective modules, um,
+
+and then in the first plenary session of a module, um, the topic will be introduced.
+
+So basically it will be me or she'll be introducing a topic on a, uh, broad level.
+
+And we will typically discuss like a state of the art paper on a very high level.
+
+So this is not exam material, but we just want to illustrate how, uh, for instance,
+
+computational modelling using contemporary deep learning can complement neuroscience research.
+
+And then and now you guys will all shiver.
+
+Uh, there will be, uh, a second plenary session, which is a flipped classroom session.
+
+Okay. And this means that you will be presenting in groups the contents of the chapters.
+
+Um, and this. So basically this is exam material.
+
+So if you do a very bad job at presenting, you basically do a very bad job at informing your students about what they should learn for the exam.
+
+And this is a basically a two way street, right?
+
+Because if everybody does a bad job, then everybody is disappointed and everybody starts complaining about these things.
+
+Uh, this happened last year, uh, when we had 17 people show up for the flipped classroom sessions and people walking out on each other.
+
+Um, we also had it the other way around where people actually were very attentive, listening to each other and, um, um, engaging with each other.
+
+So the first comment I have is that a flipped classroom doing or participating in the flipped classroom.
+
+It's not just presenting yourself, it's also asking questions to your fellow students.
+
+Okay. During these flipped classroom sessions, uh, both me and Sylvie will be present and we will be commenting on your presentation style, etc.
+
+Okay. So this basically boils down that if we then decompose those, um, modules.
+
+So these six modules of two weeks each, we start out with um, basically you preparing for the lecture.
+
+So this is superficially reading the chapters in the book. I will introduce the book in a second.
+
+Um, and you could, for instance, study the practical material.
+
+Then, uh, in the second week, uh, that will be presentations from your side.
+
+Um, this will only start in module two.
+
+So next week you will still have me. So no rush in preparing slides before next week.
+
+Um, and then there will be a practical where am I will, um, guide you through basically a neuroscience or virtual reality experiment.
+
+Now, you might ask. Why should I participate in this flipped classroom thing in the first place?
+
+And previous years? Uh, there weren't any consequences if you didn't.
+
+So you could just do it or not do it.
+
+And we would basically tell you that it's very asocial and not very engaging and stuff like that if you do it like that, but that would be it.
+
+So we changed the rules of the game. So for those people who actually did this course before ref heard from their respective mentors,
+
+pay attention because the rules are not the same anymore as last year.
+
+Um, and I will introduce the new rules in a second.
+
+But before I go there, just, uh, the book that we will be using is the book Principles of Cognitive Neuroscience, second edition by Dale.
+
+Personal. Um, yes.
+
+You should really read the chapters in order to be able to complete the course.
+
+The exams are, uh, very content driven.
+
+Um, and we try to cover most of it, but the book really, uh, does a great job at explaining the material in even more depth.
+
+Um, why this book? I think there's effectively two options if you do this kind.
+
+Of course. So there's this book video first, uh, and there's the book by Michael Gazzaniga,
+
+the Gazzaniga books, the one that I learned neuroscience from back in 2008 or so.
+
+Uh, and it's a little bit more biology driven and focusing on cellular mechanisms.
+
+Uh, although we do touch upon that lightly in this course, I do put the focus and the emphasis on more,
+
+basically the connection to what you've learned in your other courses during the program.
+
+So on the cognitive functions, the cognitive neuroscience of stuff and the relation to artificial intelligence
+
+and our methods of artificial intelligence may actually complement neuroscience.
+
+Uh, software will be provided. So there will be no coding involved except for sometimes changing a file name or something, I believe.
+
+But even that I think is mostly streamlined. Um, uh, that you can use to analyse the results of your practical experiments.
+
+And there's a lot of supplementary material on the website as well.
+
+So every module will have supplementary papers that are not mandatory, but just if you're interested,
+
+can sort of provide you even more in-depth, uh, uh, info on a particular topic.
+
+And certain modules come with like pre-recorded lectures off other people that are just in depth, uh, explorations of particular topics.
+
+Again, not not exam material, but just for the interested, uh, student.
+
+Okay. Pay attention, because I'm gonna explain this once, and I will not engage in any discussions about this for the rest of the semester.
+
+So to pass this course, you will need to obtain a class grade of 5.5 or higher, which is the case with all courses.
+
+Right. So we don't award 5.5, uh, you know Chaya.
+
+So of course grade of 5.5 exactly will get rounded to a six.
+
+Everything below will get rounded to five. And, um, your grade will be determined as follows.
+
+So you will successfully participate in a flipped classroom presentation.
+
+Uh, and when I was biking to work, I decided that participation and presentation means the same thing.
+
+So that means that you will also be successfully collaborating in the sense that you will be asking questions.
+
+And if you actually give a presentation like the people did last year, you walk out of the room after your presentation.
+
+I, um. Hope myself the freedom to strike through your face and make it to feel again and
+
+not have any further discussion about that because we're all in this together.
+
+Um, okay. And I'll pay attention to this.
+
+And yes, so you need successful participation in a flip flipped classroom presentation and four out of six individual practical assignments.
+
+So there is room to miss two of those practicals. Uh, there will be no resets for the flipped classroom.
+
+There will be no resets for the practical assignments.
+
+Uh, and if you successfully complete the flipped classroom presentation and four out of six of these practical assignments,
+
+you will get 20% of your grade for free. Just like we did with introduction to cognitive science.
+
+Right. So, uh. What's the answer?
+
+So basically the comments we always got in the last year, there's no incentive to do the flipped classroom.
+
+Well, the incentive now is you get 20% of your grade for free. If you don't, you can maximally get an eight if you score 2/10 on the exam.
+
+Yes. So yeah, now I understand even least the practical in the classroom.
+
+Then I will only use 20%.
+
+I would not able to know exactly what your maximum grade will be in eight.
+
+Because participation in the midterm exam will only give you 40% of your, uh, final grades.
+
+And the final exam will only give you 40% of your final grade. So if you score two times in a row.
+
+Uh, you will have a maximum grade of an eight, but if you score two times in a row on this course,
+
+and you fail to participate in the flipped classroom presentation and, uh, uh,
+
+the individual practical assignments, then I think you screwed up in life.
+
+But that's the thing. Um, and I want to make it nephew.
+
+Basically, for the exams, there is a single research opportunity which will then amount to 80% of your grade.
+
+Uh, this is not necessarily easier because this will cover the material of all six modules in one go,
+
+which means that you will need to study all modules. Um, I will not be discussing this.
+
+So if there is a, uh, um.
+
+If there is a valid reason for you not to do the flipped classroom presentation, then I will hear it is from the study advisor.
+
+I will not be engaging in any discussion about it with you. Uh, there is just this is this is how the course is organised.
+
+It's a low stakes 20% of your grade. So you feel free to not do it.
+
+You just lose the 20%. However, as it turns out, we just have finished the course grades of Introduction to Cognitive Science.
+
+And then people write me and say, this is very unfortunately I scored a 5.4 whatever on the receipt and I said yes, but you didn't do the practicals.
+
+And then I said, yeah, but in this particular situation, you should understand that it is really sad because I almost passed the course.
+
+And no, it's not a misunderstanding. It's not the sad situation.
+
+Life offered you a choice. You made a choice. You made the wrong choice.
+
+You chose the easy way and the easy way didn't turned out the way you expected.
+
+So that's the comment you will get from me. And this is, uh, so sorry to be that firm about it, but this is just these are the rules of the game.
+
+And your final grade will then be 20% off.
+
+Uh, basically 20%. Right. So a two if you successfully, uh, participate in a flipped fashion presentation and, uh,
+
+complete four out of six practicals, um, and then we'll just add 40% of your, uh, midterm plus 40% of your final.
+
+And we done round the, uh, basically the score that that rolls out using the, uh, rules and guidelines of threshold,
+
+meaning that everything above 5.5 will be rounded upwards and everything below will be a hard Cut-Off, and we won't do double rounding.
+
+So if you score a 5.49, you're basically screwed because that will not end up being a six.
+
+Any questions about this? Yeah. Um, I come from psychology.
+
+Not. Us. Ah, yeah.
+
+I wanted to ask if this assignment will be. I, I think the most.
+
+No. So I think most of the scripts are just plug and play.
+
+Okay. So it's not about programming. How do we test that in different courses?
+
+It's just about streamlining, getting the data and getting numbers out.
+
+Okay. You should not be concerned about that. Any other questions about this?
+
+This is the moment people. So speak now or forever hold.
+
+Silence. Yes. What happens if you participate in the classroom?
+
+I'm going to make. Six assignments is in the program.
+
+Now it's just over. Know 20%.
+
+That was the group size for the classrooms.
+
+So the group size will be, uh, about five people.
+
+Right now the group sizes are at three. There's a reason for this, namely that the group sizes are not big enough to basically, uh, host you all, uh,
+
+such that you will distribute over the slots and not move towards the till such that we will face empty classrooms in the beginning.
+
+So as soon as all groups are filled up so you can actually enrol in groups, um, uh, come fast.
+
+I will increase the group size by one until they're filled up again, and I will again increase them by one.
+
+It's very sad, but this is unfortunately what I need to do in order to populate our groups.
+
+Yeah. What is that? Sorry.
+
+I don't like the covers in the. By.
+
+Yeah. So, uh, it's actually very easy.
+
+So we cover six modules. Three modules before the midterm, three modules after the midterm covers the first three.
+
+The final covers the last three. So that's the easy part because you only have to study three modules of material.
+
+So three book chapters and then uh, the uh reset covers both.
+
+Right. So that means you have to study for six modules, which basically means you just get, uh, less questions on a single topic.
+
+And more topics. Okay. Okay.
+
+So far so good with the course evaluation, so sign up.
+
+Um. Um, canvas for the flipped classroom sessions.
+
+Slots are open. And, um, also for the flipped classroom presentations, there is a slide deck available that you should use and fill in.
+
+So this is a shared Google Docs slide thing, uh, which already has the structure.
+
+Uh, the final thing I want to say about it is that really, uh, there's a lot of hours reserve for this.
+
+Um, if you feel you're just repeating me or Sylvie's work, then you're not doing a good enough job of doing it in depth.
+
+And the very first group, uh, that's the only the only exception here.
+
+The very first group has a slightly shorter chapter, and we asked that group to, uh, so this is about, uh, a year,
+
+and we asked that group to find, uh, a relevant additional source, just a little paper or something that they could include as well.
+
+Yes. Yeah.
+
+There's, uh, ki that basically allocates every, uh, numbered group to a, uh, um, uh, topic.
+
+Yeah. Uh, do you need to participate in at least one flipped classroom directive on us?
+
+I need you to participate in all of the, um, you need to participate in.
+
+Well, basically, you need to present once, and it would be really good if you were present at the others, because that's a very social thing to do.
+
+You may do what you want, but they may take a breath and take a deep breath.
+
+You mean you don't have to do a second? You don't do a second presentation.
+
+You only do a single presentation. Was there a question in the back?
+
+No. Okay, now we continue. All right.
+
+So, um. Yeah. Sort of. Just one more question. Yeah.
+
+Uh, are we all supposed to present in the group? Yes. Yeah.
+
+So typically what we do is and this is a really tight schedule. So we've got eight groups in a 1.5 hour slot.
+
+So this means you've I think I have about eight minutes. So the only thing you need to do is be serious for two minutes.
+
+Although last year somebody tried to pull off the thing where they read from ChatGPT.
+
+If we get that from you, then we'll, uh, I will just cancel you and report you to the examination board that you will not fast.
+
+That's the thing. So just put in the serious effort. Set up a meeting with your group.
+
+Set up a presentation. The structure of the presentation is already there.
+
+You guys just need to fill it out and, uh, be serious about it, because this is the exam material that your, um, uh, fellow students learn from.
+
+Claire. Good. Then we start with, uh, 20 minutes before the break.
+
+I think of cognitive neuroscience. Uh, so most of you had me, uh, introduction to cognitive science.
+
+So let's go all the way back there. Right.
+
+So what we learned there is that the term cognition is a Latin theorem that means something like the faculty of knowing.
+
+And we talked a lot about things like the brain the mind, the brain mind relationship.
+
+Right. Monism, dualism, functionalism, all those things.
+
+I see you guys are looking like I feel so long ago, but we talked about it.
+
+Um, and the book starts off with this as well, but then starts off with a very firm,
+
+um, definition and then basically says, look, we're interested in neuroscience.
+
+We're interested in the brain basis of nation.
+
+And we define, uh, cognition in that sense as a set of cognitive functions that perceive and process stimuli,
+
+stimuli from the outside world and from inside.
+
+Right. So um, information processor kind of thing.
+
+Again, this analogy we saw with Introduction to Cognitive science as well, uh, a system that has memory that stores information, it can retrieve it.
+
+Uh, there's information again, can alter this information in memory, can, uh,
+
+transform this information and that can decide upon the information it perceives, uh, execute and execute actions to achieve goals.
+
+So you've just received the information that you should be participating in a flipped classroom.
+
+You can decide upon that information, uh, to achieve your goal of basically getting a 20% bonus, or you can decide against it.
+
+Uh, what we will not how to book will not be perceiving it, and we will not be talking about it.
+
+Throughout this course is cognition as process is carried out by the mind.
+
+So we've already seen, right, that the mind is something very difficult to, uh, to define.
+
+So what is the mind? Is this subjective feeling of self right.
+
+Or this, this subjective sense of self of uh, uh, and even related to this, the idea of consciousness, right.
+
+So that I know that I am conscious,
+
+but I can never prove that in case conscious and good can ever prove that she is conscious to me, however hard she tries.
+
+Um, so, uh, we won't be talking about the brain and as being, uh, the mind, we will basically be talking about it as a system that we can, um.
+
+That we can study, and that takes input from the outside already inside, and that transforms that input, stores that info, input acts upon it.
+
+Um. So. So we are in this course called cognitive neuroscience.
+
+So there's two parts to the name. There's the cognition part and there is the neuroscience part.
+
+And as we will see in a second. So that means that as opposed to uh, so I studied behavioural and cognitive neurosciences where the word tree tracks.
+
+So uh, cognitive slash computational neuroscience track, the behavioural neuroscience track and the uh molecular neuroscience track.
+
+Uh, I think that if whenever I talk to the people who are in the molecular neuroscience track, I have no idea what they.
+
+We're doing. Okay.
+
+And that means that you can literally study individual cells and for the rest of your life, uh, look at ion channel dynamics and whatever.
+
+Uh, you can if you study behavioural neuroscience, uh,
+
+that means you might do experiments with mice or with birds or with fish, and you have to kill them afterwards.
+
+And I couldn't do that. So that's why I went for the computational side of things.
+
+But there's this idea of clinician and neuroscience. Right. So the brain basis of vision.
+
+So where did this come from so early on. So we had natural philosophy in early psychology.
+
+And you have people like Wilhelm Wundt and Hermann von Helmholtz who is a bit of a hero of mine.
+
+Um, William James. And uh, what these people were trying to do was, uh,
+
+build models of mental processes by basically observing how people behave and observing how people behave in experimental settings.
+
+So we can have a choice setting, or we can have a game like setting where we observe what kind of choices people make.
+
+Um, or we can use methods like psychophysical judgements, like light intensity, sound intensity or memorisation.
+
+Right? To test memory capacity to quantify cognitive processes.
+
+Right. So very concrete example there is this um,
+
+there's George Miller experiment magic number five plus or minus two or the magic number seven plus or minus two.
+
+Sorry if I got that wrong. I think it's the magic number five plus or -2 or 7.
+
+Uh, but the idea is that there is a limited amount of items that you can keep in working memory.
+
+Right? We've talked about this in the introduction to cognitive science.
+
+So you can test those things and draw inferences about what working memory is like in human beings.
+
+And based on those inferences, if you test that long enough, you can come up with a,
+
+uh, box and arrow model or a verbal model of how working memory might operate.
+
+And some of these things are actually still used today.
+
+Right? So these memorisation tasks like verbal working memory span and stuff like that, those are test batteries that we still use up today,
+
+probably modern standards of these classical, uh, experiments, but the same idea nonetheless.
+
+And then when we move from sort of early philosophy and early psychology to, uh, behaviourism.
+
+So we're in the early 20th century, and this is basically being driven by the guy up on top.
+
+So poorhouse Skinner, you might have heard of that name before.
+
+Um, so behaviourism basically did away with any subjective work on mental functions.
+
+And the idea was like, okay, mental functions are in the brain, right?
+
+So we're interested in sort of the brain basis of cognition, but we can't really study what is in the brain.
+
+We can't really study mental representations. We can't really study mental processes.
+
+So the only thing we should focus on is the behaviour of an organism, be it an animal or be it a human being.
+
+And uh, so what they did was construct these highly controlled experiments where you match objective external stimuli with,
+
+for instance, light intensity or sounds, right, with measurable behaviour.
+
+And an example of that is what is shown here. This is the Skinner box.
+
+So uh, this is actually just a right. So we saw these examples of operant conditioning for instance in Introduction to Cognitive Science.
+
+So um what you can test, right, for instance in mice is how they respond to particularly when, for instance, they have to, uh,
+
+activate a lever in one of those boxes are when lights, they turn on lights, turn off lights, particular lights, or when lights flash light.
+
+You can come up with any, any kind of situation where you manipulate something about the environment within the box and paired these,
+
+uh, things with, um, rewards to see how the animal behaves.
+
+And the idea then is that you try to, uh, explain their behaviour based on how they navigate this environment,
+
+but by sort of focusing only on the behavioural aspect of what the,
+
+the mouse are doing of the mouse is doing in one of those Skinner boxes and not trying to
+
+link any of that behaviour back to what is actually going on in the brain of that animal.
+
+We're effectively limiting, um, our study to the study of learning.
+
+All right. So we're starting with a. We're studying how a mouse learns, or how mice learn to press a lever in order to get food.
+
+But we don't really learn anything about what goes on into the mouse's brain, right?
+
+That goes like, hey, wait, if I press that lever, uh, if I if I learn to press that lever, then that gets me food, for instance.
+
+And, uh, but the bright side was that it kept the experiments very tractable.
+
+Right. And that was actually good, because then, uh, we could sort of just say, look,
+
+it's we can't study the one thing that's inside the brain, so let's study everything that's around it.
+
+Um, um, and but at the cost of effectively, uh, reducing psychology to studying learning.
+
+Now then, this is we're now entering the cognitive revolution again.
+
+So, uh, you guys should all remember this from introduction to cognitive science.
+
+Our cognitive revolution was somewhere born right around the 50s, 60s, where there was this one big conference where people like Minsky,
+
+uh, etc., uh, where, like, artificial intelligence was born, but also cognitive science.
+
+And one of the pioneers, there was, uh, no, um, Chomsky, um, who?
+
+Effectively was interested in language and, um, what makes us as humans special in terms of that?
+
+We have language, whereas it's very clear that at least animals have not the same kind of language.
+
+Do we have? And um, and again, right.
+
+So cognitive science, it wasn't just like Noam Chomsky said, cognitive science is here.
+
+Like I said, this was a confluence of factors. There was this, uh, I was at Dartmouth, uh, conference on AI and Cognitive science, um,
+
+where people were getting more interested in explaining what is actually going on in the brain in,
+
+in, uh, in basically, uh, in terms of mental processes.
+
+And what Noam Chomsky observed, right, was that language seems to have structure.
+
+And we've seen these sort of structural trees right at the introduction to cognitive science.
+
+And he basically said, look, in order to explain, uh, the generative properties of language.
+
+So the fact that we can produce an infinite number of different sentences, um,
+
+and that I can now produce a sentence that you've probably never heard before, um,
+
+it basically we need some kind of generative mechanism, right,
+
+that can reorder words that can produce novel, uh, sentence structures, that can reorder phrases.
+
+And in order to be able to, to get that, that are to model that,
+
+we need to actually look at how we can implement such generative, uh, mechanisms, um, in mental functions.
+
+And this is where like generative grammar, uh, comes from.
+
+And so what cognitive science in general.
+
+So just abstracting away from language for a bit tries to do is create cognitive models that describe these psychological processes.
+
+Right. So again apply to uh memory.
+
+This might be hey how do we select, uh, salient items among the items that we have in working memory applied to language,
+
+how is it that we can actually perceive and produce an infinite number of novel sentences?
+
+And how is it that certain sentences seem to sound grammatical, whereas others don't?
+
+Um, why is it that we can say a sentence like colourless ideas sleep furiously, or colourless green ideas sleep furiously,
+
+and all agree that this sentence is actually grammatically okay, but doesn't make sense at all.
+
+There seems to be some kind of structural mechanism underlying that that seems to allow us to generate and perceive this sentence as correct.
+
+That's what science seeks to do, is create cognitive models.
+
+So models that could be verbal theories, uh, that try to organise how these things function,
+
+or even computational models to try to explain how it is that these, these, uh, for instance, generative mechanisms arise.
+
+And, uh, but the critical thing is that if you take if you take something like generative grammar.
+
+Right. So generative grammar is a sort of set of rules, um, of a game.
+
+Almost. Right. That, that, that allows you to produce these sentences, but it doesn't.
+
+Immediately relate this, uh, these sort of psychological construct back to the brain basis of it.
+
+Okay. So it's enough to say, okay, working memory is like a model that has a particular store.
+
+And in this store there are items, and these items can light up and be salient.
+
+But how exactly this works and in neural hardware. So in the hardware of the brain, we don't necessarily um, um, make any large claims about that.
+
+But as it turns out, obviously, uh, some people had realised the neuroscientists that uh,
+
+neuro the basically the brains also have seems to be involved in cognition.
+
+And so there seems to be this mutual interest in basically people coming from a more hardcore neuroscience
+
+perspective and people coming from a more psychology perspective to start talking to each other.
+
+And, um, basically, again, the the image on the bottom,
+
+I think is a very nice illustration of the contrast between behaviourism and cognitivism, where behaviourism.
+
+Right. So this is the world Skinner School is moving from stimulus to response without looking inside the black box.
+
+Right. So the thing that's in within our in our scalp, whereas cognitivism basically says can we go from stimulus to response.
+
+But we're interested in what happens mentally. And cognitive neuroscience takes that one step further.
+
+Right. Because it then asks the question, how can we ground these psychological constructs, a neural biological processes.
+
+So going taking a model right of friends and generative grammar and really asking the questions.
+
+But how could we implement a generative grammar in brain cells or neurones or brain regions communicating to each other?
+
+So this is where cognitive neuroscience kicks in. So what does neuroscience bring to the table then.
+
+Um, so. Basically what neuroscience asks, right?
+
+Is this this very large question? This is how we know that we have this nervous system, this this vast network of interconnected cells.
+
+Um. Um, how do you Youmans basically how how is the the nervous system of humans and other animals organised and how do they function?
+
+So how is it that we can move in a very, very basic question, how is it that I can lift my arm or a uh,
+
+uh, little, uh, C elegans worm can can move in a particular direction?
+
+Um. So basically, very early on, physicians already knew, right, that cognition must be generated one way or another in the brain.
+
+Uh, but they just had no means to investigate.
+
+And so weren't EEG scanners that weren't, uh, everywhere eyes, scanners.
+
+And from here, I only exist since the 90s. So relatively, that's still young.
+
+Um. And what what?
+
+Very early on, also like in early 19th century, people had already realised that, like, there's an outer shell of the brain that we just saw.
+
+Right. So the pink shell. Uh, so the cortex or the cerebral cortex is actually, um, of very high interest to,
+
+uh, studying mission, cognitive function and the brain basis of cognition.
+
+Um, but then you also have a sort of, uh, these interesting early approaches.
+
+So the guy on the right is from Joseph Gall. Has anybody ever heard of Franz Joseph Gall?
+
+Has anybody ever heard of the term phrenology? Does anybody know to bend the roots?
+
+They've got an album called phrenology. So there you go.
+
+Uh. Yeah.
+
+So. Indeed. So the idea is that what, um,
+
+what Franz Josef calls phrenology is about is that it's basically the idea that different regions of the brain are, um, associated, uh,
+
+with different cognitive functions and personality traits, and that you could actually come up with detailed,
+
+uh, maps of the brain and how these, um, um, basically functions.
+
+Right. Or you could derive functional maps almost are organised by measuring bumps on the skull.
+
+Okay. So this is. So the idea that there is sort of an organisation and that we could study this organisation is great I think.
+
+But then by measuring that on the skull is kind of different than doing it with, uh, fMRI nowadays.
+
+Right. So let's put it like this. And indeed, as we will see, modern approaches to this same logic, uh, are like localisation of function.
+
+So I just want to get through this part and then we'll do a quick break, okay.
+
+Um, and then but I know we're a couple of, of, of real breakthroughs that took us from, um, phrenology to where we are now.
+
+So these guys up top are Santiago Ramona Cajal and Camillo Golgi.
+
+And it's, uh, the guy on the right, uh, developed a method that allowed us to.
+
+So it's called, uh, Golgi staining, which allowed us to identify neurones as separate cells.
+
+So, uh, this is an example of one of those Golgi stains.
+
+And you see that we've got cells here with these massive, massive connections, right?
+
+Reaching out to other neurones of connectivity between these individual brain cells.
+
+Uh, and an implication of this stuff, right, was that, um, cognitive processes seem to be carried out by large populations of these individual cells.
+
+So rather than saying, look, it's carried out by the brain, we now sort of refined our question and said,
+
+look, this must be what the brain effectively is this network of interconnected nerve cells.
+
+And somehow if we now talk about ignition,
+
+we should be talking about this network of internet interconnected nerve cells and how that network implements cognitive function.
+
+Then there's been, um, work, um, uh, electrical properties of neurones.
+
+I think this is the, uh, uh, squid giant axon, uh, result where, uh, they identified that how these nerve cells communicate with each other is that,
+
+um, there seem to be signalling that, uh, travels across neuronal axons.
+
+So these are basically the large tails of these neurones and more about that next week.
+
+Um, in terms of these all or nothing phenomena.
+
+So these electrical properties, these action potentials, you might have heard there's many different in terms of your word neurones,
+
+firing neurones, spiking trains of action potentials, action potential triggering.
+
+It's all this same thing where like neurones go like yes, I go fire.
+
+And there's this train which can be periodic, which can be, um, uh, very organised,
+
+so oscillatory of all or nothing phenomena which are called action potentials.
+
+Um, but this is not the whole story because there's also a chemical component to this whole idea.
+
+Uh, and we uh, at one point people identified that there seems to be this thing like neurotransmitters where, uh,
+
+these action potentials actually release neurotransmitters through these sort of tiny gaps between neurones called synapses.
+
+And these neurotransmitters travel from a sending neurone to a receiving neurone, where they bind to these receiving neurones.
+
+And they can cause that receiving neurone to either, uh, not do anything at all or to fire an action potential themselves.
+
+So it seems to be this interaction, right, that we should be interested in.
+
+We're interested in the neuroscience side of cognitive function.
+
+Then, um, going back to this phrenology idea.
+
+So, uh, I already said, like, uh, the modern equivalent of this is localisation of function.
+
+And I think the most, uh. Illustrative cases of that are the motor cortex and somatosensory cortex of cortices,
+
+and basically the functional organisation that these things show.
+
+So we now know. Right. We've just seen on the last slide that that neuroscience had identified that, um,
+
+electrical chemical signalling plays a large role in how neurones actually cooperate to, uh, implement cognitive functions.
+
+So given that part of it is electric, this means that as soon as you realise that, you can actually start tinkering with that.
+
+Right? So, uh, literally, if you remove somebody's scalp and you, uh, apply a weak electrical current to particular brain regions,
+
+um, you can actually stimulate those brain regions and see what what is happening.
+
+And, um, what turns out is that what Wild or Penfield actually identified is that if you do this for the somatosensory cortex,
+
+which is the cortex that is, um, responsible for our senses and us feeling things actually reveals this very organised,
+
+uh, map that's basically going from, uh, the red part here all the way to the top.
+
+Right. You see that it's organised in terms of our sentence senses moving from the feeling of our chin to our lower lip.
+
+Upper lip, face. No. So basically, if I apply a little bit of weaker and to your nose area, you will start, your nose will start to itch.
+
+Okay. Uh, and we see a similar sort of organisation in the motor cortex, which I will show you in the motor control, uh, region where,
+
+um, uh, particular regions are, um, responsible for, for instance, uh, your arm movement or lack of movement, dough movement, etc.
+
+Um, there's also non-invasive ways of doing this nowadays, like transcranial magnetic stimulation.
+
+More about that next week. Um, and the interesting part is that, um, not all those,
+
+not all those regions responsible for these individual senses, um, and sensory inputs are equal of size.
+
+And if you basically. Um, construct a human being that has, uh, body parts, um, uh, relative size to the,
+
+to basically the, the cortical substrate that is responsible for it.
+
+You end up with what is called homunculus. I know about homunculus, which is Latin for little man.
+
+And you see that, for instance, our hands, right, are massively represented,
+
+which is interesting given that we have a very fine grained feeling in our hands.
+
+Same with lips. Um, I you see that there is a homunculus for motor control as well.
+
+So, so now we've moved right from saying, okay, we're interested in cognition and the mental representations underlying cognition.
+
+We've we've identified that there must be some kind of.
+
+Uh, neural network. Right? Biological neural network underlying these cognitive functions.
+
+And we've now moved to basically being able to, on a very fine grained manner,
+
+stimulate these particular networks and identify what they are responsible for.
+
+Okay, last slide before the break. Um, so that brings us to what cognitive neuroscience is all about.
+
+So cognitive neuroscience is effectively just the intersection of cognitive science and neuroscience.
+
+Uh, and it literally just combines all of the difficulties of measuring brain functions
+
+with all of the problems in trying to accurately assess cognition and behaviour,
+
+as well as all of the complexities in trying to link these.
+
+And, uh, I asked, these are it feels sometimes that like we are, uh, massively progressing in these fields,
+
+but especially with neuroscience, there's so much we do not know and there's so much limitations to the methods we have.
+
+Um, it's involved but is not limited to understanding the neural correlates of cognition.
+
+It's concerned with individual differences. So how is it that, uh, my cognitive abilities might be different from increased cognitive abilities?
+
+Uh, it's experimentally and methodologically very diverse.
+
+Uh, diverse. So leading to to a critical advantage.
+
+So you've got convergence, right? So if you can illustrate the same thing with a blood based method and a electrophysiological based method,
+
+then you've got support from two different angles that your mental, uh, your model of cognitive function might actually be, uh, correct.
+
+So, um, combining results from multiple paradigms to eliminate a single theoretical concept is a strong advantage.
+
+And there's this idea of complementarity. So different methods provide different types of information on brain function.
+
+And we will go over many of these things. Uh, but just um, as a quick illustration.
+
+So one thing that we will be talking about today and you guys will be playing around with in the practicals is electrons philosophy.
+
+Uh, so this is this idea of putting electrodes on the scalp and actually getting it, uh, very weak.
+
+Um, uh, electrical fields that arise when neurones, uh, receive neurotransmitters and actually get depolarised or hyper polarised.
+
+So we're not measuring the action potentials themselves. But more about that, uh, next week.
+
+Um, this is an example of an Alpha mirai scanner or an MRI scanner.
+
+Uh, more about that next week. Um, uh, this is basically, um, uh, optical, uh, genetics.
+
+So where we, um, uh, genetically manipulate neurones in a mouse in order to be able to turn them off using an optical signal or to stimulate them.
+
+Uh, and we do single cell recordings, for instance, on monkeys.
+
+Uh, where we literally implement, um, uh, electrodes in the cortex directly so that we can model these things of a measure.
+
+These things break. Relatively short break.
+
+So grab eight, nine minutes and then please be back in the interest of time.
+
+All right, we're ready. Everybody had a coffee.
+
+Took off his. No, please.
+
+No! Coffee. All right.
+
+Let's continue. Okay.
+
+So we've we've just tried. Let me just backtrack one more time.
+
+So this is what this course is about is really cognitive neuroscience.
+
+So it's the neurobiological approach to cognition. And just to sort of differentiate that slightly again from from different fields.
+
+Right. So if you're into hardcore neuroscience you could be studying ion channel dynamics in mice for the rest of your life.
+
+Uh, you could also be a pure cognitive scientist and come up with all kinds of models that are not neuro biologically plausible.
+
+If you are in cognitive neuroscience, you try to do both.
+
+So you try to get at the neural basis of cognition using every potential tool that you have at your disposal,
+
+which includes brain scanners, lesions, brain perturbations.
+
+Um, computational modelling is increasingly important.
+
+Um, there's also what is a like a red line from my entire career is to computational modelling part.
+
+So using explicit mathematically precise models to, um, explicate how neurones might actually produce cognitive behaviour units or during interaction.
+
+Um, so what kind of methods do we have at our disposal as cognitive neuroscientists?
+
+There's the second chapter of the book. First chapter is actually very, very brief.
+
+So that should be an easy read. Uh, one approach is what's called the brain perturbation approach.
+
+Okay. So, uh, what's the brain perturbation approach is about is that we say, okay, well, look, we have a brain a healthy brain,
+
+for instance, and we effectively affect that healthy brain one way or another, uh, which could be voluntary or involuntary.
+
+And given that we believe and I think at this point.
+
+Right. So in Introduction to Cognitive Science, I keep it very, uh, uh, philosophical.
+
+And I go a lot kanter's monism on the one hand, and there's dualism on the other hand.
+
+Um, there's functionalism, there's whatever. But like, I think it should be fairly clear that I am, uh, a big supporter of this circuit here.
+
+So I think notion is, uh, implemented or even can be reduced to the brain.
+
+Um, so, uh, if something is wrong with the brain, with the system itself, then they should have an effect on cognition.
+
+And we should be able to measure that in terms of assessing cognitive function.
+
+Um, for instance, straight up, uh, example, I am now supervising a, uh, master student who is doing an internship at the hospital where they look at,
+
+uh, how preoperative, uh, function of preoperative connectivity between brain regions affects or can predict post-operative,
+
+uh, cognitive impairments. All right.
+
+So this is basically for people who are up with brain tumours and need surgery.
+
+Um, and uh, like I said, right. So those perturbations of the brain can happen either voluntary or involuntary.
+
+So involuntary uh, examples are brain lesions.
+
+Right. So if you have a stroke, trauma or a disease, a tumour, uh, or whatever, this affects the health of your brain.
+
+It affects networks in the brain, it affects brain functioning. And, uh, this may lead to, um, uh, task performance, uh, issues.
+
+Right. So, um, very concrete examples are those related to a language, again, where somebody has, for instance,
+
+a pipe that's basically being ran through their frontal cortex and they have language impairments.
+
+And the conclusion that you can draw from there is that the minimal conclusion that
+
+you can draw from there is that something seems impaired about your language ability.
+
+If you have a pipe that's a sticking out of your frontal cortex.
+
+Um, but the problem, as we will see you in a second, is we can't really choose where how the degree to which people have strokes, traumas or diseases.
+
+So this is, uh, a bit of a, uh, yeah, it's an ethical who knows that all of us think, oh, yeah, I wouldn't do it on purpose to people.
+
+But that's why I said this is involuntary, right? So if people have a stroke, then we can still study them.
+
+Uh, I was involved in one study myself on language and people that were up for,
+
+um, uh, surgery to reduce epilepsy that was induced through brain tumours.
+
+Uh, so then you can do invasive recordings where people actually have their scalps removed.
+
+Um, but yeah, it's a very pathological, uh, group.
+
+Then what we saw, right, is that we have, uh. Electrochemical signalling.
+
+So we've already see that seeing that if we screw with the electrical part of the signal,
+
+then we can actually come up with these functional, uh uh, uh, topographies, right, of brain function.
+
+But we can obviously also screw with the chemical part of it so we can administer drugs that affect, uh, neurotransmitter dynamics.
+
+For instance, we can, uh, tinker with the dopamine system, and then we can, uh, decide between two types of things that we can do.
+
+So we can actually, um, activate, uh, receptors, Francis dopamine receptors, uh, using agonists like nicotine, or we can block them.
+
+Right. And this has an effect on which brain regions either get hyperactive or get, uh, reduced in activity.
+
+And again, we can measure task performance. So we can say, look, we administer a particular type of antagonist and see if that person,
+
+uh, shows stronger inhibition, for instance, through a gambling task.
+
+Or we can actually, uh, do a post, uh,
+
+administration test where we look at their gambling behaviour and then increase their dopamine levels and see what they do again.
+
+And as we will see that, um, uh, dopamine, for instance, is used in the treatment of Parkinson's disease.
+
+And, um, if we administered high degrees of, uh, dopamine to Parkinson's patients, people that actually, uh, uh, sort of lead a very, um,
+
+peaceful life can suddenly go on like a gambling rampage and, uh, get, uh, into sex, drugs,
+
+alcohol and all those things until they're basically, uh, reduced on their dopamine intake again.
+
+And then they resort to sitting at home and being, uh, their regular selves again.
+
+Um, but then I think then there's sort of a more recent, um, trend is that we can also induce temporary or virtual lesions.
+
+And there's two ways of doing that. So one way is, uh, using repetitive transcranial magnetic stimulation.
+
+So whenever there is electrical current, there is also a magnetic field.
+
+And we can also administrative magnetic fields, for instance by placing a coil over the scalp.
+
+I will give you an example of that next week where we can temporarily zap a particular part of your,
+
+uh, cortex, um, and, uh, either hyper activate that or inhibit that, uh, to see what it does.
+
+Right. And again, we can like what will, uh, um, what is this guy, this guy, uh, Penfield Wilder did it again, right?
+
+He used. Yeah, he did it using electrodes.
+
+But we could also do that using, for instance, small electrical currents or magnetic fields to sort of do this localisation task.
+
+Um, I will probably tell you this again last week when I was at the donor's institute once in America,
+
+where I got a tour through to, um, through the labs there,
+
+and there was one woman who was, uh, interested in doing, uh,
+
+who was doing transcranial magnetic stimulation or TMS research, and she would continuously illustrate this on her shelf.
+
+So she would take the coil and zapper like motor cortex and then twitch her left arm, and she would giggle all the time.
+
+She did it like she would go right and and she just repetitively did it.
+
+And I fact you zapped yourself one too many times, but, uh, where am I to judge?
+
+Right. And anything for science so that in that case, I'm all up for it.
+
+Uh, as long as you don't do it in my brain, then. So. Good. Um, and it's transcranial direct current stimulation.
+
+So it is actually just, uh, doing it's it's similar, but using currents instead of magnetic fields.
+
+And then there's optogenetics, which, uh, I will deepen out next week again.
+
+Uh, the idea is that we use, uh, virus to manipulate neurones in Francis mice, uh, such that we actually get photo reactive.
+
+So light reactive, uh, um, uh, channels that we can then activate and deactivate in order to screw with.
+
+Basically, again, the chemical, uh, processes underlying the neural communication.
+
+So just to give you one example of, uh, perturbation in terms of brain lesions.
+
+So like I said, right? The problem with, uh, brain lesions is that if I have a brain lesion in a brain lesion and you have a brain lesion,
+
+there are not ever going to be at the same exact location or with the exact same magnitude and with the exact same consequences.
+
+So it's very, very, very difficult to draw.
+
+Um. Sort of general general conclusions from lesion data.
+
+But nonetheless, if we have a healthy brain that is broken,
+
+it's still extremely valuable data and insight into, hey, what what kind of effects does that have?
+
+Um. But then again, it's extremely difficult if we have, even if we have a sufficient set of, um,
+
+non healthy brains that have suffered from a brain lesions due to stroke, trauma or disease to do any sort of functional mapping.
+
+And the, uh, there are many reasons for that. So one reason is that, like you've got, um, that the damage is just like I said, right?
+
+It's the result of many uncontrollable factors. So it can be in different locations.
+
+It can be both stroke and disease.
+
+It can be right, because it's the disease that caused the stroke. It can be at multiple regions.
+
+Um, it can be a tiny one can be a massive one.
+
+And um, so what we the only thing that we could well hope for,
+
+you never hope for these things because you actually hope that many people stay healthy, right?
+
+What is that we get?
+
+Um, so if we have sufficient data that we find sufficient overlap between patients and sufficient overlap in their cognitive impairment,
+
+such that we can at least say with certain degree of certainty that a particular,
+
+uh, cognitive function is related to a particular damaged brain region.
+
+But this, uh, sort of these brain lesion studies also lead, uh, to the problem of diagnosis.
+
+This is one of those words that you should look up at Merriam Webster and then put on repeat five times
+
+before you go to class and then look like all smart because you know how to actually pronounce it.
+
+Um, because what we what could happen, right,
+
+is that you that you find damage in a particular region and you find impairment in a particular cognitive function.
+
+Uh, and we then sort of attribute that particular function to that damaged lesion could actually be that, that damaged region.
+
+Right. It's a note in a larger network observing a particular cognitive function and that we're actually,
+
+uh, mis attributing a particular function to that damaged brain region,
+
+whereas in fact, uh, it's that the, the cognitive impairment is due to a basically a downstream effect that this node has in the larger network.
+
+Okay. So think about your car, for instance. So you could damage something in your car and you could say, look the engine is broken.
+
+But if basically the engine won't start because your battery is shot right.
+
+Nothing is wrong with the with the engine. It's actually the battery does is damaged.
+
+Um. But now nonetheless, these clinical pathological correlations remain informative,
+
+especially when augmented by modern localisation methods and in the field of like,
+
+uh, precision psychiatry, where link is working in, um, we're dealing with these kind of pathological cases all the time.
+
+We're actually trying to quantify how they deviate from the normal brain.
+
+And I had the healthy brain, etc. Okay.
+
+So that's the perturbation approach. And I sort of want to go into that stuff deeper next week.
+
+Like I said, the way this course is organised is that it's always like a, uh,
+
+sort of elementary overview of a particular chapter and then a deep dive into all the different methods.
+
+So next week we've already deep into dive into transcranial magnetic stimulation, optogenetics, etc. I think Monday morning at 8:45.
+
+So what more mark you wish for. I hope you have a cup of coffee beforehand.
+
+I will play some music to get you awake again. Um, but there's also a complementary 2D perturbation approach.
+
+There is the neuro monitoring approach. Well, neuro monitoring effectively classy word for neuroimaging or monitoring the brain, uh,
+
+which is also a doorway we will be assessing are will we will be engaging with neuroscience in this course.
+
+Right. So in the practicals and uh, the idea is that uh, we basically turned uh, the logic around, right.
+
+So we do not perturb the brain in order to see what the effect on cognition is and measure cognitive impairments.
+
+But we measure or we manipulate some kind of cognitive process.
+
+For instance, we show people, um, nice little, I don't know, images of nice little cute little puppies.
+
+Right. And then suddenly we have a feminist venomous snake, uh, that shows up or like, a poltergeist or whatever.
+
+And we check what their brain does, uh, or in my field, uh, slightly less interesting.
+
+You, uh, have people read sentences like he's spread his warm rat with butter, and occasionally we throw.
+
+He's. Fred is warm with socks at it. And check what the brain does.
+
+Um, and then we record brain activity. So we measure some kind of neural variable.
+
+And this can be many different types of measurements. So, um, we already know, right,
+
+that we can measure the electrical properties of the brain because we have these electrical chemical signalling underlying neural cooperation.
+
+We, uh, talked about the fact that, um, uh, uh, we like okay.
+
+So basically, neural functioning doesn't come for free. So, uh, neurones, if they're active, uh, need energy, like any sally or body,
+
+that energy is in terms of glucose and oxygen that's delivered to those active brain regions through your blood stream.
+
+And we can actually, uh, uh, measure basically those blood based signals as well, uh, with the different temporal dynamics,
+
+because you can imagine that if your frontal cortex is active,
+
+that blood doesn't immediately like rush there within a fraction of one millisecond, right?
+
+So this takes a little bit of time. Um, so we've got multiple ways of measuring the physical processes underlying cognition in the brain.
+
+Um, and the simplest way almost is like to do direct electrophysiological recordings from, uh, neurones.
+
+And we can do that both ways. So basically are two ways we can do it outside of the cell.
+
+So just slide out slightly out of the nerve cell itself.
+
+We actually put a little, uh, uh, electrode and we measure the, for instance, the action potentials of one or more neurones.
+
+Or we could, uh, put a, uh, electrode directly inside a cell.
+
+So for instance, in the cell body, we don't measure the action potentials down,
+
+but we actually measure the effect that the binding of these neurotransmitters have
+
+has on this cell in terms of making that cell more positive or negatively charged.
+
+Um, obviously you don't typically do this in human beings.
+
+So these kind of things are resorted to animal studies.
+
+Uh, my former PhD student, I'm sorry, my former PhD supervisor is, uh, uh, member of the animal party here in the Netherlands.
+
+And you always said that if you do neuroscience on animals, you're cheating.
+
+I kind of agree. So, uh, then there is electrical and magnetic field recording.
+
+So, like I said, whenever you have electrical current perpendicular to that, there is a magnetic field.
+
+And people have figured out methods to measure those things.
+
+So on the one hand there is electrons photography where we put these electrodes on the scalp and we can get the weak, um, uh,
+
+currents that occur when neurones actually depolarise or hyper polarised,
+
+so become less negatively charged or more positively charged because neurotransmitters bind to it.
+
+So not the action potentials. But more about that next week. Um, and we can measure those from the scalp.
+
+And this is what we will be doing in, uh, the practicals.
+
+But given that any current also produces a perpendicular, uh, magnetic field, we can also use magneto and philosophy.
+
+The cost of an MRI scanner. First is an EEG scanner.
+
+It goes up rapidly, like significantly.
+
+So our bio semi cost about 30 K. I think this is an EEG system, 40 KS.
+
+Um, also, just to say the unicorns that you guys will be playing with are worth 1 or 1 and a half K uh, I, I won't name names, but, uh.
+
+Lease, right? We will only give you a bash if you hand in a unicorn in the same shape that it, uh.
+
+You got it in. Yeah. If the unicorn has a broken electrode, why don't you hang it?
+
+Then you will not only get a bash, you will get to visit my office and listen to me for an hour or so.
+
+Um, then we have, uh, structural imaging, uh, methods like, uh, so structural really means.
+
+Right. So we've got the distinction between structural and functional or structural means that we're interested in how the,
+
+what the brain looks like when it's basically in terms of like,
+
+uh, static solid image, like what's the structure of the brain,
+
+whereas functional imaging is involved in, uh, where is brain activity taking place and when.
+
+And two methods that, uh, uh, that are very popular.
+
+Well, an older method is computerised tomography or CT scans, which you may have had maybe even in your life.
+
+I took a CT scan once, uh, which is effectively also called X-ray imaging.
+
+Uh, and the other method is, uh, MRI. Uh, you can do an MRI of your brain, but if you like our soccer player and you twist weird lead,
+
+and you might have had an MRI of your knee, for instance. Uh, so this is a magnetic resonance imaging, and we will, uh, so this this exploits the, uh,
+
+magnetic, uh, properties of, uh, hydrogen, um, atoms, basically, and more about this next week.
+
+Uh, there's a functional counterpart to that, uh, which, uh, just extends the logic underneath MRI to the blood flow, and we get, uh,
+
+functional MRI, which allows us to build these beautiful pictures right where you see a brain with all these brain regions lighting up.
+
+There's positron emission tomography, uh, which is a poor man's version of fMRI, I would say.
+
+And not that use that much anymore.
+
+You need to actually get, uh, a reagent injected in your blood flow, uh, which is to me, is already like a big no go, like me and needles.
+
+And not a good thing. So, like, I, uh, just fast, uh, and there's, like, optical brain imaging.
+
+So optical, meaning that we use light. Um, these are not as well, um, not as well known and not as massively used.
+
+The core reason for this is just that, uh, is cheap.
+
+That's one thing. Um, functional MRI.
+
+A lot of hospitals have MRI scanners, right. So for different reasons than just doing, uh, a neuroscience, uh, research.
+
+So this is why those things are typically available, uh, functional near infrared spectroscopy.
+
+Spectroscopy. I there were years where I stumbled over this five times in a row, but here we go.
+
+Um, it's like sometimes it's called performance MRI.
+
+So it uses basically the uh, uh, near infrared light to measure again, something that's very, um, um, similar to what fMRI is measuring.
+
+So it's basically the level of oxygenation in your blood. Um, right.
+
+So because neurones need oxygen in order to, uh, to replenish energy,
+
+and there's event related optical signals which use optical signals, uh, um, that use the light scattering properties of uh,
+
+active neurones,
+
+which differ between active and inactive neurones because of the depolarisation of hyper polarisation due to neurotransmitter binding.
+
+So these are all very clever methods. Um, we won't go into functional near infrared spectroscopy nor even related optical signals in detail.
+
+I just wanted to tell you that they're out there.
+
+The other ones we will go over next week, basically slide by slide explaining the basis of those methods and how they function.
+
+Okay. But then, uh, to one of the very, very, uh, common there are, are monitoring approaches.
+
+So electroencephalography. Um.
+
+Whenever. I don't know how you guys, uh, did.
+
+But whenever you get employed at this university, no matter at what level, you need to do an English test.
+
+And I promised myself that I would not pronounce the word electroencephalography during my English test.
+
+I think it was a second word I studied. But anyway, I'm doing fine now.
+
+But it's not an easy word to, uh, to explain. Okay, so again, what do we measured?
+
+We're measure with electroencephalography or egg. So we have right.
+
+We've got neurotransmitters binding to uh to neurones.
+
+This leads neurones to either uh, depolarise have become more, uh, positively charged on the inside or hyper polarise become more negatively charged.
+
+More about this next week again. Uh, and if they depolarise to a large enough degree for a long enough period of time,
+
+they, uh, um, reach threshold potential and they start firing and action potential,
+
+which is the effect that that neurone itself will release neurotransmitters to other neurones, which can again, have an inhibitory.
+
+So stay calm or excitatory, get excited effect on receiving neurones.
+
+And it's this depolarisation and hyper polarisation of neurones that we can actually measure directly from the scalp.
+
+Not of a single neurone.
+
+This we're really thinking tens of thousands, if not hundreds of thousands of neurones that are actually aligned all in the same,
+
+uh, direction, such that they create what is sometimes called an equivalent current dipole that we can then pick up on the scalp.
+
+And we get these things in really, really, really weak signals.
+
+So we're talking micro voltages here. Right.
+
+So this is basically a single voltage divided by 1 million.
+
+Yes. Uh if the frequency doing this the fast Fourier transform of the time.
+
+Yeah I get that. I get there one second. Um, so, uh, just just to be clear that this is really a micro voltages.
+
+I had a colleague of mine that I'm collaborating with on a project that said that my plotting code didn't
+
+work because all the plots were flat until I figured out that she actually had her units in voltages.
+
+So I said, maybe you should divide everything by 1 million starting now.
+
+And then suddenly the plotting code worked again. So it's really micro voltages, not in voltages that we measure.
+
+Okay. And then what we measure is we measure voltage fluctuations basically over time.
+
+Right. That can go more negative or more positive than some kind of, uh, anchor point.
+
+Um, and that we, those voltage fluctuations themselves, we can study.
+
+Right.
+
+We could, for instance, be interested in the amount of, uh, uh, outliers that are in or in the stability or the repetitiveness of those signals.
+
+Uh, you will see that people who sleep will show a slower, uh, signal than, uh, people who are awake.
+
+You will see that people with epilepsy show a very wild pattern, right, that we can investigate.
+
+You can also use this to track whether people actually, uh, encounter epilepsy in their sleep, for instance.
+
+Um, but like I said, um, there's another way of studying EEG activity.
+
+And that's by basically relying on the assumption that any basically wave kind of signal via the brain wave.
+
+So the time domain EEG signal will be the sound wave. Right.
+
+Uh, but any kind of other wave that you're interested in, um, that that wave can actually be decomposed in a set of underlying sine waves.
+
+So this you should all know from high school still and that although sine waves can have a different, uh,
+
+frequency and a different intensity, and this is what you, what you can basically apply, for instance, of fast Fourier transform,
+
+um, to basically decompose a time domain signal into, um,
+
+a frequency domain signal that basically allows you to quantify the power of each of
+
+the frequency bands and typical frequency bands that we're looking at this like delta.
+
+So, uh, smaller than four hertz data, uh, 4 to 8 hours alpha.
+
+So these are the alpha waves that you get when you sleep right at 12Hz.
+
+Bad that etc. And people also, um, are interested in how these different frequency bands correlate with, uh, different cognitive functions.
+
+For instance, um,
+
+now this in itself is like so now we take this whole like four seconds signal and we just decompose that into like the frequency bands.
+
+But there is clever methods of doing this, which is called time frequency analysis,
+
+where we actually move a sliding window over the time domain signal and we get, uh, basically the frequency bands over time.
+
+Um, what I used to use this for actually back in the day is like, now we've got these little monitors, right?
+
+But back in the days we had these, uh, uh, what was these things called again?
+
+Cathode ray tube, I think CRT monitors.
+
+Right. So it was already. Big things, right? With a big cube behind it.
+
+Those things would have a 50Hz, uh, electrical, uh uh um, uh, basically, uh, a signal, uh, attached to it.
+
+And so what we would do is we would record EEG when people would look at that and basically at that CRT screen,
+
+we would then convert the measured time domain signal to a frequency domain signal,
+
+take the 50 50Hz signal that was in there,
+
+reduce the power to zero and convert the signal back to the time domain signal to filter out that, uh, 50Hz thing.
+
+So there's a lot of tricks that you can use here, but you can always sort of always the idea is that you can transfer,
+
+you can convert between the time domain representation of the signal and the frequency domain representation of the signal.
+
+Now for studying cognition of brain wave like this is not super interesting per se.
+
+Uh, unless you have very specific questions about, uh, of.
+
+Resting state. Better activity or something.
+
+So, um. Enter event related potentials.
+
+So while we, we don't typically when we're interested in, um.
+
+Cognitive functions. We're interested in how the brain responds to a particular event or stimulus.
+
+Now, applying this to my own work, I am interested in language processing, so I already gave that example the very first one of the while.
+
+The very first I think reported study on the processing of language was the question the Elliott study in 1980, which occurred in science.
+
+So what I looked at was sentences like he spread his warm bread with butter for his socks.
+
+You time lock the egg activity to butter and socks.
+
+Now this itself is not still not going to be very informative.
+
+So you then time lock the activity through these words. So you get the activity of these words.
+
+But your brain is not just processing these words. It's.
+
+Thinking about what you should eat later or whether you had enough coffee.
+
+Uh, whether this guy is serious about his flipped classroom requirements and stuff like that.
+
+So what you do is you repeat those measurements many times, uh, over different words, and then you actually.
+
+So, for instance, you repeat, uh, the congruent condition butter 30 times with different words, uh, like butter.
+
+You could schmear jam on your stuff. Right. You could actually do the laundry, uh, by putting clothes in your washing machine.
+
+Um, but you can also have the incongruent cases. You can spread, uh, socks on your, uh, toast.
+
+Uh, right. Or on your on your bread. But you can also, I don't know, put your groceries in the washing machine, which is odd.
+
+And if you don't average all those time locked signals over all those, uh, experimental trials, you get what is called the event related potential.
+
+So the idea is that what is systematic in those, those little fragments of activity is the response to the stimulus.
+
+And what is unsystematic, hence uncorrelated to the signal is that random noise.
+
+And by averaging you random you're basically average out the random noise putting that on average to zero.
+
+And what you end up is the event related potential or the the signal that is actually related to the event or stimulus of interest.
+
+And what you then get, uh, end up with is these look a lot more stable.
+
+Right. And the, uh, the waveforms we just saw before, these are called event related potentials.
+
+Typically the average of this region is zero because we baseline correct not of interest right now.
+
+But then we get these voltage fluctuations over time. Uh, so uh, these are typically um labelled according to whether they're positive or negative.
+
+So for historical reasons negative is always plotted upwards.
+
+So for instance we've got the p one here. So this is for visual processing.
+
+So this is the the first positive peak first negative peak first second positive peak second negative peak.
+
+And these these things occur systematically.
+
+And we can actually manipulate the degree to which they occur.
+
+Just give me one second. Right.
+
+If we can agree, if we can manipulate with the system intensity with which they occur and the degree with which they occur,
+
+uh, they are we take them to be indicative of particular computational processes,
+
+uh, and thus guide our model building in terms of cognitive theories and cognitive ideas that we, that we attribute to those components.
+
+And and then you can you have to write your p value based on your correlation.
+
+Thank you for your previous statistics. Because I will make a much I actually correlate that.
+
+Well, there's many things that you could do. So the traditional way of doing it is to just look at the averages.
+
+So compare D shocks versus butter cases. But contemporary methods actually go a lot deeper.
+
+So if your average is significant by times well.
+
+Well. Yes. You. What you want it? That's that that the bare minimum. But that's just one test.
+
+Right. So. So you can do other things as well.
+
+You can actually model the signal on a right time times basis for instance.
+
+So that's that's have gone a long way from the 80s to where we are now.
+
+Okay, so what we end up with then in the interest of time,
+
+ten minutes left and I do want to discuss a cutting edge, uh, paper still is that we have, um, as we will see.
+
+And this will become, um, a lot more clear next week, I think, is that we've got many different, um.
+
+Axis of spatial resolution, temporal resolution, and different levels of the brain that were investigated.
+
+So this is an image from the book. And basically this is the spatial resolution that we uh uh uh um, uh, plot from one metre to uh,
+
+0.1, uh micrometre and we've got, uh, time questions ranging from milliseconds to years.
+
+So obviously, like if you have lesions in, in humans, then, uh, those are on a very longitudinal scale informing us about about brain activity.
+
+And they're at the level of brains and the gyri are, uh, they're basically the, uh, sort of.
+
+You got gyri and silky. So gyri are the folds that go outwards in the cortex.
+
+Silky are the things that, that move inwards.
+
+Uh, we can, uh, use, for instance, drawing manipulations which can take longer than a couple of hours to a, two a day.
+
+Uh, we can look at, um, uh, things like mass fat fMRI, which have, um, uh, um,
+
+a temporal resolution in the order of, uh, seconds, for instance, or minutes.
+
+So fMRI or the blood based signal that fMRI is based on, uh, rises and falls from 6 to 10 milliseconds for a 6 to 10 sort of rate,
+
+rises and falls between from zero to basically six, uh, seconds afterwards and declines again after 10s.
+
+So it's relatively slow because blood is slow.
+
+Then you got things like, uh, scalp recorded earpiece, which really is measuring electrical activity at, uh, millisecond basis.
+
+Then we can also move down the spatial resolution thing.
+
+Right. So scalp Europeans are still very fine grained. Uh, I like a coarse grained, I would say.
+
+And the problem with scalp recorded ERPs, as we will see next week, is that it doesn't tell us anything at all about where the signal is coming from.
+
+Um, so we can move down on the spatial resolution as well,
+
+and we can move all the way down to a single unit recording where we really stick this electrode in a single cell,
+
+or next to a cell, or even batch clamp recording, which is a method where we look at ion, uh, channel dynamics.
+
+Um, this is a, I think, cool image where we compared the 1988 version of, uh,
+
+basically this grid of new imaging methods to the state of the affairs in 2014,
+
+uh, where we see that we've got a lot more, uh, imaging methods that, uh, that, uh, um, came to the field.
+
+Right. So we've got, uh, 2D imaging, we've got optogenetics, we've got fused imaging.
+
+I don't know, even if all those methods know exactly what they are, they are in the,
+
+uh, the notes of the slides though, so you should have a look at that.
+
+They're also not very common per se, but it's just to illustrate that the field has progressed massively right over the course of those years,
+
+and that there's an increasing number of methods to study the brain, uh,
+
+when it's active with both high, uh, uh, temporal and spatial resolution sometimes.
+
+And then there is multiple trade offs between these methods.
+
+Right. So first of all, um, there is a trade off between what you can ethically do within humans or not.
+
+Uh, versus in animals are not so obviously single unit recordings.
+
+Batch clamp recordings and stuff like that are typically conducted in animals unless you have humans up for surgery.
+
+Uh, so, for instance, the paper that I was involved with, uh, used uh, a method called electro cortical graphy, which is effectively EEG,
+
+but it's the EEG electrodes directly attached to the cortex because people are up for, uh, surgery and their scalp has been removed.
+
+Uh, so you have a little, uh, basically a batch of electrodes that you put directly over a particular brain region.
+
+But these are very rare cases. Um, and there, um, there is a massive trade off between spatial and temporal resolution.
+
+So, as it turns out, uh, most high temporal resolution methods are based on electricity and the way electricity works.
+
+As Hermann von Helmholtz, my hero, has explained to us in his, uh, German paper that I'm not going to even try to recite the title off.
+
+Um, basically, electricity smears over the scalp, meaning that if we observe a particular, uh, um, distribution of activity over the scalp,
+
+there can physically be an infinite number of different generators underlying that particular distribution.
+
+So we can never with certainty say where a signal came from.
+
+With fMRI we can but that fMRI slow. So we only know six to 10s afterwards where stuff was active.
+
+But that's like 10s in cognitive time.
+
+It's like ages, right. So um, uh, uh, so there's a trade off there as well.
+
+Okay. Uh. Just to round up a very briefly.
+
+So how can so what we want to do is give you one, um, very high level.
+
+And so this is, this is not about the details, but this is just about how everything comes together.
+
+So in your studies of cognitive science, neuroscience, uh, AI,
+
+etc. is to illustrate how all of these methods that you are learning throughout your studies can actually help you to advance,
+
+uh, the understanding of human cognition. So this is a study on, um, uh, the fatigue mechanism of facial repetition suppression.
+
+And I will explain that in a second.
+
+So what repetition suppression is, is that, uh, typically if we have something like, uh, stimulus a, uh, versus a blank thing,
+
+right, we get a particular signal, for instance, an MRI signal that says, okay, okay, this is a particular image.
+
+Um, and then we have stimulus B, like a cup versus a dog, for instance.
+
+We again get a very strong signal. Now, what happens is that if we immediately, um, repeat stimulus A after, uh, we, uh,
+
+presented stimulus A before we actually get a reduced signal as compared to introducing a novel stimulus again.
+
+Right. So here this second presentation of Cup leads to, uh, less strong signal than the first repetition of the first presentation of cup.
+
+And it also leads to a less strong signal than, uh, the presentation of dog.
+
+Okay. This is called repetition suppression, which just means that if you repeat a particular image or a particular stimulus within,
+
+uh, a due amount of time that the signal will be suppressed.
+
+Now, um, there's basically to like it always goes right in these, these discussions.
+
+There's two um, uh, hypotheses or two theories, competing theories about why this is happening in the brain.
+
+One model says, which is called the, uh, fatigue model says, okay, uh,
+
+what is actually happening is that most active neurones just reduce their response, whereas the sharpening model says, uh, no, that's not the case.
+
+It's just that there seems to be a cut off. And those neurones that don't participate enough in, uh, driving the signal just completely get silenced.
+
+Okay. Uh, so what Lou and Q did in 2023 or say, okay, look, we can try and use, uh, this.
+
+Yeah. Well that's that's that's yeah. So that's a familiarity effect.
+
+So that's sure. That's why you get the repetition suppression.
+
+The question is why that happens. So what happens naturally right.
+
+Yeah. Uh so what you included is basically they ran an, uh, face perception experiment using EEG, including repeated stimuli.
+
+Then I used the Fiji phase model, which is a model for, uh, face perception and classification.
+
+Um, um, to basically do the same experiment and after training them manually, took basically the deep layer neurones of this Fiji face model.
+
+So they took the the internal representations of this model and implemented either the, uh, fatigue model or the sharpening model.
+
+And then they used the methods which is called representational similarity analysis,
+
+which looks at the neural data and the eye data effectively and looks at how similar those things are.
+
+So the experiment looks something like this. And like I said, this is not exam material.
+
+So I'm going to just glide over it. But I just want you to get a feel for how AI is in the intersection of all of this.
+
+So you got these experiments where you have like a, uh, face that is being presented,
+
+and then you either get, uh, a scrambled face, a familiar face or an unfamiliar face.
+
+Okay. And then a record EEG activity from that.
+
+And the core idea is then that, um, you, uh, um, if you look at what the the desirability of new features is immediate,
+
+the brain signals are so different that you can actually teach them apart.
+
+But if you look at new versus delayed. You cannot.
+
+Okay. And this is exactly what is expected, given that the new and delayed should show similar activity.
+
+Where is the new versus immediate repetition should show this repetition effect, right?
+
+And if you then look again at immediate versus delayed, um, you, uh, see that again.
+
+The brain activity actually is distinctive and that you can tease those things apart.
+
+Now, what they do then is that they train. All right. So they've got the neural data and they have to the, um, the deep learner.
+
+So to the fidgety phase model. And then they take the, uh, basically the original activation patterns of the the Fiji phase model.
+
+And they either implement the fatigue model.
+
+So basically reducing the activity of those neurones involved, uh, to a certain degree, or the sharpening model which does this cut off.
+
+Right. Which just basically it's just all about the top neurones being involved that, uh, that carry the thing.
+
+And then they're interested in whether the fatigue model or the sharpening model actually is representational, more similar to the neuroimaging data.
+
+And what they find is that, uh, so ignore all the, uh, all the, the, the,
+
+the math and the implementation of details here is that only the fatigue model shows similarity to the,
+
+um, the neuroimaging data and the sharpening model does not.
+
+So this is an example of is right, how we can, um, model how we can use neuroimaging in this case EEG,
+
+which you will do in your practicals as well to measure the activity.
+

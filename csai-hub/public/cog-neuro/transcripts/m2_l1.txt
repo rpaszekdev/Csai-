@@ -1,0 +1,1525 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+She. All right.
+
+Good morning everyone. Well, everyone, I count 20 people, which is a little bit light.
+
+Uh, okay. So, anyway, uh, let's start.
+
+So maybe then I ask you so that you guys all sign up for the flipped classroom session chat.
+
+That's good. Um, there's still many people who haven't.
+
+I just wanted to point out that, um, this is this year a graded components.
+
+Right. So you'll get 20% of your grade for doing the flipped classroom and, uh, participating in the practicals with the emphasis on the end.
+
+Right. So you don't get away with just doing one of the two, and there's yields to two of this.
+
+Basically use 20% of your grade. And this is not a course that's easily possible if you don't manage to get that 20%.
+
+As a matter of fact, if I had to take the exams again myself, I would really want that 20% in order to have some, uh, leeway.
+
+So, um, let this be a reminder to everyone who's watching this on video.
+
+All right. Uh, and as anyone read the chapter of today.
+
+Not yet. Okay, well, I was going to say that, um, as you might have noticed, that this stuff is not easy.
+
+So, um, what I want to do today is. Right.
+
+So how this course is organised again is in these two, um, two week, uh, modules where in the first module is like a high level overview of a chapter.
+
+And the second module is an in-depth, um, exploration.
+
+So, uh, I will do the high level overview today.
+
+And today's uh, uh, topic is motor control, which is that is not really straightforward, is actually quite complicated.
+
+If you feel like you're preparing the flat classroom presentation of next week basically for after the break and you're just repeating my,
+
+uh, slides, you're not doing a good job because I actually left out many slides, uh, many experiments in a chapter.
+
+So you should really go deeper than that. And that's the whole point. Um, final remark is about the practicals.
+
+Uh, if you send out an announcement that you really should make sure that you complete the entire, um, notebooks.
+
+So answer all the questions. Um, if you hand in half a notebook, we have the basically the freedom to just fail you for it.
+
+Again, you need four out of six. Same with, uh, flipped classroom presentation.
+
+It's now a graded component. So just standing in front of the audience is not enough anymore.
+
+So we really want to see that you put in the effort. Okay.
+
+So, uh, any other questions about the course?
+
+Course format. Okay. And this is going to be my last lecture in a very long time.
+
+And you see me again near the end of this semester.
+
+Well, you see me again during the classroom presentations, but you will be the one lecturing and I will be the one consuming,
+
+uh, and then you see me again, uh, on the module in, uh, on decision making.
+
+Okay. Just a very quick, uh, recap of what we've been discussing so far and why we were so,
+
+um, I mentioned a couple of times that what I won't be doing, uh, won't be request.
+
+Somehow I find it really light in here, but I can't seem to.
+
+Get it into movie mode, like in the Cube, where it was really cinema like, but it doesn't matter.
+
+Um, so it's not going to be a neuro geography exam, right?
+
+Where we really want you to just remember all kinds of, um, random anatomical locations.
+
+And I pointed out already that actually, most of the locations that we will talk about, uh,
+
+follow a coordinate system such that even if you don't know exactly where it is, uh, you could basically infer it from following the coordinates.
+
+Uh, that set, you will see that especially in today's lecture on motor control,
+
+there are quite a number of circuits involving cortical and subcortical regions that,
+
+uh, for instance, the cortical striatal Tillamook Loop and things like that,
+
+that we will discuss later that you should know by heart,
+
+because you will get those circuits and you will be asked to complete parts of those circuits of circuits or
+
+to order particular parts of those circuits when the labels of the um anatomical regions involved are giving.
+
+But let's, uh, quickly refresh the, um, anatomical, uh, geography or like, coordinate system.
+
+All right. So we basically talked about the way two ways of uh, uh, addressing this coordinate system.
+
+One is just basically relative to the hat. So we have anterior and from the posterior to the back of the head or behind the head inferior.
+
+So that's below and superior. Uh, well, as you know, right.
+
+We have uh, for lobes, two hemispheres.
+
+So the four lobes are the frontal lobe and the front right, the temporal lobe, the occipital lobe and the parietal lobe.
+
+Uh, so we have if we talk about something like the middle, uh, posterior temporal lobe, right.
+
+Then we know that we should be in the middle part of the posterior part of the temporal lobe.
+
+So it really is a coordinate system. And if you practice a little bit, this goes actually pretty quickly.
+
+And then we have another set of uh coordinate terms namely um caudal rostral and dorsal ventral that are oriented relative to uh,
+
+basically the back of an animal. Now starting with the brainstem, then we will actually be seeing quite a bit of the brainstem.
+
+Today. We say that basically dorsal is to the the back of the animal, whereas ventral is towards the belly of the animal.
+
+But since we humans decided to walk straight up, uh, we, uh, sort of redefined those terms relative to the brain where we say,
+
+okay, we, uh, flip this axis a little bit around and we say dorsal is basically to the back of the brain,
+
+whereas ventral is to the, uh, the belly of the brain, if you like, you know, got rostral and caudal referring to, to the front and to the back.
+
+Um, I personally you see the terms dorsal and ventral stream a lot, uh, especially in vision.
+
+But I hardly ever come across the usages of rostral and caudal.
+
+And you typically would read anterior or posterior in those cases.
+
+Then we talked about, um, functional and structural imaging last week, uh, where we can do all these brain slices.
+
+Uh, again, just if we take the brain at face value and we slice it.
+
+So this is a little bit like Fruit Ninja, right?
+
+Where if you slice it straight through, you got an actual, um, if you, if you chop it through in the middle, um, uh,
+
+where you basically in the front and the back have both hemispheres, you get a coronal view,
+
+and if you chop it exactly through the two hemispheres, you've got a sagittal view.
+
+Okay. So these are the things you should learn.
+
+Again, it's not really about memorising the exact locations of all the, uh, anatomical regions that are involved,
+
+unless they are, uh, part of, uh, circuits, as we will, uh, see today, then it is important.
+
+But typically we will give the anatomical regions such that you can order them or link them together in order to complete,
+
+uh, circuits that you should understand. Okay.
+
+Um, so I was talking to him at the coffee machine when walking down here, and I think this is perhaps the most,
+
+uh, complicated slash toughest, um, lecture that I give in the entire year or in the entire program.
+
+And this is the one about motor control or, uh, the organisation of action.
+
+And what it's really about is, um, I think very aptly captured by this image.
+
+It's how is it that our brains, um, enable our body to do these kind of things?
+
+So, so anybody watching the Olympics now? No.
+
+No time needed. I'll need to study neuroscience, obviously.
+
+Um, well, why don't you teach neuroscience? You actually have a lot of time to watch the Olympics.
+
+And you see that people are capable of doing extraordinary things with their bodies and how they exert,
+
+uh, very fine grained control in very high, demanding, high pressure situations.
+
+And what today is, uh, lecture is all about is how evolution, in a way, right,
+
+has organised our brains, uh, and our motor systems to be, uh, able to do these kind of things.
+
+Um. Um, and I want to start off so the entire red thread that is running through this lecture is
+
+that motor control and motor control really refers to the and the control that we exert,
+
+uh, over our bodies is hierarchical. Okay.
+
+And this is very neatly, um, illustrated by this experiment by Nikolai Bernstein,
+
+where you see a couple of signatures and those signatures are made by different parts of the body.
+
+So up top, so a signature A is made, uh, with a pen held in the right hand.
+
+Then B is made with uh, uh, pen attached to the right wrist.
+
+C is made by, uh, a pen attached to the elbow.
+
+The attached to the shoulder E attached to the right shoe and F held in the teeth.
+
+Okay. Now, first of all. I believe this to be true, but I think even, uh, the one where he writes with the teeth has a better handwriting than I have,
+
+but at the sides, uh, I always sort of, uh, console myself with the fact that I have, uh, a doctor's handwriting, so it's all good.
+
+It's like little scribbles. Um, but the idea is that it doesn't really matter.
+
+Like, even though you normally do it with your hand, right? It doesn't really matter which, um, part of the body you use.
+
+There seems to be something in this complex pattern of movements, uh, that is present nonetheless,
+
+when you do it with other body parts, which suggests that it doesn't really matter which muscle groups you use.
+
+Well, it does in the sense that I think A is a lot better than F and definitely a lot better than D, for instance.
+
+But they're still pretty darn good, right?
+
+If you compare them to, say, the early handwriting of a child.
+
+So these complex, um, uh, actions seem to be governed by some kind of higher level structure that just says,
+
+okay, now this is a different muscle group that needs to sort of, uh,
+
+carry out this, uh, motor program, if you like, and we'll talk about motor programs later,
+
+which highly suggests a hierarchical organisation of complex actions where, uh, probably.
+
+Right. If you think about it,
+
+our cortex is in control of these very high level patterns that we need to exert and these this cortical regions to exert control over,
+
+um, uh, more lower, uh, neural structures that actually govern, uh, muscle movement.
+
+And this is indeed the case. And this is what is the running thread through this entire chapter is that motor control is very hierarchical.
+
+And um, we'll be talking about, um, a number of different.
+
+Um levels of, of basically, uh, control that we have, um, exert it over our motor systems.
+
+So the upper motor systems, which reside in the motor cortex and in, uh, brain stem centres, uh.
+
+Uh, basically issue these motor commands. Right? So these are the systems of issue of, say, these signature writing motor programs, if you like.
+
+Uh, that's more local neurones and uh, which we sometimes refer to as lower motor neurones have to carry out.
+
+And we've got to, uh, more or less control systems interfacing with these upper motor neurones.
+
+One control system is in the basal ganglia. And this is basically involved in um initiating and stopping movements.
+
+So this is basically what what tells the system to to start doing something which is involved in motor skill learning and goal directness and,
+
+um, and producing sequences of movements. Uh, we've got the cerebellum, which is a, um, sort of coordination and error correction system.
+
+And people with damage to the cerebellum, for instance,
+
+have tremendous effort in doing something as simple as moving your hand in a straight line to touch another person's nose.
+
+This called intention tremor, which we'll see later. Uh, interestingly, I find is one of the more interesting bits in neuroscience.
+
+The cerebellum seems to have, um, evolved into a system that doesn't just do motor control correction, but that there's just general error correction.
+
+And then we've got, uh, the spinal cord in the brain stem.
+
+So we basically move downwards right in the direction of our limbs, um,
+
+where we have lower motor neurone, uh, circuits that directly, uh, are, uh, responsible for reflexes.
+
+So reflexes are sort of the basic building units of, um, limb movement, as we will see in a second.
+
+And, um. Basically, we've got what we call, like, uh, local circuit neurones that can, um, carry out, uh, specific,
+
+slightly more complicated, um, uh, motor tasks without strict control from other motor neurones.
+
+Right. So the idea is that, uh, systems in these lower motor circuits can themselves carry out, uh,
+
+particular motor operations without having to get strict, um, uh, top down information from the upper motor neurone systems.
+
+And we'll basically unpack all of this stuff, uh, as we go throughout this lecture today.
+
+But let's start with reflexes. And, um, so, like I said, the fundamental unit of behaviour when we talk about motor control is called reflex.
+
+And reflexes are effectively, uh, systems that connect the muscles of the spinal cord, um,
+
+and the muscles back to the spinal cord effectively, uh, providing the basic, very powerful mechanisms for, uh, control behaviour.
+
+So what we see here, for instance, is a muscle in an arm.
+
+We've got the triceps in the biceps. Then we have motor neurones and we've got sensory motor neurones of sensory neurones I should say.
+
+So we immediately have a circuit where it's the, the tactile information being connected to a local motor neurones.
+
+And uh, so they connect the sensory information to those motor neurones.
+
+And uh, activation in sort of these local motor neurone circuits can lead to muscle contraction or relaxation.
+
+So for instance, we can lower our arm right when I'm taking a sip of coffee and then stretch it again such that I, uh, actually can take a sip.
+
+And like I said before, the the powerful thing about these sort of more local neural, uh, motor, uh,
+
+circuits is that they can actually carry out more complicated, uh, behaviours without strict top down control from a motor neurones.
+
+And, um, um, and these can be quite complex such that we, for instance, like rhythmic movements, like walking, as we will see in a second in a cat.
+
+Not a very fine experiment, but a very, uh, telling experiment.
+
+And so I'm sorry for all the cat lovers out there, uh, but also like,
+
+things like swimming could actually be produced by these more local central pattern generators such that if you're actually, like me,
+
+waiting for your kids to get all their swimming diplomas, then you're effectively waiting for their sort of more local brain stem circuits to,
+
+uh, get wired in such a way that they can actually do this rhythmic behaviour, uh, correctly.
+
+Okay. Um. So starting all the way up top.
+
+Right. So we talk about how motor control is hierarchical.
+
+And now at the top level of this hierarchical structure, um, we've got basically the motor cortex.
+
+Uh, so what we see here is uh, the sort of the left view of the brain.
+
+Right? So we've got the cerebellum to the, to the back of that. This is the front of the brain.
+
+And then in the, uh, frontal lobe, we actually have three, um, basically stretches or patches of motor cortex.
+
+So we've got the primary motor cortex, which is, uh, printed in dark blue here.
+
+This actually is the, uh, the inside of the, uh, the right hemisphere, right,
+
+such that you can actually see that the motor cortex is actually folding, uh, over the, uh, yeah, the top of the brain, effectively.
+
+Um, we see the light blue supplementary motor cortex, and we see the premotor cortex, and we will see that like,
+
+like the primary somatosensory cortex that we have already seen before in the last lecture,
+
+that the primary motor cortex is heavily involved in, um, uh, basically just DNA basically just movements.
+
+Right.
+
+And in and the control over your limbs and that the supplementary and premotor cortex are heavily involved in planning and movement, intention, etc.
+
+And, um, when we talk about this whole idea about motor control being hierarchical,
+
+a very important observation is that if we, uh, provide very low, um, current stimulation to the primary motor cortex,
+
+that we can actually evoke direct movements, suggesting that what even though these things are in control,
+
+they have direct, uh, they have relatively direct, uh, access to these lower motor neurone circuits.
+
+So that can really immediately affect the, uh, and, uh, effectuate, uh, movement.
+
+Right. So this is all to tell this story about how it's in a hierarchically organised, uh,
+
+system in which it's the the top level upper motor neurones and primary and supplementary
+
+motor cortices that exert direct control over those lower motor neurone circuits.
+
+But as we've seen before in those lower motor neurone circuits, can, in cells also implement circuitry that can, um,
+
+provide these more local pattern generators, like repetitive behaviours like swimming or, uh, walking, for instance.
+
+Okay. And, um, then, uh, you might, uh, be aware of the fact that your right brain half actually context controls the left part of your body,
+
+whereas your left hemisphere controls the right part of your body to a certain degree.
+
+Um, so how this actually is effectuated is that we have these, um, upper motor neurones in the,
+
+uh, primary motor cortex and supplementary motor cortices and the axons.
+
+Right. So these are the connections that basically, uh, project out of these neurones.
+
+They, um, uh, coalesce and descend through basically, uh, the brain stem that works towards, uh, basically our peripheral body parts.
+
+And, um, they go through a system called the medullary pyramids.
+
+So this is really at sort of the more bottom of the brain stem.
+
+So we're really getting at the the spinal cord at one point.
+
+And the majority of axons actually, um, cross uh, which we call with a very difficult word discussed, um, at the cord length of the, uh, medulla.
+
+And they terminate in the spinal cord at the appropriate level, at the distal side, away from the body to the muscles they serve.
+
+So you see this decoration going on here, right. So we've got the, uh, the, uh, left uh, uh, motor cortex here.
+
+And we basically see that it first of all moves through the midbrain, a structure called the bones, and then the metal or pyramids.
+
+And they then basically say to the other side of the body, uh, such that basically, um, uh, you're right.
+
+Right, right. Hemisphere starts controlling your left part of the body in your left hemisphere starts controlling the right part of the body.
+
+Uh, this is true for basically all those body parts that move away from the centre of the body.
+
+Uh, but not necessarily for all, uh, body parts that are actually, uh, uh, more to the centre of your body.
+
+And we'll see examples of that in the second. Okay, then.
+
+Um. We saw this before already, but then we saw it for the somatosensory cortex.
+
+So what we saw were these, uh, experiments by, uh, Weiler Penfield, if I remember his name correctly, where he applied,
+
+uh, he applied a very weak, uh, current to, uh, there's so much of sensory cortex in the parietal, um, lobe.
+
+Right. So there's actually, if you look at where we are, there's just like the primary motor cortex,
+
+which is still located in the frontal lobe, but immediately adjacent to it, towards the posterior part of the brain.
+
+So actually to the right of this motor cortex, if you look at the left side of the brain, is the somatosensory cortex,
+
+which is a field of, uh, which is responsible for our, uh, experience or our tactile, um, and sensory inputs.
+
+And we've seen that if you apply very weak, uh, currents to those parts of the cortex,
+
+you can actually immediately exert feelings in those limbs that are those sensory parts of the body that we stimulate.
+
+Um, we find that the primary more motor cortex is organised similarly in a, um, uh, sort of functional topography, if you like.
+
+Um, so again, we've got the motor strip up here. So this is the inside of the brain.
+
+This is the outside of the brain. We again see a very systematic organisation of um, uh, the different, uh, senses and the different body parts.
+
+So, uh, we've got like the neck, eyes, nose, face, lips, jaw up here, arm, hands and legs, feet, those and genitalia to the middle.
+
+And then we end up with this homunculus guy, which we also seen for the somatosensory cortex, where, um,
+
+the relative size of, uh, a body part and there's little, uh, it's actually a homunculus is Latin for little man.
+
+So in this little man is, um, indicative of the, uh, um.
+
+The the basically the batch of cortex that is, um, responsible for its control.
+
+And so this, uh, kind of goes to show that like, so our arms are very heavily represented.
+
+And we obviously, as human beings have extreme control over our hands.
+
+Uh, and uh, basically the tactile, uh, stuff that we can do with our hands.
+
+So it goes to show that the amount of cortical cortical space that is devoted to specific motor
+
+functions actually corresponds to the fine motor control that we can exert over these body parts,
+
+uh, underscoring kind of the principle that the more computational power you attribute to something.
+
+Right? Uh, more fine grained control you can exert over it. Uh, and then we actually this is interesting.
+
+So these are done based right on doing, uh, uh, electrical, uh, stimulation where we can actually also,
+
+uh, nowadays with modern neuroimaging, see this exact same topographical, uh, organisation.
+
+So this is, uh, an ephemeral image. So this is ball signal where, um, people are actually, um, requested in the scanner to move different body parts.
+
+And you see, uh, also this sort of topographic, um, uh, organisation popping up.
+
+Right. So this is, um, activity when we, uh, when participants requested to move their left index finger,
+
+dump elbow foot, uh, left fist, uh, and left again on the other side of the body.
+
+Right. So this is showing that this we talked about how neuroscience or cognitive
+
+neuroscience is based and grounded in this converging evidence of different,
+
+uh, methods. So here we again, uh, show that if we apply very weak stimulation to these parts, we can actually, uh, move body parts.
+
+Another one that we've talked about before already is that we can do this, um, uh, non-invasively using transcranial magnetic stimulation,
+
+for instance, where we use these coils that we can apply to the cortex to actually stimulate, um, uh, these cortical regions.
+
+But we can also, in functional neuroimaging, show that this functional topography exists in the primary motor cortex.
+
+Okay. And then, um. So what this chapter and and I nobody has read it yet unfortunately.
+
+But what this chapter is doing and what a lot of the chapters, if you move in cognitive neuroscience to more complicated topics are going to do is,
+
+uh, highlight different insights from the field, uh, without telling you around story per se.
+
+And this is because for many things. So motor control is in a way quite well understood.
+
+But if you think about things like decision making, um, this is a relatively novel.
+
+And so you find very many different findings, um, that together tell you a story.
+
+Uh, and here so what we, what we kind of saw is that, okay, we've got these, these this, uh, organisation of, um,
+
+primary motor cortex that's being responsible for the control of the specific of specific, uh, senses and body, uh, parts.
+
+And, um, it turns out that, uh, these things are actually organised in terms of motor maps.
+
+Um, which leads us to do sort of, uh, uh, so basically when we stimulate these particular, um, uh, regions of, uh, primary motor cortex,
+
+we do not just like twitching an arm, but we can actually exert complex, uh, behaviours like,
+
+uh, uh, a monkey frowning or reaching out his arm or taking a particular pose.
+
+And the question that then arises is one of those very theoretical questions, again, that you often see in science is okay,
+
+but does the activity in these upper motor neurones that exert these complex behaviours specify what to do to like the lower motor circuits,
+
+like basically do a frown or move your arm up, or do they specify, uh, how to do it.
+
+And um, then there's a couple of insights again.
+
+So, uh, what you see here is actually, um, uh, a single cell recording from a cortical motor neurone.
+
+And uh, they basically then also placed sensors on the arms of a monkey.
+
+And, um, what you see is that prior to actually the muscle activity.
+
+So there's a little bit of delay here. There's a cortical motor spike that precedes this motor activity.
+
+So the first piece of evidence seems to be that this thing precedes the muscle activity.
+
+Uh, first the muscle activity itself. So it doesn't seem to be that this, uh, spike in, uh,
+
+this cortical motor neurone is responsible for the muscle movement itself, but rather seems to issue a command of what to do.
+
+Okay? Otherwise there wouldn't be this delay, and it would be a direct correlation between this cortical motor neurone firing and the muscle movement.
+
+Um, so these neurones discharge before discharge before movements and our initiate, uh,
+
+before movements are initiated, implying their activity, um, does not directly cause this movement.
+
+And actually, we will see a lot that like, uh, there's, uh, that our eyes are, um, controlled by different,
+
+uh, neural regions but that operate in a similar way as these sort of motor commands.
+
+Um, but what we also find is that even though these cortical signals precede the muscle movements,
+
+their relative strengths can also do all these lower motor circuits.
+
+Um, the degree of force that I should actually exert, for instance, you should basically lift your arm,
+
+which would lift your arm fast, or you should, uh, folk this machine.
+
+Right. But you should poke it hard. So one of those debates again was how do these motor upper motor neurones specify what to do?
+
+Well, the evidence for that is that yes,
+
+they tell them what to do because the cortical motor spikes precede the initiation of the actual muscle movement.
+
+But then it seems to be the then there seems to be this other observation that the, um, uh, the strength or the, the spike rate, right,
+
+for instance, of these cortical motor neurones seem to also, uh, dictate the force with which a particular, uh, action needs to take place.
+
+So the conclusion here is that it's not what to do for us is how to do it, but it seems to be the case that,
+
+like these upper motor neurones actually specify what to do and how to do it.
+
+Okay. But they're not like they're still dictating those lower motor circuits how to do it, which is evidenced by this delay in,
+
+um, cortical firing in the motor cortex and the actual muscle movement being initiated.
+
+Okay. Um. And then another concept that seems to be.
+
+Very prevalent in the motor cortex is this idea of population coding.
+
+And even if you're here, um, and you have no interest in cognitive neuroscience at all,
+
+because later you want to become very rich and walk to work at a AI company or something.
+
+Um, then these are the kind of, uh, building blocks that evolution has come up with that I really like you to take a moment to think about,
+
+because I think all these ideas that, um, the Blind Watchmaker came up with.
+
+Right. So evolution, um, are applicable to, uh, artificial intelligence models as well.
+
+And one of those ideas is this idea of population coding.
+
+So the observation is that the activity in single neurones is not necessarily predictive of movement amplitude and direction,
+
+but rather that they seem to sort of, um, vote in a democracy.
+
+Okay. And um, uh, an example here is that, uh, local circuits in a brain stem are controlled by the superior colliculus in the midbrain.
+
+So this this is the midbrain up here. And the superior colliculus is the one in blue, which you can hardly see.
+
+You can probably see better up there. And, uh, these guys again have sort of a topographical like with the primary motor cortex,
+
+but this kind of topographical organisation of the eye, like those skeletal maps in the motor cortex.
+
+And then, uh, these neurones together fire for a, um, uh, fire, all fire to vote for a particular direction,
+
+and the majority vote to dictate what the, uh, eventual direction will be of a particular eye movement.
+
+So, for instance, we've got neurones B, A, and C up here and a dope graphical map of, uh, of the eye.
+
+Then they basically vote, uh, all three of them so that we have one that basically wants to have an upward slope,
+
+one neurone that wants to exert a downward slope on the eye movement, and one neurone that wants to just exert a straight line by majority vote.
+
+We then end up with an eye movement that follows a straight line.
+
+But for instance, if, uh,
+
+the B neurone weakens its vote or basically withholds from voting because it doesn't want to go that direction and A and C vote together,
+
+um, then we actually get a downward sloping or downward, uh, going eye movement.
+
+And so this and this idea again, uh. That the idea of population coding has also been extended to the primary motor cortex.
+
+Okay, so what seems to be going on? It's okay. We have, uh.
+
+It's getting quite complicated. Right? So we've got hierarchical, uh, motor control.
+
+We've got a hierarchically organised system in which the upper motor neurones specify what to do, how to do it.
+
+They don't seem to just specify, um.
+
+Like single movements, but rather more complicated motor programs.
+
+And then again, how they do this is actually by a majority voting.
+
+So there's this interaction between populations of neurones that all vote together in order to democratically,
+
+um, uh, assess what the next movement should be.
+
+Um. Okay, so here is, um. There's another sort of this is actually has been quite controversial topic in, uh,
+
+coming from the motor movement literature, but which has, uh, massive, uh, implications for consciousness.
+
+So what I talked about is that we have these upper motor neurones in the primary motor cortex, uh, and we have the, uh, um, um.
+
+Premotor areas and supplementary motor areas. Being involved in planning and control and, um.
+
+The, uh, idea is that premotor areas actually provide, um,
+
+planning information to these larger to the larger primary motor cortex in order to exert sort of planned movements in these,
+
+uh, uh, upper motor neurones. Uh, and then the idea is that the primary motor, uh,
+
+primary motor cortex and the superior colliculus for eye movements actually takes this planning
+
+information and then translates it then to information that dictates lower motor neurones,
+
+uh, what to do and how to do it. Uh, which then carry that out.
+
+Okay. And um, so this again demonstrates a very highly, uh, hierarchical organisation where we have these, uh,
+
+premotor areas being involved in the planning of actions, saying, okay, look, I am planning to do this movement.
+
+Next, I inform the primary motor cortex, which then says, okay, we should be doing this.
+
+We translate this into a plan or a motor program of what to do and how to do it.
+
+We send this information to lower motor neurone, uh, circuits who actually carry out the movements by informing, um, the, uh, the muscles.
+
+Right. Or by, um, carrying out these, uh, these general petrol pattern generators and, uh, some evidence for this.
+
+And this is controversial evidence for this, uh, hierarchical organisation actually comes from, uh, the observation of the readiness potential,
+
+which and it's actually, uh, I think, uh, discovered in German and it's called the Black Eyed chef's potential, which I think is a very awesome word.
+
+So, um, but it's called the readiness potential in English, and it's this idea that, um.
+
+Prior to, um, carrying out the movement itself.
+
+There seems to be there's ramp up or this build up of information.
+
+This is actually a list of of activity that we can measure using EEG.
+
+So there's actually this blue line. So the movement occurs at zero milliseconds.
+
+But prior to um to initiating this actual movement, there seems to be a build up or this ramp up of neural activity.
+
+Um, that seems to suggest that the movement is imminent.
+
+And then, um, and I actually have found this,
+
+this further evidence using like fMRI that this readiness potential seems to be generated in premotor areas and supplementary motor areas.
+
+Um, but then they, they did these other experiments where they had people not just carry out the movement,
+
+but actually, um, reports their conscious urge to move.
+
+Okay. So you have to do something like respond to something or you have to grab something in a task and you have to respond.
+
+Once you consciously, so consciously realise that, you feel the urge to make a particular movement to respond to something.
+
+Now there's sort of reported, uh, urge to move as, say, 200 milliseconds prior to, uh, the actual movement.
+
+Okay. And if you are in the feel the urge to move condition, you actually produce this rat line of ramping activity.
+
+So you get an enhanced readiness potential. Now, for those who pay attention,
+
+you see that this enhanced readiness potential already occurs almost over a second before you report the urge to move.
+
+Okay. And this has.
+
+This has been argued to, uh, actually go against this whole idea of you having a free will, uh, in, uh, the consciousness literature.
+
+Um, and it's interesting. So further loss of, of a further support for this initial planning phase is that you have people with,
+
+uh, a nose of Mozilla, which is basically, uh, the laws of awareness.
+
+So these people are unable to move, they cannot move, but, uh, they basically denied it.
+
+So they have the planning information going on, say, I'm going to move and they have this urge that they're going to move.
+
+And um, uh, but they cannot but they just denied is entire inability that they cannot move because they feel this urge to move.
+
+And I feel that everything else is just working. And the intention of movement is there.
+
+So this really implies this premotor cortex in motor planning and intent, intentional awareness.
+
+Uh, one more before the break. Um.
+
+So I think what you will see now more and more and more during this course and during the especially also this,
+
+this lecture, but also the next lecture and the lecture was on decision making is that there's very, um.
+
+Uh, complicated coding schemes and how these neurones solve things.
+
+So I talked about it in the earlier, uh, lectures a little bit like their neurones are actually stupid signalling systems.
+
+Right. But it turns out that if those things are attached to something or they do this, like, uh,
+
+these tuning curves, which we talked about, right, where they actually respond relative to, say,
+
+the orientation of something, um, that you can actually end up with very powerful, um, uh,
+
+signal detection systems and signal response systems that good, for instance, be heavily driven by, uh, reward value.
+
+But, um, and so here's one experiment in which you can actually test that.
+
+And this is an experiment that we will often see again. So this is the, uh, motion dot experiment.
+
+I've never. Not sure if you've ever seen it before, but you will see it again very frequently.
+
+So the idea is that, um, we've got a monkeys fixating on a screen, and then we've got two targets.
+
+The targets actually either on the left side of the screen or the right side of the screen and which, uh,
+
+target they should, uh, fixate to or adhere to is, uh, actually determined by, um, the motion dot paradigm.
+
+So you got a bunch of dots that are in the middle of the screen,
+
+and there seems to be some coherent movement of some dots towards a particular direction.
+
+And if the majority of dots move towards the right, then the right part of the screen will become the target.
+
+If the majority of dots move towards the left, then the left screen will be the, uh, the target.
+
+And you can obviously vary the amount of evidence that there in.
+
+So certain dots will always just freeze. And you can then move 10% of the dots into a coherent motion to the right.
+
+But you could also move 90% of the dots towards the right.
+
+And as soon as 90% of the dots start moving towards the right as compared to 10%, this obviously shows up on the screen, right?
+
+So you're immediately latching on to that information.
+
+Um, and you can, uh, judge easily or easily or that like you should be fixating to the right, uh.
+
+And so what they've done, but what you can do and do, right. So you've got, uh, the left, uh, visual field and the right visual field,
+
+which again is very complicated information because like the right visual field is in part,
+
+uh, driven by your two eyes and the left visual field isn't driven by the two eyes, and there's like, a crossing again.
+
+But that's not important for now.
+
+But if you measure in either the right visual field or the left, uh, visual field neurones, you will find that, uh, uh, those,
+
+um, neurones start increasing their firing rate, uh, as soon as the dot motion, um, um, pattern is in line with that direction.
+
+Right. So if you, uh, measure from a neurone, if you measure activity in a neurone that is responsible for the right visual field,
+
+and the dot motion paradigm starts moving towards the right, that neurone will increase its,
+
+um, uh, firing rate, and it will do so actually proportional to, uh, motion coherence.
+
+Okay. So like I said, you can do the motion coherence at different percentages.
+
+So you know, 10% motion coherence, 25% motion coherence or 90% motion coherence.
+
+And if you then align the firing rate.
+
+So here we've got the firing rate of those right visual field neurones plotted uh, on the left uh, on the y axis.
+
+On the x axis we've got time.
+
+Then you will see that if the coherence is high then the firing rate will go up way more than when the coherence rate is medium or low.
+
+Right. So the firing rate itself of those neurones seems to track the motion coherence directly.
+
+Okay. Um, and then the idea is that if you then.
+
+So this is a bit of an odd graph because the, uh, the I believe the book actually splits this graph in two parts to make it easier to understand.
+
+But if you then, um. Uh.
+
+Actually, uh, allowing the, um.
+
+The activity again with the onset of the skate. So that's the eye movement.
+
+Then there's relative tracking goes away altogether.
+
+And it actually just, uh, follows the speed of the eye movement.
+
+So then it goes for the speed of the eye movement. Um.
+
+So what this seems to suggest, right, is that that those neurones actually actively track, um,
+
+motion coherence integration over time so that the firing rate itself is a um, indicator of the degree of motion coherence.
+
+Uh, and it basically implies that that, that pre motor neurones, um, specify basically uh,
+
+movements in a graded manner, uh, as these sensory information accumulate.
+
+Right. So even there we already are sort of accumulating and integrating sensory information in order to, uh,
+
+make sure that we, uh, correctly plan, uh, our decisions and is great at and this is also, yeah, one second this great.
+
+And this is also shown for reward value. So motivation. So what you can do is actually increase the amount of juice that you give to monkeys.
+
+Like I said before earlier, like monkeys are crazy for juice and you will find here.
+
+But but also in humans crazily enough.
+
+Like if you do these kind of things with all the sort of the the games that you can do, like with uh, uh, investment games and stuff like that,
+
+then we will immediately start tracking the, uh, the rewards that we can potentially, uh, uh, get by these tasks.
+
+Events. Yeah. The firing rate increases and we might not be right in this case.
+
+In this case, it, uh, it, um, increases in the receptive field neurones.
+
+Yeah. Then how does the, uh, like, when does the big one through cortex come into play?
+
+So I think there's information that there's I think there's information is relayed back in
+
+the premotor cortex is actually a down again involved in planning the planning of this.
+
+Okay. Towards the target direction. Uh, so this is the evidence accumulation.
+
+Premotor cortex influence the. We want to fire more.
+
+So when does the premotor cortex. So I think that's a, that's a, uh, like, uh, conflict before you get the signal to be one.
+
+Or do you first get to know you first because you accumulate the visual information.
+
+Right. And it's this accumulation of the visual information and the integration of this visual information over time that
+
+then informs your basically planning structures in the pre motor cortex to actively plan this a gate which in uh,
+
+in this case, um, activates the correct motor commands.
+
+So that has to be the, the uh the directionality. Right.
+
+Because you're accumulating visual evidence that needs to go through your visual cortex first.
+
+So that makes sense. Okay. Shall we do a quick break?
+
+50 minutes. No, that's not a quarter to. All right.
+
+Joke to you. Please grab a seat. Um, before I forget.
+
+Are there any people here that actually are in a very first group for the classroom?
+
+Yeah, yeah, the first week, but not the very first.
+
+Okay, now I'm going to say this on camera such that hopefully the people who need to reach here it is.
+
+Well here it is that for the verite. So there is basically there's a key right.
+
+That translates which parts of the um chapter you should be presenting with your group.
+
+And there is a slide deck that you can use as a guide.
+
+And please add your slides to that slide deck,
+
+because we've got about eight minutes per group and we need to do the, the admin and a changing on the fly.
+
+So if you come here with your own laptop or you need to plug in and it doesn't work, we those three minutes and we don't have that time.
+
+The very first group, I repeat needs to find an additional paper on a here to basically deepen that out.
+
+This is in the table. Um, I've set it now, so I don't say that I haven't set it.
+
+Um, okay. And then I heard quite a bit of, uh, like detailed questions about these things.
+
+And I think what I want to drive home is that, um.
+
+And I said this before. As soon as you get deeper into this neuroscience stuff.
+
+Right. What you want is effectively a story that goes like, this is how stuff works.
+
+But, uh, as you will find, weave in science in general, all right, but especially in science when it comes to neuroscience,
+
+psychology and stuff, we very often do not have a clue how, uh, everything pieces together.
+
+So one thing is to keep in mind is that with all these topics that we have here, they interface with the rest of the brain as well.
+
+Right. So, uh, we'll be talking about emotions.
+
+Emotions will affect this system. We'll be talking about central executive things.
+
+Central executive, uh, stuff will be affecting this system.
+
+So these systems don't live alone and act alone. Right. They act as part of the larger cognitive, uh, system.
+
+That's one thing.
+
+And I think what I take home from these kind of lectures, and I am by no means an expert on motor control, uh, but what I do take home from these,
+
+these lectures and in reading these chapters is that, uh, I pick up the building blocks in terms of how things can be solved.
+
+Right. So what we have seen is these ideas like population coding, which I think is a very cool idea,
+
+and it's something that you the take home message there to me is that, hey, this is one way in which the brain has solved these kind of problems.
+
+Uh, another um, uh, thing that we talked about was these tuning curves, for instance.
+
+Uh, so these are all are like the fact that, uh, that the firing rate goes up as a function of motion coherence in these motion tasks.
+
+So these are all just examples of how, um, different neural circuits respond to, um, external stimuli and how they can handle that,
+
+um, uh, by regulating their firing rate or their synchronisation and stuff like that.
+
+Um, so if you take anything home from this course, take that home.
+
+Okay. So then we again, let's let's have another look at the, the premotor region.
+
+So we have the premotor cortex which we've already implicated in planning.
+
+And we've got the supplementary motor cortex and the primary motor cortex where we have this map.
+
+Right. So this, this topography of um, uh, basically our senses and limbic system.
+
+Um, and then, um, what we find is we find a distinction between the supplementary motor areas and the pre motor
+
+cortex in the sense that the pre motor cortex seems to be responsible for cued movements,
+
+whereas the supplementary motor cortex seems to be crucial for generating movements in absence of any explicit cues.
+
+Uh, so for instance, if we destroy the supplementary motor cortex homologue in monkeys, they are actually unable to perform well learnt movements.
+
+So they, uh, can't seem to initiate those things again. And uh, pre motor cortex ablation on the other hand.
+
+So if we destroy that part of the cortex, they, uh, seem to be unable to respond to cued movements.
+
+So where we say, okay, now you need to raise your hand, but they can still, uh, perform well learned sequences.
+
+So there seems to be a functional dissociation going on here,
+
+where the SMA is crucial for generating movements in absence of explicit cues, whereas pre motor cortex is involved in, uh, cued movements.
+
+Uh, and then another thing is that uh supplementary motor areas seem to be involved in movement sequences.
+
+Um. Which basically requires degeneration of a sequence of movements in absence of, uh, specific cues.
+
+So here's an interesting example.
+
+So here's an, uh, as a supplementary motor neurone in a monkey that just responds to, uh, performing a pull push turn.
+
+Uh, sequence of actions. Uh, so if the action that the monkey needs to perform is push, pull.
+
+Um, uh, yeah, a push pull turn.
+
+It doesn't fire. If it's turn, push pull. It doesn't fire.
+
+If it's pull, push turn, it does fire. This is about sequence generation.
+
+So it's pull, turn, push. It doesn't fire because that's a different sequence.
+
+So it seems to be that the firing of this particular supplementary motor neurone is really responsible for initiating this specific sequence of pull,
+
+push, turn. Um, and subsequently we can actually find that, uh, there are, uh, other neurones that just respond to a sort of end of sequence marker.
+
+Uh, so to the left here, we have got this strip again that we just saw, like, so the push, pull, turn turn, push pull pull push turn where this,
+
+uh, as a main neurone actually responds to this selectively to this pull push turn sequence, but not, for instance, to pull turn, push.
+
+And then we've got this end of sequence marker, uh, which is uh shown in uh column B where it doesn't really matter.
+
+But we've got these three sequence actions like push, pull, turn, turn, push, pull, turn, push, push push, push turn.
+
+And no matter what, it just responds. As soon as the last action in that sequence, uh, is taking place.
+
+So this is the sort of end of sequence marker.
+
+Now, interestingly, um, they the book also reports this push turn, pull, uh, sequence where there is no activity at all.
+
+So I mark that and I think this is an error in the sense that I think this indicates
+
+that push and pull is not a learned sequence that the monkey responds to.
+
+At least it doesn't seem to suggest that there's a valid sequence in terms of that.
+
+There's an end of a sequence. Um, and so these are all experiments in monkeys.
+
+And then if we do some kind of, uh, pharmacological and activation of supplementary motor areas,
+
+then we actually get errors in these sequences as well. Right.
+
+So if we just again, we can throw some drugs at it and see what happens.
+
+And um, then, uh, you actually see that like, so neurones in these, in these supplementary motor areas, right,
+
+are responsible for like marking the beginning of sequence or end of sequence or a particular sequence identifications.
+
+Basically screwing with that system leads to, uh, behaviour in which, uh, the monkey start producing errors in, uh, producing these, these sequences.
+
+And, um, we see the same thing in humans again.
+
+So, uh, we've got, uh, c being self-initiated, uh, um, finger uh, um, uh, or like, uh, index finger movements, uh,
+
+or facially cued ones and um, uh, what we see is that it's just the self initiated movements that light up the supplementary motor areas.
+
+Right. So supplemental mode is again where, uh, looking at the region just prior to the primary motor cortex, whereas the visually cued ones don't.
+
+And if you actually do the finger to dump movement. So just basically doing this kind of behaviour, if that self initiated,
+
+you see even further activity in the supplementary motor areas, as long as it's self initiated.
+
+Um, there seems to be something going on here as well.
+
+Uh, but it's definitely larger in the self initiated operation.
+
+So again, it seems to be this, um, uh.
+
+So I think an important, uh, distinction here as well, that this is a fixed movement, whereas this is a sequence.
+
+And we just saw it as Emma is involved in sequences.
+
+So even though it's visually cute, there can still be residual activation of the supplementary motor cortices responsible for the sequences.
+
+But definitely the self-initiated sequences provide produce even more further activity.
+
+So again, it seems to suggest, right, that there is this complementarity between what goes on in these monkeys that we can measure
+
+using single cell recordings and what we can see in human beings using functional neuroimaging.
+
+Okay. Um. Who recognises the image to the left.
+
+No. Twin Peaks people.
+
+Classic. No. Okay, so this guy is crazy about coffee like me.
+
+And, um, this is all about basically doing fine grained sensory motor in action, like taking a sip of coffee and.
+
+How the parietal cortex is actually responsible for doing this.
+
+Um, sensory motor coordination. So basically continuously trying to, uh, integrate what is going on, uh,
+
+in our senses with um, uh, by updating like, uh, um, uh, our motor, uh, systems.
+
+And so, um, an interesting part is that if you have damage to, uh, parietal cortex,
+
+you get this idea of optic effects, you, um, or failure to integrate this information.
+
+And this is sort of shown here. So what they do is watch how you can test this, that you have this fine grained, uh, finger stump movement devices.
+
+Uh, I don't exactly know how to read it,
+
+but I think the critical bit is that if you compare a patient that actually has parietal cortex damage compared to a control,
+
+then the lines of the control, uh, basically, uh, subject, right, that you get from doing this fine grained measurements of,
+
+uh, um, uh, finger control and thumb control look a lot more, uh, compact and organised.
+
+And the, uh, parietal, um, uh, cortex damaged patients,
+
+suggesting that this the cortex is the critical locus for, uh, production of coordinated hand eye movements.
+
+Okay. Uh, so it's this contained continuous integration of.
+
+Hey, look, I'm having a cup in my hand, and I need to move that towards my face.
+
+And, uh, sometimes I don't know how you guys work,
+
+but sometimes you sit behind your computer working on something like a paper and try to take a sip of coffee for a down right.
+
+That's failure to do this sort of, uh, hand eye movement integration.
+
+Okay, um, now we get to sort of neo of the neuro geography stuff.
+
+Yes. Is time to. Uh, so the parietal cortex is the part of the parietal lobe, right, with the outer shell.
+
+So the cortex is the part that, uh, basically outside of the parietal lobe.
+
+But, yes. Bright, you could just read here parietal lobe as well, but it's cortical damage.
+
+Um.
+
+Okay, now we get to a little bit of neuro geography and like I said, like, yes, you do not need to remember all of these parts and their locations.
+
+So this is not what are we going to be testing. But what we will be testing is, um, if you understand how, uh, the circuitry in these regions work.
+
+So what affects what and why? And, um, so what we've been talking about now,
+
+in terms of this hierarchical organisation of motor control is the fact that
+
+we've got these upper motor neurone structures in the primary motor cortex.
+
+We've got the supplementary motor areas being involved in, uh, voluntary movements and uh, uh, sequences.
+
+Then we've got the pre motor cortex, which is involved in doing this sort of cued reaction.
+
+And we've got the primary and supplementary uh, motor cortex is being um.
+
+They're responsible for planning, and we've got these lower motor neurone circuits that can actually carry out sort of almost like dump labour.
+
+Right? Like these rhythmic, uh, pattern generations, like swimming veterans.
+
+And we will see actually talked about this a little bit in the, uh, in the break when questions came, um, about this.
+
+We'll see next week hopefully. Or like after the break that uh, if you actually, um, mutilate a cat where you, uh,
+
+basically got off the connection between those lower motor circuit neurones and the upper motor neurones,
+
+that cat can still walk, so it can still do the stance and swing behaviour with, uh, with its feet.
+
+Um, what it cannot do anymore is adjust its gait.
+
+So it cannot walk faster, cannot walk slower. It just walks right.
+
+So it seems to suggest that this this generation of this rudder cyclic nature of just doing the walking behaviour is, um,
+
+observed by these lower motor neurone circuits and it's the upper motor neurone circuits sort of telling it how to,
+
+uh, adjust this rhythmic behaviour. Right. So it's the upper motor neurones that, um, that control it.
+
+But what initiates and what stops, uh, this behaviour in a healthy cat, not a mutilated cat is the, uh, basal ganglia.
+
+So the basal ganglia are the neural systems that are involved in the Asian, um, initiation of, of, uh, movement.
+
+And the basal ganglia effectively, uh, shifts the three principal and principal nuclei.
+
+So we've got caudate, the upper Damon, uh, which together with the cord, it is also known as the striatum.
+
+So what we're looking at is these regions here. So we're really looking at subcortical structures right now.
+
+Right. So subcortical meaning under the cortex. And this is there's I guess evolutionary a reason that these are very close to the brain stem.
+
+Uh, and uh Globus balladeers, which is also located uh next to that got the midbrain up here.
+
+And then we also have these, uh, dynamic nuclei.
+
+And we have uh, so disrupt elastic meaning under the thalamus.
+
+Right. And we have two other regions that are important the substantia nigra pars compact.
+
+And then we have the fission um uh homologue which is the substantia nigra pars right.
+
+Plata which is involved in efficient circuits.
+
+And these these systems are really heavy.
+
+Uh, relay systems effectively shut or receive input from nearly all cortical areas.
+
+And they seem to act as a gating mechanism, as we will see. Uh, so they inhibit potential movements.
+
+Um, uh, and they seem to play an important role in our subjective sense of time, but they also initiate movements, they let movements go, etc.
+
+And it seems, uh, as we'll see in a second that what it seems to, uh, implement is actually a very clever sort of breaking system.
+
+And, um, this brings us to what is sometimes called the corticosteroid or the thalamic loop.
+
+Um, so cortex, uh, striatum.
+
+Right. So we just talked about the striatum, which is the car that in the put almond and the, uh, um, the, uh, thalamus.
+
+And this actually has a sort of, uh, I think, again, one of those little bit of odd structures that, um.
+
+Uh. That evolution has. You solved in a very clever way, I would say so.
+
+The very first thing to, um. To sort of observe is that we've got our like Gore-Tex, right?
+
+Have got our upper motor neurone circuits, we've got the top of the hierarchy and we've got the, uh, um, uh, the thalamus up here.
+
+And element is continuously under tonic inhibition.
+
+Right. So that means that they're basically there's a continuous brake on the activity of their system.
+
+Okay. And uh, how does circuit then seems to work as that?
+
+Uh, we've got some kind of like, we like a cute or an uncrewed, uh, motor program that we want to carry out.
+
+And what happens then is that our upper motor neurone. So our cortex actually excites the car that the Damon or the striatum.
+
+And, uh, so there is an excitatory projection going on here.
+
+So neurones in the car tend to put them and put them and become more active.
+
+There seems to be, uh, um, uh,
+
+modulatory dopamine dopaminergic inputs from the substantia nigra pars compact that is actually, uh, gets more interested.
+
+We in talk about diseases and things like that.
+
+So Parkinson's disease for instance I believe there is uh, there's balance and dopamine here that leads to sort of these uncontrolled behaviours.
+
+Uh, and what happens then is that because the car that and it put aim and get more active.
+
+So they get excited. They start inhibiting the global, uh balladur's in the substantia nigra.
+
+Uh, um, like compact our, uh, red Lada, uh, and, um, sorry, started at the red cloud and vision and the Globus balladur's in, uh, in,
+
+in normal situations, uh, and what this does is so by inhibiting the Globus balladur's, we actually release this tonic inhibition on the Italians.
+
+Right. So, like I said, we have got tonic inhibition going on in the thalamus,
+
+meaning that the thalamus is constantly right rather than putting like a gas paddle in,
+
+we're basically having to brake continuously down on the floor.
+
+But because we basically inhibit the Globus balladur's, so we tell the Globus palate is to get slightly less active or to just stay put down.
+
+We actually release the brake on the thalamus, which uh, basically then again, excites the cortex.
+
+And this balance of, uh, excitation and inhibition that, that serves as a sort of gating mechanism that releases movements, if you like.
+
+So it is really like, uh. Uh, rather than putting like, putting the throttle in, it's like releasing the brake on the movements.
+
+And this gets, uh, further illustrated actually, if you and basically there's like deficits in the system,
+
+be it, uh, neurotransmitter wise or just lesion wise,
+
+lead to all kinds of movement problems like Parkinson's disease, Huntington's disease,
+
+where you make these dance like movements, um, uh, or amiable laziness.
+
+I the book, I think, goes a little bit deeper in exactly what the causes are.
+
+The one that I immediately, uh, get clear is that if you have this dopaminergic input, uh,
+
+this balance is from the substantia nigra pars compact that on the got it in the bottom.
+
+And this leads to, uh, Parkinson's disease.
+
+And as we will see in the, uh, decision making chapter, the treatment of Parkinson's disease is often, uh,
+
+through dopamine, which makes them, uh, very avid gamblers, uh, which is a side product of getting in their inputs.
+
+Um, but here is this sort of this idea of this, this, uh, breaking function applied directly,
+
+uh, in terms of also neural file, uh, firing patterns to the superior colliculus for vision.
+
+So, um, and is basically the right when we talk about vision, we talk about eye movements or circuits.
+
+So, um, it's a cage, right?
+
+Our eye movements to a different direction where you then have fixations and you can have another circuit again to a different, uh, region.
+
+So, uh, so what happens here is we've got these, this sort of the caudate and, um, neurones in,
+
+it's got a nucleus fired burst of action potentials just before movement initiation.
+
+And the effect of that is that the substantia nigra partially shuts down.
+
+So it's this increase in activity that leads to the sort of the shutting down of this system,
+
+which again releases tonic inhibition of the superior colliculus.
+
+So removing the brake which starts firing then which leads to the production of an eye movement.
+
+Okay. So just as with limb movements, it seems to be not like you sort of fully initiate, uh, like you, you fully put the throttle down, right?
+
+But rather you sort of lift the brake a little bit. So it's this balance between excitation and inhibition that controls movements.
+
+Um, and again, like like. Like this has recent work, but this book is from 2013.
+
+So this is 13 year old work.
+
+But as we will find, uh, throughout uh, many of the different chapters, the system seen it to again be regulated by all kinds of things.
+
+So there are not all or none.
+
+They're not like, okay, we released a break, we pushed, uh, and we, we do something, but, uh, it seems to be heavily reward dependent.
+
+So whether or not you do something seems to be modulated by reward, but probably also things like emotion, uh, you have current state, etc.
+
+Okay. Um, then we have, uh, one final structure, uh, which is to cerebellum.
+
+And, uh, I don't know.
+
+I don't know if you guys still do hard hardcore partying nowadays, but, uh, cerebellum is involved once you get out to a late,
+
+uh, uh, from above or something, and your, uh, stability is a little bit down.
+
+So, um, so the cerebellum is this foliated structure, right, that basically sits at the brain stem at the back of the head.
+
+Sometimes it's also called the small brain.
+
+And I actually learned, uh, a while back when I was teaching neuroscience at my kid's school that they also call it their reptile brain,
+
+but I have never checked that, so, uh, but it sounds so cool.
+
+That must be true. But for now, from a scientific perspective, let's call it the little brain or the cerebellum.
+
+And, uh, the idea is that. What. Right.
+
+So this this structure sits at the brain stem and what these sort of lower, um, circuits or lower level reflex circuits are doing is um,
+
+is also involved in direct correction of, say, posture and uh, uh, imbalance and uh, and movements that are ongoing.
+
+And the cerebellum seems to be a key part of this specialised circuitry, uh, in the sense that it seems to be a relay system.
+
+So it seems to be that what the what evolution again,
+
+has figured out that if we relay information through the cerebellar, uh, cortex, we can actually, um,
+
+adjust net error between intended movements and, uh, um, uh, the actual movements are being carried out in the real world,
+
+which seems to be, um, heavily involved in learning, for instance, as well.
+
+Right. Because it's this net error that we can actually use to update, uh, uh, almost like in artificial neural networks to update circuitry.
+
+And if you actually have damage to the cerebellum or you drink a lot, uh, you, uh, actually,
+
+this causes this inability to perform smooth movements or what we sometimes call the intention tremor.
+
+Uh, I believe there's an example of intention tremor in one of my final slides or in the slides that you will be presenting, uh, after the break.
+
+And, um. Cerebellar inputs and outputs again, are sort of that sort of relay station, right.
+
+So starting with the inputs, we just have frontal motor and parietal cortex which fire basically which project through the uh,
+
+so when we talk about Project Ride, we basically mean that they uh, activate uh nuclei in other regions.
+
+So in the pons in the brainstem, uh, which then, uh, uh, so like these are basically the higher order,
+
+uh, motor programs that we want to carry out that go into the cerebral cortex.
+
+Then we got all these more lower brain systems popping in that also project to cerebellar cortex that
+
+actually monitor how the actual actions are going that we were planning such that we can compute.
+
+Net error. Um, the outputs then basically go to deep cerebellar nuclei and move through the thalamus back to the primary motor cortex.
+
+So it seems to be this error correction loop that is going on where we constantly say, okay, this was what we were intended to do.
+
+This is what is actually happening. This is the way we need to adjust it in order to make it move.
+
+And these projections back allow for learning. And I believe there will be examples of that.
+
+Once you guys will be presenting after the break. Uh.
+
+Okay. I'm think I'm doing very well in time today for any questions about this for now.
+
+Oh, okay. Maybe just in the interest of time.
+
+Right. So what I will not be asking you on the exam is provide you a picture like this.
+
+And have you labelled all those things? This is not an anatomy class.
+
+And truth be told, I would not be able to do it myself.
+
+Would you even care? 50%.
+
+Well, you're probably without outperform me then. Um, what I could be asking you to do is, uh, order these things.
+
+So you would get this circuit and you would get, like, these four images, and you would have to sort of link those images in the correct places.
+
+What I almost certainly will ask you to do is have a look at this, um,
+
+this circuit and, uh, get the correct order of excitations and inhibitions going.
+
+So it's that I know that you understand that it's a braking function and not a, um, sort of excitation function or a throttle function.
+
+Again, I will not be asking you to label these things.
+
+So that's not going to happen. Uh, what I will be asking you is what the role of the parietal cortex is in, whether that has to do with, for instance,
+
+coordinated hand eye movements or whether it's to do with, uh, the initiation of voluntary sequence or not.
+
+Right. So these are all level of questions that you can expect.
+
+Okay. Um. So how this again, now is how we typically do this is what we try to do is then connect everything that we discussed back to a, um.
+
+Relevant cutting edge paper. Uh, so in this case, um,
+
+I wanted to talk about a paper by Lee and al called in for subject contrastive learning for subject adaptive EEG based facial recognition.
+
+And I think the link here is, uh, also the link to the practical is that if we talk about motor control, we're often talking about BCI.
+
+So brain computer interfaces, uh, and the practical that we will be working with is the P300 speller,
+
+which I think is one of the most fun practicals, actually.
+
+Uh, so the idea is that what you can do is spell your name using EEG without touching a keyboard.
+
+Uh, it's not, uh. It gets very close to mind reading, but it's actually just a trick.
+
+Uh, but these are kind of these are kind of the type of technology, right, that we can think about.
+
+And it also like in your studies, like with CSI, that you are in the position to develop and to understand.
+
+And this these like, even though like the P300 speller is a relatively, uh, simplistic, uh, BCI system.
+
+Uh, those systems are getting better and better in the sense that, uh, a couple of years ago,
+
+I think now three years ago, I gave a study in Canada out of here in, uh, Tilburg about, uh, um,
+
+mind reading basically called the Neuroscience of mind reading, where we talked about recent, uh, work that then came out in Nature Neuroscience,
+
+where people were actually capable of reconstructing continuous speech from just neuroimaging, uh, data.
+
+So basically you have these things where you are watching a movie that is silent and
+
+the system just reads out the description of the movie from your brain activity.
+
+Um, so those systems like, uh, unicorn €1,000 that study Seventh Life, MRI scanner, €7 million plus staff.
+
+Right. So. And the cost.
+
+So it's still a different ballpark, but those things are getting more and more real and a massive problem in, um, brain computer interfaces.
+
+For instance, you can have brain computer interface controlling prosthetic arm, right.
+
+Uh, so we talked about motor control. So the idea is that if you lose your arm, then all the circuitry is still in place to actually control your arm,
+
+but you don't have an arm to control anymore. So can you attach a brain computer interface to that or a prosthetic arm that could interface with that?
+
+And, uh, one massive problem in doing these things is, um, that most of those BCI systems are actually, um, developed in subject dependent way.
+
+So how how long do you need to trying to reach Fowler on a particular subject typically.
+
+Yeah. So. But it's still an ad. So this is a very simple task,
+
+but is still adapting to your brain signal or your brain signature in order to actually carry out the spelling task later on.
+
+And so, um, there's a lot to do about, uh, transfer learning in this field.
+
+And transfer learning really means that, okay, if we build a BCI in the lab,
+
+be it, uh, a system for and like BCI common all kind of, uh, form factors, right?
+
+So you can have a prosthetic arm, which is a motor based BCI, but you can also have something like,
+
+um, a BCI that helps you, uh, speak when you have speech problems.
+
+So what this BGA,
+
+BCI should be doing is actually predict what you want to say and fill in the void once you cannot produce the words or help you produce the words.
+
+Um, but obviously you want to build these things in a lab setting and then actually apply them to, uh, the patients.
+
+But typically this means that you need to calibrate, um, those systems on those particular patients.
+
+Uh, so this involves retraining or tuning those systems, which is, um, basically a very labourers involved procedure.
+
+And from like in a lab, that doesn't matter.
+
+But from a marketing perspective, saying that you have a mind reading machine that can help you do stuff,
+
+but you need to first train this thing for three hours is not a really good marketing strategy.
+
+So transfer learning is just an important thing. Um.
+
+So. So one question is whether there are ways of getting at, uh,
+
+training these systems that are independent of whether they are trained on my brain or your brain or your brain,
+
+but that they basically transfer to any brain activity whatsoever.
+
+As long as there's a healthy brain that performs the way it should be performing.
+
+And one, um, one solution to this is what is called, uh, intra subject contrastive learning, where, uh,
+
+they try to abstract away from subject specific patterns and actually try to sort of get at the,
+
+um, the shared feature spaces that underlie, uh, the different subjects.
+
+The idea what is going on, right, is that if you have like, uh, the subjects, for instance, classifying in this case, uh, visual stimuli.
+
+So, but you can see how it is extends to anything ride motor movements or speech or whatever.
+
+In this case they need to sort of they get the brain activity of looking at a dog.
+
+We have brain activity, we have brain activity of looking at a cat, etc. and what we want is we want to be able to tease apart dogs from cats,
+
+independent of whether the system is trained on subject one, subject two, subject three.
+
+So we're not interested in how subject one these Safa dogs and cats.
+
+We're interested in how we can tease apart dogs and cats on the basis of the brain activity of all those people.
+
+And one, um, relatively successful method is called this interest subject contrastive learning approach, where what they try to do is actually, uh,
+
+set up a latent space and like machine learning terms where they try to put together the brain activity,
+
+um, uh, patterns for the different classes and pull them, uh, apart, uh, if there are different classes.
+
+So basically a positive set, there's same label, different subject.
+
+That's a pull direction where you want to group them together in a latent space, whereas the negative set is different labels,
+
+same subject where you get that push relationship such that if you've got dog from subject one and subject to,
+
+you want to position together in latent space such that basically your decision boundaries will run underneath those.
+
+If it's a cat from subject one and subject to, we want to push them together.
+
+If it's a dog from subject one first to get from subject one, you want to teach them apart.
+
+Okay. And, uh, they actually show that using this, uh, uh, infrared object,
+
+contrastive learning on this particular task that actually achieve very high test accuracy.
+
+And they only use, uh, when they only use five examples per class per subject to do the sort of the transfer learning bit.
+
+So it is a really harsh condition.
+
+And, uh, this sort of technology, which is also a technology that you could be working on or you could address in your thesis,
+
+right when you, uh, get in the next year. Um, actually seems really promising in getting at sort of transferable BCI systems.
+
+So I've got nine minutes left, but I'm through. So, uh, up next this week, I believe.
+
+Is this this week or next week? Now? Next week.
+
+Uh, after the break, after break after break, you get the, uh, P300 speller, uh, where you will, uh, be able to spell your name using BCI.
+
+Hopefully, uh, it's not as smooth as you think it would go, but it works.
+
+Uh, and then I hope, uh, that you guys will all prepare to flip classroom sessions, because they will start now.
+
+Yeah. Okay. So, for example, when an opportunity presents, I.
+
+Yeah. If you miss a single lecture, that's fine. What I do not like is people walking out on each other.
+
+Uh, this happened before, and I think this is really, really disrespectful.
+
+Uh, so I would effectively opt to count that as a failed, flipped classroom participation.
+
+But it's not a threat. It's an observation.
+
+So but if you can't make it, I mean, everybody sometimes cannot make a meeting, but the general gist is the people should be here.
+
+But then again, there's 25 of you here and we've got 150 enrolments.
+
+So let's see how that goes.
+

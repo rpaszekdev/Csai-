@@ -1,0 +1,839 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+So good morning to all 12 of you. Full house, I see.
+
+I'm happy that they reserve that room this big. So.
+
+Okay, so, uh, let me actually go on slide back.
+
+So as you I hope you all know this is the midterm exam review.
+
+So we've got the midterms coming up. Uh, you should all be aware of that already, right?
+
+Because you all took introduction to cognitive science. So you know the drill.
+
+So just a quick repetition about, uh, the course requirements.
+
+Right. So there will be a midterm, uh, exam that will be, uh, and the midterm covers everything we've covered thus far.
+
+Then it will be a final exam which covers everything from the midterm until the final.
+
+Uh, you, uh, if you do not, um, get a sufficient grade with those two exams course, there's a reset opportunity.
+
+They will actually cover all of the material, so that's not necessarily easier.
+
+Uh, and you need to get, uh, um. Uh, a 5.5 or above a 5.50.
+
+Best, of course. Right.
+
+Uh, and you can get 20% of your course grade for free by participating in the flipped classroom and completing four out of six of the,
+
+uh, practical assignments. Uh, also, for those who of you who worry about your flipped classroom.
+
+Great. Not showing up yet. We do have it properly registered.
+
+We just haven't published a great yet. Uh, in order to avoid.
+
+Countless interactions with people who come up with excuses of, uh, because for not doing it or something like that.
+
+Okay. Um, so the idea is that we have these do we have the, uh, mock exam, which, uh, consists of these formative,
+
+uh, desperation questions that I hope you've all checked out and have access to.
+
+What we can do is walk through those, uh, those questions are on purpose.
+
+Slightly more difficult than the questions that you will get at the actual exam.
+
+So if you do good at these questions, you should be, uh, able to perform well in the exam.
+
+Um, and then we have some room for questions. Uh, and if there are very few questions, then we can all grab another coffee.
+
+If I can finish this in time and continue.
+
+Uh, yes. Today's lecture material.
+
+Now, today's lecture material. Because today's the mid-term review.
+
+I'm not sure I get the question. So.
+
+Let me open. So you've already discussed a discussed emotions, right?
+
+You have already discussed the emotional neuroscience or not yet? No.
+
+No memory. Uh, just after a midterm.
+
+So then we will not be discussing that today. So is there an error in the.
+
+No. So we've discussed. Let's go over it. So what we've discussed thus far is history and methodology.
+
+Oh, sorry. You don't see anything. We should shout when that happens.
+
+So what we discussed thus far is history and methodology.
+
+Uh, both on, uh, sort of high level intro and an in-depth review done by me in module one.
+
+Then we had motor control in a flipped classroom, motor control sessions that will be covered in the midterm as well.
+
+And then we had memory and memory flipped classroom, which will be covered.
+
+And we're now here in the uh, mid-term review Q&A.
+
+So everything that will be covered in the midterm exams will be memory.
+
+So chapters eight and nine, Motor control chapter five and uh, history methodology,
+
+which is chapters one and two where chapter one is barely a chapter.
+
+Stuck there. Practical this week.
+
+Uh, that's just virtual reality. So, uh, that was last week over we the midterms.
+
+If we don't have a practical schedule this week. Oh, sorry.
+
+Sorry. Okay. Uh. There is still a slot in your, uh, calendar.
+
+That's a leftover slot from the scheduling, where previously we actually had, um, catchup sessions for the practicals.
+
+But given that you now only have to four out of six and, uh, it's a graded assignment, we, uh, dropped the catch up sessions,
+
+but we left those slots in case either me or Sylvie got sick and we needed to reserve another room.
+
+So there is no practical this week? Yeah. Okay.
+
+Sorry for the confusion, but it's. It's getting harder and harder at Tilburg University to actually get room schedules.
+
+So we had those schedules and I said do not unscheduled them because in the event that like I got sick,
+
+Silvie got sick, one of our kids got sick or could get sick or my kids get sick or not.
+
+Our kids. Um, the, uh, the, um, we just had a back up slot.
+
+Okay. Okay. Um.
+
+So far, so good.
+
+So, Dan, before we dive in, uh, I just wanted to, uh, do a little bit of, uh, shameless self-promotion or more promotion for our enigma.
+
+So, uh, tomorrow, uh, uh, the 19th of March, there will be a digression.
+
+Talk by me. Uh, um, mapping meeting into brains language, which is basically a talker, just based on,
+
+uh, quite recent paper of mine which appeared in cortex earlier this year.
+
+Um, so if you're interested in neuroscience in general, um, in, uh, language and using AI to solve complex neuroscience,
+
+uh, problems, feel free to join, uh, tomorrow in, uh, Mind Labs room at 103, I believe.
+
+I don't know if there are any in my members here. No.
+
+Okay. So I believe the general idea is that we do a talk for about an hour, and then everybody heads to the brewery to have a drink.
+
+So it's half fun of half serious, half, um, social.
+
+And it's very low key. So feel free to join. Okay, then back to the serious business.
+
+So, uh, the duration of the examination will be two hours.
+
+So they're slightly short. And, um, in the last, uh, semester from two and a half, 2 hours to 120 minutes will be 30 questions.
+
+Again, we will basically exhaust everything that, um.
+
+That station has to offer us. Except for, uh, essay questions.
+
+Uh, so we have multiple choice questions, multiple response question matching questions, hot match questions.
+
+Fill in the blanks questions again with the fill in the blanks as you are used to.
+
+If you make a typo, uh, that's not a problem.
+
+We will check for those. Don't try to game us. Right?
+
+So if the answer is parietal, then you, uh, you, uh, write something like bacterial?
+
+Uh, yeah. Sorry. We don't know if you mean posterior or parietal, but if you.
+
+Right. Parietal and you don't get the, uh, read or whatever stuff, you got that wrong.
+
+Uh, it's, uh, it's all good. Uh, and each question is worth two points each, so you can get, uh, 60 points in total and eat 33 out of 60 to pass it.
+
+But again, you can compensate. So even if you do a bad on the midterm and and you do a really well on the final and you get the bonus points of the,
+
+uh, assignments and a flipped classroom, you can still pass the course.
+
+Um, so given the length of the exam, uh, I don't think this actually checks out right now because I didn't update, uh, slides.
+
+So you get 120 minutes divided by 30 questions.
+
+That's the amount of time you should spend on a single question. I will have that updated later.
+
+Um, so more like, uh, four minutes, right?
+
+Um. Uh, in case of multiple choice question, select the best answer you can.
+
+Again, click through the answers in the order that you want, or the questions in the order that you want.
+
+So what we mean with select the best answer is that sometimes, uh,
+
+there are answers that are not necessarily wrong, but there is a best answer in the, uh, in the options.
+
+Then really important in case you get a multiple response question.
+
+So that's one with the check marks and not with uh uh, or like uh, the square marks and not with the radio buttons.
+
+Uh, there are always, um, two or more correct answers.
+
+So if there was only one correct answer, it would be a multiple choice question.
+
+And we're not here to fool you. Right. So we're not playing this game.
+
+So if there are uh, if we put in multiple response question, you just know that you should click at least two answers.
+
+Uh, results will be available after 15 days. This is just a disclaimer.
+
+Typically, we're slightly faster, but no promises. And we will organise an inspection session on the, uh, on campus.
+
+So, any questions about this? Same old, same old.
+
+Right? Okay. So just for completeness, the cover page, um.
+
+So same information. So you have, uh, uh, two hours.
+
+I see that also in the government page. It still says five minutes per question.
+
+So even the, uh, um, assessment team didn't quite get big that up.
+
+But. Yeah. So it's five, four minutes per question. Uh.
+
+You are, uh, allowed to use digital notepad?
+
+Nothing else? No open books, etc. All clear.
+
+Okay. So what we can do then is actually walk through the, um, mock exam.
+
+So there's nine questions in total. Again, there are slightly more difficult.
+
+Some of the some of the questions are slightly more difficult than questions on the actual exam.
+
+Uh is there something you want to do now step through this and then see if there's any remaining questions at the back.
+
+While I believe the first six questions are mine. So here we go.
+
+So event related potentials or ERPs are a raw EEG signals average across multiple trials B EEG spectra averaged across multiple trials.
+
+See raw EEG signals averaged across multiple recording sites, and the EEG spectra averaged across multiple recording sites.
+
+So if we distil this question down, I think there's two, uh, sort of, um, changes appearing.
+
+Right. So we have raw EEG signals versus EEG spectra, and we have multiple trials versus multiple recording sites.
+
+So hands for D. And for our be.
+
+It is voting day. People are just saying.
+
+So cast your vote for our. See. And hands for a.
+
+A is correct. Yes. So it's right G signals signals averaged across multiple trials.
+
+So which of the following describes the major limitation of clinical pathological correlations in humans?
+
+So brain lesions made in animal models rarely complement um information gain from injury.
+
+In humans, brain damage is not under the control of the experimenter.
+
+Brain regions supporting cognitive function are distributed consistently across patients,
+
+or damage from strokes is usually limited to a single function, uh to single function brain regions.
+
+So who is going to go for answer A?
+
+Be. See.
+
+The. Oh, yeah. Well, it was very unanimous.
+
+All right, so it's that brain damage is not under the control of the experiment or so.
+
+No. Ever to, um, the lesion strokes will ever be the same.
+
+So it's very difficult to draw conclusions. And we saw this in the very first two lectures.
+
+Uh, unless you can find consistency across patients, etc. and you can say a little more.
+
+They are still though, uh, highly relevant.
+
+Um, or even though the, the problems that come with.
+
+Right, they are still highly relevant in the sense that, uh, they provide very valuable information on what happens if the system is actually broken.
+
+But we should interrupted with care. Okay.
+
+Now, uh, I think this is, uh. Uh, question at the, uh, I guess the analysis level of the bloom taxonomy.
+
+So a researcher hypothesises that the lateral.
+
+So first of all, you will not get a question like this on the exam.
+
+Okay. But bear with me.
+
+So a researcher hypothesises that the lateral prefrontal cortex is causally involved in exerting self-control and food choices.
+
+So if you read exam questions carefully, you see the term causally being printed in boldface.
+
+Okay, so pay attention to that. The researcher has a paradigm where participants are asked to make decisions between healthy and unhealthy food items.
+
+Which method is the most appropriate for testing this hypothesis?
+
+So most appropriate right.
+
+So I guess you can say that there are multiple answers that hint in the right direction, but we're asking for the best answer.
+
+So, uh, answer A is testing, uh, participants twice, so once with real teams and once with sham teams of the lateral prefrontal cortex.
+
+So everybody should know that TMS stands for. Excellent.
+
+Okay. Uh, and sham DMs is basically, um, acting as if you're applying to a match but not actually doing it.
+
+So you're effectively not your. It looks like you're zapping someone, but you're not.
+
+Okay. So, like a placebo. Uh. Uh, placebo drug.
+
+Okay, so B is testing participants twice in an fMRI session before and after depleting self-control.
+
+Okay. So testing two groups of participants in an MRI session.
+
+Those with and without brain damage, including the lateral prefrontal cortex and contrasting their behaviour.
+
+And testing two groups of participants in an ephemeral session.
+
+Those with and without strong self-control and contrasting their brain activity.
+
+So maybe the very first question is, should we go for transcranial magnetic stimulation, or should we go for functional magnetic resonance imaging?
+
+Is there anyone going for fMRI? Is there anyone going for DMs?
+
+Lots of blank photos today. That's not good.
+
+So, uh, we should go for answer A, and the crux here is that we both faced causally.
+
+Where I draw, you draw. Uh, draw your attention to.
+
+And the idea is that with fMRI, we could only show a correlation between self-control and, uh, lateral prefrontal cortex activity.
+
+Not necessarily a causal link, but by actually sort of causally, uh, up regulating or down regulating activity in that, uh, particular area.
+
+Right. We can draw a stronger conclusion. And this is a perfect example of a best answer, because I think that, uh,
+
+answer B would also be a viable strategy and probably, uh, in terms of, uh, ethics board, less hard to get through.
+
+What do you think? Possibly. Yeah.
+
+Okay. Yes. If you to invest, it's impossible to.
+
+Uh, yes. Because the prefrontal cortex is still, uh, relatively, quite large area.
+
+Okay. So yeah, you do, you do, uh, targets.
+
+Uh, you can't target individual neurones, right? Uh, and you do target larger areas.
+
+But if we talk about, um, prefrontal cortex.
+
+Right. If you take a world map and you say we targets, say, uh.
+
+Germany, right? It's. Proportionately.
+
+Not that off, right? You can't do that. So. So.
+
+Yes. But good question.
+
+Um. Okay, which supports the idea that neurones in.
+
+And I also just to add right. So uh lateral prefrontal cortex is also loosely defined.
+
+Right. So you can always further subdivide these regions.
+
+And so that general area yes you can target. Okay.
+
+Example. For example, question four,
+
+which supports the idea that neurones in a number of premotor areas specify movements in a graded manner as sensory evidence is accumulated.
+
+So. Right. We've seen this idea that, uh, neurone spiking, um, for instance, ramps up in specific situations.
+
+So we, for instance, have these, um, uh.
+
+Uh, motion paradigms, right where you got, uh, dots moving coherently in a particular direction.
+
+And, uh, monkeys have to fixate our gates in, uh, on a particular, um, visual field.
+
+So a. Stimulation of the frontal eye feels in monkeys does not evoke eye movements.
+
+That the correct answer. No. Okay. So we we take that one up.
+
+So stimulation of the frontal eye feels in monkeys evokes eye movement that is biased by the coherence of a random stimulation,
+
+but not by the duration of viewing. So what does it it, uh, satisfies the graded manner.
+
+Constraint, I would say. Right, because it's, um, biased by the coherence of random stimulation.
+
+But. The second part of the question is as sensory evidence is accumulated,
+
+and it clearly says in this answer that it's not modulated by the duration of feeling.
+
+All right. So answer B. Okay.
+
+Uh, stimulation of the frontal eye feels in monkeys evokes eye movement that is not biased by the coherence of random stimulation,
+
+but is biased by the duration of viewing. So if we basically strikethrough answer B, we should also strive to answer C.
+
+I think. Just by the same logic, because we now satisfy the, uh, accumulation thing, but not the graded manner.
+
+So we end up with answer D. Stimulation of frontal eye feels in monkeys.
+
+You folks eye movement is biased by both the coherence of random stimulation and the duration of viewing.
+
+So we satisfy the great oddness. So the amount of evidence and the duration of the evidence being accumulated.
+
+So this is why this is actually a really neat question, because this is one of those questions where even if you.
+
+Even if you hadn't read the book just by solving the puzzle right, you could almost pinpoint the correct answer.
+
+But please do read the book and do understand the answer. But it does this just in general strategy, right?
+
+Also think about what the what the question poses and what constraints it imposes on the answer.
+
+Okay if a tumour growth presses on the left side of the, uh, medulla above that cushion.
+
+What type of motor control deficits are to be expected?
+
+Okay. So we know this deck. So we know that at one point, uh, well, we first of all know that like the, uh, postural muscles.
+
+So muscles that are basically close to the centre of our body, uh, um,
+
+are controlled by, um, uh, basically are not, uh, swapped in terms of hemisphere.
+
+And we know that, uh, uh, lives.
+
+Francis, my right hand is controlled by my, uh, left, uh, hemisphere.
+
+Am I right? Hemisphere controls my left hand. Um, there's always gets very confusing if you also mirror this in a classroom.
+
+So, uh, and we know that the definition. So basically this crossing right of, um, uh, uh, actions, right?
+
+That, uh, control all these limbs happens in the middle.
+
+So now we have two more growth on the left side of the medulla above the deck.
+
+So what type of motor control deficits are to be expected.
+
+So the we expect ipsilateral weakness in postural muscles and ipsilateral weakness in muscles controlling the extremities.
+
+No. Uh, do we expect control, weakness, contralateral weakness in postural muscles and contralateral weakness in muscles controlling the extremities?
+
+No. So we. Okay. So we can basically again do that apply the same trick as in the previous question.
+
+We can rule out answers A and B just if we understand the question.
+
+Yeah. Okay. Then we have see ipsilateral.
+
+Uh, weakness in postural muscles but contralateral weakness in muscles controlling the extremities.
+
+You vote for that one. This is actually pretty much a reflection of what the elections are going to be today.
+
+10% voting. Uh, and an answer D.
+
+Contralateral weakness in postural muscles and ipsilateral weakness in muscles controlling the extremities.
+
+Okay, so I think we all agree that it's between answer C and D.
+
+So to see people raise your hands. The people.
+
+It not possible. Seriously? So it sounds really.
+
+Yes, and even after 20 years, this doesn't get easier because it's just confusing that stuff swaps around.
+
+And it's even worse with fission,
+
+where you have like the right visual field of the two eyes swapping to the other side of their brain and things like that.
+
+Okay, this is a very tricky question, which you will definitely not get at the exam, but if you do understand that you will ace the exam.
+
+So one of the hallmarks of Huntington's disease is excessive movement.
+
+Researchers have found a way to selectively upregulate activity in a specific brain region.
+
+Which brain regions could they target and thus stimulate to reduce Huntington's chorea?
+
+So chorea basically means that you have these excessive dance like movements that you cannot really suppress.
+
+Yes. Or, uh. Um. You could increase activity.
+
+You could decrease activity. Right. So you can use. Yeah. That's the that's the question.
+
+But there's just one brain brain region that does it. I think.
+
+So, uh. And this is a very complicated question.
+
+So let's just walk through it. Right. So what we have is we have uh, basically this cortical striatal, uh, loop.
+
+And maybe I should actually actually show you the, uh, graph again such that everybody's on the same board.
+
+Do we have that? Yes. You know to.
+
+Okay. So while we have. I me throw this up again.
+
+Oh. Okay.
+
+We got this cortical striatal Tillamook loop that, um, starts and stops movements.
+
+And we've got a direct pathway that runs from the cortex.
+
+That's the, uh, that, uh, stimulates the caudate and, uh, puts almond.
+
+And, uh, if the Cortex and Damon get, uh, excited, they basically inhibit the global balladeers, uh, which in, uh, um.
+
+It's turn based. So it's this braking mechanism that we talked about many times before.
+
+Like, it's not like if you want to release movements, you're actually going to press the throttle, but you're going to release the brakes slightly.
+
+So, um, excitation of the caudate infotainment leads to inhibition of the global this
+
+and this inhibition of global palate this process tonic inhibition of thalamus.
+
+Uh, and then we have, uh, basically by releasing the inhibition on the thalamus, the thalamus, again excites the cortex.
+
+And this balance of excitation and inhibition that releases, uh, and coordinates movements.
+
+And so we've got two, uh, um, uh, uh, secondary pathways here.
+
+So we've got the substantia nigra pars compact, um, which provides modulatory, modulatory, modulatory dopaminergic inputs.
+
+At one point, you just stop caring if that happens to you. Those words are just impossible, like microscopy and stuff like that.
+
+Um. Uh, and so this is basically dopamine regulation.
+
+Uh, and then we've got the dynamic nucleus, uh,
+
+which is the structure that's basically interfacing with the Globus balladeers
+
+that serves as a it serves a secondary role or a secondary sort of pathway,
+
+um, in, uh, releasing movements. Okay.
+
+So. And it's the inhibition of the glow of asparagus that leads to, uh, release of the, uh, uh, tonic inhibition on the thalamus.
+
+Right. Which basically releases movements.
+
+And if we upregulate activity in the nucleus, we actually can sort of, uh, excite the global balladeers again, which leads to.
+
+Dynamic inhibition of the, uh. Uh, the thalamus.
+
+Okay, so if we face this problem of having these dance like movements that we cannot stop.
+
+The idea is that what we could try to do is target the nucleus.
+
+In order to basically upregulate the activity in the global balladeer such that we exert tonic inhibition on the thalamus,
+
+again, thereby controlling these dance like movements. Let's see if that's the correct answer.
+
+Otherwise, I need to revisit the logic. Uh.
+
+And that's indeed the answer.
+
+So upregulated nuclease activity excites the Globus validators, thereby inhibiting the thalamus and its excitatory effect in the cortex.
+
+This is a very, very tricky question and you will not get it to that degree.
+
+Uh, but what you might get is a question that, uh.
+
+Um, where you have to walk through circuits like this.
+
+Right. And then more of like, for instance, in a ranking or a hot matching situation or a what excites inhibits what kind of question.
+
+I believe that was my. So, uh, the, uh, substantia nigra pars compact, uh, is, uh, actually doing it the other way around.
+
+If let me get the slides again. Yeah.
+
+Increase its involvement. Right. So yeah. And so Andy.
+
+Uh, yeah. Okay. And but just let me go back to the, uh, to that circuit again.
+
+So the substantia nigra bars compact. That's the one you asked about, right.
+
+So this one actually provides, um.
+
+Uh, dopaminergic inputs to the, uh, caudate and actually has, uh, if we, uh,
+
+so upregulate or affect the systems in their right such that they actually affect the caudate and the poor Damon,
+
+that will actually lead to better inhibition of the Globus balladur's, which again, will lead to release of tonic inhibition on the thalamus.
+
+And that's actually the region you want to target if you want to treat, uh,
+
+Parkinson's disease where they have not problem like they have the opposite problem, right?
+
+They don't do like, dance like movements. But I have the problem of the fact that they cannot properly release certain movements.
+
+And, um, you, uh, typically then, uh, treat them with L-dopa, which is like, uh, dopamine, uh,
+
+supplement, uh, in order to, uh, get these movements to be, uh, um, to get released more easily,
+
+there's that's the as we will see after the midterm, this has the, uh, very, um,
+
+uh, pleasant side effect that people go on a gambling rage and things like that.
+
+So if you're basically being treated, uh, with dopamine for Parkinson's disease,
+
+then even if you've never gambled, you can find yourself somehow in Las Vegas drinking, gambling, losing money.
+
+And if you're down off, uh, dopamine again, basically, after a couple of weeks, you're back to your normal self.
+
+So, uh, all these things come at the cost. Yeah.
+
+Uh, this one. No. So. No. Uh, so.
+
+So to the way this one, you mean, right? Yeah. No.
+
+So they're not they're not happening after each other. One is for releasing limp movements.
+
+This one is for releasing eye movements. So the brain seems to have, uh, basically, uh, separated those out.
+
+So, yeah, there's, uh, uh um. Here you have a loop through the substantia nigra pars compact or involving the substantia nigra, a fast compactor.
+
+Uh, um, I'm sorry I should say it here.
+
+So you have to substantia nigra, pars compact eye interfacing with the caudate and the bottom and the caudate and the Damon,
+
+uh, have a analogue in fish in which is the, uh, substantia nigra bars.
+
+Right? Glazer. Right. So releasing eye movements involves a different region than in for, uh, releasing limp movements.
+
+You're up. Three questions. Uh, let's see what we were.
+
+There we go. Yeah. So the third and last module for your midterm was memory.
+
+The last one uh, we talked about uh, question seven.
+
+In this case, uh, having a memory about going to Spain on the holiday with your sister last summer is a typical example of EDA semantic memory,
+
+working memory, implicit memory or episodic memory.
+
+So this is a relatively straightforward question. If you remember the diagram that was on both the slides and and your book, you should be able to uh.
+
+Um, and so who goes for a. Be.
+
+See. The.
+
+Very unanimous. Very good.
+
+Episodic memory indeed. So if something is having a specific time or place, that's usually, uh, the best sign of of it being a, um, episodic memory,
+
+semantic memory would, for example, be knowing, uh, what the capital of Spain is or something, but not, uh, specific about a holiday like that.
+
+Okay, this is a match question. You will certainly get some of those for your, uh, exam, uh, for your midterm two.
+
+So the logic is that you have to, in this case, multiple threats theory and standard consolidation theory,
+
+those theories that we discussed, um, in the lecture and those four sentences or phrases here need all to be matched to one of those two.
+
+Um.
+
+So, as you hopefully already realise, those two, uh, our main theories on system consolidation, standard consolidation theory, multiple trace theory.
+
+Um, they are somewhat different though, uh, so you can really distinctly, uh, map each of those phrases onto one of them.
+
+Um, and then obviously you will have, uh, there's not a 1 to 1 mapping because you will have four of them.
+
+So you need think more than one to, uh, to, uh, do the theories.
+
+So let's start with multiple trace theory. Hopefully, uh, that still rings a bell to, uh, to most of you, which of these four answers.
+
+Um, which will link to the multiple trace theory we have to pick from, uh, establishing direct connections among the various cortical traces.
+
+That's one. Uh. New memory stored each time a memory is activated.
+
+The second one, uh, becoming hippocampus independent over time, that will be the third one.
+
+Uh, and episodic memories always depend on the hippocampus.
+
+So, um, I don't know if it's always the case, but usually it's probably in this case.
+
+The case that you will link to per bucket.
+
+Maybe that's even always. I don't know, actually, but you have questions, right?
+
+Okay. So in theory, um, you could have any one number apart from four because we will never leave one of them open.
+
+So that would be sort of tricky on our end if we would then have all four of them, for example, linked to this one, and this one stays empty.
+
+But I think that's kind of nasty. So we will never do that. So there's always something linked to everything on the left side.
+
+We'll just add to that we we're not there to trick you right.
+
+That's not our game. Right. But.
+
+Right? Um. Okay. So who would link?
+
+Establishing direct connections among cortical traces to the multiple choice theory.
+
+Okay. Some hands who would link, uh, a new memory start each time a memory is activated to the multiple choice theory.
+
+Who would link becoming hippocampus independent over time to the multiple trace theory.
+
+Yeah. Um, I would link episodic memories always depend on the hippocampus.
+
+Okay, that is was apparently the easier one then. On this case.
+
+So. But both of these are actually, um, linked to the multiple trace theory.
+
+Um. I get the feeling that this somehow stuck in all of your memories better from the lecture than this aspect of that theory,
+
+which might be because this is so distinct from so obviously these two then linked to the
+
+standard consolidation theory and whether or not the hippocampus is involved for remote memory.
+
+Is this like what puts these theories very distinct. So I can see that that has more sort of weight, uh, in your memory to it.
+
+But here maybe a trick that in this case works and might work, and at other moments would be to, uh, read the names of, of such theories.
+
+Well, in relation to these answers, uh, because they usually are chosen, these names are chosen for a reason in this case.
+
+And new memory start each time a memory is activated, and with multiple trace and the worth of multiple trace theory.
+
+That might be a sort of hint, uh, to linking that to the multiple trace theory, as even if you don't explicitly remember it from the lecture, I mean.
+
+Okay. Then we go to I think the last question on priming discussed uh, both in of few lecture on uh from me, but also in detail uh,
+
+on uh uh and by the uh, natural macro, there are three types of, of priming semantic priming, perceptual priming and conceptual priming.
+
+And this is then not, uh, you have to again, again match the phrases here to each one of these three types of priming,
+
+which is in this case one, two, one, three on the left and three on the right.
+
+Um, but rather than giving like actual abstract definitions, these are examples that you then have to map to what type of priming that would be.
+
+Um, all right. So which of those three examples would you map to semantic priming.
+
+For example, who would map the situation in which the dark?
+
+If you are the participant in the task, the target is nurse and this is then the test.
+
+Q and you have to answer to with things that is semantic priming.
+
+Hands. Right. Who thinks when the task is medical professionals and the target is nurse?
+
+Also a few hands on the prime would be hospital and the darker this nurse.
+
+Okay, this is probably an actual good reflection of the voting today.
+
+Yeah, it's nicely split across all three. All three answers.
+
+So semantic priming would be if if you're not primed with the actual word itself.
+
+So if the primers, uh, would be nervous then obviously, um, you're primed with the actual,
+
+uh, target word, but you do primed with a word that is semantically related.
+
+And then there is in the hospital frantically related to each other, uh, such.
+
+Okay. Going to perceptual priming. Then this is out, uh, of the voting.
+
+So you have to choose between these two options. Who goes for the first option as perceptual priming.
+
+All right. And for the second option. Okay.
+
+Yeah. This is, uh, probably the most, uh, straightforward version, um, because, yeah, this is clearly perceptual.
+
+There is nothing, uh, else going on with, uh, with that target in that, uh, test queue.
+
+Okay. That leaves conceptual priming, uh, and with conceptual priming as somehow a little related, possibly, uh, by semantic priming.
+
+Medical professionals and nurse are also semantically related,
+
+but the difference is that medical professionals is not like one thing, one object or one building or one person.
+
+It's like a whole concept that you learned about. And the nurse is like an exemplar of that concept, essentially.
+
+Um. Okay. So and that was it for the example questions.
+
+Uh, in terms of the memory module, uh, before I open the floor to general questions, I guess, um, would be that, uh, as is often asked.
+
+And you're all right about that, if you agree to that.
+
+Uh, there's a lot of content on memory in your book.
+
+It's that's why they split it across two chapters. So it was relatively a for one module, a lot of content.
+
+So, uh, as a hint for your exam, you are definitely focusing on the actual, um,
+
+paragraphs that were also, uh, addressed by the flipped classroom section.
+
+So if you go back to the, uh, um, table for the flipped classroom or, but the lecture itself, then each of these groups,
+
+uh, is covering a certain paragraph or a set of paragraphs, uh, of one of those two chapters.
+
+And you will realise that some of these paragraphs are, for that reason, not covered by any group of you.
+
+And, uh, that means that, uh, that that is not important for you to know for the exam,
+
+just a way or to balance a bit the amount of, of, uh, information you would have to learn for each module.
+
+Okay. Well, in terms of these questions, that is it.
+
+Um, hopefully that gave you a bit of a feeling for, uh, what to expect at the exam.
+
+Any remaining questions about either one of these three modules or in general of or of the exam?
+
+Yeah. Yes.
+
+Although and I'm looking at you now, I think the motor, uh, chapter was completely covered, possibly by the flag festival or other things.
+
+Not covered. No, I think it's almost entirely cover. But if there were paragraphs that.
+
+Uh, aren't in that list. Probably not covered.
+
+So it's a good thing that it's 90%. Oh, I see how it goes.
+
+Yeah. I need to focus on the stuff that we discussed.
+
+Yeah. Uh, and that that.
+
+But that doesn't exclude the fact that, for instance, we now have this question about, uh, Huntington's and, uh, and Parkinson's.
+
+Um, that's in the book, in a part where, um, you.
+
+Which is part of the, uh, the, uh, the, uh, paragraphs and the paragraphs, but it wasn't explicitly discussed in class, for instance.
+
+Right. So that could happen. Not frequently, but sometimes you need to make a choice of what you cover and what you don't cover.
+
+And, uh, for all. So we have to flip classroom slides.
+
+But we also I hope you noticed that provide backup slides.
+
+Um, which are unconscious, which cover the same material, but then, uh, done by us.
+
+Right? Okay. So without.
+
+Qualifying. If you want to make sure that it's correct. Focus on that back up slides as well.
+
+So who's excited for the exam? Nobody.
+
+It's very early, right? 8:45 or something on 31st, 30th March, 30th March.
+
+31st. Okay.
+
+Well. Good, then good luck. Uh, just repeating this shameless self-promotion era.
+
+Nice to see you all tomorrow at 4:00.
+
+Allegedly. It's in room meals at 103, followed by drinks.
+
+So if you're if you haven't had enough neuroscience.
+
+So usually these these digression talks are, uh, very laid back talks in the sense that like,
+
+uh, uh, they are about, uh, sort of general topic, uh, and in a very informal way.
+
+I'm going to just flip that around. I'm going to start very informally and then go as hard as science on everyone.
+
+So, uh, hope to see you all there. And I can cool down with a beer or a soda or something.
+
+Okay. We're done. The, uh.
+

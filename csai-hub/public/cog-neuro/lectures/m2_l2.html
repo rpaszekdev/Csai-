@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>M2L2 — Attention</title>
+<link rel="stylesheet" href="./cog-neuro.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Cognitive Neuroscience</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="/courses/cog-neuro/roadmap">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="/courses/cog-neuro/quiz">Quizzes</a>
+  <a href="/courses/cog-neuro/brain-quiz">Brain Quiz</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">02</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 02 · Lecture 02 —</span>
+      <h1 class="hero-title">Attention</h1>
+    </div>
+    <div class="hero-meta">
+      <span>0 sources</span>
+      <span>64 slides</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="brain-illu" src="/cog-neuro/brain.svg" alt="Cognitive Neuroscience brain illustration" />
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="./m1_l1.html">M1L1</a>
+  <a class="chip" href="./m1_l2.html">M1L2</a>
+  <a class="chip" href="./m2_l1.html">M2L1</a>
+  <a class="chip active" href="./m2_l2.html">M2L2</a>
+  <a class="chip" href="./m3_l1.html">M3L1</a>
+  <a class="chip" href="./m3_l2.html">M3L2</a>
+  <a class="chip" href="./m4_l1.html">M4L1</a>
+  <a class="chip" href="./m4_l2.html">M4L2</a>
+  <a class="chip" href="./m5_l1.html">M5L1</a>
+  <a class="chip" href="./m5_l2.html">M5L2</a>
+  <a class="chip" href="./midterm.html">MID</a>
+</div>
+
+<div class="slide-strip">
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide02_img001.jpg" data-slide="02"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide02_img001.jpg" alt="Slide 02" loading="lazy"/><span class="num">02</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide04_img002.jpg" data-slide="04"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide04_img002.jpg" alt="Slide 04" loading="lazy"/><span class="num">04</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide05_img003.jpg" data-slide="05"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide05_img003.jpg" alt="Slide 05" loading="lazy"/><span class="num">05</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img004.jpg" data-slide="06"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img004.jpg" alt="Slide 06" loading="lazy"/><span class="num">06</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img005.jpg" data-slide="06"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img005.jpg" alt="Slide 06" loading="lazy"/><span class="num">06</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide07_img006.jpg" data-slide="07"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide07_img006.jpg" alt="Slide 07" loading="lazy"/><span class="num">07</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide08_img007.jpg" data-slide="08"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide08_img007.jpg" alt="Slide 08" loading="lazy"/><span class="num">08</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img008.jpg" data-slide="09"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img008.jpg" alt="Slide 09" loading="lazy"/><span class="num">09</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img009.jpg" data-slide="09"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img009.jpg" alt="Slide 09" loading="lazy"/><span class="num">09</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img010.jpg" data-slide="10"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img010.jpg" alt="Slide 10" loading="lazy"/><span class="num">10</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img011.jpg" data-slide="10"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img011.jpg" alt="Slide 10" loading="lazy"/><span class="num">10</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img012.jpg" data-slide="11"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img012.jpg" alt="Slide 11" loading="lazy"/><span class="num">11</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img013.jpg" data-slide="11"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img013.jpg" alt="Slide 11" loading="lazy"/><span class="num">11</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img014.jpg" data-slide="11"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img014.jpg" alt="Slide 11" loading="lazy"/><span class="num">11</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide12_img015.jpg" data-slide="12"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide12_img015.jpg" alt="Slide 12" loading="lazy"/><span class="num">12</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img016.jpg" data-slide="13"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img016.jpg" alt="Slide 13" loading="lazy"/><span class="num">13</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img017.jpg" data-slide="13"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img017.jpg" alt="Slide 13" loading="lazy"/><span class="num">13</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img018.jpg" data-slide="14"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img018.jpg" alt="Slide 14" loading="lazy"/><span class="num">14</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img019.jpg" data-slide="14"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img019.jpg" alt="Slide 14" loading="lazy"/><span class="num">14</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img020.jpg" data-slide="15"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img020.jpg" alt="Slide 15" loading="lazy"/><span class="num">15</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img021.jpg" data-slide="15"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img021.jpg" alt="Slide 15" loading="lazy"/><span class="num">15</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img022.jpg" data-slide="16"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img022.jpg" alt="Slide 16" loading="lazy"/><span class="num">16</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img023.png" data-slide="16"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img023.png" alt="Slide 16" loading="lazy"/><span class="num">16</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide17_img024.jpg" data-slide="17"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide17_img024.jpg" alt="Slide 17" loading="lazy"/><span class="num">17</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img025.jpg" data-slide="18"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img025.jpg" alt="Slide 18" loading="lazy"/><span class="num">18</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img026.jpg" data-slide="18"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img026.jpg" alt="Slide 18" loading="lazy"/><span class="num">18</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img027.jpg" data-slide="18"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img027.jpg" alt="Slide 18" loading="lazy"/><span class="num">18</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img028.jpg" data-slide="19"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img028.jpg" alt="Slide 19" loading="lazy"/><span class="num">19</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img029.jpg" data-slide="19"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img029.jpg" alt="Slide 19" loading="lazy"/><span class="num">19</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img030.jpg" data-slide="19"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img030.jpg" alt="Slide 19" loading="lazy"/><span class="num">19</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide20_img031.jpg" data-slide="20"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide20_img031.jpg" alt="Slide 20" loading="lazy"/><span class="num">20</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img032.jpg" data-slide="21"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img032.jpg" alt="Slide 21" loading="lazy"/><span class="num">21</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img033.jpg" data-slide="21"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img033.jpg" alt="Slide 21" loading="lazy"/><span class="num">21</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img034.jpg" data-slide="22"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img034.jpg" alt="Slide 22" loading="lazy"/><span class="num">22</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img035.jpg" data-slide="22"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img035.jpg" alt="Slide 22" loading="lazy"/><span class="num">22</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img036.jpg" data-slide="23"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img036.jpg" alt="Slide 23" loading="lazy"/><span class="num">23</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img037.jpg" data-slide="23"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img037.jpg" alt="Slide 23" loading="lazy"/><span class="num">23</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img038.jpg" data-slide="24"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img038.jpg" alt="Slide 24" loading="lazy"/><span class="num">24</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img039.jpg" data-slide="24"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img039.jpg" alt="Slide 24" loading="lazy"/><span class="num">24</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img040.jpg" data-slide="24"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img040.jpg" alt="Slide 24" loading="lazy"/><span class="num">24</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img041.jpg" data-slide="25"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img041.jpg" alt="Slide 25" loading="lazy"/><span class="num">25</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img042.jpg" data-slide="25"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img042.jpg" alt="Slide 25" loading="lazy"/><span class="num">25</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide26_img043.jpg" data-slide="26"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide26_img043.jpg" alt="Slide 26" loading="lazy"/><span class="num">26</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide27_img044.jpg" data-slide="27"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide27_img044.jpg" alt="Slide 27" loading="lazy"/><span class="num">27</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img045.jpg" data-slide="28"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img045.jpg" alt="Slide 28" loading="lazy"/><span class="num">28</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img046.png" data-slide="28"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img046.png" alt="Slide 28" loading="lazy"/><span class="num">28</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img047.jpg" data-slide="29"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img047.jpg" alt="Slide 29" loading="lazy"/><span class="num">29</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img048.jpg" data-slide="29"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img048.jpg" alt="Slide 29" loading="lazy"/><span class="num">29</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img049.jpg" data-slide="30"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img049.jpg" alt="Slide 30" loading="lazy"/><span class="num">30</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img050.jpg" data-slide="30"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img050.jpg" alt="Slide 30" loading="lazy"/><span class="num">30</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img051.jpg" data-slide="31"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img051.jpg" alt="Slide 31" loading="lazy"/><span class="num">31</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img052.jpg" data-slide="31"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img052.jpg" alt="Slide 31" loading="lazy"/><span class="num">31</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img053.jpg" data-slide="32"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img053.jpg" alt="Slide 32" loading="lazy"/><span class="num">32</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img054.jpg" data-slide="32"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img054.jpg" alt="Slide 32" loading="lazy"/><span class="num">32</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide33_img055.jpg" data-slide="33"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide33_img055.jpg" alt="Slide 33" loading="lazy"/><span class="num">33</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide33_img056.jpg" data-slide="33"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide33_img056.jpg" alt="Slide 33" loading="lazy"/><span class="num">33</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide35_img057.png" data-slide="35"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide35_img057.png" alt="Slide 35" loading="lazy"/><span class="num">35</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide36_img058.png" data-slide="36"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide36_img058.png" alt="Slide 36" loading="lazy"/><span class="num">36</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img059.jpg" data-slide="37"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img059.jpg" alt="Slide 37" loading="lazy"/><span class="num">37</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img060.jpg" data-slide="37"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img060.jpg" alt="Slide 37" loading="lazy"/><span class="num">37</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img061.png" data-slide="37"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img061.png" alt="Slide 37" loading="lazy"/><span class="num">37</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img062.png" data-slide="37"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img062.png" alt="Slide 37" loading="lazy"/><span class="num">37</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img063.png" data-slide="37"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img063.png" alt="Slide 37" loading="lazy"/><span class="num">37</span></a>
+<a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img064.png" data-slide="37"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img064.png" alt="Slide 37" loading="lazy"/><span class="num">37</span></a>
+</div>
+
+<article id="content">
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide02_img001.jpg" data-slide="02"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide02_img001.jpg" alt="Slide 02" loading="lazy"/></a><figcaption><span class="num">slide 02</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide04_img002.jpg" data-slide="04"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide04_img002.jpg" alt="Slide 04" loading="lazy"/></a><figcaption><span class="num">slide 04</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide05_img003.jpg" data-slide="05"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide05_img003.jpg" alt="Slide 05" loading="lazy"/></a><figcaption><span class="num">slide 05</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img004.jpg" data-slide="06"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img004.jpg" alt="Slide 06" loading="lazy"/></a><figcaption><span class="num">slide 06</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">Cognitive Neuroscience — Exam Study Notes</div>
+
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img005.jpg" data-slide="06"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img005.jpg" alt="Slide 06" loading="lazy"/></a><figcaption><span class="num">slide 06</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide07_img006.jpg" data-slide="07"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide07_img006.jpg" alt="Slide 07" loading="lazy"/></a><figcaption><span class="num">slide 07</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide08_img007.jpg" data-slide="08"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide08_img007.jpg" alt="Slide 08" loading="lazy"/></a><figcaption><span class="num">slide 08</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img008.jpg" data-slide="09"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img008.jpg" alt="Slide 09" loading="lazy"/></a><figcaption><span class="num">slide 09</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">1. Motor Control Is Hierarchical <span class="badge">Exam</span></div>
+
+<p>The motor system is organized as a <strong>hierarchy</strong> with multiple levels of control:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Structure</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Upper motor neurons</strong></td>
+<td>Primary motor cortex, premotor areas</td>
+<td>Issue <strong>motor programs</strong> (commands) to lower levels</td>
+</tr>
+<tr>
+<td><strong>Basal ganglia</strong></td>
+<td>Caudate, putamen, globus pallidus</td>
+<td>Movement <strong>initiation/stopping</strong>, motor skill learning, goal-directedness, movement sequences</td>
+</tr>
+<tr>
+<td><strong>Cerebellum</strong></td>
+<td>Cerebellar cortex, deep nuclei</td>
+<td>Movement <strong>coordination</strong> and <strong>error correction</strong></td>
+</tr>
+<tr>
+<td><strong>Spinal cord &amp; brainstem</strong></td>
+<td>Lower motor neurons, local circuits</td>
+<td><strong>Reflexes</strong> and local coordination</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Key demonstration (Bernstein)</strong>: When people sign their name with a pen attached to different body parts (hand, wrist, elbow, shoulder, foot, mouth), the signature preserves distinctive features like shape and style — evidence that motor control operates at an abstract, hierarchical level above specific muscle groups <span class="badge">Exam</span></li>
+<li><span class="badge prof">Prof</span> The hierarchy means that higher levels provide increasingly abstract movement plans, while lower levels handle specific muscle activation</li>
+</ul>
+<h3>The Reflex as a Fundamental Unit</h3>
+<ul>
+<li><strong>Local motor neurons</strong> form direct circuits from brainstem to muscles</li>
+<li>Sensory and motor neurons interact directly for reflexive movements (e.g., postural adjustments when lifting a coffee cup)</li>
+<li>These circuits handle both <strong>simple movements</strong> (raising a cup) and contribute to <strong>complex movements</strong> (swimming) — though complex movements require higher-level coordination</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img009.jpg" data-slide="09"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img009.jpg" alt="Slide 09" loading="lazy"/></a><figcaption><span class="num">slide 09</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img010.jpg" data-slide="10"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img010.jpg" alt="Slide 10" loading="lazy"/></a><figcaption><span class="num">slide 10</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img011.jpg" data-slide="10"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img011.jpg" alt="Slide 10" loading="lazy"/></a><figcaption><span class="num">slide 10</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img012.jpg" data-slide="11"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img012.jpg" alt="Slide 11" loading="lazy"/></a><figcaption><span class="num">slide 11</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">2. Selecting Goals for Actions: Graded Sensory-Motor Conversion <span class="badge">Exam</span></div>
+
+<p>Motor planning is not binary — it is <strong>driven by accumulated sensory evidence</strong>:</p>
+<ul>
+<li><strong>Experiment</strong>: Monkeys fixate while observing motion stimuli (dots moving up/down or not moving)</li>
+<li>Monkeys judge net direction of dot movement with eye movements to targets (T1 or T2)</li>
+<li>Strength of evidence manipulated by changing <strong>fraction of dots moving coherently</strong> (motion coherence)</li>
+</ul>
+<h3>Key Findings:</h3>
+<ul>
+<li><strong>Premotor neurons</strong> in the receptive field (RF) increased firing rate when dots moved into RF direction</li>
+<li>Rate of increase is <strong>directly proportional to motion coherence</strong> (weight of evidence)</li>
+<li><strong>Microstimulation</strong> of frontal eye fields evoked eye movements <strong>biased by motion direction</strong></li>
+<li>Deviation of stimulation-induced eye movements depended on <strong>motion coherence and viewing duration</strong></li>
+<li>When monkeys made a decision, neuronal activity reflected <strong>eye movement speed</strong></li>
+</ul>
+<h3>Implications <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Premotor neurons specify movements in a <strong>graded manner</strong> as sensory evidence accumulates</li>
+<li>The relation between firing rate and motion coherence reflects <strong>integration of motion information over time</strong></li>
+<li>This gradedness also applies to <strong>reward value (motivation)</strong> — not just sensory evidence</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img013.jpg" data-slide="11"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img013.jpg" alt="Slide 11" loading="lazy"/></a><figcaption><span class="num">slide 11</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img014.jpg" data-slide="11"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img014.jpg" alt="Slide 11" loading="lazy"/></a><figcaption><span class="num">slide 11</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide12_img015.jpg" data-slide="12"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide12_img015.jpg" alt="Slide 12" loading="lazy"/></a><figcaption><span class="num">slide 12</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img016.jpg" data-slide="13"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img016.jpg" alt="Slide 13" loading="lazy"/></a><figcaption><span class="num">slide 13</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">3. Sequential Movements and the Supplementary Motor Area (SMA) <span class="badge">Exam</span></div>
+
+<h3>SMA vs. Premotor Cortex — Critical Dissociation</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SMA</th>
+<th>Premotor Cortex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary role</td>
+<td><strong>Self-initiated</strong> movements</td>
+<td><strong>Externally cued</strong> movements</td>
+</tr>
+<tr>
+<td>Key function</td>
+<td>Generating movements <strong>without explicit sensory cues</strong></td>
+<td>Responding to <strong>sensory triggers</strong></td>
+</tr>
+<tr>
+<td>Ablation effect</td>
+<td>Cannot perform <strong>well-learned</strong> movements</td>
+<td>Disrupts <strong>cued</strong> movements, not learned ones</td>
+</tr>
+</tbody>
+</table>
+<h3>Tanji's Monkey Experiment <span class="badge">Exam</span> <span class="badge prof">Prof</span></h3>
+<ul>
+<li><strong>Researcher</strong>: Jun Tanji and colleagues</li>
+<li>Monkeys trained to make arm movement sequences based on visual cue (e.g., red light = "push, pull, turn"; green light = "turn, push, pull")</li>
+<li>Visual cues specify <strong>which sequence</strong> to make, not individual movements</li>
+</ul>
+<h3>Key Findings:</h3>
+<ul>
+<li>Many SMA neurons <strong>selectively activated</strong> for a particular action embedded within a sequence</li>
+<li>Some neurons responded only for a <strong>particular action sequence</strong>, irrespective of movement type (e.g., selectively responding to "Pull, Push, Turn")</li>
+<li><strong>Pharmacological inactivation</strong> of SMA → errors in <strong>learned sequences</strong> but NOT in explicitly cued sequences <span class="badge">Exam</span></li>
+</ul>
+<h3>Human Neuroimaging Evidence:</h3>
+<ul>
+<li><strong>SMA activation</strong> is larger for <strong>self-initiated</strong> movements than for visually cued movements</li>
+<li>For movement <strong>sequences</strong>, SMA is active in both self-initiated and visually cued conditions — because SMA carries out the sequence steps after the initial cue</li>
+<li><span class="badge prof">Prof</span> "The initial cue leads to the sequence, and the SMA is carrying out the sequence itself"</li>
+</ul>
+<h3>Summary:</h3>
+<ul>
+<li>SMA provides <strong>relatively abstract motor intentions</strong></li>
+<li>SMA is crucial for <strong>producing movement sequences</strong> (requires generating actions without cues for each individual step)</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img017.jpg" data-slide="13"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img017.jpg" alt="Slide 13" loading="lazy"/></a><figcaption><span class="num">slide 13</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img018.jpg" data-slide="14"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img018.jpg" alt="Slide 14" loading="lazy"/></a><figcaption><span class="num">slide 14</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img019.jpg" data-slide="14"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img019.jpg" alt="Slide 14" loading="lazy"/></a><figcaption><span class="num">slide 14</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img020.jpg" data-slide="15"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img020.jpg" alt="Slide 15" loading="lazy"/></a><figcaption><span class="num">slide 15</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">4. Sensory-Motor Coordination and the Parietal Cortex <span class="badge">Exam</span></div>
+
+<h3>Role of Parietal Cortex</h3>
+<ul>
+<li>Complex sensory-motor coordination involves <strong>translation of sensory spatial and textural information</strong> into motor commands</li>
+<li>Example: Grabbing a cup of coffee requires continuous translation of:</li>
+<li><strong>Spatial information</strong> (where is the cup?)</li>
+<li><strong>Textural information</strong> (how heavy? how much coffee left?)</li>
+<li>Converting all this into appropriate motor movements</li>
+</ul>
+<h3>Evidence: Parietal Cortex is Crucial</h3>
+<p><strong>Optic Ataxia</strong> <span class="badge">Exam</span>:
+- <strong>Damage to parietal cortex</strong> leads to <strong>optic ataxia</strong> — failure to correctly integrate information about locations of the <strong>eye</strong>, <strong>hand</strong>, and <strong>target</strong>
+- Patients cannot accurately reach and grasp objects
+- Disruptions manifest in grasping: compare <strong>precision grip</strong> of patient R.V. vs. control — patients fail to grasp across center of mass of objects</p>
+<p><strong>Experimental Evidence</strong>:
+- Patients with parietal cortex damage vs. healthy controls interfacing with complex vs. simple objects
+- Healthy controls: fine-grained patterns of <strong>hand-eye coordination</strong> and <strong>finger-grab coordination</strong> (precision grip)
+- Patients: disrupted coordination — cannot perform coordinated hand-eye movements <span class="badge prof">Prof</span>
+- Confirmed by <strong>pharmacological inactivation</strong> of parietal cortex in monkeys → same deficits</p>
+<h3>Goodale and Milner's Dorsal/Ventral Stream Theory <span class="badge">Exam</span>:</h3>
+<ul>
+<li><strong>Dorsal stream</strong> (parietal) → using vision to <strong>guide movement</strong> ("where/how" pathway)</li>
+<li><strong>Ventral stream</strong> (temporal) → <strong>object identification</strong> ("what" pathway)</li>
+<li><strong>Double dissociation evidence</strong>:</li>
+<li>Temporal lobe damage: difficulty <em>describing</em> orientation of mail slot, but can put envelope in it</li>
+<li>Parietal damage: no trouble <em>naming</em> objects, but difficulty reaching for and grasping them</li>
+</ul>
+<h3>Summary:</h3>
+<ul>
+<li><strong>Parietal cortex</strong> = critical locus for integrating visual, eye position, and limb position data to produce coordinated eye-hand movements</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img021.jpg" data-slide="15"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img021.jpg" alt="Slide 15" loading="lazy"/></a><figcaption><span class="num">slide 15</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img022.jpg" data-slide="16"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img022.jpg" alt="Slide 16" loading="lazy"/></a><figcaption><span class="num">slide 16</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img023.png" data-slide="16"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img023.png" alt="Slide 16" loading="lazy"/></a><figcaption><span class="num">slide 16</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide17_img024.jpg" data-slide="17"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide17_img024.jpg" alt="Slide 17" loading="lazy"/></a><figcaption><span class="num">slide 17</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">5. Online Error Correction by the Cerebellum <span class="badge">Exam</span></div>
+
+<h3>Brainstem Circuits:</h3>
+<ul>
+<li>Make <strong>anticipatory postural adjustments</strong> to accommodate movements</li>
+<li><strong>Correct posture</strong> for ongoing changes in balance</li>
+<li><strong>Coordinate</strong> more complex multi-joint movements</li>
+</ul>
+<h3>Cerebellum — Key Functions:</h3>
+<ul>
+<li>Large, foliated structure sitting atop the <strong>pons</strong> in the brainstem</li>
+<li>Cerebellar circuits compute and relay <strong>net error between motor commands and actual movements</strong></li>
+<li>Functions as a <strong>comparison system</strong>: compares <strong>intended motor movement</strong> with <strong>actual motor movement</strong> → performs <strong>online error correction</strong> <span class="badge">Exam</span></li>
+</ul>
+<h3>Cerebellar Circuitry — Inputs and Outputs <span class="badge">Exam</span>:</h3>
+<p><strong>Inputs to cerebellum:</strong>
+1. <strong>Frontal motor and parietal cortices</strong> → generate intention for movement → commands pass down to <strong>pons</strong> → cross midline via <strong>middle cerebellar peduncle</strong> → reach <strong>cerebellar cortex</strong>
+2. <strong>Sensory feedback</strong> from the body:
+   - <strong>Inferior olive</strong>
+   - <strong>Spinal cord</strong>
+   - <strong>Vestibular nucleus</strong></p>
+<p><strong>Processing</strong>: Cerebellum compares intended vs. actual movement and computes error signals</p>
+<p><strong>Three functional divisions</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Division</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Medial cerebellar (vermis)</strong></td>
+<td>General coordination; damage → <strong>general ataxia</strong></td>
+</tr>
+<tr>
+<td><strong>Lateral cerebellum</strong></td>
+<td>Movement correction</td>
+</tr>
+<tr>
+<td><strong>Vestibulocerebellum</strong></td>
+<td><strong>Balance</strong> and <strong>eye movements</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Cerebellar Disorders <span class="badge">Exam</span>:</h3>
+<p><strong>General Ataxia</strong>:
+- Results from lesions to the <strong>medial cerebellar vermis</strong>
+- Characterized by <strong>uncoordinated, disorganized movements</strong>
+- Presents as <strong>wide-based, unsteady gait</strong> (looks like intoxication) <span class="badge prof">Prof</span></p>
+<p><strong>Intention Tremor</strong> <span class="badge">Exam</span>:
+- Shows up in patients with <strong>ipsilateral cerebellar damage</strong> (note: ipsilateral, not contralateral!)
+- Only occurs during <strong>voluntary movements</strong> — NOT during reflexes
+- Erratic, halting movement when trying to reach a target
+- Classic test: patient asked to point rapidly from clinician's finger to their own nose → produces <strong>irregular, jerky movements</strong> instead of smooth pointing</p>
+<h3>Cerebellum and Motor Learning <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Cerebellum is <strong>most active during initial learning</strong> of motor skills</li>
+<li><strong>Damage prevents learning new motor skills entirely</strong></li>
+<li>Neuroimaging: cerebellar activation peaks during initial learning, then declines as performance improves</li>
+<li>Example: tracking a target on screen — motor error is initially large but improves with practice; cerebellar activation parallels this change</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img025.jpg" data-slide="18"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img025.jpg" alt="Slide 18" loading="lazy"/></a><figcaption><span class="num">slide 18</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img026.jpg" data-slide="18"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img026.jpg" alt="Slide 18" loading="lazy"/></a><figcaption><span class="num">slide 18</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img027.jpg" data-slide="18"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img027.jpg" alt="Slide 18" loading="lazy"/></a><figcaption><span class="num">slide 18</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img028.jpg" data-slide="19"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img028.jpg" alt="Slide 19" loading="lazy"/></a><figcaption><span class="num">slide 19</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">6. Cerebellar Contributions to Cognition <span class="badge">Exam</span></div>
+
+<h3>Beyond Motor Control <span class="badge prof">Prof</span></h3>
+<ul>
+<li>Traditionally viewed as <strong>purely motor structure</strong></li>
+<li>Modern <strong>neuroimaging</strong> has changed this view</li>
+</ul>
+<h3>Evidence for Cognitive Role:</h3>
+<ul>
+<li>Cerebellar activity during <strong>non-motor tasks</strong>: attention, timing, verbal working memory</li>
+<li>Patients with cerebellar damage show deficits in <strong>speech, learning, timing, and working memory</strong></li>
+<li><strong>Autism research</strong>: attentional problems linked to cerebellar abnormalities</li>
+</ul>
+<h3>The Comparator Model Extended to Cognition <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Motor function: compares <strong>intended motor movement</strong> vs. <strong>actual motor movement</strong> → error correction</li>
+<li>Cognitive extension: compares <strong>intended cognitive act</strong> vs. <strong>cognitive outcome</strong> → same comparison mechanism</li>
+<li>The cerebellum may have evolved as a motor coordination/error correction system but has been <strong>co-opted for cognitive functions</strong></li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img029.jpg" data-slide="19"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img029.jpg" alt="Slide 19" loading="lazy"/></a><figcaption><span class="num">slide 19</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img030.jpg" data-slide="19"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img030.jpg" alt="Slide 19" loading="lazy"/></a><figcaption><span class="num">slide 19</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide20_img031.jpg" data-slide="20"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide20_img031.jpg" alt="Slide 20" loading="lazy"/></a><figcaption><span class="num">slide 20</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img032.jpg" data-slide="21"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img032.jpg" alt="Slide 21" loading="lazy"/></a><figcaption><span class="num">slide 21</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">7. Basal Ganglia <span class="badge">Exam</span></div>
+
+<h3>Structure and Motor Loop:</h3>
+<ul>
+<li>The basal ganglia act as a <strong>gating mechanism</strong> — inhibiting potential movements until they are fully appropriate</li>
+<li>The <strong>motor loop</strong> shows how different basal ganglia regions interact with <strong>cortex</strong> and <strong>thalamus</strong></li>
+<li>Connections are either <strong>excitatory (+)</strong> or <strong>inhibitory (−)</strong></li>
+<li>The entire motor loop ensures that actions from the cortex that want to be executed are properly <strong>selected and released</strong></li>
+</ul>
+<h3>Basal Ganglia and Cognition <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Anatomical studies reveal <strong>non-motor pathways</strong> through basal ganglia:</li>
+<li><strong>Limbic/emotional channel</strong></li>
+<li><strong>Associative/cognitive channel</strong></li>
+<li>Principles governing <strong>movement disinhibition</strong> in the motor pathway also apply to <strong>emotional and cognitive processing</strong></li>
+<li><span class="badge prof">Prof</span> Like the cerebellum, the basal ganglia may have evolved for inhibition/release of motor commands but have been adapted for other cognitive functions (emotion, goal-directed behavior)</li>
+</ul>
+<h3>Basal Ganglia and Learning <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Strongest <strong>putamen activation</strong> when subjects had to <strong>learn</strong> joystick-cursor movement (with 90° offset)</li>
+<li>Compared to: moving without feedback (P), watching cursor move (V), or resting (R)</li>
+<li>Motor sequence learning (SRT tasks) is:</li>
+<li><strong>Preserved</strong> in amnesia patients (medial temporal lobe damage)</li>
+<li><strong>Impaired</strong> in patients with basal ganglia disorders (Parkinson's, Huntington's) <span class="badge">Exam</span></li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img033.jpg" data-slide="21"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img033.jpg" alt="Slide 21" loading="lazy"/></a><figcaption><span class="num">slide 21</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img034.jpg" data-slide="22"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img034.jpg" alt="Slide 22" loading="lazy"/></a><figcaption><span class="num">slide 22</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img035.jpg" data-slide="22"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img035.jpg" alt="Slide 22" loading="lazy"/></a><figcaption><span class="num">slide 22</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img036.jpg" data-slide="23"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img036.jpg" alt="Slide 23" loading="lazy"/></a><figcaption><span class="num">slide 23</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">8. Apraxia <span class="badge">Exam</span></div>
+
+<h3>Definition:</h3>
+<ul>
+<li><strong>Apraxia</strong> (Greek: "without act or deed") = loss of ability to execute <strong>learned voluntary movements</strong> (especially complex sequences) despite <strong>motivation and physical capacity</strong></li>
+<li>Key characteristic: muscles work normally, person understands the assignment, but <strong>cannot execute the movement correctly</strong></li>
+<li>The problem lies in <strong>motor planning processes</strong> in the brain</li>
+</ul>
+<h3>Types of Apraxia <span class="badge">Exam</span>:</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ideomotor apraxia</strong></td>
+<td>Cannot voluntarily perform a learned action with an object, imitate actions, or follow verbal instructions</td>
+<td>Cannot wave goodbye on command, but waves naturally when someone leaves; cannot pantomime combing hair with a comb, but can comb when wanting to</td>
+</tr>
+<tr>
+<td><strong>Ideational apraxia</strong></td>
+<td>Cannot carry out sequential tasks involving tools/objects in proper order</td>
+<td>Puts shoes on before socks; strikes candle against matchbox instead of striking match</td>
+</tr>
+<tr>
+<td><strong>Verbal apraxia</strong></td>
+<td>Difficulty producing speech</td>
+<td>Affects both adults and children; devastating for learning and socialization</td>
+</tr>
+</tbody>
+</table>
+<h3>Key Distinction <span class="badge">Exam</span>:</h3>
+<ul>
+<li><strong>Ideomotor</strong>: person <strong>knows what to do</strong> but <strong>cannot perform</strong> the actions</li>
+<li><strong>Ideational</strong>: person cannot plan the <strong>sequence</strong> of actions properly</li>
+</ul>
+<h3>Neural Basis:</h3>
+<ul>
+<li>Ideational and ideomotor apraxia linked to damage of <strong>parietal and premotor cortex</strong> (typically <strong>language-dominant side</strong>)</li>
+<li>Can result from stroke, ischemia (ideomotor), or diffuse degeneration like <strong>Alzheimer's</strong> or <strong>Parkinson's</strong> disease</li>
+<li>Example: Actor Daniel Radcliffe has mild apraxia (dyspraxia) — struggles to tie shoes</li>
+</ul>
+<h3>Behavioral Examples <span class="badge prof">Prof</span>:</h3>
+<ul>
+<li>Unable to demonstrate how to use a toothbrush</li>
+<li>Difficulty dressing or buttoning clothes</li>
+<li>Problems making gestures</li>
+<li>Different types of apraxia → different behavioral difficulties</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img037.jpg" data-slide="23"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img037.jpg" alt="Slide 23" loading="lazy"/></a><figcaption><span class="num">slide 23</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img038.jpg" data-slide="24"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img038.jpg" alt="Slide 24" loading="lazy"/></a><figcaption><span class="num">slide 24</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img039.jpg" data-slide="24"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img039.jpg" alt="Slide 24" loading="lazy"/></a><figcaption><span class="num">slide 24</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img040.jpg" data-slide="24"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img040.jpg" alt="Slide 24" loading="lazy"/></a><figcaption><span class="num">slide 24</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">9. Mirror Neurons <span class="badge">Exam</span></div>
+
+<h3>Discovery and Location:</h3>
+<ul>
+<li>Found in <strong>ventral premotor cortex (area F5)</strong> in monkeys</li>
+<li>Also found in <strong>rostral inferior parietal cortex</strong> → projects to F5</li>
+<li>Together form an interconnected <strong>fronto-parietal mirror system</strong></li>
+</ul>
+<h3>Key Properties:</h3>
+<ul>
+<li>Fire both when performing an action AND when <strong>observing the same action</strong> performed by another</li>
+<li>Some neurons show <strong>context specificity</strong>: selectively respond to grasping actions leading to eating vs. grasping to move an object (related to <strong>end goal</strong>)</li>
+<li><strong>Superior temporal sulcus (STS)</strong> relays perceptual information about biological motion to the parietal component but does NOT exhibit mirroring itself</li>
+<li>Activity in this premotor circuit is <strong>inhibited</strong> to prevent obligatory copying behavior</li>
+</ul>
+<h3>Human Mirror System:</h3>
+<ul>
+<li>Putative human mirror system identified via fMRI:</li>
+<li><strong>Ventral premotor cortex (vPM)</strong></li>
+<li><strong>Dorsal premotor cortex (dPM)</strong></li>
+<li><strong>Motor/somatosensory cortex</strong></li>
+<li><strong>Middle temporal gyrus (MTG)</strong></li>
+<li>Human activation is <strong>more widely distributed</strong> throughout motor system and STS than in monkeys</li>
+<li>Similar activity occurs when people <strong>mime</strong> actions</li>
+</ul>
+<h3>Theoretical Implications:</h3>
+<ul>
+<li>Speculated roles in: understanding <strong>intentions of others</strong>, <strong>language acquisition</strong>, <strong>empathy</strong></li>
+<li>Possible relevance to <strong>autism</strong> (behavioral disorders)</li>
+</ul>
+<h3>Important Caveats <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Adult monkeys do <strong>not learn much by direct imitation</strong> — undermines simplest interpretation</li>
+<li>Human evidence is <strong>suggestive but indirect</strong> — fMRI cannot determine if same neurons (vs. adjacent ones) respond to both execution and observation</li>
+<li>Debate: do mirror neurons reflect a unique social cognitive function, or are they simply established by <strong>associative learning</strong>?</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img041.jpg" data-slide="25"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img041.jpg" alt="Slide 25" loading="lazy"/></a><figcaption><span class="num">slide 25</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img042.jpg" data-slide="25"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img042.jpg" alt="Slide 25" loading="lazy"/></a><figcaption><span class="num">slide 25</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide26_img043.jpg" data-slide="26"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide26_img043.jpg" alt="Slide 26" loading="lazy"/></a><figcaption><span class="num">slide 26</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide27_img044.jpg" data-slide="27"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide27_img044.jpg" alt="Slide 27" loading="lazy"/></a><figcaption><span class="num">slide 27</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">10. Motor Skill Learning — Two Phases <span class="badge">Exam</span></div>
+
+<h3>Early Learning Phase:</h3>
+<ul>
+<li>Performance improves <strong>rapidly</strong> within a single training session</li>
+<li>Activates broad network: <strong>premotor cortex, pre-SMA, SMA, basal ganglia (caudate), cerebellum, parietal cortex</strong></li>
+<li>Duration depends on task complexity (minutes for simple sequences, months for complex tasks like piano)</li>
+</ul>
+<h3>Advanced Learning Phase:</h3>
+<ul>
+<li>Performance improves <strong>slowly</strong> over multiple practice sessions</li>
+<li><strong>Reduced global activity</strong> in most regions (less error correction needed)</li>
+<li><strong>Increased activity</strong> in specific subregions of <strong>primary motor cortex</strong> and <strong>cerebellum</strong></li>
+<li>These increases correlated with <strong>synchrony of motor responses</strong></li>
+</ul>
+<h3>Serial Reaction Time (SRT) Task <span class="badge">Exam</span>:</h3>
+<ul>
+<li>Four screen locations, four spatially mapped response keys</li>
+<li>Stimulus order follows a repeated (hidden) sequence (10-12 units long)</li>
+<li>Even when unaware of the sequence, participants show <strong>faster reaction times</strong> over time (implicit learning)</li>
+<li>Inserting a <strong>random block</strong> → reaction times significantly slower → proves sequence-specific learning</li>
+<li>SRT learning is <strong>preserved in amnesia</strong> but <strong>impaired in Parkinson's/Huntington's</strong> → depends on <strong>basal ganglia</strong>, not medial temporal lobe</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img045.jpg" data-slide="28"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img045.jpg" alt="Slide 28" loading="lazy"/></a><figcaption><span class="num">slide 28</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img046.png" data-slide="28"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img046.png" alt="Slide 28" loading="lazy"/></a><figcaption><span class="num">slide 28</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img047.jpg" data-slide="29"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img047.jpg" alt="Slide 29" loading="lazy"/></a><figcaption><span class="num">slide 29</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img048.jpg" data-slide="29"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img048.jpg" alt="Slide 29" loading="lazy"/></a><figcaption><span class="num">slide 29</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">11. Key Brain Areas Summary Table <span class="badge">Exam</span></div>
+
+<table>
+<thead>
+<tr>
+<th>Brain Area</th>
+<th>Function in Motor Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary motor cortex</strong></td>
+<td>Issues motor commands (upper motor neurons)</td>
+</tr>
+<tr>
+<td><strong>Premotor cortex</strong></td>
+<td>Externally cued movements; graded sensory-motor conversion</td>
+</tr>
+<tr>
+<td><strong>SMA</strong></td>
+<td>Self-initiated movements; movement sequences; abstract motor intentions</td>
+</tr>
+<tr>
+<td><strong>Parietal cortex</strong></td>
+<td>Sensory-motor coordination; hand-eye integration; coordinate transformations</td>
+</tr>
+<tr>
+<td><strong>Basal ganglia</strong></td>
+<td>Gating/disinhibition of movements; motor learning; goal-directed behavior</td>
+</tr>
+<tr>
+<td><strong>Cerebellum</strong></td>
+<td>Error correction (online); motor coordination; motor learning (initial phase)</td>
+</tr>
+<tr>
+<td><strong>Brainstem</strong></td>
+<td>Postural adjustments; reflex coordination; multi-joint movement coordination</td>
+</tr>
+<tr>
+<td><strong>Frontal eye fields</strong></td>
+<td>Eye movement planning; evidence accumulation for saccades</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<section>
+<div class="col-slides">
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img049.jpg" data-slide="30"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img049.jpg" alt="Slide 30" loading="lazy"/></a><figcaption><span class="num">slide 30</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img050.jpg" data-slide="30"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img050.jpg" alt="Slide 30" loading="lazy"/></a><figcaption><span class="num">slide 30</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img051.jpg" data-slide="31"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img051.jpg" alt="Slide 31" loading="lazy"/></a><figcaption><span class="num">slide 31</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img052.jpg" data-slide="31"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img052.jpg" alt="Slide 31" loading="lazy"/></a><figcaption><span class="num">slide 31</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img053.jpg" data-slide="32"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img053.jpg" alt="Slide 32" loading="lazy"/></a><figcaption><span class="num">slide 32</span></figcaption></figure>
+<figure class="slide-embed"><a href="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img054.jpg" data-slide="32"><img src="/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img054.jpg" alt="Slide 32" loading="lazy"/></a><figcaption><span class="num">slide 32</span></figcaption></figure>
+</div>
+<div class="col-text">
+<div class="section-eyebrow">Key Takeaways</div>
+
+<ol>
+<li>
+<p><strong>Motor control is hierarchical</strong> — from abstract motor plans (cortex) down to specific muscle commands (spinal cord), with the basal ganglia and cerebellum providing modulatory control. Bernstein's signature experiment proves the abstract level of motor programs.</p>
+</li>
+<li>
+<p><strong>SMA vs. Premotor cortex dissociation</strong> — SMA handles self-initiated and sequential movements; premotor cortex handles externally cued movements. Tanji's monkey experiment and pharmacological inactivation provide key evidence. [EXAM CRITICAL]</p>
+</li>
+<li>
+<p><strong>Parietal cortex is essential for sensory-motor coordination</strong> — damage causes optic ataxia and disrupted precision grip. Supports Goodale &amp; Milner's dorsal ("how") vs. ventral ("what") stream theory. [EXAM CRITICAL]</p>
+</li>
+<li>
+<p><strong>The cerebellum is a comparator system</strong> — compares intended vs. actual movements for online error correction. Damage causes ataxia and intention tremor. Most active during initial motor learning. Now also implicated in cognition (attention, timing, working memory). [EXAM CRITICAL]</p>
+</li>
+<li>
+<p><strong>Basal ganglia gate movement through disinhibition</strong> — also involved in motor learning (SRT tasks impaired in Parkinson's/Huntington's) and have expanded into emotional and cognitive channels. [EXAM CRITICAL]</p>
+</li>
+<li>
+<p><strong>Apraxia demonstrates the cognitive nature of motor control</strong> — patients have intact muscles and comprehension but cannot plan/execute learned movements. Three types (ideomotor, ideational, verbal) with distinct behavioral profiles.</p>
+</li>
+<li>
+<p><strong>Motor planning is graded, not all-or-nothing</strong> — premotor neurons accumulate sensory evidence proportional to motion coherence and reward value before committing to a movement.</p>
+</li>
+<li>
+<p><strong>Motor skill learning has two phases</strong> — early (rapid improvement, broad network activation) and advanced (slow improvement, focused activation in primary motor cortex and cerebellum). The SRT task is the classic paradigm for studying implicit motor sequence learning.</p>
+</li>
+</ol>
+</div>
+</section>
+
+</article>
+<section class="lecture-extras">
+  <details class="extras-fold">
+    <summary>Lecture transcript<span class="extras-meta">auto-generated · expand to load</span></summary>
+    <pre class="extras-text" data-src="/cog-neuro/transcripts/m2_l2.txt"></pre>
+  </details>
+  <details class="extras-fold">
+    <summary>Book chapter — Ch. 5 — Motor Control<span class="extras-meta">expand to load</span></summary>
+    <pre class="extras-text" data-src="/cog-neuro/book/ch05.txt"></pre>
+  </details>
+</section>
+
+
+<!-- Annotation panel -->
+<aside class="annot-panel" aria-label="Saved annotations" id="annotPanel">
+  <button type="button" class="annot-panel-toggle">
+    <span class="annot-panel-icon">✎</span>
+    <span class="annot-panel-count">0</span>
+    <span class="annot-panel-label">notes</span>
+  </button>
+  <div class="annot-panel-list"></div>
+</aside>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script src="./cog-neuro-extras.js"></script>
+<script src="./lightbox.js"></script>
+<script src="./cog-neuro-annot.js"></script>
+<script>
+  window.cogAnnot.mount({
+    sectionId: "m2_l2",
+    contentEl: document.getElementById("content"),
+    panelEl: document.getElementById("annotPanel"),
+  });
+</script>
+</body>
+</html>

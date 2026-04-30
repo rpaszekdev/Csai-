@@ -1,0 +1,3021 @@
+2
+The Methods of
+Cognitive Neuroscience
+INTRODUCTION
+As introduced in Chapter 1, the goal of cognitive neuroscience is to
+explain cognitive processes and behavior in terms of the structure and
+function of the brain and the rest of the nervous system. A critical contribution of cognitive psychology has been to emphasize the importance of
+measuring behavioral responses during cognitive and perceptual tasks
+as a means of inferring what transpires as the nervous system translates
+stimuli into appropriate actions, thoughts, and other behaviors. By
+applying these psychological paradigms in conjunction with neuroscience techniques and methods, investigators have increasingly been able
+to directly relate the biology of brain functions to the mental functions
+studied by cognitive scientists. These findings in turn help constrain and
+guide cognitive models of behavior, as part of a synergistic interplay
+between the fields that form the central core of cognitive neuroscience.
+Neuroscience-based approaches can be divided into two broad
+categories: (1) studying changes in cognitive behavior when the brain
+has been perturbed in some way, and (2) measuring brain activity while
+cognitive tasks are being performed (Figure 2.1). For the first of these
+approaches, disturbances of brain function due to clinical brain lesions
+resulting from stroke, trauma, or disease have been enormously useful
+for investigating the role of the brain in specific cognitive processes.
+In addition, methods that employ pharmacological and electrical perturbations of brain function, including those applied in a temporary
+fashion, have also been used to great advantage in both human subjects
+and experimental animals (see Introductory Box). The second main
+approach—that of measuring brain activity while a subject is engaged
+in a specific cognitive task—takes advantage of a variety of currently
+available electrophysiological and imaging techniques in both humans
+and animals. Both of these approaches have altered and accelerated our
+understanding of the mechanisms underlying the higher brain functions
+that are the focus of cognitive neuroscience.
+
+18 ■ CHAPTER 2
+
+■ INTRODUCTORY BOX EARLY BRAIN MAPPING IN HUMANS
+
+O
+
+ne of the earliest methods used
+to directly examine cognitive
+brain function in humans was
+intracranial electrical stimulation in patients. Although intracranial stimulation
+techniques are highly invasive, they are
+sometimes used in humans to enable
+neurosurgeons to map the functions
+of brain regions on or near the site of
+a tumor, suspected epileptic focus, or
+other lesion that needs to be dealt with
+surgically. Because there are no pain receptors in brain tissue, such stimulation
+mapping can be performed on awake,
+responsive patients.
+As mentioned briefly in Chapter 1, one
+of the first scientists to use electrical stimulation in this way was the neurosurgeon
+Wilder Penfield (Figure A), who in 1934
+established the Montreal Neurological
+Institute with support from the Rockefeller
+Foundation. With his colleague Herbert
+Jasper, Penfield developed procedures
+for treating patients with severe epilepsy
+by destroying the brain tissue in the regions where the seizures originated. Before damaging any cortical tissue, however, he used focal electrical stimulation
+to functionally map the region as a way to
+better understand the functionality of the
+surrounding area. Since the patients were
+conscious during the procedure, he was
+able to observe their responses and/or
+ask about what they were experiencing.
+The patients’ responses to the stimulation helped him plan the surgery so that
+important brain functionality could be
+preserved (Figure B).
+Using this focal stimulation technique,
+Penfield was able to create maps of the
+sensory and motor cortices of the brain.
+In particular, he established that each
+of these areas contains complete and
+separate representations of the various
+body parts on the contralateral side of
+the body (Figure C). Penfield found that
+the layout of these cortical representations followed the general somatotopic
+relationships of the different parts of the
+body (see Chapters 4 and 5). That is, adjacent body parts generally had adjacent
+cortical representations, which together
+gave rise to a representational map of
+the entire body termed a homunculus
+(meaning literally “little man”). One of the
+intriguing findings of this work was the
+relatively large expanse of cortex dedicated to some body parts, such as the
+face and hands, relative to others. This is
+presumed to reflect the need for higher
+detail of representation for these parts.
+These findings of the neural representation of contralateral parts of the body
+in the sensory and motor cortices have
+
+been mostly confirmed by numerous
+studies since, using a variety of different
+methods.
+Penfield also reported intriguing effects of stimulating other regions, such
+as parts of the temporal lobes, where
+seizures often originate. These effects
+included both auditory perceptions and
+the vivid recall of memories. For example, he recorded that “stimulation of
+a point on the anterior part of the first
+temporal lobe on the right” caused one
+patient to remember being at a very
+specific location—namely, “South Bend,
+Indiana, corner of Jacob and Washington”—and to be “looking at himself at a
+younger age.” Other stimulation triggered
+memories of music from the Broadway
+musical Guys and Dolls. Although these
+triggered memories could vary substantially even when the same region was
+stimulated at different times, the specificity of the memories induced was quite
+
+(A)
+
+striking. Moreover, these observations
+are consistent with the conclusions in
+Chapters 8 and 9 that long-term memories are stored in the cerebral cortex.
+
+References
+PENFIELD, W. AND H. JASPER (1954) Epilepsy
+and the Functional Anatomy of the Human
+Brain, 2nd Ed. Oxford: Little, Brown.
+PENFIELD, W. AND T. RASMUSSEN (1950)
+The Cerebral Cortex of Man: A Clinical
+Study of Localization of Function. Oxford:
+Macmillan.
+
+Early mapping of cortical brain function in
+humans using intracranial stimulation. (A)
+Neurosurgeon Wilder Penfield. (B) An original
+photo of the exposed brain of one of Penfield’s patients, labeled with stimulation locations. (C) The layout of the representations
+in the somatosensory (left panel) and motor
+(right panel) cortices of the body parts on the
+contralateral side of the body. (Courtesy of
+the Osler Library of the History of Medicine,
+McGill University.)
+
+(B)
+
+Primary
+somatosensory
+cortex
+
+(C)
+
+Primary
+motor
+cortex
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+(A) Brain perturbation approach
+Measure task performance
+
+Perturbation of brain
+
+Cognition
+
+Brain
+
+(B) Neuromonitoring approach
+Manipulate cognitive process
+
+Measure neural variable
+
+Cognition
+
+Brain
+
+■ 19
+
+Figure 2.1 Two main approaches for linking cognitive functions and neural processes (A) In the first approach, the brain
+is perturbed in some way—either by a clinical disorder (e.g.,
+stroke, disease, trauma) or by directed, planned interference
+(injected drugs, electrical stimulation)—and task performance on
+a set of cognitive tasks is measured. (B) In the neuromonitoring
+approach, an experimenter manipulates a particular cognitive
+process in an experimental task and measures the associated
+changes in brain activity.
+
+Brain Perturbations That Elucidate Cognitive Functions
+Perturbations of the brain that impair or otherwise influence cognitive functions
+can come about through a variety of mechanisms. Such perturbations often
+derive from brain damage in patients due to stroke, trauma, or disease, but they
+can also be induced experimentally using methods that employ pharmacological
+or electrical methods. Information from both of these ways by which normal
+brain operations can be disrupted have greatly advanced our understanding
+of the neural underpinnings of cognitive functions.
+
+Perturbations imposed by stroke, trauma, or disease
+The technique of clinical-pathological correlations is the oldest method for
+understanding the neural basis of cognitive function and has been a mainstay
+of neurology and neurosurgery for more than a century. A major advantage of
+this approach is that if damage to a brain area or system disrupts a cognitive
+function, it is likely that the damaged region is involved in some critical way
+in the performance of that function.
+This approach was first accomplished by correlating a patient’s signs, symptoms, and behavior during life with the location of brain lesions discovered upon
+autopsy. Brain lesions can arise from a stroke that damages a particular region
+of cortex, from traumatic injury, from a tumor, or from various brain diseases.
+Many examples of clinical-pathological correlations are considered in later
+chapters, including the seminal work that associated language functions with
+specific regions in the left hemisphere (see Chapter 12); studies that associated
+frontal lobe damage with deficits in planning and judgment (see Chapter 14);
+and studies that have provided fundamental insights into the neural basis of
+perception (see Chapters 3 and 4), attentional control (see Chapter 7), memory
+(see Chapters 8 and 9), and emotion (see Chapter 10).
+A major limitation of clinical-pathological correlations in humans, however,
+is that the brain damage is the result of many factors that are not under the
+control of the experimenter. In the case of strokes, for example, these factors
+include which specific artery was blocked, which brain area(s) that artery
+supplied, whether other arteries were still able to supply some blood to the
+affected area, and how long ago the stroke occurred. Although stroke-induced
+lesions can be relatively focal, they follow vascular-supply boundaries rather
+than being restricted to functional brain regions, and thus a single lesion can
+have diverse effects on cognitive functions.
+Moreover, the distribution of brain regions supporting cognitive functions
+varies among individuals, making it difficult to generalize results. This variability can be addressed to some degree by combining information about the
+
+20 ■ CHAPTER 2
+Left dorsal prefrontal
+
+0
+
+100%
+
+Figure 2.2 Combining information across subjects helps to localize the brain
+region underlying a cognitive deficit These images show the areas of damage
+determined from structural magnetic resonance brain images (see Box 2A) for eight
+patients with a common cognitive loss (the prefrontal syndrome described in Chapter
+13). Each row shows the extent of damage for a given patient; each column represents a comparable level in the brain, from inferior on the left to superior on the right.
+The bottom row shows the area of brain damage the eight subjects have in common. The scale indicates the percentage of subjects with damage in each location.
+This sort of analysis helps specify the brain region that is critical to a given function.
+(Courtesy of Robert T. Knight.)
+
+locus of damage across a group of patients, allowing researchers to delineate
+the affected region that is common to the loss of a particular function (Figure
+2.2). The region of overlap among a group of patients more accurately defines
+the part of the brain relevant to the cognitive function at issue. Notably, only
+with the advent of modern brain imaging techniques did this approach of collating information concerning the overlapping of brain lesions into a common
+space become very practical or accurate.
+Another way researchers have defined the relationship between brain
+damage and resulting deficits in cognitive functions is by making restricted
+electrolytic or surgical lesions in experimental animals, including non-human
+primates. This approach allows the researcher to control the location and extent
+of brain damage, limiting it to specific functional areas. There are, however,
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+some disadvantages to this approach as well. The training and assessment
+of animals carrying out cognitive tasks is considerably more difficult than
+for similar studies in humans, and making deliberate lesions in the brains of
+healthy animals, particularly non-human primates, can raise ethical concerns.
+Nevertheless, the use of carefully controlled brain lesions in experimental
+animals has provided useful information complementing that derived from
+neuropsychological studies in humans.
+Lesion studies, whether in humans or in animals, also present problems
+of interpretation. The mammalian brain is a highly interconnected structure.
+If one area of the brain is lesioned, other areas of the brain innervated by the
+damaged area may, from the loss of input, also cease to function normally. Such
+effects, known as diaschisis, can lead to wrongly attributing the lost functionality to the lesioned area rather than to the downstream area. Another possible
+misinterpretation of lesion findings is that damage to a cortical area can also
+damage nearby fiber tracts, thereby disrupting the function of more distant areas.
+Nevertheless, clinical-pathological correlation studies remain highly informative in cognitive neuroscience. Their continued relevance has been greatly
+augmented by modern neuroimaging methods that allow brain lesions to be
+localized with considerable precision in living patients who are still available
+for detailed behavioral testing. Such knowledge of the exact site of a lesion can
+inform and guide the behavioral testing in a far more focused way than when
+the definitive localization of the lesion could be attained only postmortem. Such
+modern methods of imaging brain structure, particularly those using magnetic
+resonance imaging (MRI), are fundamental to cognitive neuroscience; they are
+described in Box 2A. Other sorts of imaging techniques, such as the MRI-based
+technique of diffusion tensor imaging (DTI), are being used to delineate the
+structural connections of the brain (Box 2B).
+
+Pharmacological perturbations
+Another way of perturbing cognitive function in the brain is via pharmacological manipulation. As described in the Appendix, signaling between neurons
+involves the release of and response to neurotransmitter molecules at synapses.
+Many drugs interfere with or augment these processes and can thereby change
+cognitive functions. Cognitive neuroscientists have taken advantage of psychoactive drugs such as caffeine, cocaine, antidepressants, and a host of others to
+gain insight into the neuropharmacology of these functions, both in humans
+and in experimental animals.
+Pharmacological studies in humans have taken two main forms. The first
+approach is to examine the influence of chronic drug use or abuse on cognitive
+processes, taking advantage of the unfortunate prevalence of these social problems
+and the disorders they cause. An example is the set of cognitive impairments
+apparent in cocaine addicts, which include changes in reward evaluation (i.e.,
+a person’s ability to properly assess the positive or negative value of events
+and behaviors). Impaired reward evaluation in turn affects the ability to make
+self-protective decisions and to formulate and pursue successful life strategies.
+Cocaine and other drugs of abuse lead to specific changes in neurotransmission
+in the brain systems that underlie these functions. Cocaine specifically activates
+dopamine receptors, altering the physiology of the dopamine system, which is
+known to play a major role in reward evaluation (see Chapter 14). Although
+the dysfunction that leads to addiction is still not completely understood, the
+altered sense of reward associated both with the cocaine “high” and with
+cocaine addiction is clear. Chronic use leads to drug tolerance (i.e., the need for
+increasing amounts of the drug in order to achieve the same pharmacological
+effect), which results in further negative consequences. (On a less problematic
+level, this sort of pharmacological adaptation is familiar to habitual coffee
+
+■ 21
+
+22 ■ CHAPTER 2
+
+■ BOX 2A AN INTRODUCTION TO STRUCTURAL BRAIN IMAGING
+TECHNIQUES
+
+U
+
+ntil relatively recently, images
+of the human brain, whether of
+patients or of normal subjects,
+provided only limited information to clinicians and researchers. For a long time,
+the best noninvasive imaging methodology available used conventional X-ray
+techniques, which do not image softtissue structures such as the brain very
+well and do not provide three-dimensional image information. Although the addition of vascular contrast agents (dyes
+containing radiopaque materials such as
+barium salts) improved the visualization
+of damaged tissue, the intrinsic two-dimensional nature of conventional X-rays
+(i.e., giving a net density through imaged
+tissue only at one particular angle) still
+limited the anatomical resolution of brain
+tissue. Beginning in the 1970s, however,
+the development of a variety of imaging
+methods that revealed brain structure
+(and, somewhat later, brain physiology)
+with ever-increasing detail revolutionized
+neuroscience, from clinical diagnostics to
+research on cognitive processes.
+The first technological breakthrough
+was the development of computerized
+tomography (CT). CT uses a movable
+X-ray tube that is rotated around the
+patient’s head (Figure A). Rather than
+acquiring a single image, as in conventional X-ray images, a CT scan gathers
+intensity information gleaned from multiple angles through the imaging volume.
+These data are entered into a matrix,
+and the radiodensity at each point in the
+three-dimensional space of the head
+is calculated. Using sensitive detectors
+and digital signal-processing techniques,
+small differences in radiodensity can be
+converted into three-dimensional image
+information for the full volume of the
+head. In addition, the computed matrix
+can generate “slices,” or tomograms
+(tomo means “cut” or “slice”), visualizing internal structures in various planes
+throughout the brain (Figure A, inset),
+transformed to provide views from any
+angle. Since many brain structures are
+best seen in a particular plane, this ability
+is a tremendous advantage.
+Today, CT imaging for brain research
+purposes has been largely superseded
+by magnetic resonance imaging
+(MRI; Figure B), although CT remains important in many clinical applications because it is faster and cheaper than MRI
+and can be used in some situations in
+
+(A)
+X-ray
+source
+
+X-ray
+detector
+
+which magnetic resonance cannot (e.g.,
+in patients with implanted metal devices).
+The essentials of the mechanism by
+which magnetic resonance produces images can be understood in terms of the
+three concepts reflected in the phrase
+magnetic resonance imaging itself:
+1. Magnetic. Consider a compass
+needle. At rest, the needle is aligned
+with the Earth’s magnetic field (i.e.,
+along a north–south axis). Similarly,
+when a person is inside an MRI
+scanner, protons in hydrogen atoms
+of the brain become aligned with the
+very strong main magnetic field of the
+scanner. Perturbations with respect to
+this alignment provide a source signal
+that can be measured, analyzed, and
+used to construct an image.
+
+2. Resonance. This difficult concept is
+the foundation of MRI. Resonance
+refers to the ability of a system
+to absorb energy delivered at a
+particular frequency. A macroscopic
+example is a child on a playground
+swing. Given a single push, even a
+strong one, the resulting movement
+is brief and diminishes quickly. In
+contrast, repeated small pushes
+at the right frequency (i.e., a push
+each time the person on the swing
+reaches the apogee of its arc) allows
+the system to absorb the imparted
+energy effectively, such that the child
+will soon be swinging back and forth
+with great excursion. In the same
+way, protons in a strong magnetic
+field will efficiently absorb energy
+
+(A) Computerized tomography. During a CT
+scan, an X-ray source is rotated around the
+patient’s head while detectors measure the
+intensity of the rays transmitted through the
+head at each imaged angle. Computer algorithms combine the opacity data from these
+multiple imaging angles to reconstruct the
+opacity at each point within the volume of
+the head. In addition, the detectors used in
+CT are more sensitive than conventional film,
+thereby allowing shorter imaging times and
+less radiation exposure. The CT scan in the
+inset shows a horizontal section of a normal
+adult brain.
+
+when the energy is delivered at a
+particular resonant frequency. During
+a process called excitation, the MRI
+scanner emits energy in the form of
+radio waves at precisely the resonant
+frequency of protons. After a few
+milliseconds, the radio-wave energy
+is turned off, whereupon the protons
+begin to release the energy they
+absorbed. This released energy—
+the MR signal—is measured by
+electromagnetic detectors around the
+head or other part of the body.
+3. Imaging. In order to create an image
+from the MR signal, electromagnetic
+coils in the scanner can cause
+the local magnetic field to differ in
+strength along specific directions.
+By varying these magnetic-field
+gradients in a systematic way along
+the x-, y-, and z-axes of the volume
+to be imaged, the MR signal is
+caused to vary correspondingly
+and systematically along these
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+■ 23
+
+■ BOX 2A (continued)
+axes. This complex variation in the
+signal emitted by the brain or other
+tissue is decoded by sophisticated
+computer analysis to create an image
+that reflects the proton density,
+as well as the distribution of other
+tissue characteristics, throughout
+the imaged volume. Because these
+characteristics are different for gray
+matter, white matter, the fluid in the
+ventricles, and other neural tissues
+(see the Appendix), a great deal of
+neuroanatomical detail becomes
+apparent.
+The spatial resolution of MR images
+depends on the strength of the magnetic
+field, the strength of the gradient coils,
+and the types of images being collected.
+Currently, most clinical scanners have field
+strengths of 1.5 tesla, which can provide
+a structural resolution of 1 millimeter or
+less. Research scanners tend to have
+field strengths of 3 tesla or higher, often
+along with high-performance magnetic
+gradient coils that further improve the
+structural imaging resolution and contrast.
+These enhanced performance characteristics also facilitate the acquisition of highspeed images of functional brain activity,
+as described later in the chapter.
+It should be apparent from this
+description that MRI has a number
+of important features that make it an
+extraordinarily valuable tool in cognitive
+neuroscience. First, it is noninvasive;
+subjects are simply exposed to a strong
+magnetic field and radio waves that are
+generally thought to be harmless to brain
+tissues (although patients have been
+injured by unsecured ferromagnetic objects being pulled into the MR scanner).
+Second, MR images of brain tissue are
+of extremely high resolution compared
+to those obtainable using other techniques (compare the insets in Figures A
+
+(B)
+
+(B) Magnetic resonance imaging. A typical 1.5-tesla MR scanner is shown. The inset shows a
+horizontal MR image of a normal adult brain. Note the extraordinary clarity with which the different soft-tissue types and regions of the brain can be seen, and how much more detail is visible
+compared to the CT image in Figure A.
+
+and B for CT and MRI images, respectively). Third, by varying the gradient and
+radio-frequency pulse parameters, MRI
+scanners can be used to generate images that are sensitive to many different
+aspects of brain structure. For example,
+certain imaging parameters enable the
+acquisition of pictures that delineate gray
+matter and white matter in very high
+detail. The use of other parameters in the
+MR scanning sequence yields images in
+which gray and white matter are invisible
+but the brain’s vasculature stands out.
+Varying yet other parameters enables
+measurement of the preferred direction
+of water diffusion for each voxel (i.e.,
+imaging volume unit) of imaged brain
+
+drinkers, who need more caffeine to achieve the same stimulatory effect than
+do people who drink coffee only occasionally.) Studies of the effects of cocaine
+have been critical in advancing our understanding of the regions of the brain
+and the cellular mechanisms involved in the normal sense of reward.
+More controlled pharmacological perturbation can be carried out in experimental settings in which a drug is administered acutely and its effects are
+monitored. In this manner it is possible to study, for example, the effects of
+nicotine on cognitive functions—another topic that has been of great interest
+because of the health implications of smoking. Nicotine affects neurotransmission mediated by acetylcholine, interacting with cognitive processes that include
+
+tissue. Because water tends to diffuse
+more along fiber tracts than across them,
+this technique—diffusion tensor imaging
+(DTI)—enables the imaging of fiber tracts
+at very high resolution (see Box 2B).
+
+References
+HOUNSFIELD, G. N. (1980) Computed medical imaging. Science 210: 22–28.
+HUETTEL, S., A. W. SONG AND G. MCCARTHY (2009) Functional Magnetic Resonance
+Imaging, 2nd Ed. Sunderland, MA:
+Sinauer.
+OLDENDORF, W. AND W. OLDENDORF JR.
+(1988) Basics of Magnetic Resonance Imaging. Boston: Kluwer Academic.
+
+24 ■ CHAPTER 2
+
+■ BOX 2B IMAGING STRUCTURAL CONNECTIONS IN THE BRAIN
+
+A
+
+n important element for understanding the mechanisms underlying cognitive functions in the brain
+is establishing how the different parts
+and regions are interconnected and work
+together. Accordingly, much work is
+continually being devoted to delineating
+the structural connections of the brain, at
+both the macroscopic and microscopic
+levels.
+At the macroscopic level, a variant of
+MRI known as diffusion-weighted imaging has been found to be particularly
+useful for delineating the white matter
+fiber tracts of the brain. The basis of this
+imaging approach derives from the fact
+that water molecules in living structures,
+including those in the brain, are always
+moving slightly within their local area.
+Such movement, or diffusion, of water
+molecules affects the MR signals arising
+from the local voxels (i.e., imaging volume units). Because the cellular environments experienced by the different
+water molecules differ across the brain,
+their diffusion characteristics vary as well.
+Modulating certain parameters of the
+MR scanning sequence can make the
+MR signal from each voxel particularly
+sensitive to the amount of local diffusion,
+enabling the construction of diffusionweighted images that reflect the diffusion
+characteristics across the brain.
+A particularly important application
+of such diffusion-weighted imaging is
+diffusion tensor imaging (DTI), which
+quantifies the relative diffusivity of the water molecules in each voxel into directional
+components. Because most axonal fibers
+in the brain that make up the white matter
+fiber tracts are encased in myelin (see the
+Appendix), which is particularly hydrophobic, water tends to diffuse more along
+fiber tracts than across them, but with
+generally less directionality in other types
+of brain tissue. Thus, white matter shows
+more prominent anisotropy in its diffusion
+characteristics (tending to have a preferred direction in its diffusion), whereas
+the diffusion in other brain regions tends
+to be isotropic (no preferred direction).
+A scalar quantity known as the fractional anisotropy (FA) can be computed
+for each voxel to express this degree
+of anisotropy. Fractional anisotropy can
+provide important information about the
+composition of the tissue within a voxel.
+Notably, some neurological diseases,
+such as multiple sclerosis and vascular
+dementia, are characterized by white matter pathology that can be identified with
+
+(A)
+
+(B)
+
+Fiber tracking using diffusion tensor imaging (DTI). (A) In this hypothetical five-by-six set of voxels, the diffusivity characteristics of each voxel are represented by an ellipsoid whose dimensions reflect the relative diffusion rates along the different directions, with spheres representing
+isotropic diffusion (relatively equal in all directions) and narrow ellipsoids showing stronger
+diffusivity values along a particular direction (the longest axis of the ellipsoid). Using tractography approaches, white matter tracts can then be reconstructed from these data by finding
+the strongest continuous chain along the preferred diffusion directions across multiple voxels
+(shown here in red). (B) This image, derived by DTI tractography, shows some major fiber tracts
+in the brain. Shown are the superior longitudinal fasciculus (SLF), the superior fronto-occipital
+tract (SFO), the inferior fronto-occipital tract (IFO), the uncinate fasciculus (UNC), and the inferior longitudinal fasciculus (ILF). (B courtesy of Dr. Susumu Mori.)
+
+FA measures. Moreover, individual differences in white matter integrity, such as
+with aging, can also be identified with FA.
+Thus, these variations can provide additional information for understanding variations in cognitive function, both in normal
+individuals and in clinical populations.
+Tractography is a powerful application of the DTI technology that allows
+delineation of the directionality of fiber
+tracts in the brain. More specifically, using DTI, the directional diffusivity in each
+voxel can be represented by an ellipsoid
+whose relative dimensions reflect the rate
+of diffusion in each direction (Figure A).
+White matter tracts can then be derived
+from these data using algorithms that
+estimate continuous tracts of diffusion
+across voxels (indicated in red in Figure
+A). By following these directions and
+continuously connecting the long axes
+that fit best along a line, images of the
+major nerve fiber tracts can be constructed. These, in turn, allow the formation of maps of structural connectivity in
+the brain (Figure B).
+DTI can be used in conjunction with
+fMRI activation studies in several ways.
+(See the text for details about functional
+MRI, or fMRI.) First, the fMRI activation
+data can help guide the tractography
+calculations. Such combination of these
+methods can be particularly useful for
+delineating the connectivity across com-
+
+plex regions of the brain with multiple,
+crossing fiber tracts. Conversely, the DTIdelineated fiber tracts can be used to
+help in what are called functional connectivity analyses (see text), which
+analyze how certain brain regions vary
+together in their activation patterns.
+From a microscopic standpoint,
+much work is also currently being aimed
+toward the goal of reconstructing the
+connectivity of the entire human brain
+(or the brains of other species) at the
+level of neurons and synapses. This nascent (and controversial) effort has been
+dubbed connectomics, which refers to
+obtaining full knowledge of brain connections (i.e., the connectome, by analogy
+with genome).
+Obtaining such information at the
+cellular level entails computer-assisted
+image acquisition and analysis using high-speed methods, along with
+organizing the results into an extremely
+large database. At the light-microscopic
+level, a method called Brainbow has
+recently been developed that is based
+on molecular genetics techniques used
+to delineate individual neurons and their
+branches by fluorescence in different
+colors (Figure C). At the finer electron microscopic level that allows synapses to
+be seen, the challenge of connectomics
+is vastly greater, as should be apparent
+from the electron micrograph in Figure D.
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+■ 25
+
+■ BOX 2B (continued)
+The proponents of connectomics
+argue that a huge database of fine-level
+structural connectivity will be a vital resource for all sorts of human and animal
+neuroscience research, both basic and
+clinical, including studies of cognitive
+questions. Given the very large cost and
+uncertain outcome, however, opponents have opined that connectomics
+would not be a wise investment, except
+in studying the brains of small, experimental animals. This interesting debate
+seems likely to continue for some time.
+
+(C)
+
+References
+Connectomics. (C) An
+example of an image from
+the light-microscopic
+Brainbow technique,
+taken from the mouse hippocampus. (D) An electron microscopic section
+from the cerebral cortex
+indicating the enormous
+complexity of brain connectivity at this level. (C, D
+courtesy of Jeff Lichtman
+and Josh Sanes.)
+
+(D)
+
+mood, attention, memory, and appetite, as well as neurological processes that
+can lead to addiction. The nicotine molecule binds to certain acetylcholine
+receptors and activates them just as the neurotransmitter acetylcholine itself
+does. (Drugs like nicotine that bind to and activate receptors in a manner
+similar to a neurotransmitter are called agonists, whereas drugs that bind to
+and block receptors are called antagonists.) When coupled with information
+derived from neuropharmacological studies in experimental animals and in
+vitro systems (i.e., in experimental environments outside the living organism),
+pharmacological manipulation can lead to inferences about the contribution
+of the relevant neurotransmitter system to the cognitive processes they affect.
+A disadvantage of administering drugs systemically (i.e., by injection into the
+bloodstream) for studying cognitive processes is the relative lack of specificity
+of their effects. With systemic administration, much of the brain (along with
+the other organs of the body) is exposed to the drug, and sorting out the effects
+on different brain systems can be difficult. A more specific intervention is to
+inject substances directly into specific brain areas of an experimental animal.
+This approach usually involves surgically implanting a cannula (a very thin
+tube) or other drug delivery system that can administer defined amounts of
+the experimental agent locally and in a highly controlled manner. For example,
+agonists and antagonists of major neurotransmitters such as dopamine and
+serotonin have been injected into midbrain regions implicated in reward processing to study the cognitive functions subserved by these key regions. Such
+studies have provided insight into the actions of a range of drugs used to treat
+
+HUETTEL, S. A., A. W. SONG AND G.
+MCCARTHY (2009) Functional Magnetic
+Resonance Imaging, 2nd Ed. Sunderland,
+MA: Sinauer.
+LICHTMAN, J. W., J. R. LIVET AND J. SANES
+(2008) A technicolour approach to the connectome. Nat. Rev. Neurosci. 9: 417–422.
+MORI, S. AND J. ZHANG (2006) Principles of
+diffusion tensor imaging and its application to basic neuroscience research.
+Neuron 51: 527–539.
+SEUNG, S. (2012) Connectome: How the
+Brain’s Wiring Makes Us Who We Are. New
+York: Houghton Mifflin/Harcourt Brace.
+
+26 ■ CHAPTER 2
+disorders such as depression and schizophrenia and, by implication, insight
+into the cognitive functions that go awry in these disorders.
+
+Perturbation by intracranial brain stimulation
+A different way of perturbing brain function is direct electrical stimulation
+of a specific brain region, a technique used by pioneering neurophysiologists
+such as Charles Sherrington and David Ferrier beginning in the late nineteenth
+century. In this approach, electrodes are placed onto or into the brain of an experimental animal or a human patient during a neurosurgical procedure (see
+Introductory Box). Electrodes can be placed transiently (i.e., just for the duration of the surgery) or chronically for extended studies of the brain’s electrical
+activity and responses to electrical stimulation.
+In experimental animals, chronically implanted electrodes allow researchers to assess the function of individual neurons or groups of neurons as the
+animal (often a monkey) carries out a cognitive task it has been trained to
+perform. By altering the strength of the stimulus applied, the effects on the
+local neuronal population can be varied to provide additional information.
+For example, moderate levels of stimulation can activate neurons and trigger
+behavior that suggests what a given population normally does. In contrast,
+strong stimulation tends to disrupt normal function, and thus can indicate how
+the loss of that neuronal population affects a particular cognitive process. Used
+in this latter way, electrical stimulation can effectively create a transient and
+reversible “lesion.” Although intracranial stimulation techniques are obviously
+invasive, they are sometimes used in humans to enable neurosurgeons to map
+the functions of brain regions that they are considering removing or operating
+on (see Introductory Box).
+
+Perturbation by extracranial brain stimulation
+Although disrupting neural processing by local electrical stimulation can be
+informative, the use of this technique in humans is obviously limited to patients with serious medical problems. A far less invasive approach that can be
+used to disrupt cognitive processing in normal subjects is transcranial magnetic
+stimulation (TMS). In this technique, a strong but transient and rapidly changing
+magnetic field is generated over a region of the scalp by passing an intense,
+rapidly varying, electrical current through a set of coils (Figure 2.3). The rapidly
+changing magnetic field in the coil induces a rapidly changing electrical field
+in the underlying brain tissue, resulting in an extraneous flow of current that
+transiently interacts with local neural processing. With strong stimulation, this
+interaction is typically disruptive, creating a reversible brain “lesion” limited
+to the underlying area, in much the same manner that strong direct electrical
+stimulation would. With weaker stimulation, this interaction can sometimes
+facilitate activation of the underlying area.
+Several approaches are used to apply TMS to the study of cognitive processes.
+One technique is to apply a series of TMS pulses (e.g., one per second) over
+several minutes. The influence of such repetitive TMS (rTMS) stimulation on a
+cognitive function of interest can then be examined by behavioral tests that
+can be administered during and after the TMS application (up till a couple of
+hours afterward). Studies using this approach have shown that, depending on
+the strength of stimulation, TMS can either impair or improve performance on
+tasks involving the stimulated area, allowing inferences about the role of that
+area in performing the task.
+Another approach is to deliver a single TMS pulse to a brain area at specific
+times during the course of a task trial (the pulse can be delivered just before
+a stimulus, for example, or at a particular latency after a stimulus) and then
+to study its influence on task performance on that trial. An advantage of this
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+(A)
+
+(B)
+
+■ 27
+
+(C)
+
+approach is that it provides greater temporal resolution in assessing the role
+of the brain area of interest in a cognitive task.
+There are, however, several important drawbacks to TMS. First, as indicated
+in Figure 2.3, TMS tends to affect a relatively large area, limiting anatomical
+resolution. Second, transcranial stimulation can be delivered effectively to only
+relatively superficial brain regions, primarily the more superficial regions of
+the cerebral cortex (typically up to 1.5 centimeters into the brain). Third, the
+technique can result in concurrent stimulation of scalp and head muscles,
+especially in attempts to stimulate certain regions of the frontal and temporal
+lobes, resulting in uncomfortable and even painful twitching. Finally, although
+TMS is in principle noninvasive, the stimulation entails some risk (e.g., strongly
+stimulating the brain might trigger a seizure in a person with a physiological
+predisposition toward epilepsy). These problems notwithstanding, the ability
+to transiently modulate brain function in normal subjects in this way provides
+an important additional tool in the quest to understand the neural bases of
+cognitive functions.
+Another approach for performing extracranial brain stimulation is transcranial direct current stimulation (tDCS). The application of such forms of
+stimulation actually has a rather long history, having first been developed in
+the nineteenth century. It has gone in and out of favor over the years but has
+regained popularity of late. In tDCS a constant, low-amplitude, electrical current
+is applied directly to the scalp. This is accomplished with a rather simple device
+consisting of two electrodes, a battery, and a means of adjusting the strength
+of the current. One of the electrodes, typically the smaller one, is placed over
+the area of interest to stimulate, and the other electrode is placed elsewhere to
+complete the circuit. There are two main types of stimulation: anodal (positive)
+stimulation is thought to increase the cortical excitability of the area being
+stimulated; cathodal stimulation is thought to decrease the excitability. For scientific purposes, the effects of these stimulation modes are typically compared
+to a sham, or control, condition in which no current is delivered.
+Like rTMS, tDCS appears to have effects that can last for a period of time
+after the stimulation (many minutes). Also like rTMS, tDCS is being used to
+study cognitive functions in normal individuals, as well as for treating clinical
+problems, including depression and chronic pain. The main disadvantages of
+tDCS include the spatial coarseness of the stimulation and the limited understanding of its mechanisms. Because it is inexpensive, simple, and possibly
+useful for scientific and clinical purposes, however, interest in this method is
+growing in popularity.
+
+Figure 2.3 Transcranial magnetic
+stimulation (TMS) (A) In TMS, an
+electromagnetic coil is placed on the
+surface of the skull, in this example
+over the subject’s left frontal lobe.
+(B) Rapidly reversing the flow of a very
+strong current within the coil induces
+a strong transient magnetic field in
+the brain. (C) The magnetic field lines
+associated with a TMS pulse can be
+seen in the upper right of the coronal
+MRI phase map. A common yardstick
+used to set the appropriate strength
+of stimulation for an individual is the
+power that needs to be delivered to
+the hand area of motor cortex to elicit
+a muscle twitch in the hand. (C courtesy of Drs. Daryl Bohning and Mark
+George, Medical University of South
+Carolina.)
+
+28 ■ CHAPTER 2
+(A)
+Channelrhodopsin2
+(excitatory)
+
+Halorhodopsin
+(inhibitory)
+
+Laser light
+
+− −
+−−− −− −− −−
+
++ ++ + ++ + ++ + ++
++ + + +
+
+Laser light
+
+(B)
+
+Injection
+Viral expression
+
+Virally
+encoded
+opsin
+
+A
+
+Laser
+
+A
+
+C
+B
+
+Single viral injection into B
+(C)
+
+Light delivery
+
+C
+B
+
+Opsin expression throughout B
+
+A
+
+C
+B
+
+Illumination of B cell bodies
+projecting to A and C
+
+Figure 2.4 Optogenetics The optogenetics method uses genetic approaches to transfer light-sensitive ion channels selectively into specific sets of neurons whose activity can
+then be modulated with light. (A) Different versions of these genetically transferred ion
+channels can be either excitatory (left) or inhibitory (right) for the neuron’s firing.
+(B) The basic principle of the method is to insert into a virus the genetic material that
+codes for the manufacture of photoreactive ion channels from light-sensitive algae, and
+then to inject the virus into a specific brain area. The expression of the inserted genetic
+material in the neurons of the injected area leads to the production and incorporation of
+these ion channels into neuronal membranes. Shining light on the brain tissue can then
+selectively activate (or inactivate) these neurons and modulate their signals to the other
+brain areas to which they project, thereby influencing behavior. (C) In the example shown
+here, this technique is used to modulate the walking behavior of a mouse. (B after Yihar
+et al. 2009.)
+
+Optogenetics
+A recently developed technique for selectively stimulating neural circuits far more
+specifically is optogenetics. Optogenetics combines genetics with the use of laser
+light to activate specific neural circuits or neuronal cell types in a variety of experimental settings, including in a freely moving and behaving animal. Thus, it has
+both high neuronal selectivity and high temporal resolution.
+As described in the Appendix, the excitability of neuronal membranes is controlled
+by ion channels that can be induced to open or close to let ions flow into or out of
+the cell. Normally, such ion channels open and close in response to voltage changes
+across the cell membrane induced by the binding of neurotransmitters released in
+response to signal inputs from other neurons. The basic principle of the optogenetics method involves incorporating ion channels that open or close in response to
+light of a certain wavelength into the neurons of interest, thus providing a means
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+of turning them on and off with light. Moreover, depending on the type of ion
+channels incorporated, the neurons can be either excited or inhibited with the
+light stimulation (Figure 2.4A).
+The means of incorporating these light-sensitive ion channels into the brain
+comes from genetics. Typically, genetic material that codes for the manufacture of photoreactive ion channels is extracted from light-sensitive algae and
+inserted into a virus. The virus can then be injected into a particular brain area
+of interest (Figure 2.4B). The carrier virus infects targeted neurons near the site
+of injection, and the inserted genetic material then leads to the production of
+these light-sensitive ion channels and their incorporation into the membranes
+of the infected neurons. These neurons can then be selectively activated or
+inactivated by shining light of the appropriate wavelength on the neural tissue.
+The activation of these neurons in turn sends signals within their functional
+neural circuits, which can then selectively influence behavior. This approach
+has been used to modulate the walking pattern of mice (Figure 2.4C), to alter
+the escape response of fruit flies, and even to reduce disordered movements in
+mice with motor signs similar to those found in Parkinson’s disease. In sum,
+the method of optogenetics appears to have enormous potential for cognitive
+neuroscience, as well as possibly for the treatment of certain clinical disorders.
+
+Measuring Neural Activity during Cognitive Processing
+The other main approach to understanding the relationship between cognitive
+functions and the neural processes that give rise to them is to measure brain
+activity while a subject performs specific cognitive tasks. In both humans and
+experimental animals, neural activity can be recorded and measured in various
+ways, and these methods are a mainstay of cognitive neuroscience.
+
+Direct electrophysiological recording from neurons
+In experimental animals, the most commonly used approach for measuring
+neural activity is electrophysiological recording, a method that has its roots in
+the pioneering neurobiological work of the late nineteenth century. The most
+popular modern use of this general technique has been single-neuron electrical recording, which entails measuring the action potentials produced by individual neurons (Figure 2.5; see also the Appendix). Such recordings can record
+neuronal firing either extracellularly (from the extracellular space adjacent to
+active neurons) or intracellularly (from inside a single neuron).
+Extracellular recording is done with fine tungsten or steel electrodes that
+are inserted into the extracellular space in the cerebral cortex or deeper brain
+structures. The electrode can then monitor the electrical activity associated with
+action potentials generated by one or more neurons near the tip. Depending
+on the size of the electrode and its placement, the firing from several nearby
+neurons can be picked up concurrently, thereby assisting in the gleaning of
+information about the behavior of small groups of nerve cells in a region.
+For intracellular recording, electrolyte-filled glass electrodes with a much
+finer tip are used. To acquire such intracellular data, a single neuron must be
+penetrated by the electrode tip, which then records the electrical activity from
+within the cell as action potentials and post-synaptic potentials are generated.
+Such recordings provide much more detailed information about how single
+neurons behave during cognitive or other functions.
+Until a few decades ago, extracellular and intracellular recording were carried
+out on anesthetized animals, precluding experiments on cognitive functions
+that depend on the animals being able to execute behaviors that indicate, for
+example, what they may be perceiving or reacting to. More recently, however,
+most such electrophysiological experiments have focused on studies in awake,
+
+■ 29
+
+30 ■ CHAPTER 2
+(A)
+
+(B)
+Recording
+electrode
+
+Juice reward
+mechanism
+Response bar
+
+Stimulus
+screen
+
+Visual
+stimulus
+
+Fixation
+point
+
+Visual
+stimulus
+
+Restraint
+chair
+
+–400 –200
+200 400 600
+Stimulus onset
+Time (ms)
+
+800
+
+1000
+
+1200
+
+1400
+
+Figure 2.5 Recording single-unit activity in an awake, behaving monkey (A) An
+example of the experimental setup and recording apparatus in an experiment where
+a monkey has been trained to press a lever for a juice reward. (B) The data recordings in this example are made from a neuron in the visual cortex. As the monkey is
+presented with visual stimuli and performs a visual task (here, moving the eyes to
+a particular location), the neuron responds with action potentials that are recorded
+as ticks on what is known as a raster plot. In such a plot, each row corresponds to
+a single trial and displays a tick for each recorded action potential following a single
+presentation of the stimulus. These responses are summed vertically across the trials
+aligned in time with the stimulus onset (i.e., time-locked), yielding a peristimulus time
+histogram of the responses to stimulation (bottom). In this way the activity of neurons
+can be related to stimulus processing and the demands of the task being performed.
+(B after Colby et al. 1996.)
+
+behaving animals performing specific tasks, typically after extended periods
+of training.
+Some months prior to such experiments in behaving animals, researchers
+typically attach an electrode recording apparatus to the skull over a surgically
+exposed brain area of interest (see Figure 2.5A). This apparatus is constructed
+in such a way that the electrode can be moved to different positions above the
+brain area of interest, and also can be advanced a controlled distance into the
+brain tissue. After recovery from the surgery, this device allows the electrode
+to be adjusted in position to record from different parts and depths of the brain
+region below. By recording and analyzing the activity of different neurons in
+a series of experimental sessions in which the animal carries out cognitive
+tasks it has been trained to do for a reward, insight into the underlying neural
+processes can be obtained.
+Although single-unit data can be acquired and analyzed in many ways,
+there are two especially useful approaches. In studies of neuronal responses to
+stimuli (e.g., a light flash or a sound burst), the neuronal firing pattern across
+time in response to the stimulus is acquired in the form of a peristimulus time
+histogram (PSTH). As shown in Figure 2.5B, a stimulus is presented a number
+of times, each iteration serving as a trial. The neuron’s responsiveness to the
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+stimulus is determined by temporally aligning the responses following each of
+the trials and then summing the number of action potentials across trials into a
+histogram time-locked to the stimulus. Such an approach averages out random
+background firing when applied over enough trials, giving a much clearer
+picture of the average response specifically related to the stimulus processing
+with respect to the task being performed. More generally, the approach of
+averaging of the brain responses that are time-locked to repeated occurrences
+of various events is also used in other brain activity recording methods (to be
+described later in the chapter).
+Another common way to analyze single-unit electrophysiological data is
+by using neuronal tuning curves. In this approach, a stimulus is varied along a
+particular dimension (e.g., the orientation of a line while recording from neurons in visual cortex, or the frequency of a tone while recording from auditory
+cortex), and the strength of the response is plotted (usually in terms of spikes
+per second) as a function of the stimulus parameter being varied. The resulting
+curve defines the selective sensitivity of the cell to some values of that stimulus
+parameter relative to others.
+In most neural electrophysiological recording, single electrodes are used
+and only one brain region is investigated in each animal. Recently, however,
+researchers have started to employ multielectrode recording arrays to evaluate the
+concurrent responsiveness of sets of neurons in a given area of the brain or in
+related brain regions. For example, a single electrode might have multiple recording points along its length or protruding from its end, enabling the investigator
+to record simultaneously from multiple neurons distributed across the brain
+region of interest, such as across different cortical layers. Some researchers
+set up two or more such recording rigs, enabling them to measure neuronal
+activity simultaneously from widely separated but potentially functionally
+related regions of the brain. Simultaneously recorded data gathered using
+these approaches can then be analyzed with correlational computer algorithms
+to assess how neuronal activity in different parts of a putative neural circuit
+interacts in subserving a particular cognitive function.
+Many cognitive functions can be studied with these electrophysiological
+methods. Some of the more basic functions, such as those underlying the sensory
+processing described in Chapters 3 and 4, are generally amenable to study in
+nonprimate experimental animals such as rodents. But studies of more complex
+functions (such as attention, decision making, and symbolic representation) are
+more typically undertaken in monkeys. Monkeys are expensive to obtain and
+maintain, however, and, as already mentioned, their use in such experiments
+can raise ethical questions. Moreover, it can take weeks or even months to train
+a monkey to do tasks that a human could master in only minutes.
+Of course, some cognitive functions—such as those involving language or
+abstract reasoning—can be studied only in humans. Accordingly, over the years
+there has been great interest in taking advantage of circumstances in which
+intracranial electrophysiological recording can be performed in humans (e.g.,
+during the presurgical cortical mapping procedures that are medically necessary in patients with epilepsy or other neurological disorders; see Introductory
+Box). Although the restrictions are obviously great, recordings of brain activity
+taken under such circumstances have provided important information about
+a variety of cognitive functions. Nonetheless, studying cognitive functions in
+humans has increasingly depended on the noninvasive electrical recording
+methods and brain imaging techniques described in the following sections.
+
+Electroencephalography (EEG)
+Ever since the German psychiatrist Hans Berger discovered “brain waves” in
+the 1920s, a preeminent way of studying human brain activity associated with
+
+■ 31
+
+32 ■ CHAPTER 2
+(A)
+
+(B)
+Electroencephalographic
+leads
+Voltage ( μV)
+
+Central
+sulcus
+
+Cz
+Pz
+Fz
+
+0
+C3
+
+F3
+
+FPz
+F7
+T3
+
+T5
+
+P3
+O1
+
+0
+
+2
+Time (s)
+
+3
+
+4
+
+6
+8
+10
+Frequency (Hz)
+
+12
+
+4
+
+Oz
+
+Inion
+Left mastoid
+
+2
+
+Figure 2.6 Electroencephalographic
+recording (EEG) (A) In electroencephalography, electrical potentials are
+recorded at different positions over
+the scalp relative to the voltage at a
+reference electrode. By historical convention, scalp locations are typically
+described with respect to a standardized nomenclature known as the International 10-20 or 10-10 system, in
+which letters indicate the position on
+the scalp with respect to underlying
+cortical regions (F, frontal; C, central;
+P, parietal; O, occipital; T, temporal)
+and the suffix numbers indicate a general position with respect to the midline (odd numbers are on the left, even
+numbers on the right); the suffix z
+indicates placement along the midline.
+The electrical potential recording from
+each electrode is somewhat different
+because each one samples primarily
+the electrical activity of large populations of neurons in the subjacent brain
+regions relative to a reference electrode site (here, on the left mastoid,
+behind the left ear). (B) Ongoing EEG
+activity in a normal subject with the
+eyes closed—a circumstance that
+elicits predominant activity near 10
+hertz (in the alpha frequency band), as
+indicated in the graph at the bottom of
+the panel. μV = microvolts.
+
+1
+
+Power ( μV2)
+
+Sylvian
+fissure
+
+EEG
+30
+
+14
+
+16
+
+cognitive processes has been by means of electroencephalographic (EEG) recording. EEG recordings measure electrical brain waves that can be detected
+at the scalp. Compared to the methods described in the previous section, EEG
+recording is fully noninvasive, although it has other limitations. The method
+makes use of a set of surface electrodes, ranging in number from only a few to
+as many as 256, which typically are embedded in an elastic cap fitted over the
+scalp (Figure 2.6A; see also Figure 2.8). The electrodes are brought into good
+electrical contact with the skin by means of a conducting gel or salt paste and
+the pressure from the elasticity of the cap. The voltages at each electrode, along
+with that of a reference electrode placed elsewhere on the head (often the mastoid
+bone behind the ear), are fed into differential amplifiers. The amplifiers enhance
+the voltage differences between each electrode and the reference electrode, and
+the amplified signals are then digitized and recorded for subsequent analysis.
+The frequency of the EEG voltage fluctuations range from a fraction of 1 hertz
+to 100 hertz or more (Figure 2.6B).
+Rather than reflecting the action potential firing typically measured in the
+single-neuron recordings described in the previous section, the EEG signal
+derives from the summed dendritic field potentials of groups of neurons that are
+varying together, as illustrated in Figure 2.7. The dendritic trees of the larger
+cortical neurons are generally oriented perpendicularly to the cortical surface.
+When, for example, there is excitatory synaptic input to the dendrites near the
+cell body, the voltage across the membrane of the underlying neuronal dendritic
+trees is depolarized by the synaptic activity (i.e., relative to its normal baseline
+value of approximately 70 millivolts, it becomes less negative or even reaches a
+positive voltage; see the Appendix). The resulting separation of charge created
+along the length of the dendrites causes intracellular current flow along the
+inside of the dendrite, as well as conduction of the return current through the
+tissue volume outside the dendrite. The scalp electrodes pick up the fluctuating voltages associated with these dynamically changing return currents. This
+interpretation of the basis of EEG is well supported by other data, such as direct
+intracranial recordings in experimental animals.
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+−
+
++
+
+EEG
+electrode
+Scalp
+
+Figure 2.7 Electrophysiological basis of EEG and ERP
+signals Fluctuating voltages are generated when synaptic
+input to a cortical area results in a voltage gradient along
+the dendritic trees of large pyramidal neurons that are oriented more or less perpendicularly to the cortical surface.
+The electrode on the subject’s scalp picks up the associated voltages from currents that are volume-conducted
+through the skull and scalp tissues outside the neuronal
+dendrites.
+
+Skull
+
+Active
+synapses
+
++
+
++
+
+Dura mater
+Arachnoid
+Subarachnoid
+space
+Pia mater
+
+−
+
++
+
++
+
+−
+
+−
+
+−
+−
+
+−
+
++
+
+■ 33
+
+−
+
+Afferent
+axons
+Efferent
+axons
+
+Indeed, although most intracranial recording of electrophysiological activity
+in animals focuses on measuring and analyzing the neuronal spikes associated
+with action potentials, as described in the previous section, the nonspike electrical fluctuations that occur in and around the dendritic trees of the large cortical
+pyramidal cells can also provide important insight into neural processing. More
+and more animal researchers recording intracranially are now also studying
+these slower-frequency dendritic field fluctuations, which are generally called
+local field potentials (LFPs) when measured intracranially, and the role they play
+in cognitive functions. As already described, these field potential fluctuations
+reflect variations in the polarization of the dendrites due to modulation by
+axonal input coming from other brain regions. Thus, they reflect more of the
+integrative processing of these large cortical neurons, rather than the output
+firing of the cell to other regions that is reflected in spike recordings. Note that
+the volume conduction of these local field potential fluctuations is what gives
+rise to the EEG activity that can be recorded noninvasively from the scalp.
+Ongoing EEG signals measured over time are widely used in clinical settings to assess various aspects of brain function. These signals are typically
+analyzed in terms of the power in various frequency bands at each electrode
+location, the major bands of interest being delta (< 4 Hz), theta (4–8 Hz), alpha
+(8–12 Hz), beta (12–25 Hz), gamma (25–70 Hz), and, more recently, high gamma
+(70–150 Hz) The relative power in these bands, along with other aspects of the
+EEG, is very useful for assessing the overall state of the brain, such as arousal
+level and sleep stages (see Chapter 7), as well as for detecting and monitoring
+the abnormal activity associated with epilepsy.
+
+34 ■ CHAPTER 2
+1s
+
+EEG
+Amplifier
+S1
+
+S3 sääsääsääsääsääsääsä Sn
+
+S2
+
+S1
+
+Stimulus
+
+S2
+sä
+sä
+sä
+Sn
+
+Signal
+averager
+
+1
+n
+
+n
+
+∑S
+
+k
+
+k =1
+
+Visual event-related potential (ERP)
+–2
+
+N1
+NP80
+N2
+
+Voltage (μV)
+
+Figure 2.8 Event-related potentials (ERPs) An ERP is revealed by
+extracting portions, or epochs, of the
+ongoing EEG time-locked to repeated
+occurrences of a sensory, cognitive,
+or motor event and averaging the epochs together. In this way, the background EEG signal that is unrelated to
+the event is averaged out, revealing
+the average event-related response to
+the stimulus. In the example shown,
+the ERP is recorded from the occipital
+scalp in response to a repeated visual
+stimulus (S). For historical reasons,
+ERP traces have typically been plotted
+with scalp negativity upward (“negative up”); more recently, however, a
+number of researchers have been
+following the opposite scheme (“negative down”). Thus, it is important to
+always examine such plots for the
+indication of polarity. μV = microvolts.
+
+P2
++2
+P1
+–100
+
+0
+
+100
+200
+Time (ms)
+
+300
+
+Event-related potentials (ERPs)
+Although the ongoing EEG signal is useful for assessing the overall state of
+the brain, its utility in investigating specific cognitive functions is relatively
+limited. The reason is that the ongoing EEG record is not linked in time to any
+particular cognitive process or event. A more effective way of relating scalp
+electrical activity to cognitive function is to implement a time-locked averaging approach, analogous in some ways to the peristimulus histogram process
+described earlier for single-neuron recordings. The most common signals to
+extract from the ongoing EEG in this way are event-related potentials (ERPs).
+ERPs are small voltage fluctuations in an ongoing EEG triggered by sensory
+and cognitive events; they reflect the summed electrical activity of neuronal
+populations specifically responding to those events (Figure 2.8). As such, they
+can provide high temporal resolution (milliseconds) of the neural processing
+underlying various cognitive functions. However, because ERPs are generally
+smaller than the raw EEG signal in which they are embedded, it is necessary
+to average multiple trials to extract ERP signals from the background noise.
+As shown in Figure 2.8, ERPs are extracted by averaging those epochs of the
+EEG signal that are time-locked to repeated occurrences of a specific sensory,
+motor, or cognitive event. The ongoing EEG varies more or less randomly in
+amplitude relative to the timing of these events; these random fluctuations in
+the EEG tend to average out, leaving only those voltage changes specifically
+associated with processing of the event type of interest. An ERP obtained by
+such an averaging process is thus a measure of average evoked voltage changes
+over time, where time zero is the time of occurrence of the event.
+The average ERP trace obtained in this way generally comprises a series
+of negative and positive peaks that are typically named according to their
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+electrical polarity (N or P for negative or positive, respectively) and their latency;
+thus, for example, the N100 specifies a negative peak 100 milliseconds after
+the stimulus onset. Alternatively, the peaks can be named for their order in the
+sequence (thus, the N100 might also be referred to as the N1, because it is the
+first major negative peak).
+ERPs are usually recorded while subjects are presented with various types
+of stimuli and are engaged in cognitive tasks related to those stimuli. Changes
+in the ERP responses as a function of stimulus type and task conditions are
+then used to infer something about the mechanisms underlying the cognitive
+process in question. Because the signals derive from the electrical aspects of
+neuronal activity, ERPs reflect that neuronal activity with very high temporal
+resolution, and they are thus especially useful for studies in which the timing
+and sequence of functional brain activity are particularly important. For example,
+ERPs can indicate how early attention can exert an influence on the processing
+of sensory input (see Chapter 6), or the time point in language processing at
+which the semantic analysis of a word begins (see Chapter 12).
+Although the major advantage of ERPs in studying cognitive processes
+is high temporal resolution, information can also be gained from the spatial
+distribution of the scalp recordings as a way to gain some understanding of the
+likely sources of the activity (Figure 2.9). For example, focal activation over the
+occipital scalp is likely to be coming from occipital cortex, and thus to entail visual
+processing (see Chapters 4 and 6). Coupled with their high temporal resolution,
+ERP recordings can thus provide a dynamic picture of brain activity over time.
+If many electrodes are used (usually at least 64), analysis algorithms can be
+used to estimate the locations of the neural generators producing scalp-recorded
+ERPs. For simple distributions, such as ERP waves that reflect relatively early
+sensory processing activity (or the cognitive effects on such activity), this approach can work reasonably well. There is, however, a fundamental problem
+
+■ 35
+
+Figure 2.9 Topographical maps
+showing spatial-temporal patterns of
+ERP activity The electrode locations
+where the ERP data were recorded
+are shown by the black dots; different
+colors correspond to different levels of voltage across the head, after
+interpolating the levels between the
+electrodes. The result is a topographical voltage map analogous to a geographic contour map. This example
+shows the response across time to a
+visual stimulus in the left visual field, a
+stimulus that activates the right occipital cortex. μV = microvolts.
+
+0–25
+ms
+
+25–50
+ms
+
+50–75
+ms
+
+75–100
+ms
+
+100–125
+ms
+
+125–150
+ms
+
+150–175
+ms
+
+175–200
+ms
+
+200–225
+ms
+
+225–250
+ms
+4.0
+
+0.0
+
+250–275
+ms
+
+275–300
+ms
+
+300–325
+ms
+
+300–325
+ms
+
+325–350
+ms
+
+–4.0
+Potential
+μV
+
+36 ■ CHAPTER 2
+with such analyses, which is known as the inverse problem: in general, a given
+distribution of electrical activity recorded at the scalp could have been produced
+by any one of a number of different sets of generators inside the head. Accordingly, such analyses, especially for more complex activity distributions and/or
+for studies without additional source-related information, must be viewed with
+caution and are an important limitation of the ERP approach. These limitations
+can to some degree be circumvented by combining ERP methods with other
+techniques or approaches, as described later in the chapter.
+Although most cognitive neuroscience research using electroencephalographic techniques has made use of ERP analyses using time-locked averaging,
+in recent years there has been increasing interest in event-related averaging
+approaches applied to oscillatory activity in the EEG signal. This approach
+differs in several ways from earlier EEG analyses that focused on changes
+over a relatively extended period of time in the power of different frequency
+bands as a function of arousal, sleep stage, or other cognitive states. The newer
+approach extracts the average changes in amplitude (i.e., power) or phase coherence (i.e., how synchronized the waves are over different cortical regions) in
+specific frequency bands following (or possibly preceding) a specific type of
+cognitive event. These time-locked changes in oscillatory activity have been
+reported to be associated with a range of cognitive functions, including binding of perceptual features, attentional modulation, and cognitive control, and
+they are thought to provide an additional window into the neural processes
+underlying cognitive functions.
+
+Magnetoencephalography (MEG)
+Another way to measure electrophysiological brain activity noninvasively is
+to record the magnetic counterpart of EEG—namely, to use magnetoencephalography, or MEG. Much as ERPs can be extracted from EEG recordings by
+time-locked averaging to a set of stimulus events, this method can be used to
+extract time-locked responses, called event-related magnetic-field responses
+(ERFs), from ongoing MEG signals. The generation of MEG/ERF signals is
+closely related to that of EEG/ERP signals because both arise from current
+flow triggered by depolarization in the dendritic trees of cortical neurons oriented perpendicularly to the cortical surface. The key difference is that MEG
+measures the magnetic fields produced by these currents rather than the associated voltage fluctuations.
+The principles of MEG are illustrated in Figure 2.10. When current flows in
+a wire or other conducting element, it produces a magnetic field in the volume
+surrounding the wire (Figure 2.10A). The configuration of the field follows
+the “right-hand rule” taught in introductory physics: if the right hand is made
+into a fist with the thumb pointing out and oriented in the direction of the current, then the field curves around the current in the orientation of the fingers.
+When synaptic activation causes currents to flow along the dendritic trees of a
+population of cortical neurons, a magnetic field is induced whose orientation
+is governed by the right-hand rule. This induced magnetic field “comes out of
+the head” on one side of the current source and “enters the head” on the other
+(Figure 2.10B). If the field strengths are measured at different points on the
+surface of the head with a magnetometer (Figure 2.10C), the distribution of
+these values over space and time can be obtained, including whether they are
+positive (coming out of the head) or negative (going into the head).
+Although initially MEG recordings were made from only a few sites at a
+time, modern machines record fields from sites over the entire head. Knowing
+the measured field distribution makes it possible to estimate the location and
+orientation of the underlying source, but the same general limitations imposed
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+(C)
+
+(B)
+
+(A)
+Magnetic field
+
+To electronics
+
+Magnetic field
+
+Magnetometer
+probe
+
+Skull
+Current
+
+Cortex
+Active
+neurons
+
+Figure 2.10 Magnetoencephalographic signals (MEG) (A) An electrical current in a wire creates a circular
+magnetic field. (B) Dendritic currents in
+cortex also produce circular magnetic
+fields, analogous to those produced
+by the current in a wire. Note that the
+fields most easily measured are generated in the sulci, because those fields
+enter and exit the scalp orthogonally,
+allowing them to be detected well by
+a magnetometer outside the head.
+Fields generated by neural activity in
+the gyri generally produce magnetic
+fields oriented parallel to the scalp,
+which are more difficult to detect. (C)
+The magnetic fields produced by brain
+activity can be measured by a magnemometer positioned adjacent to the
+head. (D) Distribution of the magnetic
+fields (the M100 wave at 100 ms) over
+the head of a normal subject induced
+by an auditory stimulus; the MR image
+on the right shows the estimated location of the underlying source derived
+by dipole source analysis. fT = femtoteslas. (D after Woldorff et al. 1999.)
+
+■ 37
+
+Current
+dipole
+
+Pickup coils
+One of the
+magnetic
+flux lines
+Magnetic field
+distribution
+at the scalp
+
+(D) MEG response to left-ear sounds
+
+M100
+single subject
+
+Estimated MEG
+M100 source
+
+115–125
+ms
+
+Field lines
+
+40.00
+34.29
+28.57
+22.86
+17.14
+11.43
+5.71
+0.00
+–5.71
+–11.43
+–17.14
+–22.86
+–28.57
+–34.29
+–40.00
+
+by the inverse problem for EEG recordings (described earlier) apply to MEG
+as well.
+Although the MEG/ERF and EEG/ERP methodologies are related, they have
+practical as well as physical differences. One important difference concerns the
+brain areas that the two techniques can most successfully assess. MEG is sensitive mainly to neuronal activity in the cortical valleys, or sulci; it is relatively
+insensitive to activity in gyri (see Figure 2.10B). This sensitivity to sulcal activity
+is due to the orientation of the electrical currents that generate the magnetic
+fields. As noted earlier, these currents generally arise from the dendritic trees
+of the large cortical pyramidal neurons oriented perpendicularly to the cortical surface (see Figure 2.7). If the underlying electrical currents flowing along
+these dendritic trees are in a sulcus, they produce fields that either enter or exit
+the head more or less orthogonally, as shown in Figure 2.10C, and are picked
+up well by the magnetometer. However, neuronal activity in a cortical gyrus
+produces currents that are mostly perpendicular to the surface of the head,
+inducing magnetic fields that are mostly parallel to the head surface and thus
+
+fT
+
+38 ■ CHAPTER 2
+do not register well on the magnetometer. In contrast, the electrodes that pick up
+EEG and ERP signals detect voltage fluctuations produced by the return-volume
+currents, which are not affected by this limitation. Accordingly, EEG picks up
+voltage fluctuations from sources in both cortical gyri and sulci, although it
+tends to be more sensitive to the former.
+Although MEG’s insensitivity to gyral sources renders it less complete than
+EEG methods, what MEG does pick up (i.e., mainly sulcal activity) is easier to
+localize—for two main reasons: First, EEG currents suffer some distortion as
+they are conducted through the variable resistances of the skull and other tissues to reach the recording electrodes on the scalp. The magnetic fields in MEG
+recordings are much less affected by this problem. In addition, because MEG
+picks up mainly sulcal sources (and best from those nearer the magnetometer),
+the signal distributions it records tend to be less complex than those from ERP
+signals, thereby simplifying source estimation. Given their complementary
+sensitivities, recording by MEG and EEG methods together can offer a more
+complete and effective way to estimate sources and study mechanisms than
+does either method alone.
+
+Positron emission tomography (PET) imaging
+Probably the most popular techniques today for assessing brain activity related
+to cognitive functions are those that rely on measuring changes in metabolism
+and blood flow to visualize active areas of the brain. The attractiveness of these
+functional brain imaging methods arises from several factors, but derives
+mainly from their ability to produce images that localize brain activity with
+high spatial resolution.
+The brain utilizes a remarkably large fraction (20 percent) of the body’s
+energy resources, despite representing only about 2 percent of body mass,
+and at any given moment the most active nerve cells use more of these and
+other metabolites than do relatively quiescent neurons. To meet the increased
+metabolic demands of active neurons, the local flow of blood to the relevant
+brain area increases. Detecting and mapping these local changes in cerebral
+metabolism and blood flow is the hemodynamic basis of two functional imaging
+techniques that have been widely used: positron emission tomography (PET)
+and functional magnetic resonance imaging (fMRI). Because these techniques
+reveal patterns of activity in the whole intact brain with good spatial resolution,
+they have greatly advanced our ability to study cognitive functions and their
+neural underpinnings.
+In positron emission tomography, or PET, unstable positron-emitting isotopes
+are synthesized in a cyclotron by bombarding elements such as oxygen, carbon,
+or fluorine with protons. Because of its short half-life, the isotope most commonly
+used for PET functional mapping has been 15O (oxygen-15, with a half-life of 2
+minutes), which is incorporated into water molecules for this activity-mapping
+use. When the radiolabeled compounds are injected into the bloodstream, they
+become distributed in the brain according to current physiological needs, accumulating preferentially in more metabolically active areas.
+As the unstable isotope decays, the extra proton breaks down into a neutron
+and an emitted positron. The emitted positron travels several millimeters, on
+average, until it collides with an electron. The collision of a positron with an
+electron destroys both particles, emitting two gamma rays that travel in opposite
+directions from the site of the collision. Gamma-ray detectors placed around
+the subject’s head are arranged to register a “hit” only when two detectors 180
+degrees apart react simultaneously (Figure 2.11A,B). By reconstructing the
+density of these collision lines using computer algorithms, the location of the
+active regions can be imaged. The PET images of activity can then be superimposed onto magnetic resonance structural images from the same subject(s)
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+(A)
+
+(B)
+Oxygen-15
+nucleus
+
+Detectors
+
+■ 39
+
+(C)
+
+Gamma
+ray
+Positron
+
+Electron
+
+Gamma
+ray
+
+Positronelectron
+collision
+Gamma
+rays created
+
+to provide spatial information about specific brain areas involved in cognitive
+and other functions (Figure 2.11C).
+The mean distance that the positrons travel in brain tissue before the
+gamma-producing collision with an electron limits the theoretical resolution
+of PET scanning to several millimeters, although true resolution is typically considerably lower because of spatial smoothing and other steps in the
+analysis. An even greater limitation of PET, however, is the time required to
+accumulate an adequate signal, which precludes its use in many cognitive
+paradigms. In particular, PET activation imaging requires accumulating signal over the period of about a minute or so (i.e., the signal to obtain a usable
+image must be compiled over this time frame), and thus it has essentially no
+temporal resolution. As a result, functional imaging experiments using PET
+require a blocked design. In this design, the brain activity measured reflects
+neural activity integrated over an extended period (a block) while the subject
+performs a task or is presented with a particular stimulus condition. The
+resulting activation pattern can then be compared to the activity recorded
+during a different block of time in which the subject is not doing the task or is
+under a different condition. The need to integrate activity across time in this
+way thus substantially limits the specificity with which brain activation can
+be associated with particular cognitive processes.
+The various limitations of PET (the short half-life of the reagents, the need
+for a nearby cyclotron to create the reagents, the use of radioactivity, and the
+very poor temporal resolution) have led to its replacement in most cognitive
+studies today by functional magnetic resonance imaging.
+
+Functional magnetic resonance imaging (functional MRI or fMRI)
+Functional magnetic resonance imaging (fMRI; Figure 2.12A) is based on the fact
+that oxyhemoglobin (hemoglobin carrying a bound oxygen molecule) and deoxyhemoglobin (the oxygen-depleted form of hemoglobin) have different magnetic resonance signals. As noted already, active brain areas use more oxygen
+than relatively inactive areas, and thus require more local blood flow. Within
+a second or two after an area has been activated by a specific cognitive event
+or task, the related microvasculature responds to the resulting local oxygen
+depletion by increasing the flow of new, oxyhemoglobin-rich, arterial blood to
+the active area (Figure 2.12B). The relative concentration of deoxyhemoglobin
+decreases over the next few seconds, leading to localized changes in the magnetic resonance (MR) signal from that part of the brain (Figure 2.12C). These
+
+Figure 2.11 Positron emission
+tomography (PET) (A) In PET, molecules labeled with radioactive probe
+atoms such as 15O are injected into
+the bloodstream. These agents travel
+preferentially to areas of increased
+neural activity because of increased
+metabolism and thus blood flow
+to those areas. Radioactive decay
+ultimately emits two “annihilation
+photons” (gamma rays) in opposite directions. (B) The annihilation
+photons are detected by sensors
+surrounding the head of the subject
+lying in the PET scanner. (C) A PET
+activation image overlaid on a structural magnetic resonance image. (C
+courtesy of David Madden.)
+
+40 ■ CHAPTER 2
+(A)
+
+Figure 2.12 Functional magnetic resonance imaging (fMRI) (A) A subject is
+moved into an MRI scanner for functioal MR imaging. The machine itself is not
+different from the scanner shown and described in Box 2A. The subject is wearing
+goggles in order to view visual stimuli for the experiment to be undertaken.
+(B) The blood oxygenation level–dependent (BOLD) signal. The vascular system
+supplies blood containing oxyhemoglobin to active regions of the brain. The influx
+of oxygenated blood to regions that become active reduces the local concentration of deoxyhemoglobin, which increases the BOLD signal; the difference in the
+signal provides a measure of local neuronal activity. (C) There are several ways
+to display functional MRI data on corresponding structural MRI scans, including
+overlaying onto an image slice; overlaying onto a three-dimensional image of the
+cortical surface extracted computationally from the MR structural image data; or
+overlaying onto the three-dimensional image of an extracted cortical surface that
+has been “inflated” by a computer algorithm. (B after Huettel et al. 2009.)
+(C)
+
+(B)
+
+fMRI on MR slice
+Baseline
+
+fMRI on folded brain
+
+Oxyhemoglobin
+Deoxyhemoglobin
+
+Active
+
+Oxyhemoglobin
+fMRI on “inﬂated” brain
+Deoxyhemoglobin
+
+MR changes, known as the blood oxygenation level–dependent (BOLD) signal,
+are the basis of most current forms of fMRI.
+Functional MRI offers better spatial localization than PET (several millimeters
+compared to approximately a centimeter in PET), as well as much better temporal
+resolution (a few seconds compared to a minute or more in PET). In addition,
+fMRI uses endogenous signals intrinsic to normal brain function rather than
+signals originating from exogenous, radioactively labeled probes. But probably
+the greatest advantage of fMRI over PET for the study of cognitive processes is
+its much higher temporal resolution.
+
+■ 41
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+PET signal
+Design AAAAAAAAAAAA
+
+Rest
+
+1 min
+
+BBBBBBBBBBBB
+
+1 min
+
+1 min
+
+10 min
+
+10 min
+
+MR signal
+
+(B)
+
+Design AAAAAA Rest
+30 s
+
+BBBBBB AAAAAA BBBBBB
+
+30 s
+
+30 s
+
+30 s
+
+30 s
+
+5
+
+10
+
+15
+
+20
+
+Rest
+
+BBBBBB
+
+30 s
+
+30 s
+
+(C)
+
+MR signal
+
+Most initial fMRI studies in the early 1990s followed
+the same blocked design as PET studies (Figure 2.13A),
+although the blocks were only around 20 to 30 seconds,
+as compared to a minute, and there was no need for
+a long waiting period between blocks (Figure 2.13B).
+However, investigators soon realized that fMRI had
+enough temporal resolution to allow an event-related
+design. Today, samples of fMRI activity throughout
+the whole brain can be acquired in a second or two,
+allowing the average fMRI hemodynamic response
+to a single stimulus or cognitive event type to be captured. The fMRI response to a stimulus or cognitive
+event begins at about 1 to 2 seconds, peaks at about
+5 to 6 seconds, and returns to baseline at about 12 to
+15 seconds (Figure 2.13C). Although this sequence
+is very slow relative to the millisecond resolution of
+electrophysiological methods such as EEG, MEG, or
+single-unit recording, it is fast enough to allow fMRI
+to be applied in an event-related manner, at least when
+stimuli are presented at a moderately slow rate. As
+shown in Figure 2.13D, this capability allows selective
+averaging of the responses to different event types
+within a run, much as is done with electrophysiological methods. Moreover, using temporal randomization of the stimulus or task events and modern signal
+processing algorithms that effectively disentangle
+the overlapping responses from successive stimuli, it
+is now possible to present stimuli at faster rates and
+still extract an event-related response (Figure 2.14).
+The development of event-related methods for fMRI
+was a highly significant advance, as it enabled many
+cognitive paradigms that had not been possible in the
+early days of fMRI. Moreover, improved analytic techniques in event-related paradigms made it possible to
+link the behavioral measures from trial to trial to the
+
+(A)
+
+0
+
+Time (s)
+
+Stimulus A
+
+(D)
+MR signal
+
+Figure 2.13 Experimental designs in PET and fMRI
+studies (A) In PET functional imaging studies, which necessarily employ a block design, the subject performs a
+cognitive task continuously over approximately 1 minute,
+with different tasks being performed in each block (in this
+example either task A or B, or, in the resting block, neither). If 15O-labeled water is used as the tracer, a 10-minute break between blocks is necessary to allow the radioactively labeled tracers to decay sufficiently before the
+next block. Accumulated activity for each block is then
+measured, and functional activity is inferred by comparing the different blocks. (B) The block design for fMRI is
+similar, but with multiple samples of brain activity in each
+block, much shorter blocks, and no need for a 10-minute
+break between blocks. (C) Because of the much faster
+activity sampling possible with fMRI (typically every 1.5
+to 2 seconds), the fMRI responses to individual events
+can be captured in an event-related way. Shown is a
+representative fMRI response to a single event type
+(event type A). (D) This paradigm allows the time-locked
+responses to different event types within the same run to
+be selectively extracted (i.e., event types A and B).
+
+Design
+
+A
+
+A
+
+A
+
+B
+
+A
+
+B
+
+B
+
+A
+
+Selective
+averaging
+
+A
+
+B
+
+B
+
+A
+
+B
+
+42 ■ CHAPTER 2
+0.3
+
+p < 10 –17
+
+Right hemifield
+response
+Signal change (%)
+
+p < 10 –7
+
+L
+
+0.2
+
+0.1
+
+0.0
+
+R
+–0.1
+0.3
+Left hemifield
+response
+Signal change (%)
+
+Figure 2.14 Event-related fMRI
+responses Responses are from a
+visual stimulation paradigm obtained
+at fast stimulus rates (two events
+per second). Unilateral visual stimuli
+were presented in random order to
+the left and right visual fields while
+subjects fixated on a central cross.
+At this high stimulation rate, there is
+severe overlap of the fMRI responses
+to successive stimuli in the sequence. The overlap was eliminated
+in this example by a subtraction
+technique, yielding clean average
+hemodynamic fMRI responses (right
+panels) in the visual sensory areas
+in contralateral occipital cortex (left
+panels). (After Burock et al. 1998.)
+
+L
+
+R
+
+0.2
+
+0.1
+
+0.0
+
+–0.1
+–4
+
+–2
+
+0
+
+2
+
+4
+
+6
+8
+Time (s)
+
+10
+
+12
+
+14
+
+16
+
+corresponding fMRI neural responses in different brain regions. In particular,
+variations in a behavioral measure (e.g., the reaction time) could be examined
+with respect to how they co-varied with the amplitudes of the corresponding
+fMRI responses from trial to trial. The development of event-related paradigms
+using fMRI has also allowed researchers to compare the response images with
+the activation patterns of high-temporal-resolution ERP and ERF responses to
+the same types of events. In addition, modern fMRI techniques allow the use of
+“hybrid,” or “mixed,” designs that have both block- and event-related experimental
+manipulations, the effects of which can be disentangled by appropriate analyses.
+As a result of its many advantages, fMRI has emerged today as the dominant
+technology for imaging brain activation in studies of both normal and abnormal
+cognitive function.
+
+Using fMRI to analyze activation patterns within a brain area
+The bulk of fMRI research has focused on activations of various brain areas
+as a function of a specific manipulated variable, such as the presentation of
+stimuli of a particular type, under particular cognitive conditions. Yet, as later
+chapters make plain, the cortex possesses considerable local organization within
+particular areas, and these organizational characteristics are often functionally
+important. Although such local characteristics may be reflected in intervoxel
+differences in fMRI, standard fMRI analysis does not typically take them into
+consideration. Indeed, researchers usually apply spatial smoothing to their
+fMRI data to increase sensitivity, and they require activations to be of a specified minimum number of voxels to be meaningful. Both of these strategies tend
+to obscure differences between nearby voxels.
+A number of approaches aimed at addressing this problem are based on
+what are known as pattern classification algorithms. In particular, within fMRI,
+researchers use an analysis scheme called multivoxel pattern analysis (MVPA) for
+such purposes, which looks at patterns of activation across voxels that consis-
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+■ 43
+
+tently correspond to a particular stimulus type or event type, rather than the
+overall increase or decrease in activation of a large brain region. For example,
+in an area of the lateral occipital cortex that is generally responsive to objects,
+images of cars may activate the area about as much as houses and tools do, at
+Figure 2.15 Repetition suppression
+in fMRI studies (A) A conventional
+least collapsed across all the voxels of the “object analysis” area. But one type
+fMRI experiment may fail to distinof visual object may induce a particular pattern of activation among those
+guish between responses to stimulus
+voxels that is consistently different from the pattern that objects of a different
+A and stimulus B because the two
+class would induce. MVPA specifically analyzes whether such trial-related
+stimuli activate different populations
+activation patterns are indeed consistently observed. In addition, these sorts
+of neurons (orange versus blue in the
+figure) within the same brain region
+of analyses can be used to predict the patterns of activation for new examples
+sampled; hence the total fMRI signal
+of the different stimulus types. Such approaches have thereby enabled, for
+may be similar. (B) Using a form of
+example, inferring from brain activation data the particular type of stimulus a
+repetition suppression (fMRI adaptaparticipant is likely looking at. Thus, these sorts of pattern analysis approaches
+tion), it may be possible to detect a
+are becoming increasingly popular in cognitive neuroscience fMRI research.
+difference in fMRI signal within this
+brain region. When the subpopulaRepetition suppression is another way researchers have endeavored to astion of neurons sensitive to stimulus
+sess functional characteristics of a brain area that respond similarly to differA adapts, the signal is reduced for a
+ent stimulus classes in overall activation magnitude
+repetition of stimulus A but strong for
+(Figure 2.15). This technique rests on the tendency
+stimulus B. (After Kourtzi and Grillof areas of the brain to respond less to the repeated
+Spector 2005.)
+occurrence of an identical (or closely similar) stimu(A) Standard fMRI experiment
+lus than to the first presentation of the stimulus. In
+fMRI, the version of this approach most commonly
+used is known as fMRI adaptation. The use of fMRI
+Similar
+fMRI
+fMRI
+adaptation to enhance the understanding of a brain
+signal
+signal
+region is based on the assumption that if that region
+shows repetition suppression for the second stimulus
+in a pair (e.g., the target in a particular prime-target
+combination), then the two stimuli must share a proNeural
+cess supported in some way by that region. Thus, by
+circuits
+manipulating the relationship between primes and
+targets, it is possible to constrain hypotheses regarding
+Blank
+Stimulus A
+Blank
+Stimulus B
+the function of a particular brain region. For example,
+the lateral occipital region mentioned in the previous
+example as being activated during the processing
+Stimuli
+of visual objects showed repetition suppression for
+repeated objects (e.g., an image of a table) even when
+the two stimuli were presented in different formats
+(e.g., as a drawing versus as a photo) or with different
+(B) fMRI adaptation experiment
+angular views. This finding suggests that the lateral
+occipital complex is concerned with processing an
+object’s abstract properties rather than the details of
+fMRI
+Greater
+signal
+its sensory features.
+fMRI
+In some instances, fMRI adaptation can provide
+signal
+additional information about the processing role of a
+brain region that standard fMRI methods cannot. For
+example, in conventional fMRI, comparing two stimuNeural
+circuits
+lus conditions A and B may fail to reveal differences
+between them because the populations of neurons
+sensitive to these conditions (or two stimulus types)
+Stimulus A
+are mixed within the same brain region being sampled
+repeated
+Blank
+Stimulus A
+Stimulus B
+(see Figure 2.15A). In contrast, in the fMRI adaptation
+paradigm, the subpopulations of neurons sensitive to
+stimulus A may show adaptation when this stimulus
+Stimuli
+is repeated, giving rise to a lower fMRI signal than
+that elicited for stimulus B (see Figure 2.15B).
+
+44 ■ CHAPTER 2
+
+Using fMRI to examine activity relationships between brain areas
+Most neuroimaging studies in cognitive neuroscience build on the concept of
+localization of function—namely, that different brain regions support different
+types of information processing. However, brain regions do not participate in
+cognitive brain function in isolation. Information flows between regions via the
+action potential signals transmitted by axons, which are bundled together into
+large fiber tracts. Although an enormous amount of knowledge has been gained
+about such anatomical connections, knowledge of the structural connections
+between brain regions can provide only a limited picture of information flow
+in the brain. Understanding of the functional connectivity, or how the activity of
+one brain region varies with the activity in another brain region, is also needed.
+Functional MRI can help elucidate the functional relationships between brain
+regions because of its ability to acquire functional activation data both from
+across the whole brain and from across time. The simplest type of relationship
+between regions is coactivation, in which two or more brain regions change
+similarly in response to an experimental condition. A straightforward and
+rather complementary way to show that two (or more) regions share functional
+connectivity comes from studies of resting-state connectivity, which identify
+fMRI signal fluctuations that co-vary across brain regions while subjects lie in
+the MRI scanner but do not perform an experimental task. These co-variations
+are thought to reflect spontaneously occurring operations of the brain rather
+than the processing of specific external stimuli.
+One way to extract the distributed patterns of common activation that occur
+during rest is to use data exploration techniques such as principal component
+analysis (PCA) or independent component analysis (ICA), which use algorithms for
+extracting similarly behaving portions of a complex data set. Alternatively, one
+can choose a seed voxel or group of voxels in a specific region of interest and
+determine which other regions exhibit similar fluctuations in activation over
+time. Using these approaches, researchers have found co-varying activation in
+groups of regions that have been implicated in other studies as being involved
+in visual, auditory, memory, and attentional functions. In general, regions that
+are coactivated during cognitive tasks also tend to show resting-state connectivity, suggesting that brain regions with common functionality tend to express
+similar patterns of spontaneous activity. Combining resting-state and taskrelated connectivity within the same study can strengthen conclusions about
+the relationships between brain regions, by building on the findings of one
+to explore the other. Moreover, explicit information on the structural connections between brain areas in individual subjects, such as can be obtained with
+diffusion tensor imaging (DTI; see Box 2B) can also help with these analyses.
+Although finding that two brain areas are both activated during a particular
+task indicates that the two regions are related, it does not tell us much about
+the form of that relationship. For example, consider a task entailing attending
+to a visual scene to search for faces. Such a task (relative to a baseline task)
+will elicit enhanced activity in the dorsolateral prefrontal cortex, the inferior
+parietal sulcus, and face-processing areas in ventral occipital cortex. Such a
+coactivation might suggest that these various areas are involved in the task,
+but we would not know how they work together to accomplish that task. For
+example, top-down influences from the prefrontal cortex might be guiding the
+activity in the other regions. Another possibility is that visual processing in the
+ventral occipital cortex is triggering activity in the other areas in a bottom-up
+fashion. On the other hand, the activity in all of these regions may be controlled
+by signals from another region of the brain.
+A variety of methods have been developed to gain further insight into the
+relationships between brain areas and their activation patterns. In one approach
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+for combining fMRI and behavioral data, psychophysiological interaction (PPI)
+analysis is used. Like some other connectivity approaches, PPI analysis uses
+the time course of activity in one seed region to predict changes in activity in
+another region. However, the technique analyzes how these interactions differ
+as a function of the cognitive task being performed. For example, it analyzes
+whether the correlation in activity between the two areas, rather than activity
+itself, differs in one task versus another.
+A significant shortcoming of fMRI (and indeed most other neural activity
+monitoring methods) is its difficulty in establishing causality in the interactions
+between brain areas—that is, whether activity in one brain area caused activity
+in another. Suppose that two regions, A and B, are coactivated in an fMRI study
+in a particular task. Is it possible to infer from the fMRI data whether activation
+in Region A caused changes in Region B, activation in Region B caused changes
+in Region A, or activation in both of these regions was induced by signals from
+another brain area?
+Some modeling approaches, such as structural equation modeling, have
+endeavored to infer causality from fMRI activation patterns by incorporating
+known anatomical connections, comparing models with different hypothesized
+sets of directional influences between areas, and identifying which model best
+accounts for the observed data. For example, an early application of this approach
+to studying attention found that the best model for the activation patterns suggested that attention-related signals from the prefrontal cortex increased the
+connectivity between the extrastriate visual areas and the posterior parietal
+cortex. Related approaches include dynamic causal modeling, which creates
+models of the functional connections between brain regions, and then evaluates how that connectivity changes as a result of experimental manipulations.
+In summary, delineating the functional connectivity relationships between
+brain regions shown to be activated in fMRI tasks is critical for understanding
+how these regions work together to accomplish cognitive functions. The ongoing development and application of these various approaches for analyzing
+functional connectivity relationships will continue to improve the inferences
+that can be made from fMRI data.
+
+Optical brain imaging
+Another way to measure neural activity in both animals and humans is based
+on optical imaging techniques. These approaches derive from the fact that active brain tissue transmits and/or reflects light differently than does inactive
+brain tissue, and these differences can be picked up and imaged by optical
+recording devices.
+One such approach is, like fMRI, based on hemodynamic changes in response to neural activity. When populations of neurons become active, thereby
+inducing local hemodynamic changes, the amount of light reflected from the
+cortical surface changes as well. This optical signal, as with the BOLD signal
+in fMRI, is thought to arise from changes in the relative concentrations of
+oxyhemoglobin and deoxyhemoglobin that occur as neuronal activity varies
+in a given region in response to a stimulus. To detect these changes requires
+that the skull be opened and the cortical surface illuminated with a red light in
+the 580- to 700-nanometer range. The reflected light is picked up by a sensitive
+video camera, and the changes in responses to stimulation are averaged over a
+series of trials. The resulting images can provide a highly detailed map of the
+cortical patterns of activity.
+These hemodynamically based optical imaging approaches have been most
+successfully applied to studying sensory map representations in the sensory
+cortices in animals, particularly in visual sensory cortex. For example, this
+type of imaging has produced highly detailed maps of the patterns of relative
+
+■ 45
+
+46 ■ CHAPTER 2
+sensitivity across primary visual cortex to specific line orientations (see Chapter
+3). These methods have also been useful in showing the relationships between
+the mapping configurations for different features, such as the relationship between line orientation preference maps and ocular dominance maps. Because
+the technique is invasive, it has been used mostly in experimental animals,
+and the results have thus far tended to be more informative in the context of
+neurobiology than cognitive neuroscience. Nonetheless, it has been used in a
+few circumstances in human patients undergoing neurosurgery (e.g., to map
+language areas). Because of its simplicity and relatively low cost, such optical
+imaging would seem to have considerable promise for future studies of cognitive
+functions in both experimental animals and neurosurgical patients.
+Another technique, known as event-related optical signals (EROS), uses
+optical methods based on a very different activity-dependent mechanism and
+can be applied noninvasively. When brain tissue is illuminated, even through
+the skull, the amount of light that is transmitted versus scattered varies as a
+function of whether the neuronal tissue is electrically active. This differential
+light diffusion is thought to arise from changes that occur in neuronal membranes and their immediate surroundings during electrical activity. By shining
+light into the brain from a number of different sources around the head and
+measuring the intensity of the reflected light with multiple external sensors,
+these activity-dependent changes can be detected and imaged using threedimensional, computer-assisted reconstruction algorithms.
+Like ERPs, EROS has high temporal resolution but relatively low spatial
+resolution. However, determination of the sources of the measured activity is
+not subject to the inverse problem inherent in EEG and MEG source analyses.
+Although the relatively low signal-to-noise characteristics have limited the
+use of this method, EROS holds significant promise as a useful method for
+noninvasively imaging cognition-related cortical activity.
+
+Assembling Evidence and Delineating Mechanisms
+A major goal in the quest to understand the neural bases of cognition is to establish links between localized brain structures and neural activity on the one
+hand, and cognitive functions or processes on the other. To establish these links
+and delineate underlying mechanisms, cognitive neuroscientists often assemble
+evidence from multiple studies and data gleaned through the implementation
+of multiple methodologies.
+
+Associations and dissociations
+One approach to linking neuroscience and cognition is apparent in the methods already discussed: to experimentally associate specific cognitive functions
+with the neural structures and/or local neural activity that underlie them. A
+complementary approach is to determine cognitive functions and neural processes that do not seem to be related—that is, that are dissociated. For example,
+finding that damage to a particular brain area disrupts the performance of
+Task A but not Task B establishes not only an association between the damaged area and Task A, but also a dissociation between the lesion and Task B
+(Figure 2.16A).
+An even firmer link between a specific cognitive function and a particular
+neural structure or process can be made by establishing a double dissociation.
+For example, suppose Task A is designed to engage mainly System A (say,
+the neural system for identifying a visually presented face), whereas Task B
+is designed to engage mainly System B (the neural system for identifying the
+emotional expression of a visually presented face). If Systems A and B are
+relatively distinct, one would expect to be able to find neurological patients
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+80
+60
+40
+20
+0
+
+(B) Two groups of lesion patients
+Cognitive performance
+(% correct)
+
+Cognitive performance
+(% correct)
+
+(A) One group of lesion patients
+
+Region 1
+Region damaged
+
+■ 47
+
+80
+60
+40
+20
+0
+
+Task A
+Task B
+
+Region 1
+Region 2
+Region damaged
+
+(C) Brain activation
+
+Brain activity
+(% signal change)
+
+0.08
+0.06
+0.04
+0.02
+0
+
+Region 1
+Region 2
+Region activated
+
+Figure 2.16 Associations, dissociations, and double dissociations (A) The relative
+performance on two tasks (A and B) for neurological patients with a common brain lesion in Region 1. Impairment in performing Task A but not Task B indicates an association between Region 1 and the neural basis for performing Task A, and a dissociation
+between this region and performing Task B. (B) Two groups of patients, one with lesions
+as Region 1, as in panel (A), plus another group of patients with lesions in a different
+brain region (Region 2) who show the opposite pattern of impairment in the two tasks.
+The results from the two patient groups taken together are a double dissociation providing strong evidence for the specific involvement of the two regions in the two different
+tasks. (C) Analogous double dissociation determined from brain activation data (e.g.,
+from fMRI). In this case, subjects engaged in Task A show activation of Region 1 but not
+Region 2; during Task B this pattern is reversed.
+
+with a particular brain lesion who are impaired in performing Task A (recognizing faces), but essentially normal when performing Task B (recognizing
+emotions), and to find patients with a lesion in a different brain region who
+showed the opposite pattern (normal performance on Task A but impaired
+performance on Task B). This pattern of effects constitutes a classic double
+dissociation (Figure 2.16B).
+Double dissociations provide more definitive evidence for relatively separate
+mechanisms or functions than do single dissociations. This is because a single
+dissociation could arise from a general factor (such as the relative difficulty of
+the tasks) rather than from the engagement of separable functions. However,
+when another type of lesion produces the opposite, or at least quite different,
+characteristics, the case for the engagement of functionally distinct neural
+systems becomes much stronger. It often turns out, however, that the neural
+systems being examined are only partially separable; that is, performance on
+Task A for a certain patient group is seriously impaired, but performance on
+Task B is also disturbed to some degree (or vice versa). This situation would
+suggest that the functional systems in question interact to some degree—which
+of course is useful information as well.
+Although these examples focus on establishing dissociations using brain
+lesions, double dissociations are also important in methods that measure brain
+activity during cognitive tasks (Figure 2.16C). For example, a neuroimaging
+experiment might indicate that a specific brain area (say, Region 1) is activated
+during Task A but not during Task B. As with brain lesion studies, however,
+this neuroimaging pattern could be due to differing difficulty of the two tasks
+or to the degree to which a neural system is being engaged by the task. Thus,
+establishing a double dissociation in the context of neuroimaging (i.e., finding
+that another brain area, Region 2, is activated during Task B but not during Task
+A) is also important for more firmly linking specific brain activity measures to
+specific cognitive functions.
+
+48 ■ CHAPTER 2
+
+TABLE 2.1 Summary of the Major Imaging Techniques Used in Cognitive Neuroscience
+TECHNIQUE
+
+MAIN ADVANTAGES
+
+MAIN DISADVANTAGES
+
+Naturally occurring
+lesions
+
+Can strongly implicate a region as being
+essential for a task
+
+Still generally need double dissociation to strongly confirm
+selectivity of area
+
+Occur naturally
+
+Not specific to functional areas; variable in distribution and
+extent
+Do not identify a network
+No temporal resolution
+Relatively few available subjects; subjects often from
+heterogeneous groups
+Effects of recovery unknown or complex
+
+Directed lesions
+
+Can strongly implicate a region as being
+essential for a task
+
+Can generally be done only in animals; ethical concerns
+
+Can be much more selective than naturally
+occurring lesions
+
+Very limited temporal resolution
+
+Can be timed (e.g., before or after training)
+Intracranial
+stimulation
+
+Can provide rather specific neural
+perturbation
+
+Mostly limited to animals and rare clinical circumstances
+In humans, clinical concerns, limited locations that can be
+stimulated
+
+Transcranial
+magnetic
+stimulation (TMS)
+
+Advantages of lesions, but transient and
+noninvasive (or at least nonsurgical)
+
+Mostly can do only superficial cortex
+
+With single shot, can get some temporal
+resolution
+
+Not very focused; stimulates other areas nearby and above
+the target area
+Even for some superficial brain regions, is too
+uncomfortable
+Some safety issues, particularly for repetitive TMS (rTMS)
+
+Single-unit
+recordings
+
+High spatial and temporal resolution
+
+Picks up only some neurons (typically larger ones)
+
+Very specific (single neurons)
+
+Very invasive; almost completely limited to animals
+Typically from only one brain area, thus does not identify a
+network or network interactions
+
+Electroencephalography (EEG)
+
+Good temporal resolution
+
+Coarse or problematic spatial resolution
+
+Good for state effects (e.g., arousal, sleep
+stages)
+
+Not very specific for information processing or cognitive
+function
+
+Noninvasive
+Inexpensive, fast, and easy recording
+procedures
+
+Multimethodological approaches
+All of the individual methods described here provide a way of linking cognitive
+processes to underlying brain processes. Each has advantages and disadvantages. The spatial and temporal ranges of these approaches were depicted in
+Figure 1.6. The most important advantages and disadvantages of each method
+are described in Table 2.1.
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+■ 49
+
+TABLE 2.1 (continued)
+TECHNIQUE
+
+MAIN ADVANTAGES
+
+MAIN DISADVANTAGES
+
+Event-related
+potentials (ERPs)
+
+Very high temporal resolution
+
+Coarse or problematic spatial resolution
+
+Noninvasive
+
+Difficult to disentangle multicomponent activity
+
+Inexpensive, fast, and easy recording
+procedures
+
+Activity may be associated with but not essential for the
+task
+
+Very high temporal resolution
+
+Picks up mainly only sulcal activity
+
+Better localization than ERPs
+
+Limited spatial localization
+
+Noninvasive
+
+Much more expensive than ERPs
+
+Magnetoencephalography (MEG)
+
+Recordings very susceptible to interfering noise
+Activity may be associated with but not essential for task
+Positron emission
+tomography (PET)
+
+Good spatial resolution (three dimensional)
+
+No temporal resolution
+
+Identifies network of regions associated with
+task
+
+Cannot do event-related designs (block design only)
+Need cyclotron
+Need to inject radioactive molecules
+Indirect measurement of neuronal activity
+Activated areas may be associated with but not essential
+for the task
+
+Functional magnetic
+resonance imaging
+(fMRI)
+
+Very good spatial resolution
+
+Spatial resolution still has limits (e.g., draining veins)
+
+Temporal resolution much better than PET
+
+Temporal resolution still very low (typically a few seconds)
+
+Can do event-related designs
+
+Indirect measurement of neuronal activity
+
+Identifies network of regions associated with
+task
+
+Activated areas may be associated with but not essential
+for the task
+
+Noninvasive
+Optical imaging
+(hemodynamic)
+
+Optical imaging
+(EROS)
+
+High spatial resolution
+
+Almost exclusively limited to animals
+
+Temporal resolution a bit better than fMRI
+
+Temporal resolution still fairly low (hundreds of milliseconds)
+
+Can do event-related designs
+
+Indirect measurement of neuronal activity
+
+Can image all across a cortical area
+simultaneously
+
+Activated areas may be associated with but not essential
+for the task
+
+Moderate spatial resolution
+
+Low signal-to-noise ratio; may require multiple sessions or
+be able to image only limited brain regions
+
+Good temporal resolution
+
+Mainly sensitive to the more superficial cortical regions
+
+Noninvasive
+
+Activated areas may be associated with but not essential
+for the task
+
+The different limitations of each of these methods, as well as their complementary scales, have led to a growing effort to combine approaches in the same
+or closely allied studies. For example, hemodynamic measures of brain activity like fMRI are very good at showing which areas of the brain are activated
+
+50 ■ CHAPTER 2
+in a given cognitive task or type of event, but they provide relatively limited
+temporal resolution (on the order of seconds). Since many cognitive operations
+occur on the order of tens or hundreds of milliseconds, fMRI cannot indicate
+the timing or sequence of the underlying brain processes. ERPs and MEG, on
+the other hand, provide millisecond resolution of evoked brain activity but can
+only coarsely localize that activity. Thus, combining information derived from
+each of these methodologies with the goal of understanding both the temporal
+and spatial characteristics of the underlying brain activity makes good sense.
+Information gleaned from different methodologies can be related across
+studies to synthesize findings pertinent to particular functions—either retrospectively or prospectively. However, one can also directly combine information across methodologies within the same or linked studies. Although such
+combining of data or findings acquired from the different methods is always
+attractive in principle, it can be difficult to do in practice, largely because of the
+disparate natures of the different methods and the data sets they provide. But
+when implemented well, it can be very useful.
+An example of combining information derived from different methodologies
+is using data from PET or fMRI to help in the source analysis of ERP or MEG
+activity. For example, functional activation of specific brain areas during a task
+carried out in a functional imaging study indicates the areas that are likely
+sources of corresponding ERP or MEG activity in the same task. This information
+can be immediately valuable in associating specific ERP effects with fMRI or
+PET activations in parallel studies, but it can also be incorporated directly into
+source localization analyses and modeling as a priori “constraints,” increasing
+the likelihood of obtaining accurate estimates of the ERP or MEG sources. In
+addition, since ERP/MEG activity derives mainly from neural current sources
+located within the cortex and oriented perpendicularly to the cortical surface
+(see the earlier discussion of these methods), extracting the cortical surface
+from high-resolution structural MRI images can also provide useful anatomical
+constraints for source localization approaches.
+Furthermore, researchers are now using MR-compatible EEG systems to
+record EEG and fMRI simultaneously in the scanner. The advantage of this
+approach, although technically difficult, is that it allows one to analyze how
+the differences from trial to trial in one of these measures (e.g., the EEG in a
+specific time period) co-vary with the trial-to-trial variations of the other (e.g.,
+the fMRI activity in particular regions). This approach thus has the important
+advantage of being able to link the activity variations of each of the measures
+across time, as opposed to being only able to compare the averaged response
+in an EEG session with the averaged response in a separate fMRI session doing
+the same task. Accordingly, such simultaneous-recording approaches appear
+to hold great promise for cognitive neuroscience research.
+Other useful ways to combine these approaches include linking functional
+imaging studies in normal individuals with similar studies in patients who
+have brain lesions. Another example is to record both fMRI activity and singleunit activity in experimental animals (usually monkeys) engaged in the same
+cognitive task. Yet another is to pursue electrophysiological studies in monkeys
+and humans using parallel cognitive paradigms. Some electrophysiological
+studies in monkeys are now including intracranial recording of both single
+units and local cortical field potentials, with one of the aims being to make it
+easier to relate the results in experimental animals to the scalp-recorded ERPs
+in humans. Still other studies are relating genetic variations and neuroimaging
+measures, including task-related responses, to investigate mechanisms related
+to certain clinical disorders, as well as to the propensity for having certain
+behavioral traits (Box 2C).
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+
+■ 51
+
+■ BOX 2C NEUROIMAGING GENOMICS
+
+V
+
+ariations in a gene or segment of
+DNA are called polymorphisms,
+and these genetic variations can be
+associated with a greater risk of various
+neurological and psychiatric disorders.
+Recent research has also shown that the
+expression of genetic variations in the
+brain can be manifested in both structural and functional neuroimaging data.
+Neuroimaging genomics (or imaging
+genomics) refers to the application of
+imaging technologies to investigate how
+these genes are expressed in the brain.
+An example of this sort of approach
+used fMRI to study memory in individuals
+with varying degrees of risk for Alzheimer’s-type dementia. This risk for dementia
+was related to whether the individual carried one genetic form (allele) or another
+of a gene known as APOE, with those
+whose alleles included one copy of the
+variant APOE 4 having an increased risk
+relative to those carrying two copies of
+the variant APOE 3. During a memory
+task, individuals with a copy of APOE 4
+showed greater activation in the hippocampus and other memory-related brain
+areas (see Chapter 9), relative to those
+with only APOE 3. Moreover, the degree
+of increased activation varied inversely
+with a decline of memory ability over the
+following two years, with APOE 4 indi-
+
+viduals who showed greater activation
+early having more memory decline later.
+Thus, before any clinical signs or symptoms appear, neuroimaging may pick up
+subtle brain variations that predict later
+functional deficits.
+There has also been much interest in
+the genetic influences on the transmitter systems involved in various cognitive
+functions. Considerable work has been
+directed in particular toward understanding the role of genetic variations that
+control molecules involved in the synaptic efficacy of the neurotransmitter serotonin. For example, certain genetic alleles
+have been associated with greater levels
+of serotonin in key brain areas, with such
+individuals also showing greater levels of
+anxiety in stressful circumstances. Correspondingly, fMRI studies have indicated
+that when these individuals are shown
+images with strong emotional associations, they display greater increases of
+activity in the amygdala, a key emotionprocessing region in the brain (see
+Chapter 10), while also producing more
+cortisol in the bloodstream (a marker
+of stress level). Such results show the
+benefits of combining genetic measures,
+behavioral measures, and neuroimaging
+to studying the neural and physiological
+mechanisms related to clinical disorders.
+
+In sum, there are many ways in which the various research methods of
+cognitive neuroscience can be effectively combined both within and across
+studies. Multimethodological syntheses hold the promise for achieving the
+deepest and fullest understanding of the neural processes and mechanisms that
+underlie cognitive functions. Moreover, the need to synthesize findings across
+methodologies, as well as to maintain a broad interdisciplinary perspective, will
+continue even as newer and better methods emerge, as they most certainly will.
+
+Summary
+1. The technical approaches that have made it increasingly possible to link the inferences and concepts of cognitive psychology to their neural underpinnings are
+diverse and continually improving. The approaches that have been most effective
+to date fall into two major categories: brain perturbation and neuromonitoring.
+2. Methods that perturb the brain in some way allow inferences to be made about
+the role of specific brain areas or brain systems in particular cognitive functions.
+Approaches that entail perturbation include the natural disturbances of brain
+function that arise from trauma, stroke, or disease; perturbations induced pharmacologically; and perturbations induced by electrical stimulation of relevant
+brain regions. The latter methods include direct intracranial electrical stimulation,
+mostly in animals, as well as stimulation of brain tissue through the skull using
+transcranial magnetic stimulation (TMS) and transcranial direct current stimulation (tDCS).
+
+More generally, there is a developing
+school of thought that many psychiatric
+clinical syndromes represent one end of
+a genetic spectrum of individual differences in specific traits. For example,
+subclinical levels of obsessive-compulsive disorder traits can be found in
+many “normal” individuals, with little of
+such tendencies being present in others.
+These more subtle trait-related genetic
+variations may also have corresponding
+manifestations in brain structure and/or
+function that may be investigated with
+neuroimaging.
+
+References
+BOOKHEIMER, S. Y. AND 6 OTHERS (2000)
+Patterns of brain activation in people at
+risk for Alzheimer’s disease. N. Engl. J.
+Med. 343: 450–456.
+CASPI, A., A. R. HARIRI, A. HOLMES, R.
+UHER AND T. E. MOFFITT (2010) Genetic
+sensitivity to the environment: The case
+of the serotonin transporter gene and
+its implications for studying complex
+diseases and traits. Am. J. Psychiatry 167:
+509–527.
+HARIRI, A. R. (2009) The neurobiology
+of individual differences in complex
+behavioral traits. Annu. Rev. Neurosci. 32:
+225–247.
+
+52 ■ CHAPTER 2
+
+Go to the COMPANION WEBSITE
+sites.sinauer.com/cogneuro2e
+for quizzes, animations, flashcards,
+and other study resources.
+
+Additional Reading
+Reviews
+CHURCHLAND, P. S. AND T. J. SEJNOWSKI
+(1988) Perspectives on cognitive neuroscience. Science 242: 741–745.
+FOX, P. T. AND M. G. WOLDORFF (1994)
+Integrating human brain maps. Curr.
+Opin. Neurobiol. 4: 151–156.
+
+3. Methods that measure neural activity during cognitive tasks provide information
+about the specific neural activity patterns that are engaged during the processing
+of a specific type of stimulus or the performance of a specific cognitive task. The
+major activity-measuring techniques associated with cognitive processes include
+invasive electrical recording in experimental animals, noninvasive electrical or
+magnetic recording in humans, and both noninvasive and invasive imaging methods that depend on altered metabolism and/or blood flow in active brain regions.
+4. In single-unit electrophysiological recording, metal electrodes are inserted into
+the brain structures of experimental animals to measure the action potentials produced by individual neurons. Animal researchers are also increasingly investigating the nonspike fluctuations in the dendritic local field potentials.
+5. Electroencephalography (EEG) is a noninvasive method for recording the brain’s
+electrical signals from the scalp, which reflects the volume-conducted dendritic
+field potentials. EEG and the event-related potentials (ERPs) that can be extracted
+from EEG data via time-locked averaging have been widely used in the study of
+human brain activity.
+6. EEG and ERPs have counterparts in magnetoencephalography (MEG) and eventrelated field responses (ERFs), which measure magnetic-field fluctuations due to
+neuronal currents rather than the associated voltage fluctuations. These methods
+all have high temporal resolution but coarse spatial resolution.
+7. Techniques of three-dimensional functional brain imaging have revolutionized
+cognitive neuroscience with their ability to visualize brain activity during cognitive task performance. The first of these to be widely used, positron emission
+tomography (PET), can localize brain activity during extended task blocks, but it
+requires the use of radioactive isotopes and has essentially no temporal resolution.
+Accordingly, it has been largely supplanted in cognitive research by functional
+magnetic resonance imaging (fMRI), which has much higher temporal resolution
+(although it is still much lower than that of electrophysiological methods) and can
+be performed in an event-related way.
+8. Much work has been devoted to advancing analytic methods for fMRI in order to
+enhance the ability to make inferences from the brain activity patterns. Such methods include using multivoxel pattern analysis to examine consistent variations in
+the spatial patterns of activity locally within an area and using repetition suppression to examine the activations of intermingled neural populations within an area.
+Considerable research has also been devoted to developing methods to analyze
+the functional interactions between different active areas in the brain and how
+they work together to accomplish cognitive functions.
+9. Optical brain imaging techniques are based on differences in light absorption and
+transmission in active brain areas that can be detected and imaged using optical
+recording devices.
+10. With both brain perturbation studies and brain activity studies, the approach is to
+establish which cognitive functions are associated with certain neural structures
+or neural activity, and which are dissociated. This linkage of neural and cognitive
+processes is made even stronger by establishing double dissociations—that is,
+establishing that Task A is associated with neural region 1 but not with region 2
+and that Task B is associated with region 2 but not with region 1.
+11. Increasingly, different methodologies are being combined in multimethodological
+approaches that together can provide greater insight into the neural mechanisms
+underlying cognitive processes.
+
+HAMALAINEN, M., R. HARI, R. ILMONEIMI,
+J. KNUUTILA AND O. LOUNASMAA (1993)
+Magnetoencephalography: Theory,
+instrumentation, and applications to
+the noninvasive study of human brain
+function. Rev. Mod. Phys. 65: 413–423.
+HENSON, R. (2005) What can functional
+neuroimaging tell the experimental
+psychologist? Q. J. Exp. Psychol. 58A:
+193–233.
+
+LOGOTHETIS, N. K. (2008) What we can
+and cannot do with fMRI. Nature 453:
+869–878.
+SMITH, S. M. AND 7 OTHERS (2011) Network modeling methods for fMRI.
+Neuroimage 54: 875–891.
+SUPER, H. AND P. R. ROELFSEMA (2005)
+Chronic multiunit recordings in behaving animals: Advantages and limitations. Prog. Brain Res. 147: 263–282.
+
+THE METHODS OF COGNITIVE NEUROSCIENCE
+YIHAR, O, L. I. FENNO, T. J. DAVIDSON, M.
+MOGRI AND K. DEISSEROTH (2009) Optogenetics in neural systems. Neuron 71:
+9–34.
+
+Important Original Papers
+BANDETTINI, P. A., E. C. WONG, R. S.
+HINKS, R. S. TIKOFSKY AND J. S. HYDE
+(1992) Time course EPI of human brain
+function during task activation. Magn.
+Reson. Med. 25: 390–397.
+BERGER, H. (1929) Uber das Electroenkephalogram des Menschen. Arch.
+Psychiatr. Nervenkr. 87: 527–570.
+BUROCK, M. A., R. L. BUCKNER, M. G.
+WOLDORFF, B. R. ROSEN AND A. M.
+DALE (1998) Randomized eventrelated experimental designs allow
+for extremely rapid presentation rates
+using functional MRI. Neuroreport 9:
+3735–3739.
+CATON, R. (1875) The electrical currents
+of the brain. Brit. Med. J. 2: 278.
+DA SILVA, F. H. AND W. S. VAN LEEUWEN
+(1977) The cortical source of the alpha
+rhythm. Neurosci. Lett. 6: 237–241.
+FOX, P. T. AND M. E. RAICHLE (1986) Focal
+physiological uncoupling of cerebral
+blood flow and oxidative metabolism
+during somatosensory stimulation in
+human subjects. Proc. Natl. Acad. Sci.
+USA 83: 1140–1144.
+GRATTON, G. AND 8 OTHERS (1997) Fast
+and localized event-related optical
+signals (EROS) in the human occipital
+cortex: Comparisons with the visual
+evoked potential and fMRI. Neuroimage
+6: 168–180.
+GRILL-SPECTOR, K., T. KUSHNIR, S. EDELMAN, G. AVIDAN, Y. ITZCHAK AND R.
+
+MALACH (1999) Differential processing
+of objects under various viewing conditions in the human lateral occipital
+complex. Neuron 24: 187–203.
+GRINWALD, A., E. LIEKE, R. D. FROSTIG,
+C. D. GILBERT AND T. N. WIESEL (1991)
+Functional architecture of cortex
+revealed by optical imaging of intrinsic
+signals. Nature 324: 361–364.
+HUBEL, D. H. AND T. N. WIESEL (1959)
+Receptive fields of single neurons in
+the cat’s striate cortex. J. Neurophysiol.
+148: 574–591.
+KOURTZI, Z. AND N. KANWISHER (2001)
+Representation of perceived object
+shape by the human lateral occipital
+complex. Science 293: 706–709.
+KWONG, K. K. AND 9 OTHERS (1992)
+Dynamic magnetic resonance imaging
+of human brain activity during primary
+sensory stimulation. Proc. Natl. Acad.
+Sci. USA 89: 5675–5679.
+LOGOTHETIS, N. K., J. PAULS, M. AUGATH,
+T. TRINATH AND A. OELTERMANN (2001)
+Neurophysiological investigation of
+the basis of the fMRI signal. Nature 412:
+128–130.
+MAGRI, C., U. SCHRIDDE, Y. MURAYAM, S.
+PANZERI AND N. K. LOGOTHETIS (2012)
+The amplitude and timing of the BOLD
+signal reflects the relationship between
+local field potential power at different
+frequencies. J. Neurosci. 32: 1395–1407.
+MOUNTCASTLE, V. B., J. C. LYNCH, A.
+GEORGOPOULOS, H. SAKATA AND C.
+ACUNA (1975) Posterior parietal association cortex of the monkey: Command functions for operations within
+extrapersonal space. J. Neurophysiol. 38:
+871–908.
+
+■ 53
+
+OGAWA, S. AND 6 OTHERS (1992) Intrinsic
+signal changes accompanying sensory
+stimulation: Functional brain mapping
+with magnetic resonance imaging. Proc.
+Natl. Acad. Sci. USA 89: 5951–5955.
+PETERSEN, S. E., P. T. FOX, A. Z. SNYDER
+AND M. E. RAICHLE (1990) Activation of
+extrastriate and frontal cortical areas
+by visual words and word-like stimuli.
+Science 249: 1041–1044.
+SERENO, M. I. AND 7 OTHERS (1995) Borders of multiple visual areas in humans
+revealed by functional magnetic resonance imaging. Science 268: 889–893.
+WURTZ, R. H. AND M. E. GOLDBERG (1971)
+Superior colliculus cell responses
+related to eye movements in awake
+monkeys. Science 171: 82–84.
+
+Books
+HUETTEL, S. A., A. W. SONG AND G.
+MCCARTHY (2009) Functional Magnetic
+Resonance Imaging, 2nd Ed. Sunderland,
+MA: Sinauer.
+LUCK, S. J. (2005) An Introduction to the
+Event-Related Potential Technique. Cambridge, MA: MIT Press.
+NUÑEZ, P. L. R. AND R. SRINIVASAN (2005)
+Electric Fields of the Brain: The Neurophysics of EEG, 2nd Ed. New York:
+Oxford University Press.
+RAICHLE, M. E. AND M. I. POSNER (1994)
+Images of Mind. New York: Scientific
+American Library.
+ULLSPERGER, M. AND S. DEBENER (2010)
+Simultaneous EEG and fMRI: Recording, Analysis, and Application. Oxford:
+Oxford University Press.
+
+

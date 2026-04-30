@@ -1,0 +1,807 @@
+/* ═══════════════════════════════════════════════════════════════
+   Cognitive Neuroscience — lecture stylesheet
+   Reformat of cog-neuro markdown notes into the auto-sys editorial
+   pattern, with cog-neuro's hand-drawn slide-frame overlay and
+   annotation system carried over.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --paper:     #F2EDE0;
+  --paper-2:   #ECE6D6;
+  --ink:       #1A1A1A;
+  --ink-soft:  #2B2B2B;
+  --ink-mute:  #8A8270;
+  --ink-faint: #C5BEAE;
+  --ink-faint-2: #A8A29A;
+  --rule:      #1A1A1A;
+  --hair:      #1F1F1F;
+  --rust:      #A84F2A;
+  --rust-soft: #C46A3F;
+  --highlight: rgba(168, 79, 42, 0.10);
+  --cream:     #F2EDE0;
+  --annot-yellow:      #F4E27A;
+  --annot-yellow-soft: rgba(244, 226, 122, 0.45);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+  font-feature-settings: "ss01", "calt";
+}
+
+/* ─── thin rust top accent ─── */
+.rust-bar { height: 4px; width: 100%; background: var(--rust); }
+
+/* ─── topbar ─── */
+header.topbar {
+  display: flex; align-items: center;
+  padding: 22px 36px 18px;
+  border-bottom: 1px solid var(--ink-faint);
+  gap: 28px;
+}
+.back {
+  color: var(--ink); text-decoration: none;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500;
+}
+.back:hover { color: var(--rust); }
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand .mark { width: 14px; height: 14px; background: var(--rust); }
+.brand .name {
+  font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600;
+}
+.crumbs {
+  margin-left: auto;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.crumbs span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+
+/* ─── tab nav ─── */
+nav.tabs {
+  display: flex; gap: 38px;
+  padding: 16px 36px 0;
+  border-bottom: 1px solid var(--ink-faint);
+}
+nav.tabs a {
+  position: relative;
+  padding: 10px 0 14px;
+  color: var(--ink-mute); text-decoration: none;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500;
+}
+nav.tabs a.active { color: var(--ink); font-weight: 700; }
+nav.tabs a.active::after {
+  content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+  background: var(--ink);
+}
+
+/* ─── hero section ─── */
+.hero {
+  position: relative;
+  padding: 56px 36px 32px;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 36px; align-items: end;
+  border-bottom: 1px solid var(--ink-faint);
+}
+.hero-left {
+  display: flex; flex-direction: column; gap: 22px;
+  position: relative;
+}
+.hero-num {
+  font-size: clamp(180px, 22vw, 320px);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink-faint);
+  font-weight: 400;
+  user-select: none;
+}
+.hero-title-block { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.hero-eyebrow {
+  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero-title {
+  font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-weight: 600; line-height: 1.4;
+}
+.hero-meta {
+  margin-top: auto;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero-meta span + span::before { content: "·"; margin: 0 10px; color: var(--ink-faint); }
+.hero-right { position: relative; display: flex; align-items: flex-end; justify-content: flex-end; }
+.brain-illu {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: grayscale(0.05);
+}
+
+/* ─── lecture chip strip ─── */
+.chips {
+  display: flex; gap: 36px;
+  padding: 22px 36px;
+  border-bottom: 1px solid var(--ink-faint);
+  flex-wrap: wrap;
+}
+.chip {
+  position: relative;
+  color: var(--ink-mute); text-decoration: none;
+  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 6px;
+}
+.chip.active { color: var(--ink); font-weight: 700; }
+.chip.active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: var(--ink);
+}
+
+/* ─── slide thumbnail strip (top of lecture) ─── */
+.slide-strip {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 200px;
+  gap: 14px; overflow-x: auto;
+  padding: 28px 36px 32px;
+  border-bottom: 1px solid var(--ink-faint);
+  scrollbar-width: thin;
+}
+.slide-strip::-webkit-scrollbar { height: 6px; }
+.slide-strip::-webkit-scrollbar-track { background: var(--paper-2); }
+.slide-strip::-webkit-scrollbar-thumb { background: var(--ink-faint); }
+.slide-strip a {
+  position: relative; display: block;
+  cursor: zoom-in;
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  overflow: hidden;
+  text-decoration: none;
+}
+.slide-strip a::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: url("/cog-neuro/slide-frame.svg") center / 110% 115% no-repeat;
+  pointer-events: none;
+}
+.slide-strip a img {
+  position: absolute;
+  top: 10%; left: 8%;
+  width: 84%; height: 80%;
+  object-fit: contain;
+  background: #fff;
+}
+.slide-strip a .num {
+  position: absolute; top: 4px; left: 6px;
+  background: var(--ink); color: var(--paper);
+  padding: 2px 7px;
+  font-size: 10px; letter-spacing: 0.14em; font-weight: 600;
+  z-index: 2;
+}
+
+/* ─── article body ─── */
+article {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 36px 120px;
+  position: relative;
+}
+article section {
+  margin-bottom: 72px;
+  clear: both;
+}
+article section::after { content: ""; display: block; clear: both; }
+article section:last-child { margin-bottom: 0; }
+article section .col-text { min-width: 0; }
+
+/* Hand-drawn horizontal-line.svg as separator between sections.
+   The asset has an opaque off-white background; `mix-blend-mode: multiply`
+   blends it into the cream paper so only the ink strokes remain visible. */
+article section + section::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 28px;
+  background-image: url('/cog-neuro/horizontal-line.svg');
+  background-size: 100% auto;
+  background-position: 0 47%;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  margin: 0 0 24px;
+  opacity: 0.85;
+}
+
+/* slides cluster — floats right, text wraps around */
+article section .col-slides {
+  float: right;
+  width: 320px;
+  margin: 0 0 24px 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-content: start;
+}
+article section .col-slides:has(> figure:only-child) {
+  width: 220px;
+  grid-template-columns: 1fr;
+}
+
+.section-eyebrow {
+  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+article p {
+  font-size: 14px; line-height: 1.85;
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+}
+article p strong, article li strong, td strong {
+  font-weight: 700; color: var(--ink);
+  background: transparent;
+}
+article em, article li em, article p em { font-style: italic; }
+
+article ul, article ol {
+  margin-left: 0; padding-left: 0; list-style: none;
+  margin-bottom: 16px;
+}
+article li {
+  font-size: 14px; line-height: 1.85;
+  color: var(--ink-soft);
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 4px;
+}
+article ul > li::before {
+  content: "·";
+  position: absolute; left: 4px; top: -2px;
+  color: var(--rust);
+  font-size: 18px;
+}
+article ol { counter-reset: ol; }
+article ol > li {
+  counter-increment: ol;
+  padding-left: 32px;
+}
+article ol > li::before {
+  content: counter(ol, decimal-leading-zero);
+  position: absolute; left: 0; top: 0;
+  color: var(--rust);
+  font-size: 11px; letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+article h3 {
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-mute);
+  margin-top: 28px; margin-bottom: 12px;
+}
+article h4 {
+  font-size: 12px; letter-spacing: 0.04em;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 20px; margin-bottom: 8px;
+}
+
+/* ─── exam / prof badges (matches auto-sys) ─── */
+.badge {
+  display: inline-block; vertical-align: 1px;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border: 1px solid var(--ink-faint);
+  color: var(--ink-mute);
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 500;
+}
+.badge.prof { color: var(--rust); border-color: var(--rust-soft); }
+
+/* ─── callouts (hand-drawn line + small label) ─── */
+.callout {
+  position: relative;
+  padding: 22px 0 22px 40px;
+  margin: 24px 0;
+}
+.callout::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 28px;
+  background-image: url("/cog-neuro/line.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+.callout-label {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--rust);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout blockquote { padding-left: 0; }
+
+/* prof-emphasis blockquote (without callout wrap) */
+blockquote {
+  position: relative;
+  padding: 14px 0 14px 40px;
+  margin: 18px 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+blockquote::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 28px;
+  background-image: url("/cog-neuro/line.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--ink-faint);
+  margin: 28px 0;
+}
+
+/* ─── tables ─── */
+table {
+  width: 100%; border-collapse: collapse;
+  margin: 18px 0 24px;
+  font-size: 13px;
+}
+th, td {
+  padding: 12px 14px 12px 0;
+  text-align: left; vertical-align: top;
+  border-bottom: 1px solid var(--ink-faint);
+}
+th {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 10px;
+}
+td { color: var(--ink-soft); line-height: 1.7; }
+
+/* ─── slide figure (in right column) — uses cog-neuro hand-drawn frame ─── */
+figure.slide-embed { margin: 0; display: block; }
+figure.slide-embed a {
+  display: block;
+  cursor: zoom-in;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+figure.slide-embed a:hover { transform: translateY(-1px); }
+figure.slide-embed a::after {
+  /* hand-drawn ink frame stretched 110% × 115% so its strokes reach the
+     wrapper edges (the SVG has internal padding inside its 1536×1024 viewBox) */
+  content: "";
+  position: absolute; inset: 0;
+  background: url("/cog-neuro/slide-frame.svg") center / 110% 115% no-repeat;
+  pointer-events: none;
+}
+figure.slide-embed img {
+  position: absolute;
+  /* slide sits inside the ink frame with breathing room */
+  top: 10%; left: 8%;
+  width: 84%; height: 80%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+  filter: contrast(1.02);
+}
+figure.slide-embed figcaption {
+  margin-top: 8px;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 500;
+  line-height: 1.5;
+}
+figure.slide-embed figcaption .num { color: var(--rust); margin-right: 6px; }
+.slide-row { display: contents; }
+
+/* ─── lightbox ─── */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(20, 18, 14, 0.92);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 1000;
+  padding: 40px;
+  cursor: zoom-out;
+  backdrop-filter: blur(2px);
+}
+.lightbox.open { display: flex; }
+.lightbox-img {
+  max-width: 100%; max-height: 92vh;
+  object-fit: contain;
+  border: 2px solid var(--paper);
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute; top: 24px; right: 28px;
+  background: var(--paper); color: var(--ink);
+  border: none;
+  width: 36px; height: 36px;
+  font-family: inherit; font-size: 16px; font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.lightbox-close:hover { background: var(--rust); color: var(--paper); }
+.lightbox-meta {
+  position: absolute; bottom: 24px; left: 28px;
+  color: var(--paper);
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+}
+.lightbox-meta .num { color: var(--rust-soft); margin-right: 12px; }
+.lightbox-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: var(--paper); color: var(--ink);
+  border: none;
+  width: 44px; height: 44px;
+  font-family: inherit; font-size: 18px; font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.lightbox-nav:hover { background: var(--rust); color: var(--paper); }
+.lightbox-prev { left: 28px; }
+.lightbox-next { right: 28px; }
+
+/* ─── key takeaways ─── */
+.takeaways {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--ink);
+}
+.takeaways .section-eyebrow { color: var(--ink); font-weight: 700; }
+.takeaways ol > li::before { color: var(--rust); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Annotations — drag-select to highlight + side panel
+   localStorage key: cog-neuro:annot:<sectionId>
+   ═══════════════════════════════════════════════════════════════ */
+
+article mark.annot-mark {
+  background: var(--annot-yellow);
+  color: var(--ink);
+  padding: 0 1px;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-color 0.12s ease;
+}
+article mark.annot-mark:not(.annot-mark-pending):hover { background: #F0D550; }
+article mark.annot-mark-pending { cursor: text; }
+
+article ::selection { background: var(--annot-yellow); color: var(--ink); }
+article ::-moz-selection { background: var(--annot-yellow); color: var(--ink); }
+
+/* Margin-anchored popover */
+.annot-popover {
+  position: absolute;
+  top: 0;
+  right: 36px;
+  z-index: 30;
+  width: 280px;
+  background: #FBF8EE;
+  border: 1px solid var(--ink);
+  box-shadow: 0 1px 0 rgba(31, 30, 32, 0.06), 2px 2px 0 rgba(31, 30, 32, 0.18);
+  padding: 10px 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+@media (max-width: 1100px) { .annot-popover { right: 16px; width: 240px; } }
+@media (max-width: 900px) {
+  .annot-popover {
+    position: fixed; top: auto !important;
+    bottom: 16px; left: 12px; right: 12px;
+    width: auto; max-width: 360px; margin: 0 auto;
+  }
+}
+.annot-popover-snippet {
+  font-style: italic;
+  color: var(--ink-faint-2);
+  margin-bottom: 8px;
+  max-height: 48px; overflow: hidden;
+  font-size: 10.5px; line-height: 1.4; letter-spacing: 0.01em;
+  border-left: 2px solid var(--annot-yellow);
+  padding-left: 8px;
+}
+.annot-popover-input {
+  width: 100%;
+  border: 1px solid rgba(31, 30, 32, 0.35);
+  background: transparent;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  padding: 6px 8px;
+  resize: vertical;
+  min-height: 44px;
+  color: var(--ink);
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+.annot-popover-input:focus { outline: none; border-color: var(--ink); }
+.annot-popover-actions {
+  display: flex; justify-content: flex-end; align-items: center;
+  gap: 6px; margin-top: 10px;
+}
+.annot-popover-actions button {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.annot-popover-actions button:hover { border-color: var(--ink); }
+.annot-popover-delete { margin-right: auto; color: var(--ink-faint-2) !important; }
+.annot-popover-delete:hover { color: var(--ink) !important; border-color: rgba(31, 30, 32, 0.35) !important; }
+.annot-popover-save {
+  background: var(--ink) !important; color: var(--cream) !important;
+  border-color: var(--ink) !important;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.annot-popover-kbd { font-size: 11px; line-height: 1; opacity: 0.85; letter-spacing: 0; }
+
+/* Upper-right annotation panel */
+.annot-panel {
+  position: absolute;
+  top: 92px;
+  right: 24px;
+  z-index: 5;
+  font-family: "IBM Plex Mono", monospace;
+  pointer-events: auto;
+  width: auto;
+  max-width: 320px;
+}
+.annot-panel-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.annot-panel-toggle:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.annot-panel-toggle:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.annot-panel-icon { font-size: 14px; line-height: 1; }
+.annot-panel-count {
+  font-weight: 700;
+  background: var(--ink); color: var(--cream);
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+}
+.annot-panel-list {
+  margin-top: 10px;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  max-height: 60vh;
+  overflow-y: auto;
+  width: 320px;
+  display: none;
+}
+.annot-panel.open .annot-panel-list { display: block; }
+.annot-panel-empty {
+  padding: 14px;
+  font-size: 11px;
+  color: var(--ink-faint-2);
+  font-style: italic;
+}
+.annot-card {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(31, 30, 32, 0.15);
+}
+.annot-card:last-child { border-bottom: none; }
+.annot-card-jump {
+  flex: 1;
+  text-align: left;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--ink);
+  min-width: 0;
+}
+.annot-card-jump:hover { background: var(--annot-yellow-soft); }
+.annot-card-snippet {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.annot-card-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.annot-card-remove {
+  flex: 0 0 auto;
+  border: none;
+  background: transparent;
+  color: var(--ink-faint-2);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 12px;
+  line-height: 1;
+}
+.annot-card-remove:hover { color: var(--ink); }
+
+@keyframes annot-flash-pulse {
+  0%   { background: transparent; }
+  20%  { background: var(--annot-yellow); }
+  100% { background: transparent; }
+}
+.annot-flash { animation: annot-flash-pulse 1.6s ease-out; }
+
+@media (max-width: 900px) {
+  .annot-panel { top: 110px; right: 12px; max-width: 260px; }
+  .annot-panel-list { width: 260px; }
+}
+
+/* ─── responsive ─── */
+@media (max-width: 800px) {
+  article section .col-slides,
+  article section .col-slides:has(> figure:only-child) {
+    float: none; width: 100%; margin: 0 0 24px 0;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+@media (max-width: 720px) {
+  header.topbar, nav.tabs, .chips, article { padding-left: 22px; padding-right: 22px; }
+  .hero { grid-template-columns: 1fr; padding: 36px 22px 22px; }
+  .hero-num { font-size: 160px; }
+  .hero-right { order: -1; }
+  .crumbs { display: none; }
+  nav.tabs { gap: 22px; overflow-x: auto; }
+  .chips { gap: 22px; overflow-x: auto; }
+}
+
+/* ─── Lecture extras: transcript + book chapter (collapsible) ─── */
+
+.lecture-extras {
+  max-width: 1100px;
+  margin: 0 auto 64px;
+  padding: 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.extras-fold {
+  border-top: 1px solid var(--ink-faint);
+}
+
+.extras-fold > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+  user-select: none;
+}
+
+.extras-fold > summary::-webkit-details-marker { display: none; }
+
+.extras-fold > summary::before {
+  content: "+";
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--rust);
+  width: 14px;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.extras-fold[open] > summary::before {
+  content: "−";
+}
+
+.extras-fold > summary > .extras-meta {
+  margin-left: auto;
+  color: var(--ink-faint);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.extras-fold > summary:hover {
+  color: var(--ink);
+}
+
+.extras-text {
+  margin: 8px 0 24px;
+  padding: 18px 20px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--rust);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 720px) {
+  .lecture-extras { padding: 0 22px; }
+  .extras-text { font-size: 12px; padding: 14px 16px; max-height: 50vh; }
+}
+
+/* Copy button on extras-fold summary rows */
+.extras-copy {
+  margin-left: 12px;
+  padding: 3px 10px;
+  background: transparent;
+  border: 1px solid var(--ink-faint);
+  color: var(--ink-mute);
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.extras-copy:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.extras-copy.copied {
+  background: var(--rust);
+  border-color: var(--rust);
+  color: var(--paper);
+}
+
+.extras-copy.failed {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* Push the meta label to the left of the copy button */
+.extras-fold > summary > .extras-meta {
+  margin-left: auto;
+}

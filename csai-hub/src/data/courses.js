@@ -44,7 +44,50 @@ export const PROGRAM = [
             ],
             resources: [
               { label: "Roadmap", href: "/courses/cog-neuro/roadmap" },
-              { label: "Lessons", href: "/courses/cog-neuro/notes" },
+              {
+                label: "M1L1 — History & Approaches",
+                href: "/cog-neuro/lectures/m1_l1.html",
+              },
+              {
+                label: "M1L2 — Methods of Cognitive Neuroscience",
+                href: "/cog-neuro/lectures/m1_l2.html",
+              },
+              {
+                label: "M2L1 — Sensation & Perception",
+                href: "/cog-neuro/lectures/m2_l1.html",
+              },
+              {
+                label: "M2L2 — Attention",
+                href: "/cog-neuro/lectures/m2_l2.html",
+              },
+              {
+                label: "M3L1 — Memory Systems",
+                href: "/cog-neuro/lectures/m3_l1.html",
+              },
+              {
+                label: "M3L2 — Learning & Plasticity",
+                href: "/cog-neuro/lectures/m3_l2.html",
+              },
+              {
+                label: "M4L1 — Emotion & Social Cognition",
+                href: "/cog-neuro/lectures/m4_l1.html",
+              },
+              {
+                label: "M4L2 — Emotion & Social (in depth)",
+                href: "/cog-neuro/lectures/m4_l2.html",
+              },
+              {
+                label: "M5L1 — Executive Function",
+                href: "/cog-neuro/lectures/m5_l1.html",
+              },
+              {
+                label: "M5L2 — Executive (in depth)",
+                href: "/cog-neuro/lectures/m5_l2.html",
+              },
+              {
+                label: "MID — Midterm Review",
+                href: "/cog-neuro/lectures/midterm.html",
+              },
               { label: "Quizzes", href: "/courses/cog-neuro/quiz" },
               { label: "Brain Quiz", href: "/courses/cog-neuro/brain-quiz" },
             ],

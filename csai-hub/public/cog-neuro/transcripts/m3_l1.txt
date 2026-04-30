@@ -1,0 +1,1385 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+There we go. All right. I haven't seen you, uh, back, uh, in this in this course yet?
+
+Of course. Uh, last year's course, but not this one. So it's good to see you.
+
+Uh. See you. Um, so, as you are by now aware of, uh, in this course, we, uh, start with the next module, which will be again two weeks today.
+
+I'll go give natural science. Yes, I've heard of science.
+
+Yes. Have a seat, please. Um, this week I will give a brief overview, uh, of the next module, which will be about memory.
+
+Uh, next week is will be a number of your, uh, a number of your presenting, uh, to give, uh, your flipped classroom presentation.
+
+Um, all right, so I will give a bit of an overview of the, of the chapter, just, uh, to give me a feeling.
+
+Who if you skimmed the chapter already in the book.
+
+Okay, a few hints. So good. Okay, then hopefully, uh, it will ring a bell to you.
+
+What I'm talking about. Have a seat. Um, I've also mentioned a cutting edge paper briefly.
+
+Uh, so for, like, the last five minutes or something.
+
+Um, but, um, the, uh, majority will be about, uh, the actual, uh, chapter in the book that goes for your exam as well.
+
+Uh, in theory, the cutting edge papers are also exam material, but, um, uh, I would focus mostly on the chapter itself.
+
+All right, so before I get into any details about it, uh, let's define what memory is to begin with.
+
+Um, which is according to your book. And, uh, I think that is a good, um, definition to use.
+
+Um, something that's relatively specific, actually, as you see on the screen here.
+
+Uh, so it has actually three components that are important to remember.
+
+So what about what memory would be? Obviously you all have a bit of a, uh, an intuition already for what it would be,
+
+but scientifically, how you would define it is sometimes a bit more complicated.
+
+Um, or a bit more, uh, detailed.
+
+So it is something where, uh, information from a new experience is acquired by you, uh,
+
+and that you then retain that information over some prolonged period of time, uh, which can be sure, there are long.
+
+That depends on the type of memory, but I'll get to that in a moment.
+
+And as well also uh, and also then used to guide your behaviour somehow.
+
+So maybe you plan some kind of action accordingly. Uh, of, of an event you go to, etc.
+
+Um, so that is the three components of what memory would be that you, uh, gain new information from a new experience,
+
+for example, um, that you retain that information and then use that to guide your behaviour.
+
+Um, that is still relatively, uh, broad in terms of, um, what information that might and be, you might think, uh, but that could be anything actually.
+
+Uh, and that maps on to a different types of, uh, of, of memory.
+
+Uh, so that information could be on, uh, events, uh, maybe, uh,
+
+how you took the bus to the campus today or, uh, you went shopping over the weekend or anything like that.
+
+So, uh, experienced personal experiences.
+
+Um, it can also be that information, uh, that's meant in that, uh, definition can also be about items in isolation that don't have,
+
+um, this specific, uh, uh, link to a time and a place like events to.
+
+Mhm. Um, but you learn also relations between events and you do that throughout your whole life.
+
+Uh, actually, but uh, also strongly in childhood obviously.
+
+So at some point you learn the relation between cheese and milk for example.
+
+Um, so besides only remembering them in isolation, you also remembered their integration somehow or their relation.
+
+Uh, it can also be knowledge which is not specific to a time or a place, but it's,
+
+uh, like the fact that by his a city, you learn that at some point, uh,
+
+for people outside of the Netherlands, you probably learned that recently, uh,
+
+given that, uh, this book is not that necessarily that famous as a city, uh, on Earth,
+
+I think, uh, for, uh, others might have learned that earlier, but at some point, everyone learnt this piece of knowledge, uh,
+
+something that people think less about in the context of of memory and what kind of information you could retain over time,
+
+uh, is, uh, skills, although that is still a type of memory.
+
+Uh, it feels a lot different than memorising or thinking about back to your breakfast or what you had at breakfast,
+
+but for example, uh, or any other event.
+
+Um, but it's still, uh, a type of memory, like learning how to play soccer or ride a bike or anything like that.
+
+Um, so in that sense, uh, the information that you could retain over time in terms of this definition is, um, but relatively broad.
+
+This is also not, uh, a finite list or anything.
+
+Um, uh, you can think of, uh, possibly other types of information that you could retain.
+
+Um. And that that new information that you need to remember that is only one,
+
+one face of memory that we define, um, or define it, I should say, uh, broadly in three different phases.
+
+The first being encoding. And that is what I already alluded to.
+
+So that is when you, uh, retain new information, um, uh, like are exposed to new information of,
+
+of some sort, uh, that then leave some kind of memory trace.
+
+Uh, so it's not, uh, uh, ignored or forgotten. Uh, the fact that you remember that over a prolonged period of time would be the storage of it.
+
+Uh, so, uh, the retention of that information, that you still remember it next week or next year, uh, and retrieval is what we refer to.
+
+Um, if you would have to access that stored, um, uh, memory trace, uh, at a later point in time.
+
+Uh, an obvious example is, of course, you are examined a number of weeks, um, uh, which would be retrieval of information from the lectures.
+
+Um, but you also have, uh, examples of that of your daily life that is less, uh, structured as an exam.
+
+And, uh, in, uh, in your study program.
+
+Um, and these types of, uh, um, information that might be retained, uh, also map onto different types of memory.
+
+Uh, and today I want to spend most of the lecture going through these different types and what they,
+
+uh, mean also in the context of neuroscience or the brain.
+
+Uh, in that case, um, but you can divide it up and you have seen this, uh, also in your,
+
+uh, first year course, I think in, uh, working memory and long term memory,
+
+we will focus mostly on long term memory and the context of this, uh, lecture, which can be, again, split in,
+
+uh, declarative and non declarative memory, uh, non declarative being things that you implicitly remember.
+
+Uh, so that's less of like um, uh, gaining knowledge like you need to gain for this exam for example, of this course.
+
+But more things you will implicitly remember like skills for example.
+
+So skill learning. Uh, two other example uh examples are conditioning.
+
+Your first year uh introduction of cognitive science course went into detail about that.
+
+I'll mention it briefly. Um, but also priming.
+
+And that's what I will start with in a moment.
+
+Uh, what that means, uh, the declarative or more explicit types of memory, uh, have have to do with, um, events, as I already mentioned,
+
+as a type to it of information to retain that's now referred to as episodic memory when it's about, um,
+
+an event and an event would be defined as something that happened at a specific time or place, for example.
+
+And semantic memory is and more the, uh, the facts.
+
+Um, so. These two things are actually so it looks neatly split in this, uh, in this graph.
+
+And it's, I guess, a good starting point, uh, to learn about different types of memory.
+
+But, um, these things, um, actually are largely intertwined, often in terms of when you memorise things.
+
+Um, or when you retrieve them.
+
+So, uh, often things have components of episodic memory, but also components of semantic memory or maybe, uh, conditioning aspect to it.
+
+So in that sense, they're not mutually exclusive in like your realistic setting in your daily life.
+
+And you have to remember things. Um, so let's start with priming.
+
+So priming is a specific type of implicit memory that is actually studied quite well, uh, in a number of, uh,
+
+specific study designs that are often used for that, both behaviourally, but also in, uh, with neuroimaging methods, uh, like fMRI or other, uh, EEG.
+
+Um, that's relatively well understood in that sense.
+
+Um, and the, the logic is and I'll give an example of a task in a moment that's often helps more than, uh, sort of abstractly explaining what it is.
+
+Now, for most students at least.
+
+But uh, to start with, actually, uh, in an abstract way, explaining what it is, uh, priming would be, uh, a change in, uh, in,
+
+in how efficient you are to process a certain stimulus, um,
+
+because you have previously encountered EDA, EDA, the same stimulus or something that related to it.
+
+Um, and that makes people, uh, the more efficient and processing the current stimulus.
+
+Um, importantly, that only, uh, is called priming, and that is something that you haven't been aware of.
+
+So in these types of designs, you would ask the participant after the task if he or she, um,
+
+actually realised that you were like priming them in that way and some people might have spotted it and then,
+
+uh, yeah, that's not a problem or something, but, uh, then then it is a different process than this implicit, as the name calls it.
+
+Um, non non-conscious version of priming.
+
+So to give you a task example of that, which is, um, just a sort of really lab focussed, not necessarily, uh, real life, uh, task example of priming.
+
+So let's say there is a list of objects and you want people, uh, you exposed people to that one by one,
+
+and you want them to remember them as well as possible so they know they have to, uh, remember them later on.
+
+Um, and you asked them to make some kind of of, uh, judgement on each of these items, so they have to respond to it with a button press.
+
+So maybe, um, you tell them, press the left button when the object is smaller than the shoe box and,
+
+uh, the right one when it's bigger than a shoe box or something.
+
+Uh, so not that you're interested in their ability to, uh, know the size of the object,
+
+but it gives them a task to do in that they have to do that as soon as possible, as quick as possible for each of these trials.
+
+So let's say you exposed them 4 or 5 times to each of the objects so that they have enough time to actually memorise them.
+
+If you then always have this bucket, um, follow following this teapot.
+
+Uh, and they don't realise that, but each time they go to, uh, this list, each object comes back five times.
+
+And in the case of this bucket, it always, uh, is, uh, following this teapot.
+
+Uh, so you might actually have picked up on this as a participant.
+
+The number of, uh, people probably will that a number of people also, because you're not focussed on that and, uh, you're not thinking about that.
+
+So, uh, you don't, um, you don't realise that as a participant, but then still in responding, uh,
+
+with your buttons, you will be quicker, uh, in responding to the shoe box question for the bucket.
+
+Um, because somehow, even though you're not aware of it, you are kind of expecting it more than,
+
+than any other stimulus because you just saw the teapot and,
+
+uh, your system is primed or, um, somehow, subconsciously, um, uh, expecting, uh, that stimulus.
+
+Um, and if you don't indicate that you are not aware of that, that happened.
+
+Um, then that's called priming.
+
+And then people, uh, by consistently still show a really a reduced reaction time for that second stimulus that day at some level expected to see.
+
+So that depends mostly on the neocortex in general.
+
+Uh, and that's a broad term, obviously, as you hopefully know by now, but it's, uh, a relatively widespread network of regions involved in that.
+
+Uh, also depends a bit on the different types of priming that you might use.
+
+Uh, definitely. Uh, we'll go into more detail next week, hopefully by the, uh, group that is assigned to priming.
+
+But I'll briefly mention that, uh, already. So you have perceptual, conceptual, um, semantic priming.
+
+Those are essentially the two, uh, the three, um, different types.
+
+They, they map hierarchically onto two, uh, two split already with direct or indirect priming,
+
+which mostly has to do with if you're primed with an actual stimulus or something that only relates to it.
+
+Um, so indirect priming would be, um, that you can.
+
+Uh, that you become faster and processing the word letter when you are earlier in the task.
+
+Uh, primed with the word envelope, for example.
+
+These are obviously completely different words, but by the time you have, uh, the air of an average participant,
+
+uh, here at the, uh, university, you obviously realise that they relate to each other.
+
+So you're, uh, somehow still primed, even though the word letter wasn't actually used to prime from you the target write itself.
+
+Uh, direct priming would be, if you use the same word, uh, for example, perceptually related.
+
+So that would be perceptual priming. So if you're, uh, have the word envelope and you, uh, show this.
+
+Do it, then people might realise what work you mean quicker, because they have been primed by the full word at an earlier point in the task.
+
+Um, it can also be, uh, semantic, uh, priming.
+
+There's also a version of, uh, indirect priming. If you teach people a certain semantic category and then use that category to primed em, essentially.
+
+But yeah, all, uh, maps onto essentially this basic mechanism of, uh, sort of training people to, uh, predict better what's upcoming.
+
+Um. All right. Any questions on prem before I move on?
+
+All clear. Otherwise, also, feel free to just, uh, interrupt me or raise your hand.
+
+Uh, if you have a question and I don't stop for a short break.
+
+All right, let's move on to skill learning. That's probably the least often mentioned.
+
+If you don't start the lecture yet, you just ask people to list you what types of of, uh, memory.
+
+Then the skill learning is usually lowest on the list of words mentioned.
+
+But there's definitely a type of, of implicit memory.
+
+Uh, and so and one that you actually rely on quite a bit, uh, because you're learning all sorts of skills from childhood onwards.
+
+Um, depends a lot on interaction actually, or, um, connectivity between various regions, uh,
+
+the neocortex to mostly subcortical structures like the basal ganglia, which are essentially really deep within the brain.
+
+Um, so they are difficult to reach with the number of neuroimaging methods.
+
+Um, you have different types of that. The motor skills version is what people, uh, most intuitively think about, like riding a bike.
+
+When you think about skill learning. Um, but the thermos and the scientific literature actually, um, used much more broadly.
+
+That you can also have either perceptual or cognitive skills that you learn.
+
+Uh, and the debt, I mean, for example. Um. Uh, playing music or anything, uh, that is less, uh, or learning a new language or something.
+
+Uh, that obviously also depends a lot on other types of memory, but definitely also on skill, uh, learning.
+
+Um, and those uh, uh, are again, uh, not, uh, often really, uh, sort of mutually exclusive.
+
+Even riding a bike, which obviously relies heavily on, on motor skill learning, uh,
+
+it's still up to a certain level also cognitive in the sense that, uh, especially in the beginning,
+
+you would build up the skill because you realise things cognitively that are
+
+important to keep doing when you ride a bike and you don't want to fall off it,
+
+for example. So there are also cognitive things that you pick up on, um, and that you use in order to learn, you learn this new skill.
+
+So it's rarely the case, even for really obvious examples like that, that they rely only on one of these three aspects of that.
+
+Um, yeah. You might think about how to then study that.
+
+Uh, obviously you should study that by thinking of a, um, of a new skill that you could teach people, uh,
+
+because otherwise you can't monitor their brain signal, for example, when they are, uh, learning a skill.
+
+So if people that come in, uh, all can ride a bike and you want to, um, map to EEG signal of someone who learns how to ride a bike,
+
+then you are sort of too late because they all picked up on that skill already.
+
+So you have to think of something new that most of your participants won't already have.
+
+Um, some people study that will teach you a new skill set of sort of like realistic, uh, still.
+
+Um, but there's also a lot of, like, lab controlled experimental studies with sort of really, um, basic and very, um.
+
+Um, artificial. Maybe I should call it, uh, skills that you would learn, um, like a motor sequence task, uh, that's often used for this.
+
+Uh, I already briefly mentioned it, uh, that in the last year, of course, but not sure how many of you remember that.
+
+Uh, but I will go over it again to, uh, because it's like one of these, uh, basic designs that is often used.
+
+Um, and the skill that one would learn is a bit like piano playing, if you will.
+
+They probably exclude people that play a piano or related instrument.
+
+Um, because you have to, um, learn the skill of pressing these four buttons in a specific order, essentially.
+
+Um, so it's a bit like a cognitive skill because you have to like cognitively remember the order of the buttons,
+
+but there's also a motor component to it where you press the buttons because you're meant to be as quick as possible.
+
+Uh, so in that sense is, uh, response time, a reaction time task.
+
+Um, and in the beginning, people do this at some, uh, whenever there's the sort of inherent reaction time is when they haven't learned anything yet.
+
+Um, so. S is uh, so these on this axis, you see each trial.
+
+So people getting, uh, keep trying to get the order right and keep trying to be faster and faster and over time.
+
+So each trial, each time you see an S here.
+
+So this is the third time they get the same sequence of practice.
+
+Uh, you see that they become a lot faster.
+
+Um, then the question is if they just become faster in pressing the buttons because maybe they get used to the,
+
+the, the distance between the buttons or something to press.
+
+Um, there is a certain component of that to it, but to, um, split that out from learning.
+
+So the motor skill component and split that away from the actual learning of that specific sequence cognitively.
+
+On top of that, you sometimes you get a random sequence that you then obviously haven't learned yet to press.
+
+Then you are slower than, uh, for the learning component.
+
+So that's the R in the beginning.
+
+But here again, so you see that the second random sequence, even though there there's a different random sequence than here.
+
+So there's no learning involved. Cognitively people become faster a bit.
+
+That just has to do with getting acquainted with the task.
+
+Um. But yeah, a lot slower still than how they are by this time in the task for the sequence.
+
+So then you can sort of separate out the motor component of what people are learning
+
+for the skill and the cognitive component of the actual order that you need to learn,
+
+um, to in order to, uh, study skill learning, uh, different types of skill learning separately a little.
+
+Okay. Any questions on that?
+
+All clear. All right then.
+
+Um, yeah. Conditioning, uh, was the last, um, implicit memory, um, uh, type, uh, but we went into high detail last year,
+
+so, uh, I won't focus much on it this year if you still have questions about it.
+
+Uh, from, uh, from reading it, I know obviously. Uh, uh, let me know either now or later.
+
+Um, but conditioning is when you, um, uh, they that started in animals actually, when you,
+
+for example, give a small food shock to mice in their cage, uh, following a certain stimulus,
+
+like, you ring a bell or something, um,
+
+and they pick up on that relation and then already start to sort of anticipate that shock after hearing the bell.
+
+Uh, so in that sense is a bit of, uh, essentially relational learning.
+
+Uh, mostly. Um, and with that, uh, I wanted to go in detail on declarative memory, um,
+
+which is always neatly split in episodic and semantic, uh, memory, as I mentioned.
+
+So episodic being the spot of events that you remember that are specific and time and place,
+
+uh, a type of memory that you rely often on just anecdotally throughout your life.
+
+Then you later will have lunch with friends.
+
+So it's probably mostly relying on episodic memory of people talking about what they did in the weekend and stuff like that.
+
+That's all relies heavily on your episodic memory. Um, but, uh, yeah, that often also does have components of, of semantic memory,
+
+either explicitly because you mentioned them or a friend asks about it, uh, or implicitly in a way, um,
+
+that you tell a story and you sort of rely or make the assumption that your listeners have certain facts in their mind about the world,
+
+have some certain world knowledge in order to understand your story, essentially, or understand what you talk about with the event.
+
+So in that sense, these two types go hand-in-hand. Uh, that's also why autobiographical memory.
+
+So memory about your own, um, events, uh, of your own life, um, rely heavily on both episodic and semantic memory.
+
+Um, for, for that reason, um, and either one of these two.
+
+So in that sense, this whole, uh, part of this, uh, of this diagram relies heavily on what we call the medial temporal lobe.
+
+So medial being towards the middle portion of the brain.
+
+And the temporal lobe is essentially this, uh, this part of your brain that also has, for example, the hippocampus, which is, uh,
+
+one of the main reasons why these types of memory rely largely on the medial temporal lobe, but also in on a number of other regions.
+
+Uh, actually, um, so to start with episodic memory.
+
+Episodic memory is often split and research and what we call recollection and familiarity.
+
+So both of that have to do with retrieval in the in a sense.
+
+But um, it's, it's a difference in, let's say, depth of retrieval, um, that um, maps differently onto, uh,
+
+what people are actually doing cognitively when you ask, ask em or when they have to report something.
+
+So I thought I mentioned that in the context of an example.
+
+So let's say, um, you go on a holiday or something, or on a trip with a, uh, with a plane.
+
+So you go to the airport. Um, you you bump into someone, uh, who you don't know.
+
+You know, this is the first time you see this person and your flight is delayed or where you both happen to be on.
+
+Uh, and then you mention it, or you ask this person, like, um, and this person says it seems to fly to is delayed.
+
+I've just heard that. So that is a gigantic, uh, small event that could happen.
+
+Um, so if you then later on in time, go outside to kill the time a bit.
+
+Um, and this guy walks by, even if you have no contact with this guy and you have seen this person once,
+
+you might think, uh, that is the guy I chatted with at the gate a moment ago.
+
+So let's say you remember that very well. So that would be recollection that, you know specifically which time and place, uh,
+
+which specific event, at what time and place you remember having seen this person?
+
+Um. It could also be that after, uh, talking to this guy, uh, briefly,
+
+because you talked to him for two minutes about something that was relatively trivial, you might not have remembered him.
+
+Well, either you forgot him completely, then it is neither recollection or familiarity, obviously.
+
+But when you sort of have this fake feeling of of I've seen this person before, but you can't remember.
+
+Maybe they, uh, this person was in a plane, or did I see him at a park yesterday or something?
+
+When you are sort of, um, searching your memory for the specifics but can't find them, essentially.
+
+Uh, but you do feel like this person is someone you have seen before.
+
+That would be familiarity. But, uh, in terms of memory, it's, uh, different, uh, type of memory trace than when you properly recollect,
+
+uh, this person, uh, and that distinction seems trivial, maybe in your mind.
+
+Um, but it's, it's very important in the context of when you study memory.
+
+Um, which of, of when you study episodic memory retrieval,
+
+I should say which of those two things the participant is relying on that is reporting, uh, it maps also on different types of tasks.
+
+And in a way. So let's say you have this list, uh, where you show one image at the time that I used, uh, as an example for priming.
+
+Um, when you do, uh, a test where you show each of these images, they draw on the ask a person, you, have you seen this, uh, image?
+
+Yes or no? Then just a sense of familiarity might get you to a 100% performance on that task.
+
+So then I don't show you anything, and I'm asking you to list all the objects.
+
+Uh, all the objects I have shown. Then you really have to recollect them in order to mention them correctly.
+
+Um, so this is a figure from the book.
+
+Uh, that's important in the context of episodic memory retrieval.
+
+So, uh, I thought I talked you through it. All good time, and that shows the how it relies heavily on the medial temporal lobe.
+
+As I mentioned, that is essentially this. You see my mouse, right?
+
+Yeah. Um, this part of the brain.
+
+Um, but over time, it also relies a lot on interaction with other, uh, prominent regions in the brain.
+
+Uh, which has to do with the fact that obviously, all cognitive functions, also memory,
+
+rely a lot on the network of brain regions rather than regions in isolation.
+
+Um, so very important is the hippocampus, which leaves a certain memory trace, um,
+
+within the hippocampus when, uh, certain episodic, uh, um, memory is being created.
+
+So when a certain memory trace of an event, this being, uh, being stored, um, and this axis here is time that passes.
+
+Uh, and oftentimes there are actually some, uh, differences in opinion on, uh, the details that I'll come back to in a minute.
+
+But to start with the basics.
+
+Um, oftentimes the idea is that, first of all, it's mostly the hippocampus, which is storing these, uh, memories of these events.
+
+It's interacting a bit with the prefrontal cortex on that, and also a bit with the posterior parietal cortex, uh,
+
+in the back of relatively in the back of the brain, uh, on that, on different, uh, aspects, uh, of, uh, that event.
+
+Um, and then over time, you will start to consolidate that memory.
+
+So if it's, uh, one that you will remember, uh, that you won't forget,
+
+that you actually remember over time, then, um, anytime you see, uh, you're cute to retrieve that event.
+
+Uh, maybe because you see something that related to it or that happened to, uh, at that event, and you retrieve the whole event again,
+
+then that, uh, uh, that goes as a retrieval cue that makes you, uh, bring back to, to mind that memory trace in the medial temporal lobe.
+
+And again, um, and the, uh, interact about it with the prefrontal cortex and the posterior parietal cortex that store different aspects of,
+
+of that event where the hippocampus, uh, within the medial temporal lobe is sort of binding these different aspects together.
+
+Um, and the, and most theories, um, rely on the logic that over time and memories become remote, as we call them.
+
+So if I not ask you to remember this, uh, what you did this weekend, but I ask you about,
+
+uh, what you did, like, a weekend from, uh, a couple of months ago.
+
+That will be a remote memory, which might then, by that time, relate, uh,
+
+rely mostly on regions within the prefrontal cortex and the posterior parietal cortex alone.
+
+And who don't need that hippocampal memory trace any more that recent memories do.
+
+Um, uh, in order to bind to these different aspects into a coherent memory, uh,
+
+because that is what you will give me if I ask you to tell me what what what you did this weekend.
+
+You're not going to tell me? Isolate the treatments.
+
+You will tell me a coherent story about an event that you had that happened to you on the weekend.
+
+Um, so for recent events, uh, that will light up, uh, your hippocampus strongly, which, uh,
+
+needs to relate all these different components together to, to be to enable you to give such a coherent story, uh, about an event.
+
+But for remote memories, uh, these other regions in the cortex, uh, like, uh, posterior parietal cortex and prefrontal cortex, uh,
+
+regions, um, might be able to do that on their own, essentially to create that coherent memory without needing the hippocampus to do so.
+
+Um, so I did this on this. Uh, if I just try to what I try to show in this figure.
+
+Is that clear? Okay.
+
+Um, so as I mentioned, uh, a lot of that episodic memory retrieval, uh, and also encoding actually relies, uh, strongly on the hippocampus,
+
+also on some other regions, um, uh, especially in the medial temporal lobe, like the amygdala, which has to do with emotion.
+
+We'll come back to that later in the course. Um, so the amygdala, as you actually also already know from year, has to do, uh, a lot with emotion,
+
+but it interacts a lot with the hippocampus in the context specifically of emotional memory.
+
+So emotion can be something on its own.
+
+But emotion also is often related to memory, because not everything you will retrieve or be asked to retrieve in life,
+
+in terms of events will be neutral, obviously. And then both of those regions are involved.
+
+Uh, also, the parahippocampal cortex wishes, so they didn't colour it, but it's sort of attached.
+
+On the bottom within the medial temporal lobe, uh, onto the hippocampus.
+
+Uh, actually, uh, especially and and, uh, a sense of, uh, helping you retrieve a certain context in which, uh, something happened.
+
+And any event happens in a certain context, obviously, that you then also have to, um,
+
+have in mind when you want to, uh, give a coherent, sensible story about, uh, retrieving an event.
+
+Prefrontal cortex. Also, as I mentioned. Um, and that hippocampus, uh, is relatively large, actually, as part of the brain.
+
+It's subdivided in different subregions.
+
+Uh, the main road is called Sebelum. Then to enjoy, see around the country.
+
+Each of those regions have specific sub functions, if you will, uh, within that process.
+
+Uh, but uh, as this figure is showing you, and that's the main point not to remember each of these arrows by itself necessarily, but to remember,
+
+like, even though these regions are sort of really also anatomically, uh, divided within the hippocampus, which is the whole blue box, um,
+
+they are heavily intertwined with each other and connecting with each other, but also with other parts of the medial temporal lobe,
+
+because this is essentially an abstract, um, version of the medial temporal lobe,
+
+uh, each of these regions is, um, some region within that medial temporal lobe.
+
+And as you can see, that, uh, interacts heavily with the hippocampus and also with each other in order to,
+
+uh, enable you to memorise things in a coherent fashion.
+
+Um. So what I mentioned here, that's the sort of dominant view on how memories evolve over time in your brain.
+
+That's a logic that the hippocampus sort of connects the different pieces of an event at a start, and the prefrontal and probably the cortices.
+
+Uh, and that is especially relevant recently in recent, uh, memories, but becomes, uh, more, more and more, uh,
+
+diminished over time for remote memories that a sort of a dominant view of,
+
+of how the brain functions over time in terms of consolidation of memories.
+
+There are some other main theories of of how that happens.
+
+Um, I'll mention, um, uh, each of them there also in your book.
+
+Um, the first one being cognitive map theory.
+
+Uh, which, uh, originated actually from, uh, spatial navigation studies, even originally in rats and also after that in humans, um, where, uh.
+
+Mice or rats or, uh, any other, uh, larger animal is doing some kind of spatial navigation task while their hippocampus is measured,
+
+um, which shows that there are various cells in the hippocampus.
+
+It's very specific to one place within their environment, uh, and sort of map out.
+
+The environment. The context in which this animal is running around.
+
+Um, which then is what the cognitive map theory.
+
+That's, uh, why is referred to, uh, that, um, it's been evolving.
+
+That's from like decades ago already originating.
+
+And after that, the South evolved as a more general, um, theory of how the hippocampus would be involved in memory,
+
+um, that, uh, with the logic that for the people that, uh, follow the seriously, um,
+
+that spatial navigation studies just happened to have been like one example, uh, to study that, um,
+
+but that that we shouldn't have mapped the whole hippocampal functioning, uh, on to, uh, spatial navigation, uh, as such.
+
+Uh, and that in that sense, well, relations, um, uh, are, uh,
+
+more general about spatial relations between objects and not necessarily in the context of,
+
+of navigation, um, that you also have memories in a sort of map like fashion.
+
+For those of you that's not exam material. Well, this theory is exam material, but these two papers are not, uh,
+
+but just in case you find that interesting, this original study, as you see, is from, uh, a long time ago.
+
+And this is, uh, a more recent review on on this, uh, memory theory, in case you're interested.
+
+Um, so that's one. Another one that is definitely not, uh, completely separate from it.
+
+It overlaps partly, but it's still, uh, somewhat different flavour, if you will.
+
+Uh, it's called relational memory theory.
+
+Um, which is essentially also a bit on that idea of cognitive map, but, um, about how the hippocampus would be involved.
+
+So, uh, in terms of that, it would show relations between objects or information.
+
+Um, but this theory states navigation is just one way of how, um, certain objects relate to each other.
+
+And you learn that, but you can do that also in a non-spatial way of how things relate to each other.
+
+Like the early example of of cheese and milk being related, that has no spatial component to it, obviously,
+
+but it's still a relation between objects and that the hippocampus would be mediating any of these new associations or relations between,
+
+uh, pieces of information. The evidence for that would be, um, that there are a lot of, uh,
+
+empirical studies showing hippocampal functioning, uh, or involvement, um, in tasks that, uh,
+
+have no either direct or indirect spatial component to it, but that do have this component of,
+
+uh, of picking up on new relations in order to do, do the task.
+
+Uh, well, um, a more general one would be the episodic memory theory, which states, uh, which is actually not overlapping with the former two.
+
+So in that sense, you have cognitive map and relational memory and then episodic memory theory separately a bit,
+
+uh, which essentially says that the hippocampus, if you remember the diagram that I showed with the different types of memory that the hippocampus
+
+would be really prominently active for anything that has an episodic memory component to it.
+
+So when you have to recall something that relates somehow to a specific time and place,
+
+but when you purely recall semantic facts that have no episodic component to it, then, uh, it would not involve the Apple campus any longer.
+
+Uh, so in that sense, uh, that is a somewhat different type of view on it because it doesn't, uh, focus on these relations all that much necessarily.
+
+Um, and the evidence that the theory builds upon would be, uh, from, uh, damage,
+
+uh, from either in animals or in patients with damage to the hippocampus,
+
+which then primarily leads to an impairment in episodic memory encoding and retrieval, and less so on the, uh, on things like semantic, uh, effects.
+
+All right. Any question on these theories or any thing that the book might mention about it?
+
+No. Okay, then let me see what I wanted to mention next.
+
+Let's take a 15 minute break now and then start in, uh, at 940.
+
+Uh, that's easier than me to stop halfway a topic. Know I to write them.
+
+Right. I only know one thing. But I really love you.
+
+And, like, you could go back and say. What are the wait, wait, are you supposed to say this to me like a muslim?
+
+It's intense and. All right, so that was 15 minutes.
+
+I hope I see everyone back. Still some people coming in, but, uh, a rough the rough headcount is the same.
+
+So I think most of you are back. Um, so, uh, we talked a lot, um, uh, about episodic memory, uh, before the break.
+
+Uh, but I wanted to shift focus a little bit, uh, to semantic memory.
+
+Uh, and after that, also talk in a bit more detail. Um, uh, moving away from the medial temporal lobe and campus to also, uh, talk a bit,
+
+um, in more detail about both the prefrontal cortex and the posterior cortex,
+
+um, which we talked about, uh, briefly in the context of some of these theories, but, um, uh, not in much detail yet.
+
+So to start with semantic memory. Uh, so how do you build semantic knowledge in your cortex?
+
+Uh, how do you leave lasting traces? Uh, about world knowledge that you can rely on later?
+
+Um, I guess everyone would, uh, like to do that very efficiently because it's, uh,
+
+it's it's an important skill in both, uh, at university or, uh, but also in any, probably any job you choose.
+
+Um, there are obviously several theories, uh, that might or might not be mutually exclusive on how we build semantic knowledge, uh, in the cortex.
+
+Um, and I'll mention the two main ones that are also, uh, discussed in detail in your book.
+
+One is either called sensory theory or functional theory.
+
+Uh, and, uh, luckily for you, in terms of studying for the exam, that name already gives a bit of a hint of what it means.
+
+And that goes also for the second one, I wanted to mention that I'll, uh, talk about in a moment.
+
+So the sensory or the functional theory would, uh, state that there is there are different parts to any piece of information.
+
+And each of these parts is stored sort of separately, uh, in the cortex, um, that are then uh,
+
+later on combined in order to, uh, um, remember that piece of, of knowledge.
+
+The evidence comes from, uh, actual empirical world, uh, work that, uh, uses neuroimaging methods when people,
+
+uh, for example, um, have to read, uh, action related words like jump or walk or anything like that.
+
+Um, that tend to also activate the motor cortex, even if someone is, like strapped in a seat and not actually doing that movement.
+
+So, uh, or any movement. So sitting still, uh, that is just from you, uh, sort of envisioning perhaps, uh,
+
+that activity somehow, uh, when you are reading it and if you understand what it means,
+
+uh, so the idea would be that then, for example, the colour or the shape of an object or, uh, the motor related aspects.
+
+Those are all sort of sort in separate cortices, like the motor cortex, uh, for um, motor, uh, uh, motor related movements.
+
+And that's why, um, they, uh, activate also an, an associated, uh, part, uh, uh, is, is the process, if you will.
+
+It's very different in this case. Uh, so not much overlap, uh, actually, from what we call domain specific theory.
+
+And that actually says that, um, the semantic categories, um, are sort of domain domain specific as theory,
+
+uh, states being that they're organised throughout the cortex,
+
+uh, based on these semantic categories or concepts that you learn, uh,
+
+rather than splitting them into various properties like colour, shape and motor activity and stuff.
+
+So those are really different parts or aspects, if you will, of, uh, a certain, um, semantic information or certain semantic concept.
+
+Um, but to split them according to semantic categories would be um, uh, evidenced by, uh, mostly brain damage patients.
+
+Uh, that's obviously, um, limited in terms of, uh, how much evidence there is, but there are, um,
+
+uh, brain damage patients with, uh, very selective impairment of certain semantic categories, uh,
+
+where they find it very hard to build new knowledge or to retain it over time, uh,
+
+in that specific semantic category are not in general about building general knowledge about facts of the world,
+
+which would be sort of in line with this, uh, with this view.
+
+The truth might also be sort of a combination between those two.
+
+Uh, it's not known yet. So in that sense, there's work to do still.
+
+But both of these have, like, sensible empirical work backing them up.
+
+So, um, yeah, we we clearly don't have a full picture yet of how everyone builds or,
+
+or how all healthy people are building their world knowledge in their brain.
+
+Um, as I mentioned, uh, we talk now a lot about, um, the, uh, uh, if about,
+
+about a medial temporal lobe and hippocampus in, uh, specifically that that has a good reason.
+
+That's just because, uh, medial temporal lobe regions are really heavily involved in any type of memory process.
+
+And, uh, when you, uh, go to Google Scholar or any other database and you type in, uh, memory, uh,
+
+to search for papers, you will see, uh, all these medial temporal regions popping up all the time.
+
+However, as I already mentioned, uh, also prefrontal cortex, uh, and posterior parietal cortex, regions,
+
+uh, especially some subregions of that are also known to be involved in certain types of memory.
+
+Um, so I wanted to go into a bit more detail about both of those, uh,
+
+rather than to really spend the whole lecture on the medial temporal lobe, uh, starting with the prefrontal cortex.
+
+Um, uh, and that is then uh, shown firstly or really prominently shown to be involved in memory for what we call subsequent memory paradigms.
+
+Um, that's a very specific, uh, controlled paradigm where you can study the encoding of the, uh, episodic memory.
+
+So if you remember from the beginning of this lecture, the encoding would be when you actually acquire new information that you can later on retain.
+
+Um. So in a sort of lab controlled setting.
+
+But you can translate that to real life in various ways.
+
+Uh, obviously you would encode a list of words, for example, uh, as a participant and then are asked to retrieve as many words as you remember.
+
+So you will probably remember some of them and forget other ones.
+
+So let's say this particular participant, uh, retrieves the words fishing and use so it forgets poetry.
+
+And, uh, honey, in this case, um, and then.
+
+Once you have done. Once you have done this retrieval task, you can sort of go back to the, uh,
+
+data from encoding and to EEG or fMRI or whichever method you used while the person was actually one by one
+
+exposed to these words during encoding and sort of split in time in terms of the imaging data you have.
+
+This was data from when someone was reading a word,
+
+and I can use eye tracking to see that this person actually read this word but did not retrieve it.
+
+So it this will be a in the future forgotten word essentially versus the word phishing.
+
+This person is equally long exposed to the word. I can also, uh, verify that he or she is reading it, and indeed it is being retrieved.
+
+So you have two buckets then, the ones that people surely are exposed to and read and forget,
+
+and the ones that people are exposed to and read and actually remember and to,
+
+uh, subtract the remembered from the forgotten imaging data in terms of activity of various regions.
+
+You can see which regions are prominently involved, um, for uh, episodic memory encoding in particular um, or uh,
+
+because those will be the ones that were then on average more active for the words
+
+fishing and use and less active for the words poetry and honey during the encoding phase.
+
+Um, so that has, uh, a lot of involvement for uh, also of medial temporal lobe regions, but also prominently of, um, the, uh, the prefrontal cortex.
+
+So which is essentially. This four hole portion of the brain.
+
+So it's really a giant chunk of of of the brain, especially in humans.
+
+But the inferior frontal gyrus is one subregion of that which is known to be involved for subsequent memory effects,
+
+so more active for subsequently remembered words versus forgotten ones, which is essentially this lowest part of it.
+
+So here. Um.
+
+So which is still actually a decently large portion of your brain.
+
+Um, so that's, uh, that's, um, really focus on the encoding of the information and how the prefrontal cortex is involved with that,
+
+because you're really subtracting information from the encoding phase when someone is studying new information.
+
+Um, you can also study design retrieval, uh, so using some kind of effective retrieval cue,
+
+either a sound or a picture or a smell smell is really strongly, uh, uh, used as retrieval cues.
+
+Um, you will find studies on that. Uh, do sometimes people even have like anecdotes like, uh uh uh uh, uh,
+
+events in mind of when they felt that strongly like the smell of this type of food brings me back to,
+
+uh, uh, markets when I was on a holiday or something like that.
+
+So smell, uh, is also often used as a retrieval cue.
+
+Either way, whichever you use.
+
+Um, you will have to expose your participants to that retrieval cue in order to get them to retrieve certain information,
+
+like events or other types of information. Uh, that then is usually leading to some kind of memory search.
+
+So when you're exposed to it, you might sometimes like instantly remember what it is that you need to retrieve.
+
+But usually that takes some time to get to it essentially.
+
+So you will be searching your memory a bit. Uh, and then uh, one can see which uh, regions are involved in that process.
+
+So then you are focus on the imaging brain imaging data that is, um, acquired, uh, between,
+
+uh, the onset of that retrieval cue and, uh, someone starts talking about that question.
+
+Those exposure. Thus, if we're exposed to stimulate, doesn't mean that we're.
+
+And Gold Assurance. Yeah, in a way that's not just retrieval, if that's what you mean.
+
+Indeed. So, um, it's it's, uh, you are sort of re encoding, if you will, uh, because that Q uh,
+
+reminds you of, uh, was part of a certain event that you don't, uh, well, recall.
+
+So. Reading an example. You were saying?
+
+Well, this is. Mhm.
+
+Mhm. Well let's say I'm not focussed on. Doesn't mean that I am encoding it.
+
+What do you mean with not focussed? Uh.
+
+Sometimes when I'm reading. Right?
+
+Right. Yes. That's true. Yeah. I.
+
+Um, well, you can actually read that from the eye tracking data, analysing that test, actually.
+
+Then if you go to Google Scholar and you typed the word mind wandering, you will find actually a lot of studies on that.
+
+That's a whole field, um, that also uses eye tracking, uh, as in the behaviour of uh,
+
+but this ones that are reading but our mind wandering is different from the, uh, when you are reading and actually reading it as such.
+
+Um, so, um, but that's often uh, that's an often, uh, mentioned phenomena for people.
+
+Uh, there's a widespread and how much someone mind wanders, uh, and in what way?
+
+Um, but a lot of people mind wander a lot.
+
+Uh, and the original view was that it would be sort of harmful.
+
+So it would in this case, for example, um, avoid you encoding that information that you are reading, reading while mind wandering.
+
+But, uh, in some studies that also show benefits to it somehow.
+
+So it's, uh, it's actually an interesting phenomena by itself. Yeah.
+
+Good question. Any other questions at this point?
+
+No, I'm on it. No. Um, yeah.
+
+So if you, um, uh, study the, uh, the imaging or analysed brain imaging data from the moments, uh,
+
+you have the onset of the retrieval cue, you're using the image or sound or smell up until the point that someone starts speaking.
+
+So actually answering your retrieval question.
+
+Um, that is, during that memory search for someone is like, uh, trying to retrieve the information and, um, uh,
+
+analysing those data is what would help you to, um, to know which regions would be involved in memory retrieval.
+
+Uh, you can use various types of experimental designs, as I already, um, alluded to earlier.
+
+So you can use, uh, what we call a recognition test that you're exposing someone to the full information from encoding interspersed with,
+
+uh, new stimuli that you haven't shown. And then they have to just say yes or no if they recognise that, um, or just a recall.
+
+A free recall, uh, which means that someone needs to recollect information much better, uh, because there is a much sparser cue, if you will.
+
+Then, uh, when you show the whole, uh, piece of information again, or maybe you show them different types of lists of,
+
+of, of of words or images, and you ask them to recall in which list this object belonged.
+
+So it's a source memory test. And these are just three common examples.
+
+You can make a very long list, uh, of that and do that in principle.
+
+Also study the different uh, regions involved in these different types of, of, of retrieval tasks, um, regardless of which task you use.
+
+Also, prefrontal cortex regions are heavily involved in these, uh, types of tasks, not just the medial temporal lobe and hippocampus.
+
+Um, and unlike the example with inferior frontal gyrus here on subsequent memory during encoding, during retrieval,
+
+there are actually, uh, really multiple uh, uh, uh, prefrontal cortex subregions involved in that.
+
+It's not so, uh, specific as the encoding example.
+
+Uh, so um, and even also in that rusty reprisal cortex, uh, that I mentioned before.
+
+But I'll come back to that in a moment. Um.
+
+So the involvement of the posterior parietal cortex, which is essentially, uh,
+
+on the top back of your brain, uh, has also strongly, uh, to do with, uh, attentional control,
+
+uh, which is um, uh, which is said are known to be active when you, uh, let's say,
+
+uh, have to select which information you find important to, uh, to attend to.
+
+Um, that's obviously something you do a lot. Uh, there are always a lot of sensory stimuli around when you try to.
+
+Let's say you're sitting in a restaurant across from someone you are trying to attend,
+
+or you're selectively deciding to put your attentional control onto what this person says rather than what the people.
+
+And, uh, on the table next to you say, that's maybe a common example that everyone can relate to.
+
+Um, and that attention has a lot of, uh, influence on memory, obviously.
+
+Um, as in what you give, more attentional resources will be something you remember better.
+
+Uh, the exact, uh, relation between these, um, things, uh, described and various theories or models of that attention to memory model.
+
+Um, is, uh, what your brain, uh, what your, uh, book, uh, mostly focuses on in terms of the,
+
+uh, neuroscience that describes for it, uh, which is, uh, a sensible one to mention in detail.
+
+It's, uh, really prominent in this, uh, relation of attention to memory, um, which is, as I mentioned,
+
+a lot about the parietal cortex involvement, um, and then splitting it, uh, largely in the dorsal and the ventral parts.
+
+Hopefully dogs are still ringing a bell to you. When we talked about the anatomy and the, uh, anatomy terms of the brain, um,
+
+where the dorsal part of the parietal cortex being required for that, um, memory search aspect that I just explained in the context of retrieval.
+
+Um, uh, and for a sort of general monitoring or, uh, assigning attentional resources while the ventral,
+
+uh, part is, um, more required for sort of two salience aspect of,
+
+of, uh, certain memories that you might be asked to retrieve for that the retrieval cue is, uh, for and also and the context of this, um, splitting.
+
+But the encoding data based on later forgotten and later remembered, so that subsequent memory paradigm,
+
+um, as I mentioned, has a specific region of the prefrontal cortex involves.
+
+But, uh, it also definitely has, uh, parietal cortex regions involved.
+
+Um, and it's just quite interesting, actually, because within that parietal cortex, the more dorsal regions, uh,
+
+are more active for stimuli that are subsequently remembered for over and above, uh, the stimuli that are subsequently forgotten.
+
+So that will be, uh, in line with, uh, inferior frontal gyrus in the prefrontal cortex, uh, both more active for remembered or forgotten.
+
+Uh, but the ventral part is the opposite actually.
+
+So it is more active for subsequently forgotten than for subsequently remembered, uh, items, which is something else.
+
+And just, uh, finding an absence of a difference between those two types.
+
+Uh, so in that sense, the, um, parietal cortex is, uh, showing a bit of a distinction in,
+
+uh, in function, uh, for this, for dorsal versus central parts.
+
+Um, uh, that that might have to do with that link to attention.
+
+Okay. So, uh, that, um, uh, prefrontal cortex and posterior parietal cortex I wanted to talk about in a bit more detail,
+
+uh, about consolidation, um, before I do.
+
+So any questions on, uh, on this?
+
+No. All right. Um.
+
+So there are various, uh, theories about consolidation.
+
+And consolidation would mean, um, that you actually retain the information over a longer period of time, um, which is, uh,
+
+something else from getting new information now and let's say walking out of this door and then, uh, forgetting everything that I just mentioned.
+
+Um, but actually consolidating the information that you get, um, this figure is, is very prominent.
+
+That actually loops a bit back to, uh, a theory we just already discussed, um, with that other figure, uh, with, uh, recent versus remote memories.
+
+And the involvement of hippocampal memory traces under interaction to a serial area, parietal and prefrontal regions um,
+
+which has to do with how the hippocampus within the medial temporal lobe um, is integrated with, uh, these cortical regions.
+
+Uh, this is the standard consolidation theory. So one of the most prominent ones.
+
+Um, and here this is again over time. So, uh, this would be the, the sort of abstract version of interactions within the brain for recent memories,
+
+um, that are being consolidated, and then for more remote ones and for even more remote ones,
+
+where the thickness of these lines and also the colour, uh, with red being, uh, connections that are really prominent,
+
+uh, for that, and blue meaning that, um, these connections are not prominent anymore.
+
+Uh, and as you can see for recent the more recent actually, uh,
+
+the memory is the more heavily it's still relies in the context of the standard consolidation theory,
+
+I should say it still relies on the hippocampus interacting with the cortex.
+
+So that is, uh, sort of in line with this view of, um, that the hippocampal memory trace and the fact that it, uh,
+
+integrates information from that is stored in the cortex, uh, would be most prominently necessary for recent memories.
+
+And if you have remote memories, then, uh, the interactions between the various pieces of, uh, stored memory trace within those cortical regions,
+
+um, becomes more prominent, as you can see, uh, with the lines between the dots and within the cortex.
+
+Um, therefore these connections are sort of removed or much less important,
+
+the connections from the cortex to a deeper campus for the remote memories,
+
+then that has to go for remote memories of things you actually can consciously and actively recall if asked.
+
+Um, that's a bit different from, um, various other types of, of, uh, consolidation theories.
+
+Uh, one often um, mentioned one. Uh, I think it's also mentioned in your book as multiple trace theory.
+
+Um, they're episodic memories. So that actually really goes actively against this standard view and that sense,
+
+because here is the idea, is that the more remote your memory is, the less it depends on the hippocampus.
+
+And if I ask you to, uh, give me some anecdote about,
+
+about your childhood when you were eight years old or something that is as remote as it gets, almost.
+
+Um, and that will not rely at all on the hippocampus and a few of this standard consolidation theory.
+
+And this goes actively against that with the idea that each time you either encode or retrieve, uh, a certain event,
+
+even if it's the same event, um, you, uh, let's say start a new trace of that event a while, recalling it.
+
+Uh, that obviously overlaps, uh, largely with the one from before.
+
+That might be somewhat, uh, uh, different than before.
+
+Um, and in that way, you always need because you always store a new trace for each time you recall even the same event over and over again.
+
+Uh, you would again, each time again, need the hippocampus in order to store that trace and the relations between the,
+
+uh, the parts of that, uh, of that event.
+
+Um, so no matter how old or remote your memory is, you need to recall, uh, it will always depend partly on the hippocampus.
+
+Um, yeah. The funny thing is that you might think this is easily testable,
+
+as long as you have sort of a long breath and you design a study where you test people,
+
+uh, over many, uh, so this year and a year later, for example, etc.
+
+Um, and the studies have actually been done.
+
+Um, but then some of them find evidence for this view of always hippocampal involvement, and some of them find, uh,
+
+evidence for this view, which means that there might be something else that we are not capturing yet with these designs, um,
+
+that, uh, sort of avoid currently to know which of those sort of contrasting theories are is the right one,
+
+or maybe they are both right in a different context, and we haven't figured out yet what, what the dominant factor for that is.
+
+Um. Okay. So before we finish up for today, I wanted to, uh, talk about the cutting edge paper.
+
+You can find it on, uh, contrast. It's linked to, uh, to the PDF of that.
+
+Or we might even have the PDF on it. Either way, if you can find it.
+
+Um, uh, send us a message to be on there, which is, uh, called sent uncertainty out of the balance between incremental learning and episodic memory.
+
+It's quite an interesting study, actually.
+
+Uh, sort of a clever design, uh, to do so it's, um, it's looking at two different aspects of, uh, what it calls incremental learning in the paper.
+
+And that essentially means if you sort of summarise and extract, uh, sort of key information from multiple similar experiences of time.
+
+So it's a bit of a statistical learning aspect to it, if you will.
+
+Um, and uh, it contrast that to episodic memory, which would be, as I talked to you about today, uh, something that's specific to a time or a place.
+
+Um, and so that's a sort of a one off versus, uh, having a lot of similar experiences and extracting the, uh, the basics of it.
+
+Like when you go to a restaurant as a kid, you probably didn't know yet what to expect.
+
+Um, but at some point, you're expecting a waiter to come in to get your order, and then you do have to wait for your food,
+
+etc. so that will be the extra incremental learning that you have extracted over restaurant visits.
+
+What type of thing to expect for this episodic memory of something that specifically happened at the one specific restaurant visit?
+
+Um, and it wants to know in decision making. And this task has to do, um, with people having to maximise their monetary reward of the task.
+
+Um, uh, when people base themselves more on incremental learning and one day when they're based themselves more on episodic memory.
+
+Um, right. So the trade off between these two and the task is actually kind of nice.
+
+Uh, I found when reading it, um, so people have to always choose between two cards on the screen,
+
+and they get many trials of that, and they're simply told, uh, to maximise the amount of money they get at the end.
+
+And one of the cards, you earn more money in the end, the task than the other.
+
+Uh, probably without that instruction, people would have already naturally tried to maximise their monetary rewards.
+
+My guess. But that was also the specific instruction. Um, and then for example, the so the colour.
+
+So for example, the uh, the purple one over the orange one would be uh, always more rewarding.
+
+People aren't told this. They have to figure that out themselves by choosing sort of trial and error if you will.
+
+But as you can see, there's also, um, specific objects placed on top of each card, and each of them is only shown twice.
+
+And, um, so in this case, this dinosaur is coming back here.
+
+Um, and if you rely on episodic memory versus on the colour.
+
+So the purple colour, but you rely on episodic memory, you would think, oh,
+
+I had this dinosaur before it gave me $10 or whatever, uh, which is relatively high.
+
+So I choose this one again, regardless of the colour that it is presented on.
+
+That would be the logic of it, essentially. Um.
+
+On top of that, um, they have different levels of volatility, as they call it, and within that environment.
+
+So people have to pick up themselves about which caller, for example, would be leading to, um, more value.
+
+Uh, so on this axis it's the value of colour.
+
+So with 60 versus $0.40. So and and this axis is time.
+
+So in here in trial uh, in 15 or whatever that is you can best always choose purple essentially.
+
+But as you can see it doesn't stay the same. Unfortunately for the participants throughout the task, it switches from.
+
+So when you're at, uh, trial uh, 35 or something, you have to actually switch to orange to get the maximum value.
+
+So the uncertainty of what to choose is obviously highest.
+
+But at these moments of of switch.
+
+And then this is the low volatility where the uncertainty uncertainty is relatively low because you stay in the same
+
+colour being more rewarding relatively long for uh a large amount of trials versus a high volatility environment.
+
+And this is counterbalanced across people where it switches all the time.
+
+So you can rely much less, um, incremental learning or statistical learning.
+
+Um, because it switches a lot. And the logic is then to see if you sort of push people towards relying more on episodic memory.
+
+So more on, uh, paying more attention to the actual objects and how they might specifically be rewarded because people kind of give up on,
+
+uh, the colour a bit because it's constantly switches, leaving them to an environment where you're highly uncertain.
+
+This is obviously very, uh, um, a sort of artificial weight in an experiment, but also in real life, you have, uh,
+
+an environment sometimes where you feel much less, more, uh, much less or much more uncertain about, uh, what to do and what to decide on.
+
+Um, and our findings are indeed that participants rely more on episodic information when their sort of incremental summary is,
+
+uh, is, uh, from these early, earlier experiences becomes less reliable.
+
+So with high uncertainty, because the colours keep switching on what is rewarded,
+
+people start to pay more attention to the episodic aspect of these cards.
+
+Um, but that might also be that they're simply, um, uh, happy to hear what you think you're hearing this.
+
+But they might also, simply put, a lot more effort into, um, thinking about this.
+
+They might see the value more of remembering to objects in order to maximise their, uh, outcome.
+
+Um, which is, uh, and the balance between, uh, relying on episodic and incremental, uh, learning.
+
+Um, it's, uh, they have various analysis and there's actually a lot of, um, uh, result plots,
+
+but I won't bother with the details of that because it's mostly about the gist of the paper to understand for you, uh,
+
+whether balance is sort of modulated by the quality of episodic memory, which is, uh, obviously varying within the person across those,
+
+uh, pictures on the card, on the cards, but also across people, um, that drives them.
+
+So the better their episodic memory quality in general lost them, the quicker they might give up on the colours and focus.
+
+Uh, have the balance shift to focusing on episodic memory, uh, for decision making.
+
+Uh, so in that sense, the uncertainty for this difference in uncertain uncertainty is modulating the use of episodic memory in decisions.
+
+While most studies are actually showing that it's mostly statistical learning that people would use in order to make decisions,
+
+that sometimes people actually also relate the decisions to episodic memory.
+
+But that depends on this very specific context.
+
+I guess that is the main takeaway from from this paper.
+
+Um. Right. Okay.
+
+So in terms of content for the lecture that was set for today, I wanted to allude.
+
+You mean I have two more things to tell you. First, I wanted to allude to the next practical, uh, that you should all find in your schedule.
+
+Your regular schedule of when you're in is, which will, in this case, be a little different from the earlier module that you had.
+
+Uh, because we will have, uh, of VR headsets for you, the different environments where you will,
+
+um, do an experiment, a little experiment, uh, as a group, again, about context dependent memory.
+
+So, uh, so about memories being, um, uh, sort of modulated by that context.
+
+Um, the last thing I want to mention and you should have, I have been told, also have received an email in your, uh, university email box.
+
+Uh, if not, it will show up soon for the national student survey.
+
+Um, which, uh, I would urge you all to fill in, follow the link, or I'll put the, uh, QR code on the screen in a moment.
+
+Uh, that is essentially, uh, for the guides to sort of guide the current high school students who are choosing, uh, their study for next year, uh,
+
+to tell them a bit about how you experienced this program so that they are better informed and making,
+
+uh, the decision of what, uh, university and study they want to choose.
+
+So let's say you're not so intrinsically motivated to help your, uh, the current high school students.
+
+You might be motivated by some prices that you can apparently win in case that is better.
+
+And I don't know what the better motivator is. The sort of intrinsic I want to help the high school students versus their prices.
+
+So either follow the link in your, uh, email or, uh, this QR code.
+
+Any more questions on, uh, on, uh, anything from the lecture?
+
+No. All clear. Okay.
+
+So yeah, definitely have a look at whether you, uh, signed up as a flipped classroom group for next week.
+
+Uh, so it's a while ago that to sign up was. So don't forget to check if you were on the memory chapter.
+
+And I'll see you next week for the flip classroom. I'll leave this up in case someone needs to.
+
+Goat. It's one.
+

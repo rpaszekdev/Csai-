@@ -1,0 +1,2336 @@
+Executive Functions
+
+INTRODUCTION
+The human brain must coordinate an array of complex functions to
+achieve desired goals. In many situations, executive functions modulate
+the activity of other cognitive functions in a flexible and goal-directed
+manner. As the name implies, executive functions perform supervisory
+or regulatory roles. In some cases, they involve measured and thoughtful
+processing, as when we mentally simulate an opponent’s strategies in a
+complex game. Or they may operate rapidly and largely unconsciously
+to guide the flow of sensory information or to initiate a motor action.
+   Half a century ago, executive functions were given relatively short
+shrift in psychology textbooks, typically being discussed as minor
+aspects of a chapter on “thinking.” Over the past two decades, however,
+research into the brain mechanisms underlying executive function has
+become one of the most active areas of cognitive neuroscience. A pri-
+mary target for research on executive functions has been the prefrontal
+cortex. Patients with prefrontal damage may seem to have normal cogni-
+tive functions: they can identify objects and sounds, can comprehend
+and carry on conversations, and can perform motor tasks with dexterity.
+Yet, when faced with real-world challenges, they may have difficulty
+selecting the right action for the current context (see Introductory Box).
+Despite the importance of the prefrontal cortex for many executive pro-
+cesses, no single part of the brain—no “homunculus”—can be identified
+as the neural equivalent of a chief executive. Instead, executive functions
+arise from a distributed set of brain regions that also includes parietal
+cortex, the basal ganglia, and other brain areas.
+
+A Taxonomy of Executive Function
+Central to nearly all definitions of executive function are two concepts: rules
+and control. The rules that guide human behavior—and the behavior of many
+other but not all organisms—are abstract and flexible. Consider the seemingly
+simple rule “Drive on the right-hand side of the road.” That rule applies to a
+very wide range of contexts (e.g., all of the physically and perceptually distinct
+430 ■ CHAPTER 13
+
+
+
+ ■ INTRODUCTORY BOX ENVIRONMENTAL DEPENDENCY
+                                                   SYNDROME
+
+
+ I    n the mid-1980s, French neurologist           (A)
+      François Lhermitte identified a set of
+      behaviors associated with damage to
+ the anterior and medial parts of the fron-
+ tal lobe. Lhermitte was an unusual clini-
+ cian in that he made a point of observing
+ his patients in complex, open-ended
+ interviews and in real-world situations.
+ He found that patients with this sort of
+ frontal lobe damage, but not those with
+ damage to other brain regions, exhibited
+ a remarkable sort of inflexibility in their
+ behavior: their actions were based not
+ on their own goals, but on what they
+ observed in the surrounding environ-               (B)
+ ment. Lhermitte called this pathological
+ inflexibility an environmental dependency
+ syndrome.
+      Patients with this syndrome had two
+ striking features. The first was imitation
+ behavior. If, for example, the interviewer
+ unexpectedly touched his nose with his
+ thumb, the patients mimicked this be-
+ havior, touching their own noses. Such
+ imitation was evident not only for physi-
+ cal movements such as common hand
+ gestures or changes in body posture,
+ but also for actions with objects, such
+ as drawing, combing hair, or chew-
+ ing on a pencil. Imitation also extended
+ to vocalizations like singing or speak-
+ ing simple phrases. Most such patients
+                                               Overdependence on immediate sensory cues to guide behavior after damage to the ventrome-
+ imitated the interviewer from the outset,
+                                               dial prefrontal lobe. The patient in (A) was brought into a room where several pieces of medi-
+ and they continued to do so even after
+                                               cal equipment lay on a table. Without prompting, she picked up the equipment and began
+ being told to stop. When their behavior
+                                               examining the doctor. When on a social visit to the apartment of his doctor, the patient in (B)
+ was questioned, patients reported feel-
+                                               encountered a picture that was lying on the floor. He grabbed a nearby hammer and nailed a
+ ing compelled to imitate. In testing many
+                                               bracket into the wall to hang the painting. (Photos from Lhermitte 1986.)
+ neurologically normal subjects in a similar
+ fashion, not surprisingly Lhermitte found
+ no such imitation (although many were
+ amused by his actions).                       severe expression of the same underly-           References
+      The second feature of the environ-       ing deficit.                                     LHERMITTE, F., B. PILLON AND M. SERDARU
+ mental dependency syndrome was                    Patients with environmental depen-           (1986) Human autonomy and the frontal
+ utilization behavior, an abnormal reliance    dency syndrome, like those with other            lobes. Part I: Imitation and utilization
+ on immediate environmental stimuli to         frontal lobe syndromes, lack insight             behavior: A neuropsychological study of
+ trigger behavior (see the examples in         into the causes and consequences of              75 patients. Ann. Neurol. 19: 326–334.
+ Figures A and B). For instance, if a glass    their actions. Lhermitte suggested that,
+ and pitcher were placed on a table, pa-       because such patients do not initiate ac-        LHERMITTE, F. (1986) Human autonomy
+ tients might repeatedly pour water into       tions of their own accord, their behavior        and the frontal lobes. Part II: Patient
+ the glass and drink it, whether or not        is excessively determined by social or           behavior in complex and social situations:
+ they were thirsty. If patients walked down    environmental cues. The patients sim-            The “environmental dependency syn-
+ a hallway and saw a set of stairs, they       ply perform whatever actions are most            drome.” Ann. Neurol. 19: 335–343.
+ might walk up those stairs, regardless of     strongly associated with an object or
+ whether they wanted to go in that direc-      stimulus in the local environment, much
+ tion. Utilization behavior was present in     like the patient shown in Figure B, who,
+ about half of the patients with imitation     when he saw a hammer, used it to drive
+ behavior, and it is considered a more         a nail.
+                                                                                                EXECUTIVE FUNCTIONS     ■ 431
+
+
+environments that we categorize as “roads”), constrains the complex set of mo-
+tor actions that constitute driving, and generalizes to qualitatively distinct sorts
+of behavior (e.g., forward and backward driving, direction of travel on round-
+abouts). Control processes allow us to engage rules appropriate to a particular
+context. When we travel to a new location—say, from the United States to the
+United Kingdom—we now adopt the rule for driving in that location, as well
+as for all it implies for our behavior. These two aspects of executive function—
+(1) creating and modifying rules for behavior and (2) engaging the appropriate
+rule for a particular context—represent the highest levels of a taxonomy for
+executive function and thus reflect major sections of this chapter (Figure 13.1).
+     Under these major divisions, further differentiation is possible. Effective
+use of rules for behavior requires several sorts of functions: initiating rules that
+match stimuli to actions based on behavioral goals, inhibiting (or discarding)
+rules that are not relevant to behavior, shifting (or task-shifting) functions that
+facilitate the transition from one rule for behavior to another more appropriate
+rule, and relating rules to each other to form higher-order contingencies for
+behavior. These four functions are considered as subsections within the section
+on rule processing. Control functions are often considered to include monitoring
+the current state of the environment to guide the engagement of other executive
+functions; if the environment is changing rapidly, for example, then rules should
+be updated more frequently than would be the case in a more stable environment.
+All executive functions are considered to rely on capacity-limited short-term
+information stores—often called working memory—that enable the maintenance
+of rules and of the information that guides the execution of those rules.
+     This taxonomy reflects one of several ways of conceptualizing executive
+function. More than for any other area within cognitive neuroscience, research
+on executive function has led to an explosion of theoretical frameworks, each
+with its own set of postulated functions. How terms are used can differ dramati-
+cally across those frameworks. A given term (e.g., cognitive control) sometimes
+defines a specific operation within a task but other times loosely characterizes a
+psychological process—or even serves as a synonym for executive function itself.
+Trying to adjudicate between the many existing models of executive function is
+a challenge well beyond the scope of this chapter. The main goal here is to intro-
+duce the basic executive functions and to consider ways in which new research
+in cognitive neuroscience is influencing the conception of executive function.
+
+
+
+
+                        Establishing and                               Contextual                 Working
+                        modifying rules                                 control                   memory
+
+
+
+
+                   Inhibiting
+   Initiating                         Shifting        Relating
+                 inappropriate                                        Monitoring        Maintenance     Manipulation
+   new rules                        among rules        rules
+                     rules
+
+
+                                 Actions
+
+
+                             Interfering
+                            information
+                                                  Figure 13.1 A taxonomy of executive function This chapter
+                               Socially           considers three sorts of executive function: functions related to
+                            inappropriate         establishing and modifying rules for behavior, functions related to
+                              behavior            context-dependent engagement of control systems, and functions
+                                                  related to working memory.
+432 ■ CHAPTER 13
+
+
+
+ ■ BOX 13A COMPARATIVE ANATOMY OF THE PREFRONTAL CORTEX
+
+ D        espite some unsavory uses, the        (A)                                                                            Chimp
+                                                         Squirrel                                Macaque
+          measurement of brain size across               monkey                                  monkey
+                                                                               Cat
+          species remains an important tool
+ in cognitive neuroscience. Investigators       Rat
+ recognized early on that overall brain size
+ is a poor index of intelligence or other
+ cognitive functions. The average adult
+ human brain, for example, is only about
+ a fourth as large as the brain of an adult
+ elephant, and the brains of orangutans
+ and cows are of roughly similar size.
+ Most research has thus focused on the
+ relative size of specific regions. With
+ respect to the prefrontal cortex, there
+ are clear differences across a range of
+ mammals. The early-twentieth-century
+ German physiologist and anatomist
+ Korbinian Brodmann estimated that only
+ 7 percent of the dog’s cortex, and less
+ than 4 percent of the cat’s, is prefrontal.
+ In contrast, Brodmann found that the                                 Porpoise                                      Human             3 cm
+ prefrontal cortex constitutes about 10
+ percent of total brain volume in monkeys       (A) Comparative anatomy of the prefrontal cortex. Not only is absolute brain size greater in
+ (e.g., gibbon, macaque), 20 percent in         primates compared to other mammals, but there is also a disproportionate increase in the size
+ the great apes (e.g., chimpanzee), and         of the prefrontal cortex (blue). The porpoise brain is provided for size comparison; its prefrontal
+ 30 percent in humans (Figures A and B).        cortex is not indicated, because there are no clear homologies between the prefrontal cortices
+     Although this ranking is plausible,        of primates and cetaceans.
+ given what is known about the relative
+ capabilities of these species, contempo-
+ rary researchers have modified Brodma-
+                                               extent of the prefrontal cortex, defined            seem that humans are distinctive from
+ nn’s original estimates. Neuroanatomist
+                                               as the cortex anterior to the precentral            other apes because of their relatively
+ Katerina Semendeferi and her colleagues
+                                               sulcus. In all the species tested, the              large brains and not because of their
+ used structural MRI to measure the
+                                               prefrontal cortex accounted for 26 to 33            large prefrontal cortices.
+ frontal lobes in a wide variety of primate
+                                               percent of total brain volume.
+ species. They found that the proportional
+                                                  Although the proportion of prefrontal
+ size of the frontal lobes in humans is
+                                               cortex generally tracks cognitive compe-
+                                                                                                   References
+ actually about the same as that in great                                                          BRODMANN, K. (1912) Neue Ergebnisse
+                                               tence across mammals, these modern
+ apes, occupying about 35 percent of the                                                           über die vergleichende histologische
+                                               results indicate that the relative size of
+ brain volume (Figure C). In addition, there                                                       Lokalisation der Grosshirnrinde mit
+                                               the frontal lobes does not, by itself, ex-
+ were no significant differences between                                                           besonderer Berücksichtigung des Stirn-
+                                               plain the different cognitive capabilities of
+ humans and other great apes in the                                                                hirns. Anat. Anzeiger 41: 157–216.
+                                               humans and other great apes. It would
+
+
+
+                                               Prefrontal Cortex: A Key Contributor to
+                                               Executive Function
+                                               The localization of executive functions in the brain has a checkered history. At
+                                               the beginning of the nineteenth century, many scientists already believed that
+                                               the frontal lobes were critical for controlling behavior and for higher cogni-
+                                               tive functions generally. This conviction was based on very limited evidence,
+                                               such as the gross anatomical fact that the frontal lobes are relatively larger in
+                                               humans and great apes than in other mammals (Box 13A). By studying the
+                                               skulls of different species and individual humans, German physician and
+                                               anatomist Franz Gall went further, speculating that the brain comprised dif-
+                                               ferent faculties that could be discerned by the way they had shaped the surface
+                                               features of the skull—a theoretical framework called phrenology (see Chapter 1
+                                               for historical context). Although these ideas were popular at the time, many of
+                                               Gall’s scientific contemporaries were justifiably skeptical. The phrenologists’
+                                                                                                                                                           EXECUTIVE FUNCTIONS               ■ 433
+
+
+
+  ■ BOX 13A (continued)
+  (B) Prefrontal cortex scaling according to Brodmann (1912)                                                                                    (B) The prefrontal cortex is particularly well
+                                                                                                                                                developed in primates. Largely because of
+                                     105                                                                  30
+                                                                                            Human                                               Brodmann’s work, it was thought that the pro-
+                                              Absolute size
+                                                                                                                                                portional size of the prefrontal cortex was greater
+                                              Proportional size
+                                                                                                                                                in humans than in other great apes. (C) More
+
+
+
+
+  ( ) Prefrontal cortex area (mm2)
+                                                                                                          25
+
+
+
+
+                                                                                                               Prefrontal cortex percentage
+                                                                                                                                                recent studies indicate that the frontal lobes and
+                                     104
+                                                                                                                                                the prefrontal cortex occupy about the same
+                                                                                  Chimpanzee                                                    proportion of overall brain volume in great apes
+                                                                                                          20                                    and humans. (B after Brodmann 1912; C after
+                                     103                    Lemur                                                                               Semendeferi et al. 1997, 2002.)
+
+                                               Marmoset                 Macaque                           15
+                                           Dwarf
+                                     102   lemur                                         Gibbon                                                    DEANER, R. O., K. ISLER, J. BURKART AND C.
+                                                                                                          10                                       VAN SCHAIK (2007) Overall brain size, and
+                                                                                                                                                   not encephalization quotient, best predicts
+                                                                                                                                                   cognitive ability across non-human pri-
+                                     101                                                                  5                                        mates. Brain Behav. Evol. 70: 115–124.
+                                                   103                     104                    105
+                                                                  Neocortex area (mm2)                                                             SEMENDEFERI, K., H. DAMASIO, R. FRANK
+                                                                                                                                                   AND G. W. VAN HOESEN (1997) The evolu-
+  (C) Frontal lobe scaling according to Semendeferi et al. (1997, 2002)                                                                            tion of the frontal lobes: A volumetric
+                                                                                                                                                   analysis based on three-dimensional
+                                     106                                                                  50                                       reconstructions of magnetic resonance
+                                              Absolute size (’97)                           Human                                                  scans of human and ape brains. J. Hum.
+                                              Proportional size (’97)                                                                              Evol. 32: 375–388.
+
+
+
+
+  ( ) Prefrontal cortex area (mm3)
+                                              Proportional size (’02)
+
+
+
+
+                                                                                                                 Prefrontal cortex percentage
+                                                                                                          45                                       SEMENDEFERI, K., A. LU, N. SCHENKER AND
+                                                                                                                                                   H. DAMASIO (2002) Humans and great
+                                                                              Gorilla                                                              apes share a large frontal cortex. Nat.
+                                                              Orangutan
+                                                                                                                                                   Neurosci. 5: 272–276.
+                                     105
+                                                                                                          40                                       STRIEDTER, G. F. (2005) Principles of Brain
+                                                                                                                                                   Evolution. Sunderland, MA: Sinauer.
+                                             Gibbon
+                                                                  Chimpanzee
+                                                                                                          35
+
+
+                                     104              Macaque
+                                                                                                          30
+                                                         105                                        106
+                                                           Hemispheric cortex volume (mm3)
+
+
+
+
+speculations did, however, have two salutary effects. They encouraged explora-
+tion of how different cognitive processes might be localized in the brain, and
+they encouraged the idea that higher cognitive functions may be specifically
+localized in the frontal lobes.
+    By the latter half of the nineteenth century, physiologists had developed
+experimental techniques that could investigate cortical function in animals.
+The first studies of the frontal lobes in an animal were conducted by German
+physiologist Eduard Hitzig and his colleague Gustav Fritsch in the late 1860s.
+When they electrically stimulated the posterior parts of the frontal lobes in a
+dog, the animal moved its limbs on the opposite side; conversely, damage to
+the posterior frontal lobe led to a lack of voluntary control over motor actions,
+although the animal could still engage in reflexive movements like walking.
+Together, these results provided evidence that the more posterior portions of
+the frontal lobes are associated with motor function (see Chapter 5). Damage to
+434 ■ CHAPTER 13
+
+(A)                                               Figure 13.2 Major brain regions that support executive control The brain regions
+Dorsolateral
+                                                  that mediate executive control are (A) lateral structures including the lateral prefrontal
+                                Posterior         cortex (PFC), which is split into dorsal and ventral aspects, and the posterior
+prefrontal cortex               parietal cortex   parietal cortex; (B) midline and inferior structures including the ventromedial PFC,
+                                                  orbitofrontal cortex (which continues to the ventral surface of the frontal lobes, not
+                                                  shown), and dorsomedial PFC, which includes the anterior cingulate gyrus; and
+                                                  (C) the caudate nucleus and putamen within the basal ganglia.
+
+
+
+
+                                                  the anterior frontal lobes, in contrast, caused neither paralysis nor any obvious
+                                                  sensory deficits; moreover, electrical stimulation of those regions evoked no
+Ventrolateral
+prefrontal cortex                                 discernible movements or muscle activity. With mainly this limited evidence,
+                                                  Hitzig and Fritsch speculated that the anterior frontal lobes are associated with
+(B)                                               higher cognitive functions rather than with sensation or motor control.
+                    Anterior
+                    cingulate gyrus
+                                                      This experimental approach was extended and refined over the succeeding
+Dorsomedial
+prefrontal cortex                                 decades by British physiologist David Ferrier and Italian physiologist Leonardo
+                                                  Bianchi, each of whom created various prefrontal lesions and followed up with
+                                                  careful observations of behavior. Bianchi found that, in monkeys, bilateral
+                                                  prefrontal damage caused deficits in a range of cognitive functions: failure to
+                                                  recognize known objects, inability to use past experience to guide behavior,
+                                                  deficits in initiative, loss of affective responses, and lack of coherent behavior.
+                                                  He also made the important observation that unilateral damage rarely caused
+                                                  these behavioral changes. These and other early studies provided the first clear
+                                                  evidence that the prefrontal cortex plays a key role in the executive control of
+Orbito-                                           behavior. Although these early observations of Hitzig, Fritsch, Ferrier, and
+frontal   Ventromedial                            Bianchi remain valid today, more recent research has shown that the prefrontal
+cortex    prefrontal cortex                       cortex is part of a larger network for executive function.
+                                                      Modern anatomical and physiological studies, however, indicate that in ad-
+(C)                                               dition to the prefrontal cortex, the posterior parietal cortex, the anterior cingulate
+Caudate nucleus               Putamen             cortex, and the basal ganglia play important roles in executive control (Figure
+                                                  13.2). The basal ganglia are particularly important in the context of decision
+                                                  making; thus, although introduced here, they are discussed more extensively
+                                                  in Chapter 14.
+
+                                                  Organization and connectivity of the prefrontal cortex
+                                                  The prefrontal cortex comprises those parts of the frontal lobes anterior to
+                                                  the motor and premotor cortices. Because of its size—about 35 percent of
+                                                  the human brain—the prefrontal cortex is typically subdivided into several
+                                                  functional regions. Its lateral surface, as spanned by the inferior, middle,
+                                                  and superior frontal gyri, is usually called lateral prefrontal cortex. In some
+                                                  topographical systems, the lateral prefrontal cortex is separated into upper
+                                                  and lower parts, termed the dorsolateral prefrontal cortex and ventrolateral
+                                                  prefrontal cortex, respectively. The ventral surface of the frontal lobes is often
+                                                  called orbitofrontal cortex (i.e., the part of the brain above the orbits of the eyes),
+                                                  and regions along the ventral midline are specifically called ventromedial
+                                                  prefrontal cortex. The medial surface of the prefrontal cortex can be roughly
+                                                  divided into anterior and posterior aspects. The anterior aspect is often as-
+                                                  sociated with social cognition, as introduced in Chapter 11. The posterior,
+                                                  dorsal parts—collectively called dorsomedial prefrontal cortex and includ-
+                                                  ing the anterior cingulate gyrus—are important for executive function and
+                                                  considered in this chapter. Finally, the most anterior parts of the prefrontal
+                                                  cortex are often called frontopolar cortex.
+                                                      The anatomical connections of various cortical regions are good, if imper-
+                                                  fect, indicators of the functional interactions among those regions, as is clearly
+                                                  evident in the frontal lobes. More than any other part of the cortex, prefrontal
+                                                                                                                                                               EXECUTIVE FUNCTIONS   ■ 435
+
+
+                                                                                                     3        5
+    Lateral Prefrontal Cortex
+                                                                SM, PM
+    SM: Supplementary motor                                                                                       7
+                                                                                                                            PC
+                                                                              6
+        cortex                                                                                   1
+                                                 9
+                                                                     FEF                4
+   PM: Premotor cortex                                46             8                                   S1/S2
+                                                                                                 2
+   FEF: Frontal eye fields              10   LPFC                                                             40
+                                                                                            43                                            39
+    PC: Parietal cortex
+                                    11                     45                                    A2                             22
+                                                                                        41
+    V2: Secondary visual cortex                                 44                                   42                                    19             17
+                                   vmPFC/
+                                   VMPFC                         Ins
+    A2: Secondary auditory          OFC                          38                                                                 37
+                                                                                                                                                    18
+        cortex                                                                    21
+                                                     47
+                                                                                                                           V2
+                                                                                       20
+    Ventromedial Prefrontal
+   Cortex/Obitofrontal Cortex
+  Amy: Amygdala                                                                                      3 1      2
+
+  MTL: Medial temporal lobe
+                                                                         6
+ S1/S2: Primary and secondary                         8                                 4
+                                                                                                          5
+        somatosensory cortices               9
+                                                                                                                                7
+                                                           24                                                              31             19
+ Shared Regions of Connectivity                  ACC                                                 26                                        18
+                                                                                                                       23
+   Tha: Thalamus                                                                        Tha                           29
+                                   10                                    BG 34                                30                                         17
+                                                 32
+   BG: Basal ganglia                12
+                                                                                                         27
+
+                                   VMPFC
+                                   vmPFC/                                                                                            19
+  ACC: Anterior cingulate cortex                                                  MTL                             37
+                                    OFC                          Amy 28                              35
+                                                           11
+   Ins: Insular cortex                                          38                 36
+                                                                             20
+
+
+Figure 13.3 Connectivity of the prefrontal cortex Neurons in the prefrontal cortex
+project to and receive input from secondary sensory cortices, motor preparatory
+structures, and parietal cortex. This schematic diagram shows some of the major
+connections for lateral prefrontal cortex (LPFC) and for ventromedial prefrontal cortex
+and orbitofrontal cortex (vmPFC/OFC, combined here for simplicity). All indicated
+connections are bidirectional, with the important exception of a unidirectional
+projection from LPFC to the basal ganglia (which projects back to LPFC via the
+thalamus).
+
+
+
+regions have numerous, diverse, and bidirectional connections with other brain
+regions (Figure 13.3). The prefrontal cortex has substantial bidirectional con-
+nectivity with the thalamus, particularly to its mediodorsal nucleus. Generally,
+the prefrontal cortex exhibits direct connectivity with secondary (rather than
+primary) sensory cortices. For example, the inferior temporal cortex, which
+supports higher-level object processing (see Chapter 3), projects to the lateral
+prefrontal cortex, while the primary visual cortex does not. The one notable
+exception to this rule is the orbitofrontal cortex, which receives projections from
+primary taste, olfactory, and somatosensory cortices.
+    Other key connections include the strong link between posterior parietal
+cortex and dorsolateral prefrontal cortex; the projection of the hippocampus
+throughout prefrontal cortex; the bidirectional connections between the amygdala
+and primarily the ventromedial regions of prefrontal cortex; and the projec-
+tion of the ventral tegmental area of the midbrain to primarily ventromedial
+prefrontal regions. Important exceptions to the typical bidirectionality are the
+basal ganglia, which are a target of prefrontal cortex but connect back to it only
+indirectly, via the substantia nigra and thalamus. This arrangement may reflect
+the role of the basal ganglia in the control of motor output, since it is similar
+to the pathway pattern between prefrontal cortex and premotor regions (see
+Chapter 5).
+436 ■ CHAPTER 13
+
+                      In summary, the broad connectivity of the prefrontal cortex is consistent
+                   with the diversity of processes required for adaptive, goal-directed behavior.
+                   Understanding how subdivisions of the prefrontal cortex (in conjunction with
+                   other brain regions) guide complex behaviors remains a major challenge for
+                   cognitive neuroscience.
+
+                   Consequences of damage to the prefrontal cortex
+                   An individual with damage to the prefrontal cortex—whether from stroke,
+                   trauma, surgery, or a degenerative disease—may appear normal when first
+                   encountered. Perceptual, language, and motor abilities are usually unimpaired,
+                   and the ability to recall events or facts from memory is typically intact. Yet the
+                   patient may have profound difficulty carrying out simple activities and may
+                   have greatly diminished quality of life. These subtle yet profound deficits sug-
+                   gest that a deeper examination of the functional properties of prefrontal cortex
+                   is needed to understand its role in cognition, both normal and disordered.
+                        Broadly considered, prefrontal cortex damage can lead to either of two
+                   general syndromes, depending on the affected region. Damage to the lateral
+                   prefrontal cortex can lead to the constellation of symptoms called dysexecutive
+                   syndrome (or frontal dysexecutive syndrome). Individuals with this syndrome—
+                   like others with frontal lobe damage—do not present with obvious deficits in
+                   intelligence. They can use language normally and can remember events and
+                   facts. But they have great difficulty managing their daily lives. They fail to plan
+                   for the future, rarely initiate new projects or set long-term goals, leave tasks
+                   uncompleted if initiated, and have a limited span of attention. They may have
+                   difficulty interacting with others, both because of these deficits and because
+                   of impairments in understanding the goals and thoughts of others. They show
+                   a lack of insight into their own and others’ actions. They may even deny the
+                   existence of any problem—or create implausible explanations for those problems
+                   (i.e., confabulate) as their life deteriorates around them. As introduced in the
+                   next sections, these difficulties dealing with the real world are accompanied
+                   by impairments in specific tasks that can be carried out in a laboratory.
+                        Damage to ventral and medial portions of the frontal lobe, in contrast,
+                   gives rise to what has been termed disinhibition syndrome (or frontal disinhibition
+                   syndrome). Patients with this syndrome, like dysexecutive syndrome patients,
+                   present with what generally appear to be normal cognitive functions. But unlike
+                   dysexecutive syndrome patients, they tend to perform normally on laboratory
+                   tests of response selection and working memory. Nonetheless, their lives outside
+                   of the laboratory are often chaotic. Patients with disinhibition syndrome often
+                   exhibit constant movement not channeled toward productive activities, and
+                   they may be euphoric or manic with an abnormal sense of humor. Thus, they
+                   may laugh at inappropriate times in simple social situations, fail to respond to
+                   normal social cues, or reveal embarrassing personal information. Their outward
+                   expressiveness stands in sharp contrast to the quietness and apathy associated
+                   with lateral prefrontal damage.
+                        The famous case of Phineas Gage (Figure 13.4) has been historically con-
+                   sidered an example of disinhibition syndrome, although recent investigation of
+                   Gage’s life history suggests a more complex picture. Despite the accident that
+                   destroyed much of his ventral frontal lobes, Gage remained employed for most
+                   of his remaining life and failed to show some typical personality markers of
+                   this type of prefrontal damage (e.g., he was reported to be a good storyteller
+                   and could communicate with socially appropriate affect).
+                        The deficits associated with prefrontal damage may seem diverse and
+                   disjointed, and different individuals may present with idiosyncratic deficits
+                   in some or all of these functions. But these deficits share a common core:
+                                                                                          EXECUTIVE FUNCTIONS   ■ 437
+
+
+(A)                                          (B)
+
+
+
+
+Figure 13.4 The case of Phineas Gage In 1848, Phineas Gage was a foreman on
+the team constructing a new railway in Vermont. While he was tamping down some
+blasting powder in a hole in the rock, the powder unexpectedly exploded, driving the
+tamping iron (a metal rod about 2 meters in length and 3 centimeters in diameter)
+through his left cheek and out the top of his skull. (A) This modern reconstruction
+based on the damage to Gage’s skull illustrates that the most likely path of the rod
+was through the middle of the frontal lobes, leading to significant damage to the
+orbitofrontal and medial prefrontal cortex. (B) The traditional narrative about Phineas
+Gage reports that this damage had dramatic effects on his personality; for instance,
+he changed from being responsible and conscientious to being profane, reckless,
+and impulsive. Recent research suggests that this narrative is exaggerated. For
+example, Gage was hardly itinerant and unproductive; after the accident, he traveled
+independently to South America and remained employed there for several years. This
+photograph of Gage after his accident was recently discovered. (A from Damasio et
+al. 1994; B from Wilgus and Wilgus 2009.)
+
+
+impairments in the forming, updating, and implementing of rules for appropri-
+ate or effective behavior.
+
+
+Establishing and Modifying Behavioral Rules
+No simple division exists between executive functions and a number of other
+cognitive functions considered in this book. Like attentional and mnemonic
+functions, executive functions enhance some aspects of neural activity while
+lessening or suppressing others. These different functions are usually sepa-
+rated, both in the larger literature and, as described in this book, by what sorts
+of processing they modulate. Modulation of incoming sensory information
+and perceptual representations (e.g., imagery, mnemonic content) is typically
+considered within the domain of “attention,” for example, whereas executive
+functions act primarily on rules for behavior.
+    A useful metaphor for executive function is a switch operator who controls
+the pattern of tracks in a busy railroad yard. In many circumstances in such a
+yard, such as when a single train travels along frequently used tracks, no action
+from the operator is required. But when two trains are on a collision course,
+the operator must set up a new pattern of tracks to maximize the efficiency
+and success of what might follow. Cognitive neuroscientists Earl Miller and
+438 ■ CHAPTER 13
+
+Figure 13.5 A conceptual frame-
+work for executive functions In                                         Prefrontal cortex
+the framework advanced by Miller
+and Cohen, control processes in the           Neighbor’s                                                Ignore
+prefrontal cortex inhibit or strengthen                                        610 277-
+                                                                                        3700
+
+
+
+
+rules for behavior to fit the current
+context. Thus, when a person hears
+                                                           Yours                               Answer
+a phone ringing, there is a strong
+tendency (indicated here by the
+thick connecting lines) to answer it,
+especially at home. However, this             Neighbor’s                                                Ignore
+behavior is inappropriate in other              home                           610 277-
+                                                                                       3700
+
+
+
+contexts, such as at a neighbor’s
+house. The prefrontal cortex is               Your home                                                 Answer
+postulated to model the current
+context and possible actions, so
+                                                                            Behavior
+that the necessary action can
+be potentiated (thick lines) and
+undesirable actions can be inhibited
+(dashed lines). In this conception, the    Jonathan Cohen suggested that executive processes in prefrontal cortex, like
+prefrontal cortex allows information to    a railroad switch operator, set up rules for the patterns of information flow in
+flow along some paths but not others
+to facilitate effective behavior. (After   other brain regions, in order to meet immediate demands and achieve future
+Miller and Cohen 2001.)                    goals (Figure 13.5).
+                                               Nothing in this metaphor or in any other description of executive function
+                                           requires that control be exerted consciously. Consider the simple thermostat. It
+                                           detects temperature changes in the environment and adjusts the output of heat-
+                                           ing and cooling systems, in accordance with some simple rules. More complex
+                                           systems—like those that regulate traffic on highway systems or the movements
+                                           of trains in modern railroad yards—use very sophisticated algorithms to
+                                           regulate large numbers of interacting components in changing environments.
+                                           Such algorithms and the devices they modulate are described by engineers as
+                                           control systems, even though there is no single controller. The following sections
+                                           introduce three sorts of information processing that are common to a wide
+                                           range of control systems, conscious or otherwise (see Figure 13.1): initiating new
+                                           rules for action, inhibiting rules that are no longer valid, and relating rules to
+                                           support more complex forms of control.
+
+                                           Initiating rules for behavior
+                                           Damage to the lateral prefrontal cortex typically impairs the ability of an indi-
+                                           vidual to initiate motor movements, complex actions, and mental plans. Like
+                                           Hitzig’s dogs and Bianchi’s monkeys, human patients with lateral prefrontal
+                                           damage do not readily change their behavior in response to the world around
+                                           them. Rather, they tend to show little spontaneity of thought or action, even if
+                                           verbal and motor abilities are spared; and they may withdraw from society, los-
+                                           ing contact with friends and family. This reclusiveness is the result of not only
+                                           blunted affect, but also a loss of interest in maintaining social relationships.
+                                           Furthermore, when questioned about their abnormal personality and lifestyle,
+                                           patients with lateral prefrontal damage show little concern. They may know
+                                           that they should feel sad following the loss of a job or a loved one, but they do
+                                           not seem to experience the corresponding emotion.
+                                               Of course, different individuals may exhibit some but not all of these impair-
+                                           ments. For example, motor deficits are characteristic in the clinical condition
+                                           known as abulia, which is characterized by lethargy and quiet withdrawal.
+                                           Abulia can result from strokes or lesions that damage lateral aspects of the
+                                           frontal lobes but spare ventral and medial aspects. Patients with this condition
+                                           can perform movements or answer questions in response to commands, but
+                                           they act slowly and are easily distracted. They also have difficulty sustaining
+                                           attention or continuing a motor action for an extended period of time (e.g.,
+                                                                                                                                               EXECUTIVE FUNCTIONS          ■ 439
+
+
+following the instruction “Stick out your tongue for 20 seconds”). As in the
+more general dysexecutive syndrome, patients with abulia are apathetic about
+the surrounding environment and about their future.
+    In light of these symptoms of frontal damage related to initiating and
+following behavioral rules, how might such rules be encoded in the brain?
+Single-unit electrophysiology in non-human primates has provided evidence
+that prefrontal cortex neurons carry information about rules in a distributed
+manner. That is, populations of neurons carry information about different rules,                                                           Figure 13.6 Evidence for rule
+and the relative activity of neurons depends on which rules are relevant to the                                                            specificity in prefrontal cortex
+current context. In one electrophysiological study, monkeys associated sets                                                                Monkeys were trained to follow
+                                                                                                                                           particular rules—either matching rules
+of cues with particular behavioral rules (Figure 13.6). On each trial, a visual                                                            (A) or nonmatching rules (B)—that
+stimulus and a cue (e.g., a juice reward or an auditory tone) were presented                                                               varied according to a sensory cue
+simultaneously. The cue indicated whether a matching or a nonmatching rule                                                                 (e.g., a juice reward or a high tone).
+was active on that trial. About 2 seconds later a second stimulus was presented.                                                           The experimenters recorded from
+The monkeys had been trained to respond to the second stimulus if it was                                                                   neurons in the lateral prefrontal cortex.
+                                                                                                                                           Some neurons exhibited increased
+consistent with the cued rule or, if it was not consistent, to respond instead to                                                          activity to particular rules, regardless
+a third stimulus presented immediately afterward. The single-unit recordings                                                               of which picture was presented as
+showed that neurons in prefrontal cortex responded as if they were selective                                                               the sample or which cue was used to
+for particular rules, independent of the cues signaling which rule to follow, as                                                           signify the rule. (C) These graphs plot
+                                                                                                                                           data from a neuron whose firing rate
+well as the stimuli on which the rules acted.
+                                                                                                                                           increased when the cue indicated a
+                                                                                                                                           match-to-sample trial, but whose firing
+                                                                                                                                           rate remained low on non-match-to-
+(A) Matching rule                                                                                                                          sample trials. Each line indicates a
+      Sample                     Delay 1                  Test 1             Delay 2                                 Test 2                different rule cue. (After Wallis et al.
+                                                                                                                                           2001.)
+                                                                                No
+                                                                             response                                                  Response
+
+
+
+
+        + cue                                                         Response
+(e.g., juice reward)
+
+(B) Nonmatching rule
+      Sample                  Delay 1                     Test 1             Delay 2                                     Test 2
+
+                                                                               No
+                                                                                                                                       Response
+                                                                            response
+
+
+
+
+       + cue                                                          Response
+(e.g., high tone)
+
+(C)
+                                               Sample         Delay                            Test                               Sample          Delay                          Test
+                                          50                                                                             50
+ Matching rules:                                                       Object A                                                                           Object B
+        Juice                             40                                                                             40
+
+
+
+
+                       Firing rate (Hz)                                                               Firing rate (Hz)
+        Low tone
+                                          30                                                                             30
+ Nonmatching
+  rules:
+        No juice                          20                                                                             20
+
+        High tone
+                                          10                                                                             10
+
+                                           0                                                                               0
+                                               0         500      1000      1500        2000                                       0        500      1000      1500       2000
+                                                        Time from sample onset (ms)                                                        Time from sample onset (ms)
+440 ■ CHAPTER 13
+
+Figure 13.7 Basal ganglia control of      (A) Motor loop                             (B) Prefrontal loop         (C) Affective loop
+behavior (A) Inputs to and projections
+from basal ganglia contribute greatly               Primary motor, premotor,             Dorsolateral             Anterior cingulate,
+to motor control. (B,C) Basal ganglia                supplementary motor               prefrontal cortex          orbitofrontal cortex
+loops in the prefrontal cortex affect                       cortex
+nonmotor behavior and support
+particular forms of cognitive control.       Frontal
+                                             cortex                       Cortical                    Cortical                    Cortical
+                                                                          targets                     targets                     targets
+
+
+
+
+                                          Cortical input
+                                                                                                                     Amygdala,
+                                                           Motor, premotor,             Dorsolateral                hippocampus,
+                                                           somatosensory              prefrontal cortex             orbitofrontal,
+                                                               cortex                                             anterior cingulate,
+                                                                                                                   temporal cortex
+
+
+
+
+                                          Striatum
+                                                              Putamen                     Anterior                 Ventral striatum
+                                                                                          caudate
+
+
+
+
+                                          Pallidum
+                                                                                       Globus pallidus,
+                                                                Lateral
+                                                                                      internal segment;                Ventral
+                                                            globus pallidus,
+                                                                                       substantia nigra               pallidum
+                                                           internal segment
+                                                                                        pars reticulata
+
+
+
+
+                                          Thalamus
+                                                             Ventrolateral              Mediodorsal
+                                                                                                                    Mediodorsal
+                                                              and ventral               and ventral
+                                                                                                                     nucleus
+                                                            anterior nuclei            anterior nuclei
+
+
+
+
+                                             Rule-selective neurons have now been found throughout prefrontal cortex,
+                                         most prevalently along the principal sulcus in lateral prefrontal cortex. Note,
+                                         however, that when a rule involves a complex sequence of actions, then a given
+                                         neuron may code for only part of the rule, such as for a particular action or
+                                         even for a particular action only when it occurs at one point in a sequence (see
+                                         Figure 5.18 for an example).
+                                             Creating new rules for behavior does not rely on the prefrontal cortex alone.
+                                         The basal ganglia, for example, interact with prefrontal cortex to support par-
+                                         ticular forms of cognitive control (Figure 13.7). More specifically, in category
+                                         learning tasks, subjects must form abstract rules that match categories of stimuli
+                                         to responses. As we just described, neurons in the prefrontal cortex respond
+                                         preferentially to particular rules, indicating that they code such abstractions.
+                                         In contrast, both fMRI and lesion studies indicate that the basal ganglia are
+                                         important for the creation of rules that map a specific stimulus to a specific
+                                         response (Figure 13.8). The parietal cortex also contributes to rule creation,
+                                         particularly with aspects of executive function closely tied to the generation
+                                         of actions. Studies of decision making in primates have indicated that neurons
+                                         along the intraparietal sulcus (called the lateral intraparietal area, or LIP)
+                                         encode the expected value of possible actions related to a potential decision.
+                                         Likewise, fMRI research has found that the parietal cortex is activated when
+                                         subjects create and maintain the set of possible actions that might be required
+                                         in a given situation.
+                                                                                                                            EXECUTIVE FUNCTIONS          ■ 441
+
+
+(A)                                                                                                     Figure 13.8 Contributions of basal ganglia and
+                                                               Object + Rule
+                                                                      switch
+                                                                                                        prefrontal systems to executive control (A) Subjects
+                                                                                                        were shown pairs of complex, difficult-to-name
+                                                                                                        objects, each surrounded by a box. If the boxes were
+                                                       No switch                                        outlined in yellow, the subjects were to choose the
+                                                                                                        same object they chose on the previous trial and hold
+                                                                                                    L   it in working memory. If the boxes were outlined in
+                                            Rule switch
+                                                                                                        blue, subjects were to choose the other object and
+                                                                                                        hold it in working memory instead. Thus, each trial
+                                                                                             L          could involve no switch at all; a switch in rule but not
+                                                                                                        object; a switch in object but not rule; or a switch in
+                                 Object switch                                                          both object and rule. The correct responses—left (L)
+                                                                                                        or right (R)—are indicated at the lower right of each
+                                                                                  R                     display. (B) Signal change in each switch condition is
+Object + Rule                                                                                           compared here to trials with no switching at all. The
+       switch                                                                                           key finding was that the basal ganglia were activated
+                                                                    R                                   only for object switches and not for rule switches.
+                                                                                                        In contrast, the dorsolateral prefrontal cortex was
+                                                                                                        activated for all types of switches. (After Cools et al.
+                                                                                                        2004.)
+                                                           R
+
+
+
+
+(B)
+                          0.07                                    0.12
+                                   Ventral basal ganglia                      Dorsolateral
+
+
+
+
+ fMRI signal change (%)
+                          0.06                                    0.10      prefrontal cortex
+                          0.05
+                                                                  0.08
+                          0.04
+                                                                  0.06
+                          0.03
+                                                                  0.04
+                          0.02
+                          0.01                                    0.02
+
+                            0                                       0
+                                 Object    Rule   Object +               Object       Rule   Object +
+                                                   Rule                                       Rule
+
+
+
+Inhibiting rules for behavior
+Inhibition is the suppression of unimportant or distracting information or be-
+havior. Although typically discussed separately, inhibition and initiation are
+complementary aspects of executive control. In both cases, executive functions
+change the relative strength of different rules in order to bring about appropri-
+ate or effective changes in behavior. There are four primary forms of inhibition:
+(1) halting behaviors that are well trained or previously valid; (2) preventing
+irrelevant information from interfering with other processing; (3) restraining
+actions that are inappropriate in a given social context; and (4) removing irrel-
+evant information from working memory. The first two of these processes are
+considered in this section; the third is introduced in the following section; and
+the fourth is discussed later, in the section on working memory.
+    Studies using ERPs and fMRI have implicated lateral prefrontal cortex in
+processes of inhibition. For example, in the oddball task, subjects attend to a
+continuous sequence of stimuli, most of which require a standard response
+(e.g., pressing a button with the left hand) or require no response at all, depend-
+ing on the variant of the task (Figure 13.9A). On a fraction of trials, typically
+about 5 to 10 percent, a target stimulus appears that requires the selection of
+a different response (e.g., pressing a button with the right hand) and thus also
+442 ■ CHAPTER 13
+
+(A) Oddball
+
+
+
+
+(B)                                                   (C)
+
+                   P300                Oddballs
+                                       Standards                                               dlPFC
+
+                                   +
+                                   –
+
+
+
+
+            0    200    400 600 800       1000
+          Time from stimulus onset (ms)
+
+Figure 13.9 The oddball task                 requires inhibition of the standard response. Such target oddballs evoke a
+(A) In the visual oddball task,              well-characterized ERP component known as the P300, a positive deflection in
+participants watch a stream of rapidly
+                                             the scalp-recorded EEG waveform that begins approximately 300 milliseconds
+presented standard stimuli (e.g.,
+squares varying in size and color),          following the onset of the target stimulus (Figure 13.9B; see also Chapter 6).
+looking for infrequent target stimuli        Through recording of the EEG signal from electrodes implanted intracrani-
+(e.g., circles). Some versions of the        ally, both in humans and in non-human animals, the P300 has been shown to
+task include distracter stimuli (such        arise from a distributed set of generators that include parietal cortex, medial
+as the picture of the wrench in the
+                                             prefrontal cortex, and lateral prefrontal cortex, with concurrent activity also
+third stimulus shown here) that occur
+with the same frequency as the               observed in subcortical regions including the hippocampus. As shown first
+targets but do not require a change in       by cognitive neuroscientist Gregory McCarthy and colleagues, oddball stimuli
+response from the standard stimuli. (B)      evoke fMRI activation in dorsolateral prefrontal cortex, as well as in the parietal
+Compared to the common standards,            cortex (Figure 13.9C).
+the oddball targets evoke a positive
+                                                 The converse of the oddball task is the go/no-go task, which requires sub-
+ERP response known as the P300
+that begins around 300 milliseconds.         jects to respond to most stimuli (“go”), but to inhibit responding to particular
+(C) Oddball targets tend to evoke            infrequently presented stimuli (“no go”). Like the target stimuli in the oddball
+activation in dorsolateral prefrontal        task, the no-go stimuli evoke activation in the lateral prefrontal and parietal
+cortex (dlPFC). (A from Huettel et al.       cortices. Some brain disorders are associated with deficits in this form of inhibi-
+2004; B after Polich 2007; C from
+                                             tory control. In particular, patients with schizophrenia perform normally on go
+Huettel and McCarthy 2004.)
+                                             trials but are greatly impaired on no-go trials. These behavioral impairments
+                                             are accompanied by abnormal ERP and fMRI responses, suggesting a frontal
+                                             lobe deficit in schizophrenia.
+                                                 In a stop-signal task, participants respond to stimuli whenever they are pre-
+                                             sented but must inhibit those responses if a signal to stop is presented shortly
+                                             thereafter. Patients with damage to the posterior ventrolateral frontal cortex in
+                                             the right hemisphere, but not those with damage to other prefrontal regions,
+                                             have difficulty inhibiting their responses following the signal to stop. Similar
+                                             problems are observed in patients with impulse control disorders, such as at-
+                                             tention deficit hyperactivity disorder (ADHD). Moreover, deficits in basal ganglia
+                                             function associated with Parkinson’s disease can also lead to difficulty inhibiting
+                                             behavior in the stop-signal task (and similar tasks), independently of the effects
+                                             of that disease on generalized motor function. Such results suggest that motor
+                                                                                        EXECUTIVE FUNCTIONS   ■ 443
+
+
+inhibition relies not just on lateral prefrontal cortex, but on circuits that connect
+lateral prefrontal cortex with the basal ganglia (and likely other brain regions).
+    Inhibitory processes are also important for preventing task-irrelevant in-
+formation from interfering with the ongoing performance of a primary task.
+Patients with lateral prefrontal damage have difficulty in such inhibition of
+task-irrelevant sensory information. At sensory stages of neural processing, this
+deficiency is evident as increased amplitude—or disinhibition—of early-latency
+ERP components generated in the sensory cortices (see Chapter 6 for discussion
+of how attention modulates activity in these regions). One consequence of sen-
+sory disinhibition may be that irrelevant information is not effectively filtered,
+impairing the ability of prefrontal patients to keep task-relevant information
+online in the presence of distracting inputs.
+    The importance of the prefrontal cortex for suppressing distracting informa-
+tion is also apparent in a delayed match-to-sample task. In a typical version of
+that task, participants hear a single tone, maintain that tone in working memory
+over a delay of a few seconds, and then indicate whether a second presented
+tone matched the first. Despite having normal working memory, prefrontal
+patients make many more errors when the delay includes distracting auditory
+stimuli than when no distraction is present; that is, they are also more impaired
+by distraction than are patients with damage in other brain regions.
+
+Inhibiting socially inappropriate behaviors
+In social contexts, such as interactions within groups of people in casual con-
+versation, some sorts of behavior are more appropriate than others. Coarse
+language and physical horseplay might be reasonable when you’re interacting
+with friends from college, but not when you’re interacting with a potential em-
+ployer at a job interview. Interacting successfully with others requires matching
+one’s behavior to the current social context, and most people naturally inhibit
+behaviors when they are inappropriate.
+    People with damage to ventral prefrontal cortex often exhibit a generalized
+failure to match their behavior to typical rules for social interactions. In severe
+cases, patients with the disinhibition syndrome introduced earlier in this
+chapter can be argumentative, profane, aggressive, violent, and/or unable to
+control sexual impulses. Their behavior becomes self-indulgent and directed
+toward desires of the moment, even as family responsibilities, work demands,
+and future plans languish. All the while, these patients show a lack of insight.
+Even when they recognize that their behavior is self-destructive, they seem
+neither concerned about its consequences nor motivated to seek a solution.
+    Neurologist Antonio Damasio has called the most severe form of frontal
+disinhibition syndrome acquired sociopathy (i.e., antisocial behavior that arises
+because of trauma or disease). As in congenital sociopathy, people with acquired
+sociopathy have blunted emotional affect punctuated by extreme emotional
+outbursts; make poor decisions, especially in social situations; and have difficulty
+interacting with others. However, there are differences between acquired and
+congenital sociopathy. Patients with acquired sociopathy can state the rules for
+reasonable behavior and can distinguish good actions from bad, even if their
+impulsivity leads them to select the latter. Similarly, they may feel remorse for
+their actions, although that remorse may not be followed by behavioral change.
+Patients with congenital sociopathy, by contrast, have difficulty expressing
+the reasoning behind social rules, explain moral dilemmas in terms of simple
+actions and consequences, and rationalize any problematic consequences of
+their actions (especially the consequences for others). Moreover, their behavior
+is goal-directed rather than impulsive, and they are rarely remorseful.
+    One explanation of these differences is that ventromedial prefrontal dam-
+age impairs social behavior, but not necessarily the cognitive appreciation of
+444 ■ CHAPTER 13
+
+                                        rules for behavior that were established during development with acquired
+                                        sociopathy. Clinical and neuropsychological studies of young adult patients
+                                        who have suffered damage to ventromedial prefrontal cortex in infancy are
+                                        particularly revealing. These patients have troubled histories that include habitual
+                                        misbehavior, shunning by peers, problems maintaining employment and living
+                                        independently, risky sexual behavior, and criminal activity. Importantly, such
+                                        early-damage patients are similar to those with congenital sociopathy in their
+                                        inability to comprehend social rules (although their impulsivity differs from
+                                        the goal directedness of those with congenital sociopathy); moreover, they are
+                                        impaired in moral reasoning tasks, treating social dilemmas in a superficial
+                                        and self-centered manner.
+
+                                        Shifting among rules for behavior
+                                        In many real-world and laboratory settings, goal-directed behavior requires
+                                        the formation of a set of rules—any one of which might be relevant at a given
+                                        time—and then shifting among those rules as one’s goals change. One widely
+                                        used task for rule shifting used in the laboratory and in clinical assessment is
+Figure 13.10 The Wisconsin Card         the Wisconsin Card Sorting Test (Figure 13.10). Each card in the deck contains
+Sorting Test This test uses a deck      one to four images of a simple shape (e.g., circle, star, triangle, or cross), all of
+of cards whose faces differ in color,
+                                        the same color (e.g., black, green, yellow, or blue). The subject’s task is to sort
+shape, and number of the symbols
+depicted. On each trial, subjects       the cards into piles according to one of the three stimulus attributes—number,
+are given a rule by which they sort     shape, or color. For example, suppose that the first card in the deck has one yel-
+each card into one of four piles. The   low star. The subject might sort it according to its shape (the star). If feedback
+correct rule periodically changes       reveals that sorting to be incorrect, the participant might try to sort the next
+without warning during the course
+                                        card according to its color. Using trial and error, subjects can determine the
+of the experiment, and patients with
+prefrontal damage are often poor at     correct rule and begin to sort the cards correctly. Unbeknownst to the subject,
+inhibiting the previously valid rule.   however, after a predetermined number of consecutive correctly sorted cards,
+                                        the sorting rule changes. Individuals with an intact prefrontal cortex recognize
+                                        this change fairly quickly and shift their sorting to the new rule.
+                                             As first reported by Canadian neuropsychologist Brenda Milner in 1963,
+                                        patients with prefrontal damage continue to use the previously valid rule,
+                                        despite receiving negative feedback. This persistence of behavior is known as
+                                        perseveration, which is considered a hallmark of impaired prefrontal function.
+                                        Perseveration does not simply reflect an inability to follow new behavioral rules;
+                                        if the previously valid rule is unavailable—for example, if the previous rule was
+                                        to sort by color and all the cards now share the same color—prefrontal patients
+                                        learn the new rule at the same rate that neurologically normal individuals do.
+                                        Thus, perseveration reflects difficulty shifting away from the previous rule
+                                        that still could be used, even if there is evidence it is no longer valid. Note that
+                                        adaptive performance on the Wisconsin Card Sorting Test in normal adults is
+                                        correlated also with measures of inhibition, not just shifting—which shows
+                                        how a single task can rely on multiple executive functions. Nor is there a one-
+                                        to-one mapping between prefrontal cortex damage and perseverative behavior.
+                                        Prefrontal patients make more random errors on the Wisconsin Card Sorting
+                                        Test (i.e., not using either the previous or current response rules), presumably
+                                        because of an increased susceptibility to distraction. Furthermore, some studies
+                                        suggest that damage to other brain regions, including the medial prefrontal
+                                        cortex and the temporal lobe, can also cause perseverative behavior.
+                                             The ventral frontal lobes, especially the orbitofrontal cortex, also facilitate
+                                        shifting between rules for behavior—particularly in situations involving reward
+                                        and punishment (see Chapter 14 for evidence from the domain of decision mak-
+                                        ing). The orbitofrontal cortex is heavily interconnected with sensory regions
+                                        (including primary taste, olfactory, and somatosensory cortices), with regions
+                                        of the brainstem that track body states, and with object-processing areas in the
+                                        ventral visual stream. These connections point to the important role of this
+                                                                                        EXECUTIVE FUNCTIONS   ■ 445
+
+
+frontal region for incorporating affective information into plans for behavior
+(see Chapter 10 for discussion of the somatic marker hypothesis for ventral
+frontal lobe function).
+    Damage to the orbitofrontal cortex also causes impairments in learning
+the relationship of stimuli and rewards. This kind of deficit is particularly
+apparent in reversal learning tasks. Animals with orbitofrontal lesions learn
+stimulus-reward contingencies (e.g., a bright light predicts food, whereas a dim
+light predicts no food) about as well as control animals do. But when the rule
+mapping stimuli to rewards is unexpectedly switched (e.g., a dim light now
+predicts food), the lesioned animals are slower to learn the new relationships.
+Neuroimaging studies have also found that orbitofrontal cortex is activated
+when neurologically normal subjects switch to a new stimulus-reward contin-
+gency. Conversely, patients with damage to orbitofrontal cortex are impaired
+in reversal learning tasks, frequently switching their responses following large
+rewards, while not switching responses following losses.
+    Although some patients with lateral prefrontal damage show deficits in
+reversal learning, those problems seem to be associated with failures to remain
+engaged in the task (consistent with dysexecutive syndrome), rather than prob-
+lems with learning about rewards. As long as lateral prefrontal patients attend
+to the reward feedback, performance is normal. The impairment in reversal
+learning is reminiscent of the perseverative behavior seen in the Wisconsin
+Card Sorting Test. In both cases, prefrontal damage leads to an inability to
+recognize a context change, and thereby to the inappropriate persistence of a
+previously relevant behavior.
+
+Relating rules to create higher-order models of the world
+The ability to create complex mental models of the world has long been cham-
+pioned as a fundamental feature of human cognition (Box 13B). German neuro-
+psychologist Kurt Goldstein, writing with Martin Scheerer, argued in the early
+twentieth century that the inability to create higher-order abstract representa-
+tions is a core feature of frontal lobe damage:
+
+    What [frontal damage] affects and modifies is the way of manipulating
+    and operating with ideas and thoughts. Thoughts do, however, arise but
+    can become effective only in a concrete way. Just as the patient cannot
+    deal with outer world objects in an abstract manner, he has to deal with
+    ideas simply as “things” … This lack of abstract frame of reference holds
+    also for the patient’s inner experiences; it manifests itself in his inability
+    to arouse and organize, to direct and hold in check ideas or feelings by
+    conscious volition.
+                    K. GOLDSTEIN AND M. SCHEERER 1941 (emphasis in original)
+    The force of this argument is apparent when considering specific examples
+of frontal lobe damage. For example, Goldstein describes a patient who is
+asked simply to repeat the phrase “the snow is black.” The patient tells the
+interviewer that he cannot repeat that phrase, because it is untrue. Only after
+the experimenter explains that phrases can be spoken even if false does the
+patient repeat the phrase—but immediately thereafter disclaiming, “No, the
+snow is white.” The same patient would not repeat the phrase “the sun is shin-
+ing” when the sun was hidden behind clouds. More generally, when presented
+with pictures that tell a story, patients with prefrontal lesions are often unable to
+integrate the pictures into a coherent narrative. They also give literal responses
+when asked to interpret simple proverbs. For instance, when given the proverb
+“People who live in glass houses should not throw stones,” one frontal lobe
+patient explained the sense of the metaphor to be: “Otherwise they will break
+the walls around them.”
+446 ■ CHAPTER 13
+
+
+
+ ■ BOX 13B THE NEUROBIOLOGY OF INTELLIGENCE
+
+ T       he questions of how to measure         (A)                Mesh barrier
+         and explain differences in intelli-
+         gence have a long and controversial
+ history. Some conceptions suggest that
+ intelligence reflects the ability to reason                                                              Lift
+ and solve problems. The great thinkers of
+ the ages, such as Leonardo da Vinci and
+ Benjamin Franklin, are thus considered to
+                                                              Poke                                        Flap
+ have possessed very great intelligence.
+ Other perspectives extend intelligence to
+ include more specific cognitive abilities
+ (like vocabulary, mathematical skills, and
+ memory), artistic talent, emotional and
+ empathic traits, or even athletic excel-
+ lence. From these broader perspectives,                                       Chute
+ a talented pianist or a world-famous
+                                                      (B)
+ painter or even a champion basketball
+ player might be considered intelligent. In
+ all of these domains, from art to sports,
+ outstanding individuals are described by
+ terms, such as brilliant or gifted, that are
+ often synonyms for intelligent.
+      Given the breadth of ways in which
+ behavioral and intellectual competence
+ can be expressed, it seems an impossi-
+ ble task to characterize intelligence using
+ a single measure. Even so, intelligence
+ testing has a long history, whose best-        (A) Dominant female chimpanzees were taught to obtain food from a complex apparatus like
+ known example is the IQ test developed         the ones shown here either by poking a stick through a hole (left) or by lifting a hook (right) to
+ by French psychologist Alfred Binet in         dislodge a barrier and get a food pellet. When a trained female returned to her group, the other
+ the early twentieth century. This test and     chimpanzees observed her operating the apparatus and successfully mimicked her method for
+ its descendants ask a broad set of ques-       obtaining the food. (B) New Caledonian crows spontaneously shape natural materials (or wires,
+ tions that tap reasoning, logic, math,         in the laboratory) into hooks that can be used to extract food. Brain changes associated with
+ vocabulary, and general knowledge,             the development of intelligence.
+ resulting in an intelligence quotient, or
+ IQ. The specific interpretation of an IQ
+ score depends on the test that is used;
+ in a typical scaling system, a mean score      about the specific constituent factors             ligence across species (see Chapter
+ would be 100 with a standard deviation         remains, there is now broad recognition            15), as demonstrated by examples of
+ of 15 points.                                  that intelligence comprises at least several       intelligent behavior both in species that
+      Even though IQ scores seem authori-       separate components (e.g., verbal abili-           have a brain structure similar to our own
+ tative, a person with an IQ of 130 may not     ties, mathematical abilities) that tend to be      (chimpanzees; Figure A) and in species
+ necessarily be better at any particular task   partially correlated across individuals.           with a brain structure that is not like ours
+ requiring intelligence than is someone             The features of the human brain that           (crows; Figure B).
+ else with an IQ of 120. One contemporary       correspond to intelligence have been                   What seem to matter more for intel-
+ of Binet, English psychologist Charles         equally contentious. Humans and other              ligence are the relative size of the brain
+ Spearman, recognized that there were still     primates have large brains, modern adult           compared to the rest of the body and
+ individual differences in specific contribu-   humans have larger brains than our evo-            specific differences within the parts of
+ tors to intelligence. Some people may          lutionary ancestors had, and genes that            the brain that organize complex behav-
+ have very strong verbal aptitude but poor      control brain size are still evolving rapidly.     iors. Unlike other mammals, humans
+ math skills; others may have exceptional       Yet brain size does not predict intel-             and great apes have large frontal lobes
+ spatial skills but poor memory. Neverthe-      ligence among individuals; for example,            (see Box 13A); the executive and other
+ less, Spearman believed strongly in the        males have larger brains than females,             functions of these brain regions fit nicely
+ existence of a central intelligence factor     even though the average intelligence of            with the idea that the frontal lobes are es-
+ (which he labeled “g,” for general ability).   males and females is essentially identi-           pecially (although certainly not uniquely)
+ Although considerable disagreement             cal. Nor does brain size predict intel-            important in mediating intelligence. Con-
+                                                                                                                                  EXECUTIVE FUNCTIONS            ■ 447
+
+
+
+■ BOX 13B (continued)
+ (C)                                     0.40                                                                              to assess whether IQ scores could be
+                                                                                                                           predicted from the thickness of the ce-
+                                                                                                                           rebral cortex in particular brain regions.
+                                                                                                                           Taking the entire age range as a whole,
+
+                           Correlation
+                                                                                                                           intelligence was only weakly related to
+                                                                                                                           the thickness of any particular brain
+                                                                                                                           region (Figure C). In specific age ranges,
+                                                                                                                           however, strong patterns were evident
+                                                                                                                           (Figure D). For example, the children who
+                                                                                                                           eventually became the most intelligent
+                                         –0.40                                   Entire sample                             tended to show a rapid increase in corti-
+                                                                                                                           cal thickness until early adolescence (11
+                                                                                                                           to 12 years of age), particularly in the
+(D)                                                                                                                        prefrontal cortex, followed by a rapid
+                                                                                                                           thinning thereafter (Figure E). This result
+                                                                                                                           suggests that adult intelligence is not
+                                                                                                                           simply a function of the size of the frontal
+                                                                                                                           lobes, but of the specific aspects of
+                                                                                                                           development of the frontal lobes and the
+                                                                                                                           rest of the brain, perhaps reflecting how
+                                                                                                                           synaptic connectivity is modulated by
+                                                                                                                           experience.
+
+                                                                                                                           References
+                                    Young                          Late                  Early                  Early
+                                  childhood                     childhood             adolescence             adulthood    EVANS, P. D. AND 8 OTHERS (2005) Micro-
+                                                                                                                           cephalin, a gene regulating brain size,
+(E)                                                                                                                        continues to evolve adaptively in humans.
+                          5.00                                                                                             Science 309: 1717–1720.
+                                                                                                                           GRAY, J. R., C. F. CHABRIS AND T. S. BRAVER
+
+
+
+
+Cortical thickness (mm)
+                                                                                                                           (2003) Neural mechanisms of general fluid
+                          4.75
+                                                                                                                           intelligence. Nat. Neurosci. 6: 316–322.
+                                                                                                                           KENWARD, B., A. A. WEIR, C. RUTZ AND
+                          4.50                   Intelligence                                                              A. KACELNIK (2005) Behavioural ecology:
+                                                      Average                                                              Tool manufacture by naive juvenile crows.
+                                                      Higher                                                               Nature 433: 121.
+                          4.25
+                                                      Highest                                                              LEE, K. H. AND 6 OTHERS (2006) Neural cor-
+                                                                                                      Trajectories
+                                                                                                      at indicated         relates of superior intelligence: Stronger
+                          4.00                                                                        cortical point       recruitment of posterior parietal cortex.
+                                         7        9       11       13       15         17        19
+                                                                                                                           Neuroimage 29: 578–586.
+                                                            Age (years)
+                                                                                                                           SHAW, P. AND 8 OTHERS (2006) Intellectual
+(C) The color map indicates the strength of the correlation between the thickness of the cortex                            ability and cortical development in chil-
+in a particular brain region and intelligence in children and adolescents. Note that few regions                           dren and adolescents. Nature 440: 676–679.
+exhibited significant correlations across the age range. (D) More revealing were the correlations
+                                                                                                                           THOMPSON, P. M. AND 12 OTHERS (2001)
+at specific age points, with young children of the highest intelligence having thinner cortices
+                                                                                                                           Genetic influences on brain structure. Nat.
+overall, and the adolescents of the highest intelligence having relatively thick prefrontal cortices.
+                                                                                                                           Neurosci. 4: 1253–1258.
+(E) The individuals of the highest intelligence exhibited a relatively late thickening and subse-
+quent thinning of prefrontal cortex. (C–E after Shaw et al. 2006.)                                                         WEIR, A. A., J. CHAPPELL AND A. KACELNIK
+                                                                                                                           (2002) Shaping of hooks in New Caledo-
+                                                                                                                           nian crows. Science 297: 981.
+verging evidence comes from fMRI stud-                                               Variations in how the brain matures   WHITEN, A., V. HORNER AND F. B. DE WAAL
+ies that have found links between general                                        may also predict differences in intel-    (2005) Conformity to cultural norms of
+intelligence (i.e., Spearman’s “g”) and                                          ligence across individuals. A develop-    tool use in chimpanzees. Nature 437:
+differences in activation of the frontal and                                     mental study scanned a large sample of    737–740.
+parietal cortices during reasoning tasks.                                        children, adolescents, and young adults
+448 ■ CHAPTER 13
+
+                   (A) Relational (”change”)             (B) Control (”texture”)
+
+
+
+
+                   (C)   Frontopolar cortex
+                                                                                   Number
+                                                                                   of subjects
+                                                                                           10
+                                                                                            9
+                                                                                            8
+                                                                                            7
+                                                                                            6
+
+
+
+
+                   Figure 13.11 Frontopolar cortex supports the higher-order integration of
+                   rules Participants in an fMRI experiment made a series of judgments about simple
+                   stimuli that varied in shape and texture. (A) In the relational condition, participants
+                   had to determine whether the top pair and the bottom pair of objects differed on the
+                   same dimension. Shown here is a “mismatch” trial, since the two objects in the top
+                   pair differ in shape but the objects in the bottom pair differ in texture. To perform this
+                   task requires the integration of two lower-level judgments to reach a higher-order
+                   judgment. (B) In the control condition, the participant judged whether a stimulus at
+                   the bottom matched either of the top stimuli on the specified dimension. Shown is a
+                   “match” trial because the star and hexagon share the same texture. (C) Significantly
+                   greater activation was found in frontopolar cortex in the relational condition com-
+                   pared to the control condition, and this activation was highly consistent across task
+                   participants. (After Smith et al. 2007.)
+
+
+                       The ability to relate simple rules forms the basis of classic tests for deficits
+                   in frontal lobe function. In the Raven’s Progressive Matrices test, subjects
+                   view a matrix of shapes that progress along one or more dimensions (e.g., a
+                   three-by-three matrix with one dot in each cell of the left column, two dots in
+                   the cells of the middle column, and three dots in the cells of the right column).
+                   The subject’s task is to identify the shape that best completes a pattern by fill-
+                   ing in a blank cell. Depending on the complexity of the matrix, the task may
+                   require only simple logic or it may require complex relational and integrative
+                   processes. Patients with damage to frontopolar cortex, in particular, exhibit
+                   greatly reduced performance when solving complex patterns, although they
+                   often show normal performance when dealing with simpler patterns. Converg-
+                   ing data come from fMRI studies demonstrating that frontopolar activation is
+                   observed when abstract information from different sources must be integrated
+                   to form a more general rule (Figure 13.11).
+                                                                                                             EXECUTIVE FUNCTIONS          ■ 449
+
+(A)                                       (B)                                                            Figure 13.12 Testing executive
+                                                         100                           Control           function with the Tower of London
+                                                                                       Right anterior    puzzle (A) In this puzzle, subjects
+                                                                                       Left posterior    must mentally determine the fewest
+                                                                                       Right posterior
+                                                                                                         number of moves required to trans-
+                                                                                       Left anterior
+                                                                                                         form one arrangement of colored
+                                                                                                         elements (e.g., all stacked on one of
+                                                                                                         a set of posts, as above) to a different
+                                                              75                                         arrangement (below). (B) Patients with
+                                                                                                         damage to the left anterior frontal lobe
+
+
+
+                                            Percent correct
+                                                                                                         perform much more poorly at this task
+                                                                                                         than normal subjects do, especially
+                                                                                                         when the puzzles are more complex.
+                                                                                                         (After Shallice 1982.)
+                                                              50
+
+
+
+
+                                                              25
+                                                               0
+                                                                   0   2–3              4            5
+                                                                             Problem complexity
+                                                                             (number of moves)
+
+
+    Simulation deficits are also evident in tasks that require planning or process-
+ing the future consequences of actions. Commonly used to test this aspect of
+executive function are the Tower of London and Tower of Hanoi manipulation
+puzzles (Figure 13.12). In these puzzles, subjects view a starting configuration of
+balls stacked on rods and must move one ball at a time to reach a goal configura-
+tion. To solve the puzzle efficiently, the subject must simulate the consequences
+of a series of moves: “If I move the red ball to the right pole, then I will be able
+to move the blue ball to the center pole. That will free up the yellow ball. …”
+Patients with prefrontal damage—especially of the left hemisphere—have dif-
+ficulty with these puzzles, reflecting their deficits in planning into the future
+and reasoning (Box 13C).
+    Furthermore, frontopolar cortex may be critical for implementing higher-
+order goals. In real-world behavior, organisms often must balance two types of
+goals. Reward-seeking (exploitative) goals involve choosing the actions that will
+lead to the greatest immediate reward, given what is already known about the
+environment. Information-seeking (exploratory) goals involve taking actions that
+will provide new information about the environment, often at the expense of
+short-term rewards. When people engage in exploratory behavior to gain new
+information, activation of the frontopolar cortex and the intraparietal sulcus
+increases; in contrast, when people choose to receive a sure reward, activation of
+key subcortical reward-related regions increases (see Chapter 14). Taken together
+with prior studies, this finding indicates that frontopolar cortex contributes to
+longer-term and higher-order goals—a conclusion echoed in the hierarchical
+models introduced next.
+
+Hierarchical models for executive function
+The research described so far indicates that the lateral prefrontal cortex makes
+critical contributions to several executive functions. Left unanswered are ques-
+tions about the larger functional organization of prefrontal cortex: In what ways
+do different subregions contribute to distinct executive functions, and are those
+different functional roles organized into any sort of topography? Neurologists
+450 ■ CHAPTER 13
+
+
+
+ ■ BOX 13C REASONING
+
+ M          ore than any other abilities, rea-
+            soning and problem solving em-
+            body what are commonly called
+ thinking and intelligence. Indeed, the
+ capacity to reason is often considered
+                                                  (A)
+
+
+
+
+ the essence of humanity—a point made
+ most famously by René Descartes’ dic-
+ tum “I think, therefore I am.” The fact that
+ reasoning and problem-solving skills are
+ central to the cognition of Homo sapiens
+ is clear, although similar abilities—albeit
+ not so well developed—are apparent in
+ non-human primates and in some other
+ mammals and birds. Understanding the
+ mechanisms that underlie reasoning and
+ problem solving remains an extraordinary
+ challenge for cognitive neuroscience.
+     The simplest case of reasoning
+ involves argument from premises to
+ conclusions; an example is Aristotle’s
+ syllogism “All men are mortal. Socrates
+ is a man. Therefore, Socrates is mortal.”
+ This sort of progression in thinking is
+ known as deductive reasoning because
+ the truth of a given conclusion must
+ be deduced solely from a set of prem-
+ ises that is already in hand. Like other
+ executive processes, deductive reason-
+ ing requires functionally intact frontal
+ lobes, with the lateral prefrontal cortex
+ appearing to be the most critical brain
+ region. Studies of split-brain patients by
+ cognitive neuroscientist Michael Gazza-
+ niga and colleagues have led to the idea
+ of a left-brain interpreter that can form
+ inferences and associations among mul-
+ tiple concepts (Figure A). Interestingly,
+ patients with damage to the left frontal
+ lobe perform similarly to control sub-
+ jects in some reasoning tasks, but unlike        (A) Evidence for the left-brain interpreter. In patient P.S., most of the corpus callosum had
+ controls, their performance does not             previously been severed, so visual information could not travel between the two hemispheres.
+ improve when social information is pres-         Compound images such as the one shown were flashed briefly while he looked at the center
+ ent. Although the bulk of the evidence           of the screen (black dot). Thus, each half of the image was processed within the contralateral
+ indicates that deductive reasoning is a          hemisphere. When asked to explain why his left hand pointed to a picture that seemed unre-
+ primarily left-hemisphere ability, some          lated to his verbal report, the patient’s left hemisphere created a plausible, albeit inaccurate,
+ neuroimaging data suggest that deduc-            story about shoveling the chicken coop. (A after Gazzaniga and LeDoux 1978.)
+
+
+
+
+                                                 have long recognized that more posterior regions in the frontal lobes are related
+                                                 more closely to motor behavior, while more anterior regions of the frontal lobes
+                                                 support processes related to reasoning and mental simulation. Furthermore,
+                                                 the posterior frontal regions mature relatively early during human develop-
+                                                 ment and share more similarities with our evolutionary relatives, whereas the
+                                                 anterior regions like the frontopolar cortex develop late in both the ontogenetic
+                                                 and phylogenetic senses.
+                                                     A natural speculation, therefore, is that there is a rostral-caudal organization
+                                                 of the frontal lobes according to increasing abstraction of executive functions,
+                                                 such that posterior regions support simple functions associated with matching
+                                                                                                                        EXECUTIVE FUNCTIONS             ■ 451
+
+
+
+  ■ BOX 13C (continued)
+  (B)                                                                                                            generation of new hypotheses, which is
+                                                                                                                 critical for inductive reasoning (but not
+                                                                              Ventrolateral                      needed for deductive reasoning). Neuro-
+                                                                              prefrontal                         imaging studies show that deduction and
+
+                                            fMRI signal change
+                                                                              cortex                             induction both activate the left prefrontal
+                                                                                                                 cortex, although the specific foci of ac-
+                                                                                                                 tivation differ. In particular, when directly
+                                                                                                                 compared in an experiment undertaken
+
+                                              (arbitrary units)
+                                                                                                                 by cognitive neuroscientists Vinod Goel
+                                                                                                                 and Raymond Dolan, induction activated
+                                                                                                                 dorsolateral prefrontal cortex, and de-
+                                                                                                                 duction activated ventrolateral prefrontal
+                                                                                                                 cortex (Figure B). This difference may re-
+                                                                  Deduction       Induction                      flect greater demands for generating and
+                                                                                                                 testing hypotheses during induction, but
+                                                                                                                 greater syntactic and linguistic demands
+                                                                                                                 during deduction.
+                                                                   Dorsolateral
+                                                                   prefrontal                                    References
+                                            fMRI signal change
+                                                                   cortex
+                                                                                                                 CRONE, E. A., C. WENDELKEN, L. VAN LEI-
+                                                                                                                 JENHORST, R. D. HONOMICHL, K. CHRISTOFF
+                                                                                                                 AND S. A. BUNGE (2009) Neurocognitive
+
+
+                                             (arbitrary units)
+                                                                                                                 development of relational reasoning. Dev.
+                                                                                                                 Sci. 12: 55–66.
+                                                                                                                 FANGMEIER, T., M. KNAUFF, C. C. RUFF AND
+                                                                                                                 V. SLOUTSKY (2006) fMRI evidence for a
+                                                                                                                 three-stage model of deductive reasoning.
+                                                                  Deduction       Induction                      J. Cogn. Neurosci. 18: 320–334.
+                                                                                                                 GAZZANIGA, M. S. AND J. E. LEDOUX (1978)
+ (B) Prefrontal activation during deduction and induction tasks. Although both inductive and                     The Integrated Mind. New York: Plenum.
+ deductive reasoning involve the left prefrontal cortex, deduction evokes greater activation in an               GOEL, V. AND R. J. DOLAN (2004) Differen-
+ ventrolateral region (top), and induction evokes greater activation in a dorsolateral region (bot-              tial involvement of left prefrontal cortex
+ tom). (B after Goel and Dolan 2004.)                                                                            in inductive and deductive reasoning.
+                                                                                                                 Cognition 93: B109–B121.
+
+ tion may also involve right-hemisphere                           and taboos is the best example). Much
+ regions that are anatomically homolo-                            more common is inductive reasoning, in
+ gous to Broca’s area. The conditions                             which one determines the likely truth of a
+ under which right-hemisphere activation                          conclusion from a set of probabilistic, of-
+ is observed are not yet well established                         ten imperfect premises: “House cats purr
+ and may depend on the type of deduc-                             when they are happy. Lions are related
+ tion being performed.                                            to house cats. Therefore, lions purr when
+     However, few challenges of daily life                        they are happy.” The left lateral prefron-
+ require deduction (adherence to laws                             tal cortex is particularly important for the
+
+
+
+
+behavior to stimuli, whereas anterior regions support complex functions related
+to higher-order behavioral goals (Figure 13.13).
+    Two main theories have been proposed. The first theory, championed by
+cognitive neuroscientist Etienne Koechlin, argues that executive functions are
+organized according to their level of temporal abstraction. Specifically, execu-
+tive functions that implement rules about the current time with respect to a
+particular circumstance are represented in posterior regions like premotor cortex;
+functions that implement rules about how changes in behavior associate with
+changing contexts are supported by middle regions; and functions pertaining
+to long-term goals for behavior are associated with the most anterior regions.
+452 ■ CHAPTER 13
+
+Figure 13.13 Evidence for a                                                         Premotor cortex:
+topo-graphical organization in                                                       Response selection
+lateral prefrontal cortex Across a               Mid-dorsolateral PFC:
+                                                                                     Execution of simple actions
+number of studies, growing evidence               Task switching
+                                                                                     Rule matching
+suggests that posterior regions                   Categorization of sequences
+                                                  Complex stimulus-response
+support relatively simple forms of
+                                                   contingencies
+rule processing (e.g., selecting an
+action in response to a stimulus),
+whereas anterior regions support
+more complex associations (e.g.,
+higher-order rules, tracking of goals                                                            Posterior lateral PFC:
+and subgoals). Shown here are the                                                                 Selection of sequences of
+                                         Frontopolar cortex:                                       responses
+key regions included in one model for     Tracking of goals and                                   Categorization of sequences
+lateral prefrontal cortex, along with       subgoals                                              Rule learning
+examples of the types of processes        Relational integration
+that have been linked to each region.     Information-seeking
+PFC, prefrontal cortex. (After Badre        behavior
+and D’Esposito 2009.)
+
+
+
+
+                                            An alternative organization, called policy abstraction, is advocated by cog-
+                                        nitive neuroscientists David Badre and Mark D’Esposito. Like Koechlin, they
+                                        recognize that posterior regions support the formation and execution of simple
+                                        rules linking stimuli to behavior (e.g., “Press the button when you see a red
+                                        square”). But they contend that the more anterior regions support higher-order
+                                        policies for behavior, which are needed to determine which of several simple
+                                        rules applies in the current context. By embedding several levels of increas-
+                                        ingly complex rules into a single experiment—from simple stimulus-response
+                                        mapping to metarules that govern how a task should be approached—their
+                                        research suggests that executive functions are organized in a hierarchy, such
+                                        that more complex processing of the anterior regions shapes the functioning
+                                        of the posterior regions.
+                                            Other complementary organizations of executive functions remain possible.
+                                        The regions shown in Figure 13.13 are relatively dorsal, running roughly along
+                                        the middle frontal gyrus. Some researchers have postulated that more ventral
+                                        regions along the inferior frontal gyrus also contribute to a range of executive
+                                        functions, but with a different topographical organization. Still other research
+                                        is investigating dorsal-ventral differences within the frontal lobes based on
+                                        stimulus domain or other nonexecutive factors. How regions outside of pre-
+                                        frontal cortex fit into these hierarchical models within prefrontal cortex is also
+                                        an important area of ongoing study. For at least some sorts of rules (e.g., cues
+                                        for spatial locations, or numerical rules), evidence from single-unit recordings
+                                        indicates that neurons within the parietal cortex show selectivity for simple
+                                        stimulus-action rules similar to that of prefrontal cortex neurons.
+
+
+                                        Control: Matching Behavior to Context
+                                        A general question about executive function is what triggers the brain to
+                                        engage particular processes. For example, what determines whether the cur-
+                                        rent stimulus-response rules are sufficient to achieve a goal, or whether new
+                                        rules are needed? Executive functions carry a cost. Attempting to engage an
+                                        executive function consciously (i.e., to think about the rules underlying one’s
+                                        behavior) can slow down or disrupt automatic processing—a problem familiar
+                                        to athletes, musicians, or other skilled performers. For executive functions to
+                                        be implemented effectively, the brain must spend resources to monitor the suc-
+                                        cess of behavioral actions and resolve conflicts between actions that might be
+                                        taken; thus, it is important to allocate these resources efficiently. Adopting the
+                                                                                                                             EXECUTIVE FUNCTIONS         ■ 453
+
+
+term from engineering, cognitive neuroscientists often label processes related
+to monitoring and conflict resolution as control systems.
+
+Conflict monitoring
+An early perspective on behavioral control was introduced in 1990 by Michael
+Posner and Steven Petersen (see Chapter 7 for its relationship to attention). They
+hypothesized the existence of three general systems: one for maintaining alert-
+ness/vigilance, one for orienting to sensory stimuli, and one for detecting and
+identifying events that require additional resources for their processing. The
+last of these functions, which came to be called conflict monitoring, was pos-
+tulated to depend on the anterior cingulate gyrus in the midline frontal lobe.
+Evidence in support of this conjecture came from PET and fMRI studies show-
+ing that activation in the anterior cingulate gyrus increased under conditions
+of high conflict between responses. Response conflict arises when information
+that points to an incorrect response is available earlier than or simultaneously
+with information indicating the correct response. The Stroop task is a good
+example of a paradigm that generates such conflicts (Figure 13.14A). Because
+reading words is so much faster than naming ink colors, the irrelevant color
+words automatically evoke rules for responding that can interfere with produc-
+tion of the correct ink name.
+    Over the past decade, numerous functional neuroimaging studies using
+the Stroop task, as well as other paradigms, have implicated regions within
+the dorsomedial prefrontal cortex in monitoring and allocating resources for
+cognitive control. For example, activation of the anterior cingulate cortex (Figure
+13.14B) during a Stroop task is greater when the ink color mismatches the color
+name (incongruent trials), compared to when the ink and name refer to the
+same color (congruent trials). Furthermore, this activation (and the associated
+slowing in response time) is greater when the previous trial is a congruent trial
+rather than an incongruent trial, supporting the idea of a conflict monitoring
+process rather than behavioral selection. Increased activation in the anterior
+cingulate cortex on one trial results in increased activation in the dorsolateral
+
+
+                                                                                                                         Figure 13.14 The anterior cingulate
+(A) Stroop task                                                                                                          cortex exhibits increased activation
+                                                                                                                         when a stimulus evokes conflicting
+                                                                                                                         responses (A) The Stroop task.
+      YELLOW                         BLUE                                                                   TRUCK        Subjects are able to read color words
+                                                                                                                         very quickly, and the color of ink in
+      Incongruent                   Congruent                                                                 Neutral    which those words are printed has
+                                                                                                                         little effect on the speed of reading
+                                                                                                                         those words (or pressing a button
+(B)   Typical locus of activation     (C)                                                                                indicating the color name). But when
+                                                                                0.20                                     asked to name the color of the ink in
+                                                                                                                         which the word is printed (or press
+
+
+
+
+                                        Lateral PFC activity (current trial)
+                                                                                0.15                                     a button indicating the ink color),
+                                                                                                                         subjects are slower when the ink
+                                                                                0.10                                     color is incongruent with the printed
+                                                                                                                         word than when the ink color is
+                                                                                0.05                                     congruent or the word is neutral. (B)
+                                                                                                                         Neuroimaging studies that use Stroop
+                                                                                  0                                      tasks show increased activation
+                                                                                                                         in the anterior cingulate gyrus on
+                                                                               –0.05                                     incongruent trials. (C) When activation
+                                                                                                                         in the anterior cingulate cortex (ACC)
+                                                                               –0.10                                     is high on one trial, activation in
+                                                                                                                         the lateral prefrontal cortex (PFC)
+                                                                               –0.15                                     increases on the next trial. (B after
+                                                                                    Least                         Most   Bush et al. 1998; C after Kerns et al.
+                                                                                       ACC activation (previous trial)   2004.)
+454 ■ CHAPTER 13
+
+  70 60   50   40   30   20   10   0   Cognitive    Figure 13.15 Executive processing in the dorsal anterior cingulate
+70                                                  gyrus Meta-analysis shows that the dorsal part of the anterior cingulate
+                                       task
+60                                                  gyrus responds to cognitive control demands, while more ventral regions
+                                       Emotional
+                                                    support emotional processing. Numbers along the axes represent the
+                                       task
+50                                                  distance, in millimeters, from the origin of a stereotactic space centered on
+                                                    the anterior commissure. CC, corpus callosum. (After Bush et al. 2000.)
+40
+
+30                                      Cognitive
+                                        division
+20                                                   prefrontal cortex on the next trial (Figure 13.14C); this finding sup-
+10                                                   ports the idea that control processing in cingulate cortex shapes rule
+                     CC
+                                                     application in dorsolateral prefrontal cortex. Converging data from
+ 0
+                                                     many neuroimaging studies indicates that executive processes tend
+10                                                   to evoke activation in the dorsal part of the anterior cingulate gyrus
+20                                      Affective    and other dorsomedial regions, whereas affective processes tend to
+                                        division     evoke activation in more anterior and ventral parts of the anterior
+30                                                   cingulate gyrus (Figure 13.15).
+                                                         Electrophysiological recordings have provided further evidence for
+                                                     the role of the anterior cingulate cortex in monitoring behavior, notably
+                                           in the processing of feedback. The error-related negativity (ERN) is a negative-
+                                           polarity scalp electrical potential that follows either of two sorts of mistaken
+                                           actions: a motor movement that a participant realizes is incorrect (response
+                                           ERN) or feedback indicating that an action did not result in a desired outcome
+                                           (feedback ERN). A similar electrophysiological response is evoked following
+                                           feedback about a monetary loss in a gambling paradigm (see Figure 14.8). The
+                                           amplitude of this potential is positively correlated with response time on the
+                                           subsequent trial, suggesting that it is associated with the engagement of control
+                                           processes. Source localization of the ERP data led to the speculation that the
+                                           error signal arises from activity in the anterior cingulate gyrus—an idea later
+                                           supported by fMRI. More recent work using MEG, however, suggests that the
+                                           posterior cingulate cortex may also contribute to the ERN.
+
+                                           Challenges to the conflict-monitoring model
+                                           Although the idea that neurons within the anterior cingulate gyrus support the
+                                           monitoring and resolution of conflict has substantial support, recent studies
+                                           have raised challenges. One open question is what sort of monitoring occurs.
+                                           Whereas activation in this region is typically observed when two potential rules
+                                           for behavior are in conflict (e.g., naming an ink color versus reading a color
+                                           word), activation has also been observed to feed back about correct responses
+                                           or other rewarding outcomes. Conflict monitoring might also occur at process-
+                                           ing stages earlier than the one underlying the response itself. Thus, the medial
+                                           prefrontal cortex may monitor forms of conflict at stages of processing other
+                                           than response generation.
+                                               Another question is whether the increased activation on error trials has
+                                           to do with errors themselves or with another process. Neuroimaging data
+                                           indicate that when subjects are allowed to choose whether to guess on a trial
+                                           of a visual search task, dorsomedial prefrontal activation is greatest when the
+                                           subjects choose not to guess, but it does not differentiate between correct and
+                                           error trials. This observation suggests that, when cognitive control processes
+                                           are dissociated from error monitoring, this region supports the avoidance of
+                                           mistakes, not necessarily the detection of errors.
+                                               Data from electrophysiological and lesion studies have also been difficult to
+                                           reconcile with a conflict-monitoring explanation. When monkeys are trained
+                                           to perform a stop-signal task of the sort described earlier in the chapter, the
+                                           activity of cingulate gyrus neurons does not increase when the animals must
+                                           stop a previously initiated movement (i.e., the condition in which maximal
+                                                                                                              EXECUTIVE FUNCTIONS   ■ 455
+
+
+(A)                                                      (B)
+                                                                               30
+                                                                                                ACC patients
+                                                                                                Control
+                                                                               25
+
+
+
+
+                                                           Stroop effect (%)
+                                                                               20
+
+
+                                                                               15
+
+
+                                                                               10
+
+
+                                                                                5
+
+
+                                                                                0
+                                                                                      80%           80%
+                                                                                    Congruent   Incongruent
+
+ Number of patients who have
+ damage in the indicated part
+ of the brain:
+      4     3      2      1
+
+
+Figure 13.16 Evidence against the idea that the anterior cingulate gyrus is
+necessary for conflict monitoring The information here is based on a study of
+patients with damage to the anterior cingulate gyrus. (A) Color maps indicate the
+areas of lesion overlap. All patients had damage to the dorsal aspect of the cingulate
+cortex. (B) Al-though patients responded more slowly than neurologically normal
+control subjects, the magnitude of the Stroop effect (incongruent > congruent) was
+similar. This similarity was present in both congruent and incongruent trials. These
+results suggest that an intact anterior cingulate gyrus is not necessary for normal
+interference effects in the Stroop task, at least under the conditions tested. (After
+Fellows and Farah 2005.)
+
+
+response conflict would be expected), even though fMRI activation is observed
+in such tasks. Another paradigm used cue-induced conflict: a cue that signaled
+whether to move the eyes to the left or right was sometimes presented on the
+same side of the display as the cued direction (low conflict) or on the opposite
+side of the display (high conflict). Again, no conflict-related signals were ob-
+served in neurons within the anterior cingulate gyrus. Likewise, patients with
+damage to the dorsal anterior cingulate gyrus (Figure 13.16) perform normally
+on tasks involving response conflict, despite having significant damage to the
+region that is most frequently activated in neuroimaging studies of conflict.
+These patients have normal conflict-related adjustments of performance in both
+the Stroop and the go/no-go tasks. Similarly, in a study of macaque monkeys,
+lesions to the cingulate cortex did not influence their abilities to detect errors
+or to modify their behavior in response to those errors. Instead, the monkeys
+had difficulty learning the optimal behaviors in response to a series of rewards.
+    More recent work recasts the dorsomedial prefrontal cortex activation as
+involving a mismatch between new information and expectations. For example,
+when performing simple psychological laboratory tasks (e.g., the Stroop para-
+digm), participants typically expect to respond accurately to each stimulus;
+when errors occur, activity can be observed in dorsomedial prefrontal cortex
+using any of a number of cognitive neuroscience methods. That activity, it is
+argued, can serve as a learning signal that changes predictions about the task,
+such as one’s estimates about which stimulus might occur next or how much
+executive control is required to perform at an acceptable level. Notably, signals
+about unexpected mistakes or negative outcomes should generally be stronger
+456 ■ CHAPTER 13
+
+                                      (A)                                                                                        (C)
+
+
+
+
+        Probability of reward (%)
+                                                   True reward rate
+                                      1.0          Estimated reward rate
+
+
+
+                                      0.5
+
+
+
+
+                                       0
+                                            0             50           100          150           200          250
+
+                                      (B)
+
+                                                Estimated volatility
+
+
+
+
+        Volatility (arbitary units)
+
+
+
+                                       0
+                                            0             50           100           150          200          250
+                                                                                Trial number
+
+                                                                        Figure 13.17 Activation in the dorsomedial prefrontal cortex tracks the volatility
+                                                                        of the current environment Participants played a simple game in which they
+                                                                        guessed which of two options—a blue box or a green box—would be followed by
+                                                                        a monetary reward. (A) Over the first 120 trials of the experiment, the probability
+                                                                        of reward was kept constant at 75 percent for the blue box and 25 percent for
+                                                                        the green box. Then, over the next 170 trials, the reward probabilities (i.e., which
+                                                                        item was most likely to lead to a reward) flipped back and forth between the two
+                                                                        options, in blocks of about 30 trials. Shown are the true reward rate and the reward
+                                                                        rate that would be estimated by a statistical algorithm that only monitored the
+                                                                        reward outcomes. (B) The statistical algorithm also estimated the “volatility” of the
+                                                                        environment. Low volatility means that the rules for reward are likely to be stable;
+                                                                        high volatility means that the rules for reward are thought to be changing over time.
+                                                                        (C) Activation in a region within dorsomedial prefrontal cortex was found to track the
+                                                                        volatility in the decision environment, during the phase of the trial when participants
+                                                                        were monitoring outcomes. (After Behrens et al. 2007.)
+
+
+
+
+                                                                        than signals about expected mistakes or positive outcomes, because the former
+                                                                        are more important for future learning. This perspective can explain reward-
+                                                                        learning tasks in which the dorsomedial prefrontal cortex exhibits increased
+                                                                        activation under conditions of environmental volatility—that is, when the rules
+                                                                        relating actions to outcomes are not stable over time (Figure 13.17).
+
+                                                                        Functional organization of dorsomedial prefrontal cortex
+                                                                        Whereas much effort has been expended in differentiating subregions within
+                                                                        lateral prefrontal cortex, less research has focused on functional divisions in
+                                                                        dorsomedial prefrontal cortex. An early review by cognitive neuroscientist
+                                                                        Richard Ridderinkhof and colleagues showed that a variety of cognitive con-
+                                                                        trol processes were intercalated throughout dorsomedial prefrontal cortex,
+                                                                        with no apparent organization. Evidence obtained in recent years indicates
+                                                                        that particular subregions within dorsomedial prefrontal cortex may support
+                                                                                           EXECUTIVE FUNCTIONS         ■ 457
+
+
+distinct executive functions. An intriguing study by cognitive neuroscientists
+Jean-Baptiste Pochon, Jonathan Cohen, and their colleagues demonstrated that
+a region along the cingulate sulcus showed increased activation in response to
+difficult judgments—specifically, which of two similar faces was more attrac-
+tive—even when the task elicited no response conflict. This result suggests that
+this region may be important in resolving conflict at higher levels (i.e., “decision
+conflict”) as opposed to competing motor actions.
+    Other studies have shown that increasingly complex sorts of control processes
+evoke activation in progressively more anterior regions within dorsomedial
+prefrontal cortex (Figure 13.18). Specifically, the incompatibility between po-
+tential responses (i.e., response-related control) evokes fMRI activation in the
+most posterior region, the difficulty of choosing between two options (i.e.,
+decision-related control) evokes activation in a middle region, and deviations
+from an ongoing decision strategy in order to adopt a new decision strategy (i.e.,
+strategy-related control) evoke activation in the most anterior region. Support-
+ing this rough topography, a meta-analysis of work on the medial prefrontal
+cortex revealed a similar pattern: activation associated with decision-related
+                                                                                       Figure 13.18 Evidence for a
+control processes was systematically more anterior than that associated with
+                                                                                       topographical organization in
+response-related control processes. (The contributions of dorsomedial prefrontal       dorsomedial prefrontal cortex
+cortex to higher-level decision making are revisited in Chapter 14.)                   (A) Participants in an fMRI experiment
+    The topographical posterior-to-anterior gradient shown in Figure 13.18 has         completed three different tasks with
+many similarities to that postulated for the lateral surface of the prefrontal         different control demands: a response-
+                                                                                       conflict task requiring inhibition of
+cortex (see Figure 13.13). In both cases, relatively posterior regions support
+                                                                                       a potentiated motor response, a
+executive functions associated with selecting the appropriate motor action             decision-conflict task comparing
+for a given behavioral context, while more anterior regions support functions          more difficult and less difficult
+related to implementing and modifying higher-order, abstract goals. A natu-            decisions, and a strategy-conflict task
+ral question is how the medial and lateral prefrontal cortices interact during         involving occasional inhibition of a
+                                                                                       more common strategy for making a
+executive functioning. Recent work on the connectivity between these brain             complex decision. Within dorsomedial
+regions provides converging evidence for such interrelations. Specifically, the        prefrontal cortex, these three types
+more anterior regions of medial prefrontal cortex are preferentially connected         of control evoked activation along
+to anterior but not posterior parts of lateral prefrontal cortex, as shown by          a posterior-to-anterior gradient
+fiber tracing in monkeys and diffusion tensor imaging in humans. A simi-               organized from least to most abstract.
+                                                                                       Squares indicate the centroids from
+lar pattern has been demonstrated using fMRI functional connectivity both              a meta-analysis of the literature, for
+                                                                                       which the estimated activation maps
+                                                                                       are shown in (B). (After Venkatraman et
+                                                                                       al. 2009.)
+(A)                                        (B)
+
+
+
+
+      Decision control                           Decision control
+      Response control                           Response control
+      Strategy control
+458 ■ CHAPTER 13
+
+                                             Figure 13.19 Evidence for topographical connections between medial and
+                                             lateral prefrontal cortex Functional connectivity analyses were conducted
+                                             on fMRI resting-state data (i.e., scans collected while participants were not
+                                             performing an overt task). For seed regions in lateral prefrontal cortex, shown
+                                             as colored dots, the analyses identified voxels in dorsomedial prefrontal
+                                             cortex that had maximal functional connectivity (insets). The medial and
+                                             lateral surfaces of the prefrontal cortex exhibited a consistent spatial pattern
+                                             of connectivity—that is, posterior-to-posterior and anterior-to-anterior. This
+                                             result suggests that the hierarchies shown in Figures 13.13 and 13.18 may be
+                                             functionally interconnected. (From Taren et al. 2011.)
+
+
+
+                                             during performance of an executive processing task and within a nontask
+                                             resting state (Figure 13.19). While much remains to be done to ascertain
+                                             the functional relationships between the medial and lateral parts of the
+                                             frontal lobe, it is clear that complex executive functions result not from
+                                             the activity of single brain regions but from interactions among regions
+                                             within larger networks.
+
+                                        Working Memory: Maintaining Information
+                                        and Rules over Time
+                                        The executive functions introduced in the previous sections all facilitate the
+                                        flexible and context-dependent control of behavior. In each case, these func-
+                                        tions involve matching behavior to currently active goals. Left unaddressed,
+                                        however, are the processes by which the brain keeps information online for
+                                        effective executive processing. These processes, which collectively support
+                                        what is often called working memory, involve the temporary maintenance and
+                                        manipulation of information that is not currently available to the senses but
+                                        that is necessary for successfully achieving short-term behavioral objectives.
+                                        As the term implies, working memory is an active process that not only must
+                                        maintain important information, but must inhibit irrelevant information to fit
+                                        current behavioral goals.
+                                            A widely influential model of working memory was proposed by psycholo-
+                                        gist Alan Baddeley in the 1970s. In its more recent version, the Baddeley model
+                                                                  consists of three capacity-limited memory buffers and
+                                                                  a control system (Figure 13.20). Each memory buf-
+                                                                  fer maintains a different kind of representation: a
+ Working memory
+                                                                  phonological loop holds sound-based representations,
+                    Central executive                             a visuospatial sketchpad holds visual object and spa-
+                                                                  tial representations, and an episodic buffer contains
+                                                                  integrated, multimodal representations. The control
+                                                                  system in the model, which Baddeley called the central
+   Phonological         Episodic             Visuospatial         executive, is assumed to allocate processing resources
+      loop               buffer               sketchpad
+                                                                  to the memory buffers and to perform manipulations.
+                                                                  Each memory buffer has two components: a store that
+                                                                  holds information briefly, and a rehearsal mechanism
+                                                                  that reactivates this information before it dissipates.
+
+
+    Language            Episodic               Visual
+                                                                  Figure 13.20 The Baddeley model of working
+                        memory               semantics
+                                                                  memory Separate memory buffers hold phonological,
+                                                                  visuospatial, and integrated multimodal information (the
+                                                                  episodic buffer). The operation of the three buffers is
+                                                                  taken to be controlled by a central executive. Dashed,
+ Long-term memory                                                 curving arrows associated with each buffer represent
+                                                                  rehearsal. (After Baddeley 2003.)
+                                                                                            EXECUTIVE FUNCTIONS   ■ 459
+
+
+                                 Central
+                                executive
+
+
+
+
+  Long-term memory
+
+
+Figure 13.21 The Cowan model of working memory Different types of memory
+representations (open circles) are held within the same long-term memory store.
+Working memory consists of a subset of these representations in an activated
+state (filled circles). Only a few of these activated representations (stars) fall within
+the focus of attention (yellow “illuminated” area), which is controlled by the central
+executive. (After Cowan 1998.)
+
+
+
+In the case of the phonological loop, these two components are respectively
+known as phonological store and articulatory rehearsal. Baddeley conceived of the
+articulatory rehearsal process as analogous to subvocal speech—that is, the
+“inner voice” we sometimes “hear” while reading or counting.
+    An alternative model, proposed by psychologist Nelson Cowan, contends
+that working memory is organized in two embedded levels (Figure 13.21). The
+first level of working memory consists of long-term memory representations
+in an “activated state.” There is no fixed limit on the number of long-term
+memories that can be activated at one time, but activation decays rapidly un-
+less it is rehearsed. In this model, unlike Baddeley’s model, working memory
+representations for different types of information (verbal, visual, and so on) are
+all held in the same long-term memory store rather than in separate working
+memory stores. The second level of working memory in Cowan’s model consists
+of activated representations that fall within the focus of executive control, which
+can hold up to four items at one time.
+    These two models of working memory have each been influential in psycho-
+logical research for the past several decades. Notably, a few points of difference
+make testable cognitive neuroscience predictions. The Baddeley model suggests
+that the regions actively storing working memory representations are different
+from those storing long-term memories, whereas Cowan’s model suggests that
+both regions are the same. Given that long-term memory representations of
+sensory information are stored in the sensory and association cortices pertinent
+to each type of stimulus information (see Chapter 8), Cowan’s model suggests
+that working memory maintenance should be associated with sustained activity
+in these regions. The latter prediction is supported by current research. Another
+difference is that Baddeley’s model suggests that the “store” and “rehearsal”
+components depend on different brain regions for each buffer, whereas Cowan’s
+model does not. Moreover, although Baddeley’s original model of working
+memory attributed the maintenance of visual object and spatial information to
+a single working memory component (the “visuospatial sketchpad”), it is now
+clear that object and spatial maintenance mechanisms can be dissociated at
+both the behavioral and neural levels. Thus, although both models have been
+used to explain a wide variety of behavioral phenomena, the Cowan model
+seems to be better supported by more recent research.
+460 ■ CHAPTER 13
+
+135°      E      D        R               90°           E          D        R        45°    E   D       R
+
+
+
+
+180°      E      D        R                                                           0°    E   D       R
+                                                             90°
+
+                                                 135°                       45°
+
+
+
+                                                                   +
+                                                180°                   FP       0°
+
+
+                                                 225°                       315°
+
+                                                            270°
+
+
+225°      E      D        R               270°          E          D        R        315°   E   D       R
+
+
+
+
+                                                                                                                  50 spikes/s
+
+
+                                                                                                             1s
+Figure 13.22 Neurons in monkey
+prefrontal cortex have a tuned
+“memory field” The neuron tuned               The following discussion builds on the Cowan model—that is, an executive
+to an orientation of 135 degrees           process that transiently activates sensory representations—to consider how
+showed delay-period activity to            prefrontal cortex interacts with sensory cortices to support working memory.
+targets presented at this orientation,
+but not to targets at 270 degrees. E,      Neural substrates of working memory
+encoding; FP, fixation point; D, delay;
+R, response. (After Funahashi et al.       Studies of the neural basis for working memory have typically focused on what
+1989.)                                     is called delay-period activity. The term delay period refers to the time between
+                                           the initial activation of information in working memory and the use of that
+                                           information to execute a particular action. Early and striking evidence for the
+                                           role of dorsolateral prefrontal cortex neurons in working memory came from
+                                           single-unit recordings in monkeys. When monkeys maintained a spatial loca-
+                                           tion in working memory for a few seconds—to direct a later eye movement
+                                           to that location—neurons in dorsolateral prefrontal cortex fired continuously
+                                           during that delay period. A variety of studies by neurophysiologists Joaquin
+                                           Fuster, Patricia Goldman-Rakic, and others showed that prefrontal neurons
+                                           were selective for particular properties of the stimulus being maintained. As
+                                           illustrated in Figure 13.22, a given prefrontal neuron might exhibit the greatest
+                                           firing rate when a preferred spatial location was being held in memory (e.g.,
+                                           135 degrees), but little to no firing when a nonpreferred spatial location was
+                                           being remembered (e.g., 270 degrees). Prefrontal cortex neurons have since been
+                                                                                                               EXECUTIVE FUNCTIONS          ■ 461
+
+
+shown to maintain information not only about spatial locations, but also about
+types of sensory stimuli, specific movements, or even the relative order of in-
+formation within a sequence. Moreover, recordings from neurons in a number
+of other regions (e.g., parietal cortex, basal ganglia) have found delay-period
+activity, suggesting that such activity may be a general feature of information
+processing associated with the control of behavior and is instantiated broadly
+throughout the brain.
+    Subsequent functional neuroimaging studies built on this earlier work to
+elucidate the brain systems supporting working memory. Activation in lateral
+prefrontal cortex has been attributed to the active maintenance of information
+in working memory, on the basis of several findings:
+  1. Activation typically persists for the entire length of the delay period,
+     whether a few seconds (as in the single-unit work) or 24 seconds or longer
+     in some studies.
+  2. Activation generally increases as more information must be held in
+     memory (e.g., maintaining five faces versus three faces), although
+     the exact relationship between working memory load and activation
+     amplitude differs across tasks.
+  3. Increased activation has been associated with better working memory
+     performance, such that activation tends to be greater when the maintained
+     information is used correctly at the end of the delay period.
+  4. Increased activation has been associated with resistance to the effects of
+     distraction from a competing working memory task.
+  5. Activation tends to be greater when the task requires the manipulation of
+     information in working memory (i.e., changing the content or order of
+     information according to some rule), rather than simply maintenance of
+     that information (Figure 13.23).
+Together, these results uphold the conception that dorsolateral prefrontal cor-
+tex supports executive functions associated with selecting, maintaining, and
+rehearsing information held in working memory.
+    Conversely, substantial research indicates that the information held in
+working memory itself reflects information processing elsewhere in the brain,
+as would be consistent with the Cowan model. When attempting to remember
+phonological information, individuals with lesions in the left inferior parietal
+
+
+                               Dorsolateral prefrontal activity
+                         2.5
+
+                                                                                  “Alphabetize”
+                         2.0
+                                                                                  “Forward”
+
+
+
+
+fMRI signal change (%)
+                         1.5                                                                           Figure 13.23 Evidence that manipulation
+                                                                                                       of information in working memory relies
+                         1.0                                                                           on dorsolateral prefrontal cortex In an
+                                                                                                       fMRI study, participants were presented
+                         0.5                                                                           with a series of letters to hold in working
+                                                                                                       memory. Delay-period activation (gray
+                          0                                                                            bar) was found in both ventrolateral and
+                                                                                                       dorsolateral prefrontal cortex regions, but
+                    –0.5                                                                               dorsolateral prefrontal cortex activity was
+                                                                                                       greater when the test condition involved
+                                                                                                       manipulation (“alphabetize”) than in a
+                    –1.0
+                               0                         10                  20                   30   condition involving only maintenance
+                                                                  Time (s)                             (“forward”). (After D’Esposito et al. 2000.)
+462 ■ CHAPTER 13
+
+                                                                                                                                                           Response
+Figure 13.24 Using multivoxel              (A)                                                                                                     Test
+pattern analysis (MVPA) to decode
+the contents of working memory                                                                                                  Retention
+                                                                                                                       Cue
+(A) Participants viewed two spatial                                                          Sample 2
+gratings and then were given a
+                                                             Sample 1
+visual cue indicating which grating to                                                                                  2                                  2,500 ms
+maintain in memory during a delay                                                                                                                 500 ms
+interval. Then the participants saw                                                                                                11 s
+a test grating and indicated whether                                                                                  800 ms
+                                                                                                          400 ms
+that grating was rotated clockwise                                                            200 ms
+                                                                                  400 ms                              Time
+or counterclockwise compared to                                          200 ms
+the grating being held in memory.
+(B) MVPA revealed that early visual
+regions (V1–V4) contained information
+that could be used to predict the          (B)
+orientation of the grating being held in                            100
+memory (purple circles). The predictive
+                                                                                                                            Unattended gratings
+power was similar to that obtained
+                                                                         90                                                 Working memory
+in a second, perceptual experiment
+                                                                                                                            Generalization
+
+
+
+
+                                           Classification accuracy (%)
+(red circles) in which the stimuli were
+actually present on the visual display                                   80
+(i.e., not being held in memory), and
+the activation patterns found in the
+working memory experiment could                                          70
+be used to predict the orientation of
+stimuli in the perceptual experiment,
+                                                                         60
+and vice versa (green circles). (After
+Harrison and Tong 2009.)                                                      Chance level
+                                                                         50
+
+
+                                                                         40
+                                                                              V1–V4           V1            V2           V3          V3A–V4
+                                                                                                        Visual area
+
+
+                                               cortex have impaired working memory but normal long-term memory. And even
+                                               though they have a normal capacity to articulate different letter sounds (e.g., for
+                                               P or V), the working memory for those letters is not impaired by phonological
+                                               similarity in these patients, unlike neurologically normal individuals, who rely
+                                               on phonological representations for memory. In contrast, patients with damage
+                                               to Broca’s area show specific deficits in articulating letter sounds and words,
+                                               which impair their ability to maintain this information in working memory.
+                                                   Maintenance of simple visual information seems to involve sensory regions
+                                               as well; features like color, motion direction, and spatial position all have
+                                               been linked to the specific sensory regions (see Chapter 3) that process those
+                                               object properties. In a recent example, multivoxel pattern analysis was used
+                                               to decode the orientation directions of simple visual stimuli while they were
+                                               held in working memory (Figure 13.24). Remarkably, the pattern of activation
+                                               in regions of visual cortex could be used to predict which stimulus was being
+                                               maintained, even when the participant’s own memory performance was not
+                                               better than chance. This result indicates that information about the maintained
+                                               stimulus was present in these visual regions, albeit not in a form that led to
+                                               the appropriate response.
+
+                                               Summary
+                                                                1. Executive functions support the flexible control of goal-directed behavior. These
+                                                                   processes may be conscious or nonconscious, depending on the circumstances in
+                                                                   which they are evoked.
+                                                                2. Several brain systems interact to support executive function, including the dorso-
+                                                                   lateral prefrontal cortex, ventromedial prefrontal cortex, posterior parietal cortex,
+                                                                   anterior cingulate cortex, and basal ganglia.
+                                                                                                     EXECUTIVE FUNCTIONS          ■ 463
+
+ 3. The prefrontal cortex receives much of its input from the secondary sensory corti-
+    ces and is richly interconnected with the parietal cortex. Projections from the pre-
+    frontal cortex extend primarily to the basal ganglia and the cortical motor systems,
+    which together contribute to initiating and inhibiting actions.
+ 4. In general, the lateral prefrontal cortex supports the initiating, inhibiting, shifting,
+    and relating of novel rules for behavior. Its subregions are organized in a hierar-
+    chical fashion, such that the most posterior regions support the execution of rela-
+    tively simple rules, while the most anterior implement and update higher-order
+    goals that might be distant from immediate task demands.
+ 5. In contrast, the ventral portions of the prefrontal cortex facilitate behavioral con-
+    trol in situations with well-established behavioral rules, as in social situations or
+    in interactions with objects in the environment.
+ 6. The dorsomedial prefrontal cortex monitors behavior and signals the need for
+    increased allocation of executive control. Recent work indicates that dorsomedial
+    prefrontal cortex may be organized along a posterior-to-anterior topography simi-
+    lar to that of dorsolateral prefrontal cortex.
+ 7. Working memory refers to the maintenance and manipulation of information that
+    is no longer directly available to the senses. Regions of the prefrontal cortex and           Go to the COMPANION WEBSITE
+    parietal contribute to the successful engagement of working memory, through
+    their influences on information processing in sensory regions.                                 sites.sinauer.com/cogneuro2e
+ 8. Together, these executive control systems allow behavior to transcend simple                 for quizzes, animations, flashcards,
+    stimulus-response associations, providing a foundation for many complex aspects                   and other study resources.
+    of human activity.
+
+
+Additional Reading                             BADRE, D. AND M. D’ESPOSITO (2007)              FELLOWS, L. K. AND M. J. FARAH (2005) Is
+                                                Functional magnetic resonance imag-             anterior cingulate cortex necessary for
+Reviews                                         ing evidence for a hierarchical organi-         cognitive control? Brain 128: 788–796.
+                                                zation of the prefrontal cortex. J. Cogn.      FUNAHASHI, S., C. J. BRUCE AND P. S.
+BADDELEY, A. (2003) Working memory:             Neurosci. 19: 2082–2099.
+ Looking back and looking forward.                                                              GOLDMAN-RAKIC (1989) Mnemonic
+ Nat. Rev. Neurosci. 4: 829–839.               BEHRENS, T. E., M. W. WOOLRICH, M. E.            coding of visual space in the monkey’s
+                                                WALTON AND M. F. RUSHWORTH (2007)               dorsolateral prefrontal cortex. J. Neuro-
+BADRE, D. AND M. D’ESPOSITO (2009) Is           Learning the value of information in            physiol. 61: 331–349.
+ the rostro-caudal axis of the frontal          an uncertain world. Nat. Neurosci. 10:
+ lobe hierarchical? Nat. Rev. Neurosci. 10:                                                    GOLDMAN-RAKIC, P. S. AND L. J. PORRINO
+                                                1214–1221.                                      (1985) The primate mediodorsal (MD)
+ 659–669.
+                                               BOTVINICK, M., L. E. NYSTROM, K. FISSELL,        nucleus and its projection to the frontal
+BUSH, G., P. LUU AND M. I. POSNER (2000)        C. S. CARTER AND J. D. COHEN (1999)             lobe. J. Comp. Neurol. 242: 535–560.
+ Cognitive and emotional influences in          Conflict monitoring versus selection-
+ anterior cingulate cortex. Trends Cogn.                                                       GOLDSTEIN, K. AND M. SCHEERER (1941)
+                                                for-action in anterior cingulate cortex.        Abstract and Concrete Behavior: An
+ Sci. 4: 215–222.                               Nature 402: 179–181.                            Experimental Study with Special Tests.
+COWAN, N. (1998) Visual and auditory           BUSH, G., P. J. WHALEN, B. R. ROSEN, M.          Psychological Monographs, Vol. 53,
+ working memory capacity. Trends                A. JENIKE, S. C. MCINERNEY AND S. L.            No. 2 (Whole No. 239). Evanston, IL:
+ Cogn. Sci. 2: 77.                              RAUCH (1998) The counting Stroop: An            American Psychological Association.
+MILLER, E. K. AND J. D. COHEN (2001) An         interference task specialized for func-        HARRISON, S. A. AND F. TONG (2009)
+ integrative theory of prefrontal cor-          tional neuroimaging—Validation study            Decoding reveals the contents of visual
+ tex function. Annu. Rev. Neurosci. 24:         with functional MRI. Hum. Brain. Mapp.          working memory in early visual areas.
+ 167–202.                                       6: 270–282.                                     Nature 458: 632–635.
+RIDDERINKHOF, K. R., M. ULLSPERGER, E.         CHAO, L. L. AND R. T. KNIGHT (1995)             HUETTEL S. A. AND G. MCCARTHY (2004)
+ A. CRONE AND S. NIEUWENHUIS (2004)             Human prefrontal lesions increase dis-          What is odd in the oddball task? Pre-
+ The role of the medial frontal cortex in       tractibility to irrelevant sensory inputs.      frontal cortex is activated by dynamic
+ cognitive control. Science 306: 443–447.       NeuroReport 6: 1605–1610.                       changes in response strategy. Neuropsy-
+                                               COOLS, R., L. CLARK AND T. W. ROBBINS            chologia 42: 379–386.
+Important Original Papers                       (2004) Differential responses in human         KENNERLEY, S. W., M. E. WALTON, T. E.
+ALEXANDER, W. H. AND J. W. BROWN                striatum and prefrontal cortex to               BEHRENS, M. J. BUCKLEY AND M. F.
+ (2011) Medial prefrontal cortex as             changes in object and rule relevance.           RUSHWORTH (2006) Optimal decision
+ an action-outcome predictor. Nat.              J. Neurosci. 24: 1129–1135.                     making and the anterior cingulate
+ Neurosci. 14: 1338–1344.                      DAMASIO, H., T. GRABOWSKI, R. FRANK,             cortex. Nat. Neurosci. 9: 940–947.
+ANDERSON, S. W., A. BECHARA, H. DAMA-           A. M. GALABURDA AND A. R. DAMASIO              KERNS, J. G., J. D. COHEN, A. W. MAC-
+ SIO, D. TRANEL AND A. R. DAMASIO               (1994) The return of Phineas Gage:              DONALD III, R. Y. CHO, V. A. STENGER
+ (1999) Impairment of social and moral          Clues about the brain from the skull            AND C. S. CARTER (2004) Anterior
+ behavior related to early damage in            of a famous patient. Science 264:               cingulate conflict monitoring and
+ human prefrontal cortex. Nat. Neurosci.        1102–1105.                                      adjustments in control. Science 303:
+ 2: 1032–1037.                                                                                  1023–1026.
+464 ■ CHAPTER 13
+
+KOECHLIN, E. AND A. HYAFIL (2007) Ante-      Functional imaging of decision conflict.      WALLIS, J. D., K. C. ANDERSON AND E. K.
+ rior prefrontal function and the limits     J. Neurosci. 28: 3468–3473.                    MILLER (2001) Single neurons in pre-
+ of human decision-making. Science 318:     SMITH, R., K. KERAMATIAN AND K. CHRIST-         frontal cortex encode abstract rules.
+ 594–598.                                    OFF (2007) Localizing the rostrolateral        Nature 411: 953–956.
+KOECHLIN, E., C. ODY AND F. KOUNEIHER        prefrontal cortex at the individual           WILGUS, J. AND B. WILGUS (2009) Face
+ (2003) The architecture of cognitive        level. Neuroimage 36: 1387–1396.               to face with Phineas Gage. J. Hist.
+ control in the human prefrontal cortex.    STROOP, J. R. (1935) Studies of interfer-       Neurosci. 18: 340–345.
+ Science 302: 1181–1185.                     ence in serial verbal reactions. J. Exp.
+MCCARTHY, G., M. LUBY, J. GORE AND           Psychol. 18: 643–662.                         Books
+ P. GOLDMAN-RAKIC (1997) Infrequent         TAREN, A. A., V. VENKATRAMAN AND S.            FINGER, S. (1994) Origins of Neuroscience.
+ events transiently activate human pre-      A. HUETTEL (2011) A parallel functional        New York: Oxford University Press.
+ frontal and parietal cortex as measured     topography between medial and lateral         FUSTER, J. (2008) The Prefrontal Cortex, 4th
+ by functional MRI. J. Neurophysiol. 77:     prefrontal cortex: Evidence and impli-         Ed. London: Academic Press.
+ 1630–1634.                                  cations for cognitive control. J. Neurosci.   HUETTEL, S. A., A. W. SONG AND G.
+MILNER, B. (1963) Effects of different       31: 5026–5031.                                 MCCARTHY (2004) Functional Magnetic
+ brain lesions on card sorting. Arch.       VALLENTIN, D., S. BONGARD AND A.                Resonance Imaging. Sunderland, MA:
+ Neurol. 9: 90–100.                          NIEDER (2012) Numerical rule coding in         Sinauer.
+MIYAKE, A., N. P. FRIEDMAN, M. J. EMER-      the prefrontal, premotor, and posterior       MACMILLAN, M. (2000) An Odd Kind
+ SON, A. H. WITZKI, A. HOWERTER AND T.       parietal cortices of macaques. J. Neuro-       of Fame: Stories of Phineas Gage. Cam-
+ D. WAGER (2000) The unity and diver-        sci. 32: 6621–6630.                            bridge, MA: MIT Press.
+ sity of executive functions and their      VENKATRAMAN, V., A. G. ROSATI, A. A.
+ contributions to complex “frontal lobe”                                                   STUSS, D. T. AND R. T. KNIGHT (2002)
+                                             TAREN AND S. A. HUETTEL (2009) Resolv-         Principles of Frontal Lobe Function. New
+ tasks: A latent variable analysis. Cogn.    ing response, decision, and strategic
+ Psychol. 41: 49–100.                                                                       York: Oxford University Press.
+                                             control: Evidence for a functional
+POCHON, J. B., J. RIIS, A. G. SANFEY, L.     topography in dorsomedial prefrontal
+ E. NYSTROM AND J. D. COHEN (2008)           cortex. J. Neurosci. 29: 13158–13164.
+14
+Decision Making
+
+INTRODUCTION
+Until recently, research on how people make decisions—whether large
+ones like choosing a college, or small ones like which brand of tooth-
+paste to buy—has been conducted primarily within traditional econom-
+ics. To understand decision processes, economists created rational choice

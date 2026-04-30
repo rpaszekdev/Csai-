@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>M3L2 — Learning and Plasticity</title>
+<link rel="stylesheet" href="./cog-neuro.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Cognitive Neuroscience</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="/courses/cog-neuro/roadmap">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="/courses/cog-neuro/quiz">Quizzes</a>
+  <a href="/courses/cog-neuro/brain-quiz">Brain Quiz</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">03</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 03 · Lecture 02 —</span>
+      <h1 class="hero-title">Learning and Plasticity</h1>
+    </div>
+    <div class="hero-meta">
+      <span>0 sources</span>
+      <span>0 slides</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="brain-illu" src="/cog-neuro/brain.svg" alt="Cognitive Neuroscience brain illustration" />
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="./m1_l1.html">M1L1</a>
+  <a class="chip" href="./m1_l2.html">M1L2</a>
+  <a class="chip" href="./m2_l1.html">M2L1</a>
+  <a class="chip" href="./m2_l2.html">M2L2</a>
+  <a class="chip" href="./m3_l1.html">M3L1</a>
+  <a class="chip active" href="./m3_l2.html">M3L2</a>
+  <a class="chip" href="./m4_l1.html">M4L1</a>
+  <a class="chip" href="./m4_l2.html">M4L2</a>
+  <a class="chip" href="./m5_l1.html">M5L1</a>
+  <a class="chip" href="./m5_l2.html">M5L2</a>
+  <a class="chip" href="./midterm.html">MID</a>
+</div>
+
+<div class="slide-strip">
+
+</div>
+
+<article id="content">
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">1. Taxonomy of Declarative Memory</div>
+
+<p><strong>Declarative (explicit) memory</strong>: the conscious, intentional recollection of factual information, previous experiences, and concepts. It depends on three core processes -- <strong>acquisition</strong>, <strong>consolidation</strong>, and <strong>retrieval</strong> -- and divides into <strong>episodic</strong> and <strong>semantic</strong> memory. <span class="badge">Exam</span></p>
+<h3>1.1 Declarative vs. Nondeclarative Memory</h3>
+<ul>
+<li><strong>Declarative (explicit) memory</strong>: conscious recollection of facts and events. Depends on the <strong>medial temporal lobe</strong> (especially the <strong>hippocampus</strong>). Spared in nondeclarative tasks. <span class="badge">Exam</span></li>
+<li><strong>Nondeclarative (implicit) memory</strong>: includes priming, conditioning, skill learning. <strong>Priming</strong>: facilitated processing of previously encountered stimuli. <strong>Skill learning</strong>: learning cognitive, motor, or perceptual skills through practice. <strong>Conditioning</strong>: learning associations between stimuli or between actions and consequences (e.g., <strong>Pavlov's dog</strong>).</li>
+</ul>
+<h3>1.2 Episodic Memory <span class="badge">Exam</span></h3>
+<ul>
+<li>Memories of <strong>events</strong> experienced at a specific <strong>place</strong> and <strong>time</strong></li>
+<li>Introduced as a concept by psychologist <strong>Endel Tulving</strong></li>
+<li><strong>Recollection</strong>: remembering contextual details -- what, where, when <span class="badge">Exam</span></li>
+<li><strong>Familiarity</strong>: a sense of having experienced something before without recalling specific contextual details <span class="badge">Exam</span></li>
+<li>Familiarity is classified as episodic, but its encoding mechanisms resemble <strong>semantic memory</strong> <span class="badge prof">Prof</span></li>
+</ul>
+<h3>1.3 Semantic Memory <span class="badge">Exam</span></h3>
+<ul>
+<li>Memory for <strong>facts</strong> and <strong>general knowledge</strong> about the world</li>
+<li><strong>Semanticisation</strong>: the process by which episodic memories transform into semantic memories over time <span class="badge">Exam</span></li>
+<li>Day 1: "Yesterday at school I learned that Paris is the capital of France" (episodic)</li>
+<li>Over time: "Paris is the capital of France" (semantic) -- the episodic context fades <span class="badge prof">Prof</span></li>
+</ul>
+<h3>1.4 Autobiographical Memory</h3>
+<ul>
+<li>The <strong>overlap</strong> between episodic and semantic memory</li>
+<li>Contains both personal event details (episodic) and personal factual knowledge (semantic)</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">2. A Simple Neurological Model of Encoding, Storage, and Retrieval <span class="badge">Exam</span></div>
+
+<h3>2.1 Encoding Phase</h3>
+<ul>
+<li>Different aspects of an event are stored in the <strong>same cortical regions</strong> involved in perceiving the event:</li>
+<li>Visual information → <strong>visual cortex</strong></li>
+<li>Auditory information → <strong>auditory cortex</strong></li>
+<li>Motor information → <strong>motor cortex</strong></li>
+<li>Memory traces consist of <strong>alterations in synapses</strong> (strengthened connections between neurons)</li>
+<li>The <strong>hippocampus</strong> stores a <strong>summary representation (index)</strong> with pointers to the distributed cortical traces <span class="badge">Exam</span></li>
+<li>This index is not the memory itself but a pointer to where the information can be found -- like a book index</li>
+</ul>
+<h3>2.2 Storage Phase (Including Consolidation)</h3>
+<ul>
+<li>Some memory traces are stabilised through <strong>consolidation</strong></li>
+<li>Recent memories depend heavily on hippocampal indices for reactivation</li>
+<li>Remote memories develop <strong>direct connections among cortical traces</strong>, becoming less dependent on the hippocampus</li>
+</ul>
+<h3>2.3 Retrieval Phase</h3>
+<ul>
+<li>A <strong>retrieval cue</strong> accesses the hippocampal index, leading to simultaneous reactivation of cortical traces</li>
+<li>For <strong>remote memories</strong>, retrieval can bypass the hippocampus via direct cortical connections</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">3. Medial Temporal Lobe and Hippocampal Function</div>
+
+<h3>3.1 Key Brain Regions <span class="badge">Exam</span></h3>
+<ul>
+<li><strong>Hippocampus</strong>: hub for binding; stores indices/pointers to cortical memory traces</li>
+<li><strong>Medial temporal lobe</strong> (perirhinal, entorhinal, parahippocampal cortices): forms memory representations around the hippocampus</li>
+<li><strong>Prefrontal cortex (PFC)</strong>: organisation of memories; contributes to encoding and retrieval</li>
+<li><strong>Sensory cortical areas</strong>: store modality-specific traces (visual, auditory, etc.)</li>
+</ul>
+<h3>3.2 Theories of Hippocampal Function <span class="badge">Exam</span></h3>
+<table>
+<thead>
+<tr>
+<th>Theory</th>
+<th>Key Claim</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relational memory theory</strong></td>
+<td>Hippocampus mediates memory for <strong>new associations</strong> in general</td>
+<td>Remembering nonspatial associations activates the hippocampus</td>
+</tr>
+<tr>
+<td><strong>Episodic memory theory</strong> (Tulving, Moscovitch)</td>
+<td>Hippocampus is critical for <strong>episodic memory but not semantic</strong> memory</td>
+<td>Hippocampal damage leads primarily to episodic impairment</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Both theories are supported -- HC is associated with <strong>recollection</strong> rather than <strong>familiarity</strong> <span class="badge">Exam</span></li>
+</ul>
+<h3>3.3 Recollection vs. Familiarity: Neural Evidence <span class="badge">Exam</span></h3>
+<ul>
+<li><strong>fMRI studies</strong>: "Remember" (R) responses elicit greater <strong>hippocampal activity</strong> than "Know" (K) responses</li>
+<li><strong>Rat lesion studies</strong>: Selective hippocampal lesions impair <strong>recollection estimates</strong> but not <strong>familiarity estimates</strong> (Fortin et al., 2004)</li>
+<li>Converging evidence links the hippocampus to recollection, supporting both relational and episodic memory theories</li>
+</ul>
+<h3>3.4 Differences Between Medial Temporal Lobe Subregions <span class="badge">Exam</span></h3>
+<ul>
+<li><strong>Hippocampus</strong>: processes information relatively slowly; relational and spatial; signals associations between items (recollection)</li>
+<li><strong>Perirhinal cortex</strong>: processes information rapidly; item-based; signals novelty of individual items (familiarity)</li>
+<li>Single-cell recordings show perirhinal neurons respond more strongly to <strong>first presentations</strong> than to repeated presentations</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">4. Key Patient Cases <span class="badge">Exam</span></div>
+
+<h3>4.1 Patient H.M.</h3>
+<ul>
+<li>Bilateral <strong>medial temporal lobe</strong> removal led to severe <strong>anterograde amnesia</strong></li>
+<li>Could not form new declarative memories (episodic or semantic)</li>
+<li>Nondeclarative memory (priming, skill learning) was spared</li>
+<li>Demonstrates the critical role of the medial temporal lobe in declarative memory <span class="badge">Exam</span></li>
+</ul>
+<h3>4.2 Patient K.C. <span class="badge">Exam</span></h3>
+<ul>
+<li>Motorcycle accident causing damage to multiple brain regions including the <strong>hippocampus</strong></li>
+<li><strong>Could not remember events</strong> before or after the accident (anterograde + retrograde amnesia for episodic memory)</li>
+<li><strong>Semantic memory acquired before the accident was intact</strong>: good vocabulary, knowledge of math, history, geography</li>
+<li>Could learn simple semantic associations with many repetitions</li>
+<li>Demonstrates that medial temporal lobe damage can impair episodic memory while <strong>sparing retrograde semantic memory</strong> <span class="badge">Exam</span></li>
+</ul>
+<h3>4.3 Beth, Jon, and Kate -- Developmental Amnesia <span class="badge">Exam</span></h3>
+<ul>
+<li>Children with <strong>hypoxia-related selective hippocampal damage</strong> (hippocampus has higher metabolic rate)</li>
+<li><strong>Severely impaired</strong> in episodic memory</li>
+<li><strong>Normal</strong> speech, language, literacy, factual knowledge -- could attend mainstream schools</li>
+<li>Supports the idea that the hippocampus is specifically associated with <strong>episodic but not semantic</strong> memory</li>
+<li>Semantic memory may be mediated by <strong>medial temporal lobe cortices</strong> (perirhinal, entorhinal, parahippocampal) <span class="badge">Exam</span></li>
+<li>Supports the view that <strong>episodic memory develops after semantic memory</strong> <span class="badge">Exam</span></li>
+</ul>
+<h3>4.4 Semantic Dementia (Patient A.M.)</h3>
+<ul>
+<li>Progressive disorder with <strong>left anterior temporal atrophy</strong></li>
+<li>Severely impaired in <strong>nonverbal semantic knowledge</strong> (pyramid and palm trees test)</li>
+<li>Performed normally on <strong>nonverbal episodic memory</strong> tasks</li>
+<li><strong>Double dissociation with hippocampal amnesia</strong>: hippocampus is more critical for episodic memory; <strong>left anterior temporal cortex</strong> is more critical for semantic memory <span class="badge">Exam</span></li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">5. Contributions of the Prefrontal Cortex (PFC) to Encoding and Retrieval <span class="badge">Exam</span></div>
+
+<h3>5.1 PFC and Episodic Memory Encoding</h3>
+<ul>
+<li>PFC is known for many functions that relate to memory directly or indirectly <span class="badge prof">Prof</span></li>
+<li><strong>Subsequent memory paradigm</strong>: compares brain activity for information that is <strong>subsequently remembered</strong> vs. <strong>subsequently forgotten</strong> <span class="badge">Exam</span></li>
+<li>Four-step experimental design to isolate neural regions for episodic encoding</li>
+<li>Key region: <strong>inferior frontal gyrus</strong> (also medial temporal lobe, dorsal parietal lobe)</li>
+</ul>
+<h3>5.2 PFC and Episodic Memory Retrieval</h3>
+<ul>
+<li><strong>Memory search</strong>: retrieval cues narrow attention, leading to recovery of stored memory traces</li>
+<li><strong>Monitoring processes</strong> evaluate recovered information and reject inappropriate memories</li>
+<li><strong>Retrieval mode</strong>: a hypothetical state that maintains continuous attention and focus on the past</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">6. Contributions of the Posterior Parietal Cortex (PPC) to Encoding and Retrieval <span class="badge">Exam</span></div>
+
+<h3>6.1 During Retrieval</h3>
+<ul>
+<li><strong>Dorsal parietal cortex</strong>: associated with <strong>familiarity</strong> and <strong>low-confidence recognition</strong>; involved in <strong>top-down attention</strong></li>
+<li><strong>Ventral parietal cortex</strong>: associated with <strong>recollection</strong> and <strong>high-confidence recognition</strong>; involved in <strong>bottom-up attention</strong> <span class="badge">Exam</span></li>
+<li><strong>Attention to Memory (AToM) model</strong>: ventral parietal cortex mediates bottom-up attention to recovered memories <span class="badge">Exam</span></li>
+</ul>
+<h3>6.2 Ventral Parietal Lesion Evidence</h3>
+<ul>
+<li>Patients produced <strong>fewer episodic details</strong> when describing autobiographical memories</li>
+<li>BUT could generate the missing details when <strong>specific questions</strong> were posed</li>
+<li>Produced fewer "remember" responses, but performed normally on <strong>source memory tasks</strong></li>
+<li>Conclusion: episodic details were <strong>available but not spontaneously attended</strong> <span class="badge">Exam</span></li>
+</ul>
+<h3>6.3 The Encoding-Retrieval Flip <span class="badge">Exam</span></h3>
+<ul>
+<li><strong>Dorsal parietal regions</strong>: greater activity for subsequently <strong>remembered</strong> items (positive SMEs) during encoding</li>
+<li><strong>Ventral parietal regions</strong>: greater activity for subsequently <strong>forgotten</strong> items (negative SMEs) during encoding</li>
+<li>The same ventral parietal regions that show <strong>retrieval success</strong> show <strong>encoding failure</strong></li>
+<li>Explanation (AToM model):</li>
+<li>During <strong>retrieval</strong>: bottom-up attention captures attention by recovered memories → success</li>
+<li>During <strong>encoding</strong>: bottom-up attention reflects <strong>distraction</strong> from items meant to be encoded → failure <span class="badge">Exam</span></li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">7. Memory Consolidation <span class="badge">Exam</span></div>
+
+<h3>7.1 Synaptic vs. System Consolidation <span class="badge">Exam</span></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Synaptic Consolidation</th>
+<th>System Consolidation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Timescale</strong></td>
+<td>Fast -- more than 90% within ~90 minutes</td>
+<td>Slow -- average 80-90% in ~28 days; can take years</td>
+</tr>
+<tr>
+<td><strong>Mechanism</strong></td>
+<td>Stabilisation of synaptic changes</td>
+<td>Change in which brain regions are involved in recall</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>At the synapse</td>
+<td>Medial temporal lobe to cortex</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 Ribot's Law</h3>
+<ul>
+<li>Memory loss following brain damage affects <strong>recent memories more than remote memories</strong> -- a <strong>temporal gradient</strong> <span class="badge">Exam</span></li>
+<li>Described by French psychologist <strong>Theodule-Armand Ribot</strong> (1882)</li>
+</ul>
+<h3>7.3 Standard Consolidation Theory <span class="badge">Exam</span></h3>
+<ul>
+<li>For <strong>recent</strong> memories: cortical traces are disconnected; reactivation requires the <strong>hippocampal index</strong></li>
+<li>For <strong>remote</strong> memories: repeated reactivation establishes <strong>direct connections among cortical traces</strong>; cortical traces can be reactivated independently of the medial temporal lobe</li>
+<li>"Transfer" of memories is not a physical transfer; what is transferred is the <strong>ability to enact the reactivation process</strong> independently <span class="badge prof">Prof</span></li>
+</ul>
+<h3>7.4 Multiple Trace Theory (Nadel &amp; Moscovitch, 1997) <span class="badge">Exam</span></h3>
+<ul>
+<li><strong>Episodic memory always depends on the hippocampus</strong>, regardless of age of the memory <span class="badge">Exam</span></li>
+<li>Each <strong>reactivation creates a new memory trace</strong> in the hippocampus</li>
+<li>For <strong>semantic memories</strong>: process is similar to standard theory -- hippocampal connections become unnecessary after cortical-cortical connections are established</li>
+<li><strong>Older memories are more resistant</strong> to partial hippocampal damage because they have <strong>more traces</strong> <span class="badge">Exam</span></li>
+<li><strong>Complete hippocampal loss</strong> results in <strong>total retrograde amnesia for episodic memory</strong> <span class="badge prof">Prof</span></li>
+</ul>
+<h3>7.5 Memory Replay and Sleep <span class="badge">Exam</span></h3>
+<ul>
+<li>Consolidation does not only happen before <strong>active recall</strong> <span class="badge prof">Prof</span></li>
+<li><strong>Memory replay</strong>: activation of memory pathways during <strong>rest periods</strong> -- sleep, resting, naps, or active rest</li>
+<li>Memory reactivation during sleep promotes consolidation (Rasch et al. 2007 -- odor cues during slow-wave sleep prompt declarative memory consolidation)</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">8. Priming: Perceptual vs. Conceptual <span class="badge">Exam</span></div>
+
+<h3>8.1 Perceptual Priming</h3>
+<ul>
+<li>Relies on <strong>different brain systems</strong> than declarative memory (especially episodic memory)</li>
+<li>Depends on <strong>sensory regions of the cortex</strong> (e.g., visual areas) <span class="badge">Exam</span></li>
+<li>Key evidence -- Double dissociation:</li>
+<li>Patient <strong>M.S.</strong> (right occipital lobe damage): <strong>no priming</strong> on implicit test, but <strong>normal</strong> performance on explicit test</li>
+<li><strong>Amnesia patients</strong> (medial temporal lobe damage): <strong>showed priming</strong> but <strong>impaired</strong> on explicit test</li>
+<li>Conclusion: perceptual priming depends on <strong>sensory cortical regions</strong>, not the medial temporal lobe <span class="badge">Exam</span></li>
+</ul>
+<h3>8.2 Conceptual Priming</h3>
+<ul>
+<li>Depends on <strong>different brain regions</strong> than perceptual priming <span class="badge">Exam</span></li>
+<li><strong>Preserved in amnesia</strong> patients with medial temporal lobe damage</li>
+<li><strong>Impaired in Alzheimer's disease</strong>: neural deterioration extends beyond medial temporal lobe to <strong>lateral temporal</strong> and <strong>prefrontal cortices</strong></li>
+<li><strong>Conceptual priming</strong> has been linked to the <strong>anterior portion of the left inferior frontal gyrus</strong> -- an area strongly associated with <strong>semantic processing</strong> <span class="badge">Exam</span></li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">9. Cortical Storage of Semantic and Episodic Memory</div>
+
+<ul>
+<li>Semantic knowledge is distributed across cortical regions</li>
+<li>Left anterior temporal cortex is critical for semantic memory (evidence from semantic dementia)</li>
+<li>Recent episodic memories reactivate the cortical regions originally involved in encoding</li>
+</ul>
+
+</div>
+</section>
+
+<section>
+<div class="col-text">
+<div class="section-eyebrow">Key Takeaways <span class="badge">Exam</span></div>
+
+<ol>
+<li><strong>Declarative memory</strong> divides into <strong>episodic</strong> (events) and <strong>semantic</strong> (facts) memory, both depending on the medial temporal lobe but with distinct neural substrates -- the hippocampus is more critical for episodic memory, while anterior temporal cortex is more critical for semantic memory</li>
+<li>The <strong>hippocampus</strong> acts as an <strong>index/pointer system</strong>, not as the storage site itself -- it binds distributed cortical traces together and enables their simultaneous reactivation during retrieval</li>
+<li><strong>Recollection</strong> (contextual detail) is hippocampus-dependent, while <strong>familiarity</strong> (sense of knowing) is more associated with the <strong>perirhinal cortex</strong> -- a key double dissociation</li>
+<li><strong>Standard consolidation theory</strong> proposes that remote memories become hippocampus-independent through the formation of direct cortical-cortical connections, while <strong>multiple trace theory</strong> argues that episodic memories always require the hippocampus, with older memories being more resilient due to having more hippocampal traces</li>
+<li><strong>Memory replay</strong> during sleep and rest is a critical consolidation mechanism beyond active recall</li>
+<li>The <strong>PFC</strong> contributes to encoding (inferior frontal gyrus, subsequent memory paradigm) and retrieval (monitoring, retrieval mode), while the <strong>posterior parietal cortex</strong> shows a dorsal-ventral dissociation with an "encoding-retrieval flip" explained by the <strong>AToM model</strong></li>
+<li><strong>Perceptual priming</strong> depends on sensory cortices and is spared in amnesia; <strong>conceptual priming</strong> depends on prefrontal cortices and is impaired in Alzheimer's but spared in amnesia -- a critical double dissociation</li>
+<li>Key patient cases to know: <strong>H.M.</strong> (bilateral MTL removal → severe amnesia), <strong>K.C.</strong> (hippocampal damage → episodic impairment with spared semantic memory), <strong>Beth/Jon/Kate</strong> (developmental amnesia → episodic impairment with normal semantic learning), and <strong>semantic dementia patients</strong> (anterior temporal atrophy → semantic impairment with spared episodic memory)</li>
+</ol>
+</div>
+</section>
+
+</article>
+<section class="lecture-extras">
+  <details class="extras-fold">
+    <summary>Lecture transcript<span class="extras-meta">auto-generated · expand to load</span></summary>
+    <pre class="extras-text" data-src="/cog-neuro/transcripts/m3_l2.txt"></pre>
+  </details>
+  <details class="extras-fold">
+    <summary>Book chapter — Ch. 9 — Declarative Memory<span class="extras-meta">expand to load</span></summary>
+    <pre class="extras-text" data-src="/cog-neuro/book/ch09.txt"></pre>
+  </details>
+</section>
+
+
+<!-- Annotation panel -->
+<aside class="annot-panel" aria-label="Saved annotations" id="annotPanel">
+  <button type="button" class="annot-panel-toggle">
+    <span class="annot-panel-icon">✎</span>
+    <span class="annot-panel-count">0</span>
+    <span class="annot-panel-label">notes</span>
+  </button>
+  <div class="annot-panel-list"></div>
+</aside>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous slide">‹</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next slide">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script src="./cog-neuro-extras.js"></script>
+<script src="./lightbox.js"></script>
+<script src="./cog-neuro-annot.js"></script>
+<script>
+  window.cogAnnot.mount({
+    sectionId: "m3_l2",
+    contentEl: document.getElementById("content"),
+    panelEl: document.getElementById("annotPanel"),
+  });
+</script>
+</body>
+</html>

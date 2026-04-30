@@ -1,0 +1,1377 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+All right. Good morning everyone. Just by a little bit of quick math.
+
+This can be the entire bunch that we need today in order to fill fill out the classroom.
+
+But maybe my quick math is off. So, um, anyway, we'll see.
+
+Uh, let's start off with the public service announcements that are our practicals again this week.
+
+Uh, as posted on the announcements, please bring your own laptop, and please make sure you've got a working version of Python running.
+
+Um, then, uh, some of you showed up to the, uh, inspection moment of the exam, so, uh, nothing changed.
+
+And so the grades have been submitted to Osiris, so I think you should be able to see them.
+
+That's it from my side. So I guess we can call down to the first group, which is Emmeline, Lilya, Gaia, and.
+
+About classification. Okay, so my name is Kaia.
+
+Kaya. And I will talk about categorical theories.
+
+So in categorical theories, emotions are seen as distinct and separate categories,
+
+and they typically distinguish a small set of basic emotions from a large set of complex emotions,
+
+and to study and tell apart the basic and complex emotions, researchers use different techniques.
+
+They, for example, look at their body language, facial expressions or vocal cues, and basic emotions are inborn and cultural, considered,
+
+evolutionary, old and shared with other species, and expressed by particular physiological patterns and facial configurations.
+
+And even though basic emotions are in general easier for researchers to study, for example, because we can study them also in animals,
+
+uh, there is still ongoing debate among researchers about exactly which emotions should be considered basic.
+
+Uh, they suggest different emotions and different numbers of emotions,
+
+but they mostly agree on the core set, which is anger, sadness, happiness, fear, disgust, and surprise.
+
+And then complex emotions are learned, shaped by social and cultural influences, considered evolutionary,
+
+new and most prominent in humans, and expressed as combination of basic emotional responses.
+
+And as I already said, complex emotions are more difficult to study and it's because their expressions are more easily more subdued.
+
+They can occur in different contexts, they vary across different cultures, and we can study them only in humans.
+
+And for example, we can distinguish it by looking at body language, not only facial expressions, which is more difficult to study, and what's more,
+
+how we show pride is highly dependent on our culture because some cultures encourage showing pride,
+
+and in some cultures, expression of pride might be viewed negatively, which influence how we can study pride.
+
+Um. I'm thinking how. And next I will explain the dimensional theories.
+
+And in this approach, each emotion is a point in the complex space with others two continuous dimensions and the first dimension is arousal,
+
+which is how intense the emotion is. And the second dimension is valence, which shows the relative pleasantness.
+
+And for example, a common method is to use a nine point value scale ranging from very unpleasant to pleasant.
+
+And this rating are plotted on the graph. So you can see in a graph there's a vector model.
+
+Uh, the horizontal horizontal axis represent the violence.
+
+Which indicate whether the emotion is positive or negative.
+
+And the vertical axis is arousal. And the further from the neutral point, the more intense the emotion is.
+
+So this model allows us to see both balance and intensity in a single picture.
+
+My name is Emma Emmeline and I'm going to talk about the visitor Complex model.
+
+So this model has been proposed by Rousseau in 1980.
+
+In the model, the emotions are ordered around the circumference of a circle centred at the intersection of two orthogonal axes,
+
+namely the original and the valance.
+
+The emotion that clustered together are similar, and the emotions that are far away from each other are opposite emotion.
+
+The horizontal axis represent the horizontal and vertical axis represent the valance.
+
+The arousal is the activation that varies between low and high, and it represents the intensity of the emotion.
+
+And the violence is the pleasantness of an emotion ranging from negative to positive.
+
+I have more example to make it more concrete and understand the schema more so.
+
+For example, low and low arousal is situated on the bottom left hand corner of the the model and lead to emotions such as boredom and gloominess.
+
+Uh, whereas high horizontal and low balance is on the bottom right hand corner of the model and leads to emotions such as frustration and distress.
+
+This also means that emotion can be similar but still different.
+
+For instance, feeling relaxed and feeling excited are both positive emotion, so they both have a positive valence.
+
+However, relaxed has low arousal while excitement as a high arousal, so they are not close close to each other on the circle.
+
+My name is Arya and I will talk about component process theories.
+
+Component process theories view emotions as dynamic states rather than fixed states that arise from the interaction of multiple component processes.
+
+Emotion arise from cognitive appraisals of situations, including factors such as goal relevance,
+
+whether an event is conducive or obstructive, its urgency and an individual's coping potential or level of control.
+
+The different patterns of appraisal lead to different emotional experience.
+
+The same situation can produce different emotions depending on how it is appraised.
+
+The table shows how specific combinations of appraisals are associated with particular emotions.
+
+For example, fear appears when is appraised as highly urgent with low coping position and low power.
+
+Emotions are organised in the brain based on shared patterns of cognitive appraisals, which can vary across individuals and cultures.
+
+Due to their complexity, component process models are difficult to test using neuroscientific methods.
+
+Thank you for listening. Yes.
+
+First of all, on the very move on to the brain. Good day.
+
+My name is a visa. Um.
+
+I'm Dylan. Well, we are talking about fear acquisition and fear modification.
+
+Very interesting topic. Hmm. Okay, first, I'll tell you all about, uh, like a few regions that are important for acquisition.
+
+This is the amygdala, which is, uh, a vital part of this.
+
+It plays a vital part in especially, uh, acquisition and expression of conditions here.
+
+Uh, the thalamus, uh, provides sensory information directly to the, um, uh, amygdala, uh, which is very important for animals.
+
+Sense of fear is closely, uh, correlated to survival for mammals.
+
+Um, so they need a fast response. So if there's a flight or flight response.
+
+A damage to the amygdala. Um, Lisa diminished, um, fear responses.
+
+Which is, uh, proven by, uh, scr um um startle responses.
+
+With neuroimaging. You can see, um, the activity of certain brain regions during a fair response, such as the amygdala,
+
+the thalamus and the anterior cingulate cortex, which on its bar, um, regulates.
+
+That makes a lot um. Um, next, uh, a short model.
+
+This is a sort of theory that, um, says, which, um, like.
+
+Sorry, uh, that that provides, um, uh, which areas of the brain are active at, um.
+
+Um, for sponsor. So it says that the deeper brain area, the cortical uh, areas, um, are both, uh, related, like with each other.
+
+Um, when doing. Uh, handling fear and also with responses of the body.
+
+It provides us with an interpretive interpretive account of emotional processes, um, across many neural levels.
+
+And the interaction takes place um, downwards, vertically, um, throughout the brain regions.
+
+Um, some of these best models are based on studies of fear conditioning.
+
+Um, yeah. Have also ways to measure for output. One is c r a c uh at above.
+
+Um, this measures the conductivity of the skin and the bones around, because that's where the sweat glands off your hands are.
+
+Um, so it measures how sweaty your skin is and conductance of it, um, and relates us to the amount of fair person experiences.
+
+Another one is to start a response. Is this basically a reaction of a person on an external stimuli,
+
+such as a ball that's close to your face will also make you blink because, um, you got startled by the ball itself.
+
+Then some more on that. I got some sick graphs here.
+
+Um, the the top two here. This is a person with amygdala damage, and the lower one is a person with hippocampal damage.
+
+And what you can see the y axis is SCR response.
+
+So people with amygdala damage that leads this individual shows way less fear response than the person with hippocampal damage.
+
+Who um. And the person with. Uh, amygdala damage.
+
+Uh, still knows the relationship between the conditioned stimulus and the unconditioned stimulus,
+
+which is basically, uh, they're shown an image of a tree or something,
+
+and then they get a shock and they know the relationship between they see a tree and get a shock, but they don't show a fear response.
+
+Well, people with hippocampal damage. Uh, don't know the relationship, but they do show a fear response.
+
+Then this. These two are about lesion rats.
+
+Rats with amygdala damage also don't show a fear response.
+
+This in this case it's a freeze response. And uh rats with hippocampal damage uh have.
+
+Difficulty with context, basically. Um, then in this picture you see all the areas that are, um, used in air conditioning.
+
+And here there are two pathways. And I will talk about the rapid subcortical pathway, which is the fast one.
+
+Now, um, I want you to imagine you're on vacation. You're walking through the woods, and suddenly there appears a bear on the trail.
+
+Now, the first thing that's going to kick into action is your thalamus.
+
+This is the first relay station of your brain.
+
+Um, now, because it's a relay station, it doesn't do any processing yet.
+
+So your brain is dealing with raw sensory input.
+
+So this looks something more like this. So there's no edge detection?
+
+No nothing. Just, uh, spec on your vision. Now, in the first pathway, this will get forwarded to the amygdala.
+
+And here the lateral and basal part of the amygdala will work together to assess the threats.
+
+Um. Now, if it isn't a threat and there is no need for a fear response, then the in in third can intercalated cells at an ITC.
+
+Um, those are basically a gating mechanism and they will say, okay, if it's not a threat, then they will inhibit it and it will break the chain.
+
+But in this case it is a threat. So, uh, it will get forwarded to the central part of the amygdala.
+
+Now, um, this is, um, the second, um, relay station.
+
+And from here on out, it will get forwarded through the rest of the body.
+
+And, um, your fear response will get initiated.
+
+So, um, the hypothalamus and the midbrain, they will decide, like the, uh, heart rate, the, uh, breathing, everything like that.
+
+And the striatum will decide your next action.
+
+So this all happens in the first few milliseconds of the encounter.
+
+So this could be seen as like this will be the the fight flight fear or, uh,
+
+or the fight flight freeze or foam response that you will get in like the first, um, instinctual like response that you will have.
+
+And, um, yeah, that is the rapid subcortical pathway.
+
+Then we got the slow one. So what just happened is, uh, the information quickly went to the amygdala through the fast pathway here.
+
+Then the amygdala is like, ooh, you know, bear.
+
+So it's in panic mode. And then the detailed analysis of the situation, it goes through the the slow cortical pathway.
+
+So up here can you see that. Yeah. Good.
+
+Okay. Uh, through the neocortex and then down there.
+
+And, uh, what just happened?
+
+The quick reaction kind of primes the amygdala to better process the detailed analysis that comes in later through this pathway.
+
+So it kind of complements. Each other, then this little thing here, the ventromedial prefrontal cortex.
+
+What that does is it suppresses fear responses, uh, when they're no longer adaptive.
+
+So like when you're in the zoo and, you know, you see an animal, you don't really have to be scared.
+
+So that helps with not being scared in a zoo.
+
+Uh, and it also plays a role in extinction training, which we're going to talk about in just a second.
+
+And the hippocampus is related to contextual fear acquisition, uh, which adds up with, uh, this stuff if it's damaged.
+
+You lack knowledge about the link between the stimuli.
+
+So the context. Basically. Uh, yeah.
+
+And I'm going to end with a bit of, uh, fear modification. So one concept that is important for that is emotional perspiration.
+
+And this is basically a prolonged fear response that is also more persistent, uh, even after the initial danger is already been gone.
+
+Uh, not surprisingly, that is this is something that is quite common in clinical disorders like anxiety, phobias or post-traumatic stress disorder.
+
+Um, fear extinction is basically about using air conditioning in order to reduce the conditioned fear response,
+
+and this is usually a bit more difficult to obtain in the above earlier mentioned clinical disorders.
+
+So how do you fear extinction process would work as you would have the conditioned stimulus, the tone, but then you present it without the shock.
+
+And if you repeat this enough, over time there will be a reduced conditioned response.
+
+That just means there will be new, uh, brain connections being made.
+
+Uh, however, um, the old connections of the old association also still remain.
+
+It's just that the new connections then become stronger. So then the person has learned that this stone is no longer dangerous.
+
+Um, some important um, brain regions are the medial prefrontal cortex, which is important for emotional control.
+
+And the amygdala, in the sense that the PFC then works as some sort of braking function.
+
+If it works well, it normally suppresses the amygdala then.
+
+Um, really due to a reduced, uh, fear response.
+
+Um, but if things go wrong, for example, if you have of damage, um,
+
+studies in rats have been conducted in which the extinction of the uh conditions
+
+response takes longer compared to a control group in which there was no brain damage.
+
+Um, and there are some human fMRI studies in which they correlated Vmp, uh, PFC activity with, uh, better extinction, uh, retention.
+
+Uh, yeah. And then there's also the contextual fear conditioning.
+
+This is, um, when you have a first time illness, but, um,
+
+the environment in which this was acquired also becomes, uh, something someone is fearful of.
+
+Um, for example, rats who have dorsal hippocampal damage when you present them method and they will elicit your fear response.
+
+Uh, however, the context in which this took place, the training room, usually does not elicit a fear response.
+
+Uh, somewhat similar happens in human amnesia.
+
+Patients in which you have a tone elicits a patient response, usually measured with the skin conductance response.
+
+Uh, however, when you then ask them about the events,
+
+they won't be able to very well be able to recall the details of the conditioning episode or the context.
+
+Uh, so in that sense, the, um, hippocampal, it's not just about emotional processing, like was, um,
+
+proposed in limbic system theory, but it's also about, uh, binding, um, fear, uh, to the context.
+
+Did you repeat that? This pathway if it's conscious.
+
+Um. I don't think so. I think. This still isn't really the conscious thinking about it.
+
+It's still relatively fast.
+
+I think. It is.
+
+You're right. Yes.
+
+We already subdivided it again. Good afternoon.
+
+My name is Emmett. And today we will be talking about, uh, symmetric Markov processes and how emotion is still mediated in the brain.
+
+So to start off symmetric more quasi physical feeling your body gives to an ID as good or bad.
+
+And symmetric comes from the Greek word somewhat, which means body and symmetric means of the body.
+
+And the symmetric mark hypothesis is a theory that emotional processes can impact the good or bad.
+
+Um, can impact decisions by giving you a feeling like some people might call the.
+
+Uh, bit of an embarrassing story, but when I was a kid, a bird flew close to my head and he took a [INAUDIBLE] on me.
+
+And now, every time. And now every time a bird comes in my proximity, I just get this bad feeling and I duck away.
+
+So that's kind of an idiom, but you won't forget that.
+
+Uh, the ventromedial prefrontal cortex, as you can see, is the green part.
+
+I'm not tall enough to point it, but you can probably notice it.
+
+It's it's in the front of the brain, and it's like a library that connects, uh, feelings to facts.
+
+Uh, and the see patients feel to generate physical warnings so they don't really have a gut feeling for things.
+
+And, uh, in the story in the book is the case of Elliot.
+
+Uh, his tumour grew bigger and bigger, and his frontal lobe grew, uh, could kind of squished.
+
+And he could see damage. And, um.
+
+He got really beaten in daily making daily decisions.
+
+He got divorced. Married again and divorced again.
+
+A bit like Casanova, but, uh, like, overall he made bad decisions and but his IQ and logic remained perfect.
+
+And in the end, he just couldn't make simply decisions.
+
+And it sounds counterintuitive, but you can almost say that you need your gut feelings to make rational decisions.
+
+My name is, um Ahmed.
+
+Um, and now that we have learned a thing or two about, uh, somatic marker hypothesis, uh, I'm going to try and, uh, give you guys, uh,
+
+a deeper understanding about it, uh, especially about, uh, how it's make, uh, how it makes, uh, this is decision making, uh, more efficient.
+
+So, uh, I made an example, something, uh, that everyone, everyone knows from real life, so it doesn't feel as far.
+
+Uh, a phishing scam. So. Everyone knows it.
+
+Everyone gets it. It's an SMS. Someone pretends to be, uh, someone from your bank, and he tries you to, uh, get you pressing the link.
+
+Of course, you don't need to do that.
+
+Um, but if you do not have any prior knowledge about this situation, you might actually, uh, think a little bit rational about it.
+
+Uh, you might think about, um. What if I'm too late?
+
+Uh. What if. I will lose my money.
+
+Should I call my bank? Um.
+
+So for this example, we will assume, uh, that you press on the link and that you lost all your money.
+
+So what information do you get stored then? Um, the first of all is the factual memory of the experience.
+
+So, uh, the notification itself. Uh, thinking about it and pressing on the link.
+
+Uh, also the emotional state that, uh, that you get associated with it.
+
+So the panic and the stress you get, uh, when you lost your money, uh, and the link between the two,
+
+um, you will take it as bed and then you will have the somatic marker.
+
+So. Just a bad marker.
+
+Um, a couple of months later. Um.
+
+You have another experience? Uh, a little shady email about a package.
+
+Um, and this time you feel different.
+
+You get a gut feeling, and you think. Mhm. This doesn't feel right.
+
+So why do you get this feeling now? And you didn't had it the first time.
+
+Um, first of all, uh, you need to notice this is a different scenario.
+
+So we are we are talking now about an email and not an SMS.
+
+Also, it is about a package and not about your bank.
+
+So the situation doesn't have to be, um, hundred percent similar.
+
+But you do get, like, the gut feeling.
+
+Uh, this comes because your brain, uh, recognises, uh, some parents, like, uh, the urgency in the email or the request you need to call upon.
+
+Or maybe even, uh, a link that you have to press.
+
+So because of the lost experience, is, uh, marked as bad or flagged as bad.
+
+This one automatically, immediately also gets the same, um, flag.
+
+Um, and what happens is a lot of options that you then have, um, get wiped out.
+
+So an option here would be clicking on the link itself.
+
+Um, when this happens, you will have a lot.
+
+Less options to choose from, and a lot less options to choose from is an easier decision and a decision made.
+
+Yeah. Much faster. Um, one thing to note is also that.
+
+It is just a heuristic. So this doesn't mean that you are always right.
+
+Even though you get, uh, the gut feeling so you can be wrong and the environment could be, um.
+
+Safe. Yes, my name is Millie and I will be presenting the somatic marker hypothesis in, uh, the example, uh, in the form of the Iowa gambling task.
+
+The Iowa gambling task is as follows. You have, uh, four decks of cards, um, represented to two groups of patients.
+
+Uh, the control control patients that are healthy, healthy individuals, and also the patients that have damage to the ventromedial prefrontal cortex.
+
+So what you can see is that the somatic marker actually isn't very present in the people who have, uh, the ventromedial prefrontal cortex patients.
+
+So you have four decks of cards A, B, C and d uh e a and B, um, essentially come with high risk, high reward options such as,
+
+let's say, for example, 500, uh, plus $500 and -250 and uh c and for example, converts uh plus 100 and plus 100.
+
+So what happens is, uh, as patients choose decks A, B, C, and D, uh,
+
+they come to discover at least the healthy patients that, uh, A and B are disadvantageous and C and are advantageous.
+
+Uh, so what you see is after around 80 trials, the healthy control patients can articulate what is happening.
+
+And, uh, why c and are, uh, advantageous and A and B are this advantageous.
+
+And the, uh, people with the ventromedial prefrontal cortex, uh, damage, they do not they cannot,
+
+uh, distinguish between them because we get the somatic marker response in the body,
+
+um, uh, at the healthy patients, and they feel like the gut feeling image was talking about,
+
+they feel that A and B gets disadvantageous the more they, uh, pick them.
+
+So they will more, uh, they will lean towards picking, uh, decks C and D.
+
+So you can see that here in the normal control.
+
+Can I go with the mouse? Yeah. And, uh, normal, uh, people like the control group.
+
+You see that? They choose A and B in the beginning here a lot, and then they discover,
+
+or they have the gut feeling in the beginning that they should choose C and D, because that's more advantageous.
+
+And later you see that they choose less and less for A and B and uh, uh, for patients, you see they still choose A and B, C and D also.
+
+But they don't make a, they don't distinguish between a, b, C and D because they don't get that gut feeling.
+
+Um so they keep choosing A and B. So what happens is uh, also a big evidence for this is uh, they have uh, skin doctors responses.
+
+And uh, I also had that when I came down. So, uh, that's, that's when you, uh, when your, uh, skin conducts electricity better.
+
+You will get a response, uh, that comes via sweat in this, uh, in this example, uh, for example, when you were excited to present in front of a class.
+
+So, um, they show those responses, uh, before they even pick the cards, the healthy control group.
+
+So they, for example, after a couple trials, they pick a they, they haven't even seen whether what's uh,
+
+below the A cards, but when they pick it, their body gives off a skin conductor's response before they grab it.
+
+So the, uh, body feels before the consequence is, uh, already present.
+
+Uh, the vm VM fk patients. They like this so they don't get the gut feeling.
+
+So, um, that's what I'm upset about. Uh, logical thinking that it comes, um, hand-in-hand with, uh, emotional control.
+
+Uh, this supports the somatic, uh, marker hypothesis because, like I said, the emotion, emotional control.
+
+Uh signals, uh guide efficient decision making.
+
+All. Could you be a bit louder?
+
+Yeah, probably after some trials for, uh, that's what we see in the healthy individuals.
+
+But for some reason, the VA, PFC patients, they they don't show this even at the 80th trial.
+
+So they lack the logical decision making. Also, people who are VFC, uh, like Fantasia, you could say they, um,
+
+lack the skills to make day to day, do day to day tasks that involve logic and reason.
+
+Uh, so yeah, they did that show that actually shows that it's paired with, uh, logical decision.
+
+How do you, uh. I'm. Oh.
+
+It's, um. Hello everyone.
+
+My name is May. We, um. And we, with my group, will, uh, talk about the influence of emotion on perception and attention.
+
+Um, first we have the prioritisation of processing sensory information and in emotional, emotional significance.
+
+Um, this means that the sensory input, um, some input gets more attention than others, um, as it has more emotional significance.
+
+Um, this is, um, a thing that we call the attention bias.
+
+Um, you are more biased to point your attention to something that has emotional value, something that might scare you, brings you joy,
+
+and then your attention gets directed to that, um, the sensory information that has more priority, um, can also be called the salient features.
+
+Um, and all the input gets checked by the amygdala.
+
+Um, and when there might be a more salient feature, the amygdala will.
+
+Um, send out a response. Um, giving that more priority and more attention to that.
+
+This is also seen in Survival Instincts, um, when you might spot something which you could be scared of.
+
+An instant reflex is to run away, like fight, fight or flight or freeze.
+
+Those are the three things some people might do.
+
+Um, then you have the perceptual awareness, um, which we can measure with rapid serial facial presentation or RSVP.
+
+Um, this means how well do you interpret sensory information in a very quick sequence?
+
+This is a sequence in which a lot of targets are, um, shown.
+
+Uh, one after another. Um, due to the fast sequence, you might miss a target because you were still processing the other one.
+
+However, if you see a target which has more emotional value, you are more aware of this target.
+
+Okay. Now, uh. Hello, everybody. My name is, uh, who? And I want to talk a bit about the influence of, uh, fear on perception.
+
+Attention. So why does priority on, uh, fear? Fear is the most easily most message, the emotion.
+
+Because it's, uh, biologically, biologically, biologically essential for survival.
+
+Defence reflex goes, uh, if in the given time students have a fear response, it will be kind of in the top spot.
+
+Uh, where can you see that? There's a fast unconscious detection.
+
+So if you get high threat stimuli. Uh, the amygdala and the, uh, nervous systems are triggered even before you are aware that something has happened.
+
+So you have to get, like, a loud bang. The amygdala, uh, flares up even before you are consciously aware that something happens.
+
+It also bypasses the attentional blink of RSVP.
+
+So if you got two responses right after each other, uh, your brain is busy processing the first one, and then the second one is kind of forgotten.
+
+Except if it's a high threat stimuli, then it kind of skips a line, it gets, uh, through, and you process that first.
+
+So it's, uh, it's also associated with the feedback loop threats that intellisense, uh, signals back to early, uh, visual areas,
+
+even the primary visual cortex to kind of tune in on the perception of potential dangers or if something is
+
+really dangerous that we then I will send something back to kind of enhance that perception and see that,
+
+oh my God, this is, uh, something with a gun. That's one of the knife. It's gone.
+
+Sensors that. Uh, but that can work in a bad way with clinical hyperactivity.
+
+Amphibia in patients with phobias or Beardsley. This is some kind of gets over tunes.
+
+So if you get a loud bang and someone has been in war or something of PTSD, then they will get a really, uh, exaggerated response to that trigger.
+
+I also want to talk about a bit about, uh, this experiments.
+
+It's very, very famous for experiments. And you can see with, uh, fearful, fearful eye whites that, um,
+
+the amygdala really has a major response in comparison to happy eye whites, whereas it really isn't that big.
+
+Thank you. Um, my name is Olivia, and I'm going to talk more in depth about the amygdala feedback loop.
+
+Uh, what's very important to understand is that emotion does not just happen, uh, after we see something.
+
+Our brains emotion sensor, uh, sensor actually changes what we see and what we pay attention to.
+
+And this is done through the amygdala.
+
+Um, when we see something, the visual cortex input, especially the later stages, uh, in inferior to work or sends input to our amygdala,
+
+which then evaluates its emotional importance, um, which then feeds back to earlier stages of the visual cortex,
+
+including the primary visual cortex, which is located at V1.
+
+Um, and this has an effect on our perception, where emotional stimuli are processed faster and more strongly.
+
+Um, and the activity in the fusiform gyrus, uh, increases.
+
+And this is shown because of, um.
+
+Individuals with a damaged amygdala, uh, showed that there was not an, um, increase in activity in the fuse from gyrus,
+
+which, uh, suggests that the amygdala is actually, uh, necessary for this enhancement.
+
+Um, and this makes it so that, uh, attention is automatically drawn to, uh, emotional information.
+
+Um, and in cases of very strong emotion, this can also create a tunnel vision, uh, effects for certain sensory regions.
+
+Uh, I'm Makani, and I'm going to talk about, um, the, uh, various routes of, uh, amygdala influence around the international network.
+
+Um, most of those routes are indirectly influenced, and that entails that the amygdala is not directly controlling attention,
+
+but is rather influencing it through different brain regions. Uh, first of all, there's the amygdala, uh, to the nucleus basalts.
+
+And this basically, uh, stimulates the release of acetylcholine.
+
+And that is eventually used, uh, into in the cortex.
+
+And this basically improves, uh, attention as there is, um, more, um, there's more, uh, activity in the cortex.
+
+Then, uh, we get to the interface regions and that's the interior, uh, cingulate cortex,
+
+the insula, um, the medial prefrontal cortex and the orbital, uh, uh, frontal cortex.
+
+And these are basically, uh, these are basically, uh, involved in interface, uh, processes.
+
+And the insula is involved in salience detection, which, uh, basically means that, um, they, um,
+
+detect emotional stimuli and they send out signals based on the importance of, uh, that, uh, stimuli.
+
+And, uh, if you in the office are responsible for emotion evaluation and the ACC is involved in, uh, allocating,
+
+uh, attention, um, um, then, uh, all of this information is then translated into, um, uh, control signals.
+
+And, uh, these control signals are then picked up, uh, at, uh, the posterior, uh,
+
+posterior cingulate cortex, the dorsolateral prefrontal cortex, and uh, the outer loop.
+
+And the PCC is responsible for just maintaining attention in general, while the, uh, dorsolateral prefrontal cortex is responsible for,
+
+um, it's, uh, controlling, um, what, uh, to, um, um, they're responsible for, um, uh, what to focus on while the, um, um.
+
+Uh, parietal lobe is responsible for where to focus on.
+
+And then lastly, and that's the only directly influence route is the amygdala sending, uh, feedback to the sensory cortex.
+
+And, um, this basically just enhances the processing of emotional stimuli to, um, sensory areas.
+
+And one of them is like the visual cortex, as you can see on this picture.
+
+And that's it. Cheyenne married Ricki and Sara Jordan.
+
+Speak in the mic or helps. Yo.
+
+Who was this thing on? Um.
+
+I don't think we'll. Yeah. Okay. My name is, um.
+
+I'm sorry. We'll be talking about emotions in interaction with other cognitive functions.
+
+And then the influence of emotion on memory consolidation.
+
+Okay. Well, okay. An important term.
+
+Well, when you're on the subject of the effect of emotion on memory, uh, consolidation is flashbulb memory.
+
+This term was first introduced in the 1970s and refers.
+
+Well, uh, officially refers to all the vivid details of an emotionally fraught episode that are registered graphically in the mind's eye.
+
+But this, uh, literal definition doesn't really hold up.
+
+But it it is true that both positive and negative experiences, uh, leave a more lasting impression than normal ones do.
+
+An example of this would be if I were to [INAUDIBLE] my pants right now,
+
+I would obviously be very embarrassed and maybe remember things a bit more, but it doesn't have to be negative.
+
+Um, though some people maybe shitting their pants would be positive anyways, um, you know,
+
+if it would be, uh, if I would bet my firstborn child in my life savings on Red and actually win,
+
+obviously, I would also remember that more so if you ever think of 3 a.m. like, [INAUDIBLE], why did I do that?
+
+That's so embarrassing. Well, that's such a good memory. Um, anyways, we're onto the memory modulation hypothesis.
+
+Um, according to James. My God.
+
+I think that's how you pronounce it. He's a neuro biologist.
+
+Let's see. The emotionally, uh, emotionally arousing events enhance memory,
+
+in part by activating systems that regulate the storage of newly acquired information.
+
+Now, obviously, this involves the amygdala and puts a special emphasis on the amygdala.
+
+Um, and when it comes to enhancing consolidation processes in older parts of the brain after an emotionally charged experience.
+
+So what structures are these? These are structures, uh, in the medial temporal lobe, the dorsal, uh, lateral and ventral lateral PFC, among others.
+
+Uh, those are important when it comes to decks as a memory and as a reminder, addicted to memory.
+
+That's, um, the conscious long term recollection of facts, events and specific information.
+
+Um, it is both direct and indirect.
+
+Um, because, uh, it's direct because of the axonal projections and indirect because of, uh,
+
+the release of hormones into the bloodstream that affect, uh, that then have effects in the brain.
+
+Um, these hormones are stress hormones, like epinephrine, uh, norepinephrine and, uh, cortisol.
+
+Uh, hi, my name is Shan. Um. Uh, I'm going to talk more about, uh, stress.
+
+So stress is, uh, the reaction, um, to the psychological and physiological changes that occur in response to a real or perceived threat,
+
+uh, to homeostasis, which, um, as a reminder, is when, um, your body, uh, finds itself in balance.
+
+Um, uh, this, um, when stress is experienced, um, the body, uh, initiates a complex pattern of endocrine, neural and, uh, immunological activity.
+
+Um, to try and get the body back to, uh, homeostasis.
+
+This allows stasis, which literally means, um, achieving stability through, uh, change.
+
+Um. Uh, affects many bodily processes.
+
+Um, such as, uh, the cardiovascular, uh, cardiovascular function.
+
+Uh, respiration, glucose metabolism, um, muscle tone and digestion.
+
+Um. Uh, in the short term, stress is, uh, beneficial for a person's survival.
+
+Uh, so, for example, back, um, during the time of the hunter gatherers, um,
+
+all they really needed to survive if they saw, like, a bear or a threat, um, they would immediately, like, have a.
+
+Uh, reaction to that and be able to quickly, like, leave a situation and save themselves.
+
+However, in the long term, um, uh, stress can cause, uh, a risk to mental or physical health problems.
+
+Um, the neuroscientist Bruce McKellen, I think, uh, is how you pronounce that.
+
+Um, coined the term allostatic overload, which, uh, refers to the cumulative, uh, wear and tear on, uh, the body.
+
+Uh, that results from, um, either too much stress or inefficient management of, uh, stress over time.
+
+Um, the principal stress response is mediated by a trio of organs.
+
+Uh, the ventricular nucleus of the hypothalamus, the anterior lobe of the pituitary gland, uh,
+
+and the cortex of the adrenal gland, which is also commonly known as the hypothalamic pituitary adrenal axis.
+
+But since that's a very difficult word to pronounce, um, it's certain to also be called the axis.
+
+Um, when stress is experienced, two things happen in the brain.
+
+Uh, firstly, um, stress. Uh.
+
+Starts. Um. Uh, the release of, uh, CRF.
+
+Um, this, um, activates the release of, uh, ACH, and this then activates the production and release of steroid hormones.
+
+Um, secondly, uh, glucocorticoids regulate the downstream of cycle sociological changes and prevent further engagement of the HPA axis.
+
+Um, and glucocorticoids have two, um, uh, types of receptors that they can bind to the mineralocorticoid receptors,
+
+which are occupied primarily during non stressful states, whereas, um, glucocorticoid receptors are more implicated during uh, the stress response.
+
+Um, and the occupation of these receptors in the cerebral sites is important for the modulatory effects of stress on, uh, memory consolidation.
+
+Um, and there is more there are more functions, um, that, uh, these glucocorticoid receptors and such have,
+
+uh, on stress, but we didn't find that as relevant to our specific topic.
+
+So, um, we kind of left that aside. Lastly, um, stress tolerance can differ very, uh, widely between individuals.
+
+Um, for a, uh, few factors such as, uh, genetics and sex, which are related to the influence of, um, oestrogen and oxytocin, um.
+
+Regions that, uh, regulate, uh, the HPA axis.
+
+Hello, I'm Ricky and I will no be talking more about the effects of stress on memory consolidation.
+
+So, um, there's the three stress hormones that mango just talked about, right?
+
+Cortisol, which acts on central receptor sites, and epinephrine and norepinephrine, which act on.
+
+Let me look up the word beta at the adrenaline beta adrenergic receptors, which I've abbreviated.
+
+So I don't have to do that every time B a receptors, um, which send down signals eventually to the central nervous system.
+
+Um. The.
+
+Influence of these hormones is very important. Uh, or specifically with these two hormonal systems, I should say.
+
+Um, is very important for memory consolidation.
+
+The neuromodulator modulatory effects of stress hormones being neuromodulator just being um,
+
+basically the changes or in this case, the consolidation of memory, uh, is a lot slower than other processes in the brain.
+
+Uh, which means that the consolidation of memories, um, with relation to the stress hormones.
+
+Happens after events have happened and not during events.
+
+Which is why sometimes after a special event, you don't remember what you just said or did like after a test, for example.
+
+Um spikes in cortisol or psychosocial, uh, stress.
+
+Like, for example, if you're public speaking like I am right now, uh, enhance the retention of emotional memories.
+
+This is why you would remember saying something very embarrassing when you were 12 years old,
+
+but not anything from the five years of biology that you had in high school.
+
+Right. Because the embarrassing thing had a much stronger emotional, um, weight in your mind than studying for those tests.
+
+Um. However, cortisol levels vary throughout the day and due to due to other factors like um, for example,
+
+biological sex, um, the effect of cortisol on memory retention is not that reliable because it varies a lot.
+
+Something that is more reliable, however, is. Um, the effects of.
+
+No. Is the effects of, uh, epinephrine and norepinephrine.
+
+Because remember those b-a receptors I talked about earlier? Um, there was this study that you can see the graph of their.
+
+Where subjects were shown an audio visual thing, uh,
+
+which was emotionally neutral at the beginning and end, but emotionally arousing in the, uh, centre.
+
+I think, uh, it said that there was describing a car crash.
+
+So you can see on the graph that the control group, uh, has lot higher retention in the middle,
+
+in the more emotional part of the story than at the beginning or the end. Now, some subjects were given propranolol, which is a um, a b a blocker.
+
+Basically, it stops the B receptors from receiving epinephrine, norepinephrine.
+
+And you can see the orange line there that there isn't a significant difference between the,
+
+uh, memory consolidation of the neutral parts and the emotionally arousing parts.
+
+Um, and this effect is very similar to patients with an amygdala lesion.
+
+The blue line. My name is Shara, and I will be talking about the emotional version of the subsequent memory part.
+
+I'm. In the emotional version of subsequent memory paradigm, uh, people were scanned while looking at,
+
+uh, words or pictures that, uh, that varied in emotional content.
+
+And afterwards their, uh, memory for those items was, uh, tested outside of the scanner, uh, by comparing brain activity for the, uh,
+
+for the items that people later remembered versus those they forgot, um,
+
+the regions that were, um, involved in successful encoding could be identified.
+
+What they found was that, um, encoding activity for emotional.
+
+Emotional material was, um. Yeah, emotional words and pictures trigger stronger encoding activity than a neutral material loss.
+
+And this happens in, uh, several areas in the amygdala, the hippocampus, the Underhill cortex, and parts of the prefrontal cortex.
+
+Um, that means that emotional material is processed more deeply by, uh, memory related regions.
+
+This is shown in the images. In the first image you can see that emotional content,
+
+um that was later remembered produced more activation in the amygdala, the hippocampus, and, uh, the parahippocampal gyrus.
+
+And an image in the second image.
+
+The activity in the activity in the amygdala is, uh, correlated with the activity in the internal cortex during the encoding of emotional information.
+
+But for neutral items that, uh, correlation is a bear. So that means that, um.
+
+That means that those regions work together, but only for the, uh, only one encoding emotional items and not for neutral items.
+
+That fits with the memory modulation hypothesis. Um, but that hypothesis doesn't, uh, consider other aspects, such as the, um,
+
+negative effects of stress on, uh, memory retrieval and the role of valence.
+
+Emotion boosts consolidation and it changes how encoding regions.
+
+Indirect emotional memories are several coordinated processes, making it more complicated than just a stronger memory effect.
+
+To me. Emotion regulation.
+
+So hear me. Yeah. Okay.
+
+Uh, I'm Sylvia, and I'm going to talk about what emotion regulation is and about some approaches and strategies to regulate emotions.
+
+So, uh, emotion regulation refers to the process by which people influence their emotions.
+
+So what emotions they have when they have them, how strongly they feel them and how they express them.
+
+And transient emotional episodes are actually healthy because they help us adapt to our environment.
+
+However, regulations can become critical when emotions become maladaptive,
+
+and this happens when there the emotion is expressed in the wrong social context,
+
+uh, when it's directed towards someone who didn't cause the feeling, or when the feeling lasts too long or is too strong for the situation.
+
+And if we cannot manage this, that can lead to personal distress and even indicate psychopathology.
+
+Uh, one of the most important findings in studies of emotion regulation is that emotions are not just passively experienced.
+
+Um. Uh, and there is that active subjective processes.
+
+And because they're active. We can use cognitive behavioural intervention to train ourselves to either generate new adaptive responses to,
+
+uh, replace some old habits or reflexes.
+
+Uh, we can train ourselves to modify our thoughts in real time and even accept our
+
+reactions and in some way let them go in order to avoid emotional preservation.
+
+Um, there are some strategies that people can use to regulate their emotions.
+
+And one psychologist, uh, James Groves, proposed an influential model that classifies uh strategies based on timing and target.
+
+And the two most common ones are situational selection and cognitive reappraisal.
+
+Or the first one you change your behaviour to avoid.
+
+Um. Unemotional. Uh, situation.
+
+Uh, for example, if someone has a fear of. Fear of flying, they might choose to take the train.
+
+In this way, they remove the listener even before it happens.
+
+And for cognitive reappraisal, you change the meaning of the Elster to alter the impact.
+
+If. Hello everyone.
+
+My name is Irina. I will talk about this, uh, experiment conducted by honour and colleagues in 2004.
+
+So they basically showed a series of, uh, negative or aversive images to participants, and they divided, uh, participants into two groups.
+
+So two conditions, the look, one condition where they were asked to passively look at the images,
+
+and then the decrease condition where they were asked to use, uh, cognitive for a bracelet strategy.
+
+Um, specifically, there were two types of strategies.
+
+The first one is called situation focussed, where, uh, they would try to imagine that the situation in the image would get better eventually.
+
+So, for example, if there was an image of a wounded soldier,
+
+then they could try to imagine that person going back home, recovering and being with his loved ones.
+
+And then the other strategies, their self focussed, one which consists in trying to view the scene, um, from a third person point of view.
+
+So detaching yourself emotionally, um, cognitively from the scene.
+
+Um, what were the results of this experiment? So let's, let's look at these graphs.
+
+First I want to look at these on the right. Um, it shows the negative affect rating of participants.
+
+And we see uh, difference between the condition here in, in red, uh, which is higher than the decrease condition.
+
+So this successfully shows that the cognitive ratio strategy,
+
+it worked because the participants in the decrease condition, uh, felt less negative emotions.
+
+But what happens inside the brain? So let's look now at the amygdala.
+
+Um, they, uh, saw that it was, uh, higher activation of the amygdala during the look condition.
+
+So this is here in the red red line.
+
+We see it's the highest one, um, activity over time.
+
+And then in the blue line, we see the, the decrease condition, which is a bit lower.
+
+And then we have as a reference this green line, which would be uh, just looking at neutral images.
+
+So it's interesting that there is not that big difference between looking at neutral images and looking at, uh, negative images.
+
+But applying this strategy, we see that it's not that big a difference, which is interesting.
+
+And then finally, uh, they saw the, uh, looking at these brain areas.
+
+So they if you perform the cortex down to your cingulate and the dorsal right,
+
+the attentional network, these were um, its activity was highest in the decrease condition.
+
+Um, so I will explain how all these graphs, uh, come together.
+
+So how they connect there is like a top bottom approach when applying these, uh, cognitive appraisal strategy.
+
+So first, these brain, uh, executive function areas would, uh, activate.
+
+And then as a result, these are the controllers and the amygdala is the target.
+
+So they would, uh, dampen the activity of the amygdala. So less activity in the amygdala.
+
+And as a result, we see how participants felt less negative, uh, affect.
+
+So this was a brief overview. And now my classmate will explain in more detail.
+
+Uh, this brain area is involved.
+
+Hello, my name is Ivan's and I'm going to go more in depth about the localisation of function in the, um, emotional control.
+
+So first of all, we have, uh, dorsal executive control, which is implemented mainly, uh, by the means of dorsal front operate, uh, parietal network.
+
+Uh, here we have the, um, as my peer has already said, uh,
+
+the regions in which more activity was shown when the participants were trying to control their emotions.
+
+Here we can see, for example, frontal eye fields and also inter parietal sulcus, something which is called the task positive network,
+
+which means that it is responsible for tasks where participants are required to focus their attention on something.
+
+If you remember from the memory section, we also talked that uh, dorsal uh attentional system was uh, more involved in subsequent memory paradigm.
+
+And it shown it showed greater activity for items that were subsequently remembered by participants.
+
+Here it plays kind of the same role in which, uh, it uh, uh, chooses the cognitive strategy to apply and focuses the attention on the task.
+
+What is interesting is that it was shown to be more active both during the increase and decrease of the emotional effect.
+
+So both when participants were asked to try to decrease their negative emotion, and when they were asked to enhance their positive emotion,
+
+which shows that it is actually more of, uh, general part rather than a part that is responsible for some specific strategy.
+
+The second part of the, uh, emotional regulation in the brain is the emotion processing regions, which consist again of amygdala and insula.
+
+You already know that amygdala is responsible for a more instinctive response, such as fear and anger.
+
+And insula is more of a reflexive part, introspective part,
+
+which sort of compares the internal state of your body to the norm and determines what is going on.
+
+The peers today have already said that, uh, the anterior insula is involved, uh, in somatic markers.
+
+So here it is also, uh, very important.
+
+And it is also linked to the emotion of disgust discussed.
+
+So, uh, you can see that those parts which are targeted by the ones that were previously mentioned and that,
+
+uh, decrease the activity during the, uh, emotional regulation.
+
+There. Mainly, uh, concerned with, um.
+
+With exhibiting emotion rather than controlling it or regulating it, which is the task of the prefrontal cortex, uh, regions mainly.
+
+And the conclusion of this, uh, section is that emotional regulation is basically recruiting executive processes to modify your emotional experience.
+
+As with discernment, it consists of an interaction between your executive control regions and the mental emotional processing.
+
+Uh, Regents. It is achieved through various means.
+
+You can imagine someone visualising something pleasant during, uh, an unpleasant experience or.
+
+Uh, doing information selection through the means of working memory.
+
+Or you can imagine someone inhibiting some inappropriate behaviour.
+
+And the last point is that it is a very promising area of research.
+
+And, uh,
+
+we can hope to examine how that relates to resilience to psychopathology or responses to responsiveness to various forms of therapy in psychology.
+
+Thank you. Over time.
+
+He also. I mean, no, we just separate.
+
+I think we're fine. I think. David.
+
+Okay, so I'm Lorenzo, and today we will speak about, uh, mirror neurones mostly.
+
+But before that, um, I want to give a brief introduction on, um, some concepts that,
+
+uh, we, uh, you need to know before going in deep in mirror neurones,
+
+which is like, um, as we study last year in cognitive science and I think in, I, uh, we introduced,
+
+like, the theory of mind concept, which is like, um, around age of for, uh, human beings that start develop a more advanced theory of mind,
+
+which is, um, like knowing and be aware of the fact that also others have beliefs that are, um, different from ours.
+
+And but the focus now is like, how do you how do we study that?
+
+How do we do that? And how so how do we read other people's mind, um, in for this point, like there is a debate, uh,
+
+there's two sides to, uh, different theory, the simulation theory, or in the theory of building theory.
+
+The simulation theory, uh, answered the question mostly like, um, what would they feel?
+
+So basically, uh, when you see someone, uh, um, to understand, like, uh, what is, um, feeling,
+
+you basically run yourself the experience and you try to, uh, in person indicate like, what is, um, feeling while the, the theory building.
+
+It's, uh, what people like this, um, usually feel.
+
+So basically is like, um, you accumulate experience and you just search in your mind like, um, that is person X in this situation.
+
+Did, uh, epsilon so, um, you just, um, recall like the, the past experience for the, uh, simulation theory.
+
+Um, it's, it's thought that, uh, mirror neurones are the leading, uh, candidate for the mechanism, and this is like,
+
+I would mention it because it's then the bridge for speaking about mirror neurones, but they're still related with this.
+
+Um, there is, um, done.
+
+It would try to, uh, kind of change the focus of the question, which is like is not how do we study that,
+
+but why it's important to study that and is, uh, mostly says that, um, if we treat, uh, humans as, uh, rational agents.
+
+So, um, with goals and beliefs, then we can, uh, basically predict their, um, behaviour.
+
+So. Yes. Um, so, uh, about mirror neurones.
+
+Um, I remember like, uh, last year, uh, professor, um, when we were interested in, uh, in introducing this concept to, uh, um,
+
+told, like, uh, if I take a sip of coffee, you will, um, seeing me taking a sip of coffee, you will also feel like doing it.
+
+And this concept, like, um, in 1996, was, uh, studied by, uh, Ritsu Latte, uh,
+
+with macaque experiment on macaque and which basically defined like the mirror neurones are um, cells, um, that are in the premotor cortex.
+
+So in the frontal lobe that fires both when I, um, compute the action and when I see someone doing the action.
+
+Um, so in this graph that I report in this picture, there are two graph and one picture.
+
+The on top you can see the passive and active um um action in the first one is the human putting the food on the tray.
+
+And in the second one is the macaque. Um, putting putting it.
+
+So in the first one day macaque is just passive. And in the first, uh, graph, uh, it's the neural response.
+
+Each row is a trial and each dot is an action potential in the, which is then reported in the graph below.
+
+Um, what? It's important to start with the vertical line that you can see.
+
+It's when the, the, the piece of food was placed on the try trial on the trace order.
+
+And, um, and I want to let you, uh, focus on the second part where, like, the dots are more dense.
+
+Why, this is a proof of the fact that the, um, the mirror neurones, like, uh,
+
+grab the goal of the action and not the movement itself so you can see more,
+
+uh, like, um, action potential in, uh, brain activity after the, uh, food was placed on the tray.
+
+Hi, my name is Zephyr and I will be talking more about the neurological side of the mirror neurones.
+
+Mirror neurones first were first discovered in monkeys in two brain areas F5, uh and nip.
+
+F5 is part of the promoter context. Um.
+
+And handles blending of hands and mouth. Uh movements.
+
+PFC and IP is in the parietal cortex, which deals with spatial and body related processing.
+
+These two regions form a loop and also connect to other brain areas.
+
+One of those brain areas that those two parts connect to is.
+
+Is, um. Superior temporal sulcus.
+
+It sends visual information about what others are doing. But the important thing is it itself doesn't mirror.
+
+It just watches and reports. In humans.
+
+The orange and yellow blob on the on the scan shows areas are active during both performing and observing actions.
+
+The regions are similar to the monkey ones, but the activation is more spread out and less precise.
+
+If mirror neurones. If mirror neurones just fired every time.
+
+You saw someone do something. You will be copying everything you see.
+
+So the brain inhibits the motor output and you understand the action without actually doing it.
+
+As for what Miro drones might do, researchers think that they could be involved in on understanding intentions,
+
+learning language by connecting heard speech to mouth movements, empathy, and possible autism.
+
+But there are challenges too. To the mirror neurone theory.
+
+Monkeys don't really learn by imitation, which is strange if mirror neurones are supposed to support imitation.
+
+In humans. If can cannot tell us if the same neurone fires for doing and watching.
+
+It could be different neurones that happens to be nearby.
+
+And some scientists argue mirror neurones are special and the brain just learns
+
+these associations through regular experience like it learns everything else.
+
+Okay. So we we just had the great, uh, presentation of mirror neurones, but it's still over, and there are some, uh, problems with it.
+
+So, uh, we know that when we see someone performing an action, uh, this, uh,
+
+same brain regions, uh, overlapping brain regions are also firing in our brain.
+
+But does this actually mean that we are understanding each other's intentions?
+
+Uh, this is still a matter of debate in, uh, cognitive neuroscience field.
+
+Um. Um, the problem with this theory is that, um, this, um, activity in our brain is, uh, locked to the, uh, action of someone else.
+
+So it's locked in time, and we need an agent performing this action.
+
+Uh, this is where, um, perspective taking takes place.
+
+Um, the. Uh, mental ageing, which is also known as theory of mind, means, uh, understanding each other's beliefs, desires and feeling.
+
+But, uh, we know that our brain is by default set to an egocentric, uh, mode, basically.
+
+So this, um, change requires, uh, uh, active, uh, attention required and directed attention to someone else to,
+
+uh, actively try to understand its, uh, person's mental state.
+
+Um, memory also plays a really important role in this because, uh, you will get much higher, um,
+
+much more precise, uh, understanding if you already know how, uh, someone typically behaves.
+
+There are, um, basically, uh, three areas that are most active during, uh, mentalism tasks.
+
+So there is the temporal lobe, uh, the superior temporal sulcus and the cingulate cortex.
+
+Uh, there is a distinction between the,
+
+between the three of this because the first two so the temporal pole and the superior temporal sulcus are always active during,
+
+uh, mentalism tasks, while the last one at the cingulate cortex is only, uh, active.
+
+It's active more during, um, social reasoning.
+
+So this is, uh, highlighting, um, context specific areas for social cognition.
+
+And then what was it? I tried to get a bit faster.
+
+Okay. Next group. Thank you.
+
+Kim. Okay.
+
+Hi, everybody. I'm levanta. I'm here with Kay and Yetta. Uh, I will continue a bit about Theory of Mind.
+
+So do apes have theory of mind? Short answer. Yes.
+
+No. I'm joking. They engage in deception in the wild, which means they must have some understanding of where other apes are orienting their attention,
+
+um, and what they might expect to happen in a given social context.
+
+Social context. Uh, but there have also been, uh, studies showing, um, bearing up subordinate and dominant chimps.
+
+And basically, uh, the subordinate chimp was, um, more likely to go for the food that the dominant chimp either didn't see or,
+
+uh, could be assumed to hold a false belief about its location because it has been changed.
+
+Uh, which was only seen to the subordinate chimp. Uh, and false beliefs are actually predicting others, um,
+
+behaviour based on false beliefs that they hold is actually like the main indicator that somebody has, um, mental abilities.
+
+And there are two main ways to test this. Um, one are location change tasks.
+
+This is where an object is placed in a container and then is switched us unbeknown to a third party.
+
+Uh, and then the participant must indicate where the third party would look for the object in its original position,
+
+or the new one, which they should know about, obviously.
+
+Uh, if you remember from, uh, introduction to cognitive science, um, this is basically the salient task is the classic example of this.
+
+And then the unexpected content task is, uh, the other one, um, it's very similar.
+
+They place an object in a container and then they switch it with another one, uh, unbeknown to a third party.
+
+And the participant has to indicate, uh, where the third party will think what they will think is in the container.
+
+Um, now there's some debate about, uh, whether the,
+
+these tests actually test the theory of mind and whether kids do have theory of mind or they just learn the, um, the answers to the tasks, too.
+
+But, um, there's more or less, I think more.
+
+Most researchers believe that there is theory of mind in kids and also in apes, but, uh, likely only implicit.
+
+So they are very unlikely to have, um, sort of explicit thoughts about the other people's thoughts, such as, I know that, uh, he believes this,
+
+but I actually know that the truth is this and this would be called meta representation because you're representing their mental representations.
+
+Uh, hi. Uh, I'm Kate, and, uh, I would like to extend on the idea of, uh, mentalism, but, uh, with emotion.
+
+Uh, so we have empathy, sympathy and pro-social behaviour. Uh, you know, to recover the pro-social.
+
+Uh, so empathy is, uh, sharing or understanding, uh, another person's emotional state.
+
+And the sympathy is, um, more just about, uh, feeling for another person.
+
+So, for example, with empathy, uh, you know, your friend might have, like, feelings and, uh,
+
+you're sad and you're actually, uh, you're able to understand the emotional state and actually show his and, uh, sympathy.
+
+Uh, they might have failed exam. You might have short feeling, but you don't actually, um, feel it with yourself.
+
+And, uh, important part with the empathy is that, uh, you're able to, um,
+
+distinguish between your own emotional state and the another person's emotional state, and then you must react, uh, accordingly to it.
+
+And, uh, this is as, uh, from childhood to adult.
+
+Uh, it is automatic to controlled. So at the beginning, when you're an infant, it is more automatic, which means that, for example,
+
+you hear infant and you see another infant crying, then you're likely to just a short crying.
+
+So you're just imitating, uh, their emotion.
+
+And later you can show more, sort of more sympathy, like, but, uh, like, uh, it is a bit egocentric.
+
+So the way you comfort the other person might be, uh, just based on, on your own comfort.
+
+And then lastly, it is a bit more control. So this is more a full developed empathy.
+
+And uh, you can act, uh, actually feel and, uh, share this.
+
+Yeah. Hi everyone, I'm Yalda and I will be talking about the Desensitise model of empathy.
+
+Uh, the interesting thing about this model is that empathy can be triggered in both automatic and intentional initiation.
+
+Intentional means consciously trying to understand someone else's situation,
+
+and automatic means fleeing, uh, for example, flinching when you see someone else getting hurt.
+
+Uh, this model consists of four main component processes.
+
+Uh, the first one is emotion sharing. So when someone else is having an emotion, you're also kind of mirroring this emotion through self.
+
+This happens in the insula interior cingulate cortex. In the somatosensory cortex.
+
+The second component process is uh self-awareness.
+
+So in someone else's having an emotion, you're aware it's their emotion and not your emotion.
+
+Uh, this, uh, this happens in the parietal lobe. In the prefrontal cortex.
+
+The third, um.
+

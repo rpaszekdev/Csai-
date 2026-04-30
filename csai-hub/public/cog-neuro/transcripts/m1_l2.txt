@@ -1,0 +1,1767 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+All right. Top of morning, everyone.
+
+Monday morning. 845 so it's a little bit light again, given that we have 150 plus enrolments, but well here we go.
+
+Um, yeah. So, uh, let's start off with a couple of public service announcements.
+
+Repetition of what we talked about last week such that, uh, all confusion, uh, is gone and everything is clear.
+
+So just again. Right. So this course has a bit of an odd structure in that it's organised in these two week, uh, modules.
+
+So we've got six of those modules of two weeks, each covering six topics in cognitive neuroscience.
+
+And so history and methodology is the method we're doing now focusing a lot on methodology today.
+
+And there's a lot to get through. Um, so bear with me.
+
+Uh, motor control, which starts next week. Uh, memory, emotion, social cognition, executive function and decision making.
+
+Um, and then we have this idea that each module consists of a weekly plenary session in the first week and,
+
+um, a bi weekly practical session in smaller groups, which starts this week.
+
+Uh, in, in, uh, in the lead. Um, and, uh,
+
+basically the second plenary session of each two week module is a flipped classroom module
+
+starting next module to make stuff more complicated because I am here talking today,
+
+but in two weeks from now. Ah, I believe it's after the break.
+
+Maybe you guys will do the presentations. Which brings me to the, um, first, uh, reminder.
+
+It's the sign up for flipped classroom groups. So I actually just checked on the canvas page.
+
+A lot of you have signed up, but at least 73 of you have not.
+
+Um, and I see a lot of, uh, empty groups still, especially near the end of the course.
+
+So we have 100 to 50 people.
+
+I've got groups of, uh, uh, 40 groups of three, uh, students each, which is two small,
+
+which means that stuff needs to clog up before I open the slots again such that you can, uh, distribute.
+
+So please take some time to enrol, because there's, there's a, uh, to a certain degree,
+
+mandatory component of the course to participate in this flipped classroom.
+
+And just to repeat, right, the quality of the flipped classroom sessions really depends on, uh, your investment as well.
+
+Uh, given that I see about 30 of you out of the 150, I already sort of, uh, have, uh, hard hat and this going well, but let's see.
+
+So, um, because. Just as a reminder, to pass this course, you will need to obtain a grade of 5.5 or higher.
+
+Uh, and this basically your course grade is determined very, uh, straightforwardly.
+
+So you need to successfully participate in a flipped classroom presentation which will be graded pass fail.
+
+Um, if you participate and you actually invest in it, there's no reason not to get a pass.
+
+But on the other hand, if you think like, you can just screw the others over.
+
+I, uh, hope myself the right to give you a fail as well for that.
+
+Um, also, like I said before, participation in the flipped classroom is not just giving your presentation,
+
+then moving out and going to the coffee bar, right?
+
+That's also means sitting in on the other presentations, listening to your students asking questions.
+
+Uh, I typically just ask you guys first whether you have questions to your fellow students.
+
+So, um, participation is a, uh, big deal about doing being part of a conference.
+
+Um, and then there's there are six practical assignments in the forms of these neuroimaging experiments,
+
+virtual reality experiments, and a behavioural experiment.
+
+Uh, you need to pass four out of six of those. Um, and if you do that and flipped classroom presentation, uh, then you get 20% of your grade for free.
+
+So you start with two, and then what we add on top is, uh, the 40% of your midterm score and 40% of your, uh, exam score.
+
+Okay. That means that if you have a ten for your midterm, at ten for your final, you've got a two plus four plus four is a ten for the course.
+
+And yes, this happens. Okay.
+
+So this also means that, uh, according to the examination and education regulations, the, uh, practical components are a low stake,
+
+uh, component of the course, meaning that you do not have to do them and there will be no reset opportunity.
+
+Okay. Meaning that even if you've got to dance for the midterm and the final, your maximum grade of the course will be an eight.
+
+Okay, so 40% of them, plus 40% of then you end up with a nice.
+
+Yes. So I will lose the for you. I think the you got a bank receipt.
+
+No. Because then you will still have 80% of your grade covered by the combined reset.
+
+And you can have the bonus added on top of that right. Mhm.
+
+I don't know. Yeah. So and final cause grade will be rounded according to the rules and guidelines of Thursday.
+
+Meaning that if you've got a 5.4 or something, you failed the course.
+
+I say I need to get above a 5.5 on your own merit.
+
+There are no bass bashing requirements on the individual exams.
+
+I'd say you can do one really well, screw one up, get the bonus points.
+
+Still pass the course. That all clear? Yeah.
+
+Different. It's not encouraged.
+
+But if that's what needs to happen, the. You. You could, uh, negotiate that.
+
+Yeah. I would talk to you in getting the break.
+
+So if there is a valid reason, meaning you have to take another course or whatever, there's overlap, that's fine if it is because like, I don't know,
+
+you feel like going for a run that one morning, that's not a valid reason because the groups are distributed and we want a balanced load.
+
+That's the core reason for it. Any further questions about this stuff before we dive into the neuroscience bit.
+
+No. Okay. Okay, so where were we?
+
+So we we had a long sort of historical introduction to, um, cognitive neuroscience, which is at this intersection, uh, of cognitive science.
+
+So you've all seen me during introduction to cognitive science, I think.
+
+So you know a lot about that already. And really the biological side of, uh, of neuroscience effectively.
+
+So understanding, uh, the human and just general, the nervous system of, uh, of organisms and it's a field, uh, it's, I guess,
+
+a relatively new field that really combines all of the difficulties of measuring brain
+
+function with all of the problems of trying to accurately assess cognition and behaviour.
+
+So with all of the problems to actually come up with, uh,
+
+theories and models that explain cognitive behaviour and the complexities of linking all of these.
+
+Right? So we've got biology on the one hand we've got ignition.
+
+And like mental structures mental representations audio out our hands are concrete.
+
+Example. We've got Chomsky's theory of language with a generative grammar and a rule based merge system.
+
+We've got neurones. On the other hand, how do we implement this merge based system in, uh, neural hardware or in biological hardware?
+
+Uh, it's it's really and cognitive neuroscience is a massive field.
+
+Um, so there's these I don't know if you've ever been to a conference, but like, there's conferences that host 600 people started.
+
+There's conferences that host 1000 people.
+
+Uh, every year there is the society for neuroscience, where there's buses driving people around through Chicago and there's like 20 gay people there.
+
+So it's a massive, massive field. Um, and it's it's it's it covers a broad spectrum of methods.
+
+Um, uh, and it's includes.
+
+Right. Uh, but it's not limited to, for instance, understanding the neural connections.
+
+So this is effectively measuring brain activity and understanding how brain activity corresponds to cognitive processing.
+
+To a certain degree it's concerned with individual differences.
+
+So why and how do people different cognitive abilities.
+
+Although if you ask me, I always find it a little bit of, uh, um,
+
+it all depends on how you look at if you look at individual differences in terms of healthy versus unhealthy brains,
+
+like the stuff that is looking into that's a valid thing.
+
+If you're looking to individual differences in terms of sentence processing strategies, I always find it a little bit of, uh.
+
+How do you call it? Like, uh. Uh. Can of worms.
+
+I think that's, uh, that's, uh, work.
+
+Uh, and it's a experimentally a methodologically diverse field, um, which you can sort of say it leads to two advantages,
+
+but also it also involves the challenges, right, of linking these methods and experiments.
+
+But the idea is that if we have convergence, right.
+
+So if we can show something with single cell recordings, EEG and Francis MRI,
+
+which are all sort of giving us a different insight into what is going on in the brain,
+
+and we strengthen our argument if we come up with support for a given, um, uh, theory, it's also offers complementarity, right?
+
+So being able to measure different aspects of a functioning brain, uh, means that, um, we can have different insights,
+
+for instance, insights from the millisecond temporal resolutions of EEG, which we will get back to,
+
+in which we will experiment with, uh, in the uh, glosses with, for instance, the, uh,
+
+hemodynamic responses that are relatively slow that we get when we put people in one of these, uh, big f MRI scanners.
+
+Um, then there's like these more novel methods as well that, uh, we will dive into a little bit today.
+
+So this is, for instance, a optogenetic approach to studying neuroimaging.
+
+So as we will see later in the course, this involves, uh,
+
+genetically manipulating neurones in mice such that we can actually turn them on using light,
+
+uh, like neurones, we can turn neurones on and off turning light or using light, uh, and, um,
+
+doing these very invasive recordings in, uh, our sort of, uh, evolutionary predecessor show monkeys, uh,
+
+where we really inject basically removed our scalp and inject electrodes directly into neural tissue in order to do measurements on them.
+
+But this all these methods, right, combined that pain that big and all the tricky thing in neuroscience is that actually all of these,
+
+uh, um, methods combat role limitations.
+
+Uh, as we will see today, EEG, for instance, is horrible at telling you where something happened.
+
+Uh, fMRI is really cool at informing you about where something happened, but it's super slow, like.
+
+So, uh, EEG happens on a millisecond basis.
+
+That fMRI happens like six to 10s after the fact.
+
+So and we have to deal with that. And we need to sort of reason with those, those complexities once we want to do inference on these data sets.
+
+Okay, but before we dive in, what we didn't quite discuss yet is the human nervous system itself.
+
+Um, now there's I added this stuff, uh, on demand of, uh,
+
+some students in earlier years that really wanted to go deeper into the sort of the cellular basis of cognition.
+
+Uh, I am not going into, um, to it that deep because I think this, um,
+
+course should be on the cognitive neuroscience side of things and not on the biological neuroscience side of things.
+
+I did add, um, a couple of videos that help you to further explore these topics.
+
+Um, and yeah, feel free to dive in deeper yourself if you want.
+
+Like I said, there is like effectively two textbooks that you can teach cognitive neuroscience from.
+
+There is the first one that we're using and there is you got Johnny got one.
+
+The good Johnny got one really starts with the other two mechanisms glia, biology, all that stuff.
+
+I think that's not the right fit for the CSI program.
+
+So hands were with the first book. Uh, but I do want to give you a little bit of a refresher.
+
+Some of you have had this stuff in high school. Uh, some of you haven't.
+
+So here we go.
+
+But let's first start off with, like, just a general, um, um, with the brain, with the cortex, and with sort of the general parts of that and a,
+
+um, navigation system, because we will see lots of terms like the superior anterior or whatever singular cortex or something like that.
+
+And these all sound very complicated. But as soon as you figure out that what you're actually getting is just directions.
+
+Uh, it becomes a lot easier. So, uh, so this, I hope you all know.
+
+So this is the brain, right? This is the left hemisphere of the brain.
+
+This is actually the right hemisphere of the brain looking from inside.
+
+Uh, from the inside, basically. So it's the brain cut in half, and then it's the, um, basically the, the internal side of the right hemisphere.
+
+We've got the four lobes. So we've got the frontal lobe, parietal lobe, the occipital lobe and the temporal lobe.
+
+Um, the bride, the lobe I believe is called like this is because it's, um, near the, uh, what is called, like, the wall of the skull.
+
+Um, the temporal lobe, really, I believe, is called temporal lobe because, um,
+
+it's, uh, close to the temples where you can actually see your hair getting grey.
+
+You know, you guys don't have the problem, but I do. And, uh, so it's an indication of time.
+
+So temporal lobe. Um, then if you look on the inside of the brain, you always see.
+
+Right. So we've got this large cortex. This cortex is, uh, basically the outer shell of the brain, uh, which, uh, surrounds a lot of white matter.
+
+So that's connectivity between brain cells, which is highly important.
+
+Uh, and then we on the inside have these very, um, evolutionary, uh, old, uh, subcortical regions, uh,
+
+including things like the amygdala, hippocampus, the basal ganglia, uh, the thalamus, which is this relay station.
+
+Um, back here, we've got the, um, the brainstem connecting our, uh, central nervous system to our peripheral nervous system.
+
+So basically, our hands and arms and legs and feet, etcetera.
+
+Uh, then we've got the cerebellum down there, uh, or sometimes called, uh, small brain.
+
+Uh, I actually, uh, gave a lecture on neuroscience for kids last Thursday, and I, uh, learned that I sometimes also call it the reptile brain.
+
+I have not checked that, but maybe somebody you knew that term before.
+
+Um, so cerebellum is one of those, uh, brain regions that is traditionally been linked to,
+
+uh, motor movement and sort of error correction in motor movements.
+
+So when you want to balance and things like that, but that as we will see in the motor control lecture,
+
+has evolutionary, um, changed and just a general error correction mechanism.
+
+So the brain has figured out at the way relays information through the cerebellum that it can get sort of a corrected stream of input output.
+
+Uh, again, which I always find, uh, very awesome if I think about it.
+
+Um, yeah. Now we can also sort of lift the the, uh, I'm so happy that they did a drawing of this and not a real image.
+
+I actually read most of my neuroscience textbooks with, like, a little white paper over the, uh, gory images, because I really can't stand it.
+
+Especially not at this hour of day. Uh, right.
+
+So, for instance, if we just lift up the cortex a little bit,
+
+we get like these other structures that are near the outside of the brain, like the insula, but that are covered by the cortex.
+
+Cortex itself. So anatomical terminology.
+
+So we will, uh, and this is a little bit confusing because we at one point have two ways of sort of referring to everything.
+
+So what we see on the left is, uh, the head. And relative to the hat.
+
+And so also relative to sort of the orientation of the brain in the hat.
+
+We can talk about interior regions. So interior meaning to the front uh or posterior regions meaning to, to the back.
+
+So behind uh and superior and inferior.
+
+Okay.
+
+So we could say the inferior temporal lobe, which would mean that we are referring to something like here we could say the superior temporal lobe.
+
+And we're talking about this region here, which could also be this entire region.
+
+We could also say the anterior superior frontal temporal lobe.
+
+And we're here. Right. Uh, and we can use these things to move around.
+
+So it's you often get sort of this modifier, uh, basically a chain of modifiers,
+
+and then you get a region and you basically just move around in, near out of in anatomical space to get that the point.
+
+But if only it were so easy, right? So, uh, then they figured out that you could also refer to things relative to the orientation of the back.
+
+Uh, this is easy because this is the brain stem. So this means that the back is at the back of my brain stem.
+
+And then we say, uh, dorsal so towards the back or ventral which is away from the back.
+
+But then I figured out, hey, what we can do is actually given that humans are a little bit different than the other animals, right?
+
+So they still goes through if you look at like a cat, for instance. But we walk straight up, so we flip the axis a little bit.
+
+And as soon as we're in brain space, dorsal means away from basically to the to the back of the brain.
+
+So that's the the top of the head again. So in this particular situation dorsal actually kind of means superior.
+
+But um, reason from the middle of the brain. Uh, ventral means to the bottom again.
+
+And we can in similar vein define uh rostral and caudal, which means rostral means to the front of the the body in this sense.
+
+But given that we just flip the axis for the brain,
+
+that means to the front of the brain and caudal means to the back of the body, so to the back of the brain and caudal.
+
+In this case, if you look at the brain stem access right means to the bottom of the body.
+
+Okay. You I think you see, I'm looking at Imgur.
+
+I think you typically see a superior anterior posterior inferior a lot.
+
+And you see like things like dorsal and ventral stream. So there is these, these massive, um, uh,
+
+pathways running through the brain originating from about here to a frontal regions and from here to, uh, to frontal regions again.
+
+Um, there's these beautiful maps that you can actually, um, draw off that, um, where, uh, especially the dorsal stream and the ventral stream.
+
+Okay. And then we can because we were going to do neuroimaging. So we can slice up the brain in all kinds of directions.
+
+It's like a little bit like fruit Ninja. So if you hit it straight through the middle, uh, you get a coronal.
+
+Um, uh, if you, if you hit it through the, through a brain halves, effectively, you get a sagittal view.
+
+And if you slice it immediately through, basically from front to back, you get an actual view.
+
+And we often see this because, uh, it's not so easy to project, uh, for instance, MRI images on 3D.
+
+Uh, at least it's getting better. But you don't need to think that people did this stuff in the 90s as well.
+
+So you often see these slices through, uh, these different axes.
+
+Okay. Then we talked a little bit about nerve cells and about, uh, neurones.
+
+I hope this doesn't completely come out of the blue, but let's go over this stuff and really elementary, uh um uh uh, way.
+
+So I actually talked about this stuff, uh, at um, elementary school last week, which was really a lot of fun.
+
+Keep going on about it. I think it's the most fun lecture I ever gave.
+
+Like, uh, all the kids were like five, six, seven, eight, and they ask you to where to ask questions, but they.
+
+Okay, so this is a nerve cell. Uh, they which they, without any blinking, just called neurones, which I thought was, uh, really impressive.
+
+Um, what we have, right as we've got a cell body, like anybody has a cell,
+
+and we've got a nucleus, which is the cell core containing its genetic material.
+
+Then, um, we have dendrites, which are effectively it's, uh, sensors, right where it receives information from sending neurones.
+
+And, uh, we've got an axon, which is basically its tail, and these can be super long.
+
+Uh, and, uh, I actually recently, uh.
+
+Well, let me get that in a second. So this axon is covered with all these little fatty substances called, uh, myelin sheets.
+
+Um, there's always a little bit of confusion because they sometimes call this, uh, um,
+
+uh, as if the signal is jumping over these jets, but they're actually superconductors.
+
+The signal doesn't jump over to the little, uh, um, uh, nodes of Ranvier are called.
+
+They actually reinforce the signal and send it send it through again.
+
+And then we got Schwann cells in the middle of the, uh, the myelin sheds.
+
+Uh, and we've got the axon terminals themselves again at the back, which connect to receiving neurones.
+
+Now, a typical neurone has about 6 to 10,000, uh, connections to other neurones.
+
+So it's really a fast network of these, these, uh, these structures.
+
+So neural communication then I already talked a little bit about this last week in terms of,
+
+uh, electrochemical communication and electrochemical signalling.
+
+I really love this image. So I think I just found this somewhere and I figured, okay, that's the one I'm going to use.
+
+So, um, what happens, right, is that neurones receive neurotransmitters from projecting neurones.
+
+Whenever I talk about a projecting neurone, it's a neurone that projects to a receiving neurone or from sending neurones.
+
+And, um, typically these neurones are more negatively charged on the inside than on the outside.
+
+Okay, so whenever these neurotransmitters bind to a receiving neurone, this can have either of two effects.
+
+They either, uh there's either leads to excitation of the neurone cell to depolarisation,
+
+meaning the inside of the neurone gets, uh, more positively charged.
+
+So moves away from its, uh, which is called, like, membrane potential of -70 microvolts.
+
+Uh, or it can just. Keep the neurone put at where it is right and say, okay, look, we're not going to move around.
+
+Uh, just stay where you are. Don't do anything. Now if it gets, uh, depolarised for, uh.
+
+A significant chunk of voltage effectively, and it reaches threshold potential,
+
+I believe there there's also a brief amount of time that this needs to happen,
+
+uh, as soon as it reaches threshold, uh, threshold potential, um, it starts to further depolarise and produce an action potential.
+
+And this action potential is an all or nothing phenomena that then travels through this,
+
+um, axon all the way down to the zonal terminals where, um, it will actually lead to,
+
+uh, the release of neurotransmitters which will first entering these little boats reach the axon terminal,
+
+where they will be released in, uh, structure called the synapse.
+
+The synapse is really a little gap. I call it a little, uh,
+
+river in elementary school that the neurotransmitters need to swim through to reach
+
+the receiving neurones where they bind to the receptors there and either have an,
+
+uh, um, inhibitory or excitatory uh, um, effect on the receiving neurones.
+
+Now, after it's a neurone has done its thing.
+
+And these action potentials, they sound super. Yes, they are all or nothing phenomenon, but they have specific temporal, uh, profiles, for instance.
+
+So you can really do a whole lot of very complicated coding using just single simple binary patterns, uh, or even oscillatory pattern.
+
+Tried where you have three trains of three fast shots followed by, uh, brief period of time and then um,
+
+uh, a couple of spikes again after basically it's fired its action potentials and done its thing.
+
+Uh, it polarises and then after that, there is a refractory period where it's for a while it's slightly more negatively charged,
+
+making it more difficult, but not impossible to fire an action potential again.
+
+And then we enter a resting state again. And we we get the membrane potential.
+
+Now this is the this is on on a very high level what is happening.
+
+And this is also how like in artificial intelligence with this is sort of what we try to mimic.
+
+Right. If we do neural networks, uh, where we have this non-linearity on the uh, uh,
+
+the net inputs, uh, mimicking this idea of firing and reaching threshold potential.
+
+And it's just this connectivity between neurones,
+
+we know which are the synaptic strengths that I have a positive or, uh, negative effect on receiving neurones.
+
+Uh, but I could fail just a single lecture or maybe even to talking about all the dynamics that go into producing these action potentials and,
+
+uh, how it involves, uh, moving charged particles around the membrane and etc., etc.
+
+Um. And I love this image. So this is a still from the, uh, the videos that I put online.
+
+I think they're really, really well done. There are three of them. Uh, they talk you through all the dynamics of moving, uh,
+
+sodium and potassium inside and outside of the cell and all the steps that are involved in this.
+
+This is not exam material. So if you're interested, please look at that video.
+
+I think they're really, really well done. Um, as long as you understand these mechanisms on this level.
+
+So the fact that neurotransmitters, even inhibitory are excitatory effect on receiving neurones, uh, and that depolarisation, uh,
+
+to threshold potential leads to action potentials that themselves have uh, an inhibitory or excitatory effect on, uh, receiving neurones.
+
+Again that's enough.
+
+So I don't think knowing the rest is going to add anything on top that you need to know, uh, for understanding the remainder of this course.
+
+And yes, whenever I would have to present this stuff, I would have to refresh my memory.
+
+So. Okay, then, uh, the remainder of the, uh.
+
+Um. What's that all? Is that all clear so far?
+
+Yeah. Okay. Then the remainder of the methods of cognitive neuroscience chapter.
+
+Um. So there's a little bit of repetition in this stuff, and this is what's going to happen during the flipped classrooms as well.
+
+Uh, and this is by design. Okay. So this stuff is it's quite content heavy.
+
+Uh, and so you might see certain slides that you've seen last week, but also novel slides intertwined with it.
+
+Sometimes there is, um, some confusion over the slide deck.
+
+So do I, I don't know how Sylvie does it, but the way I do it is that I have.
+
+My slide decks are effectively just one big slide deck for one module.
+
+And in week one, I, uh, hide certain slides, and in week two, I hide certain slides, but they're identical.
+
+Uh, so if you actually have one slide deck, you have all the slides that I've presented, but just with different slides here.
+
+And so sometimes people find it really confusing. Uh, it's basically my OCD kicking in that are all, uh, aligned with each other.
+
+Okay. So we talked about two ways of studying cognition in the brain last week.
+
+So the neuro, uh,
+
+basically the brain perturbation approach and the neuroimaging approach and those two things basically flipped the cycle exactly the other way around.
+
+So what we say with the brain perturbation approach is that we say, okay, we've got a brain.
+
+I can't read that from here, so I'll read it in the break because that's fine.
+
+But, um. So the brain perturbation approach say, okay, we got a brain can be a healthy brain can be an unhealthy brain.
+
+And, um, something we do something to it or something happens to it.
+
+Now, given that we believe, and I hope, given that you're all here, you believe as well, that there is a very strong link to the brain incubation.
+
+Uh, although I challenge to you an introduction to cognitive science to be very critical about that link.
+
+Uh, but I do I do think that I at one point, uh, admitted to being a monist, so I'm good.
+
+Uh, so in this case, I'm just avoid this because I'm just going to double down on being a monist and state that brain and cognition are, um.
+
+Inseparably related to each other. Um, so basically, if something happens to the brain or something breaks or we induce a virtual lesion.
+
+Uh, this has an effect on cognition. And we can measure that the effect on cognition by, uh, measuring task performance on a cognitive task.
+
+It could be a memory task, could be a language task, could be a facial recognition task.
+
+It could be a priming task. Could be an inhibition task. Can be anything.
+
+And so natural.
+
+Uh, uh, our biological causes for the brain to have an effect, a measurable effect on the condition that differs from a healthy brain could be stroke.
+
+So, um, a trauma or a disease in a brain?
+
+Uh, we talked about this last week. A little, uh, a little bit already.
+
+Um, these things are massively informative, but also massively problematic.
+
+And it gets that those things are never clean. Okay.
+
+I'll give you an example of it again in a second. Then we've got, uh, pharmacological manipulations.
+
+So we just talked about neurotransmitters. And our neurotransmitters have a massive effect on the excitatory or inhibitory postsynaptic potentials.
+
+So here I dropped in a word that we haven't heard before. But postsynaptic potentials means that it's the voltage fluctuations that happen
+
+after the synaptic structure are basically at the receiving neurone after,
+
+uh, neurotransmitters have bound to it. And we have agonists.
+
+Uh, so drugs that activate receptors are, uh, antagonists.
+
+So drugs that block receptors. And what we can do with that is basically manipulate how, uh, information flow would normally work.
+
+Right. And either, for instance, get all neurones massively excited or get them all not being responsive to particular neuro neurotransmitters.
+
+Um, you can make it as complicated as you want.
+
+Uh, and then we've got intracranial and extra cranial, uh, stimulation, so where we can create temporal and virtual lesions.
+
+So, uh, again, if we have a current, an electrical current, we always have a perpendicular magnetic field.
+
+So as you will see, any brain, uh, imaging or neuroimaging methods that, uh, has anything to do with electricity typically has,
+
+uh, magnetic counterpart because people figured out, hey, we can do the same trick, but use the magnetic, uh, equivalent of it.
+
+Uh, one of these, um, temporary, temporary slash virtual lesions methods is transcranial magnetic stimulation.
+
+Uh, stimulation. I'll give you an example of that in a second. One other is transcranial direct current stimulation.
+
+So the one being magnetic, the other one being electric for as far as you can separate those.
+
+And then there's optogenetics which is this combination of genetics and laser light to deactivate neural circuits.
+
+So this one we've seen before. So I'm going to skip over this quickly.
+
+So um, one thing we can look at is, um, how a healthy brain starts to malfunction cognitively if it's been damaged due to stroke, trauma or disease.
+
+And we've already identified that are a major limitations to this idea because those damages never occur cleanly.
+
+Right. So if you've got ten people with damage because they had a stroke,
+
+they're never going to have the exact same damage in the exact same locations with the exact same, uh, consequences.
+
+But then again, if we have a sufficient amount of data.
+
+But I think this is basically the stuff that m k is working on, right?
+
+Then if there is patterns in these data that, uh, that show overlap and show convergence,
+
+then this problem may be mitigated to um, to a certain degree.
+
+And for instance, like if we know that particular a particular region that is present in all of these, uh,
+
+that is affected in all of these patients, uh, and in all of these patients, we have, uh, particular problems with, say,
+
+the retrieval of word meaning,
+
+then it seems to suggest that this particular region may have something to do with the control or the retrieval of word meaning,
+
+uh, but and again, um, this always leads to the problem of diagnosis.
+
+Um, so. If something is broken and some downstream network is actually dependent on the input of this broken, um, area or broken region,
+
+then we might attribute the function that's actually carried out by this downstream network to this broken region.
+
+Okay. So we should be careful there. But nonetheless, um.
+
+Uh, these, these sort of clinical pathological correlations are still heavily informative
+
+because they allow you to look at data that you never would have looked at.
+
+So, like I said, I am on one paper where to do these things.
+
+Uh, what I looked at, um. Intracranial recording in humans.
+
+Uh, so basically directly from the cortex for, uh, in, in patients that were up for, um, uh, epilepsy treatments, presumably due to tumours.
+
+Um, obviously those are three very different patients and they are already in a very weird circumstance because those.
+
+Why why would we subject those people to a language task and anybody other than the interest in science?
+
+Localisation of function. So it's very important if we start basically cutting into our in our brain, right, that we know exactly, exactly.
+
+And those people. Right. Which uh regions of vision, which regions of word retrieval, which, which regions of word production, etc.
+
+So, uh, yes, it feels like we're abusing those people by doing these language tasks while they are up for the surgery, but it serves the purpose.
+
+Okay. Then I talked about, uh, um, uh, extra cranial brain stimulation.
+
+And one example of this is, uh, repetitive transparent transcranial magnetic stimulation.
+
+So this is using a set of magnetic coils. And what it does is, uh.
+
+So you see a one of those coils to the left. And what it does is produce a magnetic field that we can target a very specific, uh, brain region with.
+
+Now, you know that these neurones.
+
+Right, they communicate using electrical chemical signalling such that if we basically, uh, pushed through a magnetic field,
+
+this will start, uh, interfering with the normal electrical properties of, uh, uh, of regions.
+
+And we can, for instance, excite or inhibit particular regions, um, or like, uh, induce these sort of, uh, virtual lesions briefly.
+
+Now, um, you you actually, uh, we have one of those things at the, uh,
+
+psychology department, but I believe you need medical training before you may apply it.
+
+But I heard from him last week, and you guys just played played around with it in a lab for a little bit.
+
+Yeah, I'm not sure if that's intended. Ah, that the rules have, uh, have gotten better, uh, over the years.
+
+Uh, but for instance, if you sap your like, uh, right, uh, um, motor strip that's responsible for movement of your arm, your left arm will twitch.
+
+Okay. Uh, and the, uh, the drawback of this method, this, that that.
+
+Yes, we can do slight. We can be slightly specific, but 1.5cm is still a large batch of cortex, if you think about it.
+
+So it's, it's it's a bit of a coarse grained method.
+
+Um, what the, uh, c uh, graph shows here is that you can actually see this transcranial magnetic stimulation balls in an MRI.
+
+So this is one of those big, uh, scanners to see what it's actually doing, uh, to your basically electrochemical or electromagnetic gradients.
+
+Um, then one, for example of optogenetics is this idea of perturbation, is this idea of, uh, optogenetics.
+
+And the idea is here that what we can do is use a virus containing, uh,
+
+specific genetic material that basically goes for the, uh, manufacturing of photo reactive ion channels.
+
+Now, these ion channels are those channels that that bump these charged particles across the membrane,
+
+leading to the depolarisation and hyper polarisation of neurones.
+
+And, uh, the idea is that if we, if we effectively, um.
+
+Inject this virus and we manufacture these filter reactive ion channels.
+
+Then we can control those ion channels and we can control the depolarisation and inhibitory processes,
+
+uh, or the excitatory, uh, hyper polarisation stuff in um,
+
+sorry, I should say depolarisation and excite excitatory and inhibitory and, uh, hyperbolic resolution processes in, uh, active neural tissue.
+
+And the idea then is that, uh, so the B uh graph basically shows you the fires injection in a mouse brain.
+
+Uh, then we get fire expression and we can actually control, um, cellular mechanisms using light.
+
+And then we can, um, use these genetically altered, uh, ion channels, uh,
+
+to basically turn on and turn off ion channels and directly regulate excitatory and inhibitory, uh, neural firing behaviour.
+
+Um, and for instance, one study is that they show that you can use this to control the walking behaviour of mice.
+
+Okay. Now this. This obviously has massive, uh, potential.
+
+This is one of those relatively novel methods. It's massive potential for understanding the brain basis ignition.
+
+Again, it's probably not one of the things you want to do in, uh, humans,
+
+unless you to work for a company that's led by Elon Musk or something, that you can probably get away with it.
+
+But here in university, if you want to write a master thesis about this stuff, it's probably not going to happen.
+
+Um, but you can imagine, right, that if you want to understand exactly how stuff works and you can actually control that stuff directly,
+
+turn stuff on through and start stuff off, uh, you have, uh, a massive toolkit of understanding the exact dynamics.
+
+So could anybody come up with another way of doing this?
+
+Uh, in a more friendly way? What's a method that could be used to get to the same level of control?
+
+Those viruses and. You still need living organisms for that.
+
+I was thinking slightly more so. Fair enough. But.
+
+Computational modelling. Right. So what we could do is build, implement uh,
+
+a uh approximation of the neural strip of uh and motor behaviour of a mouse and start playing around with these firing veterans ourselves.
+
+And, uh, and, and this is why and this is what I said in the first lecture,
+
+as well as why computational modelling is getting more and more and more and more important in, uh, cognition as well as in cognitive neuroscience.
+
+Okay. Um. So but okay so these are all invasive methods right.
+
+So these are methods in which like if at all basically TMS might not be invasive,
+
+but we're still injecting a magnetic field into your otherwise well working brain.
+
+And also given the fact that excitation and inhibition has direct effects on like long term potentiation and stuff,
+
+I would be very careful to apply it to my own brain.
+
+Um, but there are like a lot of, uh, non-invasive, um,
+
+and non-invasive in a broad sense of non ongoing process altering systems that, um, that we can also use to study, uh, cognition.
+
+These are collectively called the neuro monitoring approach.
+
+Or I would actually call them the neuroimaging approach that just flips around the circuit that we were just looking at.
+
+So rather than manipulating the brain and looking at what happens at the, uh, performance in a cognitive process,
+
+we actually manipulate the cognitive process, for instance, by having people read aloud sentences,
+
+by doing oddball experiments in which we, I don't know, show, uh, 20 cute little rabbits and,
+
+and suddenly a bad dragon eating them or something like that to see how their brain responds.
+
+Um, and then we, we tend to evoke something in cognitive processing.
+
+We tend to the ideas that we want to evoke particular brain responses.
+
+We want particular brain regions to light up in response to these, these particular stimuli or these particular manipulations ever after.
+
+Um, and ideally we want to then measure those neural correlates.
+
+So that's the general idea behind basically everything, uh, neuro monitoring or neuroimaging.
+
+And uh, again, there's, um, uh, here there's actually invasive methods as well.
+
+Right. So there's direct electrophysiological recording from neurones.
+
+Uh, again, this is typically not done in humans unless you're up for, uh, surgery.
+
+So you can do extracellular recording.
+
+So you can actually put an electrode near a, um, neurone so near a brain cell and get at the local field dynamics of, um, it's a local field, right?
+
+I really mean the electricity of, uh, a local network of, of neurones.
+
+You can also do intracellular recording in which you actually, um, penetrate a neurone and you record the postsynaptic potentials.
+
+So the depolarisation or hyper polarisation of the neural body that happens in response to, uh, a neurotransmitter binding to it.
+
+The undersea electrical and magnetic field recordings.
+
+So we have electrons philosophy EEG, which we looked at last week already, um, and which we will, uh, revisit a little bit, uh, today.
+
+It's magnetic counterpart. So, uh, Magneto answer philosophy.
+
+So the idea here is really again, we've got an electrical current.
+
+So in EEG we've got this equivalent current dipole.
+
+This has a perpendicular magnetic field that we can actually pick up on.
+
+Um the so as we will get after the break we'll get into this.
+
+Sometimes people mistakenly say that EMG has a way better, uh, spatial resolution than EEG, but it's not.
+
+Uh, and I think it's mostly, uh, based on not understanding the physics, uh, correctly.
+
+Then we've got structural imaging as compared to functional imaging.
+
+So structural imaging really is about imaging the structure of the brain without any activity going on.
+
+So we've got traditionally you have magnetic and magnetic magnetic resonance imaging MRI uh and uh X-ray imaging or CT scan.
+
+So computerised tomography that functional imaging.
+
+So the functional MRI version is actually just a functional extension of traditional MRI.
+
+And it's this thing that you've all seen before because this is what The New York Times will show you.
+
+Whenever they want to show you brain activity, they show you an image of the brain with parts lighting up,
+
+uh, slightly older version of positron emission tomography.
+
+And then we've got the relatively novel, uh, method.
+
+So we've got optical brain imaging methods that use light. Uh, one is functional near infrared spectroscopy.
+
+Uh, sometimes it's called the performance uh, fMRI.
+
+It uses the same blood based signal. Uh, but it and I think here it's one of those cases again where it's a bit confusing.
+
+So you can actually measure on a by millisecond basis. So it feels like it has a way higher temporal resolution than, uh, fMRI has.
+
+But it's still underlying the measuring the hemodynamic responses that occur when blood is basically flowing to active regions.
+
+So yes, you can you can have more measurements, but the the underlying system that you're measuring is not going to be faster for it.
+
+Okay. So um, and event related optical signals, which um, uh, uses uh,
+
+the light scattering properties of neurones that are different when neurones are depolarised versus hyper polarised.
+
+Sometimes when you hear these things or just think about how people figure this stuff out, but I guess that's clear.
+
+So for instance, if you want to have a functional MRI system, you actually need MRI or like Mr. physicists in our lab as well,
+
+because you couldn't possibly control one of those machines yourself, or as we can, uh, control MRI.
+
+Okay. Uh, let's have a breakwater to. We are good.
+
+And coffee. Good. All right.
+
+Okay. So what I want to do in the remainder of this, uh, lecture is actually do a, uh,
+
+deep dive into all these individual neuroimaging methods that we talked about.
+
+So these are really the mostly wide use. So you have a few for a, uh, of a feel for a what is out there and how do those things work,
+
+uh, starting with uh, direct electrophysiological recordings.
+
+So one thing I hope that's really clear now, right, is that when we talk about the electrophysiological recordings,
+
+we're in one way or another talking about, um, uh, typically not about action potentials, but mostly about,
+
+like this depolarisation and hyper polarisation, uh, of, um,
+
+neural cell bodies are postsynaptic potentials the one way or the one point where we can actually measure,
+
+uh, action potentials directly is using direct electrophysiological recordings.
+
+So this we typically do in, uh, monkeys.
+
+So we have got a monkey set, uh, set up here and, um, a restraint chair.
+
+And the monkey needs to, I know, carry out a given task.
+
+As we will see, this can be any type of task.
+
+We often have this, uh, directed gaze tasks where they, uh, are being cued whether they should look to the left or the right,
+
+uh, for instance, by having a number of stars moving in a particular direction.
+
+And if they then look and, uh, the right direction, they got a Jewish reward going up.
+
+They're crazy about Jewish reward. So they do anything for a little bit of orange juice and what we can do.
+
+Danish actually measured our electricity directly, uh, from the neural tissue.
+
+And like I said before the break, we can do this, uh, extracellular, free or intracellular.
+
+And, uh, when we do with extracellular, we can actually measure, um, for instance,
+
+the action potentials of one or more neurones or like the local field potentials that,
+
+uh, that are close to dendrites, uh, dendritic structures, uh, and with intracellular recordings, we actually penetrate the, uh, neurone itself.
+
+Um, uh, and we could in this case, uh, for instance, measure synoptic potentials,
+
+or we could stick it near the axonal, uh, uh, regions as well, I guess.
+
+And what we can then record is we can, for instance, record these, uh, neural spikes.
+
+So what you see here is what is called a bearish stimulus time histogram.
+
+So the, um, we've got time. So for instance, we've got a visual task error.
+
+I don't know exactly what that visual task is, but like monkeys need to look at something and then something blinks.
+
+And we are interested in what the visual cortex is doing.
+
+What we see here on the, uh, x axis is time. And on the y axis are a number of trials.
+
+So a number of trials, meaning repetitions of the same experimental paradigm.
+
+Um, and what we can then do is, for instance, uh,
+
+record the action potentials of a given neurone and plot those action potentials for every, uh, trial over time.
+
+So every row here is a given trial. Right.
+
+And so basically just meaning a repetition of this visual paradigm.
+
+And every little, uh, block here is a action potential that's fired by a given facial cortical neurone.
+
+And if we then some vertically, we get these, uh, this very stimulus time histogram.
+
+So histogram giving a way that's about the counts. Right.
+
+Uh, of the action potentials uh, of these neurones, um, after, for instance, the onset of a stimulus.
+
+And what we see here is that directly after stimulus onset, there seems to be a, uh, significant, um, I don't know if it's significant.
+
+I haven't tested it, but there's this amount of mass, right, that, uh,
+
+seems to suggest that around already, like, I guess 50 or 100 milliseconds for stimulus onset.
+
+Uh, there's neurone seems to ramp up immediately, starts firing to other neurones,
+
+and that there's actually continuous, um, throughout the epoch as well.
+
+Uh, so this is one way of looking at, hey, how do neurones respond in response to we're really talking individual neurones, right?
+
+In response to particular, uh, visual cues, for instance?
+
+Um, another alternative that you could do with these kind of things is to do tuning curves, which is also interested of interesting.
+
+Uh, this is an alternative analysis method in which we plot the neural response against a particular stimulus dimension.
+
+For instance, we, uh, we manipulate the orient, the orientation of a line.
+
+Right. And we, um, then plot the responsiveness of a given neurone against those different orientations.
+
+And if you know a little bit about how the visual cortex works, which is basically this progressive, um.
+
+Basically just progression of feature detectors, right?
+
+Where at one point you start identifying colours, then start identifying lines on top of stuff,
+
+etc. then you can actually sort of say, okay, look, this is a neurone that seems to be sensitive to the,
+
+uh, orientation of a line, whereas one other neurone seems to be sensitive to whether a line is connected or not, or whether there's an angle in it.
+
+Uh, and so you can plot these things against those stimulus properties to get a feel for what the neural sensitivity of those particular neurones is.
+
+Uh, damn, this is one we've seen before already. So this is electroencephalography, which is something we can do, uh, in humans.
+
+And this is actually a very mainstream method, um, because it's relatively cheap.
+
+Um. So we have one TSB, as many of them actually.
+
+Um, we've got one in the brain and behavioural lab in, uh, my lab.
+
+So I hope to see you all in my lab at the semester Kick-Off on Friday evening.
+
+Um, so what we do is the idea is that, okay, we have this, this, this depolarisation of hyper polarisation of neurones.
+
+This obviously is, is a very, um, um.
+
+How to go weak current. Sorry I couldn't come up with the word. We're weak.
+
+It's a very weak current. But if enough neurones are active simultaneously and they're oriented in the same directionality,
+
+then this current start to summit and we get what we call an equivalent current dipole.
+
+So critically these are not the action potentials because the action potentials often cancel each other out because they're never well timed.
+
+Uh this is the postsynaptic potentials. So this is the uh the depolarisation and hyper polarisation of neurones after neurotransmitters bind to it.
+
+And what we can pick up from the scalp is down these voltage fluctuations over time in the order of Microvolts.
+
+Um, so, uh, this is, for instance, interesting because we could look at these things in terms of identifying if somebody is in a state of,
+
+uh, restlessness or whether somebody is having an epileptic seizure, for instance.
+
+So to use this in sleep research, for instance, um, we can also take this, this sort of time domain signal and, uh, apply a V.A. transform to it.
+
+And then we get a frequency domain signal and we get basically.
+
+So the idea of this,
+
+this free transform is that we can decompose any time domain signal into a set of sine waves with a given frequency and a given power.
+
+Uh, and we can, for instance, identify the power in, uh, different frequency bands, which is smaller than four hertz, 4 to 8Hz, 8 to 12Hz, etc.
+
+Um, like I think I said last week that they use this traditionally, for instance, as well.
+
+Uh, um, they use this for filtering such that you could, uh, filter out the 50 50Hz, the electromagnetic noise that,
+
+uh, televisions gave back in the day because we had these big monitors, right, with a big back behind it.
+
+So these CRT monitors, and they gave off this, uh, 50Hz bus, and we needed to filter that out.
+
+But nowadays, we're all using these guys, and it's all, uh, good again.
+
+Uh, we can always convert back between the two. And there's even extensions nowadays that do it.
+
+So this is just converting the stationary signal of four seconds into a frequency profile.
+
+But you can also do it over time such that you actually show how the frequency decomposition changes,
+
+uh, as neural activity changes as a function of time. So.
+
+Just slightly deeper. Okay. So this and this is exactly how ally and in those flipped classrooms to be as well.
+
+There are some repetition of what I am talking about and what Sylvia is talking about.
+
+And then there will be some deepening out of the material as well, uh, by you.
+
+So if you feel like you're just repeating what Sylvia and I told you, you're not doing a good job.
+
+Right? So there is always, uh, additional information in the book.
+
+So, for instance, I just showed you the EEG part, which I've shown you last week.
+
+Right now, I have a slide that actually deepens out the neural basis of EEG.
+
+So like I said before, EEG does not measure, uh, action potentials.
+
+And the reason for this is that those axonal terminals are often not fully aligned.
+
+And you've got basically the reinforcement of, uh,
+
+the electrical signal at those nodes of Ranvier where you've got an influx and outflow of, uh, electrical signal.
+
+And, uh, if those things are not perfectly in sync,
+
+they actually cancel each other out for two neurones, so you don't get this equivalent current dipole.
+
+Um. So what we do, uh, measure is, um, what is sometimes called dendritic field potentials or local field potentials or postsynaptic potentials,
+
+however you want to look at it, I believe technically we call them local field potentials, and they include postsynaptic potentials.
+
+I think whenever I talk about it, I always just say postsynaptic potentials in the sense that what we measure is the depolarisation
+
+and hyper polarisation of neurones after neurotransmitters have bound to dendritic spines.
+
+And the idea is that they need to basically be oriented, uh, perpendicular to the cortical service.
+
+And there needs to be enough of those guys. And if this happens, then the, uh,
+
+signals some H and the signal become strong enough to actually be measurement measurable from the scalp on a micro fault basis,
+
+which is, if you think about it, that's just insane, right? We're talking one millionth of a fold that we pick up using these electrodes.
+
+Um, and okay, so like with always right.
+
+I think as we will see with AFM writers, a lot of discussion still about what it exactly is that we're measuring.
+
+Uh, also like we always talk about negative going voltage fluctuations, positive going voltage fluctuations.
+
+Turns out we really don't quite understand yet why that happens.
+
+And I believe that at one point a couple of years ago, there was this paper that was like, if you know,
+
+14 of 19 unknowns, then you can make a prediction about whether it shows up as positive or negative on the scalp.
+
+Um, but this idea of that we're measuring these postsynaptic potentials is at least supported by intracranial, uh, in three new recordings.
+
+I will fix that later. Every once in a while, I spot a still a spot a typo in this intracranial recordings in animals and, um.
+
+And as a matter of fact. Right. So given that these are the, the processes that, um, that give to almost the decisions, right,
+
+like the decisions to fire and the decisions to act, to fade other neural networks into other neurones.
+
+Uh, there's also been this, um, this shift of interest from looking at just the action potentials to this more
+
+slower than that dendritic field fluctuations or local field potentials.
+
+One very important thing, though, and I want to I want to really hammer this down as the problem, uh, called the inverse problem.
+
+Okay. So given if we know where in the brain.
+
+So right where in the brain the generators of an EEG signal are.
+
+We can, uh, perfectly calculate the forward solution that shows us what the scalp distribution will be over the scalp.
+
+Okay. But typically we don't. And we only have the scalp distribution of the scalp.
+
+Right. With scalp distribution I mean that for every electrode we get a voltage at the particular time slice.
+
+Now, um, and we can actually we can actually, uh, visualise that as these voltage fluctuations maps over the scalp.
+
+So, uh, we just plot for every electrode, whether they're more negative or more positive going,
+
+and we get these distributions of activity over the scalp.
+
+The problem, though, is that if we have.
+
+So it's just a it's a physical reality that if we have, um, a distribution of the scalp recorded, um, electrical activity over the scalp,
+
+that it could be an infinite number of possible generator constellations that could have produced that exact same forward solution.
+
+Right. So basically meaning that whenever you observe the a pattern of activity on the scalp, you can never tell where the signal is coming from.
+
+Now I really want to hammer you. Hammer this down because like I have been in discussions with senior colleagues.
+
+Yeah, that that one to push me to write in a paper and say, yeah.
+
+But given that it's more frontally observed, is actually consistent with your hypothesis.
+
+And then I ride back. Okay, but you basically want me to ignore the rules of physics, right?
+
+So given as more frontally observe doesn't mean that it can't be coming out of the back of my head.
+
+You just don't know. Okay. And so there are there are methods that are called source localisation where they try to be smart and they go like, okay,
+
+we know approximately how the cortex is folded, what the thickness of the scalp is, etc., etc. that's all tradition to have in math.
+
+And let's try to sort of put physical restraints on, trying to pinpoint where the signal is coming from.
+
+Yes. Cool stuff. Doesn't mitigate the problem.
+
+Okay, so be very careful. Uh, and this is a this is like I.
+
+You don't want to know how often I really talk to to senior colleagues saying the inverse problem is real.
+
+Period. End of discussion. It's not a it's not a joke.
+
+It's a physical reality. Right. So e.g. very cool.
+
+We get millisecond uh, temporal resolution.
+
+So we know exactly what goes on at the, at the millisecond basis.
+
+Right. But we have no clue where it's coming from. Um, okay.
+
+That we, uh, talked about event related potentials.
+
+So these typical waveforms are not that interested if interesting per se, if we're looking at studying cognitive tasks.
+
+So what if we, uh, want to actually isolate the activity to say, uh, a given word in a sentence or like an oddball,
+
+say, I throw up a blue ball ten times in a row and I suddenly throw in a red ball.
+
+How does the activity of the red ball relate to the activity of the blue balls?
+
+So what we can actually do is lock the activity to the onset of a stimulus, which could be the onset of those balls,
+
+could be a word in a sentence, could be anything that you're interested in, like visual cue, visual stimulus.
+
+Um, and we then um, uh, so and then we could basically isolate, right.
+
+The, uh, the activity induced by that particular stimulus.
+
+The idea is, though, that the signal to noise ratio is way too low for that.
+
+So you're not just picking up stimulus related activity, you're also picking up the fact that,
+
+uh, you are thinking about whether you will have an extra large coffee after this thing or not,
+
+uh, whether you, uh, what else you need to do today, where you will go to sports or not, etc., etc.
+
+Uh, and so the idea is that that random activity is actually uncorrelated to the stimuli, whereas the stimulus activity is correlated to the stimuli.
+
+So that if we average over many trials, we actually cancel out the non stimulus related activity.
+
+And we isolate the event related potentials.
+
+Right potentials meaning that it's about currents in the brain and it's event related.
+
+Given that it's uh related to the stimulus of interest.
+
+And now we get these beautiful waveforms, uh,
+
+which would typically make sure that we baseline correct them in the zero to like my -100 to -200, uh, millisecond range.
+
+And then we get these negative and positive peaks,
+
+which are very cryptically called like NP 180 or P one for big, one positive, one uh, and one negative big one.
+
+Uh, there's more uh, there's a whole variety and spectrum of labels.
+
+But the general gist is that if these things occur systematically, meaning they reoccur in, um, different, um, different experiments and that they,
+
+uh, behave systematically, almost like, uh, in the sense of those tuning curves, right, where a neurone fires to a particular orientation of a line.
+
+Here we, for instance, have, um, uh, components tracking the predictability of a given visual cue.
+
+Uh, then we think that these components are actually indicative of underlying cognitive processes that are,
+
+um, carrying out specific computational operations,
+
+for instance, context updating or um, uh, visual cue integration, etc., depending on the theory you adhere to and like.
+
+My work, for instance, has been um. Uh, interpreting these kind of ERP waveforms in relation to language comprehension.
+
+Okay. That's already showed. So what we can then do is we can, for instance, bend those event related potentials over, um, over time.
+
+And um, look at the difference between like the blue ball and the red ball or uh, congruent sentences in congruent sentence.
+
+And then you get these what are called uh topographical maps or topo maps for short showing you where over the scalp,
+
+uh, the, uh, negativities and positivity occur again.
+
+Could come from anywhere. We don't know. And this is just this is just.
+
+This is just a reality of the methodology, okay?
+
+Okay, so like I said, what you can do as soon as you, uh, have any sort of almost always when you have an electrical based,
+
+uh, neuroimaging method, there will be people, uh, coming up with the magnetic, uh, counterpart.
+
+Uh, so the idea is that, again, that the electrical currents create these circular magnetic fields.
+
+So we have an electrical current over here, and we get this circular magnetic field.
+
+I cannot read that from here. I will look at that after the, the of course.
+
+Um, and you've got these perpendicular magnetic fields that run, uh, circular to it.
+
+And the idea is that these fields come out of the, uh, head at one side and they, uh, enter the head that the other,
+
+and that we can measure these fields getting in and out of the hat and the strength of these particular fields.
+
+And these can then be positive or negative. And, um, the idea is that, that then we, we sort of get a different angle on these, uh,
+
+local field potentials or post-synaptic potentials, namely through the magnetic fields themselves.
+
+That should give us some kind of distribution of activity, um, and, um, in a way, some estimate of the underlying source as the,
+
+uh, the idea is that the magnetic fields don't get distorted by, um, uh, the neural tissue and the scalp itself.
+
+However, I really want to raise caution again that the inverse problem equally applies to MG as well.
+
+So if you, uh. If you have an EEG signal basically that, uh, smears out over the scalp,
+
+then you have an and you have an Meg signal that doesn't show the same smearing effect.
+
+Then it could still be that given an observed, uh, outside of the scalp distribution of Meg activity,
+
+there is an infinite number of generator locations. Right? It's just not affected by the smearing.
+
+So be, um, careful. The idea is that we then have, uh, r fs rather than ERP, so we can apply all the same logic to it.
+
+Uh, and we have found related fields rather than event related potentials because we're no longer measuring the electrical potentials,
+
+but we're measuring the electrical fields. And, uh, a, uh, MSG system, very expensive egg system, peanuts compared to MSG.
+
+And in our ag system is already 40 K. So if I call that peanuts then you can imagine that image MSG really is expensive.
+
+Okay. Then we move on to structural imaging. So.
+
+You might have heard from. This goes by a number of different names.
+
+So you might have heard of computerised tomography uh, or X-ray, uh, run scan scans.
+
+Uh, they basically are uh um, uh, they get a radio density information,
+
+so they get a density information of neural tissue, and then we can generate these slices and,
+
+uh, we can visualise basically just the structure of, uh, the, uh, neural tissue underlying the scalp that gives these kind of images.
+
+And obviously, you can see that this could be useful to see if there are something broken or whether
+
+there's a growth or a tumour or whether it's people had a stroke and there's like,
+
+uh, uh, a substantial amount of blood or something like that, but it's not used that much anymore.
+
+Uh, I think I had once one, once just to check something in my nose.
+
+I think they use it for that still. And probably it's cheaper than running an MRI.
+
+Uh, but for neuroimaging stuff and brain research, uh, uh, computerised tomography is largely superseded by magnetic resonance imaging.
+
+Uh, but it's still faster and cheaper than MRI. Um, and it can be used when MRI cannot because MRI uses massive magnets.
+
+And so whenever you have a piercing or you have some other metal contraptions in your head, you cannot take an MRI.
+
+Uh, I won't give examples, but it was a very famous recent example of somebody that had something magnetic inside their body.
+
+And it doesn't go well. Um, so MRI so this is this, this one you should really study.
+
+This is one of the very many used methods that are MRI and functional MRI.
+
+So again this is for structural imaging. You can immediately see if you compare those two images.
+
+Right. This is a CT scan. This is an MRI scan.
+
+And it looks beautiful. Um so this is uh I recently had to write this all down, actually in a manuscript of mine.
+
+Uh, and I had Silvie go over my text to get make sure that I had had it.
+
+All right. Uh, and it didn't make any rookie mistake. So Silvia really is the MRI expert of our to, uh.
+
+But the idea is that. Okay, our bodies are made up of water, and, uh, we've got, uh,
+
+basically the protons and hydrogen atoms that we can align with the magnetic field of an MRI scanner.
+
+So an MRI scanner really is a massive magnet. Um, and it's also a massive magnet that, uh, it's it's got very interesting properties.
+
+So please look up MRI, uh, accidents or something like that on the YouTube is massive fun.
+
+Uh, like I gave uh, I was at the, um, tour through the donors once where they showed an MRI scanner and it put a metal plate in front of the scanner,
+
+and then they smash it down, and I said, let's go for lunch. And you see the metal plate like a massive metal plate, right.
+
+That would normally crush your, uh, those. If it falls on your feet, it will just fall very, very slowly.
+
+And we'll just take 45 minutes because it's continuously being pulled back my to magnets.
+
+But then there's always the lab intern that doesn't pay attention and that, uh,
+
+that basically leaves the door open while the desk chair to the control room is still closed,
+
+and the desk chair will first start rolling very slowly, slightly faster, until it just sticks to them through the magnets.
+
+And now you see there's these images where people have like, really like massive sticks attached to it,
+
+and they're pulling with 3 or 4 people, uh, to get that desk chair, uh, out again.
+
+So this is, uh, so back in the day, we used to have 3 or 4 Tesla, uh, magnets nowadays that go by, uh, the seventh Tesla or something like that.
+
+And it's like, um, a million for Tesla, I believe.
+
+Plus you need a control centre, plus you need more physicists.
+
+It's expensive. Um, okay. So and the idea is that, okay, we have these, right?
+
+We have got these hydrogen atoms and we can actually align them so that these
+
+things have a spin and we can align them with the magnetic field scanner.
+
+Basically, much like the needle of a compass aligns with the magnetic field of the Earth.
+
+And then, uh, what we can do is actually screw with that magnetic field or screw with that alignment of those, um, of those protons.
+
+So what we do is, um, we exploit this idea that if protons are placed in a strong magnetic field,
+
+then they actually absorb energy when this energy is delivered at a particular resonant frequency.
+
+So this is the resonance part of magnetic resonance imaging.
+
+Uh, so what we do is we basically have an excitation face in which the MRI scanner
+
+emits energy in the form of radio waves at this resonant frequency of protons,
+
+uh, which leads them to actually, uh, slightly reorient from that alignment with the magnetic field of the I believe they're,
+
+uh, uh, aligned parallel to the magnetic field of the MRI scanner.
+
+But by basically, uh, having them absorb this energy that's being, uh, delivered through these radio frequency pulses, they realign.
+
+And when this radio wave energy is then turned off, after a couple of milliseconds,
+
+they release this absorbed energy and realign with the magnetic field again.
+
+And it's the release of this energy that produces this energy signal,
+
+which we call the magnetic resonance signal that we can actually measure using, uh, electromagnetic detectors or magnetic detectors.
+
+And by doing this and systematically firing this along x, y, and z axis, we can come up with these images like that.
+
+This is just one, um. Uh, extension of this general technique.
+
+So rather than just doing structural imaging, um, uh, um, uh, basically the, the neural, um,
+
+uh, tissue, we can also get at the white matter or the connectivity between, uh, neurones.
+
+So this is called diffusion tensor imaging. And it allows, allows effectively for track topography.
+
+So there are any music fans and uh, in the audience.
+
+No. There is this album called The Second Law, I believe, with, uh, little colourful cover.
+
+That's actually a DTI image, as you can see up here, because it looks virtually identical.
+
+Um, and the idea is that, um, in brief, that what DTI does is look at the diffusive properties of water and it,
+
+um, exploits it, this idea that fibre tracks are in case with myelin,
+
+which is this fatty substance right along the axon, uh, axons basically, which are,
+
+uh, hydrophobic, meaning that water diffuses more along than across them.
+
+Okay. And, uh, so this means that what, uh, um, uh, white matter, but basically means that white matter shows what's called, uh.
+
+I'd never know how to pronounce this. I believe it's an isotropy.
+
+So it's a preferred diffusion direction. And the other, uh, regions don't.
+
+Okay. So it's just white matter that shows there's this preferred diffusion direction of water.
+
+And they figured out how you can actually use the MRI signal to measure this.
+
+Again, it just like brain explosion that people figure this stuff out.
+
+Uh, and I use this um, quantity called fractional uh, and isotropy that can provide important information about the tissue in a foxhole.
+
+So it can actually inform you about, uh, a certain certainty of whether we're looking at white matter or not.
+
+Uh, and then they, uh, they figured out how they can use this fractionally, uh, fractional, uh, uh, and isotropy value to do track tography,
+
+which basically means that we get the formation of these beautiful, uh,
+
+maps that show you the connectivity between brain regions following the, uh, the white matter tract.
+
+Okay. Then moving on to more functional imaging.
+
+So this one is called positron emission tomography is also an older method or Pet scans.
+
+You might have heard of that term before. Um, so this is this one is kind of involved because it, uh, needs uh, it calls for the need of a reagent.
+
+So an unstable positron emitting isotope is injected in your bloodstream.
+
+And the idea is that this isotope travels to, uh, metabolically active areas.
+
+Right. So matter metabolically active areas is basically blood flow in the sense that, uh, um,
+
+blood streams to cortical regions that have been active to replenish glucose, glucose and oxygen.
+
+We will see that again in functional magnetic resonance imaging, where it's just replenishing of energy that, um, uh, drives the signal.
+
+This unstable positron isotope decays, which leads to the emission of a positron.
+
+Now, this positron travels, uh, several, uh millimetres until it reaches its arch enemy,
+
+namely the electron, which there are basically of, uh, opposite charges.
+
+And this down again leads to a gamma ray emission. Then that we can register using two detectors that are exactly 180 degrees apart.
+
+So we've got those detectors in the B panel. And you see this electron positron clashing which is the result of this isotope decaying.
+
+Then it produces uh gamma ray. Right. That's basically perpendicular to those things that we can then detect.
+
+And we can superimpose these things on structural images to get at functional activity maps.
+
+Again, you can clearly see that if you look at this image and you compare that if you've ever seen an MRI image,
+
+right, this looks like, uh, 90s graphics, right?
+
+These graphics and we can actually do a lot better. And it's it's pretty um.
+
+It's a poor man's functional image. All right, so we have, uh, the need for reagents.
+
+Uh, we use radioactivity. We've got four spatial and four temporal resolution.
+
+So enter a functional magnetic resonance imaging. Uh, so is.
+
+So we just went over MRI and our MRI and DTI, for that matter, I'd use this Mr. signal to,
+
+uh, um, um, to basically use the spin of these protons to, um.
+
+Uh, throw them off their span and measure. Right?
+
+Um, yeah. Absorption of energy.
+
+Now, the idea behind the functional extension of MRI is that we can actually measure the MRI signal that is being produced by blood flow as well.
+
+So, um, as soon as a brain area has been active, it needs energy.
+
+Energy is delivered in terms of glucose and, uh, oxygen.
+
+The best question I had during my neuroscience lecture at elementary school was whether this was, uh, how do you call it manufactured glucose or not?
+
+So I think that we're really looking at, like, a bag of sugar that you can build enough that you can buy in,
+
+uh, the supermarket, uh, or processed glucose, I think they call it.
+
+But it's funny. Funny question. Uh, and that, um.
+
+Right. So just blood flow is rich in oxygen because it needs to replenish oxygen and glucose at particular regions that have been active.
+
+And the critical inside of functional magnetic resonance imaging is that the MRI signals actually differ for oxygen rich haemoglobin.
+
+So uh, versus uh, so this is red blood cells right.
+
+Uh, versus uh oxygen depleted haemoglobin.
+
+And this is the basis for what is sometimes called the uh, volt signal or blood oxygen level dependent.
+
+Uh, and so the MRI signal actually may just measure changes to due to a reduction in the oxygen globin,
+
+which is the if the result of the oxygen influx in active areas okay.
+
+And this has both that are spatial uh, so millimetres compared to centimetres and temporal resolution.
+
+So the bolt response.
+
+So it's still not as fast as ECG but it falls and rises over say 6 to 6 to ten milliseconds of uh uh uh milliseconds six to 10s after basically,
+
+uh, activity has been undergone or basically has been taking place in particular brain regions.
+
+So it's still a lot better than fat, right, where we have to wait for this isotope.
+
+Um, uh, and MRI, MRI has basically been, uh, has emerged as the dominant technology for imaging,
+
+uh, basically normal and abnormal, uh, uh, patients today.
+
+So, uh, we don't have one here at a hospital. Hospital.
+
+And here there has been talk of getting one here just before I came, but I don't know where that plan broke down.
+
+Um. Yeah, I've.
+
+Universities can handle that sometimes.
+
+Uh, you know, this is really like, this gets these beautiful images that like, you know, you see the slicing as well, right?
+
+So the top is, um, uh, one of the slices straight through the brain.
+
+Um, see, I also forget the labels. That's the, uh, what's the one?
+
+Sagittal. Uh, it's the, uh, the, uh.
+
+Axial slice through the brain. Uh, and you can then do it on like a folded brain.
+
+You can put the activity on like inflated brains, but you can also tease the entire brain apart.
+
+And you get these maps that flap the brain open into the two atmospheres, which I can never interpret.
+
+I don't know about you, but I have a really hard time locating stuff on those maps.
+
+Uh, but maybe that's just my poor geography, I don't know, um.
+
+And this but but but the critical thing for now, I think to take home from this is that.
+
+So this is this gives you a lot of information about where stuff happens.
+
+Right? Because we get this very beautiful maps,
+
+but it's a very like indirect signal in a way because it's happening six to 10s after a brain region has been active.
+
+So if you look at what's going on in EEG, where we get the millisecond basis,
+
+we got, we got, uh, an insight in where two stimuli diverge, for instance,
+
+and we get multiple of those peaks that if we, uh, recall what we just discussed,
+
+are systematic indications of computational processes and stuff like that.
+
+Then on one point, we got a couple of these things lighting up, uh, after 6 to 10,000,000 seconds after the fact.
+
+Right. So and now we need to puzzle back how all these things relate.
+
+So some brain regions light up. Basically, uh, ages after stuff happens.
+
+The other stuff, we know that it was happening on a millisecond basis, but we don't know where it happens.
+
+So this is the, uh, this is what we're faced with. Okay.
+
+Just some afterthoughts to round up. I've got eight more minutes. So this is about experimental designs.
+
+Um, so given a. Uh positron emission tomography is relatively short of a four in terms of temporal resolution.
+
+There's an SSA, uh, that's a, uh, block design.
+
+So a block design really is where we have condition A and B, and we repeat condition a number of times.
+
+For instance, for one minute then we have some rest and we um repeat condition B.
+
+We could also do that uh, in MRI.
+
+Right. So enough MRI. We could also have a block design where we have like 30s of condition A I'd repeat a particular stimulus.
+
+Uh, we have some rest. Condition B, condition A, condition B, some rest condition B, and uh,
+
+what we then do is accumulate the activity for those specific blocks of activity.
+
+And then we compare those blocks statistically. So for instance we've got the overall response to uh that response to some stimulus.
+
+A we've got the overall response to stimulus B and we're interested in whether the overall response to stimulus A is larger or weaker than B.
+
+And like I said, the temporal resolution of bat nets at the nets.
+
+I say it's, uh, that's it takes a block design, whereas FMI does not.
+
+So, uh, we can actually do event related designs and ephemera, just like we can do event related designs in EGF.
+
+And the idea is that, um, we time lock the activity again to different responses.
+
+So, for instance, we could have a design in which we repeat stimulus a couple of times,
+
+then we have B, then we have A, then we have a couple of B's again.
+
+And we isolate the responses by time locking.
+
+Right. The bold responses or the the fMRI signal to uh, each of those stimuli and averaging like we do with earpiece,
+
+uh, we get the event related response effectively.
+
+And those things look like these little. All right. So like I said, they rise and fall over six to 10s.
+
+And you see that here as well. And the idea is that you so basically the temporal axis is here.
+
+Uh, you see that for is the response to a is larger than a response to be, uh,
+
+which you can then use, um, to infer something about the underlying processes.
+
+Okay. Um. I think this almost, almost final slide.
+
+Uh. Uh, just some further things you can do with that fMRI.
+
+And these are really a little bit of afterthoughts, but do pay attention and do read the book.
+
+So one, um, not relatively novel technique is, uh, multi voxel or multivariate better in analysis, MVA, um,
+
+where you use uh, better uh classification to look at voxels that consistently respond to a particular stimulus type.
+
+Now say we have, um, uh, we've got a design in which we got happy faces and angry faces and we've got the MRI activity,
+
+two happy faces and the MRI activity. Two. Uh, what is that?
+
+Angry faces. Yeah. Uh, what we could do is train a classifier.
+
+Uh, Francis, a logistic regressor, right?
+
+That tries to predict whether the activity pattern in the brain is in response to a, um, happy or angry face.
+
+And the idea is that if there's anything systematic in the foxholes that's not foxholes
+
+being little follow on pixels of activity that we can carve the entire brain up in,
+
+then, uh, the classifier could pick up and line up on that.
+
+And if we then, uh, basically analyse the weights or the parameters of such a model,
+
+we could learn something about which voxels are responsible for separating happy from angry faces.
+
+Um, repetition suppression is another thing that we can do with that fMRI, which is something we already looked at last week.
+
+Right. Uh, exploit the fact that certain brain regions respond, uh, less intense when, um, we repeat a particular stimulus.
+
+We can do functional connectivity analysis using fMRI.
+
+So structural connectivity is really modelling those.
+
+Um, uh, white matter pathways using for instance, diffusion tensor imaging.
+
+Functional connectivity will look at correlational activity between regions.
+
+So if two regions are significantly more active than other regions there seems to be some.
+
+There seems to be the suggestion that those regions are functionally connected to each other.
+
+Psycho physiological interaction analysis is basically relating, um, uh,
+
+the activity in one region, uh, to another as a function of the task being performed.
+
+Then there is stuff like structural equation modelling, uh, that incorporates anatomical,
+
+anatomical, uh, connectivity and tries to compare models, uh, for fit, for instance,
+
+or dynamical causal modelling, where you, uh,
+
+use the functional connections between regions and evaluate how connectivity changes the result of experimental manipulations.
+
+So there's all kinds of stuff you can do on these very high dimensional data.
+
+Um, and a lot of these things are being done as bachelor thesis projects.
+
+Uh, uh, in your third year, where you take one of those data sets and you can actually look at those things,
+
+uh, especially if you end up, uh, in, in, in my group.
+
+Okay, I'm going to skip over this stuff in the interest of time.
+
+So this is again just to repeat that like this seems to be this trade off between what we can do on humans and animals.
+
+There seems to be this trade off between, uh, spatial and temporal resolution as well.
+
+Right. And the most famous being e.g.
+
+Very high temporal resolution, telling us immediately what is happening.
+
+To a certain degree and when it is happening, but not where.
+
+fMRI very great spatial resolution, but quite poor at directly telling us when stuff happens.
+
+Um. And so, um.
+
+One thing. So let's start with the bottom thing. Right.
+
+So one uh approach that people seek to, to to pursue then is what is sometimes called multi methodological approaches,
+
+where we try to combine insights from high temporal with high uh, spatial resolution methods.
+
+Uh, I, for instance, have one paper in which we really try to do that, where we say, okay,
+
+look, we can directly compare these things for like the uh, organisation of language.
+
+Um, but, uh, what we can do is try to use sort of alignment strategy where we draw the conclusions that we can draw from the Asian studies.
+
+We draw the conclusions that we can draw from EEG, and we draw all the conclusions that we can draw from hemodynamic based first
+
+studies and try to paint a picture that is as consistent as possible with,
+
+uh, uh, the accident data. Um, and then one final afterthought.
+
+So I think the book near the end of this chapter goes a little bit of a rampant on like, different, uh, topics.
+
+But I think this is another important one. It's about, uh, associations and double associations.
+
+So if you have an associations, friends, or you have an impairment in task but not be and you have damage in a particular region,
+
+uh, one for instance, then um, this seems to suggest that region one might be correlated to performing, uh, task, uh, a right.
+
+Uh, given that, uh, there seems to be this, this, this performance relationship.
+

@@ -1,0 +1,1349 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+All right. Um. Good to see you. It's it's, uh, very empty here.
+
+Actually, if you look around, I have the suspicion that my knowledge that I'm about to give you about emotion and social cognition,
+
+it's, uh, losing it over the sun outside or something. That is my suspicion.
+
+But it's good that some people, uh, manage to, like, take a break from the sun to come to the lecture.
+
+Um, yeah. So today's topic, uh, that's the first, uh, lecture in this module is on emotion and social cognition.
+
+And more specifically, uh, um, uh, starting with the classification of emotion.
+
+And uh, but most importantly, uh, connecting that obviously to the brain, given the course, uh, that we're in, uh,
+
+how that also interacts with other cognitive functions, uh, because emotion has a really strong influence on all the functions.
+
+You can think about basic things like perception and attention, but also, uh, memory and decision making and such.
+
+And I'll touch upon, uh, those, uh, emotion regulation that is obviously just even anecdotally,
+
+something that everyone, uh, relates to as an important aspect of your life.
+
+But how that, uh, is like scientifically studied and defined, um,
+
+and then relating that and to a lesser extent also to the social cognition, uh, chapter.
+
+So the most of the chapter will be about emotion.
+
+Most of the lecture will be about the emotion chapter, but also about on social cognition, and then in particular on, um, understanding others.
+
+So things like theory of mind and perspective taking on such.
+
+Um, I'll briefly touch upon the cutting edge paper that you can also find on, uh, campus, uh, as, uh, reading material.
+
+Uh, just give you, like, the bullet points of what the paper is about,
+
+and then you can read yourself further details about that if you haven't done so yet.
+
+Uh, just as a heads up, uh, obviously everyone is aware of that, but next week is,
+
+again, the flipped classroom, uh, in-depth discussion about these two chapters.
+
+Uh, and a bunch of you have signed up for those, uh, flipped classroom sessions.
+
+So if you can't remember for sure what topic you had, again, double check if you might be in this chapter to make sure you you come prepared.
+
+Okay, so let's get started. So, as you might know by, uh, from me by now, from last year's course as well as this year's,
+
+I like to start with at least explicitly defining what we are talking about in the scientific sense so that everyone knows,
+
+um, more explicitly, what it is that the topic is, um, and uh,
+
+doesn't only rely on their own like intuitive, uh, description or definition of something.
+
+And in the context of emotion, you can think about sort of three different buckets, if you will, that are important in the context of what emotion is.
+
+What that was. Hopefully it was once um,
+
+and one is if it is the physiological response that comes with emotion and that's different across whether it's fear or happiness,
+
+etc. but you probably all realise and know that like fear comes with sweating, for example.
+
+And in that case, emotions all have a certain physiological response,
+
+but also a certain behaviour like an action tendency that you might have because of it with like intense fear is an obvious one.
+
+Often either you fight whatever is scaring you, or you run away or something.
+
+That's a really clear action fantasy, but it's emotions that are more complex that might be more nuanced,
+
+but it's usually always there that it leads you to think like, I need to change something or act in a certain way.
+
+Um, and as a third thing, your subjective feeling that that comes with that and these three things together,
+
+um, is how you then decide to react to an event, for example, depending on, uh, why that makes you feel.
+
+Um. And in terms of classifying emotions, uh, and the literature, uh, the rough split that is being uh,
+
+described always is that is the difference between two categories basic and complex emotions.
+
+Uh, basic meaning the ones that are like fear and happiness, for example.
+
+And I'll give more examples in a moment, um, that are sort of innate and not, uh, really influenced by a whole lot of things around you,
+
+even across species and not just across cultures, within the species of human beings,
+
+but also across other species that are usually expressed in a certain way.
+
+So the easiest, uh, to recognise, uh, in that sense, with complex emotions, um, being more things like pride,
+
+for example, that have less, that are more nuanced or more complex and less of a really basic,
+
+uh, um, standard, uh, way of, of, uh, feeling and um, uh, expressing it, uh,
+
+that's usually much more influenced by whatever your social or cultural, uh, setting was in which you grew up, for example.
+
+Uh, and uh, is much less known of how that relates to other species, because it translates much less good across species than the basic emotions.
+
+Um, and the facial recognition of it is obviously still possible because, um, uh, we can all, uh, oftentimes recognise it in each other's faces,
+
+but it is much harder to recognise because it has a much less strictly defined set of facial features that come with it.
+
+Um, and these basic emotions. Uh, yeah.
+
+There is actually some discussion of of which exactly belong to basic emotions.
+
+Um, but all of, uh, all of them, uh, sort of take at least into account the six.
+
+So anger, sadness, happiness, fear, disgust and surprise.
+
+And those are all basic emotions that, uh, are innate already in babies.
+
+And, uh, you might not yet be aware or be able to think for yourself of, uh, that is exactly what I feel.
+
+But the expression of it is already, um, and that's characteristic way that it also is, uh, later in life.
+
+Um. And there are various theories mentioned in your book in the context of characterising emotion and,
+
+uh, relating that to a certain space that often times, for obvious reasons, uh,
+
+takes into account both arousal and the valence of a certain situation or of a certain, uh, emotion you experiencing,
+
+um, uh, arousal being the intensity of it, regardless of whether you find it good or bad for yourself.
+
+Uh, and the valence would be where do you find that? And so positive or negative as an emotion.
+
+As such, um, your book describes two models or actually three, but two, uh, main ones that are relatively.
+
+Simple to describe and have been influential in the literature.
+
+Uh, one being, uh, in this graph described here, it's called the vector model.
+
+And it indeed relates um, valence in this case on the x axis, and arousal in this case on the y axis,
+
+and that this defines the relation between those and how you would define or specify each
+
+specific emotion that you might have within that scale would be if you find the valence.
+
+Uh, of the arousal to be, um, on this side of the axis that you don't sort of automatically are in some kind of neutral sense.
+
+In terms of valence, and that's when the intensity ramps up that it becomes more defined in terms of um, valence like positive or negative.
+
+So then you get this sort of, uh, starting from a common place and then this, uh, split in two different parts.
+
+Um, it's kind of different from the, this one, which is the circumflex model.
+
+Um, it's the same in the sense that it again has that arousal and valence axis and which should, uh, characterise each emotion.
+
+Um, but it is different in the sense that it doesn't, um, link them together this strongly.
+
+It doesn't make the assumption like if one is low, that means something automatically always the same for the other.
+
+So things can then be in each one of these four quadrants essentially that you can be low in arousal but still high in valence, for example.
+
+ET cetera. Um, so it's just perhaps a bit more nuanced then, uh, both of them are.
+
+Much less complicated than, uh, the component process theories about defining each emotion.
+
+Um, and that is more based on the logic of, um, let me go back.
+
+So both of these theories, um, uh,
+
+make the underlying assumption that each emotion is sort of a static state that you can pinpoint in a graph like that, and that is then static.
+
+And that way, uh, where there's located, um,
+
+while the component process theories define explicitly that an emotion is sort of fluid constantly and not like a fixed state like that,
+
+and letting go of that assumption means,
+
+uh, that you look at the final emotions in a very different way, um, in how it, uh, uh, is related to,
+
+uh, or interacts with, with a lot of processes at the same time that might influence it.
+
+It's not studied with neuroscience methods much. Uh, probably because it's still difficult to grasp exactly, um,
+
+how that is meant and how you couldn't actually scientifically or empirically test that.
+
+But the logic of it is that, uh, there are appraisal criteria that you could, uh, specify.
+
+There are some examples in that table from your A book chapter,
+
+like pleasantness or novelty or maybe how urgent the goal significance is of an emotion that might then,
+
+for example, be, uh, really high with fear because it's like you have a concrete goal in front of you that you need to act on and compare to,
+
+uh, uh, joy, for example. And then because there are many more categories and just focusing solely on arousal and valence like that,
+
+uh, you can define each emotion a bit more nuanced, I guess, but that also adds a lot of features to it.
+
+Uh, obviously, that make it more complicated to realise.
+
+How emotions then are explicitly defined.
+
+Um, but that, um, the classification.
+
+Uh, I want to spend most of the lecture on, uh, its relation to the brain and to other cognitive functions.
+
+The question. Yeah. Essentially, yes, it is less focus on arousal and valence only, and also less fixed in in a place.
+
+Uh, but that comes a bit hand-in-hand with having a bit more criteria that you could also have,
+
+like an additional criteria that pops up a notice and suddenly influences that influencing the position of that emotion,
+
+because you're broadening your view a bit. But a good question. Any other questions about a clarification before I move on to the brain?
+
+And I'll throw some brain regions at you so you can hopefully remember dose.
+
+No. Okay. Uh, yeah.
+
+Emotions mediated in the brain. There's quite a lot of neuroscience about that.
+
+It's a lot focussed on fear actually.
+
+Uh, that is I think, just not because that's necessarily more important, but because that was easiest to study, uh,
+
+back in the day with animal models, which was much more prominent, uh, compared to now, um, because you have such strong,
+
+like, output that is easy to measure, uh,
+
+in the context of fear as an emotion that a lot of research and animal research was focusing in terms of emotion on fear,
+
+and that sort of translated to human work as well. Um, it's it focussed a lot on cortical regions that are closer to the surface.
+
+Back in the 70s and 80s. Um, that was not a conscious choice.
+
+I think of, of, uh, researchers that that would be more important.
+
+But because the methods weren't quite as advanced as now yet to reach deeper levels of the brain easily, or for many universities at least.
+
+So they were sort of constrained in that way by the method to then focus on the cortex, which is important, and emotion, by the way.
+
+But the inner brain regions, uh, are also important,
+
+and the knowledge on that is sort of lagging behind a little on the knowledge of the, of the cortex in that sense.
+
+Um. So I wanted to first focus on what we call vertical integration models.
+
+Uh, and the vertical aspect of that is that it is not actually focussed only as a model on the brain regions themselves,
+
+but also on how that interacts with the entire nervous system.
+
+That actually looks back to these three circles that were badly overlapping in the beginning, um,
+
+which that the entire nervous system is like expressing also these outputs of these emotions,
+
+uh, strongly that, uh, I don't know, maybe, uh, you start shaking when you're nervous or something like that.
+
+Um, so, uh, the integration of how the brain regions are acting together,
+
+but also how that then interacts with a response that you might feel from other,
+
+uh, parts of your nervous system is then sort of taken into account with vertical integration models.
+
+Uh, and I'll give a, uh, example in the context of fear in a moment, in terms of how that looks like such a model.
+
+Um, and that's specifically especially now that we have more advanced imaging for quite some years already.
+
+Then also integrates the more deeper in the brain, what we call limbic, uh, system regions,
+
+and how that relates to the cortical, uh, contribution that was already known for a longer period of time.
+
+Um, okay.
+
+So this figure, uh, which has a lot of boxes and arrows, which always take you probably a moment to realise what it is that you're looking at.
+
+Um, it's an a good example of what would classify as a vertical integration model that's based on mostly fear conditioning studies.
+
+Uh, you know, from earlier courses about fear conditioning, uh, is, of course, um, central to that is, uh, the amygdala and green here.
+
+And those little sub boxes are different subsections of the amygdala that are meant to have slightly different functions.
+
+But all of that, uh, is still amygdala.
+
+Um, and the vertical integration aspect across the nervous system is that it also takes into account the fear output,
+
+which is usually from, um, the interaction or the uh, um,
+
+information flow of what you are doing, the activation of that, uh, various striatal regions that are,
+
+uh, causing, uh, your, uh, nervous system to respond in terms of a certain fear output.
+
+You can think about skin conductance response, for example.
+
+Uh, that is essentially just, uh, um, a fancy way to say that you're measuring if someone is sweating or not,
+
+which people tend to reliably do in stressful situations,
+
+or a startle response that is like a sort of a sudden freeze, uh,
+
+response where you the various sudden where your small movements are, uh, less for just a moment.
+
+Or pupil dilation. Also, actually the size of your pupil is responding really strongly to stress responses.
+
+And that is obviously regulated by your, uh, nervous system.
+
+Um, besides your michaelides, uh, and these trials or regions, there are, um, a lot of other uh, regions consistently involved in and fear, um,
+
+that is mostly centred around the amygdala and how that interacts with the neocortical regions,
+
+uh, various ones of them, especially the, uh, prefrontal cortex.
+
+Um. And the thalamus is what we then call sort of a relay station between those two things, um,
+
+that the input from the amygdala of the activation from the amygdala,
+
+from the neocortical regions is often not only direct but also indirect via the thalamus.
+
+Uh, the hippocampus has its own sort of little island here that is always difficult to interpret, I think, in the context of a figure.
+
+The reason why they do that, I think, is that the hippocampus is strongly involved in specific situations.
+
+Maybe if the context is important and stuff like that. Um, but not so on the actual active, um, expression of the fear in that sense,
+
+but more how it relates to the, the context in which you're in, how it relates to memory, etc.
+
+Um. All right. So fear is, in that sense, not static.
+
+Um, it's, uh, it's known to be, um.
+
+Fluid, and it needs to be able to be flexible, and you need to be able to adapt your for your response given the change of of situation.
+
+Uh, people are actually usually really good at that. Um, you probably all realise that with your flipped classroom.
+
+I mean, you don't present much in larger groups in front of larger groups, so that will cause a sort of an a peak of emotion in the beginning.
+
+For many people, not all. Some people are natural public speakers, but a lot of people are not.
+
+So it might cause like a fear and, uh, emotion peak at the start.
+
+But people then often manage to sort of adapt themselves really quickly.
+
+And that is actually that you're modifying your fear response given the context that is developing.
+
+Maybe you'll get some feedback that you're not going to die in front of this room giving your presentation.
+
+So you shouldn't be quite that fearful. And then you sort of calm down a little bit.
+
+And that is the applied version of what I have in theory on the slide here.
+
+Uh, and that is also necessary to function in your life usually.
+
+It's also a hallmark of a lot of anxiety related disorders, uh, or at least a definition for a clinician to take into account if people, uh,
+
+consistently respond for a very long time, fearful to a stimulus that is meant to be, um, uh, uh, not fearful anymore after that amount of time.
+
+That is what you call emotional bursts of duration.
+
+That is sort of that you maybe get stuck in this fear, even though you are naturally meant to, um, modify this, this response.
+
+Um, and that is then considered a sign of something that isn't quite healthy and that you need to work on,
+
+for example, um, that is taken into account when these things are, uh, diagnosed, um, and fear extinction.
+
+Uh, and, uh, in terms of neuroscience, what that. In fact means is that you are simply.
+
+If you think back to buffaloes dog from like last course that's yours.
+
+Course with the bell that is being, uh, rang by the researcher that the dog has coupled to getting the food.
+
+Um, so that is a coupling often of a condition, unconditioned stimulus and fear.
+
+Extinction is essentially just break and breaking these two apart so that this, um, uh,
+
+conditioned stimulus is no longer constantly leading to the, uh, response that it was linked to before.
+
+And that depends a lot on the, uh, ventromedial prefrontal cortex.
+
+Um. Uh, so on prefrontal cortex regions.
+
+Which was also mentioned in this vertical integration model here, by the way, because your prefrontal cortex regions are what is,
+
+um, influencing the amygdala to extinct or to modify this fear fear response.
+
+So the amygdala, even though it's actively the one that is responsive, responsible for the intensity of the emotion,
+
+in the sense that high amygdala activity usually comes with someone who feels strongly and, uh, fearful, for example.
+
+Uh, it cannot by itself cause extinction.
+
+For that, it needs this loop via cortical regions in order to, uh, cause fear extinction.
+
+And then that is fear. Extinction in the general sense, which is the buffalo stock is a good example of that.
+
+Um, but you can also think of contextual fear conditioning where people get, uh, conditioned to fear a certain place.
+
+And then, uh, it is much more strongly also involving, uh, the hippocampus.
+
+Okay, that was on. Oh, I was just going to ask all the questions.
+
+Yeah. Uh, unconditioned.
+
+Unconditioned stimulus. Yeah. I'm sorry. Any other questions before I move on to, um, the link between emotion and decision making, actually.
+
+Everyone still awake and on board? Good.
+
+I see some nodding, so that is a good sign, right?
+
+Organised. Yes.
+
+Uh, yes. That's right. What is your question?
+
+Oh, I see, no question. Okay. Any other questions?
+
+Okay, then let me move on to, uh, the link between emotion and, uh, other cognitive functions.
+
+Um, and as you might, uh, already predict for yourself, emotion has actually a known influence on a whole range of other cognitive functions.
+
+Uh, that's also evolutionary, probably, uh, a very sensible thing to, to have.
+
+And I want to, uh, touch upon a few, uh, common ones, but definitely, um, start with the role of emotion in this.
+
+And explain that I wanted to, uh, talk about what we call semantic marker hypothesis.
+
+It's also mentioned in your book and described. So, uh, hopefully a number of you have already read the chapter, uh, but, uh,
+
+in its basic sense, um, what has in fact is, is that let's say you have a particular event.
+
+I have knowledge about that event. Um, so you could bring this back to memory by tantalising and thinking back to this event.
+
+Um, but your prefrontal cortex would help you to not only just factually bring this, uh,
+
+this information back to mind, but also your, what they call bio regulatory states.
+
+So more of your like bodily state while you felt how your body responded to that event
+
+so that you have like a more full picture of how you remember that event and uh,
+
+that um,
+
+relates to how you decide about this event and what that event might cause in terms of the actions you might do or don't do in response to that.
+
+Um, as in that event back in that so the prefrontal cortex, uh, is in that sense,
+
+sort of triggering a reactivation of what we call somatosensory pattern.
+
+There's also a somatosensory cortex, uh, all touch related, uh, things in a way, um, that describe, uh, the certain appropriate emotion that,
+
+uh, is meant to be, but that you're meant to sort of experience, again, in order to fully think back about a certain event.
+
+Uh, and that connection, obviously, to the RSI, which also has a function in that even if you don't like actively,
+
+let's say you're thinking back about your presentation and you kind of remember how you were nervous.
+
+So that doesn't mean you are at that moment actively nervous, but you can kind of feel that experience again if you think back about it.
+
+And that is sort of an for that. There's a role for the PFC and also for our.
+
+Um. And that's also studied a lot with the Iowa gambling task.
+
+Um, and that's these, uh, somatosensory patterns that are here described, touch related, uh, patterns,
+
+um, that influence your reasoning and your decision making order and sort of tested in this lab setting.
+
+Um, I think you've heard about it before. You have four decks of cards.
+
+Um, two of them have, uh, high instant reward.
+
+That is short term, but, uh, occasionally a very high loss.
+
+Uh, at the long term. That you have much less of a high reward short term, but you don't get the punishment.
+
+Occasionally at a long term. So if you have a lot of trials, then you tend to have to choose.
+
+To, uh, to maximise your, uh, money.
+
+To avoid occasional losses. Um, from the deck A and B in this example and to move towards uh, deck C and D,
+
+um, and then people just statistically usually end up with more money in the end.
+
+Uh, and people usually, uh, become very, uh, good at picking that up.
+
+And, uh, a lot of people that use their prefrontal cortex and their frontal medial prefrontal cortex in particular to, uh,
+
+this, to learn this and to decide to move towards deck C and D in order to have, uh, as much money as possible at the end.
+
+Um. There are obviously, uh, differences across.
+
+That's some people, uh, like risk more than others.
+
+That is unrelated to what you are learning here in terms of the role of emotion on decision making, in the sense that,
+
+um, even someone that is relatively risk taking, uh, as a person, um, might try still for a longer period of time.
+
+That can be, for example, but what you see with someone who is then risk taking,
+
+but still using the prefrontal cortex to do so, is that you, for example,
+
+see a skin conductance response when they do so a which would signal, um, like I am aware of the fact that I'm taking a risky choice,
+
+uh, or option, but I'm doing that anyway because that's what I want to do.
+
+Now, that is something else. They're not picking this up or learning this.
+
+And the last category is the people that have like from this stroke or anything like that,
+
+or an accident of something, prefrontal cortex damage that is really, uh, crucial to this.
+
+But that means that in this decision making process that clearly links then to these uh, uh, bodily responses as well, that,
+
+uh, that people then show in terms of how that is, um, influencing their behaviour because a lot of people might feel.
+
+Light version of stress response and that might drive them towards uh DXY and uh, as such uh.
+
+That is, by the way. Um, I, uh, they might they are taking into account their bodily responses and their patterns and such in terms of,
+
+uh, emotion of the situation, in terms of how they respond to the decisions they're making in a task.
+
+So that is an emotion in the context of decision making.
+
+I am good in time, I think. Yeah.
+
+Um, the other, uh, topics I wanted to focus on in terms of the role of emotion in that is perception, attention and memory.
+
+Uh, all of them, uh, covered, uh, by your, uh, lectures, but in, uh,
+
+not really specifically zoomed in on the context of what emotion has as an influence on that.
+
+Um, starting with perception and attention, not separately, but together.
+
+Those go a bit hand-in-hand. Uh, obviously. Um.
+
+That, uh, again, has a strong role for the amygdala that is going to be the brain region, uh, that we focus on a lot today in general.
+
+Mhm. But also, uh, a strong role for uh, all of those sort of ventral visual stream, uh, regions, uh,
+
+for like visual processing that are obviously important in the context of perception
+
+and attention and that are known to interact in both ways with the amygdala,
+
+of both the amygdala, uh, like giving input to visual, even early visual reasons.
+
+But also more higher are the facial regions, uh, in terms of the emotion that,
+
+uh, and how that is influencing what you are perceiving and attending to,
+
+but also from those, uh, visual cortex and higher visual processing regions back to the amygdala.
+
+So this is a loop in that sense. Another one, Bay Street. Uh, in general, what is emotion?
+
+What is making what what is emotion doing in terms of its role on perception and attention?
+
+That is pretty straightforward. It is helping you to prioritise what you want to focus on in terms of the sensory information around you.
+
+You always have way too much input. Actually, your system has.
+
+There's way too much to see and to hear, and you get a lot of sensory information all the time.
+
+So when you don't prioritise some things over others, you are in a constant state of being overwhelmed.
+
+And that is surely, uh, likely not nice to be in.
+
+So people prioritise. Luckily, and that is the role of emotion in that sense.
+
+Uh, knowing what is significant at that moment in time, we are better at that in some moments and other moments.
+
+But that just in general, what we all do a lot. Um.
+
+Yeah. And the amygdala is the sort of first response to a certain task, for example, is almost automatic as it's activation.
+
+But this loop back and forth to all those visual processing regions is sort of a further evaluation that's much more cognitive than, than automatic.
+
+Uh, so the link of, of emotion to perception and attention is at a slower and more consciously
+
+deliberate one than your automatic response that the love by itself is causing.
+
+Um. There is actually no direct connection.
+
+Uh. Between the amygdala and the regions that are known to be important for, uh, attentional control.
+
+Uh, the regions that are important for attentional control, if you remember that, uh, are a lot frontal,
+
+but also parietal regions of frontal here and parietal, sort of this back part of your brain.
+
+Um, and those connections are not necessarily direct but are still really prominent.
+
+And that is what this figure is meant to show you. Uh, I'll talk you through it.
+
+What it essentially shows. Um, so here you have the amygdala in the middle of the figure.
+
+Um, and there are various parts in which is indirectly, uh, influencing those dorsolateral prefrontal cortex,
+
+ventromedial parts of the frontal cortex, parietal regions.
+
+Um, those are not directly linked, as you see, with the arrows, to an influence of the amygdala.
+
+But for example, the nucleus bizarreness of Meinhardt is known to, uh, produce, uh, acetylcholine.
+
+That is just a basic, uh, transmitter that helps you to enhance your attention.
+
+Uh, so that is what is then by doing so, enhancing your attention, by influencing those parietal and, uh, prefrontal regions.
+
+But the amygdala is driving it up. So in that sense, that's an indirect connection and such.
+
+Uh, the same goes for, uh, the connection of the image to that two regions of light, the ACC anterior cingulate cortex, for example, um,
+
+which is then in its turn projecting towards the prefrontal cortex, regions that are known to be influencing your attention and your perception.
+
+Um, so in that sense, the emotional influence on perception of attention is strong,
+
+but it's also always relying on the, on the network, uh, and on indirect paths as such.
+
+Um. Any questions on that before I move on to memory?
+
+Yeah. Uh, yes.
+
+It's also in the, in the legend of your, uh, book. So I would, uh, certainly, uh, tell you to go there.
+
+SEC is anterior cingulate cortex, PCC is posterior cingulate cortex.
+
+That is actually, as you can see, two halves of the same.
+
+Portion of the brain, and it is sort of about as an umbrella over the middle portion of the brain that such an anterior process.
+
+Posterior. Yeah. Any other questions?
+
+No. Okay, then let me move on.
+
+Oh. Um, to memory and to in particular, memory consolidation.
+
+Um, there are various influence of emotion on on memory.
+
+Um, people remember emotional information in general better or sometimes not the whole memory of this better,
+
+but some part of it is really strong and, uh, strongly remembered and other parts are less strongly remembered.
+
+And in both cases,
+
+that means that emotion is influencing the sort of type of representation or the amount of the strength of it and that of your memories.
+
+Uh, and might even, like, prioritise, uh,
+
+what you would decide to bring into long term memory and what you decide to forget the site and not even in the,
+
+uh, conscious, uh, way,
+
+but also subconsciously as an you can decide something like sitting down and you're deciding something is not worth remembering.
+
+But that can also obviously happen, uh, in a subconscious way.
+
+And both of these things would be an influence of emotion on that.
+
+Um, and in important there are a few important terms in the context of, uh, how memory relates to emotion.
+
+One of that is called flashbulb memory. I don't know if that, uh, already is something that you came across at any point in time.
+
+Does anyone know what that is? Uh. Or at least I don't need you to speak up.
+
+I'm just trying to see if, uh, if I can remember if I mentioned this before at any point in time.
+
+And I see a couple people nodding, but not too many.
+
+So flashbulb memory is something very specific, and it links really directly to the link of emotional memory.
+
+Um, and that is that people see like a short event with really high, vivid details in their mind's eye.
+
+So not just I have a good memory of what happened, but really being able to visualise this very well.
+
+And that doesn't need to be something or 50 minutes,
+
+but it can be something really short that was of such emotional importance that you remember exactly the,
+
+I don't know the shape of everything around you and the colour of it,
+
+and exactly where everyone was standing around you or how you were positioned, uh, how your body was positioned, stuff like that,
+
+the vivid amount of details that you would usually forget because they don't seem
+
+important in the context of the actual information that you're trying to retain.
+
+Um, but that the emotional significance of that event, of that event was so high that you have what we call a flashbulb memory.
+
+You remember it really, really vividly. Um, it's it is studied, but there's also a lot unknown about it yet.
+
+Mhm. Because sometimes people remember something with high vivid detail and they're accurate and sometimes they are accurate.
+
+Thought about all the aspects, uh, but they are, uh, very certain about it nevertheless, in both cases.
+
+Um, so in that sense, uh, there is not yet known exactly how that interacts, uh,
+
+in terms of, of your of the actual accuracy and precision of your, of your memories.
+
+Another important aspect to uh, mention is, uh, and that's again about how do you, uh, interact with, uh,
+
+prefrontal cortex regions in particular, uh, dorsolateral and ventral lateral prefrontal cortex regions.
+
+So less ventromedial in that sense,
+
+lateral being on the sides of your brain and medial in the middle line of your brain, if you hopefully remember, um.
+
+But not just that, but also what I call MDL here that is stands for uh medial temporal lobe.
+
+So the temporal lobe that is along this side of your brain which contains hippocampus, for example, uh,
+
+and the amygdala is that is obviously, uh, what you would expect then, uh, to also be involved with that for memory.
+
+Um, and how that is defined as what is often referred to as memory modulation hypothesis.
+
+So this is how the amygdala and its activation is influencing both medial
+
+temporal lobe regions along with the hippocampus as well as prefrontal regions.
+
+Um, by just actual connections of neurones that, uh, are in a row serially connected from one region to another,
+
+the actual axons projecting from one region to another, uh,
+
+but also by the release of hormones, um, and then in particular, uh, epinephrine, norepinephrine,
+
+also cortisol, uh, especially in the context, of course, of fear that is well known.
+
+Uh, also propranolol. Um, the details of that are not very important.
+
+Actually, a lot of these hormones is doing what but logic is that or the importance for you to remember would be that
+
+these axonal projections of how the amygdala has influencing both the medial temporal lobe as well as,
+
+uh, prefrontal regions would be like very fast.
+
+Uh, uh, as such, uh, because these that it's like electricity, uh, essentially.
+
+So the, the, uh, information flow goes very fast.
+
+Um, but the release of hormones, uh,
+
+that are going to influence those regions are still like a modulation of the activity in those prefrontal and medial temporal regions.
+
+But that is much more slow because hormones are obviously much more slow than the actual axonal projections.
+
+Um, and it is useful to have both of, uh, these aspects in order to, uh, modulate the influence of emotion onto on that, on memory.
+
+Um. Right.
+
+Um, and then knowing that those regions are what are, uh, what is involved in, um, how emotion relates to, uh, memory.
+
+Uh, then another important aspect in terms of emotion in general would be how you then regulate that, because emotions can often, uh,
+
+cause you to, uh, go up and down in terms of a density about something and it might influence all of these other cognitive functions.
+
+Um, that's not a problem per se, but it is useful to be able to regulate this in order to function well.
+
+And people have various strategies to do so.
+
+Uh, whereas not necessarily a right or wrong thing or something,
+
+but that people are obviously different in all sorts of ways and also different in how you either work,
+
+thought or thought yourself to regulate your emotions at various moments.
+
+These are two, uh, uh, well known ones, uh, the first one being what is, um, officially called situation selection.
+
+It sounds, uh, very complicated, but it is really simple is simply explained,
+
+usually with an example meaning that let's say you are afraid of being in a plane and flying.
+
+Then situation selection would be regulating this emotion by simply taking the bus, for example, so as a way of avoiding the course of it.
+
+But you regulate the emotion because you are not in a constant state of stress, because, uh, because of the plane, because you're not in it.
+
+But that is actually a useful way to go through your life is, uh, not a discussion, I guess,
+
+but is certainly a well known strategy to regulate emotions, maybe at peak moments, really useful because you don't always have to force yourself to,
+
+uh, to face everything head on if it's not in the context of that being useful at that moment,
+
+but probably also not good to approach every fear that you might have in this way.
+
+Another one is what we call cognitive reappraisal, and I'll go over that in a bit more detail.
+
+Actually, uh, maybe it's easier to take a break now and then I get into that afterwards.
+
+Otherwise I have to stop halfway. Uh, the topic. So I'll see you back in 15 minutes.
+
+All right. Uh, that's 15 minutes, so I may get started again.
+
+I see roughly the same number of people. So I think everyone is back from, uh, getting coffee and such.
+
+Um, so I was talking about emotion regulation before the break.
+
+Uh, I told you about situation selection. So how you just would avoid a situation that, uh, scares you in order to regulate your emotion.
+
+That is one common way. Another, perhaps even more common way that people, uh, engage in.
+
+Uh, a lot of people engage in would be what we call cognitive reappraisal, uh, of a certain negative emotion, uh, or like fear.
+
+And that actually means that you are a sort of, um, you have a strong emotional, uh,
+
+or fear response initially to whatever the stimulus is, uh, that elicited this response.
+
+And then you try to reason your way to calm yourself down, essentially.
+
+So, uh, even though you have a strong fear response at first, you might then either either even out loud, but usually within your own head.
+
+Try to reason. Um, because of reason A, B, and C, it is not quite that stressful.
+
+And you try to talk your way, uh, through it and I.
+
+Um, altered the emotional impact or the emotional intensity of that specifically experience.
+
+Um, and that is what you see also and this, uh, picture where, uh, they did a study on the effect of cognitive reappraisal.
+
+Uh, uh, what I compared it would be if by, if looking at negative pictures and comparing strategies,
+
+if you will, that people were explicitly told and so not chosen by themselves.
+
+So that's I guess different from real life but the, the, the, the realisation of, of uh,
+
+um, what that cognitive reappraisal method does in the brain is still, uh, valid.
+
+Of course, when people are looking at negative emotions that evoke.
+
+Maybe it's a fearful picture as such, uh, that for some of them they were meant to, like,
+
+actively try to decrease the, uh, negative impact of that by using cognitive reappraisal.
+
+Um, but I don't say I just meant to passively look at that.
+
+Do not do anything cognitive necessarily. Right. And in that context, just look at the picture and, uh, whatever the response is, is a response.
+
+So that just a control condition in that sense.
+
+Um, and what you see then, uh, is, uh, when people are actively decreasing the emotional response to highly negative pictures,
+
+viewing of highly negative pictures, that you see a whole network of regions that is on active, the active red blobs in this picture, uh,
+
+that are sort of spread out across many, uh, brain regions, but are all part of this frontal parietal attentional network, uh,
+
+which is engaged, uh, logically engaged when people actively decrease the emotional impact of, of a certain data certain image has on them.
+
+Uh, it might be strategy that's in the news. Currently, people, uh, use a lot actually scrolling through news feeds or watching a news online.
+
+There's a lot going on. So the impact of that is, of course, strong and that's sensible.
+
+But you might actually use cognitive reappraisal to avoid that.
+
+You get overwhelmed with it. Uh, and uh, and then actively use that strategy as such.
+
+Um. Besides an influence on activity in that frontal parietal, so frontal as well as parietal attentional network regions,
+
+it also has an indirect influence on the activity of the amygdala, actually.
+
+So you're in that sense using a strategy that is sensible in the context that it actually actively, um, reduces the amygdala activity even,
+
+uh, compared to a control condition when you're not engaged in that, which it will likely do via the, uh, prefrontal cortex regions.
+
+In that sense. Um, and that is also what is played out in the line plot here, where the green line is when people look at, uh, uh,
+
+neutral images that, uh, uh, random ones that don't, uh, evoke, uh, necessarily a very strong emotional response.
+
+The blue is when people look at negative pictures where they're actively, uh, decreasing the negative impact, like cognitive reappraisal strategy.
+
+The red one is when people look, uh, just passively look at negative pictures without using any strategy for that.
+
+And then you see that, uh, in the blue and the red red line where there's both, um, and.
+
+Normed as equally negative pictures shown to people.
+
+The activity in the amphitheatre is still lower when people actively try to decrease the negative impact compared to when they passively look.
+
+Um, that is that is the neuroscience side of it, if you will.
+
+This bar plot shows you what then the, uh, behavioural, uh, side of that is, um,
+
+that people indeed also report that, uh, dose, um, blue picture or the blue condition here,
+
+the active decrease condition, uh, where they use active reappraisal,
+
+that sort of activity also decreases the, the rating that people subjectively assign to it.
+
+So, um, you could argue this is what you are then with that strategy doing to your I lie on your front of title, uh, activations.
+
+But does that actually don't actively, uh, makes a difference in terms of how you subjectively experience that emotion,
+
+emotion being one of those three circles in the very beginning of the first half of the lecture,
+
+the subjective feeling of that, that is what you can, for example, with ratings on a like a scale from 1 to 5 or 1 to 7, um, indicate.
+
+And then people indeed also judge the subjective feeling to be, uh, lower.
+
+So in that sense, for most people, an effective strategy for, uh, emotion regulation.
+
+Um, and with that, uh, uh.
+
+I will come back actually to, uh, emotion in the, uh, in just briefly mentioning the cutting edge article at the end of this lecture.
+
+But in terms of the book, uh, I, uh, finished the emotion, uh, side of things.
+
+I wanted to move to the social, uh, cognition part.
+
+Is there any question also from the, uh, content of the first, uh, part, uh, or on this, uh, on emotion as such?
+
+We've. No.
+
+Okay. Then there is also a social cognition.
+
+The chapter what I will mostly be talking about is, um, what you might classify as theory of mind.
+
+Uh, that's a term that I'm sure you've heard, uh, several times by now.
+
+Uh, which relates to how you understand actions and emotions of others.
+
+So it's one thing to recognise your own feelings and be able to regulate those.
+
+Uh, and that's obviously important, but, uh, it's also important that you are recognising and uh,
+
+uh, able to understand the action and emotion of other people.
+
+There's obviously a large individual difference across how good people are with that.
+
+But in general summons, we are quite good at understanding and reading other people's, uh, emotional states, especially when it's about basic.
+
+Emotions like fear, uh, which is facilitated by what you would what you could classify as an umbrella term,
+
+if you will, as a mental thing that you're trying to place yourself in someone's mind.
+
+Uh, what we, uh, as academics often call, uh, theory of mind, you know,
+
+trying to infer the mental state of someone else, even though you don't have that at that point.
+
+But you're trying to maybe look at the facial features, at other things you're seeing,
+
+combined with what they're explicitly saying and then trying to infer what their mental status,
+
+um, and seeing how that attributes, uh, uh, to beliefs and goals that they might have,
+
+you might be able to predict something in their behaviour, which is then also helpful for you,
+
+because if you understand someone else's mental state and are accurately predicting what they might do,
+
+that is obviously helpful for yourself in order to sort of predict what you might think is a good action for yourself.
+
+An important in the ability to do that is something that, um, gets developed around the age of 4 or 5, actually.
+
+So it's something that doesn't come easy in humans and in the sense that you need a number of years on this earth before you start to,
+
+uh, develop that skill. Um, and that is what we call intentional stance.
+
+And that is a it's a complicated term for the logic of, um, let's say something happens, event X, whatever that is, something emotional at least.
+
+Um, and or something that causes someone away from neutral to cause some kind of mental state that is not neutral,
+
+then that might cause some mental state for you as a person with all the experiences you have in life.
+
+And it might be someone next to you that has another mental state assigned to that event because it has somehow a different meaning to them.
+
+Whatever that event is, even though it's the same event that you're about experiencing.
+
+And, uh, that means that you have a different mental state for the same event at that moment in time,
+
+caused by whatever it is in your background, uh, that you build up by experience that is causing that difference.
+
+Um, and then the logic of thinking.
+
+I experienced this event. I have this mental state and that's why it's logical to do a as action.
+
+But I'm reading or thinking that I'm reading that the mental state of the person next to me for that same event is different.
+
+And that's why I'm still predicting that this person will do B, even though I think it's sensible to do eight.
+
+So that doesn't mean that you are switching to thinking it should be.
+
+B you still are convinced that you think A is the logical action that you are recognising.
+
+The other person has a different mental state for the same actual experience.
+
+And that's why I am predicting that this person will do be that is what is taking intentional stance and that, um, uh,
+
+and that you are assuming that it's most logical that that other person will actually act or behave in a way that is,
+
+um, sensible or logical in line with their mental state,
+
+even if that's not in line with your current mental state caused by the same event, if that makes sense.
+
+And that is actually, uh, a sort of, um, a logic and thinking that needs, uh, a couple of years to, uh, to develop.
+
+People are born kind of, uh, selfish in that sense. And that develops, uh, later in time.
+
+Um, so that is sort of, uh, describing, uh, mental izing in general, uh, how you, uh, use that.
+
+But it doesn't say anything yet about neural systems.
+
+I don't know if anyone was already missing, uh, names of brain regions here.
+
+Uh, probably not, but, uh, will, uh, throw some at you. Uh, anyway.
+
+Uh oh. Uh, and the first one are what we call mirror neurones.
+
+Is that a term that rings a bell to anyone? Good.
+
+I'm glad to see a lot of nodding. Um, yeah.
+
+Those are neurones found in, actually, multiple regions in the brain. I'll come back to that on the next slide, actually.
+
+Uh, but uh, also mainly found, uh, originally in what we call the inferior frontal gyrus,
+
+I g that's one subregion of the frontal cortex, a lot of, uh, frontal cortex today, apart from amazing.
+
+Um, um, and it is, uh, in a way directly related to the.
+
+Neurones sort of um, imitate or uh, respond similarly, uh,
+
+to watching someone else do a certain action compared to when you would be doing that yourself.
+
+Uh, so it is presumably the, uh, one neural, uh, method or, uh,
+
+way of how neurones help you to, uh, uh, mental eyes about other people's mental states.
+
+It studies and it's studied in humans also in, uh, monkeys, actually, uh, possibly also in other animals,
+
+actually, uh, especially in a context of fear that can be studied with outputs, uh, strongly as well.
+
+Uh, so in addition, the inferior frontal Jarvis, but also in other regions, uh, is that, uh,
+
+sort of mirroring of activity when someone else does something and you're passively viewing compared to where you would do it yourself,
+
+that is sort of, uh, that's found in the inferior frontal, Jarvis, but also, uh, the middle temporal gyrus regions and a lot of um,
+
+motor related regions, which are here, uh, in the brain, sort of this part of your brain,
+
+uh, primary motor cortex, so matter sensory cortices, uh, it just, I guess,
+
+logical from the perspective of when you see someone perform an action, then it's likely, uh,
+
+uh, that you're using your motor cortex to, uh, try to mentalist that action for yourself.
+
+So, Davis, um, on, uh, mirror neurones. Um, but important for mental izing or theory of mind would also be perspective taking.
+
+Um, how do you distinguish between your own actions and the same action of someone else, especially in light,
+
+maybe, of those mirror neurones, meaning that if the activity is sort of similar around someone else,
+
+does an action compared to when you do do an action, you need to just in the basic sense, be able to split um,
+
+for yourself or distinguish for yourself what I want doing this action or was that someone else?
+
+This is obviously really easy for people, but um,
+
+that still means that there are there are there's a whole lot of regions involved in making sure, uh, that you remember this perspective.
+
+Um, and to separate that from yourself projection into the past, for example,
+
+because you can also sort of project yourself back to the past that is not
+
+thinking about your current first person perspective that you are currently have.
+
+Uh, but that's still something very different from, uh, watching someone else do something than to sort of watch in your mind's eye yourself,
+
+do something because you're trying to place back in your mind's eye what happened yesterday or something like that?
+
+Um. And their ability to distinguish these perspectives.
+
+Uh, then in both cases, there is no direct observation of an action anymore.
+
+Uh, is uh, is important. And that takes, as you can see, into account, both here and also in the image.
+
+Uh, a whole lot of brain regions. Um, again, prefrontal cortex, uh, subregions, but also what we call bio cingulate cortex,
+
+temporal polar cortex or temporal pole, um, inferior cortex, temporal parietal junction, tpjc.
+
+Uh, it's actually a region all the way in the top of the parietal cortex.
+
+And it's, uh, pops up a lot for all sorts of perspective taking better for all sorts of, in general theory of mind studies.
+
+Um, the superior temple sulcus, which is, uh, attached to that in a way.
+
+So it's a whole network of regions that is involved in being able to take perspective,
+
+which, uh, intuitively seems something really sensible and simple to you to do.
+
+But your brain actually, um, because of this Marinaro neurone system, perhaps Berkeley,
+
+um, needs to make sure you have the machinery in your mind in order to do that.
+
+Um. And theory of mind is not just studied in the Inhumans.
+
+As I said, and humans, you can rely a lot on report. Even children.
+
+Um, and in, uh, monkeys, you can't. But that doesn't mean you can't test it.
+
+So even if you can talk with language, do monkeys.
+
+Well, I guess you can, but I won't talk back to you. Mostly at least.
+
+Um, you can still, uh, study it in the context of trying to interpret that behaviour rather than what I, uh, cannot tell you.
+
+And that's them, for example, done in this way. And what you see in this picture.
+
+Uh, and that relies on the fact of what is the case with, uh, chimpanzees or monkeys in general in groups.
+
+I don't know much about monkeys, but the, uh, um,
+
+what is known about it is that there's usually a difference in hierarchy within the group that some are more dominant than others.
+
+And, uh, for that group to function without constantly fighting, um, uh, the more subordinate monkeys are meant to,
+
+uh, listen to the more dominant ones, and that's what they naturally show is behaviour.
+
+So you can sort of rely on that in order to study, uh, uh, perspective taking by especially looking at the subordinate monkey in this case that is,
+
+uh, visualised here in this cartoon as this one, uh, obviously they both want to eat.
+
+So we did a simple so they both want the food. Um, and if this monkey is not using theory, find not taking intentional stance as such.
+
+They only thinking from his own perspective, not taking into account the perspective of his fellow group mate.
+
+Then, uh, there won't be a difference in statistically in chance if you do that, the number of trials, um,
+
+it will work towards these bananas and those bananas equally often because it's about, uh, the same distance and it wants to eat.
+
+However,
+
+it knows that it's and the group behaviour are meant to wait until this dominant monkey is done eating and then it's only meant to get the food.
+
+So if it already wants to, the food before this dominant monkey is done eating.
+
+Uh, despite it being subordinate, um, and it uses a theory of mind and might realise this monkey can actually see this food.
+
+But from this perspective, this monkey cannot see that food.
+
+And the the monkey that is like, let's say, old enough to realise theory of mind and use that in his,
+
+in his decision making will then proportionately often walk to these bananas,
+
+uh, because it knows, uh, the dominant monkey has the first ability to get the food, but it hasn't seen this yet.
+
+So I can just quickly get that food. And that is sort of theory of mind in practice, if you will, rather than the theoretical brain region stuff.
+
+Any questions actually, about any of this so far? Yeah.
+
+Yeah, maybe in this picture, but, uh, yeah, it's all really controlled.
+
+Lee studied. Uh, but I see the confusion. Maybe the picture isn't optimal from your book.
+
+Yeah. Other questions.
+
+No. All right. Um, related to theory of mind that naturally is also, uh, empathy as well as sympathy and just in general social behaviour,
+
+uh, of uh, about groups or of humans in particular, um, empathy and sympathy being related, but not exactly the same.
+
+Um, empathy would be your ability to resonate with someone else's emotional state.
+
+Um, while if you sympathise with someone, that means that you are able to understand someone else's,
+
+um, emotional state, but you are not sharing that experience.
+
+So, um, the difference would be, um, your you see someone and a great deal of, uh, uh,
+
+distress and you feel a bit of a sort of mild version of stress response in yourself that sort of resonates that this person's,
+
+uh, uh, mental or emotional state, even though it doesn't relate to you personally.
+
+So it's not like you are actively distressed, but you see the distress in someone else.
+
+So that will be empathy.
+
+But just like I naturally understand, this is, uh, a logical emotional state given where you're in, but I don't actually resonate with that myself.
+
+Um, and the empathy is obviously modelled also theoretically grounded in what that means and what components make up empathy as such,
+
+even if the definition is clear that that definition inherently shows that it has multiple components
+
+to it that need to be present in order for empathy to theoretically occur or happen in someone's mind,
+
+which for the vast majority of people, luckily, is the case. Um, that first of all, you need to be able to share emotion in general.
+
+Secondly, you need to be self aware and self aware of your own emotions,
+
+but also the self-awareness of how your own emotion is different from the person that.
+
+So it's distinct from the person in front of you.
+
+You need to be flexible mentally in order to integrate that emotional state of someone else with your current thinking.
+
+Uh, I need to, uh, be able to regulate emotion.
+
+And as you, uh, probably already realised, um, uh, I'm almost at the end of this lecture.
+
+So this is, uh, almost a last set of brain regions that I'm going to throw at you.
+
+And then I would like to consolidate those.
+
+Um, so each of these four sub processes that combined make up empathy has, uh, a different set of primary brain regions that are involved in that,
+
+uh, and that together then means that there is a strong network or, uh, more widely distributed network in your brain involved in empathy.
+
+Um, and a it's again, boxes and arrows.
+
+Your book really loves the boxes and arrows kind of, uh, uh, figure emotions, uh, sharing somatosensory cortex.
+
+Uh, we already touched upon that also in the context of married neurones and the limbic system, which is in the middle part of your brain.
+
+For that mental flexibility. It's the prefrontal cortex, uh, which runs both medial and dorsal for emotion regulation, for example,
+
+conflict detection and the ability to to find a resolution for that in your mind, um,
+
+it would be anterior cingulate cortex, but also again, prefrontal cortex regions.
+
+And as you can see also for self-awareness, it is always for all three of them prefrontal cortex along with some other region.
+
+And that other region is then distinct for these three components.
+
+But the uh, again, as is the case in a lot of this lecture, the prefrontal cortex is sort of a core hub for many of these aspects.
+
+So self-awareness would also involve inferior parietal cortex and insula.
+
+Um, that brings me towards the end for the book portion, I wanted to, uh,
+
+talk to you briefly about the Cutting Edge article, but let me first finish about the book content, so to speak.
+
+Uh, so any questions left on any of the content so far today?
+
+Yeah. Um.
+
+Yes, the mental flexibility would be that in order to empathise,
+
+you need to be flexible to switch between certain mental states from your own mind to the person that you're seeing,
+
+for example, to maybe someone else involved in order to, um, be flexible enough to integrate these aspects, essentially.
+
+Related to perspective taking suddenly. Yeah. Yes, sure.
+
+Another question, a friend. Right? Yeah. Tell me. Yeah, that is a bit vague.
+
+I have to say, in your book, um, I think what they mean to do is that, uh, the mental flexibility that the audit question also is referring to,
+
+as well as regulation of emotions, that is sort of more an active cognitive thing of your trying to actively,
+
+um, and cognitively be involved in a process while emotion sharing focuses more on,
+
+like midbrain, limbic system regions that are, uh, a bit more automatic in, in their responses.
+
+Um, but yeah, this is in general the difficulty with figures that have boxes and arrows that I don't know why books like that so much,
+
+but at least always a lot of things vague or for interpretation.
+
+So it's a good, uh, good question. Yeah. Very.
+
+It's pointing towards both of these, actually, and their interaction with each other.
+
+Yeah. But yeah, it's not you.
+
+It's that these types of figures are suboptimal in general, I think, to use, to be honest.
+
+But you know, who am I? Lot questions.
+
+Okay, then let me use the last ten minutes or something. Uh, to tell you a bit about the cutting edge article.
+
+I actually had a question in the break that, uh, directly related to it, I think not even because of the article,
+
+but just because of an interest given the lecture and the link of emotion to memory.
+
+Uh, I said I would come back briefly to emotion after the social cognition part.
+
+And that is because of this article. You can find a link to it, uh, in the context.
+
+And it is about when you go to an event that is emotional, then usually your memory is enhanced for it.
+
+And there's a wild, uh, amount of literature that is, uh, consistently showing that.
+
+But what this study is essentially doing is if an event seemed completely mundane and you didn't flagged as anything emotional,
+
+but then you learn new information later in time,
+
+and then you think retroactively that that event that you thought was mundane was actually somehow emotionally loaded.
+
+If that done still has an influence on your memory in terms of that, it would enhance it,
+
+even though at the time of initial encoding, you didn't know yet about that emotional load of it.
+
+And, uh, the short answer to that is that that's fine.
+
+Yes, but that's all with a lot of words.
+
+So it doesn't just say yes and then move on.
+
+So it just uses a lot of words essentially to go into detail about, um, why they find that that is indeed the case.
+
+Um. So the goal is to examine what the mechanism, uh, an early is, um,
+
+behind how emotional learning is enhancing memory for a mundane event that seemed mundane at first,
+
+but that you only later in time learn that has some kind of emotional load.
+
+And the reason why it does so. Because it is important in terms of what in general is called maladaptive generalisation.
+
+Uh, that's a complicated Thuram, but uh, it's most often, uh, for people,
+
+most intuitive for people to think of it in terms of, uh, post-traumatic stress disorder, of course, for example.
+
+So in that sense, it has like a clinical purpose to try and understand this process of, uh, of how that works.
+
+So they have a very, uh, strongly lab controlled study where people are learning,
+
+uh, um, associations between pictures that are always a face and an object.
+
+Um, and then the emotional learning is that it's either, um, so that it's learning, there's no emotion involved.
+
+You just have to learn these pairs of neutral images.
+
+Uh, and later in time, you will be asked, shown one picture and, uh, be asked what, uh, picture was that was associated to that picture.
+
+But in deep emotional learning, after the initial learning, uh, those pictures come back or on the faces of them, not the objects.
+
+And half of them are, uh, combined with an auditory response in terms of a screaming voice.
+
+So sort of an emotionally loaded voice that then sort of artificially loads that, uh, the memory of that face with emotion,
+
+even though that wasn't the case yet when you initially were, uh, studying the link between them.
+
+So you're not really studying the link because in this case, the basket is not shown anymore.
+
+It's just a face. Um, so you can't just read and code it, but you might lead you to think back more often than in the neutral condition to,
+
+uh, what it related to in terms of because of the emotional load.
+
+And that is possibly what people are doing, um, where the surprise memory does of that afterwards.
+
+And what they is say.
+
+And I won't go, uh, to it all because it's, uh, more important that you get the general gist of the article of the cutting edge article.
+
+Um, but indeed, it is retroactively enhancing the initial memory for those associations.
+
+So it's not just that you remember the faces better, uh, that were coupled with the screaming voice.
+
+That would be the, uh, just because of re encoding that face, but also the earlier link to the basket in the case of that example is stronger,
+
+uh, um, or better in your memory, uh, when that face is coupled to the screaming voice and that comes with a whole lot of, uh,
+
+neural differences in terms of hippocampal neocortical reorganisation and interconnectivity between the prefrontal cortex and the amygdala and how,
+
+uh, uh, and the, uh, uh, between the hippocampus for memory and the cortical regions like prefrontal cortex and how that is,
+
+um, modulated by a mental activity. So that's essentially, uh, what the article is about.
+
+So, um, yeah, have a look.
+
+I would say, um, and before I go to a last set of questions, I just wanted to, uh, brief you on the next practical, which will be looking at,
+
+uh, pictures and then, uh, essentially your reaction time, uh, experiment, uh, of if people respond faster to emotionally loaded pictures.
+
+Any questions? Silence.
+
+I hope that means it was all very clear. Um, okay.
+
+Yeah. Then we can, uh, wrap it up for today. And I wish you a nice rest of the afternoon in the sun.
+
+See you next week.
+

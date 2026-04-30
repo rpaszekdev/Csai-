@@ -1,0 +1,315 @@
+/* ═════════════════════════════════════════════════════════════════════
+   Auto-sys lecture annotations — yellow inline highlights, gutter popover
+   for adding notes, top-right thumbnail menu for navigation.
+
+   Self-contained styles. Mirrors the cog-neuro NotesView annotation UX
+   without touching any of the per-lecture CSS variables already defined
+   inline in each HTML file (–ink, –paper, etc.).
+   ═════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --annot-yellow: #F4E27A;
+  --annot-yellow-soft: rgba(244, 226, 122, 0.45);
+  --annot-ink: #1A1A1A;
+  --annot-ink-soft: #2B2B2B;
+  --annot-ink-mute: #8A8270;
+  --annot-paper: #FBF8EE;
+}
+
+/* ─── Inline yellow highlight (saved + pending) ──────────────────────── */
+mark.annot-mark {
+  background: var(--annot-yellow);
+  color: var(--annot-ink);
+  padding: 0 1px;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-color 0.12s ease;
+}
+
+mark.annot-mark:not(.annot-mark-pending):hover {
+  background: #F0D550;
+}
+
+mark.annot-mark-pending {
+  cursor: text;
+}
+
+/* While the user is dragging, the native ::selection should match the
+   eventual yellow so the preview is consistent. */
+article ::selection,
+.col-text ::selection,
+.notes ::selection {
+  background: var(--annot-yellow);
+  color: var(--annot-ink);
+}
+
+/* ─── Popover (margin-anchored, paper-subtle) ────────────────────────── */
+.annot-popover {
+  position: absolute;
+  top: 0;
+  right: 32px;
+  z-index: 30;
+  width: 280px;
+  background: var(--annot-paper);
+  border: 1px solid var(--annot-ink);
+  box-shadow: 0 1px 0 rgba(31, 30, 32, 0.06), 2px 2px 0 rgba(31, 30, 32, 0.18);
+  padding: 10px 12px;
+  font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--annot-ink);
+}
+
+@media (max-width: 1100px) {
+  .annot-popover { right: 16px; width: 240px; }
+}
+
+@media (max-width: 900px) {
+  .annot-popover {
+    position: fixed;
+    top: auto !important;
+    bottom: 16px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+.annot-popover-snippet {
+  font-style: italic;
+  color: var(--annot-ink-mute);
+  margin-bottom: 8px;
+  max-height: 48px;
+  overflow: hidden;
+  font-size: 10.5px;
+  line-height: 1.4;
+  border-left: 2px solid var(--annot-yellow);
+  padding-left: 8px;
+}
+
+.annot-popover-input {
+  width: 100%;
+  border: 1px solid rgba(31, 30, 32, 0.35);
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 8px;
+  resize: vertical;
+  min-height: 44px;
+  color: var(--annot-ink);
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.annot-popover-input:focus {
+  outline: none;
+  border-color: var(--annot-ink);
+}
+
+.annot-popover-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.annot-popover-actions button {
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--annot-ink-soft);
+  cursor: pointer;
+}
+
+.annot-popover-actions button:hover {
+  border-color: var(--annot-ink);
+}
+
+.annot-popover-delete {
+  margin-right: auto;
+  color: var(--annot-ink-mute) !important;
+}
+
+.annot-popover-delete:hover {
+  color: var(--annot-ink) !important;
+  border-color: rgba(31, 30, 32, 0.35) !important;
+}
+
+.annot-popover-save {
+  background: var(--annot-ink) !important;
+  color: var(--annot-paper) !important;
+  border-color: var(--annot-ink) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.annot-popover-kbd {
+  font-size: 11px;
+  line-height: 1;
+  opacity: 0.85;
+  letter-spacing: 0;
+}
+
+/* ─── Thumbnail menu (viewport-pinned) ───────────────────────────────── */
+.annot-panel {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 40;
+  font-family: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+  pointer-events: auto;
+  width: auto;
+  max-width: 280px;
+  transition: opacity 0.15s ease;
+}
+
+.annot-panel--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.annot-panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--annot-ink-soft);
+  background: rgba(248, 246, 238, 0.92);
+  border: 1px solid rgba(31, 30, 32, 0.45);
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(31, 30, 32, 0.06);
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.annot-panel-toggle:hover {
+  background: var(--annot-yellow-soft);
+  border-color: var(--annot-ink);
+}
+
+.annot-panel-icon { font-size: 13px; line-height: 1; }
+
+.annot-panel-count {
+  font-weight: 700;
+  background: var(--annot-ink);
+  color: var(--annot-paper);
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.annot-panel-list {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  background: var(--annot-paper);
+  border: 1px solid rgba(31, 30, 32, 0.45);
+  box-shadow: 2px 2px 0 rgba(31, 30, 32, 0.18);
+  max-height: 60vh;
+  overflow-y: auto;
+  width: 280px;
+}
+
+.annot-card {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(31, 30, 32, 0.1);
+}
+
+.annot-card:last-child { border-bottom: none; }
+
+.annot-card-jump {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--annot-ink);
+  min-width: 0;
+}
+
+.annot-card-jump:hover {
+  background: var(--annot-yellow-soft);
+}
+
+.annot-card-num {
+  flex: 0 0 auto;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--annot-ink-mute);
+  width: 18px;
+  padding-top: 2px;
+  text-align: right;
+}
+
+.annot-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.annot-card-snippet {
+  font-size: 10.5px;
+  font-style: italic;
+  color: var(--annot-ink-mute);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.annot-card-note {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--annot-ink);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.annot-card-remove {
+  flex: 0 0 auto;
+  border: none;
+  background: transparent;
+  color: var(--annot-ink-mute);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 12px;
+  line-height: 1;
+}
+
+.annot-card-remove:hover { color: var(--annot-ink); }
+
+@keyframes annot-flash-pulse {
+  0%   { background: transparent; }
+  20%  { background: var(--annot-yellow); }
+  100% { background: transparent; }
+}
+
+.annot-flash {
+  animation: annot-flash-pulse 1.6s ease-out;
+}

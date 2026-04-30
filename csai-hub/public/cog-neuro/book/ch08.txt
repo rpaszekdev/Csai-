@@ -1,0 +1,3060 @@
+8
+Memory: Varieties
+and Mechanisms
+INTRODUCTION
+Memory allows us to learn from the past, understand the present, and
+plan for the future. All cognitive abilities depend on memory to one
+degree or another. Perception is the result of an interaction between
+sensory stimuli and stored knowledge about the world. For example,
+identifying objects depends on accessing preexisting memories about
+these objects. Attention is also dependent on memory, as past experiences guide the processes of searching for and selecting relevant stimuli
+in the environment. Our emotional responses are also altered by our
+memories. In fact, identical stimuli can elicit very different emotional
+responses in different people, depending on their life experiences. Language depends on concepts and grammatical rules stored in memory.
+Decision making often requires information that must be retrieved from
+memory. Finally, our sense of self and our capacity to project ourselves
+into the future depends on our personal memories.
+Memory is not a unitary phenomenon (see Introductory Box). Researchers distinguish between a system that maintains memories for a
+few seconds or minutes (working memory) and systems that maintain
+memories for longer periods. The latter include systems that mediate
+conscious memories for events and facts (declarative memory) and
+systems that mediate memories that are expressed through task performance (nondeclarative memory). The current chapter begins by introducing some basic concepts and reviewing evidence supporting the distinctions of working memory, declarative memory, and nondeclarative
+memory. It then focuses on the neural bases of the main forms of nondeclarative memory—namely, priming, skill learning, and conditioning.
+Finally, the chapter ends by describing cellular mechanisms shared by
+all memory systems. Declarative memory is the focus of Chapter 9 and
+working memory is considered together with other executive functions
+in Chapter 13.
+
+244 ■ CHAPTER 8
+
+■ INTRODUCTORY BOX THE CASE OF H.M.
+
+O
+
+ne of the most consequential
+discoveries in the history of memory research was serendipitous,
+resulting from the unexpected effects of
+a neurosurgical procedure performed in
+1953. Patient H.M. (Henry Molaison) was
+a 27-year-old man who suffered from
+medically intractable epilepsy that left
+him unable to work and severely debilitated. With the intent of relieving H.M.’s
+frequent seizures, neurosurgeon William
+Scoville removed much of the patient’s
+temporal lobes on both sides, including
+the amygdala, the entorhinal cortex, and
+about two-thirds of the hippocampus
+(Figures A–D). Prior to the surgery, H.M.
+had been experiencing about 10 minor
+seizures every day, with a major seizure
+every few days. Consistent with the assumption that the source of the seizures
+was in the medial temporal lobes, the
+surgery was successful in relieving the
+seizures. Unfortunately, the bilateral removal of these structures had an unforeseen consequence: the surgery left H.M.
+with a devastating memory deficit.
+After the original report of his memory
+loss, which Scoville and neuropsychologist Brenda Milner published in 1957,
+more than 100 researchers tested H.M.
+using a variety of tasks, until his death
+in 2008. The importance of H.M.’s case
+comes from the purity of his memory
+deficit, which showed the major features
+of amnesia that are often present in other
+cases, but seldom with the same degree
+of clarity.
+MRI images of H.M.’s brain. (A) The area
+of H.M.’s anterior temporal lobe destroyed
+by surgery is indicated by the white dotted
+line. The intact posterior hippocampus is
+the banana-shaped object indicated by the
+white arrow. (This sagittal view shows the
+right hemisphere; H.M.’s lesions were in fact
+bilateral.) (B–D) Coronal sections at approximately the levels indicated by the red lines
+in (A). Image (B) is the most rostral and is at
+the level of the amygdala. The amygdala and
+associated cortex are entirely missing. Image
+(C) is at the level of the rostral hippocampus;
+again, this structure and the associated cortex have been removed. Image (D) is at the
+caudal level of the hippocampus; the posterior hippocampus appears intact, although
+shrunken. The outlines below images (B), (C),
+and (D) indicate the areas of H.M.’s brain that
+were destroyed (black shading). (A–D from
+Corkin et al. 1997.)
+
+First, although H.M. was severely impaired in memory functions, he had little
+or no difficulty in other cognitive domains.
+His sensory and perceptual functions
+were remarkably preserved. His IQ was
+normal and even improved a little following surgery, perhaps because of the relief
+from seizures. Moreover, he had no deficit
+in executive tasks, including performance
+on tasks assumed to measure frontal lobe
+function (see Chapter 13).
+Second, H.M.’s memory deficits generalized to all kinds of information and
+to all sensory modalities. He remembered neither verbal stimuli, such as new
+names and words, nor nonverbal stimuli,
+such as faces and spatial layouts. He
+was unable to remember postsurgery
+events, regardless of whether the information to be learned or the questions
+posed were presented visually, auditorily,
+or in another sensory modality.
+
+Third, although H.M.’s ability to remember new events and facts (declarative memory) was severely impaired, his
+ability to retain information for brief periods of time (working memory) was intact.
+For example, when asked to repeat a list
+of digits (digit-span task), he was able
+to repeat without error about seven to
+nine digits, which is the normal range.
+He also had normal working memory for
+pictorial material.
+Finally, and perhaps most important,
+H.M.’s memory deficits were limited to
+tasks that require memory of events
+and facts; his problems did not affect
+memories expressed through performance, such as motor or cognitive skills.
+For example, when tracing geometrical
+figures that could be seen only via a
+mirror (mirror drawing task; Figure E),
+H.M. showed daily improvements; and
+these improvements persisted over time,
+
+(A)
+
+(B)
+
+(C)
+
+Damaged area
+Anterior
+
+Amygdala
+Entorhinal cortex
+
+(D)
+
+Hippocampus
+Posterior
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ INTRODUCTORY BOX (continued)
+much as in normal subjects (Figure F), even
+though he did not consciously remember
+having traced geometrical figures before.
+In sum, the case of H.M. made clear for
+the first time the critical importance of the
+medial temporal regions in certain types of
+human memory, stimulating much of the
+research described in this chapter and the
+next.
+
+(E)
+
+References
+CORKIN S, D. G. AMARAL, R. G. GONZALEZ, K.
+A. JOHNSON AND B. T. HYMAN (1997) H.M.’s
+medial temporal lobe lesion: Findings from
+magnetic resonance imaging.
+J. Neurosci. 17: 3964–3979.
+MILNER, B., S. CORKIN AND H.-L. TEUBER (1968)
+Further analysis of the hippocampal amnesic syndrome: A 14-year follow-up study of
+H.M. Neuropsychologia 6: 215–234.
+
+SCOVILLE, W. B. AND B. MILNER (1957) Loss of
+recent memory after bilateral hippocampal
+lesions. J. Neurol. Neurosurg. Psychiat. 20:
+11–21.
+SQUIRE, L. R. (2009) The legacy of patient
+H.M. for neuroscience. Neuron 61: 6–9.
+(E) The mirror drawing task involves tracing geometrical figures seen in a mirror. (F) H.M. shows
+normal learning in this nondeclarative memory
+task (errors decrease during the first session),
+and this learning persists across time (errors start
+at a lower level the second day). (E, F after Milner
+et al. 1968.)
+
+(F)
+40
+Number of errors in each attempt
+
+SALAT, D. H. AND 6 OTHERS (2006) Neuroimaging H.M.: A 10-year follow-up examination.
+Hippocampus 16: 936–945.
+
+Day 1
+
+Day 2
+
+Day 3
+
+30
+
+20
+
+10
+
+0
+
+1
+
+10
+
+1
+10
+Attempts each day
+
+Memory Phases, Processes, Systems, and Tasks
+Memory is the series of processes whereby the nervous system acquires infor-
+
+mation from new experiences, retains this information over time, and eventually uses it to guide behavior and plan future actions. This definition points to
+three basic memory phases shared by all forms of memory: encoding, storage,
+and retrieval. Encoding consists of the processes whereby experiences can alter
+the nervous system. These alterations, known as memory traces, are believed to
+involve primarily changes in the strength and/or number of synaptic connections between neurons. Storage is the retention of memory traces over time.
+Long-term retention requires cell- and system-level stabilization or consolidation processes, which are described in Chapter 9. Retrieval is the accessing of
+stored memory traces, which may lead to a change in behavior and sometimes
+is associated with the conscious experience of remembering.
+Learning—a term closely related to memory—is used as a synonym of encoding and can also describe gradual changes in behavior as a function of training.
+
+1
+
+10
+
+■ 245
+
+246 ■ CHAPTER 8
+
+■ BOX 8A INVESTIGATING DECLARATIVE MEMORY IN
+NON-HUMAN ANIMALS
+
+T
+
+he most obvious challenge to
+investigating declarative memory
+in nonhuman animals is that they
+cannot follow verbal instructions or “declare” their memories verbally. However,
+there are ways of measuring declarative
+memory in such circumstances.
+One such method used in studies on
+non-human primates is known as a delayed non-match-to-sample task (Figure
+A). A typical trial in this paradigm has
+three phases. During the sample phase,
+a monkey is shown a single stimulus
+(e.g., a brown cross) above a well containing a food reward; during the delay
+phase, a door is lowered so the mon-
+
+key can no longer see the stimulus and
+reward; and during the choice phase, the
+monkey is presented with the previously
+rewarded stimulus (the brown cross)
+along with a new stimulus (e.g., a brown
+rectangle) that conceals the food reward.
+This time the animal must select the new
+(nonmatching) stimulus in order to obtain
+the reward. Using non-match-to-sample
+tasks, cognitive neuroscientists David
+Gaffan and Mortimer Mishkin showed
+that lesions of the medial temporal lobe
+
+severely impair memory in monkeys,
+thus providing the first animal model of
+the human amnesia syndrome.
+Such studies can also be done using
+rodents—a particularly important advance
+because the use of rodents allows us to
+examine the genetic basis of behavior in
+these animals. The most popular task for
+measuring declarative memory in rodents
+is the Morris water maze, pioneered by
+neuroscientist Richard Morris and his
+group. The animal’s task is to swim to a
+
+Testing declarative memory in non-human animals. (A) The delayed non-match-to-sample task.
+Declarative memory is indexed by the ability to choose the novel stimulus. (B) The Morris water
+maze. Declarative memory is indexed by the ability to find the hidden platform.
+
+(A)
+
+Food reward
+
+Right
+Wrong
+
+Sample phase
+
+Delay phase
+
+Choice phase
+
+(B)
+
+Start
+
+Normal memory
+
+Start
+
+Impaired memory
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ 247
+
+■ BOX 8A (continued)
+small platform hidden just beneath the
+surface in a circular tank filled with murky
+water, which then provides a safe haven
+(Figure B). Once the animal has learned
+where to find the platform, the experimenter can assess memory by measuring
+how long the rat takes to find the platform
+again, or how much time it spends within
+the quadrant that contains the platform
+compared to the other three quadrants
+of the tank. Given that the murky water
+
+means the animal’s view of the tank is the
+same in all directions, remembered cues
+from objects in the room (e.g., windows,
+pictures on the wall) are presumably used
+to locate the platform.
+The Morris water maze measures
+spatial memory; however, it is also possible to measure nonspatial forms of
+declarative memory in rodents in paradigms such as the odor association task
+described in the text and Figure 9.4.
+
+In this second meaning, the term learning refers to the combined effect of all
+encoding, storage, and retrieval in gradually enhancing the performance of a
+particular task. For this reason, the second use of learning is popular in contexts
+with multiple learning trials, such as school education, skill learning, and most
+of the animal memory paradigms.
+In addition to memory phases and memory processes, researchers distinguish
+among different memory systems. Memory systems can be defined as groups of
+memory processes and associated brain regions that tend to interact to mediate
+performance over a class of similar memory tasks. This last property illustrates
+one of the advantages of using psychological constructs (see Chapter 1) such as
+a memory system: a single construct can account for a whole set of empirical
+results. The idea that memory systems mediate performance in specific memory
+tasks does not, however, imply that each memory task measures a single memory
+system. Although some tasks depend primarily on one memory system, most
+tasks are sensitive to the contributions of more than one memory system. For this
+reason, drawing inferences from memory tasks about the operation of memory
+systems requires converging evidence from several different tasks. For example,
+the same memory system is assumed to mediate the ability of remembering
+personally experienced events regardless of whether recall is spoken or written.
+The notion of memory systems has a very long history, with some basic
+ideas going as far back as ancient Greece. As described in the Introductory Box,
+one of the most important advances in the twentieth century was the report in
+1957 of patient H.M., who suffered from amnesia. H.M.’s case showed clearly
+that memories associated with consciousness depend on medial temporal lobe
+regions, whereas other types of memory, those expressed through behavior,
+are independent of these regions. Inspired by the case of H.M., behavioral
+neuroscientists tried to produce a non-human animal model of his amnesia.
+Although the role of consciousness cannot be assessed in rodents and monkeys,
+researchers reasonably assumed that tasks impaired by medial temporal lobe
+damage measure types of memory similar to those impaired in H.M. (Box 8A).
+In parallel with this research, psychologists investigating memory in normal
+human participants during the 1970s found evidence that retaining information
+across delays of seconds or minutes (short-term memory) involves mechanisms that
+are fundamentally different from those used for retaining information across
+delays of hours, days, or weeks (long-term memory). The concept of short-term
+memory, which originally was about simple maintenance of information, was
+later expanded into the notion of working memory, which includes not only
+simple maintenance but also operations performed on the information being
+maintained and mechanisms of attention allocation.
+
+References
+D’HOOGE, R. AND P. P. DE DEYN (2001)
+Applications of the Morris water maze in
+the study of learning and memory. Brain
+Res. Rev. 36(1): 60–90.
+EICHENBAUM, H. AND N. J. COHEN (2001)
+From Conditioning to Conscious Recollection:
+Memory Systems of the Brain. New York:
+Oxford University Press.
+
+248 ■ CHAPTER 8
+Figure 8.1 A general taxonomy
+of memory systems The working
+memory (or short-term memory)
+system maintains information for a
+few seconds; the long-term memory
+system maintains information for
+longer periods. Declarative (explicit)
+memory is conscious memory for
+events and facts; nondeclarative
+(implicit) memory is memory
+expressed through performance,
+independently of consciousness.
+
+Memory
+
+Working memory
+
+Long-term memory
+
+Declarative (explicit)
+memory
+
+Episodic memory
+(events)
+
+Nondeclarative (implicit)
+memory
+
+Semantic memory
+(facts)
+
+Priming
+
+Skill learning
+
+Conditioning
+
+These various developments led to the taxonomy of memory systems illustrated in Figure 8.1. Working memory mediates the maintenance and manipulation
+of information online for a few seconds or minutes. In contrast, long-term memory
+systems mediate the retention of information for longer periods (days, months,
+decades). Long-term memory systems are typically divided into declarative and
+nondeclarative types. Declarative memory (also known as explicit memory) refers
+to conscious memory for events (episodic memory) and facts (semantic memory).
+As noted already, although declarative memory was originally distinguished
+by having a component of consciousness, researchers have developed tasks
+that depend on similar brain regions in rodents and monkeys, and that can
+be used to study declarative memory in non-human animals. Nondeclarative
+memory (also known as implicit memory) refers to memories that are expressed
+through performance independently of consciousness. As described later, there
+are several different forms of nondeclarative memory. Before considering each
+memory system (nondeclarative memory in this chapter, declarative memory in
+the next chapter, and working memory in Chapter 13), it is important to review
+the evidence supporting these major taxonomic distinctions.
+
+Dissociating Memory Systems
+The taxonomy in Figure 8.1 is supported by abundant evidence that the functions of different memory systems can be dissociated by examining the results
+of brain lesions in human patients and animals, as well as by functional brain
+imaging and electrophysiology. The next two sections provide some examples
+from human patients supporting the distinctions between working memory
+and declarative memory, and between declarative and nondeclarative memory.
+
+Working memory versus declarative memory
+The most telling evidence supporting the distinction between working memory
+and declarative memory has been provided by cases of amnesia. This term is
+typically applied to severe memory loss due to brain damage, but it may also be
+used to describe our normal lack of memory for events that took place during
+the first few years of life (childhood amnesia) or memory loss due to psychological trauma (psychogenic amnesia). In the case of brain damage, the memory
+loss may affect information acquired after the damage (anterograde amnesia),
+information acquired before the lesion (retrograde amnesia), or both.
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ 249
+
+Percent correct
+
+Number of trials required
+
+Amnesia due to brain lesions most often arises from bilateral damage to
+the medial temporal lobe. Unilateral damage of these regions usually produces
+relatively mild memory deficits because the spared medial temporal lobe regions
+can still support some aspects of memory. But when damage to the medial
+temporal lobe is bilateral, patients may display severe anterograde amnesia
+with some degree of retrograde amnesia. The retrograde amnesia typically
+covers a few years prior to the lesion, as in the case of H.M., but when damage
+to the medial temporal lobe is extensive, the retrograde amnesia may extend
+several decades back.
+Because of their anterograde amnesia, patients with bilateral damage to
+the medial temporal lobe cannot form new memories for events. For example,
+a patient may have a normal conversation with a new doctor, but if the doctor
+leaves the room, even for a few minutes, the patient may not recognize her
+when she comes back. The fact that patients with amnesia can maintain a
+Figure 8.2 Evidence for different
+normal conversation implies that working memory is spared, since conversing
+anatomical substrates of working and
+requires remembering what was said during the last few seconds or minutes.
+declarative memory (A) Patient K.F.
+The finding that people who suffer from amnesia because of damage to the
+was impaired in immediate word recall,
+medial temporal lobe are impaired in declarative memory but not in working
+but he needed fewer repetitions than
+memory constitutes a single dissociation. As explained in Chapter 2, however,
+control subjects did to remember word
+lists for longer periods of time. (B) In
+single dissociations are not enough to postulate different underlying brain
+ontrast, amnesia patients like H.M.
+systems. The double dissociation, needed to strengthen the case, would require
+tend to show intact working memory
+brain-damaged patients who are impaired in working memory but not in
+but impaired declarative memory.
+declarative memory. Such patients have been identified, and their lesions are
+(A after Warrington and Shallice 1969;
+typically in the left temporoparietal cortex.
+B after Drachman and Arbit 1966.)
+One of the most severe cases of working memory
+(A) Patient K.F.: Impaired working memory
+deficit resulting from damage to the left temporopariversus preserved declarative memory
+etal cortex is patient K.F. When asked, for example, to
+1
+Better
+repeat back a list of numbers, which normal subjects
+100
+K.F.
+3
+do correctly up to a maximum of seven or eight digits,
+Controls
+5
+K.F. could remember only two digits. Likewise, he
+80
+7
+could rarely repeat back lists of four words, which is
+9
+something normal participants can virtually always
+60
+11
+do (Figure 8.2A, left). Yet K.F.’s declarative memory
+13
+performance was slightly better than normal. In fact,
+40
+to learn longer lists he needed fewer repetitions than
+15
+control participants needed, and he remembered the
+17
+20
+lists for long periods (Figure 8.2A, right). This pattern
+19
+Worse
+is opposite the findings in patients with only medial
+0
+21
+Working
+memory
+Declarative
+memory
+temporal lobe damage (like H.M.), who are impaired
+(word span)
+(learning: 10-word list)
+in declarative memory but not in working memory
+(Figure 8.2B).
+(B) Patient H.M. (amnesic): Preserved working memory
+versus impaired declarative memory
+
+Declarative versus nondeclarative memory
+
+25
+
+9
+8
+
+H.M.
+Controls
+
+7
+6
+5
+4
+3
+2
+1
+0
+
+Working memory
+(digit span)
+
+Longest digit sequence
+
+10
+Longest digit sequence
+
+A key feature of medial temporal lobe amnesia is that
+it impairs declarative memory, as exhibited in tests
+of recall and recognition but not in nondeclarative
+memory tasks such as skill learning and priming. For
+example, H.M. was able to learn to trace geometrical
+figures projected in a mirror (visuomotor skill) at a
+normal rate, even though he could not remember the
+training sessions (see Introductory Box). Conversely,
+a patient referred to as M.S. showed impaired nondeclarative memory but normal declarative memory.
+Like H.M., M.S. had surgery to relieve intractable epileptic seizures. However, the brain regions removed
+
+Better
+
+20
+15
+10
+5
+0
+
+Worse
+Declarative memory
+(digit storage capacity)
+
+250 ■ CHAPTER 8
+(A)
+
+(B) Implicit test
+
+(C) Explicit test
+
+100
+
+100
+New
+Old
+
+90
+
+90
+Recognition accuracy (%)
+
+Time to identify (ms)
+
+80
+70
+60
+50
+40
+30
+20
+
+M.S.
+
+70
+
+60
+
+10
+50
+
+0
+
+Figure 8.3 Double dissociation
+of declarative and nondeclarative
+memory in patient M.S. (A) The
+surgery performed on M.S. removed
+the right occipital regions of his brain,
+including the primary and much of the
+secondary visual cortex (light area).
+(B) In an implicit word identification
+test, M.S. shows impaired priming,
+whereas amnesia patients show
+normal priming. (C) In an explicit
+recognition test, M.S. shows normal
+performance, but amnesia patients
+show impaired performance. (After
+Gabrieli et al. 1995.)
+
+80
+
+M.S.
+
+Control
+
+Amnesia
+patients
+
+M.S.
+
+Control
+
+Amnesia
+patients
+
+in his case were not the medial temporal lobes but the right occipital regions,
+including the primary and much of the secondary visual cortex (Figure 8.3A).
+As a result of the surgery, M.S. became blind in his left visual field. Aside from
+the vision deficits, he was in good health and showed normal performance on
+standardized tests of attention, memory, language, perception, and reasoning.
+One study compared M.S. to a group of healthy controls and a group of
+subjects with amnesia using an implicit (nondeclarative) test in which each
+word was presented for increasing periods until it was identified correctly.
+Half the words had been seen in a previous session, and half were presented
+for the first time. As illustrated in Figure 8.3B, control subjects and amnesia
+patients identified previously seen words after shorter presentations, thus
+demonstrating priming. Despite good word identification performance, however,
+M.S. showed no priming effect in this task. In contrast, in a declarative (explicit)
+recognition test, his performance was normal, whereas amnesia patients with
+medial temporal lobe damage were impaired (Figure 8.3C). Thus, M.S. was
+impaired in nondeclarative but not in declarative memory, whereas patients
+with amnesia showed the opposite pattern. M.S.’s priming deficits cannot be
+attributed to his visual impairment, since he was blind only in the left visual
+field and, as mentioned, his performance on the (visually mediated) word
+identification test was normal.
+Thus, both of the major distinctions in the taxonomy in Figure 8.1 are supported by clinical cases (for exceptions, see Box 8B). Whereas medial temporal
+lobe damage tends to impair declarative but not working memory, left temporoparietal damage can disrupt working memory while sparing declarative
+memory. In addition, medial temporal lobe damage tends to disrupt declarative
+memory while sparing nondeclarative memory functions, whereas occipital
+lobe damage may impair nondeclarative memory (tested with visual priming)
+without altering declarative memory performance.
+Finally, note that although some brain regions are differentially involved
+in working memory (see Chapter 13), declarative memory (see Chapter 9), and
+nondeclarative memory (see the next section), these functions involve other brain
+regions that they share. For example, some frontal and parietal regions contribute
+to both working and declarative memory, as well as to both declarative and
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ 251
+
+■ BOX 8B MEDIAL TEMPORAL LOBE CONTRIBUTIONS
+BEYOND DECLARATIVE MEMORY
+
+A
+
+lthough the basic idea that medial
+temporal lobe regions are critical
+for declarative memory tasks but
+not for working memory and nondeclarative memory tasks fits well with most
+data, there are several exceptions to this
+general rule.
+Regarding working memory, the
+case of H.M. (see Introductory Box)
+clearly showed that medial temporal lobe
+regions are not necessary for maintaining simple familiar stimuli, such as
+digits, for brief periods of time. However, there are a few reports of patients
+with medial temporal lobe amnesia who
+were impaired in complex novel stimuli
+processed by working memory, such as
+pictures of unfamiliar objects. In addition, single-cell recordings in monkeys
+identified medial temporal neurons that
+showed sustained activity during the
+delay period of working memory tasks.
+Moreover, fMRI studies with humans
+reported medial temporal lobe activation during working memory tasks for a
+variety of novel visual stimuli.
+Turning to nondeclarative memory, we
+find evidence supporting a role of medial
+temporal lobe regions in some priming
+and implicit learning tasks. Although patients with medial temporal lobe amnesia
+
+show normal priming for single items,
+such as words, some reports claim that
+they can be impaired in priming for new
+associations. Furthermore, the implicit
+memory effect whereby repeated backgrounds enhance visual search was
+found to be impaired by some forms of
+medial temporal lobe damage. Likewise, implicit memory effects on eye
+movements were found to be impaired
+in patients with medial temporal lobe
+amnesia and to elicit hippocampal activity in normal participants. Moreover, hippocampal activations were found for old
+items consciously perceived as new and
+for subliminally encoded items.
+Two main hypotheses have been
+proposed to explain medial temporal
+lobe involvement in working memory and
+nondeclarative memory. One idea, originally proposed by neuroscientists Howard Eichenbaum and Neal Cohen, is that
+the hippocampus mediates memory for
+new associations, or relational memory,
+regardless of whether the memories
+have to be maintained only briefly or are
+processed outside of consciousness. A
+related idea is that the medial temporal lobe is critical for processing flexible
+memory representations—those that can
+be applied in a context different from the
+
+nondeclarative memory. Moreover, as described later in the chapter, all forms
+of memory presumably depend on similar cellular and molecular mechanisms.
+
+Nondeclarative Memory
+All forms of nondeclarative memory have in common the facts that they are
+expressed through performance and are independent of conscious awareness.
+In other words, nondeclarative memory is evidenced by changed behavior,
+even if the person is unaware that memories from specific past experience are
+being accessed. Despite these shared properties, the major forms of nondeclarative memory—namely, priming, skill learning, and conditioning (see Figure
+8.1)—are very different from each other. Priming is a change in the processing
+of a stimulus due to a previous encounter with the same or a related stimulus,
+such as completing a word fragment with a previously read word. Skill learning is a gradual improvement in performance due to repeated practice, such
+as mirror drawing in the case of H.M. or riding a bicycle. Conditioning consists
+of simple responses to associations between stimuli, as when a dog salivates
+at the sound of a can opener associated with food. Thus, whereas priming
+can result from a single encounter with a stimulus, skill learning requires repeated learning trials. Conditioning also involves multiple learning trials, but
+
+one associated with encoding. Although
+some authors believe that these two
+factors are more important for defining
+medial temporal, and in particular hippocampal, function than consciousness
+is, most memory researchers believe
+that consciousness is a major factor and
+use the memory system taxonomy diagrammed in Figure 8.1.
+
+References
+CHUN, M. M. AND E. A. PHELPS (1999)
+Memory deficits for implicit contextual
+information in amnesic subjects with
+hippocampal damage. Nat. Neurosci. 2:
+844–847.
+DEW, I. T. AND R. CABEZA (2011) The
+porous boundaries between explicit and
+implicit memory: Behavioral and neural evidence. Ann. N. Y. Acad. Sci. 1224:
+174–190.
+HENKE, K. (2010) A model for memory
+systems based on processing modes rather
+than consciousness. Nat. Rev. Neurosci. 11:
+523–532.
+RANGANATH, C. AND R. S. BLUMENFELD
+(2005) Doubts about double dissociations
+between short- and long-term memory.
+Trends Cogn. Sci. 9: 374–380.
+
+252 ■ CHAPTER 8
+typically simpler responses and associations, than skill learning. The sections
+that follow consider these phenomena in turn.
+
+Priming
+
+Figure 8.4 The major forms of
+priming (A) This diagram shows
+the hierarchy of the major types of
+priming. (B) Here the primes, test
+cues, and targets are compared for
+perceptual, conceptual, and semantic
+priming.
+
+Priming is defined as a change in the efficacy of stimulus processing arising from
+a previous encounter with the same or a related stimulus, in the absence of conscious awareness about the first encounter. In a typical paradigm, participants
+attend a first session in which they read words, and a second session in which
+they solve word puzzles seemingly unrelated to the words previously read. For
+example, they may be asked to complete word fragments (e.g., E _ V _ L _ P _ ) with
+the first words that come to mind. Priming is then measured as an increase in
+the probability of completing word fragments with words presented during
+the first phase (e.g., the word envelope). Critically, this facilitation effect is found
+even if participants are unaware that they solved the fragments using words
+previously read in the experiment. In this paradigm, priming is measured as
+an increase in the probability of generating a particular stimulus, but priming
+can be measured in many different ways, including increases in processing
+speed and changes in eye movement patterns.
+The requirement that participants be unaware that they are using information
+from the first session is critical. Participants should complete E _ V _ L _ P _ with
+envelope because this is the first word that comes to mind, not because they tried
+to recall words from the study list. However, sometimes participants spontaneously realize that some fragments can be completed with words previously seen
+in the laboratory, and they try retrieve these words to complete the fragments.
+If this happens, the test is said to be contaminated by explicit memory strategies,
+and its results cannot be considered a valid measure of implicit memory. Several methods have been developed to reduce the chances of explicit memory
+contamination, such as using shallow or subliminal encoding conditions, or
+encouraging fast test responses. Such studies may also include priming and
+very similar declarative memory tests; if the two tests show different patterns
+of results, it is fair to conclude that the priming task was not contaminated.
+Figure 8.4 illustrates the major forms of priming. Depending on the relationship between the stimulus that generates the priming effect (the prime) and the
+stimulus eliciting that effect (the target), priming can be classified as direct or
+indirect. In direct priming, also called repetition priming, prime and target stimuli
+are the same; in indirect priming they are different. The most typical form of
+(B)
+Prime
+
+Test cue
+
+Target
+
+E_V_L_P_
+
+(A)
+Perceptual priming
+
+ENVELOPE
+
+ENVELOPE
+
+Direct priming
+STATIONERY
+Conceptual priming
+
+ENVELOPE
+
+ENVELOPE
+
+Semantic priming
+
+ENVELOPE
+
+LETTER
+
+Priming
+
+Indirect priming
+
+MEMORY: VARIETIES AND MECHANISMS
+
+indirect priming is semantic priming, in which the prime and the target are
+semantically related (e.g., envelope and letter). Depending on the type of cue
+used in the test, direct priming can be further classified as perceptual or
+conceptual. In perceptual priming, the test cue and the target are perceptually
+related, as in the aforementioned word fragment completion test. In conceptual
+priming, the test cue and the target are semantically or associatively related.
+For example, in the category association test, participants generate words in
+response to the cue stationery, including the target word envelope.
+
+(A)
+45
+Picture
+Word
+
+40
+Explicit or implicit memory (%)
+
+Perceptual priming
+
+35
+30
+25
+20
+15
+10
+5
+0
+
+Free recall
+
+Fragment
+completion priming
+
+(B)
+100
+Semantic
+Nonsemantic
+
+90
+Explicit or implicit memory (%)
+
+Abundant evidence suggests that perceptual priming depends on brain systems different from those underlying declarative memory and, in particular, different from those underlying declarative memory for events, called
+episodic memory. In the study whose results are shown in Figure 8.3, patients
+with medial temporal lobe amnesia were impaired in episodic memory
+(word recognition) but not in perceptual priming (faster identification of old
+words). Conversely, patient M.S. with occipital lobe damage was impaired
+in perceptual priming but not in episodic memory. These results suggest
+that perceptual priming depends on sensory regions of the cortex, such as
+visual regions of the occipital lobe.
+Consistent with this conclusion, perceptual priming is reduced when the
+format of the test stimuli changes between encoding and retrieval (called
+study-test format shifts). For example, perceptual priming in the word
+fragment completion test is markedly attenuated when items are encoded
+as pictures rather than as words (e.g., presenting a drawing of an envelope
+in the encoding phase rather than the word envelope). Perceptual priming is
+reduced not only by study-test shifts in symbols (e.g., from pictures to words)
+but also by changes in modality (e.g., from auditory to visual presentation),
+and even by the introduction of more subtle changes (e.g., changing from
+uppercase to lowercase letters). In general, the greater the perceptual change,
+the greater the attenuation of perceptual priming. In contrast, performance
+in episodic memory tests, such as free recall, is not usually disrupted by
+study-test shifts in stimulus format (Figure 8.5A). This is why students readily answer questions in a written exam even if information was originally
+encoded in an auditory format during a class lecture.
+Whereas study-test format shifts affect perceptual priming but not episodic
+memory, conceptual manipulations tend to produce the opposite effects. For
+instance, episodic memory is much better for encoding tasks that promote
+semantic processing (e.g., deciding whether the referent of a word is living
+or nonliving) than for tasks that promote perceptual processing (e.g., deciding whether the word includes the letter a). This effect, known as levels of
+processing, is the reason you think about the meaning of the information
+that you are reading when studying for an exam rather than paying attention to the font the words are written in. In contrast with episodic memory,
+perceptual priming is not affected by the levels-of-processing manipulation
+(Figure 8.5B). Taken together with the effects of study-test format shifts (see
+Figure 8.5A), this finding completes a double dissociation between perceptual
+priming and episodic memory, and it strongly supports the idea that these
+two forms of memory depend on different brain systems.
+The case of M.S. (see Figure 8.3) and the effects of study-test format shifts
+(see Figure 8.5A) suggest that perceptual priming depends on sensory cortices. Within these regions, the neural mechanism of perceptual priming is
+assumed to involve a reduction in neural responses. Single-cell recording
+studies in monkeys have shown that neurons in visual processing regions
+show a decreased level of firing when a novel visual stimulus is repeated.
+
+■ 253
+
+80
+70
+60
+50
+40
+30
+20
+10
+0
+
+Corrected
+recognition
+
+Stem completion
+priming
+
+Figure 8.5 Functional dissociations
+between episodic memory and
+perceptual priming (A) Verbal free recall
+is as good for items studied as words as
+it is for items studied as pictures, whereas
+word fragment completion priming is
+much greater for items studied as words
+than it is for items studied as pictures.
+(B) Recognition is better for words encoded under semantic than under nonsemantic study conditions, whereas stem
+completion priming is similar across these
+conditions. (A after Weldon and Roediger
+1987; B after Graf and Mandler 1984.)
+
+254 ■ CHAPTER 8
+(A)
+Study
+
+Test
+
+Same
+
+Different
+
+Novel
+
+(B)
+
+Left fusiform
+
+0.5
+
+Right fusiform
+Novel
+Same
+Different
+
+Signal change (%)
+
+Figure 8.6 Repetition suppression
+(A) In this fMRI study of priming, study
+and test stimuli were the same object
+or different exemplars of the same
+object category. (B) The left fusiform
+cortex showed significant repetition
+suppression in both the same and the
+different conditions, whereas the right
+fusiform cortex showed it only in the
+same condition. (After Koutstaal et al.
+2001.)
+
+0
+
+0
+
+16
+Time (s)
+
+Novel
+Same
+Different
+
+0
+
+16
+Time (s)
+
+The term repetition suppression has been used to describe a similar and presumably related phenomenon observed in functional neuroimaging studies in
+which previously encountered (primed) stimuli result in weaker hemodynamic
+responses.
+For example, one study found that, compared to novel objects, objects
+repeated in the identical format elicited reduced activity in bilateral fusiform
+regions (Figure 8.6). Interestingly, right and left fusiform regions differed in
+their sensitivity to study-test format shifts: presenting different versions of the
+same objects eliminated the repetition suppression effect in the right fusiform
+gyrus but not in the in the left fusiform gyrus. These results have been interpreted as evidence that, compared to the right fusiform gyrus, the left fusiform
+gyrus stores more abstract object representations, which can support priming
+across some degree of physical change. However, both left and right fusiform
+regions, like occipitotemporal areas, are concerned primarily with perceptual
+representations (visual), rather than with the semantic representations that
+mediate conceptual priming.
+Several theories have been postulated to explain why reduced neural activity (repetition suppression or neural priming) leads to enhanced processing of
+a stimulus (behavioral priming). According to one view, known as sharpening
+theory, when a stimulus is repeated, neurons that carry critical information
+about the stimulus continue to fire vigorously, whereas neurons that are not
+essential for processing the stimulus respond less and less, leading to reduced
+hemodynamic responses (Figure 8.7). The dropping out of noncritical neurons
+is assumed to yield a cortical representation that is both more sparse (fewer
+
+MEMORY: VARIETIES AND MECHANISMS
+Neurons
+
+PET/fMRI
+
+Sharpened
+representation
+
+Reduced
+hemodynamic
+response
+
+Figure 8.7 Sharpening theory When a stimulus is repeated,
+neurons that are not essential for processing the stimulus
+respond less and less, leading to reduced hemodynamic
+responses. The sharpened representation is smaller (fewer
+neurons) and more selective (only critical neurons). (After
+Henson and Rugg 2003.)
+
+Repetitions
+
+Stimulus
+
+■ 255
+
+neurons) and more selective (only critical neurons). This sharpened representation could explain behavioral priming effects.
+
+Conceptual priming
+Just as perceptual priming reflects prior processing of the perceptual aspects
+of a stimulus, conceptual priming reflects prior processing of its conceptual
+aspects. Unlike perceptual priming—but similar to episodic memory—conceptual priming is sensitive to conceptual manipulations but not to perceptual
+manipulations. Conceptual priming, however, is different from declarative
+memory. Like perceptual priming—and unlike declarative memory—conceptual
+priming does not depend on conscious awareness, and it is preserved in amnesia patients with medial temporal lobe damage. Memory performance in these
+patients is impaired in both perceptual and conceptual memory tests when the
+tests are explicit, but performance is normal when the tests are implicit. Thus,
+despite their functional differences, both perceptual and conceptual priming
+operate independently of the medial temporal lobes.
+Given their contrasting properties, perceptual and conceptual priming
+are likely to depend on different brain regions. Some evidence supporting
+this idea was provided by research on patients with Alzheimer’s disease, who
+show neural deterioration not only in medial temporal lobe regions but also
+in lateral temporal and prefrontal cortices. Like patients with amnesia, most
+patients with Alzheimer’s disease are impaired in declarative memory but not
+in visual perceptual priming. These deficits are consistent with the medial
+temporal lobe deterioration and relative sparing of the visual cortices. Unlike
+amnesia patients, however, Alzheimer’s patients are impaired in conceptual
+priming. This deficit suggests that conceptual priming is mediated by brain
+regions affected in Alzheimer’s but not in amnesia, such as lateral temporal
+and prefrontal cortices.
+
+256 ■ CHAPTER 8
+Novel > Repeated
+Novel
+Repeated
+fMRI activity
+
+Figure 8.8 Conceptual priming and
+the left inferior frontal gyrus The left
+inferior frontal gyrus showed repetition
+suppression when the same semantic
+task was performed during encoding
+and retrieval (within-task condition)
+but not when the encoding task was
+nonsemantic (across-task condition).
+(After Wagner et al. 2000.)
+
+Anterior
+
+Within-task
+
+Across-task
+
+Type of priming
+
+The role of these regions in conceptual priming has been confirmed by
+functional neuroimaging studies. Within the prefrontal cortex, conceptual
+priming has been linked to the anterior portion of the left inferior frontal gyrus,
+an area strongly associated with semantic processing (see Chapter 12). In one
+fMRI study, for example, participants classified words as either abstract (e.g.,
+honesty) or concrete (e.g., table) in one task, or as either uppercase or lowercase in
+a second task. They subsequently repeated the abstract/concrete classification
+task, which this time included words encountered during the previous abstract/
+concrete task (within-task condition), words encountered during the previous
+uppercase/lowercase task (across-task condition), and novel words. Compared to
+novel words, the anterior left inferior frontal gyrus showed repetition suppression in the within-task condition but not in the across-task condition (Figure
+8.8). This dissociation supports the assumption that the repetition suppression
+effect in this region reflects the reinstatement of conceptual processes associated
+with the abstract/concrete task, rather than the recapitulation of perceptual
+processes associated with just seeing the same words again.
+
+Semantic priming
+
+Ache
+
+Patient
+
+Dentist
+
+Clinic
+
+Doctor
+Tooth
+Surgeon
+
+Hospital
+
+High
+
+In both perceptual and conceptual priming, the prime
+and target stimuli have the same name (e.g., envelope
+in the example in Figure 8.4). In semantic priming,
+however, the prime and target have different names
+but are semantically related. In a typical semanticpriming paradigm, participants make simple decisions
+about each word in a sequence, and response times
+are faster for words (e.g., nurse) that were preceded by
+semantically related word (e.g., doctor) than for words
+preceded by semantically unrelated words (e.g., shoe).
+One theoretical account of semantic priming is
+based on the assumption that semantic memory is
+organized as a network in which each node corresponds to a concept and each link corresponds to
+an association between two concepts (Figure 8.9).
+When a node is accessed it becomes activated, or so
+the argument goes, and activation spreads through
+
+Nurse
+Low
+Association
+strength
+
+Node
+activation
+
+Figure 8.9 Portion of a semantic memory network In
+this example, activation spreads from the node doctor to
+associated nodes (e.g., nurse).
+
+MEMORY: VARIETIES AND MECHANISMS
+(A)
+
+Related
+
+Unrelated
+
+Shed
+
+Book
+
+(B)
+
+Time
+
+Barn
+
+Fish
+
+Unrelated
+> Related
+
+Figure 8.10 Location of neural activation related to semantic priming (A) This
+functional neuroimaging study of semantic priming compared sequentially presented
+word pairs that were semantically either related or unrelated. (B) The left anterior
+temporal cortex showed less activity in the related than in the unrelated condition,
+thereby linking this region to semantic priming. (After Rossell et al. 2003.)
+
+the network according to the strength of the associations between neurons
+encoding the concepts. The concept of spreading activation has been used to
+rationalize many semantic memory phenomena, including semantic priming.
+For example, activation from the node doctor spreads to the node nurse, so if the
+word nurse is presented before the activation for doctor dissipates, this word is
+processed faster.
+In this view, the neural mechanisms of semantic priming should involve
+brain regions associated with the storage of semantic knowledge, such as left
+anterior temporal cortical regions. Functional MRI evidence is consistent with
+this prediction. For example, one study found that when participants were presented with pairs of words, either related or unrelated (Figure 8.10A), the only
+region that showed less activity in the related than in the unrelated condition
+was the left anterior temporal cortex (Figure 8.10B).
+The purpose of semantic priming is presumably to facilitate cognitive tasks
+in everyday life, such as reading with comprehension (see Chapter 12) and
+problem solving. For example, semantic priming may automatically activate
+related but not consciously considered ideas when solving a problem, the ideas
+seeming to simply “pop into our heads” to give an unexpected solution.
+
+Repetition enhancement
+Although priming (perceptual, conceptual, or semantic) is usually associated
+with a reduction in activity (repetition suppression), in some conditions it can
+be associated with the opposite effect: an increase in activity called repetition
+enhancement. According to one theory, whether priming is associated with repetition suppression or enhancement depends on whether the stimuli employed
+have preexisting memory representations.
+Like any form of memory, priming requires a memory trace, which can be
+defined as an enduring change in the nervous system that stores informational
+content (as described earlier). For stimuli that have preexisting representations,
+such as familiar faces, priming could reflect a modification of stored representations.
+But for stimuli without preexisting representations, priming might require the
+creation of new representations. It has been suggested that the former mechanism
+leads to repetition suppression, whereas the latter leads to enhancement. Support
+for this theory is not strong, but one fMRI study found a clear dissociation using
+faces: priming of familiar faces was associated with repetition suppression in
+the right fusiform gyrus, whereas priming of unfamiliar faces was associated
+with repetition enhancement (Figure 8.11). The repetition suppression effect
+would reflect access to a sharper representation, whereas repetition enhancement
+
+■ 257
+
+258 ■ CHAPTER 8
+(A)
+
+Familiar 1
+
+Unfamiliar 1
+
+(B)
+
+(Target)
+
+Repetition suppression
+
+1.5
+
+Familiar 2
+
+Repetition enhancement
+1.5
+
+Familiar 1
+Familiar 2
+
+Unfamiliar 1
+Unfamiliar 2
+1.0
+Signal change (%)
+
+1.0
+Signal change (%)
+
+Figure 8.11 Priming-related
+decreases and increases in
+brain activity (A) Familiar and
+unfamiliar faces were presented
+twice in this paradigm. (B) The
+right fusiform gyrus showed
+repetition suppression (familiar 2
+< familiar 1) for the familiar stimuli,
+but repetition enhancement for the
+unfamiliar stimuli (unfamiliar 2 >
+unfamiliar 1). (After Henson et al.
+2000.)
+
+0.5
+
+0
+
+–0.5
+
+0.5
+
+0
+
+0
+
+5
+
+15
+10
+Time (s)
+
+20
+
+25
+
+–0.5
+
+0
+
+5
+
+15
+10
+Time (s)
+
+20
+
+25
+
+could reflect the retrieval of a new memory representation. The latter idea fits
+with the fact that episodic retrieval, which is generally assumed to involve the
+recovery of new memory traces, is associated with increases in brain activity.
+In summary, all three priming subtypes (perceptual, conceptual, and semantic)
+are independent of conscious awareness or the integrity of the medial temporal
+lobes, depending primarily on different processing in neocortical regions. In
+functional neuroimaging studies, primed stimuli have been associated with
+a reduction in neuronal activity known as repetition suppression. Perceptual
+priming is often associated with repetition suppression in sensory cortex;
+conceptual priming, with suppression in the anterior left inferior prefrontal
+cortex; and semantic priming, with suppression in the left anterior temporal
+cortex. Whereas repetition suppression fits with the idea of modification in a
+preexisting representation, priming for novel stimuli sometimes yields repetition
+enhancement, which may reflect the creation of new representations.
+
+Skill Learning
+Unlike priming, which can result from a single exposure to a stimulus, skill learning refers to gradual changes in behavior due to extensive practice. Skill learning
+includes learning to play a musical instrument, to ride a bicycle, to throw a baseball, to type on a keyboard, and innumerable other abilities we learn during our
+lifetimes. Like priming, skill learning is independent of the medial temporal lobes
+
+■ 259
+
+MEMORY: VARIETIES AND MECHANISMS
+
+and is preserved in patients with amnesia. Whereas priming depends mainly
+on the neocortex, skill learning appears to depend more heavily on the interaction between the neocortex and subcortical structures such as the basal ganglia.
+Complex skills require fast and accurate responses, efficient processing of
+sensory stimuli, and the abstraction of stimulus-response patterns. In most
+real-world skills, these motor, perceptual, and cognitive operations are closely
+intertwined. For example, playing the piano requires rapid and precise hand
+and finger movements (motor operations) coordinated with quick processing of
+the score, the keyboard, and the generated sounds (perceptual operations), with
+the aim of fulfilling very specific musical goals (cognitive operations). Although
+motor, perceptual, and cognitive processing progress concurrently, some tasks
+emphasize one type of operation more than the others. The following sections
+consider the neural correlates and testing methods of skill learning for tasks
+that underscore the relevant motor, perceptual, or cognitive operations.
+
+Motor skill learning
+We learn innumerable motor skills during life. As babies, we learn to sit, stand,
+crawl, and walk. As toddlers, we learn to climb stairs, kick a ball, and ride a tricycle. As preschoolers, we learn to hop on one foot, and to bounce, throw, and
+catch a ball. As school-age children, we learn to skip rope, ride a bicycle, swim,
+scale fences, use tools, and play a variety of sports. Many children also learn to
+play a musical instrument. Motor skill learning never ends. As adults, we keep
+learning new motor skills (e.g., thumb typing on a mobile phone); and as we grow
+old, we learn to adjust preexisting motor skills to a weaker body. Although a goal
+of neuroscientists is to understand the neural bases of these various real-world
+skills, as in other fields the challenge must be made manageable by investigating relatively simple motor learning tasks. These tasks can be roughly divided
+into two categories: motor sequence learning tasks, which focus on the incremental
+acquisition of movements into a well-executed behavior; and motor adaptation
+tasks, which focus on the process of compensating for environmental changes.
+The most thoroughly studied motor sequence learning task is the serial reaction
+time (SRT) task. A typical version of this task involves four screen locations and
+four spatially mapped response keys (Figure 8.12A). On each trial, a stimulus
+appears in one of the locations and the participant presses the corresponding
+key. Unbeknownst to the subjects, the order of the stimulus location follows a
+repeated sequence, typically one that is 10 to 12 units
+long. The results of such tests show that even when
+(B)
+participants are unaware that there is a sequence, the
+420
+sequence repetition leads to faster reaction times as the
+
+Figure 8.12 Serial reaction time
+(SRT) task (A) In SRT paradigms,
+participants press keys corresponding to the locations in which stimuli
+are presented. (B) When the order
+of locations follows a repeated
+sequence, response times become
+shorter and shorter, even if participants are unaware of the sequence
+patterns. This improvement in
+performance reflects implicit learning
+of the sequence. R, random; S,
+sequence.
+
+400
+
+(A)
+Response time (ms)
+
+380
+360
+340
+320
+300
+280
+260
+
+0
+
+R
+
+S
+
+S
+
+S
+
+S
+
+R
+
+S
+
+1
+
+2
+
+3
+
+4
+Trial block
+
+5
+
+6
+
+7
+
+8
+
+260 ■ CHAPTER 8
+task progresses. Such implicit learning of sequence can be detected by interposing a block of trials in which the order of the stimulus locations is completely
+random (e.g., trial block 6 in Figure 8.12B); note that reaction times during this
+block are significantly slower than in neighboring blocks (e.g., trial blocks 5 and 7).
+Motor sequence learning tasks such as SRT tasks are preserved in amnesia
+patients with medial temporal lobe damage but are impaired in patients with basal
+ganglia disorders, such as the neural degeneration that occurs in Parkinson’s or
+Huntington’s diseases (see Chapter 5). Consistent with this evidence, functional
+neuroimaging of implicit learning in normal subjects shows activation in the
+basal ganglia. As explained in Chapter 5, the basal ganglia modulate motor and
+premotor cortices by controlling the starting and stopping of movements. The
+cerebellum exerts an additional modulatory influence by coordinating movements and correcting errors. Finally, the posterior parietal cortex is involved
+in processing spatial coordinates for guiding movement (parietal damage may
+produce optic ataxia, a deficit in reaching and saccade accuracy). Thus, it is not
+surprising that all these regions play an important role in motor skill learning
+and are frequently activated in functional neuroimaging studies.
+Researchers often distinguish two phases of motor sequence learning: an
+early learning phase, when performance improves rapidly within a single training
+session; and an advanced learning phase, when performance improves slowly over
+multiple practice sessions. The duration of these learning phases depends on the
+complexity of the task. For example, the early phase may last just a few minutes
+for a simple four-keystroke sequence, but months for a complex piano piece.
+Different brain regions are evidently involved in early and advanced learning
+phases. For example, one study found that during the early learning phase (day
+1), motor sequence learning activated the aforementioned motor skill learning
+network, including motor cortical regions (premotor cortex, pre-supplementary
+motor area, and supplementary motor area), the basal ganglia (caudate), the
+cerebellum, and the parietal cortex (Figure 8.13A). The advanced learning phase
+(day 5) was associated with reduced global activity in most of these regions
+(Figure 8.13B), possibly reflecting reduced demands for error correction, as well
+as increased activity in specific subregions of the primary motor cortex and the
+cerebellum. These increases in activity were correlated with the synchrony of
+motor responses, confirming their contribution to advanced learning. There is
+(B)
+
+(A)
+
+–3.17
+
+3.17
+
+13
+
+Figure 8.13 Regions associated with early learning of a motor sequence In this
+study, participants produced a precisely timed sequence of finger taps in synchrony
+with visual stimuli. The sequence was a complex arrangement of long and short
+elements in the learn condition, but always long elements followed by short in the
+baseline condition. (A) Compared to baseline, the learn condition activated motor
+cortical regions (premotor cortex, pre-supplementary motor area, and supplementary
+motor area), the basal ganglia (caudate), the cerebellum, and the parietal cortex
+during the first session (day 1). (B) Reduced activity during advanced learning (day
+5 compared to day 1) was found in primary motor cortex, primary somatosensory
+cortex, premotor cortex, and the cerebellum.(From Steele and Penhune 2010.)
+
+–7.5
+
+MEMORY: VARIETIES AND MECHANISMS
+(A)
+
+(B)
+
+TMS on
+parietal cortex
+(experimental)
+
+Familiarization
+in null field
+Target
+
+Force field
+Air sled
+Initial
+performance
+in force field
+
+Final
+performance
+in force field
+
+Figure 8.14 Testing motor learning and its basis in paradigms that alter sensorymotor relationships (A) This method of investigating motor learning measures
+how people learn to adapt their movements to compensate for a force field applied
+to a handle. (B) TMS interference of the posterior parietal cortex disrupts motor
+adaptation. (After Della-Maggiore et al. 2004.)
+
+also evidence that the transition from early to advanced phases involves a shift
+from associative to motor-related regions of the basal ganglia and cerebellum.
+Turning to motor adaptation tasks, investigators measure adaptation to
+externally induced sensory or motor perturbations. In an example of sensory
+perturbation, subjects wear prism spectacles that systematically shift the visual
+image either horizontally or vertically. In an example of motor perturbation,
+torque motors are used to create a force field that disturbs the normal movement of a handle (Figure 8.14A). After such manipulations, tracking is initially
+inaccurate, but it improves rapidly with practice. Functional neuroimaging
+studies have associated adaptation to novel sensory-motor relationships with
+activations in the posterior parietal cortex. The causal role of these activations
+has been confirmed using transcranial magnetic stimulation (TMS). For example,
+one TMS study found that disrupting parietal function precluded complete
+adaptation (arm trajectories were never completely straight; Figure 8.14B, left).
+In contrast, TMS of a control region (occipital cortex) did not produce the same
+effect (Figure 8.14B, right).
+
+Perceptual skill learning
+Perceptual skill learning refers to improvements in processing perceptual stimuli
+that are identical or similar to stimuli that have been repeatedly encountered.
+Perceptual skill learning is essential in everyday life. For example, this type of
+skill learning underlies our ability to understand spoken and written language.
+
+■ 261
+
+TMS on
+occipital cortex
+(control)
+
+262 ■ CHAPTER 8
+Language comprehension based solely on declarative memory is slow and
+laborious, as anybody who has tried to learn a foreign language can confirm.
+However, perceptual skill learning eventually enables us to understand strings
+of words effortlessly, without the need to consciously retrieve the meanings of
+individual words or the rules of grammar when we converse.
+In language processing, the neural correlates of perceptual skill learning
+include all the brain regions involved in language comprehension regions, which
+are reviewed in Chapter 12. Perceptual skill learning plays an equally critical
+role in processing music (see Chapter 4), and there is some evidence that trained
+musicians can co-opt language brain regions for the symbolic learning aspects
+of this task. Perceptual skill learning in the visual domain plays an obvious
+role in many other circumstances where improved perceptual performance is
+valued. Radiologists, for example, gradually learn to identify subtle differences in
+X-ray, CT, MRI, and other medical images. In fact, perceptual learning has been
+identified as a major factor accounting for better cancer detection accuracy in
+experienced mammographers compared to less experienced medical residents.
+Perceptual skill learning can be studied in the laboratory using simple sensory discrimination tasks. A popular test of this sort is the mirror reading task, in
+which subjects learn to read geometrically altered text (consider also the mirror
+drawing task discussed earlier). Like many other skill learning tasks, mirror
+reading is learned normally in patients with medial temporal lobe damage, but
+impaired in conditions that affect the basal ganglia (see Chapter 5). Functional
+neuroimaging studies show that, compared to normal reading, mirror reading
+(A)
+
+Mean signal change (%)
+
+(C) Center of right FFA
+2.0
+
+1.5
+
+Bird experts
+Car experts
+
+1.0
+
+0.5
+
+0
+
+–0.5
+
+Misc.
+objects
+
+Cars
+
+Birds
+
+Faces
+
+(B)
+
+Subject 1
+
+Faces
+
+Subject 2
+
+Figure 8.15 Perceptual skill learning
+(A) Examples of meaningless threedimensional objects known as
+Greebles. (B) Expertise in classifying
+and identify-ing Greebles is associated
+with increased activity in the fusiform
+face area (FFA; boxed areas), suggesting that the FFA is not specific to
+faces. (C) In car experts, the FFA is
+more strongly activated by pictures
+of cars than of birds, whereas in bird
+experts the opposite pattern is seen.
+(A courtesy of Isabel Gauthier; B from
+Gauthier et al. 1999; C after Gauthier
+et al. 2000.)
+
+Greeble novices
+Greebles
+
+Greeble experts
+Faces
+Greebles
+
+MEMORY: VARIETIES AND MECHANISMS
+
+elicits activation in occipitotemporal and parietal regions (i.e., in both ventral
+and dorsal pathways), as well as in the basal ganglia.
+Another way to examine perceptual skill learning is to train participants to
+recognize relatively meaningless three-dimensional objects known as “Greebles”
+(Figure 8.15A). Cognitive neuroscientists Isabelle Gauthier, Michael Tarr, and
+collaborators found that expertise in classifying and identifying Greebles is
+associated with increased activity in the right fusiform region known as the
+fusiform face area, or FFA (Figure 8.15B; see also Chapter 3). This observation
+suggests that, rather than being a face-specific module, the function of the FFA
+is related to visual expertise. Greebles may activate the FFA because they have
+some features that resemble faces. However, the FFA of car experts is also more
+readily activated by pictures of cars than of birds, whereas in bird experts this
+region is more readily activated by pictures of birds than of cars (Figure 8.15C).
+Although motor and perceptual skill learning are described separately
+in most accounts, acquiring skills typically involves both forms of learning.
+Moreover, skill learning often involves a shift from perceptual to motor processes. For example, someone learning to drive devotes much visual attention
+to relevant visual cues and the appropriate motor responses (think of the challenge involved in learning to parallel park). Eventually these stimuli become
+automatically linked to appropriate motor responses and no longer require
+conscious mediation. One fMRI study of this shift in perceptual-to-motor
+learning used a simple task in which participants decided whether a pair of
+geometrical figures matched. The attentional demands for analyzing feature
+differences in this task are initially high, but as memory templates for each
+figure pair are created, visual attention decreases and the role of automatic,
+learned motor associations increases. Consistent with this result, learning
+this task is accompanied by a shift from activation in a region associated with
+visual attention (the intraparietal sulcus; Figure 8.16A) to regions associated
+with motor processing (the postcentral gyrus; Figure 8.16B).
+
+Cognitive skill learning
+Cognitive skill learning refers to problem-solving tasks in which subjects are required to use various cognitive skills to solve a task. An example of this sort of
+task is probabilistic classification learning, in which participants learn to classify
+stimuli on the basis of statistical information. In a paradigm called the weather
+prediction task, in each trial participants look at four cards with geometrical shapes
+that are associated with future weather conditions (Figure 8.17A). Using the
+
+(B)
+
+(A)
+
+Figure 8.16 Shift of activity from
+attention to motor-related brain areas
+during visual learning (A) In each trial,
+participants decided whether a pair of
+geometrical figures matched. During
+early learning, attentional demands for
+analyzing feature differences elicited
+greater activity in the intraparietal
+sulcus, but this activity decreased
+across sessions (session 1 > sessions
+3 and 5). (B) As participants learned to
+associate each figure pair with a motor
+response, activity increased in hand
+areas in motor and sensory cortices
+(session 5 > sessions 1 and 3). Arrows
+indicate activations from which the
+data in the graphs were extracted.
+(After Pollmann and Maertens 2005.)
+Postcentral gyrus
+
+Intraparietal sulcus
+First session
+Third session
+Fifth session
+
+Signal change (%)
+
+0.4
+0.3
+0.2
+0.1
+0
+–0.1
+–0.2
+Decrease across sessions
+Increase across sessions
+
+0.5
+
+First session
+Third session
+Fifth session
+
+0.4
+Signal change (%)
+
+0.5
+
+■ 263
+
+0.3
+0.2
+0.1
+0
+–0.1
+
+0
+
+2
+
+4
+
+6 8 10
+Time (s)
+
+12
+
+14
+
+–0.2
+
+0
+
+2
+
+4
+
+6 8 10
+Time (s)
+
+12
+
+14
+
+264 ■ CHAPTER 8
+(A)
+In this learning game, you are the
+weather forecaster. You will learn
+how to predict rain or shine using a
+deck of four cards:
+
+Examples of probabilistic relations:
+
+Predicts rain 80% of the time
+
+Predicts rain 40% of the time
+
+(C)
+
+(B)
+
+9
+Control
+Amnesia patients
+Parkinson’s patients
+
+70
+
+8
+Correct predictions (%)
+
+Correct predictions (%)
+
+75
+
+65
+60
+55
+
+7
+6
+5
+4
+3
+2
+1
+
+50
+
+10
+
+20
+
+30
+Trials
+
+Figure 8.17 Probabilistic
+classification learning in patients with
+Parkinson’s disease or amnesia
+(A) The weather prediction task.
+(B) Subjects with amnesia (medial
+temporal lobe damage) are slow to
+learn but eventually reach the same
+level of performance as controls do; in
+contrast, the performance of patients
+with Parkinson’s (basal ganglia
+deficits) never improves. (C) In sharp
+contrast with probabilistic learning
+performance, in an episodic memory
+task (declarative memory) amnesia
+patients are markedly impaired,
+whereas Parkinson’s patients perform
+as well as controls. Taken together, the
+results indicate that the basal ganglia
+are critical for implicit skill learning but
+not for episodic memory, whereas the
+medial temporal lobes are critical for
+episodic memory but not for implicit
+skill learning. (After Knowlton et al.
+1996.)
+
+40
+
+50
+
+0
+
+Controls
+
+Amnesia
+patients
+
+Parkinson’s
+patients
+
+cards, the subjects must “forecast” what they think the weather will be. After
+each decision they are informed whether the prediction was correct. The critical
+feature of the task is that each of the cards is only probabilistically related to the
+two possible weather outcomes (e.g., a certain card may be associated with rain
+only 70 percent of the time); thus, an explicit rule is difficult to infer. Nevertheless, the participants implicitly learn to use the probabilistic information (i.e.,
+they come to associate certain card combinations with an increased probability
+of rain), and over many trials the accuracy of their predictions slowly improves.
+One study found a significant difference in performance in the weather prediction task between amnesia patients who had medial temporal lobe damage,
+and Parkinson’s patients, who had impaired basal ganglia function. Although
+patients with amnesia improved somewhat more slowly than controls, they
+eventually learned the task as well as controls did. In contrast, patients with
+Parkinson’s disease never learned the task (Figure 8.17B). When these groups
+of patients were tested in an episodic memory test, the opposite result was
+found: patients with amnesia were impaired compared to controls, whereas
+patients with Parkinson’s were not (Figure 8.17C). Thus, damage of the basal
+ganglia in Parkinson’s patients impaired skill learning but not declarative
+memory, whereas damage of the medial temporal lobes in amnesia patients
+impaired declarative memory but not skill learning. These observations are
+consistent with the idea that episodic memory, as noted earlier, depends on
+medial temporal lobe structures, whereas cognitive skill learning depends at
+least to some degree on the integrity of the basal ganglia.
+This conclusion about cognitive skill learning is further supported by
+functional neuroimaging evidence. In one study, normal participants were
+scanned while they carried out a simplified version of the weather prediction
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ 265
+
+task (Figure 8.18A). Consistent with patient studies, the medial temporal lobe
+was more activated in the paired-association task than in the weather prediction
+task, whereas the basal ganglia showed the opposite pattern (Figure 8.18B).
+Early trials in this task presumably have a significant episodic memory component that reflects explicit learning of the symbol cards needed to make the
+(B)
+
+(A)
+
+Medial temporal lobe
+
+Weather prediction (WP) task
+Rain?
+
+Striatum
+
+Sunshine
+WP>PA
+
+Subject presses button
+for rain or sunshine.
+Paired-associate (PA) task
+Sunshine
+
+Sunshine
+
+PA>WP
+
+Subject presses button to
+denote stimulus onset.
+
+(D)
+Medial temporal lobe
+activity (relative signal change)
+
+(C)
+
+0.8
+Medial temporal
+lobes
+
+0.4
+
+Relative magnetic resonance signal
+
+0
+–0.4
+
+40
+
+30
+
+Eac
+per h tria 20
+isti l:
+10
+mu
+lus
+tim
+e (s
+)
+
+0
+
+100
+
+200
+
+300
+
+on:
+
+sessi
+scan
+e
+l
+o
+Wh ime (s)
+t
+scan
+
+0
+–0.2
+–0.4
+–0.6
+
+40
+30
+Eac
+20
+per h tria
+10
+isti l:
+mu
+lus
+tim
+e (s
+)
+
+0
+
+100
+
+200
+
+300
+
+Weather prediction
+Paired associate
+
+0
+–0.1
+–0.2
+–0.3
+–0.4
+
+500
+
+400
+
+Caudate
+
+0.2
+
+0.1
+
+500
+
+400
+n:
+
+sio
+n ses
+le sca s)
+o
+h
+(
+W
+time
+scan
+
+–0.2 –0.1
+0
+0.1 0.2
+0.3 0.4
+0.5
+Caudate activity (relative signal change)
+
+Figure 8.18 Functional MRI study comparing cognitive
+skill learning and episodic memory encoding in normal
+subjects (A) Participants performed two tasks in the
+scanner: a two-card version of the weather prediction (WP)
+task, and intentional learning of associations between pairs
+of cards and the words rain or sunshine (paired-associate
+[PA] task). (B) Consistent with patient data (see Figure 8.17),
+medial temporal lobe regions were more activated in the
+paired-associate task (episodic memory) than in the weather
+prediction task (cognitive skill learning), whereas the basal
+ganglia showed the opposite pattern. (C) Analyses of activity
+across weather prediction trials (scan time in the graphs)
+indicated that medial temporal lobe regions were initially
+active (first 100 trials), possibly reflecting explicit learning of
+the cards, but were later deactivated. In contrast, the caudate
+was originally deactivated and then became activated as
+implicit learning increased over trials. These results suggest
+an opposing relationship between the medial temporal
+lobes and the basal ganglia. (D) Consistent with this idea, a
+negative correlation was found between medial temporal and
+caudate activations. (After Poldrack et al. 2001.)
+
+266 ■ CHAPTER 8
+prediction. This interpretation would also explain why patients with amnesia
+are a bit slower than controls in learning the weather prediction task. Consistent
+with this idea, the medial temporal lobes are activated during initial trials, but
+deactivated during most of the learning phase; the basal ganglia (caudate) show
+the opposite temporal pattern (Figure 8.18C,D). These contrasting temporal
+patterns suggest an opposing relationship between the medial temporal lobes
+and the basal ganglia. One possible explanation is a competition between the
+need for accessible knowledge (medial temporal lobes) versus the need to learn
+fast, automatic responses in specific situations (basal ganglia).
+In sum, there is abundant evidence that skill learning depends on the integrity
+of the basal ganglia. Patients with basal ganglia disorders, such as Parkinson’s
+and Huntington’s diseases, are impaired in motor skill learning tasks, such as
+the serial reaction time task; in perceptual skill learning tasks, such as mirror
+reading; and in cognitive skill learning tasks, such as probabilistic classification.
+In addition to the basal ganglia, however, skill learning involves other brain
+regions that vary depending on the task. Motor skill learning has been associated with activation of the posterior parietal cortex, supplementary motor area,
+cingulate cortex, and cerebellum. Perceptual skill learning involves the activation
+of visual cortices when the learned skills are visually based. Finally, complex
+cognitive skill learning involves medial temporal regions initially, when the
+explicit components and rules of the task are being acquired; but these regions
+are not necessary for subsequent learning of implicit rules, as demonstrated
+by preserved probabilistic classification learning in amnesia patients. Implicit
+cognitive learning, like other learned skills, depends on the basal ganglia and
+the regions of neocortex relevant to the particular cognitive domain.
+
+Conditioning
+In addition to priming and skill learning, nondeclarative memory systems include
+conditioning. Conditioning has been intensively studied over the past century,
+from both psychological and neurobiological perspectives, and can be defined
+as the generation of a response that is elicited by pairing a neutral stimulus
+with an appetitive or aversive stimulus that normally elicits the response being studied. There are two broad forms of conditioning: classical and operant.
+In classical conditioning, an innate reflex is modified by associating its normal
+triggering stimulus with an unrelated stimulus that reliably predicts the trigger;
+the unrelated stimulus eventually will trigger the original response by virtue of
+this association. This type of conditioning was famously demonstrated by the
+Russian psychologist Ivan Pavlov’s experiments with dogs, carried out early in
+the twentieth century. The dogs’ innate reflex was salivation (the unconditioned
+response, or UR) in response to the sight and/or smell of food (the unconditioned
+stimulus, US). The association was elicited in the animals by repeatedly pairing
+the sight/smell of food with the sound of a bell (the conditioned stimulus, CS).
+Such conditioning, also called the conditioned reflex, was considered established
+when the CS (the sound of the bell) by itself elicited salivation (the conditioned
+response, CR), even without the presentation of food.
+In operant conditioning, also known as instrumental learning, the probability
+of a behavioral response is altered by associating the response with a reward
+(or in some instances a punishment). In psychologist Edward Thorndike’s
+original experiments, carried out in the 1890s, cats learned to escape from a
+puzzle box by pressing the lever that opened a trap door to get a food reward.
+Although the cats initially pressed the lever only occasionally—and more
+or less by chance—the probability of their doing so increased sharply as the
+animals associated this action with escape and reward. In B. F. Skinner’s far
+more complete and better-known experiments performed a few decades later,
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ 267
+
+pigeons or rats learned to associate pressing a lever with receiving a food pellet
+in a widely used device that came to be known as a Skinner box (see Chapter 1).
+In both classical and operant conditioning, it usually takes a number of
+CS-US training trials for the conditioning to become established—a process
+called acquisition. Furthermore, if the conditioned animal performs the critical
+response but the US is no longer provided, the conditioned response gradually disappears—a phenomenon called extinction. Although the conditioned
+response is no longer expressed following extinction training, the memory
+of the CS-US association is stored in the cortex and can be reexpressed upon
+appropriate retrieval cues (e.g., if the US is reintroduced or the animal reenters
+the environment in which the conditioned association was initially learned).
+Such reemergence of conditioned behaviors plagues the clinical treatment of
+anxiety and addiction, which are believed to be supported in part by conditioning processes, despite the modest success of extinction-based (exposure)
+therapies. In considering the neural basis of classical conditioning, the paradigms
+are emotionally neutral. The neural correlates of emotional conditioning are
+considered with other forms of emotional learning in Chapter 10.
+In classical conditioning, it is important to distinguish between delay and
+trace conditioning. Figure 8.19 illustrates the difference between these two
+variants of classical conditioning using eyeblink conditioning as an example. In
+this paradigm a puff of air, which elicits a reflexive (automatic) blink, is repeatedly paired with a tone until the tone by itself elicits blinking. The blink reflex
+is adaptive to the animal in that it causes the membrane protecting the eye
+to close, shielding the eye from potential toxins or hazards blown in through
+Figure 8.19 Two classical
+the airstream. In order for this reflex to be effective, the membrane must close
+conditioning variants illustrated using
+quickly and precisely. In both delay and trace conditioning, the tone (the conan eyeblink paradigm (A) In delay
+conditioning, the conditioned stimulus
+ditioned stimulus) starts before the air puff (the unconditioned stimulus). The
+(CS) starts before the unconditioned
+difference is that in delay conditioning, the CS is still present when the US starts,
+stimulus (US) but is ongoing when the
+and the two terminate at the same time (Figure 8.19A); in trace conditioning,
+US starts. (B) In trace conditioning,
+however, there is a brief time interval between the end of the CS and the start
+the CS ends before the US starts,
+of the US (Figure 8.19B). Thus, in trace conditioning
+leaving a time interval between the
+two stimuli.
+the CS must leave some kind of memory trace in the
+(A) Delay conditioning
+nervous system in order for a CS-US association to
+be established, whereas this is not the case in delay
+Conditioned stimulus
+conditioning. Although the difference between delay
+(tone)
+and trace conditioning may seem trivial, these different forms of classical conditioning are now known to
+have different neural correlates.
+Eyeblink delay conditioning depends primarily on
+the cerebellum. For example, patients with cerebellar
+damage due to different causes (alcohol abuse, dissemiUnconditioned stimulus
+nated demyelination, tumor removal) failed to acquire
+(air puff)
+eyeblink conditioned responses (Figure 8.20). Studies
+with animals (e.g., rabbits) have shown that within the
+(B) Trace conditioning
+cerebellum, eyeblink delay conditioning is particularly
+dependent on the interpositus nucleus and the cerebellar
+Conditioned stimulus
+cortex. In the usual eyeblink conditioning paradigm,
+(tone)
+both of these structures receive information about the
+tone (CS) from the auditory system and information
+about the air puff (US) from the visual and somatic
+sensory systems. Supporting the critical role of the
+500–1000 ms
+interpositus nucleus, lesions or transient disruption
+of this structure lead to deficits in the acquisition and
+retention of eyeblink delay conditioning. Supporting
+Unconditioned stimulus
+(air puff)
+the role of the cerebellar cortex, mutant mice deficient in
+
+268 ■ CHAPTER 8
+Purkinje cells (the output neurons of the cerebellar cortex) are impaired
+in eyeblink conditioning. As the interpositus nucleus and the cerebellar
+6
+cortex receive information about the CS and the US, both structures
+are potentially capable of supporting CS-US associations. Moreover,
+the deep cerebellar nuclei, including the interpositus nucleus, consti4
+tute the final common pathway for output from the cerebellar cortex
+to other brain regions that control the execution of motor behaviors.
+The major difference between the neural correlates of delay and
+2
+trace conditioning is the role of the hippocampus. Although electrophysiological studies using the eyeblink paradigm in rabbits show
+0
+the hippocampus to be involved in delay conditioning, damage to the
+1
+2
+3
+4
+5
+6
+hippocampus does not impair delay conditioning. In contrast, damage
+Acquisition block
+to the hippocampus impairs trace conditioning in both experimental
+Figure 8.20 Cerebellar damage impairs eyeblink animals and human patients.
+conditioning in humans Mean eyelid conditioned
+The finding that trace conditioning depends on the hippocampus
+response (CR) frequency in patients with cerebellar
+creates a problem for the standard taxonomy of memory systems. Is
+lesions and normal control subjects across
+trace conditioning truly a form of nondeclarative memory, then, or is
+acquisition blocks. (After Daum et al. 1993.)
+it a form of declarative memory? A possible resolution was provided
+by a study that investigated delay and trace eyeblink conditioning
+in amnesia patients with hippocampal damage and in control participants.
+Immediately after conditioning, participants completed a questionnaire that
+included a number of questions about their awareness of CS-US contingencies.
+The results showed that none of the amnesia patients were aware of CS-US
+contingencies. Nonetheless, all the participants showed delay conditioning
+(Figure 8.21A). This outcome is consistent with the idea that the delay form of
+nondeclarative memory is independent of conscious awareness and the hippocampus. In contrast, only the control participants who were aware showed trace
+conditioning (Figure 8.21B). Thus, trace conditioning depends on awareness of
+temporal contingencies among stimuli, at least in humans, and is effectively a
+form of declarative rather than nondeclarative memory.
+Turning to operant conditioning, we must distinguish between two main
+categories of this sort of behavior. Imagine that the route you take when you
+drive home every evening is characterized by a particular intersection where
+you always turn right. Turning right because you want to arrive home is a goaldirected action; automatically turning right because you always turn right at that
+CR frequency
+
+Control subjects
+Subjects with
+cerebellar lesions
+
+(B)
+
+Aware controls
+Unaware controls
+Unaware amnesia patients
+
+Differential conditioned responses (%)
+
+Figure 8.21 Delay and trace
+eyeblink conditioning in humans Test
+results for amnesia patients versus
+controls indicate an underlying difference between delay and trace conditioning. Graphs plot the percentage
+of differential conditioned eyeblink
+(CR – CS/CR × 100). (A) All groups
+showed delay conditioning. (B) Only
+the control group was aware of the
+relationship between the tone and
+the air puff, and only this group
+showed trace conditioning. These
+results indicate that trace conditioning
+depends on the awareness of CS-US
+contingencies and therefore suggest
+that trace conditioning is a form of
+declarative memory. (After Clark and
+Squire 1998.)
+
+Differential conditioned responses (%)
+
+(A)
+
+30
+
+20
+
+10
+
+0
+
+–10
+2
+
+3
+
+4
+
+20
+
+10
+
+0
+
+–10
+
+Delay (1250)
+1
+
+30
+
+5
+
+6
+
+Trace (1000)
+1
+
+Blocks of 20 trials
+
+2
+
+3
+
+4
+
+5
+
+6
+
+MEMORY: VARIETIES AND MECHANISMS
+(A)
+
+(B)
+
+Training
+
+Reward
+
+Response
+
+Testing
+
+Place
+
+■ 269
+
+Figure 8.22 Place and response strategies in a cross
+maze (A) During training, rodents are always placed in
+the same arm of a maze and reach the food reward by
+always making the same response (e.g., right turn). (B)
+On testing, they are placed in a different arm, where they
+can make either a different response (e.g., left turn) to
+go to the same place where the reward was previously
+located (place strategy) or the same response (e.g., right
+turn) to go to a new arm (response strategy). During
+testing, only the place arm is baited. (After Yin and
+Knowlton 2006.)
+
+intersection is a stimulus-driven habit. Imagine now that the street where you
+turn right is blocked and you know that. Avoiding the right turn and using an
+alternate route indicates that the right turn was goal-directed. But turning right
+anyway, making an error, is a sign that the action was habitual. In other words,
+goal-directed actions are sensitive to action-outcome (A-O) contingencies, whereas
+stimulus-driven habits are controlled by stimulus-response (S-R) associations.
+One way to investigate the distinction between goal-directed actions and
+stimulus-driven habits uses a paradigm that resembles the driving example.
+During training, rodents were always placed in the same arm of a maze and
+had to locate the food reward by always making the same response (right turn
+in Figure 8.22A). Once they had learned this behavior, they were placed in a
+different arm (Figure 8.22B), where they could make either a different response
+to go to a previous reward arm (place strategy) or the same response (a right turn)
+to go to a new arm (response strategy). After moderate initial training, most rats
+used the place strategy (goal-directed), but if the hippocampus was damaged
+they shifted to a response strategy (habit). After extensive training, rats with
+intact brains used a response strategy (habit), but if the dorsal striatum (caudate
+and putamen) was lesioned, they used a place strategy (goal-directed). This
+double dissociation suggests that goal-directed A-O learning depends on the
+hippocampus, whereas habitual S-R learning depends on the dorsal striatum.
+However, later rodent evidence showed that some regions of the dorsal
+striatum play an important role in A-O learning. The distinction between A-O
+and S-R regions of the dorsal striatum corresponds to the distinction between
+associative and sensory-motor cortico-basal-ganglia loops introduced in Chapter
+5 (see Figure 5.21). Some of the evidence is from paradigms in which rodents
+learn to press one lever for one type of food and another lever for a different type
+of food. One type of food is then made undesirable (devaluated) by producing
+satiation or taste aversion specific to that food. If behavior is goal-directed, it
+should decrease in frequency; but if it is habitual, it should continue even if the
+outcome is undesirable. Studies using this approach have shown that damage to
+the dorsomedial striatum, which corresponds to the caudate (associative loop),
+impairs goal-directed A-O learning; whereas damage to the dorsolateral striatum, which corresponds to the putamen (sensory-motor loop), impairs habitual
+S-R learning. Converging evidence from humans has been found using fMRI.
+In sum, conditioning includes classical and operant variants. Classical conditioning is the alteration of an innate reflex, which responds to an unrelated
+stimulus (CS) that reliably predicts its normal triggering stimulus (US). In delay
+conditioning, the CS and US overlap; in trace conditioning the CS ends before
+the US is presented. The most popular nonemotional classical conditioning
+paradigm is eyeblink conditioning, in which a tone elicits a blink after repeated
+pairing with an air puff. Delay eyeblink conditioning is critically dependent on
+
+270 ■ CHAPTER 8
+the cerebellum. Trace eyeblink conditioning also depends on the hippocampus,
+but this relationship may reflect contributions of declarative memory. Operant conditioning (instrumental learning) is a change in the probability of a
+behavioral response associated with a reward (or punishment). Instrumental
+behaviors include flexible goal-directed actions and inflexible stimulus-driven
+habits. Whereas goal-directed actions depend more on the dorsomedial striatum
+(caudate) and the hippocampus, stimulus-driven habits are more dependent
+on the dorsolateral striatum (putamen).
+
+Cellular Mechanisms of Memory
+The preceding sections reviewed the major neural substrates of memory at the
+system level—that is, the extent to which memory depends on gross anatomical structures such as the medial temporal lobes, the cortex, the basal ganglia,
+and the cerebellum. At the system level the neural substrates of memory are
+clearly heterogeneous. At the cellular and molecular levels, however, all the forms
+of memory seem to depend on changes in neural connectivity and the relative
+strength of synaptic transmission.
+Early in the twentieth century, the German evolutionary biologist Richard
+Semon coined the term engram to refer to the physical and biochemical changes
+underlying memory storage in the brain. Two related questions about engrams,
+or memory traces, have long fascinated neuroscientists: where are they located
+in the brain, and how, in neurobiological terms, are they formed?
+With respect to the where question, an early idea inspired by Pavlovian conditioning was that engrams depend on the integrity of the pathways connecting
+sensory and motor regions. In the 1920s, American neuroscientist Karl Lashley
+tested this idea by making cuts in a rat’s cortex that would disconnect sensory
+and motor regions before or after the rats learned to run mazes. Lashley found
+that the location of the lesions did not matter much, and that only the extent of
+the tissue destroyed was consequential. This finding is consistent with the idea
+that an engram consists of a network of neurons with connections distributed
+over the cortex; thus, only when a large proportion of the network is destroyed is
+the engram seriously compromised (see the discussion of graceful degradation
+in Box 8C). This idea does not imply that engrams are randomly distributed.
+As mentioned already, the modern view is that engrams are defined primarily
+by the connectivity of the brain regions originally involved in processing the
+relevant category of information. That is, memory traces for visual information
+are stored mostly in visual cortices, those for auditory information in auditory
+cortices, those for motor skills in the motor cortices, and so on.
+This general answer to the question of where engrams are located suggests
+an answer to how they are formed. If engrams consist of networks of neurons,
+then they are formed by a process whereby neurons that once functioned
+relatively independently begin to work together by virtue of strengthened
+connections between them. This broad answer was first explicitly proposed in
+1949 by Canadian psychologist Donald Hebb, who hypothesized that memories
+are stored in the brain in the form of networks of neurons that he called cell
+assemblies. Hebb’s idea was that through experience (i.e., learning), assemblies
+gradually become specifically associated with objects, actions, or concepts. To
+explain how the relevant neurons come to be linked, he proposed that when
+presynaptic and postsynaptic neurons are simultaneously active (i.e., fire action potentials at the same time), the synaptic connections between them are
+strengthened. As a result, synaptic associations grow stronger and tend to
+persist. This mechanism, known today as Hebbian learning, is captured in the
+adage “cells that fire together wire together.”
+
+MEMORY: VARIETIES AND MECHANISMS
+
+■ 271
+
+■ BOX 8C CONNECTIONIST MODELS
+
+U
+
+nlike sequential processing
+models, connectionist models assume that information processing
+occurs in parallel across a large number of distributed units. For this reason,
+these models are also known as parallel
+distributed processing (PDP) models.
+The units, or nodes, in connectionist
+schemes are linked in a network, much
+as neurons are interconnected in the
+brain. Thus, connectionist models are
+also known as neural network models.
+An example is the model of writtenword recognition developed by cognitive scientists James McClelland and his
+colleague David Rumelhart. Like other
+connectionist models, it is a network
+consisting of layers of units. The units of
+the input layer receive information from
+the environment; in this example, each
+input unit receives visual information and
+responds to one particular feature of a
+written letter (e.g., a horizontal line). The
+output layer consists of units that indicate
+the outcomes of the processing within
+the network. Given that this is a model of
+word recognition, the output units correspond to all the words the model can recognize. Finally, input and output units are
+connected through one or more hidden
+layers, so called because their units are
+invisible from the outside. For simplicity,
+the model in the example here shows only
+a few letter features, letters, and words.
+The network shown responds to
+only the first letter of each word; similar
+networks would be required to recognize
+each of the other letters. The connections between units can be excitatory or
+inhibitory. Some excitatory and inhibitory
+connections in the figure are obvious. For
+example, the letter a excites the word
+able but inhibits the word trap because
+able starts with an a but trap does not.
+The inhibitory connections among the
+units within the same layer ensure that
+one option will tend to win out over the
+others. Activation flows not only from input to output layers but also from output
+to input layers (e.g., the excitatory connection from able to the letter a).
+To see how the model works, consider
+the sentence “John packed his suitcase
+and left for a trip.” Before such a network reaches the end of the sentence,
+the node for the word trip is activated by
+semantic associations from the words
+suitcase and left (not shown in the figure).
+This activation facilitates the identification
+of the letters t, r, i, and p and thus the
+corresponding feature detectors. At the
+
+Output: word identification
+
+ABLE
+
+TIME
+
+TRIP
+TRAP
+
+A
+
+Excitatory
+Inhibitory
+
+CART
+
+TAKE
+
+N
+
+T
+
+G
+
+S
+
+Visual input
+
+A connectionist model for written-word recognition. Note that the feature and letter units represent only the first position in each four-letter word. (After McClelland and Rumelhart 1981.)
+
+same time, activation flows in the opposite direction from feature to letter to word
+detectors in the input layer. A strength of
+models like this is that they specify how
+conceptually driven processing (already
+established in the network) and datadriven processing might interact. Another strength is that they entail a built-in
+learning mechanism: the modification of
+connection weights represents stored
+information that alters the output.
+In computer simulations, networks are
+often “trained” using supervised learning
+algorithms such as back-propagation,
+in which the actual output (e.g., trap) is
+compared to the desired output (e.g.,
+trip) and the weights of the connections
+from the layers below are modified to
+
+reduce subsequent errors. Learning can
+also be unsupervised; for example, the
+strength of the connection between units
+may be automatically increased whenever the units are simultaneously active
+(Hebbian learning, described in the text).
+PDP models are attractive in cognitive neuroscience because changing the
+strength of synaptic connections through
+individual experience or natural selection
+is clearly the major way nervous systems
+store information. The assumption that
+knowledge is not stored in a single location but is distributed across numerous
+sites is also consistent with much neu(Continued on next page)
+
+272 ■ CHAPTER 8
+
+■ BOX 8C (continued)
+robiological evidence. Local damage to
+either the brain or a connectionist model
+typically degrades performance but
+doesn’t abolish it altogether—a phenomenon called graceful degradation.
+At the same time, connectionist
+models have several limitations, including difficulty accounting for rule-based
+processes in human reasoning; difficulty
+discerning the strategies being used to
+solve problems by examining weight patterns of the trained network architecture;
+and, consequently, difficulty distinguishing among alternative models of the
+same cognitive process. These caveats
+notwithstanding, connectionist models
+
+have provided cognitive scientists with
+important insights and a powerful tool.
+
+References
+HAYKIN, S. (1998) Neural Networks: A Comprehensive Foundation, 2nd Ed. New York:
+Prentice-Hall.
+MCCLELLAND, J. L. AND D. E. RUMELHART
+(1981) An interactive activation model of
+context effects in letter perception: Part 1.
+An account of basic findings. Psychol. Rev.
+88: 375–407.
+MCCLELLAND, J. L., D. E. RUMELHART AND
+G. E. HINTON (2002) The appeal of parallel distributed processing. In Foundations
+
+of Cognitive Psychology: Core Reading, D. J.
+Levitin (ed.). Cambridge, MA: MIT Press,
+pp. 57–91.
+MCCLELLAND, J. L., D. E. RUMELHART AND
+THE PDP RESEARCH GROUP (1986) Parallel
+
+Distributed Processing: Explorations in the
+Microstructure of Cognition. Vol. 2: Psychological and Biological Models. Cambridge,
+MA: MIT Press.
+RUMELHART, D. E., J. L. MCCLELLAND AND
+THE PDP RESEARCH GROUP (1986) Parallel
+
+Distributed Processing: Explorations in the
+Microstructure of Cognition. Vol. 1: Foundations. Cambridge, MA: MIT Press.
+
+Even though they were articulated more than 50 years ago, Hebb’s proposals,
+in essence, remain a plausible basis for understanding memory in cellular terms.
+Only in the last few decades, however, have neuroscientists begun to understand
+some of the cellular and molecular mechanisms that allow a strengthening of
+synaptic connectivity as a result of coincident neuronal activity.
+
+Habituation and sensitization
+One of the main difficulties in investigating the cellular bases of memory is
+the sheer complexity of neuronal circuits and behaviors, particularly in the
+mammalian brain. One way to simplify this problem is to investigate memory
+mechanisms in an organism with fewer neurons and a more limited behavioral repertoire. Neuroscientist Eric Kandel and his colleagues pioneered this
+approach when, beginning in the late 1960s, they carried out studies using
+the sea slug Aplysia californica. The ganglia that make up the nervous system
+in this animal contain only a few thousand neurons, many of which are large
+and individually identifiable. Despite the simplicity of its nervous system, the
+sea slug shows rudimentary learning abilities, which Kandel and his group
+measured in terms of changes in a simple withdrawal reflex.
+A sea slug withdraws its gill when its siphon is lightly touched, presumably
+as a defensive maneuver, and this simple reflex demonstrates two forms of
+learning that occur in many animals, including humans: habituation and sensitization. Habituation is a reduced response when the same stimulus is repeated
+over and over; sensitization is an increased response to the habituated stimulus
+when it is paired with an aversive stimulus such as a shock to the animal’s tail
+(Figure 8.23). Touching the siphon skin stimulates sensory neurons, which in
+turn excite interneurons and motor neurons; the excited motor neurons then
+elicit withdrawal of the gill.
+Electrical recordings show that habituation involves a decrease in neurotransmitter release at the synapses between sensory neurons and motor neurons,
+whereas sensitization involves an increase in neurotransmitter release at these
+synapses. Whereas the functional changes underlying habituation appear to
+be confined to the sensory neuron–motor neuron synapse, the tail shock used
+to elicit sensitization recruits a wider array of sensory neurons, which in turn
+excite modulatory interneurons that increase neurotransmitter release from
+the siphon sensory neurons, enhancing gill withdrawal.
+
+MEMORY: VARIETIES AND MECHANISMS
+
+Both habituation and sensitization are simple forms
+of memory. In particular, the modulatory effect of
+tail shock on the gill withdrawal reflex lasts a matter
+of minutes, and it can thus be regarded as a model
+for short-term memory in this system. Moreover,
+repeated tail shocks over longer periods trigger gene
+expression, new protein synthesis, and the formation
+of new synaptic connections, all of which result in
+enhancement of the gill withdrawal reflex that can
+last weeks—a model of simple long-term memory.
+
+Siphon
+skin
+
+Sensory
+neuron
+Stimulus
+shock
+
++
+
+Interneuron
+
+Tail
+
+Sensory
+neuron
+
+Long-term potentiation and depression
+
+A second major advance in understanding the cellular mechanisms of memory was accomplished in
+the early 1970s in studies of hippocampal synaptic transmission carried out by
+neuroscientists Terje Lømo and Timothy Bliss. As illustrated in Figure 8.24,
+the researchers stimulated different afferent pathways (e.g., pathways 1 and
+2) and recorded responses in a postsynaptic neuron (postsynaptic potentials).
+They found that when one pathway (e.g., pathway 1) was stimulated with a
+high-frequency electrical train, the postsynaptic neuron later showed stronger
+responses to input from the stimulated pathway but not from other pathways
+(e.g., pathway 2). Because this focal enhancement lasted a long time, they called
+the phenomenon long-term potentiation (LTP). Although LTP was first localized
+in the rabbit hippocampus, subsequent research showed that it occurs in many
+other species and brain regions, including the cortex, the amygdala, the basal
+ganglia, and the cerebellum. Depending on the locus and stimulation paradigm,
+LTP can last tens of minutes, hours, or longer.
+
+(A)
+
+■ 273
+
++
+
+Gill
+Motor
+neuron
+
+Modulatory
+interneuron
+
+Figure 8.23 Two forms of learning
+in the sea slug Aplysia The simple
+neuronal circuit in the abdominal
+ganglion of the sea slug is used
+in studies of habituation and
+sensitization. Touching the animal’s
+siphon elicits withdrawal of the
+gill. When the siphon is repeatedly
+touched, this response progressively
+decreases (habituation). Conversely,
+a shock to the tail enhances the
+habituated gill withdrawal response
+(sensitization). (After Squire and
+Kandel 1999.)
+
+Record
+postsynaptic
+potentials
+
+Stimulate presynaptic
+pathways
+Pathway 1
+
+EPSP membrane
+potential (mV)
+
+(B)
+
+Pathway 2
+
+Pathway 1
+
+Pathway 2
+
+Stimulus
+
+–50
+
+Stimulus
+After stimulation
+
+After stimulation
+to pathway 1
+
+–55
+–60
+
+Before stimulation
+to pathway 1
+
+Before stimulation
+–65
+0
+
+25
+
+50
+
+75
+
+100
+0
+Time (ms)
+
+25
+
+50
+
+75
+
+100
+
+Figure 8.24 Long-term potentiation
+(LTP) (A) Two pathways in the
+hippocampus that can be stimulated
+independently. (B) Following highfrequency stimulation (not shown), the
+postsynaptic potential elicited by a
+single stimulus is enhanced, but only
+for the stimulated pathway. EPSP,
+excitatory postsynaptic potential.
+(After Malinow et al. 1989.)
+
+274 ■ CHAPTER 8
+LTP has several properties that advance it as an attractive candidate for one
+of the major cellular mechanisms of memory. First, LTP can be induced by a
+single high-frequency train of stimulation—a feature that could explain how
+some memories can be formed by a single experience. Second, the fact that
+LTP can last for days or even weeks could explain the persistence of memory
+over these sorts of time intervals. Third, LTP has a degree of specificity that fits
+well with the specificity of memories. Only those synapses activated during
+stimulation are enhanced; other synapses—even other synapses on the same
+neuron—are not affected. Finally, LTP has a property of associativity that could
+underlie memory mechanisms such as Hebbian learning: if a weak and a strong
+pathway impinging on a target neuron were activated at the same time, then
+both pathways would tend to become associated via the output of the target cell.
+As suggested by the phenomenon of habituation, synaptic weakening is
+equally a part of learning and memory. If synapses continued to increase in
+strength because of LTP or a similar mechanism, they would eventually reach
+a point of saturation. It makes sense, therefore, for synaptic potentiation to be
+counterbalanced by a mechanism of synaptic inhibition. Such a mechanism,
+known as long-term depression (LTD), was found in the late 1970s. Whereas LTP
+occurs with high-frequency stimulation over a brief period, LTD is elicited
+by low-frequency stimulation over a longer period. LTD can also last several
+hours and is again specific to activated synapses. As might be expected, LTD
+can counteract LTP, and vice versa. There is also some evidence that LTD can
+enhance LTP in neighboring synapses and that it can block the formation of
+associations that do not follow Hebb’s rule.
+
+Linking LTP to memory performance
+Although LTP has many of the properties required for memory storage and
+behavior, it has been studied mainly in vitro. Thus, directly linking LTP and
+memory performance has been a major research effort in recent years.
+One approach has been to seek evidence of behavioral LTP—that is, a demonstrated change in synaptic efficacy similar to LTP that follows a natural learning
+experience. For example, rats raised in an enriched stimulatory environment
+show enhanced postsynaptic potentials when compared to rats raised in an
+environment impoverished in stimulation and learning experiences. The enhancement disappears within a few weeks if the enriched rats are placed in the
+impoverished environment, suggesting that enriched experience is necessary to
+maintain strong synapses. In addition, changes in synaptic efficacy lasting about
+30 minutes have been observed in the rat hippocampus following exploration
+of a novel environment, which could be indicative of learning and memory
+storage. There is also evidence that inducing LTP in sensory pathways can
+enhance synaptic responses to natural sensory stimulation, and that learning
+experiences can lead to long-term increases in correlated firing among hippocampal neurons that were active during learning (thus showing associativity).
+Another approach to linking LTP to naturally occurring learning and memory
+has been to prevent LTP and then determine whether memory is impaired. One
+way to disrupt LTP is to use “knockout” mice in which a gene for a protein
+crucial to LTP is eliminated by gene splicing techniques. Neuroscientist Susumu
+Tonegawa and his colleagues produced a strain of mice that lacked the gene for
+NMDA receptors in hippocampal region CA1. This receptor protein mediates
+certain forms of LTP, and indeed the knockout mice showed little or no LTP in
+the CA1 region of the hippocampus. Mice lacking NMDA receptors were also
+severely impaired in spatial learning (a property mediated by the hippocampus
+in rodents), although they were unimpaired in nonspatial learning. Whereas
+control mice searched for a platform hidden in a water tank only near the location where the platform had been located in previous trials (the Morris water
+
+MEMORY: VARIETIES AND MECHANISMS
+(A) Control
+
+(B) Knockout
+
+–20
+
+–15
+
+–10
+
+–5
+
+0
+
+5
+
+10
+
+15
+
+20
+
+Figure 8.25 Genetic impact on learning the water maze task (A) The landscape
+shows that control mice focused their search in the trained area, resulting in a high
+total occupancy peak (yellow) in the old platform position, which they apparently
+remembered. (B) Laboratory mice in which the gene for NMDA receptors was
+eliminated (“knocked out)” in the hippocampus navigated more or less randomly
+over the full area of the pool, apparently failing to have learned where the platform
+should be located. (From Tsien et al. 1996.)
+
+maze; see Box 8A), the NMDA-deficient mice searched widely for the platform,
+indicating that they had little spatial memory (Figure 8.25).
+Efforts to establish behaviorally relevant evidence of LTP involvement have
+not been limited to the hippocampus or to spatial learning. In the mid-1990s,
+neuroscientist Joseph LeDoux and collaborators investigated behavioral LTP in
+the context of auditory fear conditioning, focusing on the pathway connecting
+the medial geniculate nucleus of the thalamus (a relay station in the auditory
+sensory pathways; see Chapter 4) to the amygdala. They found that electrical stimulation of this pathway gave rise to LTP in the lateral nucleus of the
+amygdala, in accord with the fact that synaptic responses in the same nucleus
+are enhanced by natural auditory stimulation. Although this question is far
+from settled, there is at least some evidence that LTP is correlated with newly
+learned behaviors.
+
+Learning-related changes in synaptic morphology
+Maintenance of any mechanism of memory that is to last for a long period
+requires gene expression and the synthesis of new proteins. Among other effects, these changes can, and in some cases do, lead to long-lasting structural
+alternations in synapses. These morphological changes in neuronal connectivity can be considered the culmination of a process of synaptic consolidation
+discussed in Chapter 9.
+For many neurons, learning-related alterations in synaptic morphology
+appear to involve dendritic spines. These are small protrusions from dendritic
+branches—often mushroom-shaped—that in the neocortex receive excitatory
+synaptic input from other neurons. Several sorts of morphological changes in
+dendritic spine structure over periods of a few minutes to hours have been
+
+■ 275
+
+276 ■ CHAPTER 8
+(A)
+
+(B)
+
+(C)
+
+LTP
+
+LTP
+
+Ca2+
+
+LTP
+learning
+
+Ca2+
+
+(D)
+
+Figure 8.26 Morphological changes in dendritic spines associated
+with the maintenance of LTP (A) Synapses may increase in number
+of presynaptic vesicles, postsynaptic receptors, and ribosomes (red
+circles). (B) Synapses may develop separate synaptic zones divided by
+a wall or a cleft (perforated synapses) in the spine. (C) A single spine
+may divide in two. (D) New dendritic spines (white arrows) appear
+approximately 1 hour after a stimulus that induces LTP. (A–C after
+Lamprecht and LeDoux 2004; D from Engert and Bonhoeffer 1999.)
+
+LTP
+
+observed, some in parallel with the development of LTP and changes in behavior. The simplest changes are in the length and diameter of the “stem” of the
+mushroom (the spine neck) and/or changes in the size of the mushroom itself
+(Figure 8.26A). The former changes affect passage of the synaptic signal from
+the spine to the dendritic shaft, and the latter allow a change in the number of
+presynaptic terminals in contact with a spine (Figure 8.26B,C). Finally, new
+spines can emerge from the shaft of the dendrite and others disappear, thereby
+changing the number of spines and thus synapses in yet another way (Figure
+8.26D). All such changes could support memories or their loss by increasing
+or decreasing synaptic strength over long periods.
+In summary, the physical representations of memories (engrams) are assumed to consist of functional and structural changes in synaptic connectivity
+among neurons that have strengthened or weakened as a result of experience.
+Long-term maintenance of LTP and other memory mechanisms presumably
+requires changes in gene expression and the synthesis of new proteins that
+eventually lead to structural alternations in synaptic morphology and neuronal
+connectivity. This commonality of mechanisms at the cellular level is quite
+compatible with functional heterogeneity at the systems level.
+
+Summary
+1. The generally accepted taxonomy of memory systems distinguishes three major
+systems: declarative memory, nondeclarative memory, and working memory.
+Damage to the medial temporal lobe impairs declarative memory but spares
+working memory. Other types of lesions can impair working memory without
+disrupting declarative memory.
+2. Nondeclarative memory depends on brain regions other than medial temporal
+lobes, which vary for different forms of nondeclarative memory: priming, skill
+learning, and conditioning.
+3. Priming is defined as a change in processing of a stimulus due to a previous
+encounter with the same or a related stimulus in the absence of conscious awareness of the original encounter. The neural correlates of priming include neocortical
+regions that vary with the type of priming: visual perceptual priming is associated
+with altered activity in the visual sensory areas in occipitotemporal cortex; conceptual priming, with anterior left inferior prefrontal areas; and semantic priming,
+
+MEMORY: VARIETIES AND MECHANISMS
+with left anterior temporal areas. In functional neuroimaging studies of priming,
+these regions typically show a reduction in activity, known as repetition suppression, which may reflect a dropping out of noncritical neurons across repetitions.
+4. Skill learning depends on the basal ganglia and is associated with cortical regions
+that depend on the type of skill learning (motor regions for motor learning, temporal fusiform regions for perceptual learning, and so on).
+5. Conditioning is the altered probability of a behavioral response engendered by
+associating the response with a reward. Eyeblink conditioning has been linked to
+circuits in the cerebellum. Operant conditioning (instrumental learning) has been
+associated with the basal ganglia.
+6. All varieties of memory appear to depend on the same cellular and molecular
+mechanisms of neural plasticity. At the cellular level, memories are transiently
+stored as changes in the efficacy of existing synaptic connections between neurons
+within particular neuronal assemblies. Longer-lasting memories require more permanent changes in gene expression, protein synthesis, and morphology, including
+the formation of new synaptic connections.
+
+Additional Reading
+Reviews
+DAYAN, E. AND L. G. COHEN (2011) Neuroplasticity subserving motor skill
+learning. Neuron 72: 443–454.
+FOERDE, K. AND D. SHOHAMY (2011) The
+role of the basal ganglia in learning and
+memory: Insight from Parkinson’s disease. Neurobiol. Learn. Mem. 96: 624–636.
+GRILL-SPECTOR, K., R. HENSON AND A.
+MARTIN (2006) Repetition and the brain:
+Neural models of stimulus-specific
+effects. Trends Cogn. Sci. 10: 14–23.
+MILNER, B., L. R. SQUIRE AND E. R. KANDEL (1998) Cognitive neuroscience
+and the study of memory. Neuron 20:
+445–468.
+NADEL, L. AND O. HARDT (2011) Update
+on memory systems and processes.
+Neuropsychopharmacology 36: 251–273.
+SANES, J. R. AND J. W. LICHTMAN (1999)
+Can molecules explain long-term
+potentiation? Nat. Neurosci. 7: 597–604.
+SQUIRE, L. R., C. E. STARK AND R. E. CLARK
+(2004) The medial temporal lobe. Annu.
+Rev. Neurosci. 27: 279–306.
+YIN, H. H. AND B. J. KNOWLTON (2006)
+The role of the basal ganglia in habit
+formation. Nat. Rev. Neurosci. 7:
+464–476.
+
+Important Original Papers
+BUCKNER, R. L., S. E. PETERSEN, J. G. OJEMANN, F. M. MIEZIN, L. R. SQUIRE AND
+M. E. RAICHLE (1995) Functional anatomical studies of explicit and implicit
+memory retrieval tasks. J. Neurosci. 7:
+12–29.
+CLARK, R. E. AND L. R. SQUIRE (1998) Classical conditioning and brain systems:
+The role of awareness. Science 280:
+77–81.
+GABRIELI, J. D. E., D. A. FLEISHMAN, M. M.
+KEANE, S. L. REMINGER AND F. MORRELL
+(1995) Double dissociation between
+memory systems underlying explicit
+and implicit memory in the human
+brain. Psychol. Sci. 6: 76–82.
+GRAF, P., L. R. SQUIRE AND R. MANDLER
+(1984) The information that amnesic
+patients do not forget. J. Exp. Psychol.
+Learn. Mem. Cogn. 10: 164–178.
+HENSON, R., T. SHALLICE AND R. DOLAN
+(2000) Neuroimaging evidence for dissociable forms of repetition priming.
+Science 287: 1269–1272.
+KNOWLTON, B. J., J. A. MANGELS AND L.
+R. SQUIRE (1996) A neostriatal habit
+learning system in humans. Science 262:
+1747–1749.
+
+■ 277
+
+Go to the COMPANION WEBSITE
+sites.sinauer.com/cogneuro2e
+for quizzes, animations, flashcards,
+and other study resources.
+
+MILLER, E. K., L. LI AND R. DESIMONE
+(1991) A neural mechanism for working and recognition memory in inferior
+temporal cortex. Science 254: 1377–1379.
+POLDRACK, R. A. AND 7 OTHERS (2001)
+Interactive memory systems in the
+human brain. Nature 414: 546–550.
+WARRINGTON, E. K. AND L. WEISKRANTZ
+(1968) New method of testing longterm retention with special reference to
+amnesic patients. Nature 217: 972–974.
+YIN, H. H., B. J. KNOWLTON AND B. W.
+BALLEINE (2004) Lesions of dorsolateral
+striatum preserve outcome expectancy
+but disrupt habit formation in instrumental learning. Eur. J. Neurosci. 19:
+181–189.
+
+Books
+FOSTER, J. K. AND M. JELICIC (1999)
+Memory: Systems, Process, or Function?
+Oxford: Oxford University Press.
+EICHENBAUM, H. (2011) The Cognitive
+Neuroscience of Memory: An Introduction.
+New York: Oxford University Press.
+
+

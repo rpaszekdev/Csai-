@@ -1,0 +1,2188 @@
+Social Cognition
+
+
+INTRODUCTION
+A major goal of cognitive neuroscience is to identify the neural under-
+pinnings of the processes by which individuals understand themselves
+and their relationships to others. This subfield, known as social neuro-
+science, builds on the developments in affective neuroscience described
+in Chapter 10—in particular, the evidence that emotions serve important
+social functions. Emotions evident in facial expressions, body language,
+and speech are a means by which we communicate our intentions to
+others, and by which we interpret their actions. Humans and other
+species that live in social groups have evolved mechanisms for establish-
+ing hierarchies among members, for building kinship and other social
+bonds, and for setting acceptable norms of behavior.
+   Dysfunctional social processing can have profound consequences, as
+exemplified by autism spectrum disorders (see Introductory Box) and
+antisocial personality disorders. In many animals the basis for social
+behaviors is determined genetically, with individual experience playing
+a relatively minor role. In humans, however, culture, customs, and social
+learning markedly influence behavior throughout the life span. Because
+social psychologists and neuroscientists have joined forces only recently,
+many issues and observations in this field are contentious, and the an-
+swers to many questions remain open. This chapter summarizes some of
+the areas at the forefront of this new subfield, including self-referential
+processing, perception of nonverbal social cues, social categorization,
+theory of mind, empathy, and social competition. Social communication
+by means of language is taken up specifically in Chapter 12, and social
+influences on decision making are discussed in Chapter 14.
+360 ■ CHAPTER 11
+
+
+
+ ■ INTRODUCTORY BOX AUTISM
+
+ T      he term autism spectrum dis-             (A)                                             (B)
+        order refers to any of a range of          Control group        Autistic group
+        neurodevelopmental problems
+ characterized by functional deficits in
+ communication and social interactions,
+ and by repetitive, stereotyped behaviors.
+ Epidemiological research suggests that
+ some form of autism affects up to one
+ in every 100 children. The severe form is
+ highly heritable, with monozygotic twin
+ studies indicating concordance rates
+ from 60 to 90 percent.
+     Originally described by psychiatrist
+ Leo Kanner in 1943, autism (from the
+ Greek word autos, meaning “self, same,                                                                                    1.2                                  Control
+ spontaneous; directed from within”) is                                                                                                                         Autism
+
+
+
+
+                                                                                                 Signal change (%)
+ distinguished from other disorders by                                                                                                                          Baseline
+ having social deficits as a core symptom.                                                                                 0.6
+ According to the American Psychiatric
+ Association’s Diagnostic and Statistical                                                                                    0
+ Manual (DSM-IV), the key criteria that de-
+ fine social deficits in autism include:
+ (1) impairment in using nonverbal behav-                                                                                 –0.6
+ iors in social interactions such as eye-
+ to-eye gaze, facial expression, and body                                                                                        2    4       6      8     10      12      14
+ posture/gestures; (2) failure to develop                                                                                                         Time (s)
+ peer relationships appropriate for the indi-                                                                              625
+ vidual’s age level; (3) failure to spontane-
+
+
+
+
+                                                                                                 Fixation duration (ms)
+ ously seek to share enjoyment, interests,                                                                                 500
+ or achievements with other people; and
+ (4) lack of social or emotional reciprocity.                                                                              375
+ For these reasons, researchers have been
+ greatly interested in autistic individuals to        When viewing faces, autistic individuals                             250
+ gain insight into the brain regions special-    show reduced activation in the fusiform
+                                                                                                                           125
+ ized for social cognitive functions. Autism     gyrus, inferior temporal gyrus, superior
+ is often accompanied by mental retarda-         temporal sulcus, and amygdala. The ac-                                      0
+ tion, and studies have tended to focus on       tivation decrements in the fusiform gyrus                                       0        0.2       0.4      0.6           0.8
+ high-functioning autistic individuals, de-      and amygdala correspond to a reduction                                                     Signal change (%)
+ fined as those with an IQ of 70 or higher.      in attentional allocation to the faces as
+                                                                                                                          Face-processing deficits in autism. (A) In
+     Social perception deficits in autism        measured by eye fixations (Figure B). Indi-
+                                                                                                                          contrast to control subjects (left), individuals
+ include difficulty processing faces, emo-       viduals with autism usually do not exhibit
+                                                                                                                          with autism (right) tend to focus on features
+ tional expressions, and biological motion.      enhanced activity in these brain regions
+                                                                                                                          of faces that are not critical for socioemo-
+ Studies using eye-tracking techniques           when the faces that they are viewing
+                                                                                                                          tional communication, as the lines tracing
+ show that people with autism allocate           express emotions. Finally, unlike controls,
+                                                                                                                          eye movement in these photos indicate.
+ their attention to noncanonical facial          autistic individuals do not exhibit activity
+                                                                                                                          (B) Faces elicit greater fMRI activity in the
+ features, such as the forehead, cheeks,         increases in the superior temporal sulcus
+                                                                                                                          fusiform gyrus (indicated in the scan and the
+ or other features located near the face         when goal-directed biological motion
+                                                                                                                          upper graph) in controls than in individuals
+ (e.g., earrings). By contrast, most people      sequences are violated, as when viewing
+                                                                                                                          with autism. The bottom plot shows that,
+ scan faces in a characteristic triangular       animated characters whose reaching ac-
+                                                                                                                          in autistic individuals, fusiform activity is
+ pattern, looking back and forth between         tions miss their intended targets.
+                                                                                                                          positively correlated with the duration of eye
+ the two eyes and the mouth—the regions               Social impairments in autism extend
+                                                                                                                          fixations on the face. (A from Pelphrey et al.
+ that convey the dynamic information used        beyond perceptual processes to include
+                                                                                                                          2002; B after Dalton et al. 2005.)
+ in social and emotional communication           difficulties in extracting meaning from
+ (Figure A). When making social judgments        interpersonal interactions. The inability to
+ about others from facial features alone, in-    follow the gaze of other individuals, which
+ dividuals with autism tend to overestimate      emerges early in development, contrib-                                   sociate objects in the environment with
+ how trustworthy people appear. Such             utes to later impairments in using gaze                                  their names. Individuals with autism often
+ challenges in discriminating emotions           to understand other people’s intentions                                  fail theory-of-mind tasks (described later
+ and personal characteristics conveyed in        and desires and in developing vocabulary                                 in the chapter), which require participants
+ facial displays, in turn, affect how these      skills, which are socially learned by using                              to distinguish their own views and beliefs
+ individuals relate to other people.             gaze, head, and pointing gestures to as-                                 from those of others.
+                                                                                                                   SOCIAL COGNITION            ■ 361
+
+
+
+  ■ INTRODUCTORY BOX (continued)
+ (C)                                                   clude more white matter in the cerebrum         research efforts are increasing to help
+                                                       and cerebellum and larger cerebral gray         understand this complex disorder.
+              Over-  Arrested      Possible decline/   matter, particularly in the frontal lobes
+              growth growth        degeneration        and other regions implicated in social
+                                                       processing, as outlined already. Howev-
+                                                                                                       References
+                                                       er, by late childhood these global struc-       BARON-COHEN, S., R. CAMPBELL, A. KARMIL-
+
+ Brain size
+                                                       tural differences tend to become normal         OFF-SMITH, J. GRANT AND J. WALKER (1995)
+                                                       (Figure C). Aberrant wiring patterns            Are children with autism blind to the
+                                                       nonetheless persist in autistic adulthood,      mentalistic significance of the eyes? Brit. J.
+                                                       including more short- and medium-range          Dev. Psychol. 13: 379–398.
+                                          Normal
+                                                       connections within the hemispheres, but         COURCHESNE, E., K. CAMPBELL AND S. SOLSO
+                                          ASD
+                                                       fewer interhemispheric connections.             (2011) Brain growth across the life span in
+                             Age                           Thus, behavioral impairments in autism      autism: Age-specific changes in anatomi-
+                                                       are most likely a result of altered process-    cal pathology. Brain Res. 1380: 138–145.
+                                                       ing and/or connectivity among interact-         DALTON, K. M. AND 7 OTHERS (2005) Gaze
+              Frontal lobe                             ing brain regions that mediate social           fixation and the neural circuitry of face
+                                                       cognition, communication, and execu-            processing in autism. Nat. Neurosci. 8:
+                                                       tive motor functions. Consistent with this      510–526.
+                                                       idea, autistic individuals sometimes have
+                                                       extraordinary talent in restricted domains      DICICCO-BLOOM, E. AND 8 OTHERS (2006)
+                                                       like mental calculation, historical facts, or   The developmental neurobiology of
+                                                       art—a phenomenon sometimes referred             autism spectrum disorder. J. Neurosci. 26:
+                                                       to as savant syndrome (see Introductory         6897–6906.
+              Temporal                                 Box in Chapter 15). At the same time,           GOLAN, O. AND 6 OTHERS (2010) Enhanc-
+              lobe                                     individuals with autism have more difficulty    ing emotion recognition in children with
+                                       Cerebellum
+                                                       integrating parts into wholes and synthe-       autism spectrum conditions: An interven-
+                                                       sizing information across domains (called       tion using animated vehicles with real
+                                                       central coherence)—skills that require the      emotional faces. J. Autism Dev. Disord. 40:
+                                                       normal operation of interacting large-scale     269–279.
+                                                       networks. Their enhanced reliance on            GRANDIN, T. (2011) The Way I See It: A Per-
+                                                       local task features and attention to detail     sonal Look at Autism and Asperger’s, 2nd Ed.
+                                                       often leads to a bias toward systemizing,       Arlington, TX: Future Horizons.
+                                                       the tendency of autistic individuals to ana-
+                                                                                                       HAPPÉ, F. AND U. FRITH (2006) The weak
+                                                       lyze problems and construct knowledge
+                                                                                                       coherence account: Detail-focused cogni-
+                                                       by applying rigid, often mechanical, rules.
+                                                                                                       tive style in autism spectrum disorders.
+                                                           Rehabilitative training in autism fo-
+              Amygdala                                                                                 J. Autism Dev. Disord. 36: 5–25.
+                                                       cuses on exploiting this penchant for
+                                                       rules, mechanics, and focal attention to        KANNER, L. (1943) Autistic disturbances of
+                                                       facilitate social and emotional compe-          affective contact. Nerv. Child 2: 217–250.
+ Brain growth in autism. (C) Across devel-             tence. For instance, psychologists train        MOLDIN, S. O. AND J. L. R. RUBENSTEIN, EDS.
+ opmental stages, there is a general pattern           autistic children to discriminate emotions      (2006) Understanding Autism: From Basic
+ of brain enlargement followed by arrested             by morphing human facial expressions            Neuroscience to Treatment. Boca Raton, FL:
+ growth. This pattern is found in portions of          onto animated mechanical characters             CRC Press.
+ the frontal and temporal lobes, cerebellum,           that move rigidly and express emotions
+ and amygdala, among others. ASD, autism                                                               PELPHREY, K. A., N. J. SASSON, J. S. REZNICK,
+                                                       according to a specific set of rules. Initial
+ spectrum disorder. (C after Courchesne et                                                             G. PAUL, B. D. GOLDMAN AND J. PIVEN
+                                                       short-term results of such rehabilitation
+ al. 2011.)                                                                                            (2002) Visual scanning of faces in autism.
+                                                       exercises are promising, but the extent
+                                                                                                       J. Autism Dev. Disord. 32: 249–261.
+                                                       to which the eye-tracking and fMRI acti-
+                                                       vation patterns improve following training      SCHUMANN, C. M. AND 8 OTHERS (2009) The
+     Autistic individuals tend to have rela-           is not known. With increased activity of        amygdala is enlarged in children but not
+ tively larger brain volumes, perhaps aris-            advocacy groups, enhanced public                adolescents with autism; the hippocam-
+ ing from overgrowth of connections early              awareness, and high-profile personal            pus is enlarged at all ages. J. Neurosci. 24:
+ in development. These alterations in-                 triumphs like those of Temple Grandin,          6392–6401.
+
+
+
+
+The Self
+Distinguishing oneself from others is a necessary first step in establishing flu-
+ent social interactions. Understanding the nature of the self has long perplexed
+philosophers, psychologists, and laypeople alike. In his treatise on psychology
+362 ■ CHAPTER 11
+
+                   written at the end of the nineteenth century, William James described the self
+                   as follows:
+
+                       Whatever I may be thinking of, I am always at the same time more or
+                       less aware of myself, of my personal existence. At the same time it is
+                       I who am aware; so that the total self of me, being as it were duplex,
+                       partly known and partly knower, partly object and partly subject, must
+                       have two aspects discriminated in it.
+                                                                             W. JAMES 1890, p. 176
+
+
+                   Despite the conceptual difficulties in defining what constitutes the entity we
+                   all consider the self, a core cognitive ability described by James is the ability to
+                   consider one’s own being as an object, and thus subject to objective consider-
+                   ation. This ability is called self-reflexive thought.
+                       Non-human animals presumably possess a rudimentary ability to distin-
+                   guish themselves from other animals because of its obvious biological value.
+                   However, more complex aspects of self-awareness that characterize humans
+                   provide the ability to think of oneself in abstract and even symbolic terms,
+                   including the creation of mental images to imagine alternative outcomes in
+                   complex social situations.
+                       As described in Chapter 15, the capacity for self-awareness evolved in
+                   mammals and other animals in conjunction with related social, emotional, and
+                   cognitive skills. Animals with small brains and less complex nervous systems
+                   seem to operate in the world primarily by responding to external cues. But even
+                   rodents can navigate in their environment using either egocentric or allocentric
+                   frames of reference, indicating an ability to explore the world either in terms
+                   of their own place in it (egocentric, or first-person, view) or simply in terms of
+                   external reference points (allocentric, or third-person, view). Head direction cells
+                   in the hippocampus, thalamus, and retrosplenial cortex help rodents navigate
+                   in an egocentric framework, and shifting between these frames of reference
+                   involves transformations in the parietal cortex.
+                       Some non-human animals can recognize themselves in a mirror. At first
+                   sight, great apes regard the individual reflected in the mirror as a conspecific
+                   and display interpersonal social signals. Over time, however, self-directed
+                   behaviors, such as self-grooming in response to the reflection become apparent.
+                   A hallmark of such self-recognition is the “mark test,” in which an experimenter
+                   places a mark on the face or forehead of the animal that is viewable only in the
+                   mirror. The mark test is “passed” if the animal repeatedly palpates the mark
+                   while viewing itself in the mirror (relative to a comparable baseline period with
+                   no mirror present). In addition to great apes, elephants conduct self-examinations
+                   by using their trunks to touch a mark visible to them only in the mirror.
+                       Despite these rudimentary abilities, self-recognition and self-reflexive
+                   behaviors are markedly more advanced in humans. The archaeological record
+                   suggests that the rapid development of culture with a focus on the importance
+                   of individuals (and thus the self) emerged in the evolution of humans approxi-
+                   mately 50,000 years ago, as evidenced by ritualized burials and artifacts of self-
+                   ornamentation. The value of symbolic self-reflexive thought is not difficult to
+                   imagine. This ability enables an appraisal of one’s personality traits, strengths,
+                   and weaknesses in comparison to others and to cultural norms. Such evaluation
+                   is essential to successful social behavior by generating self-esteem, regulating
+                   one’s actions in social contexts, and abiding by social rules.
+                       Whereas humans normally possess a sense of a unitary self across both
+                   time and space, the stable concept of the self breaks down in some clinical
+                   disorders. For example, fugue states are defined as transient states of confusion
+                   in which self-relevant knowledge is temporarily unavailable to consciousness,
+                                                                                       SOCIAL COGNITION   ■ 363
+
+
+and uncharacteristic and often self-destructive behaviors ensue. Fugue states
+can arise following some types of epileptic seizures, but how the sense of self
+is lost is unknown. In dissociative identity disorder, individuals have recurrent,
+multiple identities that emerge to control behavior at different points in time.
+This disorder typically originates following exposure to a highly traumatic event,
+and therapies are directed toward integrating the identities into a unified stream
+of consciousness. While we take a continuous sense of self in our personal lives
+for granted, these rare disorders highlight the profound social and behavioral
+impairments that can arise when discontinuities in self-awareness emerge.
+
+Self-reflection
+Only recently have the approaches of cognitive neuroscience been brought to
+bear on these philosophical and clinical concerns by identifying brain areas that
+mediate aspects of the self, including self-reflexive thoughts and self-directed
+feelings. Self-reflection requires an initial redirection of attentional focus from
+external sensory events to internal thoughts, memories, feelings, and visceral
+sensations. Two sets of brain regions have been broadly implicated in these
+functions—midline cortical regions involved in the default mode of brain pro-
+cessing, and limbic/paralimbic regions involved in interoception.
+    Recall from Chapter 7 that neuroimaging studies have identified brain
+areas whose activity decreases during tasks that require attention to external
+stimuli. This default-mode activity thus provides a basis for beginning to un-
+derstand the brain regions that are more active during internal self-reflection
+and self-projection into another place or time unrelated to the current sensory
+environment. This spontaneous, coordinated activity occurs in the dorsal and
+ventromedial prefrontal cortex (PFC), posterior cingulate, and medial and lateral
+parietal cortex. Some researchers have speculated that this activity reflects an
+ongoing stream of consciousness. Indeed, some of these same brain regions
+are sensitive to variations in consciousness associated with different levels of
+self-awareness (e.g., stages of sleep, the effects of anesthesia, or recovery from
+vegetative states; see Chapter 7).
+    Building on these observations of resting-state activity, researchers have
+directed participants to explicitly engage in self-reflection during brain scanning.
+For instance, participants are asked to indicate how well adjectives referring
+to personal traits (e.g., ambitious) and sentences (e.g., “I tend to worry a lot”)
+describe themselves (self-endorsement tasks), or to compare their personal-
+ity traits with those of famous people or individuals they know well (social
+comparison tasks). Activity in the anterior medial PFC and parietal regions is
+increased when identifying attributes of oneself relative to those of a stranger
+(Figure 11.1A). Moreover, TMS applied to the medial parietal cortex has been
+reported to temporarily block the retrieval of some self-relevant knowledge.
+The degree of anterior medial PFC activity in response to trait words during
+self-endorsement tasks also predicts their later recall. Because this finding does
+not generalize to nonsocial encoding tasks, such as those involving perceptual
+or semantic processing, a particular type of self-referential encoding process
+is implied.
+    These observations are consistent with studies of autobiographical memory
+retrieval, which implicate the same default-mode processing regions. For example,
+successful memory retrieval for spatial landmarks cued by photos taken by an
+individual elicits greater medial PFC activity than does successful retrieval cued
+by photos of the same landmark that were taken by others (Figure 11.1B). As
+described in Chapter 10, the medial PFC has been implicated more generally
+in mental processes needed to reflect on autobiographical memories, such as
+monitoring for their accuracy, and in generating the mental imagery required
+in working memory tasks that project actions of the self into the future.
+364 ■ CHAPTER 11
+
+Figure 11.1 Role of the medial PFC         (A)
+in self-referential processing                                                                                       0.2
+(A) Greater activity in the anterior
+medial PFC (yellow circle) is found                                                                                  0.1
+when participants make trait
+
+
+
+
+                                                                                                Signal change (%)
+judgments about themselves relative
+                                                                                                                      0
+to trait judgments about a best friend
+or perceptual judgments about the
+                                                                                                                    –0.1
+appearance of the trait word (i.e.,
+whether it is upper- or lowercase). (B)
+Activity in the same brain area during                                                                              –0.2
+autobiographical memory retrieval.
+College students were instructed to                                                                                 –0.3
+take pictures of campus landmarks;
+they then viewed these photos, as well                                                                              –0.4
+as pictures of the same landmarks                                                                                            Self          Friend           Case
+taken by other people. Successful          (B)
+recollection of photos taken by the
+students themselves was associated
+with greater activity in the anterior
+medial PFC than was successful
+recollection of photos taken by
+others. In both (A) and (B), a self-
+referential effect is inferred from the
+lack of a deactivation pattern typically                                  Self                                Other
+seen in midline cortical regions that
+constitute the “default mode” of brain
+processing. (A after Heatherton et al.     Medial PFC
+2006; B after Cabeza et al. 2004.)                              0.3
+
+                                                                0.2
+
+                                                                0.1
+
+
+
+
+                                           Signal change (%)
+                                                                 0
+
+                                                               –0.1
+
+                                                               –0.2
+
+                                                                                                                                                    Self
+                                                               –0.3
+                                                                                                                                                    Other
+
+                                                               –0.4
+                                                                      0      1.5   3.0   4.5   6.0                    7.5    9.0    10.5   12.0     13.5    15.0
+                                                                                                                    Time (s)
+
+
+
+                                               While default-mode research has focused on judgments of personality traits
+                                           or past experiences, other work has focused on the subjective feelings that
+                                           accompany emotional or painful stimuli. These studies have implicated not
+                                           only the brain regions involved in self-reflexive thought, but also brain regions
+                                           implicated in interoception and empathy, such as the anterior cingulate and
+                                           insula (see Chapter 10 and the discussion later in this chapter). Greater activity
+                                           in the rostral anterior cingulate is found when participants are instructed to
+                                           report their own arousal in response to emotionally aversive scenes than when
+                                           they focus on the spatial layout of the scenes. Focusing on spatial layout, on
+                                           the other hand, elicits greater activity in the posterior parietal cortex. Thus,
+                                           the same emotional images can engage different brain regions depending on
+                                           whether attention is on an internal evaluative response to the images or an
+                                           analysis of their sensory features.
+                                               Anterior cingulate responses to emotional stimuli and emotional memories
+                                           are further enhanced by individual differences in performance on the Levels of
+                                                                                      SOCIAL COGNITION   ■ 365
+
+
+Emotional Awareness Scale, which assesses how deeply and complexly emotions
+are experienced. Anterior cingulate activity increases with autonomic measures
+of arousal and the subjective experience of the unpleasantness of pain, and it is
+implicated in the regulation of pain modulation. This work further reinforces the
+idea that the anterior cingulate integrates attentional and emotional functions
+(see Chapter 10), but with the more specific goal of directing attention to one’s
+own emotional responses in order to motivate plans of action.
+    The anterior insula signals awareness of bodily sensations, such as alterations
+in respiration and heart rate during arousing states. As reviewed in Chapter
+10, the posterior and mid-insula are part of a visceral processing network that
+includes brainstem autonomic centers, the hypothalamus, the mediodorsal and
+ventromedial thalamus, and the anterior cingulate. Multiple afferent pathways
+converge on the anterior insula, particularly in the right hemisphere, which,
+in turn, projects to the orbitofrontal cortex. The cortical components of this
+hierarchy are hypothesized to represent body state in an integrated way. An
+awareness of body states signaled by these cortical regions presumably provides
+a basis for self-reflective feelings that involve affective and visceral components
+of self-awareness.
+
+Embodiment
+Embodiment refers to the sense of being localized within one’s own body. The
+psychologist Ulrich Neisser has referred to this aspect of self-knowledge as the
+“ecological” self because the physical abilities of the body constrain how indi-
+viduals interact with other agents and objects in the environment. The sense
+of embodiment gives rise to self-location (the feeling of being at a particular
+location and position in space) and egocentric frame of reference (navigating
+in the world with reference to one’s own viewpoint and spatial location). The
+ability of humans to use symbolic analogues of themselves also permits men-
+tal imagery of the position of the body from a non-egocentric frame of refer-
+ence (e.g., imaging the view of oneself from behind). In dreams and memories,
+experiences are sometimes transformed from a first-person to a third-person
+perspective, and some memories, such as the memory of giving a public ad-
+dress, tend to have a canonical third-person perspective (e.g., from the vantage
+point of the audience).
+    Although most individuals experience a spatial unity of self and body, in
+certain conditions individuals lose this routine sense. As described in Chapter
+7, patients with right parietal damage may ignore or deny the existence of
+the left side of their body (neglect syndrome). Others experience sensations
+from an amputated body part (phantom limb sensations; see Chapter 4). Still
+other patients deny that their body is suffering from a particular ailment (ag-
+nosognosia) or may experience a feeling of being located outside their body
+(disembodiment). Out-of-body experiences can also be elicited by psychotropic
+drugs such as ketamine.
+    Two brain regions have been implicated in body representations and dis-
+embodiment phenomena. A region of extrastriate visual cortex, sometimes
+called the extrastriate body area, is engaged when individuals visually process
+human bodies or body parts, imagine changes in the position of a body part, or
+adopt a third-person perspective for visualizing their own body (Figure 11.2A).
+In addition, out-of-body experiences have been linked to the temporoparietal
+junction, a multisensory area at the border between the temporal and parietal
+lobes and surrounding the posterior aspect of the Sylvian fissure (Figure 11.2B).
+    The Swiss neurologist Olaf Blake examined these phenomena in epileptic
+patients undergoing neurosurgery, as well as in healthy adults during mental
+imagery tasks. One patient reported out-of-body experiences, illusory changes
+in arm and leg position, and whole-body displacements following stimulation of
+366 ■ CHAPTER 11
+
+(A)                                                                              (C)
+                                                                                                                   Back-facing                                               Front-facing
+                 7
+                 6
+                 5
+                 4
+                 3
+                                                                                                                              Left                  Right                                 Left               Right
+                 2
+                 1
+
+
+
+Distance (cm)
+                 0
+                 1                                                               Unturned                                                                                    Turned
+                 2
+                 3
+                 4
+                 5
+                 6                                                                                                  Left                            Right                    Left                           Right
+                 7
+                 8
+                 9
+                                                                                   Body task
+                10
+                                                                                                                     80
+                                                                                                                            Back-facing                                      Intraparietal sulcus
+                     7   6   5   4   3   2     1 0 1 2       3   4   5   6   7
+                                                                                                                     40                                                      Temporoparietal junction
+                                             Distance (cm)
+
+
+
+
+                                                                                   Normalized reaction time (ms)
+(B)                                                                                                                   0
+
+                                                                                                                    –40
+                                                             Out of body
+                                                             Auditory
+                                                                                                                    –80
+                                                             Seizure focus                                           80
+                                                             Somatosensory                                                  Front-facing
+                                                             Motor                                                   40
+
+                                                                                                                      0
+
+                                                                                                                    –40
+
+Figure 11.2 Brain regions implicated in body perception                                                             –80
+and imagery tasks (A) A region of visual cortex is
+sensitive to visual features of body parts and is active                           Letter task
+during the genesis of body imagery. Each dot represents                                                              80
+the peak activation from a different functional imaging                                                                     Unturned
+study. (B) The temporoparietal junction is implicated                                                                40
+in body illusions and mental transformations of body
+
+
+
+
+                                                                                   Normalized reaction time (ms)
+position. Cortical stimulation sites are centered on the                                                              0
+right angular gyrus of a patient with epilepsy. Stimulation
+at these sites reliably elicited illusions of body movement                                                         –40
+and out-of-body experiences. (C) In healthy adults, TMS
+applied over the right temporoparietal junction 350 to                                                              –80
+550 milliseconds after stimulus onset (gray-shaded area                                                              80
+in the body task graphs) produced slower reaction times                                                                     Turned
+in making judgments of hand location (red wrists) using                                                              40
+a mentally rotated, front-facing body frame of reference,
+                                                                                                                      0
+but not when making similar dot location judgments on
+rotated letters. TMS applied over the intraparietal sulcus                                                          –40
+450 to 600 milliseconds after stimulus onset (gray-shaded
+area in the letter task graphs) impairs performance in the                                                          –80
+                                                                                                                                  100   150   200    250   300   350   400   450    500   550   600   650   700   750   800
+                                                                                                                       Baseline
+letter rotation task, demonstrating a double dissociation
+between the brain areas underlying body and object
+mental rotation tasks. (A from Arzy et al. 2006; B after                                                                                            Time since stimulus onset (ms)
+Blanke et al. 2005.)
+                                                                                       SOCIAL COGNITION   ■ 367
+
+
+the right angular gyrus in the vicinity of the temporoparietal junction. Another
+patient was asked to mentally rotate her body to mimic the viewpoint of her
+seizure-induced out-of-body experience, and in this case increased activity was
+recorded near the seizure focus at the left temporoparietal junction. Similarly,
+healthy adults who imagine rotations of their body axis show enhanced ERP
+responses localized by source modeling to the temporoparietal junction bilater-
+ally, but with a right-sided bias.
+    When TMS is applied to this region, judgments of body rotations are af-
+fected, but not judgments of mentally rotated objects (Figure 11.2C). Recall that
+areas near the temporoparietal junction in the right hemisphere have also been
+implicated in neglect syndrome (see Chapter 7). Given its multisensory input,
+this region may integrate visual attention with vestibular and somatosensory
+information to track body positions in space, establish an egocentric visual
+perspective, and help create a spatial unity of self and body.
+    In summary, focusing on oneself relies on processing in particular brain
+areas. The midline PFC, cingulate, and parietal regions contribute to aspects
+of self-reflexive thought; the insula and anterior cingulate contribute to the
+representation of central feelings, visceral sensations, and autonomic arousal;
+and the sense of embodiment relies on visual processing in the extrastriate
+visual processing areas and on multisensory integration in the temporoparietal
+junction. Other aspects of the self, including a first-person perspective during
+social interactions, a capacity for self-regulatory control, and the experience of
+ownership of intentional actions (agency), build on these basic processes that
+mediate focusing one’s attention on the self and on a body representation of
+the self.
+
+Perception of Social Cues Evident in the Face
+and Body
+In primates, nonverbal cues in facial expressions and body language provide
+an abundance of information that influences interpersonal exchanges. Consider
+your reaction to greeting an acquaintance who fails to make eye contact, whose
+head and shoulders are turned down, and whose facial expression is unreactive
+during your conversation. Much information about the personality, mood, and
+intentionality of others can be inferred from such cues, even unconsciously.
+Comparisons of these cues with cultural schemas pertinent to social contexts
+and with prior encounters with the same individual allow you to infer the ap-
+propriateness of behavior, to detect changes in comportment, and thus to make
+appropriate responses. Decoding the nuances of these social signals requires
+the development of specialized perceptual skills, for an inability to extract such
+information can cause debilitating social deficits, as is evident in autism (see
+Introductory Box). The discussion that follows describes the analysis of facial
+and body movements; for a discussion of vocal affect, see Chapter 12.
+
+Face perception
+Human faces present particularly salient and complex social cues that we use to
+infer the mental states of others (a receptive function) and to influence someone
+else’s thoughts and behavior (a communicative function). A prominent neuro-
+psychological model of face perception (Figure 11.3A) includes a core system for
+the visual analysis of facial information that begins by parsing facial features
+in the occipital lobe. Following this initial stage, face processing is divided into
+two parallel but interacting processing streams. A ventral pathway—includ-
+ing portions of the fusiform gyrus and associated inferior temporal cortex—is
+specialized for the processing of invariant aspects of face perception in order
+to discriminate faces from other objects and to individuate particular people.
+368 ■ CHAPTER 11
+
+(A)                                                                                            (B)
+                                                                       Extended system:
+                                                                       Further processing in
+                                                                       concert with other
+                                                                       neural systems
+
+                                                                          Intraparietal
+                                                                                                                   Superior
+                                                                             sulcus
+                                                                                                                   temporal
+                                                                                                                   sulcus
+                                                                        Spatially directed
+                                                                        attention
+ Core system: Visual analysis                                                                                      Inferior
+                                                                                                                   temporal
+                                         Superior                           Auditory                               cortex
+                                      temporal sulcus                       complex
+                                Changeable aspects of faces:            Prelexical speech
+                                perception of eye gaze,                 perception
+                                expression, and lip movement
+      Inferior occipital gyri
+                                                                        Amygdala, insula,
+      Early perception                                                   limbic system
+      of facial features
+                                                                        Emotion
+
+
+
+                                  Lateral fusiform gyrus/                   Anterior                              Emotion
+                                   inferotemporal cortex                  temporal lobe                           Identity
+                                                                                                                  Both
+                                Invariant aspects of faces:             Personal identity,
+                                perception of unique identity           name and                                   Emotion-identity
+                                                                        biographical                               interaction
+                                                                        information                                Nonselective
+
+
+
+Figure 11.3 Pathways for face processing in the temporal lobe (A) Visual                       (C)
+information flows along an inferior temporal–hippocampal route for facial
+identity, person recognition, and name retrieval. By contrast, a superior                                         Emotion
+temporal–amygdala route processes dynamic feature encoding of facial                                              Identity
+information, including analysis of eye gaze and emotional expression. (B) Single
+neurons in the monkey temporal lobe code for facial expression and identity.
+Macaque monkeys were shown three faces of conspecifics that expressed
+three different emotions. Recordings were obtained from 45 neurons that
+showed selective responses to faces relative to other objects. Whereas most
+emotion-selective neurons were located in the superior temporal sulcus, most
+                                                                                                                    pSTS
+identity-selective neurons were located in the inferior temporal cortex. (C)
+Similar dorsal-ventral dissociations in the temporal lobe are apparent in human                                            ITG
+subjects when participants are presented with faces that changed in either
+emotional expression or personal identity. aSTS, anterior superior temporal                                aSTS
+sulcus; ITG, inferior temporal gyrus; pSTS, posterior superior temporal sulcus.
+(A after Haxby et al. 2000; B after Hasselmo et al. 1989; C from LaBar et al.
+2003.)
+
+
+                                                Recall from Chapter 3 that a region in the fusiform gyrus called the fusiform face
+                                                area is to some degree specialized for encoding such information about faces.
+                                                Face representations of this ventral pathway are then linked with semantic and
+                                                episodic knowledge about individuals (such as their names, personalities, and
+                                                memories of shared experiences) through additional processing stages in the
+                                                anterior temporal lobe, including the hippocampus and surrounding cortex. In
+                                                this way, the ventral pathway forms the basis for person recognition.
+                                                    Another pathway routed through more dorsal sectors of the temporal lobe,
+                                                including the superior temporal sulcus (STS), is thought to process dynamic
+                                                facial features, such as changes in emotional expression, mouth movements,
+                                                                                                                SOCIAL COGNITION        ■ 369
+
+
+and gaze shifts (see Figure 11.3A). The detection of these attributes of biological
+motion is relayed to the amygdala and other limbic forebrain structures for the
+analysis of emotion, to multisensory areas for the integration of mouth move-
+ments with speech, and to the parietal lobe for spatially directed attention in
+response to head movements or gaze shifts. The two pathways must interact
+(e.g., detecting your sister’s quirky smile can facilitate her identification), and
+later processing stations are assumed to feed back onto earlier ones to enhance
+attention to particular facial features as necessary (e.g., to focus attention on
+specific face parts in order to resolve ambiguous facial expressions).
+    Evidence for the partial independence of invariant and dynamic featural
+processing of faces comes from studies of prosopagnosic patients who have
+suffered damage to ventral regions of the temporal lobe (see Introductory Box
+in Chapter 3). These patients have difficulty recognizing individuals by their
+facial features, but they often identify emotional facial expressions correctly. In
+contrast, patients with damage to the amygdala or STS have difficulty evaluat-
+ing emotional expression and/or eye gaze direction, but they can recognize and
+name individuals normally. Electrophysiological recordings from neurons in the
+temporal lobe in non-human primates confirm that different populations of cells
+are specialized for signaling facial identity versus facial expression (Figure 11.3B),
+in accord with neuroimaging observations in normal humans (Figure 11.3C).
+    Evidence for the integration of dynamic social information in faces has also
+come from electrophysiological studies of non-human primates. When monkeys
+watch images of conspecifics, neurons of the STS tend to increase their firing
+rate when there is a correspondence between the direction of head movement
+and the direction of eye gaze, suggesting a preference for a spatial alignment
+of these two signals (e.g., face forward with eye contact, or both face and eyes
+averted). In the human amygdala, activity in response to facial expressions also
+varies according to whether the direction of gaze is forward or averted (Figure
+11.4). Responses in both of these regions are enhanced to stimuli that present
+dynamic shifts in facial configurations compared to static displays.
+    Decoding rapid changes in facial movements facilitates quick reactions during
+personal interactions and helps predict the impending actions of others. The
+ability to extract signals from the position of the eyes may have been helped by
+an evolutionary change in the color of the sclera, from the darker color in non-
+human primates to white in hominids. The whites of the eyes make it easier to
+discern the direction of gaze, and they are important for detecting a person’s
+emotional state. For example, in response to the sympathetic nervous system
+activity elicited by fear, the palpebral fissure widens markedly, showing more
+scleral white, and the pupils dilate.
+
+
+
+                                             0.16
+
+
+
+
+                                              Signal change (%)
+                                                                                               Figure 11.4 The importance of eye features
+                                                                                               in socioemotional communication The
+                                                                                               amygdala responds with more intense fMRI
+                                                                                               activation to threatening faces when eye
+                                                                                               gaze is direct compared to when it is averted.
+                                                                                               Individuals tend to judge direct eye contact
+                                                                                               in the context of a negative social interaction
+                                                            0                                  as being more threatening. (After Adams et al.
+                                                                  Direct gaze   Averted gaze   2003.)
+370 ■ CHAPTER 11
+
+
+                                             Perception of biological motion
+                                             Nonverbal communication entails much more than analyzing faces; as already
+                                             implied, body movements and gestures are equally important. In parallel with face
+                                             processing, visual information about the position and status of other body parts
+                                             is relayed from visual areas (including the specialized extrastriate body area) to
+                                             similar person recognition and biological motion pathways in the temporal lobe.
+                                                 Neuroimaging and intracranial recording studies of body part gestures
+                                             and whole-body ambulation indicate that the posterior STS, particularly in the
+                                             right hemisphere, discriminates biologically plausible from implausible motion
+                                             (Figure 11.5). Responses of the STS are greater to human and robotic walking
+                                             relative to either coherent mechanical motion, such as pendulum swings, or
+                                             fragmented biological motion (moving but detached body parts). This brain area
+                                             also responds to human walking even when body parts are partially occluded,
+                                             which is important for tracking biological motion in natural circumstances.
+                                                 The STS shows a preference for body actions that are meaningful and goal-
+                                             directed. For instance, hand and arm gestures that complete intentional action
+
+
+                                             (A)
+
+
+
+
+                                                   Baseline        Leftward gaze       Rightward gaze       Mouth opening
+
+
+
+
+                                                                                         Scalp
+
+
+
+
+Figure 11.5 Perception of biological
+motion activates the STS (A) Intra-                                                     Depth
+cranial recordings were taken from
+an epilepsy patient with electrodes
+implanted in the temporal lobe to                                                           +
+monitor seizures (electrode locations
+                                                                                       50 μV
+indicated by arrow in MRI scan).
+Depth electrodes in the STS respond
+strongly to mouth movements (red                                                               100 ms
+line) relative to shifts in gaze direction   (B)
+(blue and green lines) or static faces
+(“baseline”). ERPs recorded from
+the scalp of a healthy participant
+over the temporal lobes indicate a
+similar response pattern arising from
+a source in the vicinity of the STS.
+μV = microvolts. (B) A summary of
+neuroimaging studies of biological
+motion reveals a focus of activity
+in the STS and adjacent cortical
+surface. Each colored dot represents
+a different experiment. (From Allison et
+al. 2000.)
+                                                                                                                                      SOCIAL COGNITION     ■ 371
+
+
+sequences, such as grabbing a coffee cup and lifting it to the lips, are signaled
+more robustly than are meaningless or scrambled action sequences. In accord
+with this observation, sign language gestures that complete grammatically
+appropriate sentences engage this region more in studies of congenitally deaf
+individuals than do nonsense gestures.
+    Activity in the STS further indicates when body movements violate expec-
+tations set up by the social circumstance or conflict with other cues (Figure
+11.6). For instance, when watching an animated figure direct eye movements
+in response to the appearance of a visual target, participants’ activation in the
+STS are stronger when the figure’s gaze fails to track the object than when
+it succeeds (Figure 11.6A). In most natural situations, a person’s gaze tracks
+
+(A)
+                      Correct
+                                                                                                  4.5
+
+
+
+
+                                                                 Change in MR signal intensity
+                                                                                                                 Correct
+                                                                                                  3.5            Incorrect
+
+                                                                                                  2.5
+
+                                                                                                  1.5
+
+                      Incorrect                                                                   0.5
+
+                                                                                                 –0.5
+
+                                                                                                 –1.5
+                                                                                                        –3.0 –1.5 0.0 1.5 3.0 4.5 6.0 7.5 9.0 10.5 12 13.5 15 16.5
+                                                                                                                                  Time (s)
+
+(B)
+                                                                                                 Happy                                Disgusted
+Avatar responses
+
+
+
+                                                                                                                                                         Facial
+                                                                                                                                                         expression
+
+
+
+
+                                                                                                                                                         Hand
+                                                                                                                                                         gesture
+
+
+
+                                                           Reject                                          Accept            Reject           Accept
+                                                             X                                               √                 √                  X
+                                                 Figure 11.6 Signaling expectancy violations from biological motion
+       STS                             IFG       cues in the STS (A) Participants watched an animated character whose
+                                                 eyes moved in response to the sudden appearance of a peripheral target.
+                                                 Activation in the STS was greater when the gaze direction deviated from the
+                                                 target than when it correctly tracked the target. (B) Participants interacted
+                                                 with a virtual character by offering her a virtual gold coin. The character
+                                                 reacted to the participant’s action through a combination of a change in facial
+                                                 expression (happy, disgusted) and an arm gesture (accept the coin, reject the
+                                                 coin). Activation in the STS and inferior frontal gyrus (IFG) was greater when
+                                                 the facial expression and gesture were incongruent (e.g., happy expression
+                                                 combined with rejection gesture, or disgusted expression combined with
+                                                 acceptance gesture) than when they were congruent. Signaling conflicting
+                                                 nonverbal cues in the context of goal-directed actions helps individuals track
+       R                              p = .001
+                                                 when the behavior of others is inconsistent with their intentions or is internally
+                                                 inconsistent. (A after Pelphrey et al. 2003; B from Zucker et al. 2011.)
+372 ■ CHAPTER 11
+
+                   objects that suddenly appear in the environment, so gaze tracking failures are
+                   considered a violation of expected behavior. In addition, the STS preferentially
+                   signals when animated characters display conflicting information between their
+                   arm gestures and facial affect during a social exchange compared to when these
+                   cues are congruent (Figure 11.6B). Such studies highlight the importance of
+                   prior knowledge about how people typically behave in social settings (generally
+                   or individually) in gleaning insight into the meaning of their current actions.
+                       Interpretation of body language is effective only insofar as it leads to ap-
+                   propriate planning of actions in social settings. The readout of gestural infor-
+                   mation from regions like the STS feeds into attentional and executive systems
+                   in the parietal lobe and premotor areas of the frontal lobe to plan appropriate
+                   behavior. The output of the STS is conveyed to frontoparietal cortices for at-
+                   tentional modulation and action planning, as well as to limbic brain structures
+                   for further interpretation of the emotional and motivational significance of the
+                   motion patterns.
+
+                   Interpersonal attention and action direction
+                   In social groups, changes in body posture, head orientation, direction of gaze,
+                   and facial expression are combined with vocalizations to communicate the at-
+                   titudes of individuals toward one another and to signal the presence of signifi-
+                   cant stimuli in the environment. How these cues are used to interpersonally
+                   direct attention and initiate group actions has been investigated in studies of
+                   social referencing and joint attention.
+                       Social referencing refers to the use of body gestures and facial and vocal
+                   expressions of others to determine how to deal with an ambiguous or novel
+                   situation. During development, social referencing is critical for learning how to
+                   appropriately behave in particular situations, given the lack of social knowledge
+                   and self-regulation abilities of young children. For instance, when confronted by
+                   a visual cliff apparatus that gives the illusion of a sudden drop in height, 10- to
+                   12-month-old infants will cross the cliff only if guided by positive emotions
+                   and encouraging gestures expressed by the parent. In this case, the nonverbal
+                   signals communicate to the child whether approach or withdrawal behavior
+                   is appropriate in a given context. The emotions in this situation are used to
+                   direct the actions of the infant rather than to express the internal state of the
+                   parent. Social referencing occurs in a variety of interpersonal contexts to glean
+                   information from others to help select appropriate actions.
+                       Joint attention refers to the allocation of processing resources toward an object
+                   cued by another individual. This ability emerges in infants around 1 year of age.
+                   Gaze direction, head orientation, and body and trunk position all indicate where
+                   an individual is focusing attention, making it easy for others to take advantage
+                   of this information, particularly to make inferences about features of the envi-
+                   ronment that otherwise would be ignored, or that are out of one’s own field of
+                   view. Non-human primates can also exploit joint attention through deception,
+                   presenting misleading displays to others and then directing their own actions
+                   elsewhere. In humans, this behavior is exemplified by pickpockets, magicians,
+                   and athletes, who fake an intended action to facilitate a different one.
+                       Such abilities require knowledge about how others cue spatial locations in the
+                   environment. Electrophysiological studies of the monkey STS show that some
+                   neurons are tuned to multiple body features to signal the information conveyed
+                   by the orientation of a conspecific animal. For example, a neuron might fire in
+                   much the same way in response to downward deflection of the eyes or head,
+                   or a crouched body position of another monkey, all of which indicate the other
+                   animal’s attention to something on the ground.
+                       A variant of the Posner attentional cuing task (see Chapter 6) has been used
+                   to investigate how gaze shifts can direct visual spatial attention in monkeys
+                                                                                                                   SOCIAL COGNITION          ■ 373
+
+
+and humans. Recall that in this task a central cue is used to direct attention
+toward a peripheral location in space where an upcoming target may appear.
+For faces, the position of the eyes serves as a salient cue about where someone is
+focusing attention in space (even more so than head direction or body posture
+in some circumstances). To model such behaviors experimentally, subjects in
+a gaze-directed attentional cuing paradigm are shown a face and are required
+to respond to a subsequent target that appears either in a location cued by
+the gaze of the face (valid trials) or in the opposite hemifield (invalid trials)
+(Figure 11.7). The subject’s reaction time to detect or discriminate the target is
+then compared for validly cued and invalidly cued trials to quantify whether
+the gaze shift was attended by the participant (who is given no other explicit
+instruction about where to attend). Compared to the use of arrow cues in the
+standard Posner task, subjects are more willing to follow gaze even when its
+predictive value is low, suggesting more automaticity in following gaze than
+in using other symbols to guide attention.
+    Valid gaze cues improve target detection performance and lead to larg-
+er-amplitude early ERP components (P1 and N1) to those targets, implying
+
+
+                                                   Blank screen
+
+
+
+
+                                   Target:
+                                   left or right
+
+                                                                                                500 ms
+
+                   Gaze:
+                   turning to
+                   left or right
+
+                                                                                   Until response
+
+Gaze:
+looking at
+the observer
+
+                                                                          500 ms
+
+
+
+
+                                                             500 ms
+
+
+                                            N1
+
+
+               4
+
+
+
+
+Voltage (RV)
+               0                                                                   Figure 11.7 Modulation of attentional orienting by gaze
+                                                                                   cuing Participants view a face with a sudden onset of a
+                                                                                   particular direction of gaze. Targets subsequently appear
+                                                                                   either in the location at which gaze is directed (valid trials) or
+           –4                                                                      in the opposite visual field (invalid trials). Reaction times are
+                                    P1
+                                                                  Valid trials     faster on valid trials (the illustration above the graph shows
+                                                                  Invalid trials   only an invalid trial), and ERP amplitudes are enhanced for
+                                                                                   early-latency potentials (P1 and N1) that indicate attentional
+                     0                      200                    400             enhancements in extrastriate cortex. μV = microvolts. (After
+                                          Time (ms)                                Schuller and Roisson 2001.)
+374 ■ CHAPTER 11
+
+                   attentional modulation of visual processing in extrastriate regions of cortex (see
+                   Chapter 6). Invalidly cued targets show slower reaction times and elicit later
+                   enhancement of a P300 component, suggesting a need to update information in
+                   working memory because the target appears in an unexpected location. Viola-
+                   tions of expectancy based on gaze direction also modulate fMRI activity in the
+                   STS, further supporting the important role of this region in using biological
+                   motion cues to guide attention in social settings.
+                       In sum, nonverbal cues from the face and body provide a wealth of informa-
+                   tion that facilitates social interaction. Analysis of this information aids person
+                   recognition, provides insight into an individual’s emotional state, and guides
+                   interpersonal behavior through social referencing and joint attention. Several
+                   brain regions contribute to the perception of social cues, including face- and
+                   body-processing regions of the visual cortex, the amygdala, and the STS. Some
+                   of these areas, such as the amygdala and STS, are sensitive to multiple com-
+                   municative signals. Stronger responses are elicited in the STS when perceived
+                   actions violate expectations, which helps to indicate when the behavior of others
+                   doesn’t align with their goals or when they are expressing mixed messages.
+
+
+                   Social Categorization
+                   The perception of people’s identifying features is also used to gauge the char-
+                   acteristics of individuals and place them into social groups. Resource models in
+                   social psychology argue that such processes are useful because they facilitate
+                   our ability to form impressions and make sense of those around us, especially
+                   given the large social network size of humans. For instance, if you are intro-
+                   duced to someone who claims to be a member of a particular political party
+                   or religious sect, this information can provide some clues as to the person’s
+                   core values. Categorizing individuals in this way involves both automatic and
+                   controlled processes and is influenced by cultural norms, knowledge of ste-
+                   reotypes, and personal attitudes.
+                       From an evolutionary perspective, social categorization serves important
+                   survival functions in defending territories from invading groups, identifying
+                   and protecting kin, and selecting mates. In human cultures, however, it is all too
+                   clear that prejudicial reactions based on stereotypes of individuals according
+                   to their gender, race, and other factors can and do lead to social injustice. As
+                   a result, there is much interest in using neuroscientific approaches to inform
+                   theories and identify mechanisms of stereotyping and social categorization,
+                   and to determine the extent to which these phenomena can be voluntarily
+                   regulated and changed by social interactions with others.
+
+                   Perception of social category information
+                   Research using ERPs has identified the earliest stages of neural processing that
+                   are influenced by social category information such as race. ERPs have been
+                   the favored method because their temporal sensitivity permits an investiga-
+                   tion of rapid, automatic influences of category information before participants
+                   can engage deliberate control processes to alter their responses (e.g., to appear
+                   more egalitarian). In a typical study, subjects view faces that vary in ethnicity
+                   (along with gender and other factors) and categorize those faces according to
+                   either racial or nonracial features. Effects attributed to racial categorization
+                   generally appear within 200 milliseconds of stimulus onset and are character-
+                   ized by larger frontocentral N1 and P2 amplitudes for racial out-group faces
+                   than for racial in-group faces (Figure 11.8). These early ERP components index
+                   attentional orienting responses (see Chapters 2 and 6) and may reflect greater
+                   vigilance to unfamiliar out-group members. Later in time the racial category
+                   effects reverse, such that enhanced frontocentral N2 responses are observed to
+                                                                                                                                                     SOCIAL COGNITION         ■ 375
+
+
+(A) Implicit Association Test (IAT)                                                        275                                               Figure 11.8 Amygdala activity
+                                                                                           250                                               and racial bias Amygdala activity in
+ R                                    L                                                                                                      response to novel African American
+                                                                                           225                                               faces correlates with implicit
+                                                                                                                                             measures of racial bias in Caucasian
+
+
+
+                                                    IAT (black-white)
+                                                                                           200
+                                                                                           175                                               participants. Although the amygdala
+                                                                                                                                             did not exhibit an overall difference
+                                                                                           150                                               between African American (black)
+                                          r                                                125                                               and Caucasian (white) faces when
+                                              .92
+                                                                                           100                                               averaged across all participants,
+                                                                                                                                             the degree to which the amygdala
+                                                                                            75
+                                                                                                                                             differentiated African American
+                                                                                            50                                               and Caucasian faces in individual
+                                              .72
+                                                                                            25                                               participants is correlated with (A)
+                                                                                                 –2   0     2    4      6     8    10   12   Implicit Association Test performance
+                                                                                                          Aggregate activity score           and (B) differential startle eyeblink
+                                                                                                                                             responses to the faces obtained
+(B) Startle eye-blink                                                                       12                                               outside the scanning environment.
+                                                                                            10
+                                                                                                                                             Correlation coefficients (r) are
+
+
+
+
+                                                         Startle eye-blink (black-white)
+ R                                    L                                                                                                      displayed in the fMRI scans (left), and
+                                                                                             8
+                                                                                                                                             aggregate scores of significant activity
+                                                                                             6                                               are displayed in the graphs (right).
+                                                                                             4                                               (After Phelps et al. 2000.)
+                                                                                             2
+                                                                                             0
+                                          r
+                                              .80                                           –2
+                                                                                            –4
+                                                                                            –6
+                                              .60                                           –8
+                                                                                           –10
+                                                                                                 –2   0    2   4    6     8 10 12       14
+                                                                                                          Aggregate activity score
+
+
+
+
+in-group faces, perhaps indicating a shift toward greater individuation of the
+faces (see Figure 11.8). The impact of social category on early ERP amplitudes is
+greater when viewing racially unambiguous compared to ambiguous (biracial)
+faces, and when viewing faces relative to other body parts.
+    These ERP effects are present regardless of whether the task requires an
+overt racial categorization or not. Other studies have replicated these findings
+using tasks known to reduce stereotyping effects, such as detecting a particular
+visual feature in the stimulus (feature detection task) or judging whether the
+person depicted is likely to be introverted or to exhibit a particular food prefer-
+ence (individuation task). Such observations indicate that the early processing
+of social category information may be relatively obligatory, even when that
+information is not critical to the context of the social interaction.
+
+Stereotypes and automatic racial biases
+In addition to the analysis of perceptual features that indicate social categories,
+interpersonal exchanges can be affected by stereotypes, prejudicial emotional
+responses, and, ultimately, overt discrimination. In racially biased individuals,
+executive processing resources are often recruited in an effort to control the
+expression of automatic negative attitudes toward out-group members. Even in
+individuals with more egalitarian social views, automatic activation of familiar
+cultural stereotypes must be overcome to guide social behavior according to
+one’s own attitudes. Building on a foundation of research on emotion processing,
+emotion regulation, and cognitive control (see Chapters 10 and 13), research-
+ers have begun to identify brain regions whose activity relates to measures of
+racism and interracial interactions.
+376 ■ CHAPTER 11
+
+                       One such study reported a correlation in Caucasian participants between
+                   amygdala activity in response to unfamiliar African American faces and two
+                   implicit indices of racial bias: the Implicit Association Test (IAT; Box 11A)
+                   and startle eyeblink responses (see Figure 11.8). Because potentiated eyeblink
+                   responses are indicative of negative evaluations (see Box 10A), this study pro-
+                   vided additional validation of the IAT as a measure of implicit racial attitudes.
+                   The results did not extend to explicit measures of racial bias as assessed by the
+                   Modern Racism Scale (see Box 11A), implying that the brain imaging findings
+                   may be more specifically associated with implicit racial biases. Subsequent
+                   research has also related startle responses and amygdala activation to implicit
+                   racial bias but has also shown that these effects are attenuated when the faces are
+                   familiar, when the faces have averted rather than direct gaze (which minimizes
+                   their threat value; see Figure 11.4), when the task emphasizes individuated
+                   rather than categorical processing of people, or when the faces are shown for
+                   prolonged durations (presumably reflecting engagement of control processes).
+                       Additional evidence suggests that face-processing regions of the fusiform
+                   gyrus show enhanced activity for faces of one’s own race, perhaps because of
+                   greater individuation and/or familiarity with in-group members. Together,
+                   these findings highlight the plasticity, contextual modulation, and regional
+                   specificity of neurophysiological activity when members of stigmatized cultural
+                   groups are evaluated in various ways.
+                       Such work presents numerous ethical and experimental challenges, and the
+                   results must be interpreted cautiously. For instance, functional brain imaging is
+                   inherently correlational, and the causal role of brain activity in a given region
+                   for behavior as complex as social biases can only be suggestive. A brain scan
+                   cannot definitively indicate whether someone is racially biased, whether the
+                   activity patterns represent a source or a consequence of behavior, or whether
+                   the activity has been shaped by prior exposure to stereotyped messages or
+                   by personal experiences. Brain imaging provides only a snapshot of activity
+                   in an experimental setting during the performance of a particular cognitive
+                   task, and the results may not generalize to behavior during real-world social
+                   exchanges. Finally, such measures rarely distinguish between activation of
+                   semantic knowledge related to cultural stereotypes versus a personal, evalua-
+                   tive attitude toward members of a social category.
+
+                   Monitoring and controlling racial bias
+                   Additional work has focused on neural mechanisms engaged when group ste-
+                   reotypes induce response conflicts and motivate a need for voluntary control
+                   over biases that might be expressed. A two-stage model of cognitive control
+                   (see Chapter 13) supposes the following: (1) that anterior cingulate activity
+                   reflects continual monitoring of conflict during information processing; and
+                   (2) that prefrontal regions are subsequently recruited to implement regulatory
+                   responses once a need for conflict resolution has been detected. This frame-
+                   work has been combined with knowledge about sources of ERP components
+                   to make predictions regarding when and how cognitive control is engaged in
+                   interracial scenarios. For this objective, a key ERP component is the error-related
+                   negativity (ERN), which is sensitive to information-processing conflicts that lead
+                   to response errors. The ERN has been localized to the anterior cingulate gyrus
+                   and offers a potential neural index of ongoing conflict monitoring that can be
+                   applied to studying personal interactions that lead to self-regulation failures
+                   (see Chapter 13 for other interpretations of the ERN).
+                        As an example, the ERN has been used to investigate conflict monitoring of
+                   racial stereotypes on a weapons identification task. In this rapid classification
+                   task, Caucasian participants had to decide whether briefly presented pictures of
+                   objects on a computer screen were weapons or tools. Prior to each presentation,
+                                                                                                           SOCIAL COGNITION           ■ 377
+
+
+
+  ■ BOX 11A MEASURING IMPLICIT AND EXPLICIT RACIAL ATTITUDES
+
+ T       o measure implicit racial attitudes,
+         investigators commonly use the
+         Implicit Association Test (IAT) de-
+ veloped by social psychologist Anthony
+ Greenwald and his colleagues. In one
+                                                rican American faces with positive words
+                                                and Caucasian faces with negative words
+                                                than the reverse. Alternate versions as-
+                                                sess attitudes toward other social groups
+                                                based on characteristics such as age,
+                                                                                               trophysiological signatures of automatic
+                                                                                               evaluative processes (see text).
+
+                                                                                               References
+ version of this test, participants are         gender, sexual orientation, and political or   CUNNINGHAM, W. A., K. J. PREACHER AND
+ presented with a series of faces (either       religious affiliation (you can test yourself   M. R. BANAJI (2001) Implicit attitude mea-
+ African American or Caucasian) inter-          at http://www.implicit.harvard.edu).           sures: Consistency, stability, and conver-
+ mixed with positively and negatively va-           Although the reasons for the reaction-     gent validity. Psychol. Sci. 12: 163–170.
+ lenced words that represent good or bad        time costs are debated (including sug-         GEHRING, W. J., A. KARPINSKI AND J. L.
+ concepts (e.g., friend, enemy). One set        gestions that they reflect knowledge of        HILTON (2003) Thinking about interracial
+ of trials requires the same button-press       cultural stereotypes rather than personal      relations. Nat. Neurosci. 6: 1241–1243.
+ response for both African American faces       attitudes), the IAT has good test reli-        GREENWALD, A. G., D. E. MCGHEE AND J.
+ and negative words, whereas another            ability. Furthermore, the IAT has been         K. L. SCHWARTZ (1998) Measuring indi-
+ response is given for both Caucasian           validated with a psychophysiological           vidual differences in implicit cognition:
+ faces and positive words. The response         index of evaluative emotional responding       The Implicit Association Test. J. Pers. Soc.
+ requirements are then reversed so that         (see the text). Performance on this test       Psychol. 74: 1464–1480.
+ participants make the same button-press        is compared to other paper-and-pencil
+ response for both African American             assessments that test racial attitudes         MCCONAHAY, J. B. (1996) Modern racism,
+ faces and positive words, and another          explicitly, such as the Modern Racism          ambivalence, and the Modern Racism
+ response for both Caucasian faces and          Scale. Other tests determine whether           Scale. In Prejudice, Discrimination, and
+ negative words. Participants are instruct-     subjects are motivated to respond to           Racism, J. Dovidio and S. Gaertner (eds.).
+ ed to respond as quickly as possible.          out-groups in a way that appears more          Orlando, FL: Academic Press, pp. 91–125.
+      Implicit racial biases are quantified     socially appropriate to others. Often, IAT     PLANT, E. A. AND P. G. DEVINE (1998) Inter-
+ as a difference in reaction time for the       performance reveals biases in process-         nal and external motivation to respond
+ second condition compared to the first,        ing that are not captured by the explicit      without prejudice. J. Pers. Soc. Psychol. 69:
+ such that higher scores reflect greater        measures and can be related to elec-           811–832.
+ difficulty (response cost) when pairing Af-
+
+
+
+
+an African American or Caucasian face was flashed on the screen. Priming of
+objects by African American faces tended to facilitate detection of weapons and
+impair detection of tools, whereas priming by Caucasian faces had no differential
+effect. The ERN that was time-locked to the response showed not only sensitiv-
+ity to performance (larger for errors than for correct object classifications) but
+also stereotype incongruity on error trials (larger for tools primed by African
+American faces than for the other face-object combinations; Figure 11.9).
+    The ERN stereotyping effects were larger in individuals who characterized
+themselves as being primarily internally motivated to regulate prejudiced reac-
+tions than in those who acknowledge avoidance of social disapproval as part of
+the motivation to regulate their reactions. If the two-stage model of cognitive
+control is correct, this finding suggests that internally motivated individuals
+exhibit greater online monitoring of stereotype conflict as a potentially biased
+response is generated. Because the behavioral and ERN results occur in in-
+dividuals with low levels of racial bias, they implicate a Stroop-like response
+conflict due to automatic activation of learned cultural stereotypes in relation
+to aggression and hostility (see Chapters 7 and 13 for a discussion of the Stroop
+effect). Internally motivated, low-bias individuals have greater motivation to
+override these automatic stereotypes in order to behave in accordance with
+their own egalitarian principles.
+    Prefrontal responses to out-group faces may also mediate the relationship
+between implicit racial attitudes and cognitive consequences following an
+interracial encounter. In one study, researchers gave Caucasian participants
+the IAT test followed by a staged encounter with either an African American
+or a Caucasian experimenter, who asked them to comment on social topics of
+378 ■ CHAPTER 11
+
+                                                                        racial profiling and the college fraternity system. A classic Stroop color-naming
+                                                                        interference task (see Chapter 13) was then administered. In a separate session,
+                                                                        the participants underwent fMRI scanning while being presented with either
+                                                                        African American or Caucasian faces. Performance on the Stroop task was quanti-
+                                                                        fied as a function of implicit racial attitudes and the race of the experimenter in
+                                                                        the social encounter, and compared with the fMRI activity to out-group faces.
+                                                                            As Figure 11.10 shows, individuals characterized by implicit racial biases
+                                                                        based on IAT performance exhibited greater Stroop interference following the
+
+(A)                                                Black or       Gun or
+                                    Pattern       white face       tool       Pattern
+                                     mask           prime         target       mask
+Time
+                                      1s            200 ms        200 ms     Response
+
+
+
+
+                                                                                                      Figure 11.9 Error-related negativity (ERN) and
+                                                                                                      social stereotypes (A) Participants had to categorize
+                                                                                                      whether the objects presented were guns or tools.
+                                                                                                      These objects were primed by brief presentations of
+                                                                                                      black or white male faces. (B) Presumably because of
+                                                                                                      cultural stereotypes linking black males with hostility,
+(B)
+                           Tools                                  ERN                                 participants made more errors in identifying tools when
+                     –10                                                                              primed by a black face (behavioral data not shown),
+                                     Black-tool correct                                               and these errors were associated with larger ERN
+                                     White-tool correct                                               responses than when tools were primed by a white face.
+                                     Black-tool error                                                 No differences due to the priming manipulation were
+                      –5             White-tool error                                                 found on gun trials. (C) ERN activity to tools primed by
+
+
+
+
+ERN amplitude (μV)
+                                                                                                      black male faces was larger for individuals who were
+                                                                                                      internally motivated to respond without prejudice (good
+                                                                                                      regulators) than for those not motivated (nonregulators)
+                       0                                                                              or those motivated by external factors to appear
+                                                                                                      unbiased in social contexts (poor regulators). This ERN
+                                                                                                      pattern suggests that individuals who are internally
+                                                                                                      motivated to respond without prejudice have greater
+                       5                                                                              demands placed on automatic control processes when
+                                                                                                      cultural stereotypes are activated. μV = microvolts.
+                                                                                                      (A,B after Amodio 2008; C after Amodio et al. 2008.)
+                                                                                                (C)
+                      10                                                                                                              ERN
+
+                           Guns                                                                             Good regulators
+                     –10                                                                        –10         Poor regulators
+                                    Black-gun correct                                                       Non-regulators
+                                    White-gun correct
+                                    Black-gun error
+                      –5            White-gun error                                              –5
+
+
+
+
+ERN amplitude (μV)
+                       0                                                                          0
+
+
+
+                       5                                                                          5
+
+
+
+                      10                                                                         10
+                      –400         –300    –200      –100      0      100   200    300   400     –400     –300   –200   –100       0     100   200   300    400
+                                                            Time (ms)                                                          Time (ms)
+                                                                                                                                                          SOCIAL COGNITION       ■ 379
+
+
+(A)                                                                                                            (B)
+                                                              0.5                                                                               250
+
+
+
+
+                                                                                                               Mean Stroop interference score
+                      t-statistic                             0.4
+
+
+
+
+                                    Mean signal change (%)
+                                                                                                                                                200
+                                                              0.3
+                             3                                0.2                                                                               150
+                                                              0.1
+                                                                                                                                                100
+                                                                0
+                             2
+                                                             –0.1                                                                                50
+                                                             –0.2
+                                                                                                                                                 0
+                                                             –0.3
+                             1
+                                                             –0.4                                                                               –50
+                                                                    0   100     200       300      400   500                                     –0.4 –0.3 –0.2 –0.1 0 0.1 0.2 0.3 0.4 0.5
+                                                                           Racial bias (IAT) score                                                            Mean signal change (%)
+
+Figure 11.10 Implicit racial attitudes and cognitive performance (A) Individuals
+who had greater dorsolateral PFC activity (circled) in response to out-group
+faces also had greater implicit racial biases as assessed by the IAT. (B) The same
+individuals exhibited a strong relationship between right dorsolateral PFC activity and
+color Stroop task interference following an interracial encounter. (After Richeson et
+al. 2003.)
+
+
+
+interracial encounter, but not following the encounter with an in-group member.
+Functional MRI analyses revealed a positive correlation between performance
+on the IAT test and activity in the anterior cingulate and dorsolateral prefron-
+tal cortex (dlPFC) to African American faces relative to Caucasian faces. The
+magnitude of dlPFC activity also predicted the relationship between IAT and
+Stroop task performance. These results suggest that individuals with implicit
+racial biases exert greater effort in controlling reactions to out-group members
+in part by engaging prefrontal circuitry.
+    This initial body of research has laid the groundwork for discovering the
+relationships between social behavior and brain correlates of the psychological
+constructs underlying racial bias. To guard against the influence of cultural
+stereotypes, internally motivated, low-bias individuals experience greater
+demand on executive resources than do high-bias individuals. In contrast,
+high-bias individuals experience greater demand during interracial encounters.
+Such endeavors inform debates about the role of neuroscience in contributing
+to an understanding of racial and other social prejudices.
+
+Impression formation and trust
+In addition to social category information, other personal attributes are readily
+judged from physical features and inferred from nonverbal behaviors to form
+general impressions of individuals. One such personality trait is trustworthi-
+ness. Many individuals end up in bankruptcy because they are susceptible to
+financial scams. People who find themselves in this predicament may be poor
+at evaluating the trustworthiness of those who are trying to get their money.
+    Neuroimaging studies have found that assessment of trustworthiness based
+on facial appearance alone is associated with activity in brain regions involved
+in other aspects of social cognition and emotional evaluation. In particular,
+enhanced activity is observed in the insula when participants are shown faces
+of individuals whom others have judged to have an untrustworthy appearance,
+and enhanced activity is observed in the medial PFC, orbitofrontal cortex, and
+caudate for faces deemed trustworthy. The amygdala responds to both highly
+trustworthy and highly untrustworthy faces; however it is more sensitive to
+differences in untrustworthy faces (Figure 11.11A). These patterns are evident
+even when the faces are not explicitly appraised for trust, indicating automatic
+evaluative processes. Confirming the neuroimaging findings, autistic individuals
+380 ■ CHAPTER 11
+
+(A)
+                                                                                                         2.5
+
+
+
+
+                                                                  Parameter estimate (arbitrary units)
+                                                                                                         2.0
+
+
+                                                                                                         1.5
+
+
+                                                                                                         1.0
+
+
+                                                                                                         0.5
+
+    R                                                      L
+                                                                                                          0
+                                                                                                               2      3        4       5         6
+                                                                                                                          Trustworthiness
+
+
+(B)                                                     Patients with bilateral amygdala lesions
+
+                           7                                                                                                                                          3
+                           6             S.M.                                                                  J.M.                          R.H.                                  Controls
+
+
+Difference from control
+                                                                                                                                                                      2
+                           5
+                           4                                                                                                                                          1
+                           3
+                                                                                                                                                                      0
+                           2
+
+     mean (in SD)
+                           1                                                                                                                                         –1
+                           0
+                                                                                                                                                                     –2
+                          –1
+                          –2                                                                                                                                         –3
+                               0   20   40   60   80    100 0     20   40    60   80    100 0      20                                       40       60   80   100        0   20   40   60    80   100
+                                                  Face stimulus (rank-ordered by mean control rating)
+
+Figure 11.11 Evaluating trust in
+faces (A) A region of the amygdala
+(arrows) responds strongly to                                     (see Introductory Box) and patients with bilateral amygdala damage (Figure
+both very untrustworthy and very                                  11.11B) tend to judge untrustworthy faces as more trustworthy.
+trustworthy faces, with weak
+responses to intermediate values of                                   The impression of trustworthiness is gleaned from a rapid, global impres-
+trustworthiness. However, this region                             sion of the face that occurs within 100 milliseconds and improves little with
+is more sensitive to detecting subtle                             longer exposure. This pattern indicates the importance of a “first glance”
+differences in untrustworthy faces than                           prior to initiation of saccades to specific facial features. Behavioral studies
+in trustworthy faces, as indicated by                             have shown that judgments of trustworthiness are related to competence and
+the shape of the function depicted
+in the right-hand panel (plotted data                             facial attractiveness—a fact exploited by Hollywood casting agents, politicians,
+come from the right amygdala). (B)                                and business managers who hire salespeople. Analysis of shifts in eye gaze
+Trustworthiness ratings from three                                and body movements also contributes to trustworthiness appraisals in that
+patients with bilateral amygdala                                  individuals who are “shifty-eyed” and restless are rated as less trustworthy
+damage (S.M., J.M., R.H.). Values                                 because of apparent nervousness. Such cues are also used by airline security
+plotted in the left three panels depict
+each patient’s standard deviation                                 officers to identify potentially suspect passengers. These findings reveal how
+(SD) from the mean ratings of control                             the basic building blocks of social perception, which are based on nonverbal
+subjects, which are illustrated in                                cues related to gaze analysis, joint attention, and emotional evaluation, can be
+the far-right panel. Each patient                                 combined to infer personality attributes of others. Studies of trust in economic
+rated untrustworthy faces as more                                 games are described in Chapter 14.
+trustworthy than controls did, but the
+patients’ performance became normal
+for more trustworthy faces. (A after
+Said et al. 2008; B after Adolphs et al.
+                                                                  Understanding the Actions and Emotions of Others
+1998.)                                                            To successfully navigate the social environment, it is important to link social
+                                                                  and affective cues with behavioral outcomes during interpersonal interactions.
+                                                                  This ability ranges from mere mimicry of motoric and emotional gestures to
+                                                                  more complex forms of goal-directed imitation behavior, and ultimately to
+                                                                                               SOCIAL COGNITION       ■ 381
+
+
+modeling one’s behavior after the behavior of others to transmit learning and
+establish cultural practices. In humans, social competence is further facilitated
+by inferring mental states in others, and attributing the actions of others to
+their beliefs, goals, desires, and feelings. This multifaceted capacity is called
+mentalizing or theory of mind.
+    Scholars debate about whether mentalizing occurs though simulation of the
+behaviors and internal states of others (e.g., mentally representing potential ac-
+tions, feelings, or thoughts of others as if they were one’s own) or by the building
+of theories (scripts) of how others typically behave in particular contexts. The
+philosopher Daniel Dennett suggests that social interactions benefit when one
+adopts an intentional stance—that is, assuming that others are agents motivated
+to behave in a way that is consistent with their current mental state, which
+may differ from one’s own mental states and/or the reality of the situation. As
+detailed in the discussion that follows, coding and interpreting the actions and
+mental states of others are complex processes involving both dedicated neural
+systems and the co-opting of domain-general functions like working memory
+and symbolic representation.
+
+Mirror neurons
+To interpret behaviors meaningfully, it is useful to code actions performed by
+others in a way that is related to one’s own actions. In the 1990s, the discovery
+of mirror neurons in the premotor cortex of the macaque monkey brain sparked
+much interest and debate about possible neural mechanisms underlying action
+representation. These neurons in and around the inferior frontal gyrus (area F5,
+presumably homologous to the inferior frontal convexity in humans) increase
+their activity not only when a grasping action is selected and performed, but
+also when that action is passively viewed while it is being performed by another
+animal or a human experimenter (Figure 11.12).
+    Such mirror responses are more robust when participants are observing
+goal-directed biological actions compared to non-goal-directed biological
+actions (mimes) or goal-directed mechanical actions (e.g., a hammer hitting a
+nail). The responses often track the general goal of the motor act (e.g., putting
+food into a bucket) rather than the specific features of the movement, such as
+the initial starting position or orientation of a hand executing the action. A
+smaller proportion of F5 neurons respond to both visual and auditory features
+of a unique goal-directed biological action (e.g., ringing a bell).
+
+
+
+
+Neuronal
+                                                                              Figure 11.12 A mirror neuron in the
+response                                                                      premotor cortex of a macaque monkey The
+                                                                              experimenter places and removes a food morsel
+                                                                              from a tray while the monkey watches. The
+                    20
+   Number of
+                                                                              raster plot shows the neuronal responses (the
+                                                                              vertical line indicates the time the morsel was
+                                                                              placed on the tray), which are compiled in the
+                                                                              histograms below. The neuron activates both
+action potentials
+                                                                              when the monkey watches passively (left panel)
+                     0                                                        and when the monkey itself retrieves the morsel
+                                      Time                                    (right panel). (After Rizzolatti et al. 1996.)
+382 ■ CHAPTER 11
+
+(A)                                                       (B)         Premotor                              Motor/somatosensory
+                                                                      (motor)                               cortex
+
+                                                                  dPM
+
+             F6
+                                                           vPM
+                                     LIP
+                                                                                                                        Temporal
+                              VIP
+                                                                                                                        (visual)
+                               AIP
+                               AIP
+                       IPS
+                              PFG
+                              PFG                                                                                           MTG
+       VPF
+                  F5
+         IAS
+                             STS
+                             STS
+
+                        IT
+
+
+
+
+                                       Figure 11.13 The monkey and human mirror systems (A) Schematic of the
+                                       key components in the macaque brain (shaded in yellow). This system includes
+                                       the ventral premotor cortex (F5), ventral parietal regions (PFG, AIP) and their
+                                       interconnections (solid lines). Connections between the mirror system and some
+                                       other brain areas are indicated by dashed lines. AIP, anterior intraparietal area; F6,
+                                       dorsal premotor cortex; IAS, inferior limb of the arcuate sulcus; IPS, intraparietal
+                                       sulcus; IT, inferior temporal lobe; LIP, lateral intraparietal area; STS, superior temporal
+                                       sulcus; VIP, ventral intraparietal area; VPF, ventral prefrontal cortex. (B) The putative
+                                       human mirror system. Data are from an fMRI study that identified reliable activations
+                                       across individual subjects for both action observation and action execution. dPM,
+                                       dorsal premotor cortex; MTG, middle temporal gyrus; vPM, ventral premotor cortex.
+                                       (A after Rizzolatti and Sinigaglia 2010; B from Keysers et al. 2010.)
+
+
+                                           Mirror neurons have also been found in a region of rostral inferior parietal
+                                       cortex that projects to premotor area F5, implicating an interconnected fronto-
+                                       parietal mirror system (Figure 11.13). Some neurons in this circuit also exhibit
+                                       context specificity of the action sequences related to the end goal (e.g., selectively
+                                       responding to grasping actions that lead to eating rather than grasping actions
+                                       that simply move an object from one place to another). Neurons in the superior
+                                       temporal sulcus (STS) relay perceptual information about biological motion to
+                                       the parietal component of this system but do not exhibit mirroring responses
+                                       themselves. Because the observation of actions does not automatically elicit
+                                       an analogous motor response, activity in this premotor circuit is inhibited to
+                                       prevent obligatory copying behavior.
+                                           A number of investigators have used this neurophysiological evidence to
+                                       speculate about the importance of these areas of the primate brain in generating
+                                       an understanding of the intentions of others, language acquisition, and empathy
+                                       (discussed below), as well as the functional deficits apparent in behavioral
+                                       disorders such as autism (see the Introductory Box). Whether these implications
+                                       will be validated remains to be seen, and caution is warranted. For one thing,
+                                       adult monkeys do not learn much by direct imitation—a fact that undermines
+                                       what would perhaps be the simplest interpretation of the role of mirror neurons.
+                                       And in humans, where these speculations are most pertinent, the evidence for
+                                       mirror neurons is suggestive but does not correspond directly to the anatomical
+                                       or functional properties observed in monkeys. For instance, cortical activity
+                                       detected with fMRI in response to similar paradigms in humans is more widely
+                                       distributed throughout the motor system and STS; moreover, similar activity
+                                                                                       SOCIAL COGNITION   ■ 383
+
+
+occurs when people mime. Unlike the monkey electrophysiological data, most
+of the human evidence has come from brain imaging studies. These studies do
+not have the spatial resolution to determine whether the executed and observed
+actions are being signaled by the same neurons (a key criterion for defining a
+mirror neuron) or by adjacent ones within the same general brain area.
+    Some researchers taking an embodied cognition perspective (see Chapter 9)
+have suggested that mirror neurons provide a means for understanding social
+actions through direct perceptual-motor links. Others believe such linkages are
+simply established by experience through general associative learning processes
+and do not represent a unique social cognitive function. Whatever the correct
+interpretation, these observations indicate that viewing actions pertinent to
+particular behavioral goals influences the activity of some frontoparietal neurons
+in the same way as performing those actions does.
+
+Perspective taking and mental-state attribution
+Although mirroring functions help establish shared representations used for
+understanding agent-directed actions, they do not readily distinguish the ex-
+ecution of one’s own actions from the observation of similar actions executed by
+others. Moreover, actions do not map onto intentions in a one-to-one manner.
+Mirroring depends on another agent being present in the immediate environment
+and cannot account for other forms of mental simulation, such as self-projection
+into past or future circumstances. In short, differentiating one’s actions from
+those of others and understanding the reasons behind others’ actions clearly
+require cognitive abilities and mechanisms that go beyond mirroring.
+     Key among these is the ability to flexibly adopt the perspective of another
+individual (third-person perspective) and distinguish that viewpoint from one’s
+own (first-person perspective). Because an egocentric view of the world may be
+part of a default mode of information processing, adopting other people’s perspec-
+tives and inferring their beliefs, motives, or feelings requires a disengagement
+of self-directed thoughts, a redirection of attention to the mental and physical
+states of others, and a decoupling of knowledge of the actual unfolding of events
+from other people’s perceptions of those events. Memory is also important in
+this process because prior knowledge about the personality traits and response
+patterns of others in similar contexts refines one’s own interpretation of the
+current social context and the possible responses to it.
+     Neuroimaging studies have compared first- and third-person perspective
+taking across different cognitive, emotional, and motoric domains. For instance,
+participants might imagine themselves or someone else performing specific
+actions, responding to a painful stimulus, or reacting to an emotional scenario.
+Other studies of mental-state attributions have asked participants to consider
+the viewpoints of different characters in stories or cartoons, to guess what an
+opponent might do during an interactive game, or to judge whether historical
+figures had access to knowledge about specific artifacts. While many studies
+have used explicit instructions to adopt the perspective of another agent, in
+social situations often the intentions and mental states of others are inferred
+spontaneously.
+     In all these domains, taking the perspective of others and inferring their
+mental states elicits activity in a set of brain regions that includes the medial
+PFC (most consistently the paracingulate cortex), temporal polar cortex, right
+inferior parietal cortex, temporoparietal junction, and superior temporal sulcus
+(Figure 11.14). Because of the complexity of the mentalizing construct, hetero-
+geneity of the tasks involved, and variety of the control conditions employed,
+it is difficult to ascribe specific functions to these brain areas. Nonetheless, the
+temporoparietal junction may be particularly concerned with transient inferences
+based on the current context, whereas the medial prefrontal cortex may be more
+384 ■ CHAPTER 11
+
+(A) Temporal pole                                                  (B) Superior temporal sulcus
+
+
+
+
+                                                                                                                           Stories
+
+
+                                                                                                                           Inferred
+                                                                                                                           knowledge
+
+
+                                                                                                                           Animations
+
+
+
+
+Inferred  Stories    Social         Cartoons    Animations                                  Social              Cartoons
+knowledge            transgressions                                                         transgressions
+
+
+
+(C) Paracingulate cortex
+
+                                                                        Figure 11.14 Brain regions implicated in mentalizing
+Animations                                                              tasks Across various domains, activity in the temporal
+                                                                        pole (A), superior temporal sulcus (B), and paracingulate
+Inferred
+knowledge
+                                                                        cortex (C) is elicited when participants adopt the per-
+                                                                        spectives of other individuals and infer their mental states.
+                                                                        (After Frith and Frith 2003.)
+Stories
+
+
+Social
+trans-
+gressions
+
+
+
+
+    Interactive games      Cartoons
+
+
+
+                                               concerned with inferences based on more enduring traits or qualities. Although
+                                               some view these regions as simply supporting domain-general cognitive opera-
+                                               tions needed to solve the mentalizing tasks (the functions needed to retrieve
+                                               memories or semantic knowledge, reallocate attentional resources, manipulate
+                                               internal representations, etc.), recent evidence indicates some specificity in the
+                                               relevant brain activity for solving social problems. For instance, the medial PFC
+                                               activation during mentalizing tasks is greater than during general reasoning
+                                               tasks that do not involve social evaluations.
+
+                                               Theory of mind in children and apes
+                                               In the late 1970s, psychologists David Premack and Guy Woodruff raised the
+                                               question of whether chimpanzees and other great apes have the capacity to
+                                               represent and understand the mental states of conspecifics in the same general
+                                               way that humans do. Observations of great apes in the wild indicate that they
+                                               engage in deception (to hoard food sources, for example), which requires at
+                                               least some understanding of where conspecifics are orienting their attention
+                                               and what they expect to happen in a given social context.
+                                                   To ask whether chimpanzees have basic mentalizing abilities, experimenters
+                                               paired subordinate and dominant chimpanzees in a large chamber (Figure
+                                               11.15). The subordinate chimp was shown food items that the dominant chimp
+                                               could either see or not see, or was shown that the location of a food item had or
+                                                                                                SOCIAL COGNITION         ■ 385
+
+
+                                                                                       Figure 11.15 Testing mentalizing
+                                                                                       ability in chimpanzees This
+                                                                                       socially competitive paradigm tests
+                                                                                       what chimpanzees know about
+                                                                                       the viewpoint of a conspecific. A
+                                                                                       subordinate chimp is shown multiple
+                                                                                       food caches that are either out of
+                                                                                       the view or in the view of a dominant
+                                                                                       chimp. Subordinate chimps prefer to
+                                                                                       move toward the food cache that is
+                          Subordinate                                                  out of view of the dominant chimp,
+                                                                                       conferring a behavioral advantage.
+                                                                                       Chimps exhibit similar behavior when
+                                                                      Dominant
+                                        Food                                           a food cache is switched to a different
+                                                                                       location, again unbeknownst to a
+                                                                                       dominant chimp. These observations
+                                                                                       imply that, in socially competitive
+                                                                                       situations, chimps have rudimentary
+                                                                                       mentalizing abilities. (After Hare et al.
+had not been switched out of view of the dominant chimp. In either case, the           2001.)
+subordinate chimp showed a preference for moving toward food items about
+which the dominant chimp either had no knowledge or could be assumed to
+hold a false belief about its location. Such behavior clearly imparts an advantage
+to the subordinate chimp in the context of competition for food with a dominant
+conspecific, and could be interpreted as relying on some degree of third-person
+perspective taking.
+     However, the acid test of a theory of mind is the capacity to predict others’
+behavior according to false beliefs that they hold. Understanding the false
+beliefs of others requires making a distinction between knowledge about a true
+state of affairs and what another individual falsely believes to be true. False-
+belief experimental tasks come in two major flavors: location-change tasks and
+unexpected-contents tasks (see also Chapter 15). In location-change tasks, an object
+is placed in one location, and unbeknownst to a third party, the position of the
+object is switched to an alternate location. The participant then must indicate
+where the third party would look for the object (its true location or the location
+where the third party last viewed the object). In unexpected-contents tasks, an
+object is placed in a container, and unbeknownst to a third party, the object is
+replaced by another one. The participant must then indicate which object the
+third party thinks is in the container.
+     Humans develop false-belief attributions to characters in animated vignettes
+by about 4 years of age. However, because these tasks require complex nar-
+rative and action sequence comprehension, working memory, and inhibition
+of rapid responses, there is some debate about the specificity of the findings.
+Some investigators have proposed that children between 3 and 4 years old
+simply learn to select the correct responses in the task rather than depending
+on theory-of-mind abilities. Nonetheless, children of this age routinely use
+words like pretend, think, know, want, and like, implying some knowledge about
+mental states. In contrast, autistic children (and autistic adults) generally fail
+false-belief tests, although some investigators find the evidence to be equivo-
+cal because of the potentially confounding deficits in language abilities and
+executive function present in autism.
+     Given the controversy over whether children and chimpanzees possess
+theory-of-mind abilities, some investigators have turned to the distinction
+made in memory research between implicit and explicit processes (see Chapter
+8). Most researchers believe that young children and great apes can implicitly
+(i.e., unconsciously) track another individual’s mental state. However, they also
+admit that there is currently no convincing evidence that young children and
+apes can explicitly represent the mental contents of another individual, as in
+386 ■ CHAPTER 11
+
+                   the ability to have thoughts such as “I know my friend thinks that the food is
+                   in location A when I know it is really at B.” This ability to abstract the mental
+                   contents of agents in a social situation and represent them symbolically, also
+                   called metarepresentation, presumably requires further cognitive development
+                   and is unlikely in young children, let alone non-human primates.
+
+                   Empathy, sympathy, and prosocial behavior
+                   Understanding another individual’s beliefs, goals, and intentions also extends to
+                   emotion. Although sometimes incorporated into the concept of theory of mind,
+                   understanding others’ emotional states recruits brain regions that are not neces-
+                   sarily used for making inferences about other mental states. A better descriptor of
+                   understanding someone else’s emotional state is empathy. Empathy is the capacity
+                   to comprehend and resonate with another’s emotional experience, which leads to
+                   a sharing of that person’s feelings. Once an empathic feeling arises, individuals
+                   must distinguish their own emotional responses from those of the other individual
+                   and regulate their responses accordingly. This ability requires knowing that the
+                   other person’s feelings are the source of the shared emotional state.
+                       Rather than exemplifying a specific emotion, empathy can be considered
+                   a process by which any emotion is shared according to the social context. For
+                   instance, having a conversation about a friend’s nervousness before a job inter-
+                   view may lead to shared feelings of anxiety. When the conversation shifts to
+                   the outcome of the interview, feelings of disappointment may be shared upon
+                   hearing that the job was not obtained. Eliciting empathy is critical for effective
+                   storytelling and advertising.
+                       Empathy differs from sympathy in that a sympathetic reaction does not entail
+                   a sharing of emotional experience. Rather, a person who is sympathetic may
+                   feel concerned or sorry for the plight of another person but does not feel the
+                   actual emotion felt by the other. In the job interview example, for instance, one
+                   may feel sympathetic toward a friend’s situation without actually experiencing
+                   anxiety or disappointment of one’s own.
+                       Empathy has both automatic and controlled components and builds on basic
+                   social cognitive and emotion-processing mechanisms. Early in development,
+                   human infants will cry in reaction to another infant’s cry and will mimic basic
+                   facial emotions expressed by a parent. At about 2 years of age, when self-versus-
+                   other distinctions and social emotions such as shame begin to emerge, children
+                   express sympathetic concern, such as gestures of consolation to family mem-
+                   bers in distress. Although initially such gestures are egocentric (e.g., offering
+                   a gift such as a doll to an adult whom the child likes), the offerings gradually
+                   become other-focused (e.g., offering a gift that the adult family member likes).
+                   With increased cognitive and emotional capacities for perspective taking later
+                   in childhood, more complex forms of empathy are conveyed. Forms of empa-
+                   thy observed in apes presumably rely on more automatic aspects of emotion
+                   interpretation and somatic activation, which contribute to helping, affiliative,
+                   and cooperative behaviors.
+                       Psychologist Jean Decety developed a model of empathy that encompasses
+                   several of the social and emotional processes, as well as the concepts of mental
+                   representation, discussed earlier (Figure 11.16). According to the model, a full
+                   empathic response, which can be initiated either automatically or voluntarily,
+                   requires the coordinated operation of four component processes:
+                    1. Emotion sharing between individuals is based on automatic perception-
+                       action coupling and shared somatic-emotional representations that rely
+                       on processing in the somatosensory cortex, insula, and anterior cingulate
+                       cortex.
+                                                                                                  SOCIAL COGNITION         ■ 387
+
+
+Automatic                                                                                Figure 11.16 A proposed model of
+initiation                                                                               empathy A full empathic response
+                         Emotion sharing                                                 to another individual is thought to
+                                                                                         depend on brain regions involved
+                      Somatosensory cortex,                                              in sharing somatic and emotional
+                         limbic system                                                   responses, self-awareness and self-
+                                                                                         other distinctions, mental flexibility in
+                                                                                         social contexts (including perspective
+                                                                                         taking), and emotion regulation.
+                        Mental flexibility                       Self-awareness
+
+                      Medial and dorsal PFC                  Inferior parietal cortex,
+                                                                 PFC, and insula
+Intentional
+initiation
+
+
+
+
+                       Emotion regulation
+
+                     Anterior cingulate cortex,
+                            lateral and
+                        ventromedial PFC
+
+
+
+
+ 2. Self-awareness and the distinction between self and other are also thought
+    to entail processing in the parietal lobes, prefrontal cortex, and insula.
+ 3. Mental flexibility to adopt the perspective of another individual recruits
+    medial and dorsolateral prefrontal regions, among others.
+ 4. Emotion regulation operates on the emotional and somatic states generated
+    by engaging executive control mechanisms in the anterior cingulate and
+    lateral and ventromedial prefrontal cortex.
+    Evidence to support the emotion-sharing component comes from studies
+that ask participants to observe another individual experience an emotion and
+to experience the same emotion themselves (or imagine their own emotional
+reaction to the same situation). The logic of these studies is similar to the mir-
+roring tasks described earlier, but it concerns emotional states rather than motor
+actions. The brain regions involved in these tasks include the insula, anterior
+cingulate cortex, and secondary somatosensory cortices (Figure 11.17A), which
+are thought to represent a shared feeling state with another individual and
+promote a motivation to act. These areas are distinct from those that mediate
+the self-awareness (see Figure 11.1) and mental flexibility (Figure 11.17B; see
+also Figure 11.15) components of empathy, as well as the mirror neuron circuit
+for action understanding (see Figure 11.13). Brain regions that support emotion-
+regulating processes are discussed in Chapter 10.
+    Although it is generally assumed that empathy leads to helping others and
+altruistic actions, additional factors influence such prosocial behaviors. For
+instance, high levels of arousal associated with observing another’s troubled
+emotional state can lead to personal distress, a lack of emotion regulation,
+and thus an inability to take action other than to alleviate one’s own distress.
+Prosocial behaviors are more likely when an individual is in a positive mood,
+when the action required is not unpleasant or onerous, and when the person to
+be helped is not a direct competitor. Adults (but not young children) may also
+engage in helpful behaviors to repair sad moods because they understand the
+social rewards associated with the actions. Nonetheless, in some circumstances
+388 ■ CHAPTER 11
+
+Figure 11.17 Brain regions that            (A)
+mediate emotion sharing (A)                                                     Non-painful      Painful
+Empathy tasks entail asking
+participants to consider the emotional            ACC
+state of others and themselves
+in response to emotion-eliciting
+situations, such as those that evoke
+pain. The tasks may require watching
+another individual’s emotional reaction
+or imaging the reaction of others or
+oneself in response to a painful action.                   Bilateral
+Brain regions common to both self-                      anterior insula
+and other-focused painful reactions
+include the anterior cingulate cortex      (B)
+(ACC) and insula. (B) Brain regions
+that mediate the emotion-sharing
+component of empathy (orange)
+are distinct from those that mediate
+the cognitive ability to flexibly
+adopt the perspective of another
+individual (green). AI, anterior insula;
+MFC, medial prefrontal cortex; SII,        MFC
+secondary somatosensory cortex;                  ACC
+STS, superior temporal sulcus; TP,
+temporal pole; TPJ, temporoparietal
+junction. (From Hein and Singer 2008.)                          AI
+                                                                          SII
+
+
+
+
+                                                                                  TP
+                                                                                         STS
+                                                                                               TPJ
+
+
+
+                                           empathy can lead to antisocial behavior, as when an accomplice is empathic
+                                           toward the motives of a fellow criminal.
+
+
+                                           Social Competition
+                                           Competition among members of a species’ social group establishes hierarchies
+                                           that affect the distribution of wealth, resource allocation, mating opportunities,
+                                           and division of labor. Leaders of the social group are responsible for defending
+                                           against intruders and for establishing acceptable norms of behavior. Members
+                                           who do not adhere to the rules face punishment or ostracism. Provided that
+                                           governance and rank are not entirely inherited, group dynamics can influence
+                                           the maintenance of the hierarchy, leading to social upheaval and a change in
+                                           social structure. The biobehavioral processes that mediate social competition
+                                           and its consequences for the individual are described here.
+                                               Of course, social competitive forces must be balanced by social cooperation
+                                           and affiliative functions that promote social bonds among a particular group’s
+                                           members. Some evolutionary anthropologists believe that the drive for social
+                                           cooperation was particularly influential in the evolution of advanced intellectual
+                                           skills in humans. These topics are covered in Box 11B and Chapter 15.
+
+                                           Social rank and stress
+                                           For species that live in social groups, the relative dominance ordering (rank)
+                                           of individuals has important implications for physical and mental health. In
+                                           Westernized human societies, lower socioeconomic status is associated with
+                                           increased risk of cardiovascular, respiratory, rheumatoid, and psychiatric
+                                                                                                       SOCIAL COGNITION         ■ 389
+
+
+
+  ■ BOX 11B SOCIAL BONDS AND KINSHIP
+
+ S       ocial signals related to mating,
+         bonding, and kinship are impor-
+         tant for the maintenance and
+ survival of social groups. Some primate
+ species analyze secondary sex color-
+                                               the urine of an unrelated male, at which
+                                               time they mate repeatedly with the same
+                                               male and form a selective and long-last-
+                                               ing pair bond. During mating, oxytocin
+                                               and vasopressin are released in meso-
+                                                                                            instance, oxytocin administration in the
+                                                                                            central nucleus of the amygdala engages
+                                                                                            inhibitory neurons to decrease fear sig-
+                                                                                            naling, increase parasympathetic tone,
+                                                                                            and reduce release of the stress hor-
+ ation in the face and anogenital regions      limbic pathways, including the nucleus       mone corticosterone in social contexts.
+ to select mates. Female rhesus mon-           accumbens, where they interact with the         Many primates, particularly arboreal
+ keys prefer looking at males whose            dopaminergic reward system (see Chap-        species, distinguish kin from non-kin
+ faces are redder, and this coloration is in   ter 14). This neurochemical interaction      by vocal characteristics alone. Female
+ turn related to the amount of circulating     presumably links social information of the   vervet monkeys distinguish the cries of
+ testosterone in males during the mat-         partner with reward circuits to reinforce    juvenile monkeys in their troop. A mother
+ ing season. In mandrills, a male’s social     the sexual preference and solidify the       vervet will respond selectively to the cry
+ dominance rank is accompanied by con-         social bond. If oxytocin receptors are       of her own infant and will look prefer-
+ tinually updated changes in secondary         blocked during mating, long-term partner     entially at other mothers in the troop
+ sexual characteristics such as testicular     preferences are not established.             when their own infants cry. Auditory
+ volume and reddening of anogenital skin.           In other species, oxytocin and va-      characteristics of primate calls, such as
+ These characteristics facilitate the mating   sopressin also play important roles in       the acoustic structure and number of
+ success of the most dominant members          social recognition. Rats given vasopres-     vocalizations, are also used to indicate
+ of a species.                                 sin show increased social recognition        social rank and physical health to other
+     In some species, such as prairie          abilities by olfactory cues, as measured     members of the group.
+ voles, mating leads to the establishment      by habituation in sniffing behavior toward
+ of monogamous partner preferences. A          a recently introduced partner. Vasopres-
+ breeding pair of prairie voles shares the     sin and oxytocin knockout mice exhibit
+                                                                                            References
+ same nest, intruders of either sex are        a form of social amnesia in which they       GHAZANFAR, A. A. AND L. R. SANTOS (2004)
+ rejected, and males contribute to care        fail to habituate to the presence of a re-   Primate brains in the wild: The sensory
+ of the young. Even following death, a         cently introduced partner, despite normal    bases for social interactions. Nat. Rev.
+ new mate is accepted by either sex only       habituation to the repeated presentation     Neurosci. 5: 203–216.
+ rarely (about 20 percent of the time).        of other odorants. These social recogni-     INSEL, T. R. AND R. D. FERNALD (2004) How
+ Offspring remain sexually immature until      tion abilities in rodents have been linked   the brain processes social information:
+ they leave the natal group, and females       to activity in mesolimbic structures,        Searching for the social brain. Annu. Rev.
+ undergo puberty only when exposed to          including the amygdala and septum. For       Neurosci. 27: 697–722.
+
+
+
+
+diseases, as well as increased mortality rates (including infant mortality). Both
+physical and psychosocial stressors contribute to these effects (see Box 10B for
+a description of the stress system). The impact of rank remains significant even
+when other lifestyle factors, such as higher incidence of alcohol use or poor diet,
+are taken into consideration. Although socioeconomic status indicates rank at
+a macro level of social organization, the complex, nested structure of human
+cultures yields ranks at multiple social scales (e.g., within one’s family, place
+of employment, or peer group).
+    Across species, the relationship between rank and stress further depends on
+the characteristics of the culture. For despotic social groups—in which resource
+access is skewed and dominance is attained through intimidation—stress is
+particularly high for subordinates. Stress, however, can shift among group
+members depending on how dominance is maintained. Dominant group
+members can experience high stress when their rank must be maintained by
+constant physical aggression (as in ring-tailed lemurs), or during times of major
+hierarchical reorganization when their rank is at risk of being lost. Thus, stress
+is associated with both lower rank and life “at the top” (Figure 11.18).
+    Subordinates have greater physiological indices of stress relative to dominant
+members when dominance is asserted through psychological intimidation (e.g.,
+eye contact, vocalizations) or for social groups with stable, inherited social hi-
+erarchies, as in female rhesus macaques. Subordinates can reduce their stress if
+coping strategies are available. In non-human primates, these activities include
+forming social coalitions through grooming and roaming to avoid encounters
+390 ■ CHAPTER 11
+
+Figure 11.18 Rank and stress in                                                0.06
+baboons By observing wild male
+
+
+
+
+                                         Residuals of fecal glucocorticoids
+baboons over a 9-year period,                                                  0.04
+researchers characterized the
+relationship between dominance rank
+and biomarkers of stress. Measures                                             0.02
+of fecal glucocorticoids increased
+with lower dominance rank, with                                                0.00
+the exception of the most dominant
+baboons, who also experienced higher
+stress levels. (After Gesquiere et al.                                        –0.02
+2011.)
+                                                                              –0.04
+
+                                                                                      1   2   3   4   5    6 7 8 9 10 11   12 13 14+
+                                                                                                          Dominance rank
+
+
+
+
+                                         with dominant members. Rank-induced stress is evident across a variety of
+                                         physiological measures, including hyperactive glucocorticoid secretion (see
+                                         Figure 11.18), hypertension, impaired reproduction, immunosuppression, in-
+                                         hibition of neurogenesis, reduced synaptic plasticity and dendritic atrophy in
+                                         brain regions such as the hippocampus. Given that the hippocampus provides
+                                         negative feedback to the hypothalamic-pituitary-adrenal axis (see Box 10B), the
+                                         physical consequences are prolonged in situations of chronic stress.
+
+                                         Power motivation and dominance contests
+                                         To usurp status in a social hierarchy and ascend in rank, an individual has to
+                                         be both physically able to win dominance competitions and psychologically
+                                         motivated to achieve power and status. In non-human animals, dominance
+                                         contests are typically determined through physical battles between dominant
+                                         and subordinate members. In humans, dominance contests can take the form
+                                         of political debates, sporting events, or battles of wit, intellect, or talent.
+                                             Power motivation in humans is defined as an enduring preference for having
+                                         impact on other people or the world at large. Individuals who express a need
+                                         for power find this impact on others rewarding, and they are motivated to seek
+                                         out opportunities to exert social influence. Power motivation can be implicitly
+                                         measured through performance on a picture story exercise. In this exercise,
+                                         participants are shown ambiguous pictures of people and are asked to write
+                                         hypothetical narratives about them. The stories are then coded for the presence
+                                         of power motivation themes, including descriptions of situations involving
+                                         control or influence over others, fame or prestige, offers of unsolicited help, or
+                                         actions that evoke an emotional response in others. Individual differences in the
+                                         degree to which these themes are present in the stories is used as a trait marker
+                                         of implicit power motivation. Power can also be explicitly primed prior to the
+                                         picture story exercise by having participants listen to powerful presidential
+                                         speeches, movies, or stories of achievement.
+                                             Power motivation is associated with levels of the sympathetic catecholamines
+                                         epinephrine and norepinephrine, which promote the release of testosterone
+                                         in men (Figure 11.19). Testosterone, in turn, facilitates dopamine release in
+                                         the nucleus accumbens, a key component of the brain’s circuitry for reward
+                                         learning (see Chapter 14). The neuroendocrine profile of power motivation in
+                                         women is less clear but has been related to elevated levels of estradiol. Individu-
+                                         als who score high on measures of power motivation tend to engage in more
+                                         risky behaviors, attain higher positions in corporate management, and be more
+                                         sexually active. However, these individuals also tend to use alcohol more and
+                                         to enter into more complicated domestic relationships, including abusive ones.
+                                                                                                 SOCIAL COGNITION     ■ 391
+
+
+                                   Epinephrine/
+                                                                                                               Nucleus
+ Challenge,                      Norepinephrine
+                                                                                                               accumbens
+  victory                        (released from
+                               the adrenal glands)
+
+
+                                                             Dopamine
+               Power               Testosterone                                    Social
+                                                         (released from
+              motivation         (released from                                  reward
+                                                           the nucleus
+                                    the testes)                                 learning
+                                                           accumbens)
+                                                                                                     Adrenal
+                                                                                                     glands
+
+ Challenge,                          Cortisol
+  defeat                       (released from the
+                                 adrenal glands)
+
+Figure 11.19 Power motivation moderates neuroendocrine effects of
+dominance contests In males, dominance challenges are associated with                  Kidneys
+elevated release of epinephrine and norepinephrine from the adrenal glands,
+which stimulates testosterone secretion in the testes. Contest victories yield
+further increases in testosterone. Contest defeats increase the release of the
+stress hormone cortisol from the adrenal gland, which lowers testosterone
+levels. Testosterone has central effects on the brain’s reward learning system
+by facilitating the release of dopamine in the nucleus accumbens. Men who
+are high in power motivation are prone to take on risk and challenges, and
+these individuals have even higher testosterone fluctuations in response to                        Testes
+dominance contests. In females, the hormone estradiol, released from the
+ovaries, has been reported to have effects (not shown) similar to those of
+testosterone in men.
+
+
+    Endocrine markers further indicate the outcome of a dominance contest.
+Victory is associated with a surge in testosterone in men and estradiol in women.
+In contrast, the stress hormone cortisol is elevated following defeat. These effects
+of winning and losing are even present in social observers who are not direct
+participants in the competition, as in the case of sports fans observing a team
+match, or voters participating in a political election.
+
+Summary
+ 1. Social interactions engage a distributed set of brain regions involved in self-refer-
+    ential processing, perception of biologically relevant cues such as body stance and
+    biological motion, social categorization, and emotion interpretation.
+ 2. Whether social interactions are an emergent property of the cognitive functions
+    described in other chapters or a core set of specialized brain structures and pro-
+    cesses has been widely debated. A reasonable view is that both domain-specific
+    and domain-general factors contribute to social cognition.
+ 3. The ability to think reflexively about the self and our sense of embodiment
+    depends on processing in the temporoparietal junction, medial parietal, and
+    prefrontal cortical regions, as well as specialized sectors of the visual association
+    cortex.
+ 4. The perception of socially relevant cues arising from the faces and bodies of others
+    depends on the fusiform gyrus, superior temporal sulcus, amygdala, and orbito-
+    frontal cortex.
+ 5. The categorization of individuals as members of social groups is rapid and auto-
+    matic, and it depends in part on evaluative processes in the amygdala. Automatic
+    influences of social stereotypes engage conflict-monitoring and self-regulation
+    functions of the anterior cingulate gyrus and dorsolateral prefrontal cortex.
+ 6. Theory-of-mind abilities, though present implicitly in great apes and young chil-
+    dren, increase in complexity in late human development and depend on process-
+    ing in the medial prefrontal cortex, temporal polar cortex, inferior parietal cortex,
+    temporoparietal junction, and superior temporal sulcus, as well as areas that
+    mediate symbolic representation more broadly.
+392 ■ CHAPTER 11
+
+                                             7. Empathizing with the emotional state of others involves regions implicated in

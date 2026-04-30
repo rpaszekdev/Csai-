@@ -3,7 +3,7 @@ import "../styles.css";
 
 const TABS = [
   { to: "roadmap", label: "Roadmap" },
-  { to: "notes", label: "Lessons" },
+  { external: "/cog-neuro/lectures/m1_l1.html", label: "Lessons" },
   { to: "quiz", label: "Quizzes" },
   { to: "brain-quiz", label: "Brain Quiz" },
 ];
@@ -34,18 +34,24 @@ export default function CogNeuroDashboard() {
       </div>
 
       <nav className="cog-neuro-tabs">
-        {TABS.map((t) => (
-          <NavLink
-            key={t.to}
-            to={t.to}
-            className={({ isActive }) =>
-              `cog-neuro-tab ${isActive ? "active" : ""}`
-            }
-            end={t.to === "roadmap"}
-          >
-            {t.label}
-          </NavLink>
-        ))}
+        {TABS.map((t) =>
+          t.external ? (
+            <a key={t.label} href={t.external} className="cog-neuro-tab">
+              {t.label}
+            </a>
+          ) : (
+            <NavLink
+              key={t.to}
+              to={t.to}
+              className={({ isActive }) =>
+                `cog-neuro-tab ${isActive ? "active" : ""}`
+              }
+              end={t.to === "roadmap"}
+            >
+              {t.label}
+            </NavLink>
+          ),
+        )}
       </nav>
 
       {!FULL_BLEED_TABS.has(tab) && (

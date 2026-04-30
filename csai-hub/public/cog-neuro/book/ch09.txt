@@ -1,0 +1,3336 @@
+9
+Declarative Memory
+
+INTRODUCTION
+Although nondeclarative forms of memory, such as priming, skill
+learning, and conditioning, are pervasive in everyday life, declarative
+memory is what most people mean when they use the term memory—
+namely, the ability to consciously remember personally experienced
+events (I parked the car near the exit of the parking lot) and facts shared
+with others (the name of the actress was so-and-so). Although declarative memory is linked to consciousness, it can be studied in non-human
+animals (in which consciousness is assumed) by using memory tasks
+similar to the ones that depend on human declarative memory (for nonhuman declarative memory tests; see Box 8A).
+As noted in Chapter 8, declarative memory is critically dependent on
+the integrity of the medial temporal lobes. However, this type of memory involves other brain parts as well, including regions of the prefrontal
+cortex and the posterior parietal cortex. During encoding, memories
+are assumed to be stored in the medial temporal lobes, as well as in the
+relevant cortical regions (visual, auditory, and so on), where they are assumed to be made longer lasting by a process called memory consolidation. During retrieval, memory traces in these cortical regions are reactivated, leading to the conscious experience of remembering. Prefrontal
+and parietal regions are thought to provide the executive and attentional
+control needed to process and integrate incoming information during
+encoding, and to select and evaluate memories during retrieval. Although this basic description applies to all forms of declarative memory,
+there are important differences between declarative memory for events,
+called episodic memory, and memory for facts, called semantic memory
+(see Introductory Box). There are also differences between two forms of
+episodic memory, known as recollection and familiarity.
+
+280 ■ CHAPTER 9
+
+■ INTRODUCTORY BOX DEVELOPMENTAL AMNESIA
+Compared to control subjects,
+three children with developmental
+amnesia—Beth, Jon, and Kate—
+who showed hippocampal atrophy
+(A) were impaired in visual memory
+but not visual perception (B). They
+were also impaired in episodic but
+not working memory tasks, for
+both verbal and nonverbal stimuli
+(C). Remarkably, the three children showed normal reading and
+comprehension abilities (D). (After
+Vargha-Khadem et al. 1997.)
+
+(e.g., copying the pattern in
+Figure B) and working memory
+abilities (Figure C) of these children were relatively intact.
+Another surprising aspect
+of these cases is that, despite significant hippocampal
+atrophy and episodic memory
+impairments, all three children
+attended mainstream schools
+and displayed normal levels of
+speech and language competence, literacy, and factual
+knowledge (Figure D). In other
+words, they were impaired in
+episodic memory but could
+acquire semantic knowledge at
+a relatively normal rate.
+The dissociation between
+impaired episodic memory and
+spared semantic memory has
+important implications. First, it
+supports the idea that the hippocampus is specifically associated with episodic memory
+but not semantic memory. It
+is not clear which brain region
+supports semantic learning in
+Beth, Jon, and Kate or the rest
+of us, but the implication is
+that semantic memory is mediated by the medial temporal
+lobe cortices (i.e., the perirhinal, entorhinal, and parahippocampal cortices; see Box 9A).
+
+(A) Hippocampal volume
+Left hippocamus
+Right hippocampus
+
+4.0
+
+Volume (cm3)
+
+R
+
+ecall from Chapter 8 that patient
+H.M. became afflicted with severe
+amnesia following surgery that removed much of his medial temporal lobes
+on both sides. After the surgery, H.M. was
+unable to acquire new declarative memories, including new memories for personally experienced past events (episodic
+memory) and new memories about facts
+and language (semantic memory). H.M.’s
+case left open, however, the question of
+what happens when medial temporal lobe
+damage is limited to the hippocampus
+and spares the surrounding cortices (entorhinal, perirhinal, and parahippocampal
+cortices; see Box 9A).
+Selective hippocampal damage can
+occur when the brain is deprived of appropriate oxygen supply (a condition
+known as hypoxia) because this region
+has a higher metabolic rate (and thus
+greater dependence on oxygen) than do
+most other brain areas. Oxygen deprivation is not uncommon during complications at birth, and depending on the
+severity of the hypoxia, hippocampal
+damage can leave children severely
+impaired as a result of inadequate declarative memory. Surprisingly, however,
+although these children are impaired in
+episodic memory, they acquire semantic
+knowledge relatively normally and are
+often able to attend mainstream schools.
+The first study of such cases reported
+data for three children who likely suffered hypoxia: Beth, Jon, and Kate. Brain
+imaging showed hippocampal formations of these children to be smaller than
+those of normal controls (Figure A). All
+three suffered from episodic memory
+deficits, which were noticeable to both
+the children and their parents, and were
+confirmed by formal testing. For example,
+the children were markedly impaired in
+their ability draw a complex figure from
+memory (Figure B), as well as in other
+verbal and nonverbal episodic memory
+tasks (Figure C). In contrast, as in the
+case of other patients with medial temporal lobe amnesia, the perceptual abilities
+
+Lower limit
+of normal
+
+3.0
+
+2.0
+
+1.0
+
+Control
+
+Beth
+
+Jon
+
+Kate
+
+(B) Visual Memory
+Copy
+
+Delayed recall
+
+Control
+
+Beth
+
+Jon
+
+Kate
+
+This chapter first introduces some basic concepts and assumptions about
+the taxonomy of declarative memory, and the neural mechanisms underlying
+encoding, storage, and retrieval. The second section focuses on the nature of
+medial temporal lobe representations, distinguishing the role of the hippocampus and other medial temporal lobe structures. The following sections focus
+on the organization and access of semantic and episodic memory traces stored
+in the cortex, and contributions of the prefrontal and parietal cortices during
+
+DECLARATIVE MEMORY
+
+■ 281
+
+■ INTRODUCTORY BOX (continued)
+(C) Working and episodic memory tests
+Verbal stimuli
+
+Nonverbal stimuli
+
+50
+
+100
+Working memory
+Episodic memory
+
+Percent recalled
+
+40
+
+80
+
+30
+
+60
+
+20
+
+40
+
+10
+
+20
+
+0
+
+Control
+
+Beth
+
+Jon
+
+Kate
+
+0
+
+Control
+
+Beth
+
+Jon
+
+Kate
+
+(D) Intellectual abilities
+Basic reading
+
+Actual
+IQ predicted
+
+Score
+
+120
+
+Reading comprehension
+
+100
+
+80
+
+80
+
+60
+
+60
+
+40
+
+40
+
+20
+
+20
+
+0
+
+Beth
+
+Jon
+
+Kate
+
+References
+
+120
+
+100
+
+0
+
+This dissociation also has implications
+for theories of memory development. According to one view, semantic memory
+develops after episodic memory because
+general concepts (e.g., the idea of a
+“dog”) are assumed to be abstracted
+from individual experiences (e.g., encountering specific dogs). An alternative
+view, however, is that episodic memory
+develops after semantic memory, since
+understanding the meaning of an event
+(what happened) is a requirement for
+associating core content to contextual details of the event (where, when,
+and how it happened). The finding that
+Beth, Jon, and Kate could accumulate
+a wealth of semantic knowledge despite
+pronounced episodic memory deficits is
+consistent with the second view.
+
+DE HAAN, M., M. MISHKIN, T. BALDEWEG
+AND F. VARGHA-KHADEM (2006) Human
+
+memory development and its dysfunction
+after early hippocampal injury. Trends
+Neurosci. 29: 374–381.
+SQUIRE, L. R. AND S. ZOLA (1998) Episodic
+memory, semantic memory, and amnesia.
+Hippocampus 8: 205–211.
+
+Beth
+
+Jon
+
+Kate
+
+encoding and retrieval. Finally, the last section describes what is known about
+memory consolidation.
+
+Basic Concepts and Assumptions
+This section introduces a few basic terms and hypotheses. One set of terms refer to the different forms of declarative memory, and another, to the processes
+describing how declarative memory operates. The section ends with a simple
+theory of how these declarative memory processes are mediated by the brain
+and basic findings supporting the theory.
+
+A taxonomy of declarative memory
+Chapter 8 introduced basic distinctions of working memory, declarative memory,
+and nondeclarative memory. Here we focus on different types of declarative
+memory (yellow boxes in Figure 9.1). Each type is defined by conscious memory for events versus facts, and the qualities associated with those events and
+facts. Memory for events is known as episodic memory, and memory for facts
+is known as semantic memory—a distinction introduced by psychologist Endel
+
+VARGHA-KHADEM, F., D. G. GADIAN, K. E.
+WATKINS, A. CONNELLY, W. VAN PAESSCHEN AND M. MISHKIN (1997) Differential
+effects of early hippocampal pathology on
+episodic and semantic memory. Science
+277: 376–380.
+
+282 ■ CHAPTER 9
+
+Memory
+
+Working memory
+
+Long-term memory
+
+Declarative (explicit)
+memory
+
+Episodic memory
+(events)
+
+Nondeclarative (implicit)
+memory
+
+Semantic memory
+(facts)
+
+Priming
+
+Skill
+learning
+
+Conditioning
+
+Autobiographical
+memory
+
+Recollection
+
+Familiarity
+
+Figure 9.1 The memory system
+taxonomy and forms of declarative
+memory The main branches of
+the memory system are working
+memory, declarative memory, and
+nondeclarative memory. Declarative
+memory can be subdivided into
+episodic memory (conscious memory
+for events) and semantic memory
+(conscious memory for facts). Both
+episodic and semantic memory
+contribute to people’s memories of
+their own lives, or autobiographical
+memory. Episodic memory can be
+further subdivided into recollection
+and familiarity. Although familiarity is
+usually classified as a form of episodic
+memory, its mechanisms are also
+related to those of semantic memory
+and priming.
+
+Tulving in the early 1970s. The term episodic memory thus refers to memories
+of events that an individual has experienced personally in a specific place and
+at a particular time (i.e., from an episode). In contrast, semantic memory refers
+to knowledge about the world that individuals share with other members of
+their culture, including the knowledge of a native language and facts learned
+in school. For example, remembering listening to reggae music in your living
+room last Sunday is an episodic memory, whereas knowing that reggae is a
+popular style of Jamaican music characterized by syncopated rhythm is a semantic memory.
+In the laboratory, episodic memory is sometimes defined as consisting of
+memories encoded during the experiment, such as a list of words presented
+on a computer; semantic memory, on the other hand, is defined as information that the participants had encoded before the experiment started, such as
+knowing that a dog is a mammal. In life, episodic and semantic memories
+interact and to some degree overlap. In fact, memory for the events of our own
+lives, called autobiographical memory, is a complex mixture of episodic and
+semantic memories (see Figure 9.1). For example, the semantic knowledge that
+the river Seine runs through Paris, that the Louvre is a famous museum in
+that city, and that long lines are common at famous museums may affect our
+reconstruction of autobiographical memories of a particular day actually spent
+in Paris. Conversely, semantic memories can also be associated with episodic
+memories of the learning events (e.g., the day in French class when Paris was
+the topic of discussion).
+Episodic memory is typically subdivided into two additional categories:
+recollection and familiarity. Recollection refers to memories of a past event that
+include specific associations and contextual details; familiarity refers to the sense
+that we experienced an event at some point in the past, even though no specific
+associations or contextual details come to mind. An example of familiarity without recollection is seeing a person’s face and knowing that you have seen that
+
+DECLARATIVE MEMORY
+
+■ 283
+
+person before, but being unable to remember any specific previous encounter
+or information about the person, such as the person’s name. The classification
+of familiarity as a form of episodic memory is a topic of some debate because
+familiarity involves conscious memory for events, but its neural mechanisms
+are related to those underlying semantic memory and priming (dashed arrows
+in Figure 9.1).
+
+A simple neurological model of encoding, storage, and retrieval
+As illustrated by the case of H.M. described in Chapter 8, damage to the medial
+temporal lobe impairs declarative memory but spares nondeclarative forms of
+memory, such as priming and skill learning. A generally accepted explanation
+of why medial temporal lobe regions are critical for declarative memory is that
+they store pointers to the locations of memory traces that were stored in the
+cortex during their formation. To pursue this explanation, which provides an
+organizing principle for this chapter, it is useful to start with a very simple model
+of how different brain regions contribute to the encoding, storage, and retrieval
+phases introduced in Chapter 8. The model in Figure 9.2 is described here using episodic memory as an example, but it also applies to semantic memory.
+During the encoding phase (Figure 9.2A), different aspects of an event are
+thought to be stored in the same regions that are involved in perceiving the
+event. For example, memory traces from a birthday party would include memories about the color of the balloons stored in visual cortex, memories about
+the music stored in auditory cortex, memories about dancing stored in motor
+cortex, and so forth (for simplicity, Figure 9.2A shows only auditory and visual
+memory traces). As noted in Chapter 8, memory traces consist of alterations
+in the synapses. For example, encoding a memory about a red balloon can be
+assumed to involve strengthened synapses between groups of neurons coding
+for “red” and for “balloon.” However, remembering a complex event, such as a
+birthday party, is much more than remembering simple perceptual associations;
+it requires simultaneous access to many different aspects of an event, including
+not only what happened but also where, when, and how it happened.
+According to the model, simultaneous access to all these traces can be
+accomplished because the hippocampus stores a summary representation of
+the whole event with pointers to the locations of the traces distributed over
+the cortex. This hippocampal representation is sometimes called an index,
+emphasizing the idea that the representation is not the main information about
+the event, but a pointer to where the main information can be found and accessed, much like the index in this book. In sum, in the encoding of declarative
+memory, two types of representations are created: distributed cortical traces
+and hippocampal indices.
+
+(A) Encoding phase
+
+(B) Storage phase
+(including consolidation)
+
+(C) Retrieval phase
+Recent memories
+
+PPC
+
+Remote memories
+
+PPC
+
+PFC
+
+PFC
+HC
+
+Event
+
+Figure 9.2 A simple model of
+episodic memory encoding, storage,
+and retrieval (A) During encoding,
+each aspect of an event is stored
+in the cortical area involved in
+processing (perceiving) this aspect of
+the event (visual information is stored
+in visual cortex, auditory information
+in auditory cortex, and so on). The
+hippocampus is assumed to store a
+summary representation, or index,
+pointing to the locations of memory
+distributed over the cortex. (B)
+During storage, the traces for some
+memories are stabilized—a process
+known as consolidation. (C) During
+retrieval, a retrieval cue may access
+the hippocampal index, which leads
+to simultaneous access of the various
+cortical traces and the experience of
+remembering the original event. HC,
+hippocampus; PFC, prefrontal cortex;
+PPC, posterior parietal cortex.
+
+Auditory information
+Visual information
+
+Retrieval cue
+Time
+
+PPC
+PFC
+
+284 ■ CHAPTER 9
+During the storage phase (Figure 9.2B), some memory traces are strengthened
+and become long lasting, whereas other memories are presumably lost. The
+strengthening process is known as consolidation and is specifically considered
+at the end of the chapter. The assumption that some memories are lost during
+storage is difficult or impossible to prove in complex organisms because the fact
+that a particular memory cannot be retrieved does not imply that the memory
+does not exist; the memory may be available but not accessible. However, in animal models in which learning can be linked to synaptic changes, alterations
+in synaptic form and function reverse over time in parallel with behavioral
+measures of forgetting, suggesting that some memories do become lost.
+The retrieval phase (Figure 9.2C) is usually triggered by a retrieval cue, typically a piece of information associated with a particular aspect of the original
+event. Retrieval cues may be external or internal, and the retrieval process may
+be involuntary or voluntary. For example, seeing a person at work (external
+cue) who was at a recent party may spontaneously remind you of the party
+(involuntary retrieval). Alternatively, you can intentionally try to remember the
+party (voluntary retrieval) by generating an image of the house where the party
+was held or of the host (internal cue). In episodic memory tests in the lab, the
+cues are typically external (e.g., the word house provided by the experimenter),
+and retrieval is usually voluntary (e.g., trying to recall the word that was paired
+with house).
+In the case of recent memories, access to cortical traces is assumed to be
+mediated by the hippocampus: the retrieval cue accesses the hippocampal
+index, which leads to access of the distributed cortical memory traces, and in
+turn to the experience of remembering the original event. In the case of remote
+memories, however, because direct associations have been created among distributed cortical traces (a process explained in the discussion of consolidation
+at the end of the chapter), these traces can be accessed directly by retrieval cues,
+bypassing the hippocampus.
+So far, we have considered only the roles of the medial temporal lobe and
+modality-specific cortical regions. What about other brain regions, including
+the prefrontal and posterior parietal regions mentioned earlier (see Figure 9.2)?
+Prefrontal regions mediate both semantic/linguistic processes (see Chapter 12)
+and executive functions (see Chapter 13) that directly contribute to encoding and
+retrieval. During encoding, these processes are thought to help link incoming
+stimuli with preexisting knowledge and organize them into meaningful units
+that can be more easily remembered. During retrieval, the prefrontal regions
+help guide the memory search, evaluate the information recovered, and underlie
+decisions about its validity. Posterior parietal regions support attentional control
+processes (see Chapter 7), which are critical for selecting information during
+encoding and for guiding the memory search during retrieval. Prefrontal and
+posterior parietal regions are less critical during storage, but they may play a
+role during consolidation.
+
+Using the model to explain the effects of brain damage
+The general model can account well for three features of declarative memory
+loss following brain damage. First, it can explain well why small lesions in the
+cortex tend to produce very mild or no declarative memory deficits, whereas
+bilateral lesions of the same size in the medial temporal lobes can produce severe
+amnesia. Since the memory traces for one event are distributed over the cortex,
+a single lesion is unlikely to destroy associated memory traces (recall Karl Lashley’s experiments and the idea of graceful degradation in connectionist models
+described in Box 8C). In contrast, the medial temporal lobes store the locations
+of most cortical memory traces within a small region, and hence, damage to
+this small region can block access to a vast number of cortical memory traces.
+
+DECLARATIVE MEMORY
+
+To use a simple metaphor, imagine a large, multifloor library with a single
+computer in the basement containing the records that show the locations of all
+books in the library. Whereas a small fire in one of the floors could damage a
+fraction of the books, a similar fire in the basement could destroy the computer
+and prevent access to all books stored in the library (a situation analogous to
+retrograde amnesia). The books are still there, but one cannot find them without
+the computer records. Without the computer, it is also impossible to log the
+locations of new books received after the computer damage. These new books
+may be accessible immediately after delivery while they are still at the receiving
+counter (which would be analogous to working memory), but not after being
+shelved somewhere in the library if no record of their storage location is kept
+(a situation analogous to anterograde amnesia).
+Second, the model can explain why cortical damage can produce selective
+memory loss, whereas memory loss following medial temporal lobe damage is
+global, affecting all modalities and types of stimuli. For example, some forms
+of cortical damage can impair knowledge for living things without disrupting
+knowledge for nonliving things, or vice versa (see the discussion of storage
+later in the chapter). In contrast, patients with medial temporal lobe amnesia
+like H.M. are typically impaired in remembering all kinds of knowledge and
+events, regardless of their semantic category or modality. According to the model,
+cortical memory traces are organized by modality and can also be organized
+by category, but medial temporal lobe regions like the hippocampus store the
+indices for all kinds of memory traces. Returning to the library metaphor, whereas
+damage in one floor may be selective to one type of book (e.g., poetry books),
+damage to the basement computer will affect the records for all types of books.
+Finally, the model can explain why medial temporal lobe damage tends
+to produce anterograde amnesia together with retrograde amnesia for recent
+events (e.g., a few years before the lesion) but usually spares memory for remote
+events (e.g., from childhood). According to the model, the cortical traces for
+recent memories are disconnected from each other; hence, they can be accessed
+together only via the indices stored in the hippocampus. However, as memories
+are repeatedly retrieved, their cortical traces become directly associated with
+each other, so they can be accessed together independently of the hippocampus.
+This process, known as system consolidation, is explained at the end of the chapter. Again using the library metaphor, imagine that each time you gather the
+set of “books” associated with one event (e.g., the balloon, music, and dancing
+“books” for a particular birthday party), you place Post-it notes on some books
+indicating the location of some of the other books in the set. After doing this
+many times, finding one or a few books in the set is enough to find all the other
+books in the set, even if the basement computer is not available.
+The remainder of the chapter focuses on different aspects of the model depicted
+in Figure 9.2, including (1) the nature of medial temporal lobe representations,
+(2) the cortical regions that store semantic and episodic memory traces, (3) the
+contributions of prefrontal regions during encoding and retrieval, (4) the role of
+parietal regions during encoding and retrieval, and (5) consolidation processes
+during the storage phase.
+
+The Nature of Medial Temporal Lobe Representations
+Given the dramatic effects of medial temporal lobe damage in human and nonhuman animals, there is no doubt that these regions play a fundamental role
+in episodic memory. However, the specific contributions of different medial
+temporal lobe subregions to declarative memory are topics of much debate.
+The following sections consider theories of hippocampal function, and theories
+about the function of various medial temporal subregions described in Box 9A.
+
+■ 285
+
+286 ■ CHAPTER 9
+
+■ BOX 9A ORGANIZATION OF THE MEDIAL TEMPORAL LOBE
+MEMORY SYSTEM
+
+T
+
+he medial temporal lobe memory
+system consists of the hippocampus and the surrounding rhinal
+cortex and parahippocampal cortex
+(Figure A). The amygdala is located in
+the anterior part of the medial temporal
+lobe; although it modulates declarative
+memory processing, the amygdala is not
+considered a memory region per se.
+The main output of the hippocampus is the fornix, a tract that connects
+
+(A)
+Basal
+forebrain
+
+the hippocampus to the mammillary
+bodies, and the mammillary bodies in
+turn project to the anterior nucleus of
+the thalamus. The rhinal cortex consists
+of the entorhinal cortex medially, and
+the perirhinal cortex laterally (Figure B).
+Taken together, the entorhinal, perirhinal,
+and parahippocampal cortices constitute the parahippocampal gyrus. (The
+parahippocampal gyrus should not be
+confused with the parahippocampal cor-
+
+Anterior nucleus
+of thalamus
+
+Fornix
+
+(C)
+
+tex, which is only the posterior half of the
+gyrus.) The perirhinal and parahippocampal cortices receive inputs from unimodal
+and polymodal association areas in
+frontal, parietal, temporal, and cingulate
+cortices (Figure C). In humans and other
+primates, the perirhinal and parahippo-
+
+(A) Medial temporal lobe regions within the
+brain. (B) Three-dimensional view of the
+subregions of the medial temporal lobe.
+(C) Neural connections among medial temporal lobe regions, as well as between these
+regions and the rest of the brain. (A–C after
+Lavenex and Amaral 2000.)
+
+Hippocampus
+
+CA3
+
+CA1
+
+Dentate
+gyrus
+
+Subiculum
+Prefrontal
+cortex
+Mammillary
+body
+
+Amygdala
+
+Rhinal
+cortex
+
+Parahippocampal
+cortex
+Hippocampus
+
+Entorhinal cortex
+
+Olfactory
+cortex
+
+Hippocampus
+
+(B)
+
+Parahippocampal
+cortex
+
+Perirhinal
+cortex
+
+Parahippocampal
+cortex
+
+Amygdala
+
+Entorhinal
+cortex
+
+Perirhinal
+cortex
+
+Unimodal association areas
+
+Polymodal association areas
+
+Theories of hippocampal memory function
+According to the cognitive map theory proposed by neuroscientists John O’Keefe
+and Lynn Nadel, the main role of the hippocampus is to mediate memory for
+spatial relations among objects in the environment. The strongest evidence
+for this theory is the existence of place cells in the rodent hippocampus. These
+neurons become active only when the animal is in a particular spatial location
+
+DECLARATIVE MEMORY
+
+■ 287
+
+■ BOX 9A (continued)
+abbreviation, “CA”), and the subiculum
+(Figure D). Input from the entorhinal cortex reaches all three hippocampal subregions. In addition, several internal “loops”
+connect the dentate gyrus to the CA3
+and CA1 regions, to the subiculum, and
+then back to entorhinal cortex (Figure E).
+Thus, the organization of the medial
+temporal lobe can be thought of as a hierarchical sequence in which information
+is processed through perirhinal, parahippocampal, and entorhinal cortices, finally
+reaching the hippocampus. It is clear,
+
+campal cortices project to the entorhinal
+cortex, which provides the predominant
+cortical input to the hippocampus.
+Of these regions in the medial temporal lobe, the one that has received
+the most attention is the hippocampus
+(which gets its name derived from its
+seahorse-like shape). The hippocampus is not a homogeneous structure
+but consists of several interconnected
+subregions, including the dentate gyrus,
+the cornus Ammon (Latin for “horn of
+Ammon,” and often referred to by its
+
+however, that the cortices of the parahippocampal gyrus do not simply funnel
+information to the hippocampus. On the
+contrary, each of these cortices consists
+of several subregions that are densely
+associated by reciprocal connections
+and clearly carry out extensive processing in their own right. Moreover, these
+different cortices are linked to each other
+by rich intrinsic connections, and hence
+they collaborate in processing incoming
+information before it reaches the hippocampus.
+
+References
+(D) Nissl-stained coronal section of the hippocampus. The 4-millimeter squares (the typical
+spatial resolution of fMRI studies) illustrate the difficulty of distinguishing medial temporal lobe
+subregions using functional neuroimaging. ✻, collateral sulcus; ab, angular bundle; cf, choroidal
+fissure; DG, dentate gyrus; EC, entorhinal cortex; FG, fusiform gyrus; hf, hippocampal fissure;
+PRC, perirhinal cortex; PaS, parasubiculum; PrS, presubiculum; S, subiculum; V, ventricle.
+(E) Connections within subregions of the hippocampus, including the entorhinal-dentate-CAsubiculum-entorhinal loop. (D from Amaral 1999.)
+(D)
+
+(E)
+CA2
+CA3
+V CA1
+
+CA3
+
+CA2
+
+S
+
+PrS
+
+PaS
+
+Dentate
+gyrus
+
+Hippo
+CA3
+
+cf
+hf
+
+DG
+
+LAVENEX, P. AND D. G. AMARAL (2000)
+Hippocampal-neocortical interaction: A
+hierarchy of associativity. Hippocampus 10:
+420–430.
+
+Perforant pathway
+
+G
+
+DG
+
+AMARAL, D. G. (1999) Introduction: What
+is where in the medial temporal lobe? Hippocampus 9: 1–6.
+
+Entorhinal cortex
+
+Schaffer collateral
+pathway
+Hippo
+CA1
+
+ab
+PRC
+FG
+
+EC
+
+in its local environment (Figure 9.3A). Place cells also have been identified in
+the human hippocampus. For example, one study had epileptic patients with
+implanted electrodes play a “taxi driver” computer game in which they had to
+drive passengers to target locations in a virtual town (Figure 9.3B). As in rats,
+some neurons of the hippocampus were active only when the “taxi” passed
+through specific locations of the simulated town.
+According to the relational memory theory put forward by neuroscientists
+Howard Eichenbaum and Neal Cohen, the hippocampus mediates memory
+for new associations in general. Consistent with this idea, the hippocampus is
+critical for remembering nonspatial associations in rodents, such as new associations between odors. In the odor association task, for example, treats such
+as Froot Loops cereal are hidden in cups of differently odorized sand (Figure
+9.4A). Rats are trained to prefer Odor A over Odor B, Odor B over Odor C, Odor
+
+Mossy fiber
+pathway
+
+Hippo
+subiculum
+
+288 ■ CHAPTER 9
+(A)
+5
+4
+3
+2
+1
+H2
+
+(B)
+
+SC
+
+SB
+
+20
+15
+10
+5
+0
+
+H
+
+PR
+A
+Region
+
+FR
+
+Figure 9.3 Place cells in the hippocampus (A) In the rat, place cells fire when
+the animal is in a specific spatial location—for example, in an open circular cage.
+The color code here shows the firing pattern of eight different place cells, with red
+indicating intense activity. Note that each cell being recorded from is active only
+when the rat is in a particular position in its environment (shown here, from above,
+as the circular arena the animal is exploring). The color scale shows the cell firing
+rate in hertz. (B) A neuron in the human hippocampus was active only when the
+subject was in a specific location (red square) of a virtual town (red lines indicate
+the trajectory of the “taxi”). Lettered squares are store locations, and blank white
+squares are nontarget buildings. The graph on the right shows that although most
+place cells in humans were found in the hippocampus (H), some were also found in
+the parahippocampal region (PR), the amygdala (A), and the frontal lobes (FR). (B
+from Ekstrom et al. 2003.)
+
+(A)
+
+(B)
+100
+90
+
+Figure 9.4 Relational memory for odor associations and
+transitive inference in rodents (A) In this paradigm, declarative
+memory is indexed by a rat’s ability to choose cups associated
+with a series of odors that have been differentially rewarded.
+(B) Rats with fornix (FX) lesions that disrupt hippocampal output
+can remember their choices within individual odor pairs (B >
+C and C > D), but they fail to show memories for relationships
+across pairs (B > D). (After Dusek and Eichenbaum 1997.)
+
+Correct choice (%)
+
+SA
+
+Responsive cells (%)
+
+25
+
+Premises: A > B
+B>C
+C>D
+D>E
+
+Control
+FX
+
+80
+70
+60
+Chance
+
+50
+40
+
+BC and CD
+(within pairs)
+
+BD
+(across pairs)
+
+DECLARATIVE MEMORY
+Figure 9.5 Amnesia patient K.C. (A) K.C.’s ability to play chess and to remember
+general knowledge of the world (semantic memory) was not affected by his
+brain lesions. (B) Sagittal MRI slice showing K.C.’s bilateral hippocampal and
+parahippocampal damage. (A from Tulving 2002; B from Rosenbaum et al. 2000.)
+
+C over Odor D, and so on. Rats with fornix lesions, which disrupt the output of
+the hippocampus, can remember trained pairs, such as B is better than C and
+C is better than D, but they cannot infer relationships across pairs, such as B is
+better than D (transitive inference; Figure 9.4B).
+The episodic memory theory, promoted by Endel Tulving, Morris Moscovitch,
+and other researchers, postulates that the hippocampus is critical for episodic
+memory but not for semantic memory. Consistent with this view, selective
+hippocampal damage tends to impair episodic more than semantic memory.
+As mentioned in the Introductory Box, children with hypoxia-related hippocampal damage are severely impaired in episodic memory but can acquire
+new vocabulary and knowledge.
+Another example is the amnesia patient K.C. (Figure 9.5A), who suffered
+a motorcycle accident in which he sustained damage to several brain regions,
+including the hippocampus (Figure 9.5B). As with patient H.M., K.C.’s intellectual abilities were well preserved: he is able to read, write, and play chess
+at much the same level as before his accident. However, he cannot remember
+events that happened before or after the accident (i.e., he has both anterograde
+and retrograde amnesia). By contrast, his memory for semantic information
+acquired before the accident is intact. He has a good vocabulary, and his knowledge of subjects such as mathematics, history, and geography is similar to that
+of others with comparable education. He has difficulty forming new semantic
+memories but can learn simple semantic associations with many repetitions.
+Thus, medial temporal lobe damage can, in at least some cases, impair episodic
+memory while sparing retrograde semantic memory.
+Moreover, whereas hippocampal lesions impair episodic more than semantic memory, damage to cortical regions in the anterior temporal lobe tends to
+disrupt semantic more than episodic memory. The latter pattern is displayed by
+patients with the progressive disorder known as semantic dementia. Semantic
+dementia is a variant of frontotemporal dementia, which typically starts with
+word-finding deficits (anomia) and progresses into a severe loss of knowledge
+and language. For example, patient A.M., who displayed the left anterior temporal atrophy typical for this disorder (Figure 9.6A), was severely impaired in
+nonverbal semantic knowledge tests (e.g., deciding whether a pyramid shape
+fits better with palm trees or with pine trees; Figure 9.6B), but performed
+(A)
+(B)
+
+■ 289
+
+(A)
+
+(B)
+
+Figure 9.6 Semantic dementia
+(A) Coronal-section MRI of A.M.,
+a patient with semantic dementia,
+showing severe left-lateralized atrophy
+of the anterior temporal cortex,
+including the parahippocampal,
+fusiform, and inferior temporal gyri.
+The left hippocampus is only mildly
+atrophied. (B) Subjects suffering from
+semantic dementia perform poorly
+on tests of semantic knowledge such
+as the “pyramid and palm trees” test.
+Here participants are asked to indicate
+which of the bottom two images fits
+better with the top image. (A from
+Hodges and Graham 2001.)
+
+290 ■ CHAPTER 9
+(A) Left hippocampus
+0.4
+Correct R
+Correct K
+Correct rejection
+Miss
+
+0.3
+
+fMRI signal change (%)
+
+0.2
+0.1
+0
+–0.1
+–0.2
+–0.3
+–0.4
+
+(B)
+
+Probability estimates
+
+Figure 9.7 Evidence for a greater hippocampal role in recollection
+than in familiarity (A) In this fMRI study, the hippocampus showed greater
+activity for recognition responses based on recollection (“remember,” or R,
+responses) than for those based on familiarity (“know,” or K, responses).
+(B) Compared to controls, rats with selective hippocampal lesions are
+impaired in recollection but not in familiarity. (A after Eldridge et al. 2000;
+B after Fortin et al. 2004.)
+
+0
+
+5
+
+10
+Time (s)
+
+Familiarity
+
+15
+
+Recollection
+
+0.4
+
+0.2
+
+0
+
+Control
+
+Lesions
+
+Control
+
+Lesions
+
+normally on nonverbal episodic memory tasks (e.g., delayed recall of the
+complex figure in the Introductory Box). Thus, the combined results of
+amnesia and semantic dementia cases suggest that the hippocampus is
+more critical for episodic than semantic memory, whereas left anterior
+temporal cortex is more critical for semantic than episodic memory.
+Evidence regarding hippocampal function can be consistent with
+more than one theory. For example, evidence that the hippocampus
+is associated with recollection rather than familiarity fits well with
+both relational memory and episodic memory theories because recollection requires relational memory and is also the prototypical form
+of episodic memory. Several methods have been used to distinguish
+recollection from familiarity. In one method, participants are asked to
+use introspection to distinguish between recognition trials that elicit
+memory for contextual details (“remember,” or R, responses) and trials in which the item is recognized but no contextual details come to
+mind (“know,” or K, responses).
+Consistent with both the relational and episodic memory theories,
+fMRI studies have shown that “remember” responses tend to elicit greater
+hippocampal activity than “know” responses (Figure 9.7A). Recollection
+and familiarity measures can also be estimated from the proportion of
+correct and incorrect responses. A study that used this method to assess memory for odors in rats found that selective hippocampal lesions
+impaired recollection estimates but not familiarity estimates (Figure
+9.7B). Thus, converging lines of evidence from humans and animals link
+the hippocampus to recollection rather than familiarity, supporting a
+role for this structure in both relational memory and episodic memory.
+
+Differences between medial temporal lobe subregions
+An issue of obvious importance is how hippocampal memory functions are
+related to the functions of surrounding medial temporal structures, such as the
+perirhinal and parahippocampal cortices described in Box 9A. Several ideas
+about functional differences between the hippocampus and medial temporal
+cortices have been proposed.
+According to a two-process theory, the hippocampus processes information
+relatively slowly and is relational and spatial, whereas the perirhinal cortex
+processes information more rapidly and is item-based. In this conception,
+neurons in the hippocampus signal information about spatial positions or associations between items (i.e., recollection), whereas neurons in the perirhinal
+cortex signal information about the novelty of individual items (i.e., differences
+in familiarity). Consistent with the latter hypothesis, single-cell recordings in
+experimental animals have shown that perirhinal neurons do indeed show a
+stronger response when an item is first presented than when the same item is
+shown again (Figure 9.8A).
+Functional neuroimaging studies have also suggested that the hippocampus and the perirhinal cortex make different contributions to recollection
+and familiarity. For example, the hippocampus shows a sharp increase in
+
+DECLARATIVE MEMORY
+(A)
+
+Stimulus
+
+(B) Posterior hippocampus
+
+Rhinal cortex
+
+1.20
+
+–0.1
+
+■ 291
+
+Spikes/s
+
+First
+
+Spikes/s
+
+fMRI activity (effect size)
+
+Repeat
+
+0.75
+–0.6
+0.30
+–1.1
+–0.15
+–0.60
+
+Seconds
+
+1
+2
+3
+“Definitely
+new”
+
+Figure 9.8 Evidence of functional differences between the perirhinal cortex and
+the hippocampus (A) Neurons in the perirhinal cortex show a strong response when
+an item is first presented (top panel) but not when the item is repeated (bottom
+panel). (B) Functional MRIs show that activity in the hippocampus increases sharply
+for items recognized as “definitely old,” whereas activity in rhinal cortex decreases
+gradually as items become more familiar. (A after Xiang and Brown 1998; B after
+Daselaar et al. 2006.)
+
+activity when participants are sure they have encountered an item before (i.e.,
+giving a “definitely old” response on test), consistent with its putative role in
+recollection. Activity in perirhinal cortex, by contrast, decreases gradually as
+items are regarded as more and more familiar, consistent with a greater role
+in familiarity than in recollection (Figure 9.8B). It is unclear, however, whether
+the decrease in perirhinal activity measured with fMRI reflects the reduction
+in firing rate measured with single-cell recording studies seen in Figure 9.8A.
+It is also uncertain how familiarity-related perirhinal reductions pertain to
+the repetition suppression mechanisms assumed to mediate priming. Several
+authors have suggested that familiarity could be linked to nondeclarative
+memory phenomena, such as conceptual priming.
+More recently, several researchers have proposed three-process theories that
+include not only the hippocampus and the perirhinal cortex, but also the parahippocampal cortex. According to one of these theories, the perirhinal cortex
+is concerned with memory for objects, the parahippocampal cortex is involved
+in memory for spatial layouts, and the hippocampus integrates the two types of
+information and hence is involved in domain-general relational memory (Figure
+9.9). Three-process theories have several strengths. They account for evidence
+linking the perirhinal cortex to familiarity and the hippocampus to recollection.
+In addition, the distinction between perirhinal and parahippocampal functions
+fits well with anatomical connectivity, lesion, and functional neuroimaging
+evidence. The perirhinal cortex receives most of its visual input from the
+ventral (“what”) pathway, and the parahippocampal cortex receives most of its
+
+4
+
+5
+6
+“Definitely
+old”
+
+–1.6
+
+1
+2
+3
+“Definitely
+new”
+
+4
+
+5
+6
+“Definitely
+old”
+
+292 ■ CHAPTER 9
+Hippocampus
+Domain-general relational encoding
+
+A
+
+Hipp
+
+PhC
+
+PrC
+
+Edible
+
+Parahippocampal cortex
+Spatial layout encoding
+
+Perirhinal cortex
+Object encoding
+
+Sensory analysis
+
+Figure 9.9 A three-process theory of medial temporal lobe functions The
+perirhinal cortex (PrC) is concerned with memory for objects; the parahippocampal
+cortex (PhC), with memory for spatial layouts; and the hippocampus (Hipp), with
+domain-general relational memory. A, amygdala. (After Davachi 2006.)
+
+visual input from the dorsal (“where”) pathway (see Chapter 3). In monkeys,
+perirhinal lesions tend to impair object memory rather than spatial memory,
+whereas parahippocampal lesions yield the opposite pattern. It is worth noting,
+however, that in humans the parahippocampal cortex appears to play a more
+general role in context memory and is not limited to spatial memory.
+
+DECLARATIVE MEMORY
+
+In sum, all the major theories of hippocampal function—the cognitive map,
+relational memory, and episodic memory theories—are supported by substantial
+evidence. One possibility is that all of these theories are correct in some measure and could be integrated. For example, it has been suggested that spatial
+memory functions are more pronounced in the right hippocampus, whereas
+general relational functions are more the province of the left hippocampus.
+Moreover, the relational memory and episodic memory theories are already
+closely related, and as noted earlier, both views are consistent with evidence
+linking the hippocampus to recollection. Recent three-process theories are
+promising and may eventually provide a more integrative theory for the various
+medial temporal lobe regions.
+
+Cortical Regions Storing Semantic and Episodic
+Memory Representations
+As noted earlier in the description of the general model of memory in Figure
+9.2, in episodic memory it is generally assumed that different aspects of an
+event (visual, auditory, etc.) are stored within the cortical regions specialized
+in processing each type of information (visual cortex, auditory cortex, etc.).
+A similar assumption is made in semantic memory regarding the storage of
+conceptual knowledge. Although cortical storage mechanisms are probably
+shared, studies of semantic and episodic memory have typically emphasized
+different aspects of these shared mechanisms.
+Since studies of semantic memory generally focus on knowledge acquired
+before the experiment (e.g., knowing that dogs are mammals), they do not usually
+investigate the encoding phase. By contrast, studies of episodic memory generally focus on memories formed in the laboratory, and they tend to investigate
+both encoding and retrieval phases. Partly because of this difference, semantic
+memory studies tend to focus on differences between cortical storage for different types of knowledge (e.g., animals versus tools), whereas episodic memory
+studies tend to focus on whether cortical regions engaged during encoding
+are recruited again during retrieval. In other words, semantic memory studies
+tend to focus on memory organization, whereas episodic memory studies tend
+to focus on memory reactivation.
+
+The organization of semantic knowledge in the cortex
+There are two main theories of how semantic knowledge is organized in the
+cortex: sensory/functional theory and domain-specific theory. According to
+the sensory/functional theory, advanced by neuropsychologists Elizabeth Warrington, Tim Shallice and other researchers, conceptual knowledge is organized
+by the sensory (form, color, etc.) and functional (motions, actions, etc.) properties
+of real objects. For example, the concept of “ice cream” would be distributed
+over visual regions that process associated colors (e.g., red, brown) and shapes
+(e.g., cone); the gustatory regions that process associated tastes (e.g., strawberry,
+chocolate); and the somatosensory/motor regions that process associated actions
+(e.g., licking, cone holding). According to the domain-specific theory, proposed
+by neuropsychologist Alfonso Caramazza and collaborators, concepts in the
+brain are organized by semantic categories rather than properties. This idea does
+not apply to all semantic categories, but only to those assumed to have special
+significance for well-being. These include animals, fruits/vegetables, conspecifics, and nonliving things that would have been important during evolution.
+The sensory/functional theory, which is an instance of embodied cognition,
+is supported by abundant functional neuroimaging evidence that processing
+
+■ 293
+
+294 ■ CHAPTER 9
+L
+
+(A)
+
+R
+
+Activations for linguistic
+stimuli associated with:
+Colors
+Actions
+Movements
+Tastes
+Sounds
+Emotions
+
+L
+R
+
+(B)
+
+(C) Picture-naming performance by category
+100
+Face words
+Arm words
+Leg words
+
+0.08
+
+0.06
+
+0.04
+
+0.02
+
+0
+
+Living animate +
+nonliving
+Fruit/vegetable
++ nonliving
+Fruit/vegetable
+Living animate
+Nonliving
+Conspecifics
+
+80
+
+Percent correct
+
+MR signal change (arbitrary units)
+
+0.10
+
+60
+
+40
+
+20
+
+Face
+
+Arm
+Leg
+Region of interest
+
+0
+
+K.C.
+
+E.W.
+
+R.S.
+
+M.D.
+K.S.
+Patients
+
+A.P.A.
+
+C.W.
+
+P.L.
+
+Figure 9.10 Representation of semantic knowledge in the brain (A) Locations
+of activation, as indicated by functional neuroimaging studies that used linguistic
+materials (words, phrases, or sentences) to assess modality-specific knowledge
+representation. (B) Brain activity elicited by words associated with motor actions
+made with the face (e.g., lick), the arm (e.g., pick), or the leg (e.g., kick) in regions
+of interest within primary motor cortex. The regions of interest were identified
+with a localizer scan in which participants moved their tongue, hands, or feet.
+(C) Examples of patients with domain-specific semantic deficits. Some patients are
+disproportionately impaired in knowledge about living things compared to nonliving
+things; others have greater deficits with nonliving things or conspecifics. (A from
+Binder and Desai 2011; B after Hauk et al. 2004; C after Mahon and Caramazza
+2011.)
+
+linguistic stimuli activates brain regions associated with their corresponding
+sensory and functional properties. For example, words such as trumpet activate auditory cortex, words such as jump activate motor cortex, words such as
+chocolate activate gustatory cortex, and so on (Figure 9.10A). Importantly, these
+
+DECLARATIVE MEMORY
+
+effects can be found not only during tasks that require intentional retrieval
+of the objects’ properties, which could elicit visual imagery and top-down
+attentional modulation of sensory and motor cortices, but also during passive
+reading tasks. For example, passively reading words like lick, pick, and kick
+activates, respectively, tongue, finger, and feet areas of primary motor cortex
+(Figure 9.10B). These results suggest that the activation of property-related
+cortices mediates language comprehension. Evidence that these activations
+are not epiphenomenal includes, for example, the finding that motor disorders
+(such as Parkinson’s disease) and TMS-based disruption of motor cortex can
+produce selective deficits in the comprehension of action verbs.
+The domain-specific theory is supported primarily by evidence from braindamaged patients who show disproportionate and even selective impairments for
+one semantic category compared to others. Over 100 cases of these category-specific
+semantic deficits have been reported. Most of them show impaired knowledge
+for living things compared to nonliving things, but the converse pattern and
+other selective deficits have also been observed (see examples in Figure 9.10C).
+Although the location of the damage in these conditions is variable and somewhat
+controversial, animate knowledge deficits are often associated with lesions of the
+temporal cortex, and deficits in inanimate knowledge, with frontoparietal damage.
+Supporters of the sensory/functional theory have explained the livingnonliving dissociation by arguing that the ability to identify living things
+depends more on sensory knowledge (stored in temporal cortices), whereas
+the ability to identify nonliving things depends more on functional knowledge (stored in frontoparietal cortices). However, this argument cannot easily
+explain why the affected category (e.g., tools) is sometimes impaired in both
+sensory and functional knowledge (e.g., both the shape and the actions associated with a hammer), and why semantic deficits for living things may occur
+without sensory deficits. In addition, some functional neuroimaging evidence
+fits better with the domain-specific theory than with the sensory/functional
+theory. Thus, both theories are partly correct, and they need to be integrated
+into a more general theory.
+Sensory/functional and domain-specific theories are concerned primarily
+with the representation of relatively concrete semantic knowledge, such as the
+properties of objects. But are there also regions that store abstract semantic
+knowledge, like the one required for generalizing and reasoning? For example,
+if the knowledge about “ice cream” is stored in the brain regions that process
+sweetness and licking, and the knowledge about “potato chips” is stored in the
+regions that process saltiness and chewing, where are concepts like “snack”
+or “carbohydrate” stored? According to a distributed-only view, there are no
+specialized regions for abstract concepts; these concepts are represented by the
+same distributed network that mediates concrete sensory/functional features
+(Figure 9.11A). According to the distributed-plus-hub view, by contrast, in addition to direct connections among sensory/functional regions, there is a single
+“hub” in anterior temporal cortex that stores abstract, amodal representations
+for all semantic categories (Figure 9.11B).
+The distributed-plus-hub view fits with anatomical evidence that the anterior
+temporal lobe is connected to sensory and motor cortices, and is considered a
+locus of the caudal-to-rostral convergence of information along the temporal
+lobes. The anterior temporal lobe is also proximal to the amygdala and the
+orbitofrontal cortex, which could help link semantic knowledge to emotion and
+reward. Moreover, the anterior temporal lobe is immediately adjacent to medial
+temporal regions that mediate rapid learning of new episodic information, such
+as the hippocampus, which could provide the seeds for the acquisition of new
+conceptual knowledge.
+
+■ 295
+
+296 ■ CHAPTER 9
+(A) Distributed-only veiw
+
+(B) Distributed-plus-hub veiw
+
+Action
+
+Sound
+
+Words
+
+Shape
+
+Color
+
+Motion
+
+(C)
+
+Hub
+(D)
+
+Alzheimer’s disease
+
+Percent signal change
+
+Semantic dementia
+
+0.06
+0.04
+0.02
+0
+
+Person
+
+Building
+
+Hammer
+
+Figure 9.11 Abstract semantic knowledge and the anterior temporal lobes
+(A) According to a distributed-only view, abstract semantic knowledge is mediated
+by the same distributed network that mediates concrete knowledge. (B) According
+to the distributed-plus-hub view, abstract semantic knowledge is supported by an
+amodal “hub” in the anterior temporal lobes. (C) The brain areas showing reduced
+metabolism in semantic dementia are primarily the anterior temporal lobes (left
+panel), whereas in Alzheimer’s disease they are primarily the posterior midline and
+temporoparietal regions (right panel). (D) In this fMRI study, participants learned facts
+about specific people (e.g., Alex works as an insurance agent), specific buildings
+(e.g., the Newport Building is used for voter registration), and specific hammers (e.g.,
+the Brooks hammer is used to shatter window glass). Activity in anterior temporal
+regions (both left and right, but only left is shown) was significantly greater for person
+facts than for building or hammer facts.(A–C after Patterson et al. 2007; D after
+Simmons et al. 2010.)
+
+The strongest evidence for the idea that the anterior temporal lobe is a semantic
+hub is provided by semantic dementia cases. As noted earlier, this variant of
+frontotemporal dementia is associated with atrophy of the anterior temporal
+lobes and with global semantic knowledge loss. Neuroimaging studies have
+confirmed that, unlike forms of dementia involving more widespread damage
+such as Alzheimer’s disease, semantic dementia is associated primarily with
+anterior temporal lobe dysfunction (Figure 9.11C). Semantic dementia impairs
+all kinds of knowledge, regardless of the modality of reception and expression.
+A semantic dementia patient who cannot name an object as a “telephone” when
+
+DECLARATIVE MEMORY
+
+shown a photo of one will also fail to identify its sound or to draw a picture
+of it. The global nature of this semantic deficit is consistent with the idea of an
+amodal, domain-general representational hub in the anterior temporal lobe.
+However, the idea that the anterior temporal lobe is a semantic hub has not
+received strong support from functional neuroimaging studies. In fact, left
+inferior frontal, posterior temporal, and temporoparietal activations are more
+frequent in these studies than are anterior temporal activations. It has been
+suggested that the scarcity of anterior temporal lobe activation in fMRI studies
+reflects a poor signal-to-noise ratio in this region that is due to the proximity to
+air-filled sinuses. However, this explanation cannot explain why the fMRI activations found in this area are often associated with social conceptual knowledge,
+such as processing famous faces, rather than with knowledge in general. Hub
+supporters argue that the social tasks are more sensitive because they require
+more specific identification (e.g., recognizing a particular famous person). Yet a
+recent fMRI study that compared learning facts about specific people, specific
+buildings, and specific hammers found greater anterior temporal activity for
+people compared to the other two categories (Figure 9.11D). In sum, although
+the idea that the anterior temporal lobe is an abstract knowledge hub fits well
+with anatomical and lesion evidence, functional neuroimaging evidence has
+often linked the anterior temporal lobes more to social knowledge than to
+knowledge in general.
+
+The reactivation of cortical regions for recent episodic memories
+According to the memory model described at the beginning of the chapter,
+retrieval of recent episodic memories requires access to hippocampal indices,
+which in turn lead to the reactivation of cortical memory traces. Let’s consider
+the latter first. Relevant evidence for this process has been provided by singlecell recording studies in non-human animals and by functional neuroimaging
+studies in humans.
+As an example of single-cell recording evidence, one study trained monkeys until they could remember associations between pairs of pictures (e.g.,
+between pictures 12 and 12’ in Figure 9.12A). At test, one of the pictures was
+presented during the cue period, and after a delay, monkeys had to choose the
+associated picture. Many neurons in anterior temporal cortex showed a firing
+pattern consistent with reactivation. For example, a neuron that fired selectively
+to picture 12 when this picture was presented during the cue period (Figure
+9.12B) also fired when picture 12’ was the cue, but in this case the firing occurred
+later, during the delay period (Figure 9.12C), consistent with the retrieval of
+picture 12’ before the choice period. This type of neuron, which the authors
+called “pair-recall neurons,” could be the neurons whose synapses stored the
+associations between the pictures.
+At a coarser level, functional neuroimaging studies can detect cortical reactivation in humans. In a typical paradigm (Figure 9.13A), participants study
+cues (e.g., words) in two different contexts (e.g., words paired with associated
+pictures or with associated sounds). At test, the cues are presented without their
+contexts (e.g., words alone) while participants make old-versus-new recognition
+or context memory decisions. The presence of encoding-related reactivations is
+demonstrated by retrieval activity in brain regions associated with the study
+contexts (e.g., visual cortex versus auditory cortex), even though these contexts
+were not presented during retrieval. Since context-related activity cannot be
+attributed to the test cues, it can be reasonably inferred as resulting from reactivation of the encoding context. Reactivation has been demonstrated for a variety
+of sensory contexts besides visual and auditory modalities. For example, objects
+encoded with odors reactivate piriform cortex during retrieval, and objects
+encoded with emotional pictures reactivate the amygdala during retrieval.
+
+■ 297
+
+298 ■ CHAPTER 9
+(A)
+
+1
+
+1′
+
+2
+
+2′
+
+3
+
+3′
+
+4
+
+4′
+
+5
+
+5′
+
+6
+
+6′
+
+7
+
+7′
+
+8
+
+8′
+
+9
+
+9′
+
+10
+
+10′
+
+11
+
+11′
+
+12
+
+12′
+
+(B)
+
+Figure 9.12 Reactivation of visually
+paired associates in monkeys’
+inferior temporal cortex (A) Monkeys
+were extensively trained until they
+learn to associate the two visual
+patterns in each pair. (B,C) At test,
+monkeys were presented with one
+member of a pair (e.g., 12) and after a
+delay they had to distinguish between
+the other member of the pair (e.g.,
+12ʹ) and a distracter pattern (e.g., 11ʹ).
+“Pair-recall” neurons responded more
+strongly to one picture (e.g., picture
+12) during the cue period (B), as well
+as to its associated picture (e.g.,
+picture 12ʹ) during the delay period (C),
+suggesting that they store the memory
+for the newly learned association.
+(After Sakai and Miyashita 1991.)
+
+(C)
+
+Spikes/s
+
+50
+
+Spikes/s
+
+50
+
+0
+
+0
+
+Cue
+
+Delay
+
+Choice
+
+Cue
+
+Delay
+
+Choice
+
+Although these examples are all about the reactivation of sensory contexts,
+memory theories also predict reactivation of the encoding operations or strategies. In fact, the fundamental memory principle known as transfer-appropriate
+processing postulates that memory success is a function of the overlap between
+encoding and retrieval operations. A classic behavioral study supporting
+this idea found that when participants learned words by focusing either on
+semantics (e.g., Is brain a part of the body?) or on phonology (e.g., Does brain
+rhyme with train?), the semantic encoding task yielded better performance
+in a typical retrieval test emphasizing word meaning (e.g., Did you read the
+word brain?), whereas the phonology encoding task yielded better performance
+in a retrieval test emphasizing word sound (e.g., Did you read a word that
+rhymes with train?). In other words, whether a particular encoding task yields
+
+DECLARATIVE MEMORY
+(A)
+
+Train sound
+
+(B) Response to cued picture
+
+“train”
+
+Study
+
+“banjo”
+
+■ 299
+
+Study: Scene
+Study: Sentence
+Test: Remember scene
+Test: Remember sentence
+Test: Know
+
+Mean response
+(arbitrary units)
+
+Fusiform gyrus
+1
+
+0
+
+–1
+
+(C) Response to associated picture
+
+“banjo”
+
+Face estimate
+
+Location estimate
+
+Object estimate
+
+Face recall
+
+Location recall
+
+Object recall
+
+“train”
+
+Study-test match
+
+Test
+
+1.0
+0.8
+0.6
+0.4
+0.2
+0
+
+good memory performance depends on how well the cognitive
+operations recruited by the encoding task match the operations
+engaged by the test.
+The concept of transfer-appropriate processing suggests that
+retrieval reactivations may reflect not only sensory aspects of the
+encoding context, but also the specific strategies used to encode
+the stimuli. Consistent with this idea, functional neuroimaging
+studies have identified retrieval reactivations that reflect the use
+of motor or visual imagery during encoding. As an example of
+motor imagery, one study found that when participants learned
+action phrases such as “roll the ball,” retrieval activations were
+stronger in motor and somatosensory cortices if, rather than covertly
+rehearsing the phrase, they imagined themselves performing
+the action. As an example of visual imagery reactivations, one
+study had participants encode each word either by imagining the
+
+10
+
+20
+
+30
+
+40
+50
+60
+Time (scans)
+
+70
+
+80
+
+90
+
+Figure 9.13 Detecting reactivation during episodic
+memory retrieval in humans (A) A typical paradigm
+for measuring reactivation activity. Participants study
+words paired with pictures or paired with sounds,
+and at test, the words are presented alone while
+participants make old-versus-new recognition or
+context memory decisions. Since the words are
+presented alone, differences in retrieval activity as
+a function of encoding context are interpreted as
+reactivation. (B) A fusiform gyrus region showed
+greater activity for scene than for sentence encoding
+tasks, and the same region was reactivated during
+retrieval, particularly for “remember” responses. (C)
+Multivoxel pattern analysis (MVPA) classifiers trained
+in distinguishing distributed activation patterns for
+faces, locations, and objects showed reactivation
+of these patterns before items in the corresponding
+categories were recalled. (A after Danker and
+Anderson 2010, with brain images from Wheeler et
+al. 2000; B after Johnson and Rugg 2007; C after
+Polyn et al. 2006.)
+
+300 ■ CHAPTER 9
+referent object in a visual scene or by generating a sentence including the word.
+In the test phase, only words were presented, and participants made “remember”
+(recollection), “know” (familiarity), or “new” responses. As illustrated in Figure
+9.13B, the same fusiform region that showed greater activity for scene imagery
+than for sentence generation during encoding also showed greater activity for
+words encoded in the scene than for words encoded in the sentence task, even
+though the test stimuli were identical. This effect was greater for “remember”
+than for “know” responses, suggesting that the reactivation of encoding details
+contributes to the experience of recollection.
+Whereas the foregoing reactivations were detected in the overall amount of
+activity within a certain brain region, the recapitulation of encoding contexts
+or operations can also be observed in the distributed pattern of retrieval activations. The reactivation of distributed activation patterns has been investigated
+using multivoxel pattern analysis (MVPA; see Chapter 2). For example, a study
+that trained an MVPA classifier to distinguish among activation patterns for
+faces (e.g., Jack Nicholson), locations (e.g., the Taj Mahal), and objects (e.g., a
+tree) identified the reactivation of these distributed patterns during retrieval
+just before participants recalled the names of faces, locations, or objects (Figure
+9.13C). In other words, distributed activation patterns predicted the types of
+stimuli participants were about to recall. MVPA studies have also been applied
+to item recognition and source memory tasks.
+In addition to involving the reactivation of cortical memory traces, the model
+in Figure 9.2 assumes that for nonconsolidated memories, retrieval entails the
+reactivation of hippocampal indices. Hippocampal reactivation has also been
+investigated using MVPA. In one study, for example, participants repeatedly
+viewed short video clips of three distinct everyday events (e.g., taking a drink
+from a disposable coffee cup and throwing the cup into a trash can). Then,
+while in the MRI scanner, they recalled the movie clips with their eyes closed.
+MVPA classifiers were trained on half of the imaging data during recall and
+were then applied to the other half. Using only activation patterns within the
+hippocampus, the classifiers were able to successfully identify the particular
+video clip being recalled by individual participants.
+
+Contributions of the Prefrontal Cortex to Encoding
+and Retrieval
+Evidence for the role of prefrontal regions during memory encoding and retrieval phases comes from both neuroimaging and patient studies. Functional
+neuroimaging has the advantage of providing independent measures of brain
+activity during encoding and retrieval. In contrast, evidence from brain-damaged patients cannot easily distinguish between these two memory phases;
+when damage of a certain brain region, such as the prefrontal cortex, impairs
+memory performance, it is unclear whether this impairment reflects an encoding deficit, a retrieval deficit, or both. On the other hand, patient studies
+provide information about whether a certain region is actually necessary for
+memory performance.
+
+Functional neuroimaging of episodic encoding
+A powerful way to isolate the neural correlates of episodic encoding is the subsequent memory paradigm. This method, described in Box 9B, involves comparing
+encoding-phase activity for items that are remembered versus those forgotten in
+a subsequent memory test. As Figure 9.14A illustrates, the left inferior frontal
+gyrus tends to show greater encoding activity for words that are subsequently
+remembered than for words forgotten. These differences in activity, known as
+
+DECLARATIVE MEMORY
+(A)
+
+(B)
+
+Semantic versus baseline
+
+4
+Remembered
+Forgotten
+
+Activity level
+
+3
+2
+1
+
+Phonological versus baseline
+0
+–1
+0
+
+4
+
+8
+
+12
+
+Time (s)
+
+Figure 9.14 Subsequent memory effects and semantic processing in the left
+inferior frontal gyrus (A) Greater encoding activity is seen in the left inferior frontal
+gyrus for words that were subsequently remembered than for words subsequently
+forgotten. This difference is known as a subsequent memory effect (SME). (B)
+Evidence that the anterior part of the left inferior frontal gyrus is associated with
+semantic processing. This region was activated when participants attended to
+meaningful associations among semantically related words (e.g., tiger, circus, jungle)
+but not when they attended to sound associations between phonologically related
+words (e.g., skill, fill, hill). (A after Paller and Wagner 2002; B from McDermott et al.
+2003.)
+
+subsequent memory effects (SMEs), are also typically found in medial temporal
+lobe and dorsal parietal lobe regions. In general, SMEs in the inferior frontal
+gyrus tended to occur in the left hemisphere for verbal stimuli and bilaterally
+for visual stimuli.
+The results of language studies suggest that SMEs in the anterior part of
+the left inferior frontal gyrus are likely to reflect enhanced semantic processing, whereas SMEs in the posterior part are more likely to reflect phonological
+processing. The posterior part includes the region known as Broca’s area, and
+damage to this region is associated with a deficiency called production aphasia
+(see Chapter 12). The dissociation between semantic and phonological processing in anterior compared to posterior parts of the left inferior frontal gyrus has
+been confirmed by several fMRI studies (Figure 9.14B).
+
+■ 301
+
+302 ■ CHAPTER 9
+
+■ BOX 9B FUNCTIONAL NEUROIMAGING METHODS TO STUDY
+EPISODIC MEMORY
+
+A
+
+s described in Chapter 2, functional neuroimaging provides a
+powerful method to investigate the
+neural correlates of cognitive functions.
+With respect to episodic memory, these
+methods are especially useful in that they
+can distinguish between encoding and
+retrieval. In studies of brain-damaged
+patients who are impaired in episodic
+memory, it is difficult or impossible to
+know whether the impairment reflects
+encoding deficits, retrieval deficits, or
+both. Functional neuroimaging studies of
+normal subjects, however, have identified
+differences in the involvement of several
+brain regions in encoding versus retrieval.
+
+(A)
+
+a
+
+In working to isolate activity specifically associated with successful encoding
+or retrieval operations, the event-related
+potential (ERP) designs described in
+Chapter 2 are well suited to this purpose
+because they allow a direct comparison
+between successful and unsuccessful
+trials during encoding and/or retrieval.
+When applied to encoding, this method
+is known as the subsequent memory
+paradigm and involves four steps
+(Figure A).
+In Step 1, participants study a series
+of items (a,b,c…) while their brain activity is recorded. Step 2 requires that they
+perform encoding trials, remembering
+
+some of the studied items and forgetting
+others. On the basis of retrieval performance, in Step 3 the encoding trials are
+coded as subsequently remembered or
+subsequently forgotten; activity during these two types of encoding trials
+is compared in Step 4. Greater activity
+for subsequently remembered than for
+forgotten trials, assumed to reflect successful encoding processes, is known as
+subsequent memory effects (SMEs).
+The subsequent memory paradigm
+has been used in ERP studies since the
+early 1980s by cognitive neuroscientist
+Kenneth Paller and other researchers. In
+ERP studies, SMEs tend to be seen over
+
+ENCODING
+1
+b
+
+c
+
+d
+
+e
+
+RETRIEVAL
+2
+f
+
+g
+
+h
+
+a
+
+b
+
+c
+
+d
+
+e
+
+f
+
+g
+
+h
+
+3
+a
+
+b
+
+c
+
+d
+
+e
+
+Subsequently
+remembered
+
+f
+
+g
+
+h
+
+Subsequently
+forgotten
+
+Remembered
+(hits)
+
+4
+
+Forgotten
+(misses)
+
+*
+
+(A) A method for comparing successful and
+unsuccessful trials during encoding and
+retrieval. (B) Example of SMEs using an ERP
+paradigm. Compared to later-forgotten faces,
+later-remembered faces elicited greater positivity in frontal and parietal electrodes starting
+at about 300 milliseconds. μV, microvolts.
+(From Guo et al. 2005.)
+
+(B)
+
+200–400 ms
+
+–2
+
+400–600 ms
+
+μV
+
+600–800 ms
+
+2
+
+DECLARATIVE MEMORY
+
+■ 303
+
+■ BOX 9B (continued)
+frontoparietal scalp regions. Although the
+neural generators of scalp ERPs are uncertain, this method has the advantage
+of providing fine temporal resolution. As
+an example, Figure B, which shows that
+ERPs for later-remembered and forgotten faces start to diverge around 300
+milliseconds after stimulus onset—a
+distinction that persists until about 800
+milliseconds. This time window provides
+a useful limit on speculation about the
+cognitive processes supporting successful face encoding.
+As illustrated by the right-hand panel
+in Figure A, successful versus unsuccessful trials (i.e., hits versus misses) can
+also be compared during retrieval. An
+
+alternative approach to isolating activity associated with retrieval success is
+to compare hits to correct rejections of
+new items. An important advantage of
+the hit-versus-miss contrast is that the
+same sets of items are compared as
+in the subsequent memory paradigm
+(e.g., a,b,e,h versus c,d,f,g in Figure A).
+An advantage of the hit-versus-correctrejection comparison is that it is based
+on correct responses, and hence not
+contaminated with error production and
+detection processes. A problem of using correct rejections as the baseline,
+however, is that new items elicit novelty
+detection processes that may contaminate retrieval-related activations.
+
+SMEs are usually found in the inferior frontal gyrus (ventrolateral prefrontal cortex; Figure 9.15A), but rarely in the middle frontal gyrus (dorsolateral
+prefrontal cortex). This pattern may reflect the simple nature of the stimuli
+commonly used in SME studies (e.g., unrelated words), which do not typically
+require the organizing functions attributed to dorsolateral prefrontal regions
+(see Chapter 13). To investigate this idea, participants can be scanned while
+they are reordering or rehearsing words in working memory. The participants
+are later tested outside the scanner for memory of the learned words. The left
+dorsolateral prefrontal region in this study showed a significant SME (Figure
+9.15B), but only for the reorder condition (Figure 9.15C). This finding suggests that the dorsolateral prefrontal region contributes to successful episodic
+encoding through its role in organizing or manipulating information within
+working memory.
+
+Functional neuroimaging of episodic retrieval
+Consider trying to remember what you had for breakfast the day before yesterday. Your train of thought might go something like this:
+Hmm … the day before yesterday I had a class in the morning and I
+didn’t have much time for breakfast. I had something in the kitchen. I
+made coffee, which I always have in the morning, and I probably made
+some eggs … No, I didn’t have eggs because I was in a hurry … Now, I
+remember! I grabbed a slice of bread and ate it while walking out of the
+apartment.
+
+This example illustrates typical components of episodic memory retrieval. A
+retrieval cue (the question about breakfast) triggers a memory search that narrows the focus to a particular time and place (the day before yesterday, in the
+kitchen), which leads to the recovery of increasingly specific stored memory
+traces (grabbing a slice of bread, eating it while walking). Descriptively at
+least, the information recovered is evaluated by a monitoring process that can
+reject inappropriate memories (e.g., eggs), leading to further refinement. While
+these different processes are taking place, a hypothetical mental state known
+as retrieval mode is assumed to keep continuous attentional focus on the past
+
+References
+BUCKNER, R. L. AND M. E. WHEELER (2001)
+The cognitive neuroscience of remembering. Nat. Rev. Neurosci. 2: 624–634.
+GUO, C., J. L. VOSS AND K. A. PALLER (2005)
+Electrophysiological correlates of forming
+memories for faces, names, and face–name
+associations. Brain Res. Cogn. Brain Res. 22:
+153–164.
+PALLER, K. A. AND A. D. WAGNER (2002)
+Observing the transformation of experience into memory. Trends Cogn. Sci. 6:
+93–102.
+
+304 ■ CHAPTER 9
+(A)
+
+(C)
+0.7
+High subsequent memory
+Low subsequent memory
+High subsequent memory
+Low subsequent memory
+
+0.6
+0.5
+
+Reorder
+Rehearse
+
+(B)
+
+Signal change (%)
+
+0.4
+0.3
+0.2
+0.1
+0
+–0.1
+–0.2
+Cue
+0
+
+2
+
+4
+
+6
+
+Delay
+8
+
+10
+
+12
+
+14
+16
+Time (s)
+
+Probe
+18
+
+20
+
+22
+
+24
+
+26
+
+28
+
+Figure 9.15 SMEs in the inferior versus middle frontal gyri (A) SMEs are
+typically found in the left inferior frontal gyrus (green dots) but rarely in the middle
+frontal gyrus (red dots). (B) However, when the encoding task requires organizing
+information within working memory, the middle frontal gyrus (shown in red) shows a
+robust SME. (C) This region showed a significant SME during the delay period of a
+working memory task when participants reordered words during this period but not
+when they just rehearsed them. (After Blumenfeld and Ranganath 2006.)
+
+events in question. All these processes tend to operate very fast, and we are
+usually unaware of their operations. In the laboratory, however, the cognitive
+and neural mechanisms of these processes can be investigated by measuring
+the effects of experimental variables on various episodic memory tests.
+Episodic memory tests include item recognition, recall, and source memory
+tests. In a typical item recognition test, participants are presented with items
+(e.g., words) previously encountered in the laboratory (old) intermixed with
+items never encountered in the context of the laboratory (new), and they are
+asked to classify each item as either “old” or “new”. Correct responses include
+responding “old” to an old item (hit) and responding “new” to a new item (correct rejection); incorrect responses include responding “old” to a new item (false
+alarm) and responding “new” to an old item (miss; Table 9.1).
+In a recall test, the target information is not provided by the experimenter
+and must be generated by the participant in response to contextual information,
+which is broad in a free-recall test (“Recall the words you read at the beginning
+of the experiment”) or item-specific in a cued-recall test (“Recall the word that
+was paired with the word house”).
+In a source (or context) memory test, participants are
+TABLE 9.1 Four Recognition Memory Outcomes
+provided with items and must retrieve the spatial, sensory, or semantic context associated with the item during
+RESPONSE
+encoding (e.g., “Was the word house presented on the left
+or the right side of the screen?”).
+“OLD”
+“NEW”
+ITEM CLASSIFICATION
+One variable often measured or manipulated by funcOld
+Hit
+Miss
+tional neuroimaging researchers is the amount of informaNew
+False alarm
+Correct rejection
+tion successfully retrieved. Since this amount is assumed
+
+DECLARATIVE MEMORY
+(A)
+
+Encoding
+
+Retrieval
+
+Encoding versus retrieval
+
+■ 305
+
+(B)
+
+MFG
+IFG
+
+fMRI activity (effect size)
+
+0.8
+0.6
+0.4
+0.2
+0
+–0.2
+–0.4
+–0.6
+
+PPC
+PMR
+(C)
+
+Signal change (%)
+
+0.4
+0.3
+0.2
+0.1
+0
+–0.1
+
+High control
+Low control
+
+–0.2
+–0.3
+9.4
+
+56.6
+
+103.8
+
+151.0
+198.2
+Time (s)
+
+245.4
+
+292.6
+
+to be greater for hits than for correct rejections, regions showing greater activity
+for hits than for correct rejections are presumed to be involved in recovering
+memories and/or holding recovered information within working memory.
+These regions typically include left inferior and left middle frontal gyri, as
+well as the posterior parietal and posterior midline regions considered in the
+next section (Figure 9.16A). These regions are also associated with successful
+retrieval during source memory tasks. Activations in the left middle frontal
+gyrus tend to be more frequent during retrieval than during encoding, possibly
+reflecting greater demands of working memory manipulation during memory
+search. Conversely, activations in the anterior left inferior frontal gyrus tend to
+be more pronounced during encoding than during retrieval, possibly reflecting
+greater semantic processing contributions during encoding.
+Another variable often measured in functional neuroimaging studies of
+episodic retrieval is confidence. In general, “old” responses made with high
+confidence are assumed to involve greater information recovery than those
+made with low confidence. Conversely, monitoring processes are assumed to
+be more demanding for low-confidence than for high-confidence responses.
+Using this logic, fMRI studies have linked monitoring processes to activity in
+
+Low
+
+Medium
+High
+Recognition confidence
+
+Figure 9.16 Frontal regions
+associated with episodic retrieval
+processes (A) Meta-analysis showing
+brain regions frequently activated
+during successful encoding (SMEs)
+and retrieval (hits minus correct
+rejections). Whereas the left inferior
+frontal gyrus (IFG) is more frequently
+activated during encoding, the left
+middle frontal gyrus (MFG) and the
+posterior parietal cortex (PPC) are
+more frequently activated during
+retrieval. PMR, posterior midline
+region. (B) This study showed right
+dorsolateral prefrontal activity to
+be greater for low-confidence than
+for high-confidence recognition
+responses, possibly reflecting
+monitoring. (C) The right frontopolar
+cortex showed sustained activity
+during an episodic retrieval task,
+possibly reflecting retrieval mode.
+Dashed lines indicate average activity
+and show differences during the
+block (gray bars) but not during the
+interblock intervals. (A from Spaniol et
+al. 2009; B after Fleck et al. 2006; C
+after Velanova et al. 2003.)
+
+306 ■ CHAPTER 9
+right dorsolateral prefrontal cortex, which tends to show greater activity for
+low-confidence than for high-confidence recognition decisions (Figure 9.16B). It
+is worth mentioning, however, that the same region also shows greater activity
+for low-confidence than for high-confidence perceptual decisions, suggesting
+that this region mediates monitoring processes that are shared by episodic
+retrieval and other cognitive functions.
+Finally, retrieval processes also differ in their temporal characteristics. In a
+typical episodic retrieval test that includes several items from the same past event
+(e.g., a study list), memory recovery and monitoring processes are assumed to
+vary from trial to trial, and to dissipate during the intertrial interval. Retrieval
+mode, however, is assumed be sustained throughout the task, including the
+interval between the trials. One way of distinguishing sustained from transient
+activations is to use the hybrid block/event-related designs described in Chapter
+2. For example, a hybrid fMRI study found that the right anterior prefrontal
+cortex showed sustained activity during episodic retrieval (Figure 9.16C),
+thereby linking this region to retrieval mode, rather than to more transient
+event-related processes.
+
+Effects of frontal lobe lesions
+Whereas medial temporal lobe lesions are associated with a devastating amnesia
+syndrome, frontal lobe lesions typically cause only mild declarative memory
+deficits, and only in certain tasks. In general, the effects of frontal damage on
+declarative memory appear to be a function of the strategic demands of the
+task. Recall and source memory tests, which depend more on strategic control
+processes, tend to be more affected by frontal lesions than recognition memory
+tests are. For example, in one study patients with frontal lobe damage, agematched controls, and younger controls were presented a series of facts that
+previous testing indicated they had not known prior to the study. After a delay,
+participants performed recognition and source memory tests for the facts. In
+the source memory test, they had to indicate whether they had learned the fact
+during the experiment or had known it all along (the latter being an “incorrect” answer). Although the three groups performed at about the same level in
+recognition, frontally damaged patients made many more errors in identifying
+the source of the memories than did the two control groups (Figure 9.17A).
+Source memory deficits in frontal lobe patients may reflect impairments
+in encoding processes, such as semantic processing and working memory
+manipulation, and/or impairments in retrieval processes, such as organizing
+the memory search and monitoring retrieved information. Functional neuroimaging evidence can be used to predict which processes will be more affected
+depending on the location of the lesion. For example, given that fMRI studies
+have linked monitoring processes to the right dorsolateral prefrontal cortex
+(see Figure 9.16B), damage to this region should lead to a monitoring failure.
+Consistent with this idea, cognitive neuroscientist Daniel Schacter and colleagues
+reported a patient (B.G.) with a large right dorsolateral prefrontal lesion who
+showed a severe deficit in rejecting new items. As illustrated in Figure 9.17B,
+B.G. produced an abnormally high proportion of “old” responses to nonstudied
+items (false alarms), many of which he classified as remembered rather than
+known. Control participants very rarely classify false alarms as remembered.
+This sort of impairment suggests a monitoring deficit.
+Although dorsolateral prefrontal lesions may lead to increased false alarms in
+laboratory memory tasks, they are not typically associated with false memories
+for complex autobiographical events, or confabulations. Patients suffering from
+confabulation report personal events that never happened. Confabulations may
+be spontaneous, generated by the patient without any apparent prompting; or
+provoked, generated in response to direct questions. Sometimes confabulations
+
+(A)
+
+Recall
+of facts
+
+100
+
+Recognition
+of facts
+
+40
+
+90
+30
+
+70
+Source error (%)
+
+Correct response (%)
+
+80
+
+60
+50
+40
+30
+
+20
+
+10
+
+20
+10
+0
+
+0
+F
+
+O
+
+Y
+
+F
+
+O
+
+Y
+
+DECLARATIVE MEMORY
+
+Overall
+source errors
+
+F
+
+O
+
+Y
+
+Figure 9.17 Recall, recognition, and source
+memory in patients with frontal lobe damage
+(A) Patients with frontal lobe damage (F) were
+compared with age-matched controls (O) and
+with younger control subjects (Y). Performance
+on recognition memory was similar across
+all three groups, but source memory was
+significantly impaired in patients with frontal
+lobe damage. (B) Patient B.G., who has a large
+lesion of the right dorsolateral prefrontal cortex,
+is impaired in memory monitoring. He showed a
+very high false-alarm rate for nonstudied words,
+many of which he classified as remembered
+rather than known. (C) Overlapping lesions in
+a group of confabulating patients. The colors
+represent the number of patients with lesions
+that overlap, ranging from one patient (purple) to
+all patients (red). (A after Janowsky et al. 1989;
+B after Schacter et al. 1996; C from Gilboa et al.
+2006.)
+
+(B)
+
+Proportion of “old” responses
+
+1.0
+B.G.
+Controls
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+0
+
+Known
+
+Remembered Remembered
+and known
+Not studied
+
+Known
+
+■ 307
+
+Remembered Remembered
+and known
+Studied
+
+(C)
+
+involve misplacing an event in time and/or place, such as the case of a patient
+who remembered an imaginary trip abroad to visit a relative when the meeting
+with the relative actually occurred while the patient was in the hospital. Other
+times confabulations can be fantastic, such as the case of a patient who claimed
+that his father had been abducted by aliens over the weekend. This bizarre
+confabulation was apparently a blend of two different memories: (1) the father
+
+308 ■ CHAPTER 9
+
+Figure 9.18 Gross anatomy of
+posterior parietal cortex Posterior
+parietal cortex (PPC) consists of
+the parietal regions posterior to
+the somatosensory cortex and can
+be divided into dorsal and ventral
+components. Dorsal PPC includes
+the intraparietal sulcus (IPS) and the
+superior parietal lobule, which extends
+medially into the precuneus region.
+Ventral parietal cortex consists of the
+angular gyrus and the supramarginal
+gyrus, which includes the area known
+as the temporoparietal junction (TPJ).
+
+missed his usual weekend visit, and (2) in a previous visit he had brought toy
+aliens for the patient’s children.
+Confabulation is a sign found in numerous disorders, including schizophrenia, Korsakoff’s syndrome (dementia arising from severe alcoholism),
+other dementias, and aneurysms of the anterior communicating artery. In
+brain-damaged patients, spontaneous confabulation has been associated with
+lesions in ventromedial prefrontal and orbitofrontal regions (Figure 9.17C). It
+is unclear whether confabulations reflect difficulty in discriminating between
+internally and externally generated representations, confusion about temporal
+order, deficits in strategic retrieval processes, or a combination of these problems.
+In sum, episodic memory encoding and retrieval have been associated with
+activations in specific prefrontal regions and with patients that have frontal
+damage deficits in some episodic retrieval tests. During episodic encoding,
+subsequent memory effects (SMEs) are typically found in the left inferior frontal
+gyrus for verbal stimuli and bilaterally for pictorial stimuli. The anterior part
+of the left inferior frontal gyrus has been associated with semantic processing;
+the posterior part, with phonological processing. Dorsolateral prefrontal regions
+may also show SMEs when stimuli are more complex and require organization
+of the information in working memory to facilitate subsequent memory retrieval.
+Episodic retrieval involves a variety of processes, including memory search,
+monitoring, and retrieval. Successful memory recovery has been associated
+with left dorsolateral prefrontal regions; monitoring, with right dorsolateral
+prefrontal cortex; and retrieval, with frontopolar cortex. Damage to prefrontal
+regions produces larger impairments on strategic memory tests, such as recall
+and source memory tests, than on simple recognition tests. Damage to the right
+dorsolateral prefrontal cortex has been linked to deficits in monitoring and
+increased false alarms. Damage to the ventromedial and orbitofrontal regions
+may sometimes lead to a dramatic tendency toward confabulations. Taken
+together with functional neuroimaging results, these findings are generally
+consistent with the assumption that the prefrontal cortex contributes semantic
+and executive control processes to encoding and retrieval. Prefrontal regions
+operate in tight connection with parietal regions, which are also thought to play
+an important role in declarative memory, as reviewed in the following section.
+
+Superior
+parietal lobule
+I n tr
+
+a p arietal sulcus
+
+Supramarginal
+gyrus
+TPJ
+Angular
+gyrus
+
+Dorsal PPC
+Ventral PPC
+
+Contributions of the Posterior Parietal
+Cortex to Encoding and Retrieval
+Although the parietal cortex is not a region traditionally associated with memory, recent evidence suggests it plays an
+important role in declarative memory, both during retrieval
+and during encoding.
+
+The role of posterior parietal cortex during retrieval
+The role of posterior parietal cortex during episodic memory
+retrieval was first detected by ERP studies of recognition, which
+consistently showed a parietal positivity that is greater for hits
+than for correct rejections at about 400 to 800 milliseconds after
+the stimulus (Box 9C). Event-related fMRI studies later confirmed
+the parietal origin of these effects and showed that activation
+patterns differ for dorsal and ventral parietal cortex (the anatomy
+is illustrated in Figure 9.18). As Figure 9.19A shows, activations
+associated with familiarity and low-confidence recognition are
+more frequent in dorsal parietal cortex, whereas activations
+associated with recollection and high-confidence recognition
+trials are more frequent in ventral parietal cortex.
+
+DECLARATIVE MEMORY
+
+■ 309
+
+■ BOX 9C ERP STUDIES OF EPISODIC RETRIEVAL
+
+S
+
+tudies of episodic memory retrieval using event-related potentials
+have identified three consistent
+differences between recalling old and
+new items. First, about 300 to 500 milliseconds after a stimulus is presented,
+new items tend to elicit greater negative voltage over midfrontal regions than
+do old items. This frontal negativity (FN)
+effect has been called the FN400 effect
+to distinguish it from the central parietal
+N400 effect typically associated with
+semantic processing. The FN400 effect
+responds similarly to studied items and
+to new items that appear familiar, and
+to both deeply and shallowly encoded
+items (Figure A). Because of these and
+other findings, the FN400 effect has
+been attributed to familiarity.
+Second, 400 to 800 milliseconds after
+the stimulus, old items tend to elicit more
+positive voltage over parietal electrodes
+than new items do. This effect is typically
+left-lateralized for verbal materials, and
+it is known as the left parietal effect.
+This phenomenon tends to be more
+pronounced when higher (more complex)
+levels of recollection are required. For example, the effect tends to be greater for
+deeply encoded items than for shallowly
+encoded items (Figure B); for words
+judged as “remembered” rather than
+“known”; and for words accompanied
+by successful rather than unsuccessful
+source retrieval. The source of the left
+parietal effect is most likely the left posterior parietal region, since it is typically
+activated during PET and fMRI studies of
+episodic retrieval and is strongly associated with retrieval success.
+Finally, at 600 to 1200 milliseconds
+poststimulus, old items sometimes elicit a
+more positive response over right frontal
+regions than do new items; this is known
+as the right frontal effect. The right fron-
+
+(B)
+
+(A)
+Shallow hit – Shallow miss
+
+Deep hit – Shallow hit
+
++
+
++
+
+RF
+
+LP
+
+Left parietal
+effect
+
+FN400 effect
+0
+
+600
+Time (ms)
+
+0
+
+ERP waveforms during recognition of new words and words
+studied under deep or shallow encoding conditions. (A) The
+FN400 effect associated with familiarity (deep = shallow).
+(B) The left parietal effect associated with recollection (deep
+> shallow). RF, right frontal electrode; LP, left parietal electrode. μV, microvolts. (From Rugg and Yonelinas 2003.)
+
+600
+Time (ms)
++
+5 μV
+
+New
+Shallow hit
+Deep hit
+
+tal effect is usually apparent during tasks
+that entail demanding source memory
+decisions and is assumed to reflect
+postretrieval operations. This idea fits the
+extended time course of the right frontal
+effect, and it is consistent with functional
+neuroimaging and lesion evidence linking
+the right prefrontal cortex to monitoring.
+
+Memory: A Neurocognitive Approach, H. D.
+Zimmer, A. Mecklinger and U. Lindenberger (eds.). Oxford: Oxford University
+Press, pp. 467–492.
+
+References
+
+RUGG, M. D. AND A. P. YONELINAS (2003)
+Human recognition memory: A cognitive
+neuroscience perspective. Trends Cogn. Sci.
+7: 313–319.
+
+CURRAN, T., K. L. TEPE AND C. PIATT (2006)
+ERP explorations of dual processes in
+recognition memory. In Binding in Human
+
+To explain this dissociation, one theory, known as the attention to memory
+(AtoM) model and proposed by cognitive neuroscientists Roberto Cabeza, Elisa
+Ciaramelli, and Morris Moscovitch, extends the distinction between ventral and
+dorsal attention systems (see Chapter 7) to memory. This theory postulates that
+the dorsal parietal cortex mediates top-down attention processes, which are
+required by demanding memory search and monitoring operations, whereas
+ventral parietal cortex mediates bottom-up attention processes, which are captured by salient memories or retrieval cues. The AtoM theory explains dorsal
+parietal activations for familiarity and low-confidence recognition trials, which
+involve greater memory search and monitoring; and ventral parietal activations for recollection and high-confidence recognition trials, which involve the
+
+RUGG, M. D. (2004) Retrieval processing in
+human memory: Electrophysiological and
+fMRI evidence. In The Cognitive Neurosciences, 3rd Ed., M. S. Gazzaniga (ed.). Cambridge, MA: MIT Press, pp. 727–737.
+
+310 ■ CHAPTER 9
+(B) Encoding
+
+(A) Retrieval
+
+Familiarity
+Low-confidence
+recognition
+
+Positive SME
+
+Recollection
+High-confidence
+recognition
+(C)
+
+Figure 9.19 Posterior parietal activations during
+episodic retrieval and encoding (A) Meta-analysis
+showing that retrieval activations associated with
+recollection and high-confidence recognition are
+more frequent in ventral parietal cortex, whereas
+activations associated with familiarity and lowconfidence recognition are more frequent in dorsal
+parietal cortex. (B) Meta-analysis showing that positive
+SMEs (remembered > forgotten) are more frequent
+in dorsal parietal cortex, whereas negative SMEs
+(forgotten > remembered) are more frequent in ventral
+parietal cortex. (C) Across five different studies, the
+same ventral parietal regions that showed a negative
+SME (forgotten > remembered) during encoding also
+showed success-related activity (remembered >
+forgotten) during retrieval—a pattern called encodingretrieval flip. (A after Cabeza et al. 2008; B after
+Uncapher and Wagner 2009; C after Daselaar et al.
+2009.)
+
+Encoding
+Left
+
+Negative SME
+
+Retrieval
+Right
+
+Experiment 1: Faces
+
+6
+4
+2
+0
+–2
+–4
+–6
+
+6
+4
+2
+0
+–2
+–4
+–6
+
+Remembered – Forgotten
+
+Experiment 2: Scenes
+5
+
+4
+
+3
+
+2
+
+1
+0
+–1
+
+0
+
+–3
+
+–2
+
+–5
+
+–4
+
+0.5
+
+Experiment 3: Word pairs
+
+0.3
+0.1
+0
+–0.1
+
+0.3
+0.2
+0.1
+0
+–0.1
+–0.2
+–0.3
+
+–0.3
+Experiment 4: Single words
+1.4
+
+2.7
+1.7
+
+0.4
+0
+
+0.7
+0
+–0.3
+
+–0.6
+
+–1.3
+
+–1.6
+
+–2.3
+Experiment 5: Single words
+
+5
+3
+1
+0
+–1
+–3
+
+3
+2
+1
+0
+–1
+–2
+–3
+–4
+
+DECLARATIVE MEMORY
+
+recovery of salient episodic details. An alternative theory of ventral parietal
+cortex function, known as the episodic buffer hypothesis, proposes that this region
+mediates the maintenance of recovered multisensory episodic memories within
+working memory.
+Thorough neuropsychological assessment of patients with ventral parietal
+lesions revealed subtle memory deficits. One study found that when these patients were asked to describe autobiographical memories, they produced fewer
+episodic details than did controls. However, when specific questions about
+these details were posed, the patients were able to generate the missing details.
+This finding suggests that the episodic details were available but not spontaneously attended. Likewise, another study found that in the “remember”/“know”
+paradigm, ventral parietal patients produced fewer “remember” responses; but
+when tested in a source memory task in which episodic details were specifically tested, they performed as well as controls did. Again, episodic details
+apparently were available but were not spontaneously attended. The finding
+that ventral parietal lesions impair not memory retrieval per se, but only the
+ability to spontaneously attend to the retrieval output, fits well with the AtoM
+model. However, an important challenge for any theory of parietal contributions to declarative memory is to explain not only retrieval findings but also
+encoding findings.
+
+The role of posterior parietal cortex during encoding
+As during retrieval, dorsal and ventral parietal regions show very different
+activation patterns during encoding. In fact, the dorsal-ventral dissociation is
+even more dramatic during encoding (Figure 9.19B); whereas dorsal parietal
+regions show greater activity for subsequently remembered than for forgotten
+trials (positive SMEs), ventral parietal regions show the reverse effect: greater
+activity for subsequently forgotten than remembered items (negative SMEs).
+Thus, the same ventral parietal regions that are associated with retrieval success (recollection, high-confidence recognition) are associated with encoding
+failure (subsequent forgetting). A study that compared activity for remembered
+versus forgotten trials during encoding and during retrieval in five experiments using different stimuli confirmed that the same ventral parietal regions
+that showed negative SMEs during encoding (subsequently forgotten greater
+than subsequently remembered) also showed success effects during retrieval
+(remembered more than forgotten; Figure 9.19C).
+A possible explanation of this “encoding-retrieval flip” is provided by the
+attention to memory model’s assumption that the ventral parietal cortex mediates bottom-up attention. During retrieval, bottom-up attention is associated
+with memory success because it reflects the capture of attention by recovered
+memories. During encoding, by contrast, information to be learned is the focus
+of top-down attention, and bottom-up attention is more likely to reflect attention
+shifts to unrelated environmental stimuli or spontaneous thoughts, away from
+the items that are meant to be encoded. For this reason, bottom-up attention
+during encoding is more likely to reflect distraction and to be associated with
+encoding failure. These ideas, however, remain highly speculative.
+In sum, posterior parietal regions play a role in episodic memory retrieval and
+encoding. During retrieval, dorsal parietal cortex is associated with familiarity
+and low-confidence recognition, whereas ventral parietal cortex is associated
+with recollection and high-confidence recognition. One possible explanation of
+this pattern is that, similar to what happens during perception, dorsal parietal
+cortex is involved in top-down attention and ventral parietal cortex is involved
+in bottom-up attention. Consistent with a role in bottom-up attention, damage
+to ventral parietal cortex impairs not the ability to retrieve episodic details, but
+only the ability to spontaneously report these details. During encoding, dorsal
+
+■ 311
+
+312 ■ CHAPTER 9
+parietal regions are associated with encoding success (positive SME), whereas
+ventral parietal regions are associated with encoding failure (negative SME).
+Thus, ventral parietal regions are associated with retrieval success and with
+encoding failure. The reasons for this encoding-retrieval flip are still unknown.
+
+Memory Consolidation
+The term consolidation (from the Latin for “to make firm”) refers to the progressive
+stabilization of long-term memory that follows the initial encoding of memory
+traces. The discussion that follows distinguishes between synaptic and system
+consolidation, describes theories of system consolidation, considers the roles
+of the hippocampus and the cortex as complementary learning systems, and
+reviews evidence of consolidation during sleep.
+
+Synaptic versus system consolidation
+Consolidation occurs at both cellular and system levels, known respectively as
+synaptic consolidation and system consolidation. Synaptic consolidation is accomplished within a few minutes to hours after encoding. It involves changes in
+gene expression, protein synthesis, and other mechanisms of synaptic plasticity
+that allow the persistence of memory traces at the cellular level (see Chapter 8).
+In vertebrate animal models, synaptic consolidation occurs in regions of the
+brain pertinent to long-term memory storage. One way of disrupting synaptic
+consolidation is to administer protein synthesis inhibitors. These drugs block longterm synaptic changes but do not impair the perceptual and motor processes
+required for task performance. In Figure 9.20A, for example, protein-synthesis
+inhibitors disrupted nondeclarative memory when administered during the
+first hour after training but not thereafter, indicating that synaptic consolidation was completed within this time. Similar synaptic consolidation processes
+presumably apply to all memory systems.
+In contrast, the phrase system consolidation has been applied to changes in
+neural connectivity that can take days, months, or even years, and it involves
+a change in the brain regions supporting certain types of memory. System
+consolidation is said to occur when a particular brain region that was necessary
+for post-encoding memory performance is no longer required, or when it can be
+demonstrated that another brain region is now needed to preserve the memory.
+Although system consolidation involves changes at cellular and molecular levels,
+the term emphasizes a description at the system level—namely, a change in
+relative contributions of different brain regions. System consolidation applies
+to both declarative and nondeclarative memory and can be observed even in
+invertebrates, but typically the term is used to describe changes in the role of
+the medial temporal lobe regions in declarative memory.
+
+(A) Synaptic
+100
+
+(B) System
+
+Consolidated memory (%)
+
+Figure 9.20 Synaptic and system
+consolidation show different time
+courses (A) Synaptic consolidation
+was demonstrated in this example
+by administering a protein synthesis
+inhibitor to goldfish at different times
+following learning. Sensitivity to the
+drug lasted about an hour. (B) System
+consolidation was demonstrated here
+by damaging the hippocampus of rats
+at different times following contextual
+fear conditioning. Sensitivity to the
+lesion lasts about a month. (After
+Dudai 2004; data in A from Agranoff
+et al. 1966; data in B from Kim and
+Fanselow 1992.)
+
+0
+
+0
+
+30
+
+60
+Minutes
+
+90
+
+1
+
+7
+
+14
+21
+Days
+
+28
+
+DECLARATIVE MEMORY
+
+■ 313
+
+System consolidation was first described in 1982 by the French psychologist Théodule-Armand Ribot, who noted that memory loss following brain
+damage affects recent memories to a greater extent than remote memories; this
+temporal gradient became known as Ribot’s law. Indeed, the medial temporal
+lobe amnesia displayed by H.M. and similar patients shows such a temporal
+gradient. Studies on human patients are limited, however, because the locations
+of the lesions cannot be controlled and the assessment of memory must rely
+on retrospective measures, such as memory for news events and the like. By
+contrast, in animal studies it is possible to selectively damage a region that is
+assumed to be critical for system consolidation at different times after encoding.
+For example, hippocampal lesions in rats impaired declarative memory during
+the first month after encoding but not thereafter (Figure 9.20B). Although in this
+example system consolidation occurred within a month, temporal gradients in
+amnesia patients suggest that some forms of system consolidation in humans
+may take years.
+
+Theories of system consolidation in declarative memory
+There are two main theories of system consolidation: standard consolidation
+theory and multiple-trace theory. The standard consolidation theory was introduced earlier, in the description of the basic neurological memory model in
+Figure 9.2. As previously noted, the standard assumption is that in the case of
+recent events, the various cortical memories for one event (e.g., the color of the
+balloons, the sound of the music, and action of dancing at a birthday party)
+are disconnected from each other, and hence they can be reactivated together
+only via the indices stored in the hippocampus (see retrieval of recent memory
+in Figure 9.2C). In the case of remote memories, by contrast, repeated reactivation of the cortical traces in the time since the original forming of the memory
+presumably leads to the establishment of direct connections between the distributed cortical traces. As a result, cortical traces for remote memories can be
+reactivated as a unit, independently of the medial temporal lobes (see retrieval
+of remote memory in Figure 9.2C).
+This point is further illustrated in Figure 9.21: before consolidation, the
+connections between the hippocampus and cortical units are essential for
+reactivation; after consolidation, direct connections are established among the
+cortical units, and the cortical-hippocampal connections become less critical
+for retrieval. This hypothetical consolidation process is sometimes described
+as a “transfer” of memories from the hippocampus to the cortex, but, as illustrated in Figure 9.21, memories are not really transferred; what is transferred,
+or expanded, is the ability to enact the reactivation process.
+In 1997, Lynn Nadel and Morris Moscovitch pointed out problems with this
+standard consolidation theory. One problem they noted is that in some patients
+
+Cortex
+
+Necessary connection
+Unnecessary connection
+
+Hippocampus
+Time
+
+Figure 9.21 The standard model of
+declarative system consolidation
+As time passes and memories are
+repeatedly reactivated, direct associations are formed among cortical
+units, and the connections with the
+hippocampus become less critical for
+retrieving the memory. (After Frankland
+and Bontempi 2005.)
+
+314 ■ CHAPTER 9
+with medial temporal lobe amnesia, retrograde amnesia for autobiographical
+(episodic) memory information can be quite extensive, occasionally spanning
+almost the entire life of the individual. If interpreted according to standard
+consolidation theory, this observation would suggest that the consolidation
+process may take more than 40 years—as long as the average human life span
+throughout much of history.
+To explain this and other phenomena, Nadel and Moscovitch proposed an
+alternative model, called the multiple-trace theory, in which episodic memories,
+consolidated or otherwise, always depend on the hippocampus. In this account,
+the temporal gradient found in some amnesia patients is due not to transfer
+to the cortex, but to the number of memory traces for an event stored in the
+hippocampus. A central idea of the multiple-trace theory is that each time a
+memory is reactivated, a new memory trace for the memory is stored in the
+hippocampus. As a result, remote events are encoded by multiple hippocampal
+traces and become more resistant to partial hippocampal damage. Thus, partial
+damage of the hippocampus would yield a temporally graded amnesia, similar
+to the one predicted by standard consolidation theory. However, the multipletrace theory further predicts that when hippocampal damage is complete,
+retrieval of both recent and remote memories should be equally affected, and
+hence, the retrograde amnesia should be complete (flat) rather than temporally
+graded. As for semantic memories, the theory postulates that they are gradually
+extracted from repeated episodes and are stored in the cortex independently
+of the hippocampus. At present, there is evidence for both the standard and
+multiple-trace theories, and their respective strengths and weaknesses are the
+topic of much debate.
+
+Consolidation, reactivation, and sleep
+A number of studies in recent years have made the case that consolidation is
+promoted by memory reactivation during memory retrieval (discussed earlier) and, more surprisingly, during sleep. The idea that memories are also
+reactivated, or replayed, during sleep was suggested by behavioral evidence
+indicating that sleeping soon after learning attenuates forgetting and enhances
+resistance to inference. Electroencephalographic (EEG) studies suggested that
+rapid-eye-movement (REM) sleep is more important for nondeclarative memory consolidation, whereas slow-wave sleep is more important for declarative
+memory consolidation.
+For example, one study implanted electrodes in the hippocampus and visual
+cortex of rats, and measured neuronal firing in these brain regions while the
+rats ran in a figure-eight maze, as well as during periods of slow-wave sleep
+before and after maze running. Localized firing fields were found not only in
+hippocampal place cells but also in visual cortex. The cells that fired in specific
+locations could be ordered in a sequence (e.g., sequence 01234567 in Figure
+9.22A). The most striking finding was that in both the hippocampus and the
+visual cortex, the firing sequences found during maze running were replayed
+during subsequent slow-wave sleep. Moreover, replay events in the hippocampus and visual cortex were coordinated, suggesting simultaneous reactivation
+in the two regions. This simultaneous hippocampal-cortical reactivation was
+proposed to gradually strengthen cortical-cortical synapses, leading to memory
+consolidation.
+Although this evidence is intriguing, to establish a causal link between
+sleep replay and memory enhancement, it is important to directly manipulate
+sleep replay. To investigate this idea, researchers presented stimuli during sleep
+that are associated with the learning experience and can promote replay. In one
+such study, participants learned object-location associations while a specific
+odor (the scent of roses) was present in the room. Presenting the same smells
+
+DECLARATIVE MEMORY
+(A)
+
+(B)
+
+Postrun sleep
+
+Subsequently cued
+
+Subsequently uncued
+
+Visual cortex
+
+Maze running
+
+■ 315
+
+0.5 s
+
+1s
+
+(C)
+0.6
+
+Right FFA-LOC
+Mean rest correlation (r)
+
+Meow
+
+Changes in error (%)
+
+Hippocampus
+
+1s
+
+0.4
+
+0.2
+
+Baseline
+
+25
+
+Whistle
+
+Change in spatial recall after nap
+
+20
+15
+10
+5
+0
+
+0.2 s
+
+Cued
+
+Uncued
+
+Figure 9.22 Consolidation-related changes during sleep and rest (A) Average
+firing rate of hippocampal and visual cortex cells while rats were running through
+a figure eight–shaped maze, and later while they were sleeping after the run. Each
+line corresponds to one cell. In both regions, firing sequences identified during
+maze running were replayed during slow-wave sleep, and firing in the two regions
+was coordinated during sleep consistent with memory reactivation. (B) In this
+behavioral and ERP study, participants learned object-spatial associations while
+listening to sounds associated with each object. During a nap after learning, the
+sounds for half of the objects were presented during slow-wave sleep. Spatial
+memory after the nap improved for cued objects but not for uncued objects. (C)
+Functional connectivity between the FFA and LOC regions measured during rest
+was enhanced after participants learned a series of object-face associations but
+not scene-face associations. (A after Ji and Wilson 2007; B after Rudoy et al. 2009;
+C after Tambini et al. 2010.)
+
+Post
+Post
+object-face scene-face
+Rest scan
+
+again during slow-wave sleep increased hippocampal activity and improved
+memory for object locations the next day. In another study (Figure 9.22B),
+participants learned associations between objects and spatial locations (e.g.,
+cat near the bottom left) while listening to a sound associated with each object.
+During a nap after learning, the sound for half of the objects was presented
+during slow-wave sleep. Spatial memory after the nap improved for cued but
+not uncued objects.
+While most studies of consolidation-related reactivation have focused on
+sleep, consolidation presumably happens during rest while awake too. For example, a recent fMRI study found that functional connectivity among relevant
+cortical regions was greater during a rest period after learning than during a
+rest period before learning. More specifically, functional connectivity between
+regions associated with processing objects (lateral occipital complex, LOC)
+
+316 ■ CHAPTER 9
+and faces (fusiform face area, FFA; see Chapter 3) was enhanced after learning
+object-face associations but not after learning scene-face associations (Figure
+9.22C). Moreover, learning object-face associations also enhanced connectivity
+between LOC and the hippocampus, and this increase in connectivity predicted
+subsequent memory for the object-face associations.
+In short, consolidation occurs at both cellular and system levels. Synaptic consolidation involves changes in synaptic morphology and takes a few
+minutes or hours. System consolidation (which must also depend on synaptic
+connectivity) involves reorganization in the brain regions supporting long-term
+memories and may take days, months, or even years. According to the standard
+theory of declarative system consolidation, recent memories depend on the
+medial temporal lobes, but, through repeated reactivation, direct associative
+connections are created among cortical traces, and memories can be accessed
+independently of the medial temporal lobes. This idea can explain the temporally graded retrograde amnesia in patients with medial temporal lobe damage.
+According to multiple-trace theory, however, the temporal gradient reflects a
+greater number of hippocampal traces for remote memories. But both theories
+agree that consolidation involves memory reactivation, which happens not only
+during intentional retrieval, but also during sleep and rest.
+
+Summary
+1. Declarative memory is conscious memory for events (episodic memory) and facts
+(semantic memory). Episodic memory may involve remembering contextual
+details (recollection) or merely having vague feelings of knowing (familiarity).
+2. According to the most popular model of declarative memory, during encoding,
+memory traces are stored in the cortical regions that process each type of information; at the same time, the hippocampus stores indices pointing to these cortical
+locations. During this period of storage, some memories are strengthened (by consolidation) while others are lost. During retrieval, activation of hippocampal index
+representations leads to the reactivation of cortical traces. Damage to the hippocampus prevents access to cortical memory traces, producing memory loss (amnesia). Importantly, the hippocampus is no longer needed after memories have been
+consolidated, explaining why amnesia patients like H.M. can often remember
+remote memories. Prefrontal and parietal regions are assumed to mediate control
+processes during both encoding and retrieval.
+3. Hippocampal memory representations have been described as spatial, relational,
+or episodic. Developmental and adult amnesia cases suggest that the hippocampus is more critical for episodic than for semantic memory. Conversely, semantic
+dementia cases indicate that the anterior temporal lobe is more critical for semantic than for episodic memory. The hippocampus has also been more strongly
+linked to recollection than to familiarity.
+4. According to a three-process model, the perirhinal cortex is concerned with memory for objects; the parahippocampal cortex, with memory for spatial layouts; and
+the hippocampus, with domain-general relational memory.
+5. The organization of semantic knowledge may reflect the sensory and functional
+properties of objects and/or semantic categories. Semantic dementia cases suggest
+that the anterior temporal lobes could be an amodal semantic “hub,” with some
+links to social knowledge.
+6. Functional neuroimaging studies and single-unit recordings show that regions
+activated during encoding tend to be reactivated during retrieval. Consistent with
+transfer-appropriate processing, this reactivation varies with specific encoding
+strategies.
+7. The left inferior frontal gyrus has been associated with successful episodic encoding, possibly because of its role in semantic processing. The left middle frontal
+gyrus has been associated with organizing information during encoding and during retrieval. The right dorsolateral prefrontal cortex has been linked to monitoring processes; and the frontopolar cortex, to retrieval mode.
+8. Posterior lateral parietal regions are often activated in episodic retrieval. Dorsal
+parietal activations have been linked to top-down attention; and ventral parietal
+
+DECLARATIVE MEMORY
+activations, to bottom-up attention. During encoding, ventral parietal activations
+are associated with subsequent forgetting.
+9. Encoding is not completed immediately, but requires a process of synaptic consolidation, involving gene expression, protein synthesis, and synaptic plasticity.
+10. System consolidation is the formation of direct connections among cortical traces,
+which allows these traces to be accessed independently of the hippocampus and
+could explain why remote memories are often spared by hippocampal damage.
+According to a multiple-trace theory, the sparing of remote memories reflects the
+creation of new hippocampal traces each time a memory is reactivated.
+11. Consolidation is promoted by memory reactivation, whether by intentional practice, during slow-wave sleep, or at rest.
+
+Additional Reading
+Reviews
+BROWN, M. W. AND J. P. AGGLETON (2001)
+Recognition memory: What are the
+roles of the perirhinal cortex and hippocampus? Nat. Rev. Neurosci. 2: 51–61.
+CABEZA, R., E. CIARAMELLI, I. R. OLSON
+AND M. MOSCOVITCH (2008) The parietal cortex and episodic memory: An
+attentional account. Nat. Rev. Neurosci.
+9: 613–625.
+DANKER, J. F. AND J. R. ANDERSON (2010)
+The ghosts of brain states past: Remembering reactivates the brain regions
+engaged during encoding. Psychol. Bull.
+136: 87–102.
+DAVACHI, L. (2006) Item, context and
+relational episodic encoding in
+humans. Curr. Opin. Neurobiol. 16:
+693–700.
+DUDAI, Y. (2004) The neurobiology of
+consolidations, or, how stable is the
+engram? Annu. Rev. Psychol. 55: 51–86.
+EICHENBAUM, H., A. R. YONELINAS AND
+C. RANGANATH (2007) The medial temporal lobe and recognition memory.
+Annu. Rev. Neurosci. 30: 123–152.
+LAMPRECHT, R. AND J. LEDOUX (2004)
+Structural plasticity and memory. Nat.
+Rev. Neurosci. 5: 45–54.
+MARTIN, A. (2007) The representation of
+object concepts in the brain. Annu. Rev.
+Psychol. 58: 25–45.
+NADEL, L. AND M. MOSCOVITCH (1997)
+Memory consolidation, retrograde
+amnesia and the hippocampal complex.
+Curr. Opin. Neurobiol. 7: 217–227.
+
+PATTERSON, K., P. J. NESTOR AND T. T.
+ROGERS (2007) Where do you know
+what you know? The representation
+of semantic knowledge in the human
+brain. Nat. Rev. Neurosci. 8: 976–987.
+SQUIRE, L. R., C. E. STARK AND R. E. CLARK
+(2004) The medial temporal lobe. Annu.
+Rev. Neurosci. 27: 279–306.
+
+Important Original Papers
+BERRYHILL, M. E., L. PHUONG, L. PICASSO,
+R. CABEZA AND I. R. OLSON (2007) Parietal lobe and episodic memory: Bilateral damage causes impaired free recall
+of autobiographical memory.
+J. Neurosci. 27: 14415–14423.
+BUCKNER, R. L., S. E. PETERSEN, J. G. OJEMANN, F. M. MIEZIN, L. R. SQUIRE AND
+M. E. RAICHLE (1995) Functional anatomical studies of explicit and implicit
+memory retrieval tasks. J. Neurosci. 15:
+12–29.
+DAVIDSON, P. S. R. AND 8 OTHERS (2008)
+Does lateral parietal cortex support
+episodic memory? Evidence from focal
+lesion patients. Neuropsychologia 46:
+1743–1755.
+JI, D. Y. AND M. A. WILSON (2007) Coordinated memory replay in the visual
+cortex and hippocampus during sleep.
+Nat. Neurosci. 10: 100–107.
+MOSCOVITCH, M. AND B. MELO (1997)
+Strategic retrieval and the frontal
+lobes: Evidence from confabulation
+and amnesia. Neuropsychologia 35:
+1017–1034.
+POLYN, S. M., V. S. NATU, J. D. COHEN
+AND K. A. NORMAN (2005) Categoryspecific cortical activity precedes
+
+■ 317
+
+Go to the COMPANION WEBSITE
+sites.sinauer.com/cogneuro2e
+for quizzes, animations, flashcards,
+and other study resources.
+
+retrieval during memory search. Science
+310: 1963–1966.
+RASCH, B., C. BUECHEL, S. GAIS AND
+J. BORN (2007) Odor cues during
+slow-wave sleep prompt declarative
+memory consolidation. Science 315:
+1426–1429.
+RUDOY, J. D., J. L. VOSS, C. E. WESTERBERG
+AND K. A. PALLER (2009) Strengthening
+individual memories by reactivating
+them during sleep. Science 326: 1079.
+SAKAI, K. AND Y. MIYASHITA (1991) Neural organization for the long-term
+memory of paired associates. Nature
+354: 152–155.
+WAGNER, A. D. AND 7 OTHERS (1998)
+Building memories: Remembering
+and forgetting of verbal experiences as
+predicted by brain activity. Science 281:
+1188–1191.
+
+Books
+BADDELEY, A., M. A. CONWAY AND J. P.
+AGGLETON, EDS. (2002) Episodic Memory:
+New Directions in Research. Oxford:
+Oxford University Press.
+EICHENBAUM, H. AND N. J. COHEN (2004)
+From Conditioning to Conscious Recollection: Memory Systems of the Brain. New
+York: Oxford University Press.
+TULVING, E. (1983) Elements of Episodic
+Memory. Oxford: Oxford University
+Press.
+SQUIRE, L. R. AND E. R. KANDEL (1999)
+Memory: From Mind to Molecules. New
+York: Holt.
+
+
