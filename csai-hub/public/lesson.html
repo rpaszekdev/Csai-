@@ -346,6 +346,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:mlp">
 <div class="rust-bar"></div>
@@ -412,17 +413,7 @@
     </div>
     <p class="muted">Press ▶. Each input pulses along its weight, they meet at <strong>Σ</strong>, then <strong>f</strong> squashes the total into an output.</p>
     <div class="callout">A perceptron is a <strong>linear classifier</strong>. Its decision boundary is always a <strong>straight line</strong> in 2D (or a flat plane in higher dimensions). It's essentially the same idea as <strong>logistic regression</strong>.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>If we <strong>doubled all the weights</strong> but kept the inputs the same, what happens to the decision boundary?</p>
-      <div class="opts" data-q="p1">
-        <button class="opt" data-correct="false">It moves to a new position</button>
-        <button class="opt" data-correct="false">It rotates</button>
-        <button class="opt" data-correct="true">It stays in the same place</button>
-      </div>
-      <div class="reveal">Scaling the weights scales the total, but the <strong>zero crossing</strong> stays put. Bigger weights mean more <em>confidence</em>, not a different <em>decision</em>.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson1/slide-02.png" alt="slide 2" />
       <div class="cap">slide 2 — the perceptron's anatomy — inputs, weights, sum, activation</div>
     </div>
@@ -476,17 +467,7 @@
     <h2>Hard case: XOR</h2>
     <p><strong>XOR</strong> outputs <strong>1 when exactly one input is 1</strong>. The two 1-points sit on <strong>opposite corners</strong> of the square. So do the two 0-points.</p>
     <p class="muted">Try to draw one line that separates them. You can't — <strong>no single straight line</strong> can split the 1's from the 0's in this layout.</p>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why does XOR break the perceptron?</p>
-      <div class="opts" data-q="xor1">
-        <button class="opt" data-correct="false">XOR has more than 2 classes</button>
-        <button class="opt" data-correct="true">A perceptron can only draw a straight boundary</button>
-        <button class="opt" data-correct="false">There are too few data points</button>
-      </div>
-      <div class="reveal">A perceptron's decision boundary is always a <strong>straight line</strong>. XOR needs a <strong>curved</strong> or <strong>broken</strong> boundary. One perceptron can't make one.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson1/slide-08.png" alt="slide 8" />
       <div class="cap">slide 8 — XOR — no straight line can split the two classes</div>
     </div>
@@ -682,100 +663,6 @@
 </section>
 
 <!-- ═══════ QUIZ ═══════ -->
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> A single perceptron's decision boundary is always:</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">A circle</button>
-        <button class="opt" data-correct="true">A straight line</button>
-        <button class="opt" data-correct="false">A curved shape</button>
-      </div>
-      <div class="reveal">A perceptron computes <strong>w·x + b = 0</strong>, which is always a <strong>straight line</strong> in 2D or a flat plane in higher dimensions.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q2.</strong> Why can't a single perceptron solve XOR?</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">XOR is too noisy</button>
-        <button class="opt" data-correct="true">XOR is not linearly separable</button>
-        <button class="opt" data-correct="false">XOR has 4 classes</button>
-      </div>
-      <div class="reveal">No single straight line can separate the two 1-points from the two 0-points.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q3.</strong> What does a hidden layer do?</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">Adds more training data</button>
-        <button class="opt" data-correct="true">Reshapes the input into a new space where a line can separate it</button>
-        <button class="opt" data-correct="false">Slows down training</button>
-      </div>
-      <div class="reveal">The hidden layer <strong>transforms the input</strong>. In the new space, the final layer can finally find a straight boundary.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q4.</strong> Why do we write a whole layer as <strong>Wx + b</strong> instead of looping over neurons?</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">Readability</button>
-        <button class="opt" data-correct="true">GPUs are built for matrix multiplication</button>
-        <button class="opt" data-correct="false">Memory savings</button>
-      </div>
-      <div class="reveal">Matrix multiplication runs <strong>massively in parallel</strong> on GPUs. That's what makes modern deep learning feasible.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q5.</strong> An <strong>autoencoder</strong>'s hidden layer is narrower than the input. This forces it to:</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">Memorize every sample</button>
-        <button class="opt" data-correct="true">Learn a compressed version that keeps what matters</button>
-        <button class="opt" data-correct="false">Overfit</button>
-      </div>
-      <div class="reveal">Information has to <strong>squeeze through the bottleneck</strong>. The network learns to keep what's important and throw away the rest.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q6.</strong> The <strong>loss function</strong> exists to:</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">Make predictions</button>
-        <button class="opt" data-correct="true">Measure how wrong the output is, so weights can be adjusted</button>
-        <button class="opt" data-correct="false">Pick the learning rate</button>
-      </div>
-      <div class="reveal">Loss is a <strong>single number</strong> saying how wrong you are. Its gradient tells the weights which way to move.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q7.</strong> What happens if you stack several layers <strong>without</strong> a non-linear activation between them?</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="false">The network becomes non-linear</button>
-        <button class="opt" data-correct="true">The whole stack collapses to one linear layer — no extra power</button>
-        <button class="opt" data-correct="false">The network overfits</button>
-      </div>
-      <div class="reveal">A chain of matrix multiplies is still <strong>one matrix multiply</strong>. Without <strong>non-linearity</strong>, depth adds nothing — you're back to drawing a single straight line.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q8.</strong> Why can't the perceptron learning rule <code>Δw = η · error · input</code> train an MLP?</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">It's too slow</button>
-        <button class="opt" data-correct="true">We don't know the target for hidden-layer neurons</button>
-        <button class="opt" data-correct="false">Inputs are no longer binary</button>
-      </div>
-      <div class="reveal">The rule needs an <strong>error</strong> for each neuron. In a hidden layer there's no target — only the final output has one. That's what <strong>backpropagation</strong> solves.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q9.</strong> At the core, every neural network task is either:</p>
-      <div class="opts" data-q="q9">
-        <button class="opt" data-correct="false">Supervised or unsupervised</button>
-        <button class="opt" data-correct="true">Classification or regression</button>
-        <button class="opt" data-correct="false">Vision or language</button>
-      </div>
-      <div class="reveal">Every output is either a <strong>category</strong> (classification) or a <strong>number</strong> (regression). Everything else is a combination of these two.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson one<br/>
@@ -809,8 +696,6 @@
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 9</div>
 
 <script type="importmap">
 {
@@ -1832,27 +1717,6 @@ safeScene('apps', function appsScene() {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz / predict answering logic
 // ═══════════════════════════════════════════════════════════════════
-let score = 0;
-const seen = new Set();
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) {
-        opts.querySelectorAll('.opt').forEach(b => {
-          if (b.dataset.correct === 'true') b.classList.add('correct');
-        });
-      }
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        const total = document.querySelectorAll('.opts').length;
-        document.getElementById('score').textContent = `Score: ${score} / ${total}`;
       }
     };
   });

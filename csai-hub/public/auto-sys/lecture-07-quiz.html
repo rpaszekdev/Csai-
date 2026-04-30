@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W07 Quiz — Multimodal Learning, Interaction &amp; Communication</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-07.html" class="back">← Back to lecture</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-07.html">Lessons</a>
+  <a href="#" class="active">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 07 · Lecture 07 — Quiz Mode</span>
+      <h1 class="hero-title">
+        Multimodal Learning, Interaction &amp; Communication <span class="exam-mode-pill">Quiz</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>8 questions</span>
+      <span>~11 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">8</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Quiz Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">8</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;">correct</p>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-07.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lecture</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    "id": 1,
+    "section": "2. WHAT IS A MODALITY?",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "In multimodal ML, what is a <strong>modality</strong>?",
+    "options": [
+      {
+        "html": "Any deep neural network architecture."
+      },
+      {
+        "html": "<strong>A single channel of sensory information</strong> — e.g., vision, audio, text, touch — with its own representation and statistics.",
+        "correct": true
+      },
+      {
+        "html": "An optimiser variant."
+      },
+      {
+        "html": "A type of GPU."
+      }
+    ],
+    "prof": "Modality = a \"way the world reaches you.\" Vision, sound, touch, language — each has its own structure, and aligning them is the central challenge."
+  },
+  {
+    "id": 2,
+    "section": "3. FIVE CHALLENGES",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "The lecture lists five canonical challenges in multimodal ML. Which option is <strong>NOT</strong> one of them?",
+    "options": [
+      {
+        "html": "Representation — how to embed each modality."
+      },
+      {
+        "html": "Translation — mapping one modality to another."
+      },
+      {
+        "html": "Alignment — temporal/semantic correspondence."
+      },
+      {
+        "html": "<strong>Lossless audio compression</strong>.",
+        "correct": true
+      }
+    ],
+    "prof": "Representation, translation, alignment, fusion, co-learning. Audio compression is engineering, not a multimodal-ML challenge."
+  },
+  {
+    "id": 3,
+    "section": "6. THREE FUSION STRATEGIES",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Multimodal fusion strategies are commonly grouped into <strong>three</strong> categories. Which set is correct?",
+    "options": [
+      {
+        "html": "<strong>Early (data-level)</strong> · <strong>Late (decision-level)</strong> · <strong>Intermediate (representation-level)</strong>.",
+        "correct": true
+      },
+      {
+        "html": "Linear · Convolutional · Recurrent."
+      },
+      {
+        "html": "Encoder · Decoder · Discriminator."
+      },
+      {
+        "html": "Train · Validate · Test."
+      }
+    ],
+    "prof": "Where you fuse — raw signal, learned features, or final decisions — defines the architecture. Each has its own failure mode."
+  },
+  {
+    "id": 4,
+    "section": "7. EARLY FUSION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "<strong>Early (data-level) fusion</strong> concatenates raw modalities before the model. What is its main weakness?",
+    "options": [
+      {
+        "html": "It cannot learn at all."
+      },
+      {
+        "html": "<strong>Modalities must be temporally and dimensionally aligned</strong>, and the model has to learn to ignore irrelevant cross-modal noise.",
+        "correct": true
+      },
+      {
+        "html": "It always overfits."
+      },
+      {
+        "html": "It works only for images."
+      }
+    ],
+    "prof": "Early fusion is brittle: misalignment, missing channels, or different sampling rates and the whole input vector becomes garbage."
+  },
+  {
+    "id": 5,
+    "section": "8. LATE FUSION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "<strong>Late (decision-level) fusion</strong> trains a separate model per modality and combines their <strong>outputs</strong>. What does it gain — and lose?",
+    "options": [
+      {
+        "html": "Gains: cross-modal feature interactions. Loses: nothing."
+      },
+      {
+        "html": "Gains: <strong>robustness to missing modalities and easier engineering</strong>. Loses: <strong>cannot exploit fine-grained cross-modal interactions</strong>.",
+        "correct": true
+      },
+      {
+        "html": "Gains: faster training. Loses: model accuracy is identical to early fusion."
+      },
+      {
+        "html": "Gains: smaller models. Loses: cannot use GPUs."
+      }
+    ],
+    "prof": "Late fusion is the safe default — vote at the end. But you forfeit the cases where the modalities only make sense <em>together</em>."
+  },
+  {
+    "id": 6,
+    "section": "9. INTERMEDIATE FUSION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Intermediate (representation-level) fusion combines learned <strong>features</strong> from each modality before final prediction. Why is it now the dominant strategy?",
+    "options": [
+      {
+        "html": "It removes the need for any data."
+      },
+      {
+        "html": "It captures <strong>cross-modal interactions in a shared latent space</strong> while staying robust to per-modality noise.",
+        "correct": true
+      },
+      {
+        "html": "It runs without GPUs."
+      },
+      {
+        "html": "It guarantees zero overfitting."
+      }
+    ],
+    "prof": "Modern transformers (CLIP, multimodal LLMs) all live here. Per-modality encoders, then a shared latent — best of both worlds."
+  },
+  {
+    "id": 7,
+    "section": "5. iCub EXAMPLE",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "In the iCub multimodal object-recognition example, combining <strong>vision + touch</strong> outperforms either alone. The lecture's point is that:",
+    "options": [
+      {
+        "html": "Touch sensors are always more accurate than vision."
+      },
+      {
+        "html": "<strong>Modalities provide complementary information</strong> — touch resolves visual ambiguities (occluded faces, transparent objects) and vice versa.",
+        "correct": true
+      },
+      {
+        "html": "Vision is unnecessary for robots."
+      },
+      {
+        "html": "iCub uses no neural networks."
+      }
+    ],
+    "prof": "Multimodality matters when the modalities are <em>complementary</em>, not redundant. A glass cup looks invisible but feels obvious."
+  },
+  {
+    "id": 8,
+    "section": "10. ROTATION-INVARIANT RECOGNITION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Why does <strong>rotation-invariant</strong> recognition benefit from multimodal input?",
+    "options": [
+      {
+        "html": "Because GPUs handle rotation in hardware."
+      },
+      {
+        "html": "Because <strong>haptic features (mass, texture, edges) are rotation-invariant by nature</strong>, while vision is not — fusing them stabilises recognition.",
+        "correct": true
+      },
+      {
+        "html": "Because rotated images have higher contrast."
+      },
+      {
+        "html": "Because cameras have higher framerates."
+      }
+    ],
+    "prof": "Touch doesn't care which way you rotated the mug. Vision does. Fusing them gives you the rotation invariance for free."
+  }
+];
+
+const STORAGE_KEY = "csai_auto_sys_l07_quiz_v1";
+const SLIDE_BASE = "/auto-sys/week07-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? '<span class="badge prof">Prof</span>'
+    : '<span class="badge">Exam</span>';
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = (q.slides || []).map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = answered ? Math.round((correct / QUESTIONS.length) * 100) : 0;
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the quiz? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>

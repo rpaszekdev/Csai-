@@ -1,0 +1,348 @@
+/* ═══════════════════════════════════════════════════════════════
+   Autonomous Systems — exam-mode skin.
+   Layered AFTER lesson-shell.css + auto-sys.skin.css. Replaces the
+   lecture body with a locked two-column exam layout: sticky question
+   rail on the left, single-question column on the right, autosaved
+   progress. Mirrors cog-neuro-exam.css but adapted to auto-sys
+   tokens (no slide-frame overlay, ink-faint-2 falls back).
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --ink-faint-2: var(--ink-mute);
+}
+
+/* ── compact exam hero ───────────────────────────────────────── */
+.hero.exam {
+  padding: 36px 36px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+}
+.hero.exam .hero-num { display: none; }
+.hero.exam .hero-eyebrow { color: var(--rust); }
+.hero.exam .hero-title { font-size: 22px; }
+.hero.exam .hero-meta { margin-top: 14px; }
+
+.exam-progress {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 18px;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.exam-progress-bar {
+  flex: 1; max-width: 240px;
+  height: 2px; background: var(--ink-faint);
+  position: relative;
+}
+.exam-progress-bar > span {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--rust);
+  width: 0%;
+  transition: width 0.2s ease;
+}
+.exam-progress-pct { color: var(--ink); font-weight: 700; min-width: 36px; }
+.exam-mode-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  border: 1px solid var(--rust);
+  color: var(--rust);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 12px;
+  vertical-align: 3px;
+}
+
+/* ── locked exam layout ──────────────────────────────────────── */
+.exam-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 36px 96px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── left rail: question nav ─────────────────────────────────── */
+.q-rail {
+  position: sticky;
+  top: 24px;
+  display: flex; flex-direction: column; gap: 2px;
+  border-left: 1px solid var(--ink-faint);
+  padding: 6px 0 6px 14px;
+}
+.q-rail-head {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 600;
+  margin-bottom: 14px;
+}
+.q-rail button.q-item {
+  all: unset;
+  position: relative;
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 6px 0;
+  font-family: inherit;
+  font-size: 12px; letter-spacing: 0.12em;
+  color: var(--ink-mute);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.12s, border-color 0.12s;
+}
+.q-rail button.q-item:hover { color: var(--ink); }
+.q-rail button.q-item .q-num {
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+.q-rail button.q-item .q-tag {
+  font-size: 9px; letter-spacing: 0.22em;
+  color: var(--ink-faint-2);
+  text-transform: uppercase;
+}
+.q-rail button.q-item[data-status="answered"] {
+  color: var(--ink);
+}
+.q-rail button.q-item[data-status="answered"] .q-num::after {
+  content: "●";
+  margin-left: 6px;
+  color: var(--ink);
+}
+.q-rail button.q-item[data-status="skipped"] .q-num::after {
+  content: "◐";
+  margin-left: 6px;
+  color: var(--rust);
+}
+.q-rail button.q-item[data-status="pending"] .q-num::after {
+  content: "○";
+  margin-left: 6px;
+  color: var(--ink-faint);
+}
+.q-rail button.q-item.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.q-rail button.q-item.active::before {
+  content: "→";
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--rust);
+  font-weight: 700;
+}
+
+.q-rail-foot {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ink-faint);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.q-rail-foot strong { color: var(--ink); font-weight: 700; }
+.q-rail-foot .bar {
+  height: 2px; background: var(--ink-faint); margin-top: 4px;
+  position: relative;
+}
+.q-rail-foot .bar > span {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--rust);
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+/* ── main column ─────────────────────────────────────────────── */
+.q-main { min-width: 0; }
+.q-main .section-eyebrow {
+  margin-bottom: 18px;
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+}
+
+.q-prompt {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 32px;
+  max-width: 64ch;
+}
+.q-prompt strong { font-weight: 700; color: var(--ink); }
+
+.q-slide-refs {
+  float: right;
+  display: flex; gap: 10px;
+  margin: 0 0 18px 28px;
+  flex-wrap: wrap;
+}
+.q-slide-refs a {
+  display: block;
+  width: 120px;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  text-decoration: none;
+  cursor: zoom-in;
+  overflow: hidden;
+  border: 1px solid var(--ink-faint);
+  background: #fff;
+}
+.q-slide-refs a:hover { border-color: var(--ink); }
+.q-slide-refs a img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+.q-slide-refs a .num {
+  position: absolute; top: 4px; left: 6px;
+  background: var(--ink); color: var(--paper);
+  padding: 2px 7px;
+  font-size: 9px; letter-spacing: 0.14em; font-weight: 600;
+  z-index: 2;
+}
+
+/* ── options ─────────────────────────────────────────────────── */
+.q-options {
+  list-style: none; padding: 0; margin: 0 0 28px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.q-options li { padding: 0; margin: 0; }
+.q-options li::before { content: none; }
+.q-options button {
+  all: unset;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--ink-faint);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+.q-options button:hover { border-color: var(--ink); }
+.q-options button .q-opt-num {
+  font-weight: 700;
+  color: var(--ink-mute);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+.q-options button .q-opt-text strong { font-weight: 700; color: var(--ink); }
+
+.q-options.locked button { cursor: default; }
+.q-options.locked button:hover { border-color: var(--ink-faint); }
+.q-options button.correct {
+  border-color: var(--ink);
+  background: rgba(31, 120, 80, 0.07);
+}
+.q-options button.correct .q-opt-num { color: var(--ink); }
+.q-options button.wrong {
+  border-color: var(--rust);
+  background: rgba(168, 79, 42, 0.06);
+  text-decoration: line-through;
+  text-decoration-color: var(--rust);
+}
+.q-options button.wrong .q-opt-num { color: var(--rust); }
+.q-options button[disabled] { pointer-events: none; }
+
+/* ── reveal block (PROF emphasis after answer) ───────────────── */
+.q-reveal { display: none; margin: 28px 0 32px; }
+.q-reveal.shown { display: block; }
+.q-reveal .callout { margin: 0; }
+.q-reveal .callout-label { color: var(--rust); }
+
+/* ── action bar ──────────────────────────────────────────────── */
+.q-actions {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink-faint);
+}
+.q-actions button {
+  all: unset;
+  font-family: inherit;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-mute);
+  padding: 8px 14px;
+  border: 1px solid var(--ink-faint);
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.q-actions button:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.q-actions button.primary {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.q-actions button.primary:hover {
+  background: var(--rust);
+  border-color: var(--rust);
+}
+.q-actions button[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.q-actions .spacer { flex: 1; }
+.q-actions .autosave {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-faint-2);
+}
+.q-actions .autosave .dot {
+  display: inline-block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rust);
+  vertical-align: 1px;
+  margin-right: 6px;
+}
+
+/* ── final summary card ──────────────────────────────────────── */
+.q-summary { display: none; }
+.q-summary.shown { display: block; }
+.q-summary h2 {
+  font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-mute);
+  margin-bottom: 32px;
+}
+.q-summary .score-big {
+  font-size: 64px;
+  letter-spacing: -0.02em;
+  font-weight: 200;
+  color: var(--ink);
+  margin: 12px 0 4px;
+  line-height: 1;
+}
+.q-summary .score-big .pct { color: var(--rust); }
+.q-summary table { margin-top: 32px; }
+
+/* ── responsive ──────────────────────────────────────────────── */
+@media (max-width: 880px) {
+  .exam-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 28px 20px 64px;
+  }
+  .q-rail {
+    position: static;
+    border-left: none;
+    border-top: 1px solid var(--ink-faint);
+    border-bottom: 1px solid var(--ink-faint);
+    padding: 18px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+  }
+  .q-rail-head { width: 100%; margin-bottom: 6px; }
+  .q-rail button.q-item { padding: 4px 0; }
+  .q-rail-foot { width: 100%; }
+  .q-slide-refs { float: none; margin: 0 0 16px; }
+}

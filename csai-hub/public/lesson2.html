@@ -262,6 +262,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:backprop">
 <div class="rust-bar"></div>
@@ -602,65 +603,6 @@
   </div></div>
 </section>
 
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> Gradient descent moves the weights:</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">In the direction of the gradient</button>
-        <button class="opt" data-correct="true">Opposite to the gradient</button>
-        <button class="opt" data-correct="false">Randomly</button>
-      </div>
-      <div class="reveal">The <strong>gradient</strong> points toward <em>higher</em> loss. To reduce loss, we step in the <strong>opposite</strong> direction.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q2.</strong> What is the <strong>learning rate η</strong>?</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">A derivative</button>
-        <button class="opt" data-correct="true">How big a step to take along the gradient</button>
-        <button class="opt" data-correct="false">The number of layers</button>
-      </div>
-      <div class="reveal">Too small: slow training. Too big: you overshoot minima and bounce around.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q3.</strong> In backprop, δ<sup>l−1</sup> is computed from:</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">δ of the previous layer only</button>
-        <button class="opt" data-correct="true">δ of the next layer, the transposed weights, and this layer's activation derivative</button>
-        <button class="opt" data-correct="false">The raw input to the network</button>
-      </div>
-      <div class="reveal">δ<sup>l−1</sup> = (W<sup>l</sup>)ᵀ · δ<sup>l</sup> · f'(z<sup>l−1</sup>). Each layer's error is the next layer's error, pulled back through the weights, shaped by this layer's activation.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q4.</strong> Why is the <strong>step function</strong> unusable for hidden layers in backprop?</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">It's too slow</button>
-        <button class="opt" data-correct="true">Its derivative is 0 almost everywhere, killing the gradient</button>
-        <button class="opt" data-correct="false">It produces negative outputs</button>
-      </div>
-      <div class="reveal">The step is flat everywhere except one point, so <code>f'(z) = 0</code> almost always. Multiplied into the chain rule, it kills all learning.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q5.</strong> The gradient of the weights in any layer is:</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">δ alone</button>
-        <button class="opt" data-correct="true">δ multiplied by the layer's input</button>
-        <button class="opt" data-correct="false">The weight itself</button>
-      </div>
-      <div class="reveal">ΔW<sup>l</sup> = (a<sup>l−1</sup>)ᵀ · δ<sup>l</sup>. The error signal δ tells us "which direction the sum z should shift"; multiplying by the input tells us how to shift each weight to achieve that.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q6.</strong> Backpropagation is essentially:</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">A new optimization algorithm</button>
-        <button class="opt" data-correct="true">The chain rule applied repeatedly, from output back to input</button>
-        <button class="opt" data-correct="false">A replacement for gradient descent</button>
-      </div>
-      <div class="reveal">Backprop is just the <strong>chain rule</strong>, repeated layer by layer. Gradient descent is what <em>uses</em> those gradients to update weights.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson two<br/>
@@ -694,8 +636,6 @@
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 6</div>
 
 <script type="importmap">
 {
@@ -1690,23 +1630,6 @@ function buildLossSurfaceMesh(extent = 4, segments = 60) {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz logic
 // ═══════════════════════════════════════════════════════════════════
-let score = 0; const seen = new Set();
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
-        if (b.dataset.correct === 'true') b.classList.add('correct');
-      });
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        document.getElementById('score').textContent = `Score: ${score} / ${document.querySelectorAll('.opts').length}`;
       }
     };
   });

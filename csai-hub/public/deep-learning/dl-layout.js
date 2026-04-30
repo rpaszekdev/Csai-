@@ -1,33 +1,13 @@
 /* ═══════════════════════════════════════════════════════════════
-   dl-layout.js — re-orders each section.step's children at load
-   time so that the floated .stage-wrap appears BEFORE the prose,
-   not after it. This is what lets text wrap around the framed
-   animation card from the very first paragraph (cog-neuro pattern).
+   dl-layout.js — INTENTIONAL NO-OP.
 
-   Floats anchor at their position in the document. With the original
-   markup (text first, stage-wrap second), the float can only start
-   below the prose, leaving an L-shaped void on the left. Moving
-   stage-wrap to be the first child of .text fixes that — the float
-   anchors at the top of the section and prose flows around it.
+   Earlier this script reordered each section.step's children at load
+   time so the floated .stage-wrap appeared before the prose. That
+   reparented elements with live Canvas2D/WebGL contexts, which broke
+   animations on some lessons. The text-wrap-around effect is now
+   handled in CSS via absolute positioning on .stage-wrap inside a
+   relatively-positioned section.step (see /deep-learning/dl.skin.css).
 
-   Three.js scenes still find their canvas-host by id, so reordering
-   doesn't disrupt scene mounting.
+   This file is kept so the existing <script src="…dl-layout.js">
+   tags don't 404; it does nothing else.
    ═══════════════════════════════════════════════════════════════ */
-(() => {
-  const apply = () => {
-    document.querySelectorAll("section.step").forEach((section) => {
-      const text = section.querySelector(":scope > .text");
-      const stage = section.querySelector(":scope > .stage-wrap");
-      if (!text || !stage) return;
-      if (stage.dataset.dlReordered === "1") return;
-      text.insertBefore(stage, text.firstChild);
-      stage.dataset.dlReordered = "1";
-    });
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", apply);
-  } else {
-    apply();
-  }
-})();

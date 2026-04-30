@@ -254,6 +254,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:regularization">
 <div class="rust-bar"></div>
@@ -573,83 +574,6 @@
   </div></div>
 </section>
 
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> A model has 99% train accuracy and 62% test accuracy. The most likely cause is:</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">High bias (underfitting)</button>
-        <button class="opt" data-correct="true">High variance (overfitting)</button>
-        <button class="opt" data-correct="false">The learning rate is too low</button>
-      </div>
-      <div class="reveal">Near-perfect train but poor test is the textbook signature of <strong>overfitting</strong>. The model memorized the training set instead of learning the underlying pattern.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q2.</strong> The key difference between L1 and L2 regularization is:</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">L1 is faster to compute</button>
-        <button class="opt" data-correct="true">L1 drives some weights to exactly zero (sparsity); L2 shrinks all weights smoothly</button>
-        <button class="opt" data-correct="false">L2 works only for classification</button>
-      </div>
-      <div class="reveal">The L1 "budget" has corners on the axes, so the optimum often sits exactly at an axis — meaning one weight becomes zero. L2's round ball has no corners, so it just shrinks weights toward zero smoothly.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q3.</strong> In <strong>early stopping</strong>, we stop training when:</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">The training loss stops improving</button>
-        <button class="opt" data-correct="true">The validation loss has not improved for a set number of epochs (patience)</button>
-        <button class="opt" data-correct="false">The derivative of the loss is exactly zero</button>
-      </div>
-      <div class="reveal">Training loss basically always keeps dropping. It is the <strong>validation</strong> curve that tells you when you are starting to overfit. Patience protects you from stopping too early on a noisy dip.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q4.</strong> Why is flipping digit images horizontally a bad idea?</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">It wastes memory</button>
-        <button class="opt" data-correct="true">It does not preserve the label — a 6 becomes a 9</button>
-        <button class="opt" data-correct="false">Flipping is too slow</button>
-      </div>
-      <div class="reveal">Augmentations must be <strong>label-preserving</strong>. A flipped cat is still a cat, so it is safe. A flipped "6" is a "9", so the model would learn the wrong mapping.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q5.</strong> During training with dropout at rate p = 0.5, inverted dropout:</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">Multiplies kept activations by 0.5</button>
-        <button class="opt" data-correct="true">Divides kept activations by (1 − p) = 0.5, i.e. multiplies by 2</button>
-        <button class="opt" data-correct="false">Does nothing at training time</button>
-      </div>
-      <div class="reveal">Half the neurons are off, so the expected total input is halved. To compensate, kept activations are scaled up by <code>1/(1−p)</code> during training — then no scaling is needed at test time.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q6.</strong> <strong>Double descent</strong> means:</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">Gradient descent runs twice per epoch</button>
-        <button class="opt" data-correct="true">Test error drops again once model capacity grows far past the interpolation threshold</button>
-        <button class="opt" data-correct="false">Training uses two separate loss functions</button>
-      </div>
-      <div class="reveal">Classic theory predicts test error should keep rising with capacity. In deep networks it rises, peaks where the model just barely fits all training data, then <strong>falls again</strong>. Over-parameterization plus implicit regularization is the current best explanation.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q7.</strong> Batch norm's learnable γ and β exist because:</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="false">They replace the network's weights</button>
-        <button class="opt" data-correct="true">Forcing every layer to zero-mean unit-variance would limit expressiveness; γ, β let the layer pick any mean and variance</button>
-        <button class="opt" data-correct="false">They are only used at inference</button>
-      </div>
-      <div class="reveal">Pure standardization is too rigid. γ and β give the network the flexibility to rescale and shift back — while still keeping the activations under learned control.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q8.</strong> Which normalizer is preferred in Transformers?</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">Batch normalization</button>
-        <button class="opt" data-correct="true">Layer normalization</button>
-        <button class="opt" data-correct="false">Instance normalization</button>
-      </div>
-      <div class="reveal">Transformers process sequences of varying length with often small effective batches, where BN's batch statistics are unreliable. LayerNorm normalizes across features within a single sample and is batch-size independent.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson five<br/>
@@ -683,8 +607,6 @@
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 8</div>
 
 <script type="importmap">
 {
@@ -1710,24 +1632,6 @@ safeScene('bn', function () {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz + progress + TOC
 // ═══════════════════════════════════════════════════════════════════
-let score = 0; const seen = new Set();
-const totalQs = document.querySelectorAll('.opts').length;
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
-        if (b.dataset.correct === 'true') b.classList.add('correct');
-      });
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        document.getElementById('score').textContent = `Score: ${score} / ${totalQs}`;
       }
     };
   });

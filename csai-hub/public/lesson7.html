@@ -346,6 +346,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:transformers">
 <div class="rust-bar"></div>
@@ -410,17 +411,7 @@
       <strong>Two problems with pure recurrence.</strong> First, training is slow because each step waits for the previous one. Second, long sequences lose information — by the time the encoder reaches token 50, traces of token 1 have been overwritten and squashed many times.
     </div>
     <p class="muted">The animation shows the bottleneck: information flows left to right, gets crushed into a single state, then the decoder tries to recover it. Watch how the decoder gets <em>only one cable</em> from the encoder.</p>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why can't we compute hidden states <code>h<sub>1</sub></code>, <code>h<sub>2</sub></code>, <code>h<sub>3</sub></code> in parallel in a vanilla RNN?</p>
-      <div class="opts" data-q="p1">
-        <button class="opt" data-correct="false">Because the GPU isn't fast enough</button>
-        <button class="opt" data-correct="true">Because each h<sub>t</sub> depends on h<sub>t-1</sub></button>
-        <button class="opt" data-correct="false">Because the loss is non-differentiable</button>
-      </div>
-      <div class="reveal">Each hidden state is a function of the previous one. That is a strict <strong>data dependency</strong>. No matter how many cores you have, you must wait.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson7/slide-03.png" alt="slide 3" />
       <div class="cap">slide 3 — recurrence's fixed-size memory bottleneck</div>
     </div>
@@ -449,17 +440,7 @@
       <strong>The question on slide 7.</strong> Why can step 3 not pay attention to step 5? Because in a recurrent encoder, step 5 is computed <em>after</em> step 3. So step 3 only sees the past. That is a real handicap when the meaning of an early word depends on a later one.
     </div>
     <p class="muted">The heatmap on the right shows attention weights inside an RNN encoder. Each row is a query timestep; each column is a key timestep. The lower-left triangle lights up — earlier steps cannot see future ones.</p>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>If we drop the recurrent connections entirely, what becomes possible?</p>
-      <div class="opts" data-q="p2">
-        <button class="opt" data-correct="false">The model becomes smaller</button>
-        <button class="opt" data-correct="true">All inputs can be processed independently and in parallel</button>
-        <button class="opt" data-correct="false">The model needs less data</button>
-      </div>
-      <div class="reveal">Slide 8 makes this point exactly: <strong>remove the recurrent connections, process every input in parallel</strong>. That is the seed of the Transformer.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson7/slide-06.png" alt="slide 6" />
       <div class="cap">slide 6 — attention augments the recurrent decoder</div>
     </div>
@@ -568,17 +549,7 @@ Attention(Q, K, V) = softmax( Q · K<sup>T</sup> / √d<sub>k</sub> ) · V</div>
       <strong>Why divide by √d<sub>k</sub>?</strong> If <code>q</code> and <code>k</code> have dimension <code>d<sub>k</sub></code> and their entries are roughly unit-variance and independent, then the dot product <code>q · k</code> has variance proportional to <code>d<sub>k</sub></code>. Without the scaling, large <code>d<sub>k</sub></code> would push the softmax into a region where one entry dominates and the gradient vanishes. Dividing by <strong>√d<sub>k</sub></strong> keeps the variance roughly constant.
     </div>
     <p class="muted">Drag the slider. At low temperature (large scaling) the softmax is sharp — almost one-hot. At high temperature (no scaling, large <code>d<sub>k</sub></code>) the distribution either flattens out or collapses onto a single token. Both extremes hurt training.</p>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>If <code>d<sub>k</sub> = 64</code>, what does the formula divide the scores by?</p>
-      <div class="opts" data-q="p3">
-        <button class="opt" data-correct="false">64</button>
-        <button class="opt" data-correct="true">8 — that is √64</button>
-        <button class="opt" data-correct="false">log(64)</button>
-      </div>
-      <div class="reveal">The scaling factor is the square root of the key dimension. <code>√64 = 8</code>.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson7/slide-22.png" alt="slide 22" />
       <div class="cap">slide 22 — softmax(QKᵀ / √d) · V</div>
     </div>
@@ -736,110 +707,6 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
 </section>
 
 <!-- ═══════ QUIZ ═══════ -->
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> What is the main reason recurrent encoders are hard to parallelize?</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">They use too much memory</button>
-        <button class="opt" data-correct="true">Each hidden state depends on the previous one</button>
-        <button class="opt" data-correct="false">They use Layer Normalization</button>
-      </div>
-      <div class="reveal">The recurrent step <code>h<sub>t</sub> = f(x<sub>t</sub>, h<sub>t-1</sub>)</code> creates a strict data dependency chain. Self-attention drops it.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q2.</strong> In self-attention, the <strong>query</strong>, <strong>key</strong>, and <strong>value</strong> for a token come from:</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">Three different input tokens</button>
-        <button class="opt" data-correct="true">Three learned projections of the same input</button>
-        <button class="opt" data-correct="false">The previous time step's hidden state</button>
-      </div>
-      <div class="reveal">The same vector <code>x</code> is multiplied by <code>W<sub>Q</sub></code>, <code>W<sub>K</sub></code>, <code>W<sub>V</sub></code> to produce three different views.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q3.</strong> The attention scores are computed as:</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">The element-wise product of Q and V</button>
-        <button class="opt" data-correct="true">The dot product of each query with each key</button>
-        <button class="opt" data-correct="false">The cosine similarity of values</button>
-      </div>
-      <div class="reveal">Score(<em>i</em>, <em>j</em>) = <code>q<sub>i</sub> · k<sub>j</sub></code>. The result is then scaled by <code>√d<sub>k</sub></code> and softmaxed.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q4.</strong> Why divide the scores by <strong>√d<sub>k</sub></strong> before the softmax?</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">To make the result invariant to batch size</button>
-        <button class="opt" data-correct="true">To keep the variance of the scores from blowing up with d<sub>k</sub></button>
-        <button class="opt" data-correct="false">It is purely a runtime optimization</button>
-      </div>
-      <div class="reveal">Without scaling, large <code>d<sub>k</sub></code> produces huge logits, the softmax saturates, and the gradient vanishes.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q5.</strong> What does multi-head attention give you that single-head does not?</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">Lower memory cost</button>
-        <button class="opt" data-correct="true">Several different attention patterns learned in parallel</button>
-        <button class="opt" data-correct="false">Permutation invariance</button>
-      </div>
-      <div class="reveal">Each head has its own <code>Q</code>, <code>K</code>, <code>V</code> projection and learns a different relationship — syntactic, positional, semantic.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q6.</strong> Inside a Transformer block, what comes immediately after multi-head self-attention?</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="true">A residual connection plus LayerNorm</button>
-        <button class="opt" data-correct="false">A second attention layer</button>
-        <button class="opt" data-correct="false">A pooling step</button>
-      </div>
-      <div class="reveal">Add &amp; Norm: residual to keep the gradient path open, LayerNorm to stabilise statistics. Then the position-wise feed-forward network.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q7.</strong> What does the causal mask in masked self-attention contain?</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="false">Random noise for regularization</button>
-        <button class="opt" data-correct="true">−∞ on every position above the diagonal</button>
-        <button class="opt" data-correct="false">Zeros everywhere; the softmax handles it</button>
-      </div>
-      <div class="reveal">Adding <code>−∞</code> to future positions before softmax forces them to <code>e<sup>−∞</sup> = 0</code> after softmax, so they contribute nothing.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q8.</strong> Why do Transformers need positional encoding?</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">It speeds up softmax</button>
-        <button class="opt" data-correct="true">Self-attention has no built-in notion of token order</button>
-        <button class="opt" data-correct="false">It replaces the bias term</button>
-      </div>
-      <div class="reveal">Without recurrence or convolution, attention treats the sequence as a set. Positional encoding injects order back in.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q9.</strong> In sinusoidal positional encoding, low dimensions oscillate <em>__</em> across positions and high dimensions oscillate <em>__</em>.</p>
-      <div class="opts" data-q="q9">
-        <button class="opt" data-correct="true">slowly · quickly</button>
-        <button class="opt" data-correct="false">quickly · slowly</button>
-        <button class="opt" data-correct="false">at the same rate</button>
-      </div>
-      <div class="reveal">The frequency depends on <code>10000<sup>2i/d</sup></code>. Small <code>i</code> gives a long period (slow), large <code>i</code> gives a short period (fast).</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q10.</strong> A decoder cannot attend to future tokens during training because:</p>
-      <div class="opts" data-q="q10">
-        <button class="opt" data-correct="false">It would consume too much memory</button>
-        <button class="opt" data-correct="true">It would let the model cheat by copying the answer</button>
-        <button class="opt" data-correct="false">Future tokens haven't been computed yet</button>
-      </div>
-      <div class="reveal">Future tokens are known during teacher-forced training. The mask ensures the model still predicts each position from <em>only</em> the past — that's what it must do at inference time.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson seven<br/>
@@ -873,8 +740,6 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 13</div>
 
 <script type="importmap">
 {
@@ -1982,27 +1847,6 @@ safeScene('pe', function () {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz / predict answering logic
 // ═══════════════════════════════════════════════════════════════════
-let score = 0;
-const seen = new Set();
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) {
-        opts.querySelectorAll('.opt').forEach(b => {
-          if (b.dataset.correct === 'true') b.classList.add('correct');
-        });
-      }
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        const total = document.querySelectorAll('.opts').length;
-        document.getElementById('score').textContent = `Score: ${score} / ${total}`;
       }
     };
   });
@@ -2023,6 +1867,7 @@ const toc = document.getElementById('toc');
 document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
 toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 </script>
+<script src="/deep-learning/dl-layout.js" defer></script>
 <script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

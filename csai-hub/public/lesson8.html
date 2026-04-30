@@ -346,6 +346,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:vision">
 <div class="rust-bar"></div>
@@ -408,17 +409,7 @@
     <p>Why is it so hard? Because <strong>pixels are not meaning</strong>. A digital image is just a grid of brightness values. Between that grid and the answer "this is a cat" sits an enormous gap: <strong>lighting</strong> changes the numbers, <strong>viewpoint</strong> changes them again, <strong>occlusion</strong> hides parts, <strong>scale</strong> blows them up or down, <strong>deformation</strong> reshapes them, and <strong>intra-class variation</strong> means two different cats share almost no pixels.</p>
     <p class="muted">The pixels on the right are pulsing through a "feature extractor". Each pulse is a filter response — the network slowly building structure out of brightness alone.</p>
     <div class="callout warn"><strong>The semantic gap.</strong> A 224×224 RGB image has about <strong>150,000 numbers</strong>. The label "cat" is one symbol. The job of any vision system is to throw away almost all of those numbers without throwing away the cat.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why did Papert's summer project fail to solve vision?</p>
-      <div class="opts" data-q="hard1">
-        <button class="opt" data-correct="false">Computers in 1966 were too slow</button>
-        <button class="opt" data-correct="true">The gap between raw pixels and semantic meaning is enormous</button>
-        <button class="opt" data-correct="false">Cameras did not exist yet</button>
-      </div>
-      <div class="reveal">Speed was a real bottleneck, but the deeper issue is the <strong>semantic gap</strong>. Even with infinite compute, a single straight line of pixel logic cannot turn brightness into "cat". You need representations that survive lighting, viewpoint, occlusion and scale.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson8/slide-02.png" alt="slide 2" />
       <div class="cap">slide 2 — Papert 1966 — vision is harder than expected</div>
     </div>
@@ -453,17 +444,7 @@
     </ul>
     <p class="muted">The grid on the right shows six small previews — same input image, six different output shapes. Hover the buttons to see what each loss is measuring.</p>
     <div class="callout">Pintea calls vision <strong>mathematically involved</strong> for a reason: it sits at the intersection of linear algebra (convolutions, transforms), probability (likelihoods, priors), optimization (gradients, regularization) and computer science (data structures, parallelism). All of those pieces show up in every paper.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>What output shape does <strong>semantic segmentation</strong> produce?</p>
-      <div class="opts" data-q="zoo1">
-        <button class="opt" data-correct="false">A single class label</button>
-        <button class="opt" data-correct="false">A list of bounding boxes</button>
-        <button class="opt" data-correct="true">A class label for every pixel</button>
-      </div>
-      <div class="reveal">Semantic segmentation gives a <strong>per-pixel</strong> label. The network output is the same height and width as the input — just with channels for class probabilities instead of RGB.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson8/slide-13.png" alt="slide 13" />
       <div class="cap">slide 13 — the modern computer-vision task zoo</div>
     </div>
@@ -529,17 +510,7 @@
     </ul>
     <p class="muted">The demo shows a single image rotated by a random angle. Pick the rotation you think was applied — that is exactly the supervision signal a self-supervised model trains on, billions of times.</p>
     <div class="callout warn"><strong>Limitations Pintea highlights.</strong> Self-supervision is not magic. Pretext tasks can teach <em>shortcut features</em> — the model learns artefacts of the augmentation, not real semantics. It still needs <strong>massive compute</strong> and <strong>massive data</strong> to be competitive with supervised pre-training, and the gap to fully supervised models is real on fine-grained tasks.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>What does <strong>masked patch reconstruction</strong> force the network to learn?</p>
-      <div class="opts" data-q="ssl1">
-        <button class="opt" data-correct="false">Edge detection only</button>
-        <button class="opt" data-correct="true">A global understanding of the scene from limited evidence</button>
-        <button class="opt" data-correct="false">Exact pixel-level memorization</button>
-      </div>
-      <div class="reveal">Hiding 75% of patches means local features are not enough — to fill in the missing pieces the model has to <strong>reason about the whole scene</strong>. That global representation is what transfers to downstream tasks.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson8/slide-18.png" alt="slide 18" />
       <div class="cap">slide 18 — self-supervised pretraining</div>
     </div>
@@ -651,17 +622,7 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
     <p>That second point is the real claim. On a 1024×1024 image, a Vision Transformer's attention matrix has roughly a <strong>million squared</strong> entries. A state-space sweep is linear.</p>
     <div class="callout warn"><strong>The push-back: MambaOut.</strong> W. Xu et al., <em>"MambaOut: Do we really need mamba for vision?"</em> (CVPR 2025), argue the answer is <strong>not really</strong>. Their experiments suggest that for image classification — where long-range dependencies are limited and the input is not autoregressive — a plain ConvNet or simple gated CNN matches Vision Mamba without the complexity. State-space models shine on <strong>long sequences</strong>, but most vision tasks aren't long sequences in the language-model sense.</div>
     <p class="muted">The animation on the right shows the 2D scan order Vision Mamba uses — a snake-like sweep that turns a grid of patches into a 1D sequence the state-space model can roll across.</p>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>The MambaOut paper's main argument is that Mamba is unnecessary for vision because:</p>
-      <div class="opts" data-q="vmamba1">
-        <button class="opt" data-correct="false">State-space models are mathematically incorrect</button>
-        <button class="opt" data-correct="true">Image classification doesn't have the long autoregressive dependencies Mamba was built for</button>
-        <button class="opt" data-correct="false">Mamba is too slow on GPUs</button>
-      </div>
-      <div class="reveal">Mamba's selectivity wins on <strong>long causal sequences</strong>. A 224×224 classification head looks at the whole image at once and doesn't need that. The MambaOut authors show plain ConvNets match Vision Mamba on standard benchmarks — so the linear-time advantage isn't being cashed in.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson8/slide-22.png" alt="slide 22" />
       <div class="cap">slide 22 — Vision Mamba on images</div>
     </div>
@@ -692,17 +653,7 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
     </ul>
     <p class="muted">Drag the text label on the right. Images move toward or away from it depending on how close their embeddings are to the prompt. This is exactly what <strong>CLIP-style retrieval</strong> does, just in 2D for clarity.</p>
     <div class="callout"><strong>Why this is a shift.</strong> For decades, vision and language were separate fields with separate datasets and separate evaluation. Multimodal models force a <strong>shared representation</strong> — and that shared representation, not any one architecture, is what enables zero-shot classification, open-vocabulary detection, and conversational image understanding.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>What is CLIP's training objective?</p>
-      <div class="opts" data-q="clip1">
-        <button class="opt" data-correct="false">Reconstruct the image from the caption</button>
-        <button class="opt" data-correct="true">Pull matching image-caption pairs together in embedding space, push mismatched pairs apart</button>
-        <button class="opt" data-correct="false">Predict the next word given the image</button>
-      </div>
-      <div class="reveal">CLIP uses a <strong>contrastive loss</strong>. There is no decoder. The whole training signal is "matching pairs close, mismatched pairs far". That single objective produces a shared embedding space rich enough to do zero-shot classification by just comparing an image to the embedding of class-name prompts.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson8/slide-24.png" alt="slide 24" />
       <div class="cap">slide 24 — CLIP and vision-language alignment</div>
     </div>
@@ -759,130 +710,6 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
 </section>
 
 <!-- ═══════ QUIZ ═══════ -->
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> What was the famous mistake in Papert's 1966 "Summer Vision Project"?</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">Choosing the wrong language</button>
-        <button class="opt" data-correct="true">Underestimating the gap between pixels and meaning</button>
-        <button class="opt" data-correct="false">Failing to invent the camera</button>
-      </div>
-      <div class="reveal">The proposal assumed vision was a few weeks of student work. The <strong>semantic gap</strong> between brightness values and category labels turned out to be a sixty-year research program.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q2.</strong> Which task outputs a class label for <strong>every pixel</strong>?</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">Image classification</button>
-        <button class="opt" data-correct="true">Semantic segmentation</button>
-        <button class="opt" data-correct="false">Object detection</button>
-      </div>
-      <div class="reveal">Detection produces bounding boxes; classification produces one label. <strong>Semantic segmentation</strong> labels every pixel — same height and width as the input.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q3.</strong> Why are CNNs so much more parameter-efficient than fully-connected networks for images?</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">They are trained on smaller datasets</button>
-        <button class="opt" data-correct="true">Weight sharing — the same kernel is reused at every spatial location</button>
-        <button class="opt" data-correct="false">They use lower-precision arithmetic</button>
-      </div>
-      <div class="reveal">A 3×3 kernel has 9 weights regardless of image size. A fully-connected layer would have one weight per (input pixel × output pixel) pair — billions for high-res images.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q4.</strong> The point of <strong>self-supervised pretext tasks</strong> like rotation prediction is to:</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">Replace the loss function with regularization</button>
-        <button class="opt" data-correct="true">Generate supervision from the image itself, so unlabelled data becomes useful</button>
-        <button class="opt" data-correct="false">Reduce model size</button>
-      </div>
-      <div class="reveal">You already know which rotation you applied — the label is free. Train on millions of unlabelled images this way, then fine-tune on the small labelled set you actually have.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q5.</strong> The two MLPs alternated inside an MLP-Mixer block are:</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">Encoder MLP and decoder MLP</button>
-        <button class="opt" data-correct="true">Token-mixing MLP and channel-mixing MLP</button>
-        <button class="opt" data-correct="false">Forward MLP and backward MLP</button>
-      </div>
-      <div class="reveal">Token-mixing mixes <strong>across patches</strong> within each channel; channel-mixing mixes <strong>across channels</strong> within each patch. No attention, no convolution.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q6.</strong> Mamba's state-space recurrence <code>h_t = A·h_{t−1} + B·x_t</code> has computational complexity:</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">O(N²) in sequence length, like a Transformer</button>
-        <button class="opt" data-correct="true">O(N) — linear in sequence length</button>
-        <button class="opt" data-correct="false">O(log N)</button>
-      </div>
-      <div class="reveal">A recurrence that rolls a fixed-size hidden state forward visits each token once, so the cost is <strong>linear</strong>. That is the main advantage over Transformer attention on long sequences.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q7.</strong> In the state-space model, what role does the matrix <code>A</code> play?</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="false">It projects the hidden state to the output</button>
-        <button class="opt" data-correct="true">It controls how the previous hidden state evolves into the new one</button>
-        <button class="opt" data-correct="false">It computes the loss</button>
-      </div>
-      <div class="reveal">Per the slide: <code>A_t</code> is the <strong>transition matrix for the hidden state</strong>. <code>B_t</code> mixes in the input and <code>C_t</code> projects to the output.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q8.</strong> The MambaOut paper (CVPR 2025) argues that:</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">Mamba is mathematically broken</button>
-        <button class="opt" data-correct="true">Mamba is unnecessary for standard vision tasks; plain ConvNets match it</button>
-        <button class="opt" data-correct="false">Mamba should replace all Transformers</button>
-      </div>
-      <div class="reveal">Their experiments show that on classification benchmarks — where there is no long autoregressive dependency to exploit — Vision Mamba's advantages don't materialise.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q9.</strong> What is the training objective of CLIP?</p>
-      <div class="opts" data-q="q9">
-        <button class="opt" data-correct="false">Cross-entropy on ImageNet labels</button>
-        <button class="opt" data-correct="true">Contrastive loss between image and text embeddings of matched captions</button>
-        <button class="opt" data-correct="false">Reconstruction loss on masked pixels</button>
-      </div>
-      <div class="reveal">CLIP pulls matching image-caption pairs together in embedding space and pushes mismatched ones apart. That single objective produces a shared image-text representation.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q10.</strong> "Physics-informed vision" means:</p>
-      <div class="opts" data-q="q10">
-        <button class="opt" data-correct="false">Adding more parameters to the network</button>
-        <button class="opt" data-correct="true">Putting a physics simulator in the loop so generations stay physically consistent</button>
-        <button class="opt" data-correct="false">Training only on physics textbooks</button>
-      </div>
-      <div class="reveal">A simulator provides corrections a labelled dataset can't — water flows downhill, objects don't overlap, light obeys conservation. The model generates, simulates, and regenerates.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q11.</strong> "Embedded intelligence" in computer vision refers to:</p>
-      <div class="opts" data-q="q11">
-        <button class="opt" data-correct="false">Running models on phones</button>
-        <button class="opt" data-correct="true">Agents that learn by interacting with an environment, not just observing static images</button>
-        <button class="opt" data-correct="false">Compressing networks with quantization</button>
-      </div>
-      <div class="reveal">"Embedded" here means <em>embodied</em>: a robot or simulated agent acts, observes consequences, and updates its world model. The supervision is the environment, not a labeller.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q12.</strong> Which of these is the <strong>fastest object detector</strong> in standard practice?</p>
-      <div class="opts" data-q="q12">
-        <button class="opt" data-correct="false">U-Net</button>
-        <button class="opt" data-correct="true">YOLO</button>
-        <button class="opt" data-correct="false">Stable Diffusion</button>
-      </div>
-      <div class="reveal">YOLO ("You Only Look Once", arxiv 1506.02640) treats detection as a single regression problem and runs in real time. U-Net is for segmentation; Stable Diffusion is a generator.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson eight — end of the course.<br/>
@@ -916,8 +743,6 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 18</div>
 
 <script type="importmap">
 {
@@ -2219,24 +2044,6 @@ safeScene('next', function nextScene() {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz + progress + TOC
 // ═══════════════════════════════════════════════════════════════════
-let score = 0; const seen = new Set();
-const totalQs = document.querySelectorAll('.opts').length;
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
-        if (b.dataset.correct === 'true') b.classList.add('correct');
-      });
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        document.getElementById('score').textContent = `Score: ${score} / ${totalQs}`;
       }
     };
   });
@@ -2266,6 +2073,7 @@ if (!CanvasRenderingContext2D.prototype.roundRect) {
   };
 }
 </script>
+<script src="/deep-learning/dl-layout.js" defer></script>
 <script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

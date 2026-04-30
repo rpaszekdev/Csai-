@@ -346,6 +346,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:recurrence">
 <div class="rust-bar"></div>
@@ -404,25 +405,20 @@
   <div class="text">
     <div class="eyebrow">Section 1 · slide 2 · the problem</div>
     <h2>Why sequences need memory</h2>
+    <div class="key-moves">
+      <span class="key-move">state must travel forward</span>
+      <span class="key-move">same weights at every step</span>
+    </div>
     <p>A perceptron eats one vector and produces one answer. A sentence doesn't fit that shape. <strong>"The kid was…"</strong> has three words today, and tomorrow's sentence may have thirty. You can't size your input layer for both.</p>
     <p>Worse, the meaning of word <code>t</code> depends on the words that came before it. A network that forgets the subject by the time it reaches the verb has no chance of agreeing them. You need <strong>state</strong> — a small vector that travels along the sequence and accumulates context.</p>
     <p class="muted">Press ▶. A token enters at each time step. The hidden state <code>h<sub>t</sub></code> is the <strong>memory</strong> that's passed forward. Watch it carry information across the sequence.</p>
     <div class="callout navy"><strong>Recurrent</strong> means <strong>self-referring</strong>. The network applies the <strong>same weights</strong> at every step and reads its own previous output. One small unit, unrolled in time, becomes a long pipeline.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why can't a plain MLP read a variable-length sentence directly?</p>
-      <div class="opts" data-q="m1">
-        <button class="opt" data-correct="false">MLPs can't represent words</button>
-        <button class="opt" data-correct="true">Its input layer has a fixed size — sequences don't</button>
-        <button class="opt" data-correct="false">MLPs aren't differentiable</button>
-      </div>
-      <div class="reveal">An MLP needs a <strong>fixed-size</strong> input vector. A sentence (or any sequence) can be short or long. You need a model that processes <strong>one element at a time</strong> while carrying state forward.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-02.png" alt="slide 2" />
       <div class="cap">slide 2 — sequences need memory of the past</div>
     </div>
 
+      <div class="takeaway">One cell, unrolled in time, becomes memory</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="memory-canvas">
@@ -442,6 +438,10 @@
   <div class="text">
     <div class="eyebrow">Section 2 · slide 3 · the recurrent cell</div>
     <h2>The vanilla RNN cell</h2>
+    <div class="key-moves">
+      <span class="key-move">mix input + state</span>
+      <span class="key-move">tanh squashes the result</span>
+    </div>
     <p>One cell, one rule, repeated forever. At each time step, the cell takes the new input <code>x<sub>t</sub></code> and the previous hidden state <code>h<sub>t−1</sub></code>, mixes them with two weight matrices, and squashes the result with <strong>tanh</strong>:</p>
     <div class="callout navy">
       <strong>h<sub>t</sub> = tanh(W<sub>x</sub> x<sub>t</sub> + W<sub>h</sub> h<sub>t−1</sub> + b)</strong><br/>
@@ -450,21 +450,12 @@
     <p>The output at step <code>t</code> is normally a separate transformation of the hidden state — <code>o<sub>t</sub> = g(h<sub>t</sub>)</code> — perhaps a linear layer plus softmax. That part is exactly like an MLP. The new ingredient is the <strong>recurrent connection</strong>: <code>h<sub>t−1</sub></code> wraps around and feeds back in.</p>
     <p class="muted">Move the sliders. <code>W<sub>x</sub></code> controls how much the new input pushes the state. <code>W<sub>h</sub></code> controls how much of the old state carries over. Watch the bar of <code>h<sub>t</sub></code> evolve as a sine-wave input flows in.</p>
     <div class="callout">A cell with a hidden state of size <code>n</code> has weight matrices of shape <code>(n × input)</code> and <code>(n × n)</code>. The recurrent matrix <code>W<sub>h</sub></code> is the one that causes all the trouble — we'll see why.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Across <strong>T</strong> time steps, how many distinct copies of <code>W<sub>x</sub></code> does the unrolled RNN have?</p>
-      <div class="opts" data-q="r1">
-        <button class="opt" data-correct="false">T copies — one per step</button>
-        <button class="opt" data-correct="true">One — the same matrix, reused at every step</button>
-        <button class="opt" data-correct="false">Two — one for the input, one for the state</button>
-      </div>
-      <div class="reveal">The whole point of recurrence is <strong>weight sharing across time</strong>. One <code>W<sub>x</sub></code>, one <code>W<sub>h</sub></code>, applied <code>T</code> times. That's why the RNN can handle a sequence of any length with a fixed parameter count.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-03.png" alt="slide 3" />
       <div class="cap">slide 3 — the recurrent cell unrolled in time</div>
     </div>
 
+      <div class="takeaway">Same cell, new input, old state</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="rnn-canvas">
@@ -484,6 +475,10 @@
   <div class="text">
     <div class="eyebrow">Section 3 · slide 3 · BPTT</div>
     <h2>Backprop through time</h2>
+    <div class="key-moves">
+      <span class="key-move">unfold the loop in time</span>
+      <span class="key-move">gradient flows back through copies</span>
+    </div>
     <p>Training works the same way it always does: take the loss, follow the chain rule back through every operation, accumulate a gradient for each weight. The twist is that the recurrent matrix <code>W<sub>h</sub></code> appears at <strong>every</strong> time step. So its gradient is a <strong>sum over the whole sequence</strong>.</p>
     <p>For a loss <code>L<sub>T</sub></code> at the end of the sequence, the gradient that reaches step <code>k</code> has to travel backward through every intermediate hidden state:</p>
     <div class="callout navy">
@@ -498,6 +493,7 @@
       <div class="cap">slide 4 — backpropagation through time</div>
     </div>
 
+      <div class="takeaway">Training is one giant chain rule</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bptt-canvas">
@@ -516,27 +512,22 @@
   <div class="text">
     <div class="eyebrow">Section 4 · slide 4 · the vanishing gradient</div>
     <h2>Vanishing &amp; exploding gradients</h2>
+    <div class="key-moves">
+      <span class="key-move">products of Jacobians decay</span>
+      <span class="key-move">long chains kill the signal</span>
+    </div>
     <p>That product of Jacobians is the whole story. If each factor has magnitude below <strong>1</strong>, the product <strong>collapses to zero</strong> exponentially fast. If each factor is above <strong>1</strong>, the product <strong>blows up</strong>. There's almost no middle ground.</p>
     <p>The practical effect: information from the start of a long sequence has <strong>almost no influence</strong> on the loss at the end. The network sees the recent past clearly and the distant past as noise. Olier puts it bluntly: "what happened at the beginning of the sequence doesn't really matter for changing the parameters."</p>
     <div class="callout warn">
       <strong>Long-range dependencies are the casualty.</strong> If a sentence is <em>"The <strong>kid</strong> who lived next to the family with the dog that barked all night <strong>was</strong> tired,"</em> the verb agrees with <em>kid</em>, twelve words back. A vanilla RNN can't connect them — the gradient that would teach the link has decayed to nothing.
     </div>
     <p class="muted">Move the slider for the <strong>per-step factor</strong>. At <code>0.7</code> the gradient at step <code>t</code> = 0 is essentially gone after twenty steps. At <code>1.1</code> it explodes. At exactly <code>1.0</code> it stays constant — but that boundary is impossibly thin.</p>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why does <strong>tanh</strong> make vanishing gradients more likely than amplification?</p>
-      <div class="opts" data-q="v1">
-        <button class="opt" data-correct="false">tanh is non-differentiable</button>
-        <button class="opt" data-correct="true">Its derivative is at most 1, and usually much less</button>
-        <button class="opt" data-correct="false">tanh outputs are always positive</button>
-      </div>
-      <div class="reveal"><code>tanh'(z) = 1 − tanh²(z)</code> is bounded by <strong>1</strong> and only reaches <strong>1</strong> at <code>z = 0</code>. Anywhere else it's smaller — often a lot smaller. Multiply many such numbers and the product vanishes.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-05.png" alt="slide 5" />
       <div class="cap">slide 5 — vanishing & exploding gradients</div>
     </div>
 
+      <div class="takeaway">Short-term learning is the failure mode</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="vanish-canvas">
@@ -555,6 +546,10 @@
   <div class="text">
     <div class="eyebrow">Section 5 · slides 5–13 · gated units</div>
     <h2>The LSTM: a cell with gates</h2>
+    <div class="key-moves">
+      <span class="key-move">cell-state highway</span>
+      <span class="key-move">three gates control flow</span>
+    </div>
     <p>The fix proposed by <strong>Hochreiter &amp; Schmidhuber (1997)</strong> is shockingly simple in spirit. Add a separate <strong>cell state</strong> <code>c<sub>t</sub></code> that runs alongside the hidden state. Make it a <strong>conveyor belt</strong>: information slides across with almost no transformation, so gradients can travel along it without vanishing. Then add <strong>gates</strong> to control what gets on the belt and what gets off.</p>
     <p>A <strong>gate</strong>, in Olier's words, is just a <strong>knob</strong> — a sigmoid that outputs a number between <code>0</code> (closed) and <code>1</code> (open). Multiply your data by it, and you choose how much to keep. Three gates govern the LSTM:</p>
     <div class="callout navy">
@@ -569,21 +564,12 @@
     </div>
     <p class="muted">Drag the gate sliders. <strong>Forget = 0.9</strong> means the network keeps almost everything. <strong>Forget = 0.1</strong> means it wipes its memory at every step. Watch the cell state respond.</p>
     <div class="callout warn"><strong>The gradient highway.</strong> Because <code>c<sub>t</sub></code> is mostly an <strong>addition</strong>, not a multiplication, the partial derivative <code>∂c<sub>t</sub>/∂c<sub>t−1</sub></code> is basically the forget gate itself. If forget is close to <code>1</code>, gradients travel back across hundreds of steps unscathed.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why does the cell state <code>c<sub>t</sub></code> help long-range gradients survive?</p>
-      <div class="opts" data-q="l1">
-        <button class="opt" data-correct="false">It uses ReLU instead of tanh</button>
-        <button class="opt" data-correct="true">It updates additively, so the backward path doesn't multiply small numbers each step</button>
-        <button class="opt" data-correct="false">It's smaller than the hidden state</button>
-      </div>
-      <div class="reveal">The path <code>c<sub>t−1</sub> → c<sub>t</sub></code> is mostly element-wise addition, gated by the forget gate. No squashing, no contraction by Jacobians. Gradients can flow back along it freely.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-08.png" alt="slide 8" />
       <div class="cap">slide 8 — LSTM's gates and cell state</div>
     </div>
 
+      <div class="takeaway">Gates let information skip the tanh</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="lstm-canvas">
@@ -604,6 +590,10 @@
   <div class="text">
     <div class="eyebrow">Section 6 · slides 15–21 · GRU</div>
     <h2>The GRU: same idea, fewer parts</h2>
+    <div class="key-moves">
+      <span class="key-move">two gates, no cell state</span>
+      <span class="key-move">faster, slightly weaker</span>
+    </div>
     <p>The <strong>Gated Recurrent Unit</strong> (Cho et al., 2014) is the LSTM's leaner cousin. It drops the separate cell state and merges the forget and input gates into one. Two gates, one state, fewer parameters — often the same accuracy.</p>
     <div class="callout navy">
       <strong>Reset gate</strong> <code>r<sub>t</sub> = σ(W<sub>r</sub>·[h<sub>t−1</sub>, x<sub>t</sub>])</strong> — how much of the past to forget when proposing new content.<br/>
@@ -614,21 +604,12 @@
     <p>Notice the elegant trick: <code>z<sub>t</sub></code> and <code>1 − z<sub>t</sub></code> are <strong>complementary</strong>. Where the gate says <strong>1</strong>, you take the new candidate. Where it says <strong>0</strong>, you keep the old state. One vector decides both directions at once.</p>
     <p class="muted">When should you pick which? GRUs are smaller and a touch faster — pick them by default. LSTMs sometimes edge ahead on very long sequences or tasks where the explicit cell state matters. In practice they're close; experiment.</p>
     <div class="callout">Both architectures share the same trick: <strong>let the network decide what to remember</strong>. The gates learn this from data — no human writes a rule. That's what made gated RNNs the dominant sequence model from <strong>1997</strong> until <strong>Transformers</strong> took over.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>How many gates does a GRU use compared to an LSTM?</p>
-      <div class="opts" data-q="g1">
-        <button class="opt" data-correct="false">GRU uses 4, LSTM uses 3</button>
-        <button class="opt" data-correct="true">GRU uses 2 (reset, update); LSTM uses 3 (forget, input, output)</button>
-        <button class="opt" data-correct="false">Both use exactly 3</button>
-      </div>
-      <div class="reveal">GRU collapses forget + input into one <strong>update</strong> gate (with its complement) and replaces output with a simpler exposure. Two gates total. LSTM keeps three plus a separate cell state.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-17.png" alt="slide 17" />
       <div class="cap">slide 17 — GRU: a simpler gated alternative</div>
     </div>
 
+      <div class="takeaway">Simpler architecture, similar results</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="gru-canvas">
@@ -647,6 +628,10 @@
   <div class="text">
     <div class="eyebrow">Section 7 · slides 22–42 · Seq2Seq</div>
     <h2>Sequence to sequence</h2>
+    <div class="key-moves">
+      <span class="key-move">encoder folds the input</span>
+      <span class="key-move">decoder unfolds the output</span>
+    </div>
     <p>Translate <em>"I love you"</em> into French. The input is three English tokens; the output is two French tokens (<em>"Je t'aime"</em>). Different length on each side. Different vocabulary. The classic answer: stack <strong>two RNNs</strong>.</p>
     <div class="callout navy">
       <strong>Encoder</strong>: read the input one token at a time. Throw away the per-step outputs. Keep only the <strong>final hidden state</strong> — call it the <strong>context vector</strong>. Treat it as a summary of the whole input.<br/><br/>
@@ -655,21 +640,12 @@
     <p>Because words can't be fed to a neural network directly, each token first passes through an <strong>embedding</strong> — a learned vector representation. Two words with similar meaning get similar vectors. <strong>Word2Vec</strong> was the classical recipe; today the embedding is just a trainable lookup table at the bottom of the network.</p>
     <p class="muted">Press ▶. Three English tokens flow into the encoder. The final hidden state — the gold ball — becomes the decoder's seed. Two French tokens emerge one by one, each fed back as the next input.</p>
     <div class="callout">During training, the decoder is sometimes fed the <strong>true</strong> previous token instead of its own prediction — a trick called <strong>teacher forcing</strong>. Otherwise early mistakes propagate and the model never converges.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>What does the <strong>context vector</strong> represent?</p>
-      <div class="opts" data-q="s1">
-        <button class="opt" data-correct="false">The first token of the input</button>
-        <button class="opt" data-correct="true">The encoder's final hidden state — a summary of the whole input sequence</button>
-        <button class="opt" data-correct="false">The decoder's first prediction</button>
-      </div>
-      <div class="reveal">The encoder runs through every input token and accumulates information into its hidden state. The <strong>last</strong> hidden state is taken to summarise the full sequence and is handed to the decoder.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-30.png" alt="slide 30" />
       <div class="cap">slide 30 — encoder–decoder for variable-length output</div>
     </div>
 
+      <div class="takeaway">One model for translation, any-to-any</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="seq2seq-canvas">
@@ -688,27 +664,22 @@
   <div class="text">
     <div class="eyebrow">Section 8 · slides 40–43 · the bottleneck</div>
     <h2>The bottleneck — and why we need attention</h2>
+    <div class="key-moves">
+      <span class="key-move">fixed-size context vector</span>
+      <span class="key-move">long sequences lose information</span>
+    </div>
     <p>Look back at Seq2Seq. Every word of the input gets compressed into <strong>one</strong> fixed-size vector before the decoder starts. For a five-word sentence, this is fine. For a fifty-word paragraph, it isn't. The first words leave faint traces; the last words dominate.</p>
     <p>Olier's metaphor: each new step is half new input, half old summary. The next step is half newer input, half (half-of-the-old-summary). After a few hops, anything from the start of the sequence is a tiny fraction of a tiny fraction. <strong>Long-range information dies in compression.</strong></p>
     <div class="callout warn"><strong>The bottleneck problem.</strong> The decoder only sees the <strong>final</strong> encoder state. Everything else — every intermediate <code>h<sub>1</sub>, h<sub>2</sub>, …, h<sub>T−1</sub></code> — is discarded. Useful information about which input word matters for which output word is gone.</div>
     <p>What if the decoder could <strong>look back</strong> at <em>all</em> of the encoder hidden states and decide, at each output step, which ones to focus on? That mechanism is called <strong>attention</strong>. It made translation work properly. And once attention existed, somebody asked: do we even still need the recurrence? The answer is no — and that answer is the <strong>Transformer</strong>.</p>
     <p class="muted">Drag the slider. As the sequence gets longer, the bar shows how much of each input position survives in the final context vector. Watch the start of the sequence get crushed.</p>
     <div class="callout navy">Recurrence gave neural networks memory. <strong>Gates</strong> made that memory robust. <strong>Seq2Seq</strong> turned it into a translator. <strong>Attention</strong> — coming next — removed the bottleneck. Then <strong>self-attention</strong> threw out recurrence altogether and the modern era began.</div>
-    <div class="predict">
-      <h4>Quick check</h4>
-      <p>Why is the single-context-vector design a problem for long sequences?</p>
-      <div class="opts" data-q="b1">
-        <button class="opt" data-correct="false">It uses too much memory</button>
-        <button class="opt" data-correct="true">All input information has to fit into one fixed-size vector — early tokens get crushed</button>
-        <button class="opt" data-correct="false">The encoder can't share weights with the decoder</button>
-      </div>
-      <div class="reveal">A fixed-size vector has finite capacity. As the sequence grows, every token competes for space, and the earliest tokens lose. <strong>Attention</strong> lets the decoder peek at every encoder state directly.</div>
-    </div>
-    <div class="slide-thumb">
+        <div class="slide-thumb">
       <img src="/slides/lesson6/slide-41.png" alt="slide 41" />
       <div class="cap">slide 41 — the fixed-size bottleneck and attention's fix</div>
     </div>
 
+      <div class="takeaway">Attention replaces the bottleneck</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bottleneck-canvas">
@@ -722,130 +693,6 @@
 </section>
 
 <!-- ═══════ QUIZ ═══════ -->
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> What is the role of the hidden state <code>h<sub>t</sub></code> in an RNN?</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">Holds the network's parameters</button>
-        <button class="opt" data-correct="true">Carries information from earlier time steps forward</button>
-        <button class="opt" data-correct="false">Stores the loss function</button>
-      </div>
-      <div class="reveal">The hidden state is the network's <strong>memory</strong>. It is updated at every step and read at the next step, so context flows along the sequence.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q2.</strong> In the unrolled RNN, the matrix <code>W<sub>h</sub></code> is:</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">A different matrix at every time step</button>
-        <button class="opt" data-correct="true">The same matrix, applied at every time step</button>
-        <button class="opt" data-correct="false">A matrix that grows with sequence length</button>
-      </div>
-      <div class="reveal"><strong>Weight sharing across time</strong> is what makes a recurrent network work for sequences of arbitrary length with a fixed parameter count.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q3.</strong> Why does training a long-sequence RNN run into the <strong>vanishing gradient</strong> problem?</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">RNNs use too few parameters</button>
-        <button class="opt" data-correct="true">Backprop multiplies many Jacobians, each with magnitude below 1, so gradients shrink exponentially</button>
-        <button class="opt" data-correct="false">tanh has no gradient</button>
-      </div>
-      <div class="reveal">Each step backward multiplies by <code>∂h<sub>t</sub>/∂h<sub>t−1</sub></code>. Most of the time these factors are small. Multiply enough of them and the result is essentially zero.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q4.</strong> A <strong>gate</strong>, in an LSTM or GRU, is implemented as:</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">A learnable scalar threshold</button>
-        <button class="opt" data-correct="true">A sigmoid producing values in [0, 1] used as element-wise multipliers</button>
-        <button class="opt" data-correct="false">A binary {0, 1} switch fixed at training start</button>
-      </div>
-      <div class="reveal">A sigmoid output near <strong>0</strong> closes the gate; near <strong>1</strong> opens it. Element-wise multiplication then chooses what fraction of each component to keep.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q5.</strong> The LSTM's <strong>cell state</strong> <code>c<sub>t</sub></code> exists to:</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">Replace the activation function</button>
-        <button class="opt" data-correct="true">Provide an additive memory channel where gradients can flow back without vanishing</button>
-        <button class="opt" data-correct="false">Store training labels</button>
-      </div>
-      <div class="reveal">The cell state evolves additively, gated by the forget gate. Its backward path doesn't repeatedly multiply small numbers — long-range gradients survive.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q6.</strong> What does the LSTM's <strong>forget gate</strong> control?</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">Which output token to emit next</button>
-        <button class="opt" data-correct="true">How much of the previous cell state to keep vs erase</button>
-        <button class="opt" data-correct="false">The learning rate</button>
-      </div>
-      <div class="reveal"><code>f<sub>t</sub></code> is multiplied element-wise into <code>c<sub>t−1</sub></code>. A value of 0 wipes that component; a value of 1 keeps it intact.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q7.</strong> The GRU's <strong>update</strong> gate <code>z<sub>t</sub></code> trades off between:</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="true">The previous hidden state and the new candidate state</button>
-        <button class="opt" data-correct="false">Forward and backward passes</button>
-        <button class="opt" data-correct="false">Encoder and decoder</button>
-      </div>
-      <div class="reveal"><code>h<sub>t</sub> = (1 − z<sub>t</sub>) ⊙ h<sub>t−1</sub> + z<sub>t</sub> ⊙ ȟ<sub>t</sub></code>. <code>z</code> says <em>how much new</em>, <code>1 − z</code> says <em>how much old</em>.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q8.</strong> In a Seq2Seq model, the <strong>context vector</strong> handed to the decoder is:</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">The first hidden state of the encoder</button>
-        <button class="opt" data-correct="true">The last hidden state of the encoder, treated as a summary</button>
-        <button class="opt" data-correct="false">An embedding of the target language</button>
-      </div>
-      <div class="reveal">The encoder reads the whole input sequence and builds up its hidden state. Its <strong>final</strong> state is taken to encode the entire input and is used to seed the decoder.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q9.</strong> Why is the context vector a <strong>bottleneck</strong>?</p>
-      <div class="opts" data-q="q9">
-        <button class="opt" data-correct="false">It runs slowly on GPUs</button>
-        <button class="opt" data-correct="true">It is fixed-size, so long inputs lose information about early tokens</button>
-        <button class="opt" data-correct="false">It is too large to fit in memory</button>
-      </div>
-      <div class="reveal">The whole input has to be compressed into one fixed-size vector. Beyond a certain length, that capacity simply runs out — earlier tokens are crushed.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q10.</strong> Why use <strong>word embeddings</strong> instead of one-hot vectors?</p>
-      <div class="opts" data-q="q10">
-        <button class="opt" data-correct="false">One-hots are not differentiable</button>
-        <button class="opt" data-correct="true">Embeddings are dense, low-dimensional, and place semantically similar words near each other</button>
-        <button class="opt" data-correct="false">One-hots make the network non-linear</button>
-      </div>
-      <div class="reveal">A one-hot of a 50,000-word vocabulary is a 50,000-dim sparse vector with no notion of meaning. Embeddings are 100–300 dim, dense, and carry semantic structure (<em>king − man + woman ≈ queen</em>).</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q11.</strong> <strong>Teacher forcing</strong>, during Seq2Seq training, means:</p>
-      <div class="opts" data-q="q11">
-        <button class="opt" data-correct="false">Freezing the encoder weights</button>
-        <button class="opt" data-correct="true">Feeding the ground-truth previous token into the decoder instead of the model's own previous prediction</button>
-        <button class="opt" data-correct="false">Doubling the learning rate at the end</button>
-      </div>
-      <div class="reveal">Without teacher forcing, an early wrong prediction snowballs through the rest of the output. Feeding the true previous token keeps training stable.</div>
-    </div>
-
-    <div class="q-card">
-      <p><strong>Q12.</strong> What problem does <strong>attention</strong> solve, that motivates the next lesson?</p>
-      <div class="opts" data-q="q12">
-        <button class="opt" data-correct="false">Slow inference on short sequences</button>
-        <button class="opt" data-correct="true">The fixed-size context bottleneck — attention lets the decoder consult every encoder state directly</button>
-        <button class="opt" data-correct="false">Vanishing gradients in MLPs</button>
-      </div>
-      <div class="reveal">Attention removes the single-vector bottleneck. The decoder, at each step, computes a weighted sum over <em>all</em> encoder hidden states, focusing where it matters. Self-attention takes this further and eliminates recurrence entirely — the <strong>Transformer</strong>.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson six<br/>
@@ -879,8 +726,6 @@
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 19</div>
 
 <script type="importmap">
 {
@@ -2069,27 +1914,6 @@ safeScene('bottleneck', function bottleneckScene() {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz / predict answering logic
 // ═══════════════════════════════════════════════════════════════════
-let score = 0;
-const seen = new Set();
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) {
-        opts.querySelectorAll('.opt').forEach(b => {
-          if (b.dataset.correct === 'true') b.classList.add('correct');
-        });
-      }
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        const total = document.querySelectorAll('.opts').length;
-        document.getElementById('score').textContent = `Score: ${score} / ${total}`;
       }
     };
   });
@@ -2110,6 +1934,7 @@ const toc = document.getElementById('toc');
 document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
 toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 </script>
+<script src="/deep-learning/dl-layout.js" defer></script>
 <script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

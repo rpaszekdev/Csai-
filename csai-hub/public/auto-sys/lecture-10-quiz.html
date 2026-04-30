@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W10 Quiz — Simulation Environments</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-10.html" class="back">← Back to lecture</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-10.html">Lessons</a>
+  <a href="#" class="active">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 10 · Lecture 10 — Quiz Mode</span>
+      <h1 class="hero-title">
+        Simulation Environments <span class="exam-mode-pill">Quiz</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>8 questions</span>
+      <span>~11 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">8</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Quiz Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">8</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;">correct</p>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-10.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lecture</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    "id": 1,
+    "section": "1. BROOKS' PROVOCATION",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "Rodney Brooks famously called simulation-only robotics <em>\"doomed to succeed.\"</em> What did he mean?",
+    "options": [
+      {
+        "html": "That simulators always converge."
+      },
+      {
+        "html": "That a controller tuned only in simulation will <strong>look great in sim and fail on the real robot</strong>, because the simulator hides the hard parts of physics, sensing, and timing.",
+        "correct": true
+      },
+      {
+        "html": "That simulators are unnecessary."
+      },
+      {
+        "html": "That simulators are too expensive."
+      }
+    ],
+    "prof": "\"Doomed to succeed\" = the simulator rewards behaviours that exploit its own approximations. Without a sim-to-real plan, you train an artefact, not a robot."
+  },
+  {
+    "id": 2,
+    "section": "2. WHY SIMULATE?",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Despite the sim-to-real gap, simulation has clear advantages. Which trio captures the standard reasons to simulate?",
+    "options": [
+      {
+        "html": "Speed · safety · scale (parallel runs).",
+        "correct": true
+      },
+      {
+        "html": "Cheaper hardware · faster GPUs · better wifi."
+      },
+      {
+        "html": "Marketing · documentation · graphics."
+      },
+      {
+        "html": "Operating-system independence · no Python needed · no electricity."
+      }
+    ],
+    "prof": "Sim is for things you can't afford to break, can't afford to wait for, or need a million of. Everything else, run on the robot."
+  },
+  {
+    "id": 3,
+    "section": "3. SIMULATION vs CG",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "What separates a <strong>physics-based simulation</strong> from <strong>computer graphics</strong> rendering?",
+    "options": [
+      {
+        "html": "Computer graphics is always slower."
+      },
+      {
+        "html": "<strong>Simulation models the dynamics of physical systems</strong> (forces, masses, contacts) and integrates them in time; CG only renders an image.",
+        "correct": true
+      },
+      {
+        "html": "Computer graphics requires a GPU; simulation does not."
+      },
+      {
+        "html": "They are synonyms."
+      }
+    ],
+    "prof": "Pretty pixels ≠ correct dynamics. A photorealistic scene with cartoon physics is useless for control; a wireframe with proper physics is gold."
+  },
+  {
+    "id": 4,
+    "section": "4. PHYSICS-BASED",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Physics-based simulators model robots as <strong>dynamical systems</strong>. Which trio does the simulator integrate over time?",
+    "options": [
+      {
+        "html": "Pixels · sounds · keystrokes."
+      },
+      {
+        "html": "<strong>Forces · masses · constraints</strong> producing positions, velocities, accelerations.",
+        "correct": true
+      },
+      {
+        "html": "WiFi · USB · Bluetooth."
+      },
+      {
+        "html": "Files · folders · processes."
+      }
+    ],
+    "prof": "Newton's laws + constraints (joints, contacts). Everything else — sensors, controllers — is layered on top of this dynamical core."
+  },
+  {
+    "id": 5,
+    "section": "6. SIMULATOR TOUR",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Which pair of simulators is most commonly used for <strong>robotics research and education</strong>, and is mentioned in the lecture's tour?",
+    "options": [
+      {
+        "html": "Microsoft Word · Excel."
+      },
+      {
+        "html": "<strong>Webots · Gazebo</strong> (and increasingly MuJoCo / Isaac).",
+        "correct": true
+      },
+      {
+        "html": "Photoshop · Blender."
+      },
+      {
+        "html": "Notepad · TextEdit."
+      }
+    ],
+    "prof": "Webots and Gazebo are the dominant teaching/research stacks; MuJoCo and Isaac dominate modern RL. Pick by physics fidelity, sensor library, and ROS integration."
+  },
+  {
+    "id": 6,
+    "section": "7. WHICH SIMULATOR?",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "When choosing a simulator for a project, which factor should dominate?",
+    "options": [
+      {
+        "html": "Logo aesthetics."
+      },
+      {
+        "html": "<strong>Match between the simulator's modelled physics + sensors and the actual phenomena your task depends on</strong>.",
+        "correct": true
+      },
+      {
+        "html": "The number of YouTube tutorials."
+      },
+      {
+        "html": "The licence colour."
+      }
+    ],
+    "prof": "If the task hinges on contact compliance, pick a sim that models compliance. If it hinges on lidar noise, pick a sim that models lidar noise. Match the physics to the question."
+  },
+  {
+    "id": 7,
+    "section": "8. TOOLCHAIN PIVOT",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Modern simulator workflows assume a <strong>command-line / terminal</strong> baseline. Why does the lecture insist on terminal fluency?",
+    "options": [
+      {
+        "html": "Because GUIs are forbidden by the university."
+      },
+      {
+        "html": "Because real robotics workflows — building, running, deploying, debugging — are <strong>script- and shell-driven</strong>; GUI-only workflows do not scale or version.",
+        "correct": true
+      },
+      {
+        "html": "Because the terminal uses less RAM."
+      },
+      {
+        "html": "Because GUIs cannot run Python."
+      }
+    ],
+    "prof": "Terminal isn't tradition; it's reproducibility. A \"roslaunch\" line in a notebook is a real artefact; a sequence of right-clicks is not."
+  },
+  {
+    "id": 8,
+    "section": "9. PYTHON, VENV, pip",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Why does the lecture emphasise <strong>virtual environments</strong> for simulation projects?",
+    "options": [
+      {
+        "html": "Because venvs run on the GPU."
+      },
+      {
+        "html": "Because robotics stacks pin specific package versions, and a <strong>per-project venv</strong> isolates dependencies and prevents global breakage.",
+        "correct": true
+      },
+      {
+        "html": "Because venvs make Python faster."
+      },
+      {
+        "html": "Because Python only works inside venvs."
+      }
+    ],
+    "prof": "One global Python is one wrong \"pip install\" away from breaking every project. venv (or conda/pipenv/uv) per project is non-negotiable."
+  }
+];
+
+const STORAGE_KEY = "csai_auto_sys_l10_quiz_v1";
+const SLIDE_BASE = "/auto-sys/week10-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? '<span class="badge prof">Prof</span>'
+    : '<span class="badge">Exam</span>';
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = (q.slides || []).map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = answered ? Math.round((correct / QUESTIONS.length) * 100) : 0;
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the quiz? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>

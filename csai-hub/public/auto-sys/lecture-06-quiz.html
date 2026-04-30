@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W06 Quiz — Unsupervised Learning</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-06.html" class="back">← Back to lecture</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-06.html">Lessons</a>
+  <a href="#" class="active">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 06 · Lecture 06 — Quiz Mode</span>
+      <h1 class="hero-title">
+        Unsupervised Learning <span class="exam-mode-pill">Quiz</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>8 questions</span>
+      <span>~11 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">8</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Quiz Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">8</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;">correct</p>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-06.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lecture</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    "id": 1,
+    "section": "1. THREE SCHOOLS OF ML",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Machine learning is conventionally split into three schools. Which set is correct?",
+    "options": [
+      {
+        "html": "<strong>Supervised · Unsupervised · Reinforcement</strong>.",
+        "correct": true
+      },
+      {
+        "html": "Symbolic · Connectionist · Evolutionary."
+      },
+      {
+        "html": "Online · Offline · Federated."
+      },
+      {
+        "html": "Discriminative · Generative · Bayesian."
+      }
+    ],
+    "prof": "Supervised needs labels. Unsupervised needs only data. Reinforcement needs a reward signal. Different feedback regimes, different algorithms."
+  },
+  {
+    "id": 2,
+    "section": "2. WHY UNSUPERVISED FOR ROBOTS",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "Why is unsupervised learning particularly attractive for autonomous robots?",
+    "options": [
+      {
+        "html": "It always converges faster than supervised."
+      },
+      {
+        "html": "Robots collect <strong>vast unlabeled sensor streams</strong>; labels are expensive or impossible to obtain in the wild.",
+        "correct": true
+      },
+      {
+        "html": "It needs no compute."
+      },
+      {
+        "html": "It eliminates the need for sensors."
+      }
+    ],
+    "prof": "In the wild, nobody hands you labeled examples. Unsupervised methods extract structure (clusters, manifolds, prototypes) directly from raw experience."
+  },
+  {
+    "id": 3,
+    "section": "3. K-MEANS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "K-means clustering iterates two steps until convergence. Which pair is correct?",
+    "options": [
+      {
+        "html": "(1) Compute gradients · (2) update weights."
+      },
+      {
+        "html": "(1) <strong>Assign each point to the nearest centroid</strong> · (2) <strong>recompute each centroid as the mean of its assigned points</strong>.",
+        "correct": true
+      },
+      {
+        "html": "(1) Encode · (2) decode."
+      },
+      {
+        "html": "(1) Sample · (2) reward."
+      }
+    ],
+    "prof": "Two-step EM: assign, then update. K-means is fast and intuitive but sensitive to initialisation and assumes roughly spherical clusters."
+  },
+  {
+    "id": 4,
+    "section": "4. COMPETITIVE LEARNING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "In <strong>competitive learning</strong>, when an input is presented to a layer of neurons, what is the \"winner-take-all\" rule?",
+    "options": [
+      {
+        "html": "Every neuron updates equally."
+      },
+      {
+        "html": "<strong>The neuron whose weights are closest to the input wins, and only its weights are updated</strong> toward the input.",
+        "correct": true
+      },
+      {
+        "html": "The slowest neuron wins."
+      },
+      {
+        "html": "Only the bias is updated."
+      }
+    ],
+    "prof": "One winner per input. Over time, each neuron specialises on a region of input space — much like K-means centroids, but online and biologically inspired."
+  },
+  {
+    "id": 5,
+    "section": "5. SOM",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Kohonen's <strong>Self-Organising Map</strong> extends competitive learning with one extra ingredient. Which one?",
+    "options": [
+      {
+        "html": "Random sampling."
+      },
+      {
+        "html": "A loss function with labels."
+      },
+      {
+        "html": "A <strong>topological neighbourhood</strong> — when a neuron wins, its <strong>neighbours on the map grid</strong> also update, just less.",
+        "correct": true
+      },
+      {
+        "html": "Backpropagation through time."
+      }
+    ],
+    "prof": "That neighbourhood term is what produces a topologically ordered map: nearby inputs end up activating nearby neurons. Pure competitive learning has no such order."
+  },
+  {
+    "id": 6,
+    "section": "6. K-MEANS vs SOM",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Which statement best contrasts K-means and SOM?",
+    "options": [
+      {
+        "html": "Both produce identical results given the same data."
+      },
+      {
+        "html": "K-means produces <strong>flat clusters with no spatial relation</strong>; SOM produces <strong>a low-dimensional, topology-preserving map</strong> of the input space.",
+        "correct": true
+      },
+      {
+        "html": "Only SOM uses Euclidean distance."
+      },
+      {
+        "html": "K-means cannot run online."
+      }
+    ],
+    "prof": "If you only need labels → K-means. If you need a <em>map</em> — visualisation, dimensionality reduction, or biologically plausible learning — SOM."
+  },
+  {
+    "id": 7,
+    "section": "7. SOM-BASED ROBOT ARCHITECTURES",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "In SOM-based robot architectures, the map's role is most often to:",
+    "options": [
+      {
+        "html": "Replace the actuators."
+      },
+      {
+        "html": "<strong>Cluster sensor experience into prototypes</strong> the controller can index — turning continuous streams into a discrete, navigable representation.",
+        "correct": true
+      },
+      {
+        "html": "Compute kinematics directly."
+      },
+      {
+        "html": "Tune motor PID gains."
+      }
+    ],
+    "prof": "Think of the SOM as a sensor-side codebook: it learns \"what the world feels like\" so downstream control or learning has tractable categories to work with."
+  },
+  {
+    "id": 8,
+    "section": "8. TOOLING & TRAPS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "When applying K-means or SOM to robot sensor data, what is the most common <strong>preprocessing</strong> mistake students make?",
+    "options": [
+      {
+        "html": "Forgetting to plot results."
+      },
+      {
+        "html": "<strong>Skipping feature scaling</strong> — distance-based methods are dominated by the largest-magnitude feature.",
+        "correct": true
+      },
+      {
+        "html": "Using too few iterations."
+      },
+      {
+        "html": "Not using GPUs."
+      }
+    ],
+    "prof": "Always scale before clustering. A range-sensor in metres next to a battery level in percent will hand the centroid to whichever has bigger numbers."
+  }
+];
+
+const STORAGE_KEY = "csai_auto_sys_l06_quiz_v1";
+const SLIDE_BASE = "/auto-sys/week06-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? '<span class="badge prof">Prof</span>'
+    : '<span class="badge">Exam</span>';
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = (q.slides || []).map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = answered ? Math.round((correct / QUESTIONS.length) * 100) : 0;
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the quiz? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>

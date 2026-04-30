@@ -250,6 +250,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:cnn">
 <div class="rust-bar"></div>
@@ -574,83 +575,6 @@
   </div></div>
 </section>
 
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> The main reason a CNN needs far fewer parameters than a fully-connected network on images is:</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">CNNs use smaller images</button>
-        <button class="opt" data-correct="true">One small filter is shared across every position in the image</button>
-        <button class="opt" data-correct="false">Pooling removes weights</button>
-      </div>
-      <div class="reveal">A filter has a tiny fixed number of weights (e.g. <code>3·3·C</code>). Those same weights are reused at every spatial location. The parameter count does not grow with image size.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q2.</strong> For input 64×64, filter 4×4, stride 1, padding 0, the output size is:</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">64 × 64</button>
-        <button class="opt" data-correct="true">61 × 61</button>
-        <button class="opt" data-correct="false">60 × 60</button>
-      </div>
-      <div class="reveal"><code>(64 − 4 + 0)/1 + 1 = 61</code>. No padding + stride 1 shrinks the output by <code>F − 1</code> on each side.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q3.</strong> If a convolution layer has 32 filters, each of size 4×4, on an RGB input, how many learnable parameters does it have (including bias)?</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">512</button>
-        <button class="opt" data-correct="true">1568</button>
-        <button class="opt" data-correct="false">128</button>
-      </div>
-      <div class="reveal"><code>4 · 4 · 3 · 32 + 32 = 1568</code>. Filter volume times number of filters, plus one bias per filter.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q4.</strong> Max pooling helps mostly because:</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">It adds learnable parameters</button>
-        <button class="opt" data-correct="true">It shrinks the feature map and gives a little translation tolerance</button>
-        <button class="opt" data-correct="false">It replaces the activation function</button>
-      </div>
-      <div class="reveal">Pooling has no weights. It summarises a region (max or average) and gives the next layer a smaller, slightly shift-tolerant input.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q5.</strong> A <strong>dilated</strong> (atrous) convolution is useful because it:</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">Uses more weights than a normal conv</button>
-        <button class="opt" data-correct="true">Enlarges the receptive field without extra parameters or losing resolution</button>
-        <button class="opt" data-correct="false">Replaces pooling entirely</button>
-      </div>
-      <div class="reveal">A 3×3 dilated filter still has 9 weights, but the 9 samples are spread out, so the filter "sees" a much larger patch of input.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q6.</strong> What does a <strong>1×1 convolution</strong> do that a 3×3 conv cannot cleanly do?</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">Detect edges</button>
-        <button class="opt" data-correct="true">Mix or compress channels without mixing spatial neighbours</button>
-        <button class="opt" data-correct="false">Add padding</button>
-      </div>
-      <div class="reveal">A 1×1 filter touches a single spatial position but combines information across <em>all channels</em>. Great for cheaply changing the channel count.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q7.</strong> A <strong>ResNet</strong> residual block learns <code>y = F(x) + x</code>. The shortcut helps because:</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="false">It doubles the network's capacity</button>
-        <button class="opt" data-correct="true">If F isn't useful, it can go to zero and the block just passes x through — and gradients flow back through the shortcut</button>
-        <button class="opt" data-correct="false">It replaces batch normalisation</button>
-      </div>
-      <div class="reveal">The identity path gives the block an "opt-out" and provides a direct route for gradients backward, which is why very deep networks become trainable.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q8.</strong> The difference between <strong>R-CNN</strong> and <strong>YOLO</strong> for object detection is mainly:</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">R-CNN works on videos, YOLO on images</button>
-        <button class="opt" data-correct="true">R-CNN first proposes regions then classifies each; YOLO predicts class + box for every grid cell in one pass</button>
-        <button class="opt" data-correct="false">YOLO cannot predict bounding boxes</button>
-      </div>
-      <div class="reveal">Two-stage vs one-shot. YOLO trades a little accuracy for a huge speed-up — fast enough for real-time detection.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson four<br/>
@@ -684,8 +608,6 @@
   })();
 </script>
 <script src="/shared/lightbox.js" defer></script>
-
-<div class="score" id="score">Score: 0 / 8</div>
 
 <script type="importmap">
 {
@@ -1962,23 +1884,6 @@ safeScene('apps', function () {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz logic
 // ═══════════════════════════════════════════════════════════════════
-let score = 0; const seen = new Set();
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
-        if (b.dataset.correct === 'true') b.classList.add('correct');
-      });
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        document.getElementById('score').textContent = `Score: ${score} / ${document.querySelectorAll('.opts').length}`;
       }
     };
   });

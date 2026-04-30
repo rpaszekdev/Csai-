@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W01 Quiz — Intro to Autonomous Systems</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-01.html" class="back">← Back to lecture</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-01.html">Lessons</a>
+  <a href="#" class="active">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 01 · Lecture 01 — Quiz Mode</span>
+      <h1 class="hero-title">
+        Intro to Autonomous Systems <span class="exam-mode-pill">Quiz</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>8 questions</span>
+      <span>~12 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">8</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Quiz Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">8</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;">correct</p>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-01.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lecture</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    id: 1,
+    section: "1. DEFINITION — THREE CONDITIONS",
+    tag: "exam",
+    slides: ["29"],
+    prompt: `Following Nolfi's textbook definition adopted by this course, an <strong>autonomous robot system</strong> must satisfy <strong>three</strong> conditions simultaneously. Which trio correctly captures them?`,
+    options: [
+      { html: `Operates without intervention · is fully programmed · uses sensors only.` },
+      { html: `Operates <strong>without human intervention</strong> · for <strong>prolonged periods</strong> · in <strong>partially unknown</strong> environments.`, correct: true },
+      { html: `Operates with high precision · in known environments · with predefined goals.` },
+      { html: `Has a body · has a brain · has a function.` },
+    ],
+    prof: `All three conditions must hold. Miss any one — for instance, a fully known environment — and the system is <em>automated</em>, not autonomous.`,
+  },
+  {
+    id: 2,
+    section: "1. SPIGLER COUNTER-EXAMPLE",
+    tag: "exam",
+    slides: ["31"],
+    prompt: `Prof. Spigler claims: <em>"a simulated agent that works in a fully known environment, e.g., a factory environment, with a predefined set of actions, is an autonomous system."</em> Why does the course's definition force you to <strong>disagree</strong>?`,
+    options: [
+      { html: `Because simulated agents can never count as robots.` },
+      { html: `Because a fully known environment violates the <strong>partially unknown</strong> condition.`, correct: true },
+      { html: `Because predefined actions are inherently impossible to implement.` },
+      { html: `Because Nolfi requires the agent to be physically embodied.` },
+    ],
+    prof: `Spigler's setup is automation, not autonomy. The factory environment is fully specified, so condition (3) fails — the agent cannot be tested against unforeseen states.`,
+  },
+  {
+    id: 3,
+    section: "3. ROBOT ANATOMY",
+    tag: "exam",
+    slides: ["33"],
+    prompt: `An artificial system (robot) is defined by <strong>six</strong> elements. Which set names them all?`,
+    options: [
+      { html: `Body · sensors · actuators · brain · environment · function.`, correct: true },
+      { html: `Body · sensors · actuators · battery · WiFi · function.` },
+      { html: `Body · brain · code · screen · wheels · charger.` },
+      { html: `Sensors · actuators · controller · operator · room · task.` },
+    ],
+    prof: `Watch the trap: <em>environment</em> and <em>function</em> are part of the definition — a robot without an environment to act in, or a task to perform, isn't a robot in this framework.`,
+  },
+  {
+    id: 4,
+    section: "5. SENSORS — TWO CATEGORIES",
+    tag: "exam",
+    slides: ["44"],
+    prompt: `A joint-angle encoder reports the position of one of the robot's own joints. In the proprioceptive / exteroceptive split, which category does it belong to, and why?`,
+    options: [
+      { html: `<strong>Exteroceptive</strong> — it reports a measurable physical quantity.` },
+      { html: `<strong>Proprioceptive</strong> — it measures the <strong>internal state</strong> of the robot itself.`, correct: true },
+      { html: `Neither — encoders are actuators, not sensors.` },
+      { html: `Both — it's defined by context.` },
+    ],
+    prof: `Proprioceptive = robot looking inward (joint angle, battery level). Exteroceptive = robot looking outward (camera, lidar, microphone). This split is a common fill-in-the-blank exam target.`,
+  },
+  {
+    id: 5,
+    section: "1. PASS REQUIREMENTS",
+    tag: "exam",
+    slides: ["06"],
+    prompt: `Which combination of conditions is <strong>required</strong> to pass Autonomous Systems?`,
+    options: [
+      { html: `Final exam ≥ 5.5 alone is sufficient.` },
+      { html: `Project deliverables alone are sufficient.` },
+      { html: `Final exam ≥ 5.5 <strong>and</strong> all project deliverables submitted <strong>and</strong> Demo Day attended.`, correct: true },
+      { html: `Final exam ≥ 5.5 <strong>or</strong> project report — whichever is higher.` },
+    ],
+    prof: `Pass-the-exam alone ≠ pass-the-course. Project deliverables are pass/fail (only the report is graded numerically), but each one must be turned in.`,
+  },
+  {
+    id: 6,
+    section: "1. LLM & PLAGIARISM POLICY",
+    tag: "prof",
+    slides: ["15"],
+    prompt: `The course allows LLM use under specific rules. Which option is <strong>NOT</strong> part of the stated policy?`,
+    options: [
+      { html: `You must declare which parts were LLM-generated.` },
+      { html: `You must be able to explain every component the LLM produced.` },
+      { html: `You must not put personal/sensitive data in prompts.` },
+      { html: `LLMs are <strong>banned</strong> for any code or report content.`, correct: true },
+    ],
+    prof: `Use is fine — silence is not. Undeclared LLM output flagged by plagiarism software is referred to the Examination Board.`,
+  },
+  {
+    id: 7,
+    section: "7. THE BRAIN PROVOCATION",
+    tag: "prof",
+    slides: ["48"],
+    prompt: `Passive walker robots descend a slight incline using only gravity and leg geometry — no controller. What broader claim does this example seed for the rest of the course?`,
+    options: [
+      { html: `Controllers are always necessary; passive walkers are toys.` },
+      { html: `Cloud-enabled robotics replaces the need for an on-board brain.` },
+      { html: `<strong>Embodiment can substitute for computation</strong> — body morphology can produce behavior on its own.`, correct: true },
+      { html: `Reinforcement learning eventually replaces all controllers.` },
+    ],
+    prof: `This is the crack that opens Week 04 (Embodiment). The body itself is computational — clever morphology offloads work the controller would otherwise do.`,
+  },
+  {
+    id: 8,
+    section: "3. SIMULATED ROBOTS",
+    tag: "exam",
+    slides: ["37"],
+    prompt: `In this course, when the lecturer says "robot" without further qualification, which form is meant by default?`,
+    options: [
+      { html: `A simulated agent in any environment.` },
+      { html: `A <strong>physically embodied</strong> robot, unless stated otherwise.`, correct: true },
+      { html: `Either physical or simulated — the terms are equivalent throughout.` },
+      { html: `Cloud-enabled controllers running on remote hardware.` },
+    ],
+    prof: `Simulated robots <em>do</em> count as virtually embodied robots — but the default reading of "robot" in this course is physically embodied. The distinction matters for exam questions about embodiment.`,
+  },
+];
+
+const STORAGE_KEY = "csai_auto_sys_l01_quiz_v1";
+const SLIDE_BASE = "/auto-sys/week01-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? `<span class="badge prof">Prof</span>`
+    : `<span class="badge">Exam</span>`;
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = q.slides.map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = answered ? Math.round((correct / QUESTIONS.length) * 100) : 0;
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the quiz? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>

@@ -58,10 +58,10 @@ body {
 .slide-strip .slide-thumb { aspect-ratio: 4 / 3; }
 
 /* ═══════════════════════════════════════════════════════════════
-   SHELL-PATTERN BODY · floated framed cluster
-   The .stage-wrap becomes a single bordered card that bundles canvas
-   + chip overlays + controls together. Text wraps around it like
-   cog-neuro slide clusters do.
+   SHELL-PATTERN BODY · absolutely-positioned framed cluster
+   The .stage-wrap is absolutely positioned in the upper-right of
+   each section. .text gets right padding to leave room for it.
+   No DOM reparenting → no broken Canvas/WebGL contexts.
    ═══════════════════════════════════════════════════════════════ */
 section.step {
   display: block !important;
@@ -72,6 +72,7 @@ section.step {
   padding: 56px 36px 64px !important;
   border-bottom: 1px solid var(--ink-faint) !important;
   background: var(--paper) !important;
+  position: relative !important;
 }
 section.step::after {
   content: "";
@@ -79,23 +80,26 @@ section.step::after {
   clear: both;
 }
 section.step .text {
-  padding: 0 !important;
+  padding: 0 clamp(260px, 32vw, 340px) 0 0 !important;
   display: block !important;
   max-width: none !important;
   min-width: 0 !important;
   gap: 0 !important;
 }
 
-/* the framed cluster — one bordered rectangle, floated right,
-   text flows around it */
+/* the framed cluster — absolutely positioned in the upper-right.
+   No float, no DOM move, no broken canvas contexts. */
 section.step .stage-wrap {
-  float: right !important;
-  width: clamp(260px, 30vw, 320px) !important;
-  margin: 6px 0 24px 32px !important;
+  position: absolute !important;
+  top: 56px !important;
+  right: 36px !important;
+  float: none !important;
+  width: clamp(240px, 28vw, 300px) !important;
+  margin: 0 !important;
   padding: 0 !important;
   border: 1px solid var(--ink-faint) !important;
   background: var(--paper) !important;
-  box-shadow: 4px 4px 0 var(--ink) !important;
+  box-shadow: none !important;
 }
 section.step .stage {
   position: static !important;
@@ -128,16 +132,27 @@ section.step .controls {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto !important;
 }
 section.step .controls .btn {
   font-size: 9px !important;
   padding: 4px 8px !important;
   letter-spacing: 0.10em !important;
+  pointer-events: auto !important;
 }
 section.step .controls .slider-wrap {
   width: 100%;
   font-size: 9px !important;
   letter-spacing: 0.10em !important;
+  pointer-events: auto !important;
+}
+section.step .controls .slider-wrap input[type="range"] {
+  flex: 1 1 auto;
+  min-width: 100px;
+  pointer-events: auto !important;
+  cursor: pointer;
 }
 section.step .canvas-host .chip {
   font-size: 8px !important;
@@ -145,45 +160,126 @@ section.step .canvas-host .chip {
   letter-spacing: 0.10em !important;
 }
 
-/* slide-thumbs inside .text are smaller floats that share the right
-   column with the framed animation. clear:right stacks them below
-   the .stage-wrap (which dl-layout.js moves to be the first child
-   of .text), so text wraps around the combined cluster. */
+/* slide-thumbs inside .text — small floats matching cog-neuro voice
+   (hairline border, no shadow, rust caption). clear:right stacks
+   them below the .stage-wrap so text wraps around the combined
+   right-column cluster. */
 section.step .text .slide-thumb {
   float: right !important;
   clear: right !important;
-  width: 200px !important;
+  width: 160px !important;
   max-width: 100% !important;
-  margin: 12px 0 18px 32px !important;
+  margin: 6px 0 16px 24px !important;
   border: 1px solid var(--ink-faint) !important;
-  background: var(--paper) !important;
-  box-shadow: 4px 4px 0 var(--ink) !important;
+  background: #fff !important;
+  box-shadow: none !important;
   overflow: hidden;
   cursor: zoom-in;
   text-decoration: none;
 }
+section.step .text .slide-thumb:hover { border-color: var(--ink) !important; }
 section.step .text .slide-thumb img {
   display: block;
   width: 100%;
   height: auto;
-  border-bottom: 1px solid var(--ink-faint);
+  filter: contrast(1.02);
 }
 section.step .text .slide-thumb .cap {
+  display: block;
   padding: 6px 8px;
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--rust);
   background: var(--paper);
+  border-top: 1px solid var(--ink-faint);
 }
 
 @media (max-width: 800px) {
+  section.step .text {
+    padding-right: 0 !important;
+  }
+  section.step .stage-wrap {
+    position: static !important;
+    width: 100% !important;
+    margin: 18px 0 24px !important;
+  }
   section.step .text .slide-thumb {
     float: none !important;
     width: 100% !important;
     max-width: 280px !important;
     margin: 18px 0 !important;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DIRECTION A · KEY MOVES STRIPE + TAKEAWAY
+   Each section opens with a numbered moves stripe and closes with
+   a one-line mono-caps takeaway. Formulas become bordered figures.
+   ═══════════════════════════════════════════════════════════════ */
+section.step .key-moves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 32px;
+  margin: 14px 0 28px;
+  padding: 12px 0;
+  border-top: 1px solid var(--ink-faint);
+  border-bottom: 1px solid var(--ink-faint);
+  counter-reset: km;
+}
+section.step .key-move {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  counter-increment: km;
+}
+section.step .key-move::before {
+  content: counter(km, decimal-leading-zero);
+  color: var(--rust);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+}
+
+section.step .takeaway {
+  margin: 36px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.6;
+}
+section.step .takeaway::before {
+  content: "↳ takeaway";
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--rust);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+section.step .formula {
+  background: var(--paper-2) !important;
+  border: 1px solid var(--ink-faint) !important;
+  border-radius: 0 !important;
+  font-family: "Hiragino Mincho ProN", "Iowan Old Style", "Palatino", Georgia, serif !important;
+  font-size: 18px !important;
+  text-align: center;
+  padding: 24px 18px !important;
+  margin: 22px 0 !important;
+  color: var(--ink) !important;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
 }
 
 .hero {

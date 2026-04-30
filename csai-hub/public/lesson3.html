@@ -251,6 +251,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.base.css" />
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+<script src="/shared/clarity.js" defer></script>
 </head>
 <body data-annot-scope="deep-learning:optimizers">
 <div class="rust-bar"></div>
@@ -560,91 +561,12 @@
   </div></div>
 </section>
 
-<div class="quiz" id="quiz">
-  <h2>Check yourself</h2>
-  <div class="q-grid">
-    <div class="q-card">
-      <p><strong>Q1.</strong> Why is <strong>mini-batch</strong> gradient descent the standard in practice?</p>
-      <div class="opts" data-q="q1">
-        <button class="opt" data-correct="false">It always finds the global minimum</button>
-        <button class="opt" data-correct="true">Compromise: faster than full batch, less noisy than SGD</button>
-        <button class="opt" data-correct="false">It needs no learning rate</button>
-      </div>
-      <div class="reveal">Full-batch is accurate but too slow for modern datasets. Pure SGD is fast but very noisy. <strong>Mini-batch</strong> averages a small random group — most of the speed, most of the stability, and the leftover noise actually <em>helps</em> escape shallow local minima.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q2.</strong> What specific problem does <strong>momentum</strong> fix?</p>
-      <div class="opts" data-q="q2">
-        <button class="opt" data-correct="false">Vanishing gradients in deep networks</button>
-        <button class="opt" data-correct="true">Oscillation across narrow valleys; getting stuck in flat spots</button>
-        <button class="opt" data-correct="false">The chain rule's computational cost</button>
-      </div>
-      <div class="reveal">Momentum smooths the step by averaging past gradients. Wall-to-wall oscillations <em>cancel</em>; consistent directions <em>survive</em>. A rolling ball with inertia glides through the valley instead of bouncing.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q3.</strong> What is the <strong>key difference</strong> between Nesterov momentum and standard momentum?</p>
-      <div class="opts" data-q="q3">
-        <button class="opt" data-correct="false">Nesterov uses a different learning rate</button>
-        <button class="opt" data-correct="true">Nesterov computes the gradient at the <em>look-ahead</em> position, not the current one</button>
-        <button class="opt" data-correct="false">Nesterov has no hyperparameters</button>
-      </div>
-      <div class="reveal">Standard momentum: gradient at <em>current</em> point + momentum. Nesterov: peek ahead using the momentum <em>first</em>, then take the gradient <em>there</em>. If momentum overshoots, the look-ahead gradient already points back — correcting in the same step.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q4.</strong> Why does <strong>AdaGrad</strong> eventually stop learning?</p>
-      <div class="opts" data-q="q4">
-        <button class="opt" data-correct="false">Gradients explode</button>
-        <button class="opt" data-correct="true">Its accumulator <em>r</em> only grows, so effective rates shrink toward zero forever</button>
-        <button class="opt" data-correct="false">It runs out of memory</button>
-      </div>
-      <div class="reveal">AdaGrad sums squared gradients <em>cumulatively</em>. That sum never decreases. After enough steps the denominator √r explodes and the effective learning rate collapses. Nothing can recover it.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q5.</strong> What single change does <strong>RMSprop</strong> make vs. AdaGrad?</p>
-      <div class="opts" data-q="q5">
-        <button class="opt" data-correct="false">It adds momentum</button>
-        <button class="opt" data-correct="true">It uses a moving average of g² instead of a cumulative sum</button>
-        <button class="opt" data-correct="false">It removes the per-parameter idea</button>
-      </div>
-      <div class="reveal">RMSprop replaces the growing sum with an <strong>exponentially weighted average</strong>. It can go up <em>or</em> down, so effective rates no longer collapse — they adapt continuously.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q6.</strong> <strong>Adam</strong> combines which ideas?</p>
-      <div class="opts" data-q="q6">
-        <button class="opt" data-correct="false">SGD + weight decay</button>
-        <button class="opt" data-correct="true">Momentum + RMSprop + bias correction</button>
-        <button class="opt" data-correct="false">Nesterov + dropout</button>
-      </div>
-      <div class="reveal">Adam keeps a moving average of gradients (<strong>momentum</strong>), a moving average of squared gradients (<strong>RMSprop</strong>), and divides both by <code>1 − β<sup>t</sup></code> to correct their <strong>bias-toward-zero</strong> at the start of training.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q7.</strong> What does <strong>AdamW</strong> change about Adam?</p>
-      <div class="opts" data-q="q7">
-        <button class="opt" data-correct="false">It replaces momentum with Nesterov</button>
-        <button class="opt" data-correct="true">It applies weight decay <em>after</em> the adaptive step, not through the gradient</button>
-        <button class="opt" data-correct="false">It uses the sign of the gradient</button>
-      </div>
-      <div class="reveal">Classic L2 regularization goes through the gradient, so Adam's per-parameter scaling distorts the decay. AdamW <em>decouples</em> weight decay: subtract <code>α·λ·W</code> as its own term, <em>after</em> the main Adam update. Small fix, big practical win for transformers.</div>
-    </div>
-    <div class="q-card">
-      <p><strong>Q8.</strong> Why does <strong>Lion</strong> use a much smaller learning rate than Adam?</p>
-      <div class="opts" data-q="q8">
-        <button class="opt" data-correct="false">Because it has no momentum</button>
-        <button class="opt" data-correct="true">It only uses the <em>sign</em> of the momentum, so every step is ±1 — magnitude is gone</button>
-        <button class="opt" data-correct="false">Because it stores extra state</button>
-      </div>
-      <div class="reveal">Lion throws away gradient magnitude and just takes <code>sign(m)</code>. Every per-parameter step is either +1 or −1 before the learning rate. With no self-damping, a normal α would overshoot wildly — so Lion needs a much smaller α.</div>
-    </div>
-  </div>
-</div>
 
 <footer>
   End of lesson three<br/>
   built from <code>3. Optimizers.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
   <a href="lesson2.html">← back to Lesson 2</a> &nbsp;·&nbsp; <a href="lesson4.html">forward to Lesson 4 →</a>
 </footer>
-
-<div class="score" id="score">Score: 0 / 8</div>
 
 <!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -1772,23 +1694,6 @@ safeScene('summary', function () {
 // ═══════════════════════════════════════════════════════════════════
 // Quiz logic
 // ═══════════════════════════════════════════════════════════════════
-let score = 0; const seen = new Set();
-document.querySelectorAll('.opts').forEach(opts => {
-  opts.querySelectorAll('.opt').forEach(btn => {
-    btn.onclick = () => {
-      if (opts.dataset.answered) return;
-      const correct = btn.dataset.correct === 'true';
-      btn.classList.add(correct ? 'correct' : 'wrong');
-      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
-        if (b.dataset.correct === 'true') b.classList.add('correct');
-      });
-      opts.dataset.answered = '1';
-      const reveal = opts.parentElement.querySelector('.reveal');
-      if (reveal) reveal.classList.add('show');
-      if (correct && !seen.has(opts.dataset.q)) {
-        seen.add(opts.dataset.q);
-        score++;
-        document.getElementById('score').textContent = `Score: ${score} / ${document.querySelectorAll('.opts').length}`;
       }
     };
   });

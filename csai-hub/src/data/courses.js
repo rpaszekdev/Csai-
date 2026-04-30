@@ -18,7 +18,7 @@ export const PROGRAM = [
             name: "Cognitive Neuroscience",
             icon: "\u{1F9E0}",
             color: "#FF5BAA",
-            shape: "neuron",
+            shape: "brain",
             exams: [
               {
                 type: "Midterm",
@@ -106,7 +106,7 @@ export const PROGRAM = [
             name: "Autonomous Systems",
             icon: "\u{1F916}",
             color: "#2D5BFF",
-            shape: "orbit",
+            shape: "robot",
             exams: [
               {
                 type: "Final",

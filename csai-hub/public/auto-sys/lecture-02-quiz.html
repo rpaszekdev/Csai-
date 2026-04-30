@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>W02 Quiz — Sensors, Actuators &amp; Braitenberg Vehicles</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-02.html" class="back">← Back to lecture</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-02.html">Lessons</a>
+  <a href="#" class="active">Quizzes</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 02 · Lecture 02 — Quiz Mode</span>
+      <h1 class="hero-title">
+        Sensors, Actuators &amp; Braitenberg Vehicles <span class="exam-mode-pill">Quiz</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>8 questions</span>
+      <span>~11 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">8</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Quiz Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">8</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;">correct</p>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-02.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lecture</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    "id": 1,
+    "section": "2. PERCEPTION–ACTION CYCLE",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "An autonomous robot operates in a continuous loop: <strong>sense → decide → act → re-sense</strong>. What is the purpose of closing the loop after every action?",
+    "options": [
+      {
+        "html": "To save battery between commands."
+      },
+      {
+        "html": "To re-perceive the environment, since each action <strong>changes</strong> the world the robot must sense again.",
+        "correct": true
+      },
+      {
+        "html": "To synchronise with a global clock."
+      },
+      {
+        "html": "To upload telemetry to the cloud."
+      }
+    ],
+    "prof": "Action and perception are not a one-shot pipeline — every motor output produces new sensory input. Open-loop control breaks the moment the world deviates from prediction."
+  },
+  {
+    "id": 2,
+    "section": "3. SENSOR CLASSIFICATION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Beyond proprioceptive vs exteroceptive, sensors are also classified as <strong>active</strong> or <strong>passive</strong>. Which sensor is <strong>active</strong>?",
+    "options": [
+      {
+        "html": "Microphone — listens to sound waves in the environment."
+      },
+      {
+        "html": "Photoresistor — measures incoming ambient light."
+      },
+      {
+        "html": "Ultrasonic rangefinder — <strong>emits</strong> a pulse and measures the echo.",
+        "correct": true
+      },
+      {
+        "html": "Tactile bumper — closes a circuit when pressed."
+      }
+    ],
+    "prof": "Active sensors emit energy into the environment (ultrasound, IR, lidar). Passive sensors only receive (camera, microphone, photoresistor). The distinction matters for power budgets and interference."
+  },
+  {
+    "id": 3,
+    "section": "5. BRAITENBERG — WHY",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Valentino Braitenberg's <em>Vehicles</em> thought experiment makes a single methodological point. Which one?",
+    "options": [
+      {
+        "html": "Complex behaviour requires complex internal representations."
+      },
+      {
+        "html": "<strong>Simple wiring</strong> between sensors and motors can produce behaviour an observer attributes to fear, love, or aggression.",
+        "correct": true
+      },
+      {
+        "html": "Robots cannot exhibit goal-directed behaviour without learning."
+      },
+      {
+        "html": "Symbolic AI is necessary for reactive control."
+      }
+    ],
+    "prof": "Braitenberg's law of uphill analysis / downhill synthesis: it's easier to <em>build</em> a vehicle that looks intelligent than to <em>infer</em> its mechanism from outside."
+  },
+  {
+    "id": 4,
+    "section": "6. WIRING RULE",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "In Braitenberg vehicles, a <strong>positive</strong> connection from sensor to motor means: the more the sensor fires, the <strong>more</strong> that motor spins. A <strong>negative</strong> connection means the opposite. With <strong>ipsilateral positive</strong> wiring (left sensor → left motor, right → right) and a single light source, what does the vehicle do?",
+    "options": [
+      {
+        "html": "Turns toward the light and accelerates — \"love\"."
+      },
+      {
+        "html": "<strong>Turns away</strong> from the light and accelerates — \"fear\" (Vehicle 2a).",
+        "correct": true
+      },
+      {
+        "html": "Stops in front of the light."
+      },
+      {
+        "html": "Circles the light at a fixed radius."
+      }
+    ],
+    "prof": "Ipsilateral + positive = fear: the sensor closer to the light spins its motor faster, swinging the vehicle <em>away</em>. Cross the wires (contralateral) and you get aggression."
+  },
+  {
+    "id": 5,
+    "section": "8. VEHICLE 2a vs 2b",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Vehicle 2a (\"fear\") and Vehicle 2b (\"aggression\") share the same wiring polarity. What single change flips fear → aggression?",
+    "options": [
+      {
+        "html": "Switching from positive to negative connections."
+      },
+      {
+        "html": "<strong>Crossing</strong> the wires — left sensor drives the right motor and vice versa (contralateral).",
+        "correct": true
+      },
+      {
+        "html": "Doubling the motor gain."
+      },
+      {
+        "html": "Adding a third sensor."
+      }
+    ],
+    "prof": "Topology, not polarity, is what flips fear into aggression. Same components, swapped routing — this is why Braitenberg insists synthesis is easier than analysis."
+  },
+  {
+    "id": 6,
+    "section": "9. VEHICLE 3a — LOVE",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Vehicle 3a is the \"love\" vehicle. It is wired with <strong>negative</strong> ipsilateral connections, so a stronger sensor signal <strong>slows</strong> the same-side motor. What behaviour does it produce around a light source?",
+    "options": [
+      {
+        "html": "It runs away as fast as possible."
+      },
+      {
+        "html": "It spins in place indefinitely."
+      },
+      {
+        "html": "It approaches the light and <strong>slows down</strong> as it gets closer, eventually stopping near it.",
+        "correct": true
+      },
+      {
+        "html": "It oscillates left and right around the light."
+      }
+    ],
+    "prof": "Negative + ipsilateral = \"shy love.\" The vehicle approaches because the brighter side slows that motor, steering it <em>toward</em> the light, and it decelerates as the signal grows — settling next to the source."
+  },
+  {
+    "id": 7,
+    "section": "7. VEHICLE 1",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "Vehicle 1 has a <strong>single</strong> sensor wired to a single motor with a positive connection. Placed in a world with one light source, what happens — and what is the take-home insight?",
+    "options": [
+      {
+        "html": "It tracks the light precisely; insight: one sensor is enough for steering."
+      },
+      {
+        "html": "It cannot turn, but its <strong>speed varies with light</strong> — you already get behaviour that looks \"alive\" from one wire.",
+        "correct": true
+      },
+      {
+        "html": "It alternates forward and reverse."
+      },
+      {
+        "html": "It stays still until power-cycled."
+      }
+    ],
+    "prof": "Vehicle 1 has no steering — yet an observer reads it as \"afraid of the dark\" or \"drawn to warmth.\" Behaviour is in the eye of the observer; the mechanism is one wire."
+  },
+  {
+    "id": 8,
+    "section": "10. IMPLEMENTATION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "When you implement a Braitenberg vehicle on the Arduino kit, the <strong>most common bug</strong> is reading a sensor on the wrong side, producing the <em>opposite</em> behaviour. Which design step makes this bug easiest to catch?",
+    "options": [
+      {
+        "html": "Buying matched motors so both sides spin identically."
+      },
+      {
+        "html": "Drawing the wiring diagram (sensor → motor, with + or −) <strong>before</strong> building, then verifying one wire at a time.",
+        "correct": true
+      },
+      {
+        "html": "Using thicker wires to reduce noise."
+      },
+      {
+        "html": "Skipping calibration to save time."
+      }
+    ],
+    "prof": "Schematic first, build second. Braitenberg vehicles are tiny — a single mis-wired sensor turns \"love\" into \"fear.\" Treat the diagram as the source of truth."
+  }
+];
+
+const STORAGE_KEY = "csai_auto_sys_l02_quiz_v1";
+const SLIDE_BASE = "/auto-sys/week02-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? '<span class="badge prof">Prof</span>'
+    : '<span class="badge">Exam</span>';
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = (q.slides || []).map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = answered ? Math.round((correct / QUESTIONS.length) * 100) : 0;
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the quiz? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>
