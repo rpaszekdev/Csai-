@@ -247,56 +247,63 @@
     h2 { font-size: var(--text-head); }
   }
 </style>
-<link rel="stylesheet" href="/lesson-brutal.css" />
-<link rel="stylesheet" href="/lesson-editorial.css" />
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/deep-learning/dl.base.css" />
+<link rel="stylesheet" href="/deep-learning/dl.skin.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
-<body>
+<body data-annot-scope="deep-learning:optimizers">
+<div class="rust-bar"></div>
 
 <header class="topbar">
-  <div class="brand">
-    <span class="mark">CSAI</span>
-    <span class="title">Optimizers</span>
-    <span class="sub">Tilburg · Deep Learning · Lesson 3</span>
-  </div>
-  <nav class="lesson-nav">
-    <a href="lesson.html">Lesson 1</a>
-    <a href="lesson2.html">Lesson 2</a>
-    <a href="lesson3.html" class="active">Lesson 3</a>
-    <a href="lesson4.html">Lesson 4</a>
-    <a href="lesson5.html">Lesson 5</a>
-    <a href="lesson6.html">Lesson 6</a>
-    <a href="lesson7.html">Lesson 7</a>
-    <a href="lesson8.html">Lesson 8</a>
-  </nav>
-  <div class="progress"><span id="progress-bar"></span></div>
-  <button class="toc-btn" id="toc-btn">Contents</button>
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Deep Learning</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>CSAI</span>
+  </span>
 </header>
 
-<nav class="toc" id="toc">
-  <ol>
-    <li><a href="#hero">Overview</a></li>
-    <li><a href="#recap">1 · From backprop to optimizers</a></li>
-    <li><a href="#batches">2 · Batch, mini-batch, stochastic</a></li>
-    <li><a href="#momentum">3 · Momentum</a></li>
-    <li><a href="#nesterov">4 · Nesterov look-ahead</a></li>
-    <li><a href="#adagrad">5 · AdaGrad — per-parameter rates</a></li>
-    <li><a href="#rmsprop">6 · RMSprop — forget the past</a></li>
-    <li><a href="#adam">7 · Adam — the workhorse</a></li>
-    <li><a href="#adamw">8 · AdamW and Lion</a></li>
-    <li><a href="#quiz">Final quiz</a></li>
-  </ol>
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
 </nav>
 
-<div class="hero" id="hero">
-  <div>
-    <div class="kicker" data-num="03">Lesson Three</div>
-    <h1>How a network actually takes each step.</h1>
-    <p>Backprop gives us the <strong>gradient</strong>. But what do we <em>do</em> with it? Plain gradient descent is the obvious answer — and the broken one. Today: the family of <strong>optimizers</strong> that patch its flaws, one idea at a time.</p>
-    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
-    Department of Cognitive Sciences and AI · Tilburg University</div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">03</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Lesson 03 —</span>
+      <h1 class="hero-title">Optimizers</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Dr. Juan Sebastián Olier</span>
+      <span>43 slides</span>
+      <span>9 sections</span>
+    </div>
   </div>
-  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+  <div class="hero-right">
+    <div id="hero-canvas" class="hero-scene"></div>
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="/lesson.html">L01</a>
+  <a class="chip" href="/lesson2.html">L02</a>
+  <a class="chip active" href="/lesson3.html">L03</a>
+  <a class="chip" href="/lesson4.html">L04</a>
+  <a class="chip" href="/lesson5.html">L05</a>
+  <a class="chip" href="/lesson6.html">L06</a>
+  <a class="chip" href="/lesson7.html">L07</a>
+  <a class="chip" href="/lesson8.html">L08</a>
 </div>
+
+<div class="slide-strip" id="slideStrip"></div>
 
 <!-- 1 · RECAP -->
 <section class="step" id="recap">
@@ -639,6 +646,33 @@
 
 <div class="score" id="score">Score: 0 / 8</div>
 
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button">‹</button>
+  <button class="lightbox-nav lightbox-next" type="button">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // build the slide strip — anchors auto-discovered by /shared/lightbox.js
+  (function () {
+    const strip = document.getElementById("slideStrip");
+    const TOTAL = 43;
+    for (let i = 1; i <= TOTAL; i++) {
+      const n = String(i).padStart(2, "0");
+      const a = document.createElement("a");
+      a.href = `/slides/lesson3/slide-${n}.png`;
+      a.className = "slide-thumb";
+      a.dataset.slide = n;
+      a.innerHTML = `<img src="/slides/lesson3/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+      strip.appendChild(a);
+    }
+  })();
+</script>
+<script src="/shared/lightbox.js" defer></script>
+
 <script type="importmap">
 {
   "imports": {
@@ -648,7 +682,7 @@
 }
 </script>
 <!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
-<script type="module" src="/lesson-pretext.js"></script>
+<script type="module" src="/shared/lesson-pretext.js"></script>
 
 
 <script type="module">
@@ -1784,6 +1818,7 @@ if (!CanvasRenderingContext2D.prototype.roundRect) {
   };
 }
 </script>
-<script src="/lesson-mobile.js" defer></script>
+<script src="/deep-learning/lesson-mobile.js" defer></script>
+<script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

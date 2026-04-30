@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>M4L1 — Emotion and Social Cognition</title>
 <link rel="stylesheet" href="./cog-neuro.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
 <body>
 <div class="rust-bar"></div>
@@ -40,7 +41,13 @@
       <span>4 sources</span>
       <span>30 slides</span>
     </div>
-  </div>
+      <div class="hero-tools">
+        <button type="button" class="hero-tool" data-toggle-panel="panel-m4_l1-transcript">📋 Transcript</button>
+        <button type="button" class="hero-tool" data-toggle-panel="panel-m4_l1-ch10">📖 CH10</button>
+        <button type="button" class="hero-tool" data-toggle-panel="panel-m4_l1-ch11">📖 CH11</button>
+              <a class="hero-tool hero-tool-pptx" href="/cog-neuro/decks/m4_l1.pptx" download>📊 PPTX</a>
+      </div>
+    </div>
   <div class="hero-right">
     <img class="brain-illu" src="/cog-neuro/brain.svg" alt="Cognitive Neuroscience brain illustration" />
   </div>
@@ -58,6 +65,36 @@
   <a class="chip" href="./m5_l1.html">M5L1</a>
   <a class="chip" href="./m5_l2.html">M5L2</a>
   <a class="chip" href="./midterm.html">MID</a>
+</div>
+
+
+
+
+<div class="hero-panels">
+  <div class="hero-panel" id="panel-m4_l1-transcript" hidden>
+      <div class="hero-panel-head">
+        <span class="hero-panel-title">Lecture transcript</span>
+        <button type="button" class="hero-panel-copy" data-copy-target="text-m4_l1-transcript">copy</button>
+        <button type="button" class="hero-panel-close" data-close="panel-m4_l1-transcript" aria-label="Close">×</button>
+      </div>
+      <pre class="hero-panel-text" id="text-m4_l1-transcript" data-src="/cog-neuro/transcripts/m4_l1.txt"></pre>
+    </div>
+  <div class="hero-panel" id="panel-m4_l1-ch10" hidden>
+      <div class="hero-panel-head">
+        <span class="hero-panel-title">Ch. 10 — Emotion</span>
+        <button type="button" class="hero-panel-copy" data-copy-target="text-m4_l1-ch10">copy</button>
+        <button type="button" class="hero-panel-close" data-close="panel-m4_l1-ch10" aria-label="Close">×</button>
+      </div>
+      <pre class="hero-panel-text" id="text-m4_l1-ch10" data-src="/cog-neuro/book/ch10.txt"></pre>
+    </div>
+  <div class="hero-panel" id="panel-m4_l1-ch11" hidden>
+      <div class="hero-panel-head">
+        <span class="hero-panel-title">Ch. 11 — Social Cognition</span>
+        <button type="button" class="hero-panel-copy" data-copy-target="text-m4_l1-ch11">copy</button>
+        <button type="button" class="hero-panel-close" data-close="panel-m4_l1-ch11" aria-label="Close">×</button>
+      </div>
+      <pre class="hero-panel-text" id="text-m4_l1-ch11" data-src="/cog-neuro/book/ch11.txt"></pre>
+    </div>
 </div>
 
 <div class="slide-strip">
@@ -93,7 +130,7 @@
 <a href="/cog-neuro/slides/m4_l1_slide-30.png" data-slide="30"><img src="/cog-neuro/slides/m4_l1_slide-30.png" alt="Slide 30" loading="lazy"/><span class="num">30</span></a>
 </div>
 
-<article id="content">
+<article id="content" data-annot-scope="cog-neuro:m4_l1">
 
 <section>
 <div class="col-slides">
@@ -573,31 +610,9 @@ The amygdala enhances consolidation in the <strong>medial temporal lobe (MTL)</s
 </section>
 
 </article>
-<section class="lecture-extras">
-  <details class="extras-fold">
-    <summary>Lecture transcript<span class="extras-meta">auto-generated · expand to load</span></summary>
-    <pre class="extras-text" data-src="/cog-neuro/transcripts/m4_l1.txt"></pre>
-  </details>
-  <details class="extras-fold">
-    <summary>Book — CH10<span class="extras-meta">expand to load</span></summary>
-    <pre class="extras-text" data-src="/cog-neuro/book/ch10.txt"></pre>
-  </details>
-  <details class="extras-fold">
-    <summary>Book — CH11<span class="extras-meta">expand to load</span></summary>
-    <pre class="extras-text" data-src="/cog-neuro/book/ch11.txt"></pre>
-  </details>
-</section>
 
 
-<!-- Annotation panel -->
-<aside class="annot-panel" aria-label="Saved annotations" id="annotPanel">
-  <button type="button" class="annot-panel-toggle">
-    <span class="annot-panel-icon">✎</span>
-    <span class="annot-panel-count">0</span>
-    <span class="annot-panel-label">notes</span>
-  </button>
-  <div class="annot-panel-list"></div>
-</aside>
+
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
@@ -609,14 +624,8 @@ The amygdala enhances consolidation in the <strong>medial temporal lobe (MTL)</s
 </div>
 
 <script src="./cog-neuro-extras.js"></script>
-<script src="./lightbox.js"></script>
-<script src="./cog-neuro-annot.js"></script>
-<script>
-  window.cogAnnot.mount({
-    sectionId: "m4_l1",
-    contentEl: document.getElementById("content"),
-    panelEl: document.getElementById("annotPanel"),
-  });
-</script>
+<script src="/shared/lightbox.js" defer></script>
+<script src="/shared/annotations/annotations.js" defer></script>
+<script type="module" src="./brain-link.js"></script>
 </body>
 </html>

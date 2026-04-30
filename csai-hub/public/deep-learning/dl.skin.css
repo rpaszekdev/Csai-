@@ -1,23 +1,36 @@
 /* ═══════════════════════════════════════════════════════════════
-   Lesson Editorial — IBM Plex Mono editorial skin for lesson*.html.
+   Lesson Editorial — editorial skin for lesson*.html.
    Loaded AFTER lesson-brutal.css so the cascade narrows the lesson
-   body surface into the typewriter / sumi-e style established by the
-   cog-neuro module (src/courses/cog-neuro/styles.css).
+   body surface into the typewriter / sumi-e style shared with the
+   auto-sys lectures and the cog-neuro lectures.
 
-   Tokens mirror cog-neuro:
-     --paper       #F8F6EE  (warm paper)
-     --ink-soft    #2A2826  (deep ink)
-     --ink-faint   #A8A29A  (eyebrow / hairline)
-     --coral       #C45A2A  (single editorial accent — used sparingly)
+   Tokens unified with auto-sys (csai-hub/public/auto-sys/lecture-NN.html)
+   and cog-neuro (csai-hub/public/cog-neuro/lectures/cog-neuro.css):
+     --paper       #F2EDE0  (warm cream paper)
+     --ink-soft    #1A1A1A  (deep ink — auto-sys --ink)
+     --ink-faint-2 #C5BEAE  (eyebrow / hairline)
+     --coral       #A84F2A  (rust accent — single editorial accent)
+     --font-mono   JetBrains Mono → IBM Plex Mono → Söhne Mono
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --paper:        #F8F6EE;
-  --ink-soft:     #2A2826;
-  --ink-faint-2:  #A8A29A;
-  --hairline:     rgba(168, 162, 154, 0.45);
-  --coral:        #C45A2A;
-  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* shell-required palette tokens (mirrors auto-sys.skin.css) */
+  --paper:       #F2EDE0;
+  --paper-2:     #ECE6D6;
+  --ink:         #1A1A1A;
+  --ink-soft:    #2B2B2B;
+  --ink-mute:    #8A8270;
+  --ink-faint:   #C5BEAE;
+  --rust:        #A84F2A;
+  --rust-soft:   #C46A3F;
+  --hair:        #1F1F1F;
+  --highlight:   rgba(168, 79, 42, 0.10);
+
+  /* legacy DL-only aliases used throughout this skin's body content rules */
+  --ink-faint-2: #C5BEAE;
+  --hairline:    rgba(31, 30, 32, 0.18);
+  --coral:       #A84F2A;
+  --font-mono:   "JetBrains Mono", "IBM Plex Mono", "Söhne Mono", "SF Mono", ui-monospace, monospace;
 }
 
 /* ── page surface ─────────────────────────────────────────── */
@@ -29,190 +42,131 @@ body {
   line-height: 1.7 !important;
 }
 
-/* ── topbar — keep brutal frame, narrow brand block to mono ── */
-header.topbar {
-  background: var(--paper) !important;
-  border-bottom: 1px solid var(--hairline) !important;
-  padding: 16px 32px !important;
+/* ── shell-pattern hero · inline scene (Three.js mounts here) ── */
+.hero-right .hero-scene {
+  width: clamp(220px, 26vw, 320px);
+  aspect-ratio: 4 / 3;
+  background: var(--paper-2);
+  border: 1px solid var(--ink-faint);
   position: relative;
+  overflow: hidden;
 }
-header.topbar::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: var(--coral);
-}
-.brand .mark {
-  background: var(--coral) !important;
-  color: var(--paper) !important;
-  font-family: var(--font-mono) !important;
-  font-weight: 500 !important;
-  font-size: 10px !important;
-  letter-spacing: 0.18em !important;
-  padding: 3px 6px !important;
-  text-transform: uppercase !important;
-}
-.brand .title {
-  font-family: var(--font-mono) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.16em !important;
-  color: var(--ink-soft) !important;
-  text-transform: uppercase !important;
-}
-.brand .sub {
-  font-family: var(--font-mono) !important;
-  font-size: 10px !important;
-  letter-spacing: 0.18em !important;
-  color: var(--ink-faint-2) !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-}
+.hero-right .hero-scene > canvas { display: block; width: 100%; height: 100%; }
 
-/* progress bar — thinned to a hairline */
-.progress { background: var(--hairline) !important; height: 1px !important; }
-.progress > span { background: var(--coral) !important; }
+/* ── slide-strip cards: deep-learning slides are taller than 16:9, so
+   override the shell aspect for legibility in the strip ── */
+.slide-strip .slide-thumb { aspect-ratio: 4 / 3; }
 
-/* lesson nav + toc button — chip → mono link */
-.toc-btn, .lesson-nav a {
+/* ═══════════════════════════════════════════════════════════════
+   SHELL-PATTERN BODY · 2-column grid (text + stage)
+   text: column 1 (flexes), stage: column 2 (fixed-width animation).
+   Each column sizes independently — short text doesn't leave an empty
+   rectangle below itself, tall animation doesn't push next section
+   down. No floats, no clearfix surprises.
+   ═══════════════════════════════════════════════════════════════ */
+section.step {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 30vw, 340px) !important;
+  gap: 36px !important;
+  align-items: start !important;
+  min-height: 0 !important;
+  max-width: 1100px;
+  margin: 0 auto !important;
+  padding: 56px 36px 64px !important;
+  border-bottom: 1px solid var(--ink-faint) !important;
+  background: var(--paper) !important;
+}
+section.step .text {
+  padding: 0 !important;
+  display: block !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  gap: 0 !important;
+}
+section.step .stage-wrap {
+  position: static !important;
+  top: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-left: none !important;
+  background: transparent !important;
+  align-self: start !important;
+}
+section.step .stage {
+  position: static !important;
+  height: auto !important;
+  top: auto !important;
+  display: block !important;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  font-family: var(--font-mono) !important;
-  font-size: 10px !important;
-  letter-spacing: 0.16em !important;
-  color: var(--ink-faint-2) !important;
-  text-transform: uppercase !important;
-  font-weight: 500 !important;
-  padding: 2px 6px !important;
+}
+section.step .canvas-host {
   position: relative;
+  aspect-ratio: 4 / 3;
+  height: auto !important;
+  width: 100% !important;
+  border: 1px solid var(--ink-faint) !important;
+  background: var(--paper-2) !important;
+  overflow: hidden;
 }
-.toc-btn:hover, .lesson-nav a:hover {
+section.step .canvas-host > canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+section.step .controls {
+  padding: 10px 0 0 !important;
+  border-top: none !important;
   background: transparent !important;
-  color: var(--ink-soft) !important;
-  transform: none !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.lesson-nav a.active {
-  background: transparent !important;
-  color: var(--ink-soft) !important;
-}
-.lesson-nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 6px; right: 6px; bottom: -3px;
-  height: 1.5px; background: var(--ink-soft);
+section.step .canvas-host .chip {
+  font-size: 8px !important;
+  padding: 1px 5px !important;
+  letter-spacing: 0.10em !important;
 }
 
-/* TOC card — paper card with hairline */
-.toc {
-  background: var(--paper) !important;
-  border: 1px solid var(--hairline) !important;
-  box-shadow: 6px 6px 0 var(--ink-soft) !important;
-  font-family: var(--font-mono) !important;
-}
-.toc a {
-  font-family: var(--font-mono) !important;
-  font-size: 12px !important;
-  letter-spacing: 0.04em !important;
-  color: var(--ink-soft) !important;
+/* slide-thumbs inside .text drop their float — they're now inline
+   marginalia inside the text column, not floated alongside the stage */
+section.step .text .slide-thumb {
+  float: none !important;
+  width: 200px !important;
+  max-width: 100% !important;
+  margin: 12px 0 18px !important;
 }
 
-/* ── hero — keep original 2-col (prose left, canvas right) ── */
 .hero {
-  /* keep the lesson's original grid-template-columns from inline CSS;
-     just pad/border in the editorial palette and add a ghost backdrop */
-  border-bottom: 1px solid var(--hairline) !important;
-  background: var(--paper) !important;
-  position: relative;
-}
-.hero > div:first-child {
-  position: relative;
-  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* ghost numeral — absolute backdrop behind the title, NOT a column */
-.hero .kicker {
-  display: inline-block !important;
-  background: none !important;
-  padding: 0 !important;
-  color: var(--ink-soft) !important;
-  font-family: var(--font-mono) !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.18em !important;
-  text-transform: uppercase !important;
-  margin-bottom: 16px !important;
-}
-.hero .kicker[data-num]::before {
-  content: attr(data-num);
-  position: absolute;
-  top: 8px;
-  left: 0;
-  font-family: 'Inter', var(--font-mono);
-  font-size: clamp(140px, 18vw, 240px);
-  line-height: 0.85;
-  font-weight: 200;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--ink-faint-2);
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  opacity: 0.55;
+@media (max-width: 800px) {
+  section.step {
+    grid-template-columns: 1fr !important;
+  }
+  section.step .stage-wrap {
+    position: static !important;
+  }
 }
 
-/* hero h1 — keep big and structural, swap to mono display */
-.hero h1 {
-  font-family: var(--font-mono) !important;
-  font-size: clamp(28px, 3.6vw, 44px) !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.02em !important;
-  color: var(--ink-soft) !important;
-  text-transform: uppercase !important;
-  line-height: 1.1 !important;
-  margin: 0 0 16px !important;
-  position: relative;
-  z-index: 1;
-}
-.hero p {
-  font-family: var(--font-mono) !important;
-  font-size: 13.5px !important;
-  color: var(--ink-soft) !important;
-  line-height: 1.7 !important;
-  max-width: 56ch;
-  position: relative;
-  z-index: 1;
-}
-.hero .meta {
-  font-family: var(--font-mono) !important;
-  font-size: 11px !important;
-  letter-spacing: 0.1em !important;
-  color: var(--ink-faint-2) !important;
-  text-transform: uppercase !important;
-  margin-top: 24px !important;
-  border-top: 1px solid var(--hairline) !important;
-  padding-top: 12px !important;
-  position: relative;
-  z-index: 1;
-}
-.hero .meta strong { color: var(--ink-soft) !important; font-weight: 600 !important; }
 
-/* hero stage — keep the original right-side canvas frame */
-.hero .stage {
-  background: var(--paper) !important;
-  border: 1px solid var(--hairline) !important;
-  box-shadow: 6px 6px 0 var(--ink-soft) !important;
-  border-radius: 0 !important;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── steps — KEEP the original 2-col grid (prose left / stage right) ── */
+/* ── steps — KEEP the original 2-col grid; just shrink the sticky stage so
+   the prose isn't dwarfed by a viewport-tall canvas ── */
 section.step {
   border-bottom: 1px solid var(--hairline) !important;
   background: var(--paper) !important;
-  /* deliberately no display/grid override — fall through to inline CSS */
+  min-height: 0 !important;            /* override the inline 92vh */
+  align-items: start !important;
+}
+section.step .stage {
+  height: clamp(360px, 62vh, 560px) !important;
+  top: 80px !important;                /* pad below sticky topbar */
+}
+section.step .stage-wrap {
+  align-self: start !important;
 }
 section.step .text {
   /* keep original padding/grid placement, just narrow type */
@@ -358,23 +312,37 @@ input[type="range"] { accent-color: var(--coral) !important; }
   text-transform: uppercase !important;
 }
 
-/* ── callouts — flat mono blocks, single hairline accent ─── */
+/* ── callouts — rust hairline, plain (non-italic) body, lead-in bold ─── */
 .callout, .callout.navy, .callout.warn {
   background: transparent !important;
   border: none !important;
-  border-left: 1px solid var(--ink-soft) !important;
+  border-left: 2px solid var(--rust) !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  padding: 4px 0 4px 16px !important;
-  margin: 16px 0 !important;
-  font-style: italic;
-  color: var(--ink-faint-2) !important;
+  padding: 6px 0 6px 18px !important;
+  margin: 20px 0 !important;
+  font-style: normal !important;
+  color: var(--ink-soft) !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
 }
 .callout strong, .callout.navy strong, .callout.warn strong {
-  font-style: normal;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+}
+.callout em, .callout.navy em, .callout.warn em {
+  font-style: italic !important;
   color: var(--ink-soft) !important;
 }
-.callout.warn { border-left-color: var(--coral) !important; }
+.callout code, .callout.navy code, .callout.warn code {
+  background: var(--paper-2) !important;
+  color: var(--ink) !important;
+  padding: 0 4px !important;
+  font-family: inherit !important;
+  font-size: 0.95em !important;
+}
+.callout.navy { border-left-color: var(--ink) !important; }
+.callout.warn { border-left-color: var(--rust) !important; }
 
 /* ── predict / quiz cards — mono, no shadow ──────────────── */
 .predict {

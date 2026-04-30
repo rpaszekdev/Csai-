@@ -1,14 +1,13 @@
-// Lazy-load transcript and book-chapter raw text into the lecture-extras
-// <details> blocks. Each <pre data-src="..."> is prefetched once on page
-// load so the [copy] button works instantly even before the user expands
-// the section.
+// Hero-toggle panels for transcript / book chapter.
+// Each .hero-tool button toggles a .hero-panel with id matched by
+// data-toggle-panel. Text inside the panel is lazy-fetched on first reveal.
 (function () {
   function fetchInto(pre) {
     if (pre.dataset.loaded === "1") return Promise.resolve(pre.textContent);
     var src = pre.getAttribute("data-src");
     if (!src) return Promise.resolve("");
     pre.dataset.loaded = "loading";
-    if (!pre.textContent) pre.textContent = "Loading…";
+    pre.textContent = "Loading…";
     return fetch(src)
       .then(function (r) {
         if (!r.ok) throw new Error("HTTP " + r.status);
@@ -27,17 +26,15 @@
   }
 
   function copyText(text, btn) {
+    var prev = btn.textContent;
     var done = function (ok) {
-      var prev = btn.textContent;
       btn.textContent = ok ? "✓ copied" : "✗ failed";
       btn.classList.toggle("copied", ok);
-      btn.classList.toggle("failed", !ok);
       setTimeout(function () {
         btn.textContent = prev || "copy";
-        btn.classList.remove("copied", "failed");
+        btn.classList.remove("copied");
       }, 1400);
     };
-
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(
         function () { done(true); },
@@ -45,7 +42,6 @@
       );
       return;
     }
-    // Fallback: hidden textarea + execCommand.
     try {
       var ta = document.createElement("textarea");
       ta.value = text;
@@ -62,40 +58,50 @@
     }
   }
 
-  // Wire up every fold: prefetch in background + add copy button.
-  document.querySelectorAll(".extras-fold").forEach(function (det) {
-    var pre = det.querySelector("pre.extras-text");
-    var summary = det.querySelector("summary");
-    if (!pre || !summary) return;
-
-    // Add copy button to summary (skip if one already exists).
-    if (!summary.querySelector(".extras-copy")) {
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "extras-copy";
-      btn.textContent = "copy";
-      btn.setAttribute("aria-label", "Copy text to clipboard");
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        // Make sure text is loaded before copying.
-        fetchInto(pre).then(function (txt) {
-          if (txt) copyText(txt, btn);
-        });
+  // Toggle: hero buttons reveal/hide their target panel and fetch text on first open.
+  document.querySelectorAll(".hero-tool[data-toggle-panel]").forEach(function (btn) {
+    var targetId = btn.getAttribute("data-toggle-panel");
+    btn.addEventListener("click", function () {
+      var panel = document.getElementById(targetId);
+      if (!panel) return;
+      var willOpen = panel.hasAttribute("hidden");
+      // Close all other panels (one open at a time keeps the page tidy).
+      document.querySelectorAll(".hero-panel").forEach(function (p) {
+        p.setAttribute("hidden", "");
       });
-      summary.appendChild(btn);
-    }
-
-    // Auto-load on first expand (and prefetch transcripts immediately).
-    det.addEventListener("toggle", function () {
-      if (det.open) fetchInto(pre);
+      document.querySelectorAll(".hero-tool").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      if (willOpen) {
+        panel.removeAttribute("hidden");
+        btn.classList.add("active");
+        var pre = panel.querySelector("pre.hero-panel-text");
+        if (pre) fetchInto(pre);
+        // Smooth-scroll panel into view.
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 
-  // Eager-prefetch transcripts only — they're smaller (~70 KB) and the
-  // user is likely to want to copy them. Book chapters (~150 KB+) stay
-  // lazy until expanded or copied.
-  document
-    .querySelectorAll('.extras-fold pre.extras-text[data-src*="/transcripts/"]')
-    .forEach(fetchInto);
+  // Inline copy button inside each panel.
+  document.querySelectorAll(".hero-panel-copy[data-copy-target]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var pre = document.getElementById(btn.getAttribute("data-copy-target"));
+      if (!pre) return;
+      fetchInto(pre).then(function (txt) {
+        if (txt) copyText(txt, btn);
+      });
+    });
+  });
+
+  // Close button (×) on each panel.
+  document.querySelectorAll(".hero-panel-close[data-close]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var panel = document.getElementById(btn.getAttribute("data-close"));
+      if (panel) panel.setAttribute("hidden", "");
+      document
+        .querySelectorAll('.hero-tool[data-toggle-panel="' + btn.getAttribute("data-close") + '"]')
+        .forEach(function (b) { b.classList.remove("active"); });
+    });
+  });
 })();

@@ -1,32 +1,62 @@
 /* ═════════════════════════════════════════════════════════════════════
-   Auto-sys lecture annotations — vanilla JS port of the cog-neuro
-   AnnotationsLayer. Self-contained: stores per-lecture annotations in
-   localStorage, wraps selections in <mark.annot-mark> for the inline
-   yellow highlight, renders a margin-anchored popover for adding/editing
-   notes, and a viewport-pinned thumbnail menu for navigation.
+   Shared annotations — drop-in module for any course lecture page.
 
-   Each lecture HTML loads this with a single <script src="./annotations.js">
-   tag; no other wiring required.
+   Usage:
+     <link rel="stylesheet" href="/shared/annotations/annotations.css" />
+     <article data-annot-scope="cog-neuro:m1_l1">…</article>
+     <script src="/shared/annotations/annotations.js" defer></script>
+
+   The script auto-mounts on the first element with `data-annot-scope`.
+   The scope value becomes the storage key suffix:
+     localStorage["annot:cog-neuro:m1_l1"] = […]
+     localStorage["annot:auto-sys:lecture-01"] = […]
+
+   Reads legacy per-course keys (`<course>:annot:<id>`) on first load and
+   migrates them to the unified namespace, so existing notes carry over.
+
+   Behaviour mirrors the (deprecated) per-course implementations:
+     • drag-select → yellow <mark> + popover below the highlight
+     • Enter saves, Shift+Enter newline, Escape cancels
+     • click a saved mark → re-open its note in edit mode
+     • viewport-pinned thumbnail menu (top-right) when ≥1 note exists
+     • clicking a menu entry → scroll into view + open in edit mode
    ═════════════════════════════════════════════════════════════════════ */
 
 (function () {
   "use strict";
 
-  // ─── Storage ──────────────────────────────────────────────────────────
-  const STORAGE_PREFIX = "auto-sys:annot:";
+  const STORAGE_PREFIX = "annot:";
+  const POPOVER_BELOW_GAP = 8;
+  const MIN_SELECTION_LEN = 4;
 
-  function lectureId() {
-    const m = location.pathname.match(/lecture-(\d+)/i);
-    return m ? "lecture-" + m[1] : "unknown";
+  // ─── Per-instance state. The module is single-mount — only one
+  // [data-annot-scope] host is supported per page (which fits both courses).
+  let scopeId = null;
+  let bodyEl = null;
+  let popoverEl = null;
+  let panelEl = null;
+  let panelOpen = false;
+  let popoverState = null; // { mode, snippet, top, annotId? }
+  let pendingMarks = [];
+
+  // ─── Storage ──────────────────────────────────────────────────────────
+  function storageKey(scope) {
+    return STORAGE_PREFIX + scope;
   }
 
-  function storageKey() {
-    return STORAGE_PREFIX + lectureId();
+  // Legacy per-course keys looked like "<courseSlug>:annot:<sectionId>".
+  // Given a unified scope of "<courseSlug>:<sectionId>", derive the old
+  // key shape so we can migrate any existing notes once.
+  function legacyKeyFor(scope) {
+    const idx = scope.indexOf(":");
+    if (idx < 0) return null;
+    return scope.slice(0, idx) + ":annot:" + scope.slice(idx + 1);
   }
 
   function readAll() {
+    if (!scopeId) return [];
     try {
-      const raw = localStorage.getItem(storageKey());
+      const raw = localStorage.getItem(storageKey(scopeId));
       if (!raw) return [];
       const parsed = JSON.parse(raw);
       return Array.isArray(parsed) ? parsed : [];
@@ -36,10 +66,29 @@
   }
 
   function writeAll(list) {
+    if (!scopeId) return;
     try {
-      localStorage.setItem(storageKey(), JSON.stringify(list));
+      localStorage.setItem(storageKey(scopeId), JSON.stringify(list));
     } catch {
       /* quota / serialization — best effort. */
+    }
+  }
+
+  function migrateLegacyOnce() {
+    if (!scopeId) return;
+    const newKey = storageKey(scopeId);
+    const old = legacyKeyFor(scopeId);
+    if (!old) return;
+    if (localStorage.getItem(newKey) !== null) return;
+    const legacyValue = localStorage.getItem(old);
+    if (!legacyValue) return;
+    try {
+      const parsed = JSON.parse(legacyValue);
+      if (Array.isArray(parsed)) {
+        localStorage.setItem(newKey, legacyValue);
+      }
+    } catch {
+      /* ignore — leave legacy data in place. */
     }
   }
 
@@ -202,25 +251,16 @@
     }
   }
 
-  // Position the popover BELOW the highlighted mark so the yellow band
-  // stays visible while the user types — annotating text you can't see is
-  // disorienting. For multi-line marks, anchors below the last visible line.
+  // Anchor popover BELOW the highlight so the yellow band stays visible
+  // while typing. For multi-line marks, the bounding rect's bottom is the
+  // bottom of the last visual line, which is what we want.
   function computePopoverTop(markEl) {
     if (!markEl) return 0;
     const rect = markEl.getBoundingClientRect();
-    const POPOVER_BELOW_GAP = 8;
     return Math.max(0, rect.bottom + window.scrollY + POPOVER_BELOW_GAP);
   }
 
-  // ─── App state ────────────────────────────────────────────────────────
-  let bodyEl = null;
-  let popoverEl = null;
-  let panelEl = null;
-  let panelOpen = false;
-  let popoverState = null; // { mode, snippet, top, annotId? }
-  let pendingMarks = [];
-
-  // ─── Popover (overlay rendering) ──────────────────────────────────────
+  // ─── Popover ──────────────────────────────────────────────────────────
   function dismissPopover() {
     unwrapMarks(pendingMarks);
     pendingMarks = [];
@@ -443,7 +483,7 @@
     });
   }
 
-  // ─── Selection / mark click handlers ──────────────────────────────────
+  // ─── Event handlers ───────────────────────────────────────────────────
   function rerenderMarks() {
     if (!bodyEl) return;
     clearMarks(bodyEl);
@@ -461,7 +501,7 @@
     if (!bodyEl || !bodyEl.contains(range.commonAncestorContainer)) return;
 
     const text = sel.toString().trim();
-    if (text.length < 4) return;
+    if (text.length < MIN_SELECTION_LEN) return;
 
     unwrapMarks(pendingMarks);
     pendingMarks = wrapPendingRange(range.cloneRange());
@@ -516,7 +556,14 @@
   }
 
   function init() {
-    bodyEl = document.querySelector("article") || document.body;
+    const host = document.querySelector("[data-annot-scope]");
+    if (!host) return; // page didn't opt in.
+    scopeId = host.getAttribute("data-annot-scope");
+    if (!scopeId) return;
+    bodyEl = host;
+
+    migrateLegacyOnce();
+
     panelOpen = listAnnotations().length > 0;
     rerenderMarks();
     renderPanel();

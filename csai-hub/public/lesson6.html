@@ -342,57 +342,62 @@
     h2 { font-size: var(--text-head); }
   }
 </style>
-<link rel="stylesheet" href="/lesson-brutal.css" />
-<link rel="stylesheet" href="/lesson-editorial.css" />
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/deep-learning/dl.base.css" />
+<link rel="stylesheet" href="/deep-learning/dl.skin.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
-<body>
+<body data-annot-scope="deep-learning:recurrence">
+<div class="rust-bar"></div>
 
 <header class="topbar">
-  <div class="brand">
-    <span class="mark">CSAI</span>
-    <span class="title">Recurrence — RNNs, LSTMs, GRUs, Seq2Seq</span>
-    <span class="sub">Tilburg · Deep Learning · Lesson 6</span>
-  </div>
-  <nav class="lesson-nav">
-    <a href="lesson.html">Lesson 1</a>
-    <a href="lesson2.html">Lesson 2</a>
-    <a href="lesson3.html">Lesson 3</a>
-    <a href="lesson4.html">Lesson 4</a>
-    <a href="lesson5.html">Lesson 5</a>
-    <a href="lesson6.html" class="active">Lesson 6</a>
-    <a href="lesson7.html">Lesson 7</a>
-    <a href="lesson8.html">Lesson 8</a>
-  </nav>
-  <div class="progress"><span id="progress-bar"></span></div>
-  <button class="toc-btn" id="toc-btn">Contents</button>
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Deep Learning</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>CSAI</span>
+  </span>
 </header>
 
-<nav class="toc" id="toc">
-  <ol>
-    <li><a href="#hero">Overview</a></li>
-    <li><a href="#memory">1 · Why sequences need memory</a></li>
-    <li><a href="#rnn">2 · The vanilla RNN</a></li>
-    <li><a href="#bptt">3 · Backprop through time</a></li>
-    <li><a href="#vanish">4 · Vanishing &amp; exploding gradients</a></li>
-    <li><a href="#lstm">5 · The LSTM</a></li>
-    <li><a href="#gru">6 · The GRU</a></li>
-    <li><a href="#seq2seq">7 · Sequence to sequence</a></li>
-    <li><a href="#bottleneck">8 · The bottleneck problem</a></li>
-    <li><a href="#quiz">Final quiz</a></li>
-  </ol>
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
-<div class="hero" id="hero">
-  <div>
-    <div class="kicker" data-num="06">Lesson Six</div>
-    <h1>Networks that remember.</h1>
-    <p>An MLP sees one fixed-size vector and answers. A sentence isn't fixed-size. A video isn't either. You need a network with a <strong>hidden state</strong> that carries information from one step to the next — a <strong>recurrent neural network</strong>. Then you'll see why simple RNNs forget, and why <strong>LSTMs</strong> and <strong>GRUs</strong> add <strong>gates</strong> to keep what matters.</p>
-    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
-    Department of Cognitive Sciences and AI · Tilburg University</div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">06</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Lesson 06 —</span>
+      <h1 class="hero-title">Recurrence — RNNs, LSTMs, GRUs</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Dr. Juan Sebastián Olier</span>
+      <span>43 slides</span>
+    </div>
   </div>
-  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+  <div class="hero-right">
+    <div id="hero-canvas" class="hero-scene"></div>
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="/lesson.html">L01</a>
+  <a class="chip" href="/lesson2.html">L02</a>
+  <a class="chip" href="/lesson3.html">L03</a>
+  <a class="chip" href="/lesson4.html">L04</a>
+  <a class="chip" href="/lesson5.html">L05</a>
+  <a class="chip active" href="/lesson6.html">L06</a>
+  <a class="chip" href="/lesson7.html">L07</a>
+  <a class="chip" href="/lesson8.html">L08</a>
 </div>
+
+<div class="slide-strip" id="slideStrip"></div>
 
 <!-- ═══════ 1. WHY SEQUENCES NEED MEMORY ═══════ -->
 <section class="step" id="memory">
@@ -848,6 +853,33 @@
   <a href="lesson7.html">Continue to Lesson 7 · Self-Attention and Transformers →</a>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button">‹</button>
+  <button class="lightbox-nav lightbox-next" type="button">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // build the slide strip — anchors auto-discovered by /shared/lightbox.js
+  (function () {
+    const strip = document.getElementById("slideStrip");
+    const TOTAL = 43;
+    for (let i = 1; i <= TOTAL; i++) {
+      const n = String(i).padStart(2, "0");
+      const a = document.createElement("a");
+      a.href = `/slides/lesson6/slide-${n}.png`;
+      a.className = "slide-thumb";
+      a.dataset.slide = n;
+      a.innerHTML = `<img src="/slides/lesson6/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+      strip.appendChild(a);
+    }
+  })();
+</script>
+<script src="/shared/lightbox.js" defer></script>
+
 <div class="score" id="score">Score: 0 / 19</div>
 
 <script type="importmap">
@@ -859,7 +891,7 @@
 }
 </script>
 <!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
-<script type="module" src="/lesson-pretext.js"></script>
+<script type="module" src="/shared/lesson-pretext.js"></script>
 
 
 <script type="module">
@@ -2078,5 +2110,6 @@ const toc = document.getElementById('toc');
 document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
 toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 </script>
+<script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

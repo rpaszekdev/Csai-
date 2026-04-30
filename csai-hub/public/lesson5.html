@@ -250,60 +250,62 @@
     h2 { font-size: var(--text-head); }
   }
 </style>
-<link rel="stylesheet" href="/lesson-brutal.css" />
-<link rel="stylesheet" href="/lesson-editorial.css" />
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/deep-learning/dl.base.css" />
+<link rel="stylesheet" href="/deep-learning/dl.skin.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
-<body>
+<body data-annot-scope="deep-learning:regularization">
+<div class="rust-bar"></div>
 
 <header class="topbar">
-  <div class="brand">
-    <span class="mark">CSAI</span>
-    <span class="title">Regularization</span>
-    <span class="sub">Tilburg · Deep Learning · Lesson 5</span>
-  </div>
-  <nav class="lesson-nav">
-    <a href="lesson.html">Lesson 1</a>
-    <a href="lesson2.html">Lesson 2</a>
-    <a href="lesson3.html">Lesson 3</a>
-    <a href="lesson4.html">Lesson 4</a>
-    <a href="lesson5.html" class="active">Lesson 5</a>
-    <a href="lesson6.html">Lesson 6</a>
-    <a href="lesson7.html">Lesson 7</a>
-    <a href="lesson8.html">Lesson 8</a>
-  </nav>
-  <div class="progress"><span id="progress-bar"></span></div>
-  <button class="toc-btn" id="toc-btn">Contents</button>
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Deep Learning</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>CSAI</span>
+  </span>
 </header>
 
-<nav class="toc" id="toc">
-  <ol>
-    <li><a href="#hero">Overview</a></li>
-    <li><a href="#what">1 · What regularization is</a></li>
-    <li><a href="#biasvar">2 · Bias–variance tradeoff</a></li>
-    <li><a href="#lnorms">3 · L1 and L2 penalties</a></li>
-    <li><a href="#early">4 · Early stopping</a></li>
-    <li><a href="#augment">5 · Data augmentation</a></li>
-    <li><a href="#dropout">6 · Dropout</a></li>
-    <li><a href="#capacity">7 · Capacity &amp; double descent</a></li>
-    <li><a href="#batchnorm">8 · Batch normalization</a></li>
-    <li><a href="#quiz">Final quiz</a></li>
-  </ol>
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
 </nav>
 
-<div class="hero" id="hero">
-  <div>
-    <div class="kicker" data-num="05">Lesson Five</div>
-    <h1>Teaching a network to forget the noise, remember the pattern.</h1>
-    <p>A network with enough neurons can <strong>memorize</strong> every training example. That is not learning. <strong>Regularization</strong> is the family of tricks that stops a model from gluing itself to the training data — so it still works on everything it has never seen.</p>
-    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
-    Department of Cognitive Sciences and AI · Tilburg University</div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">05</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Lesson 05 —</span>
+      <h1 class="hero-title">Regularization</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Dr. Juan Sebastián Olier</span>
+      <span>34 slides</span>
+    </div>
   </div>
-  <div class="stage"><div class="canvas-host" id="hero-canvas">
-    <div class="chip nw">two descents on the same loss</div>
-    <div class="chip se">orange: overfit · blue: regularized</div>
-  </div></div>
+  <div class="hero-right">
+    <div id="hero-canvas" class="hero-scene"></div>
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="/lesson.html">L01</a>
+  <a class="chip" href="/lesson2.html">L02</a>
+  <a class="chip" href="/lesson3.html">L03</a>
+  <a class="chip" href="/lesson4.html">L04</a>
+  <a class="chip active" href="/lesson5.html">L05</a>
+  <a class="chip" href="/lesson6.html">L06</a>
+  <a class="chip" href="/lesson7.html">L07</a>
+  <a class="chip" href="/lesson8.html">L08</a>
 </div>
 
+<div class="slide-strip" id="slideStrip"></div>
 <!-- 1 · WHAT REGULARIZATION IS -->
 <section class="step" id="what">
   <div class="text">
@@ -655,6 +657,33 @@
   <a href="lesson2.html">← back to Lesson 2</a>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button">‹</button>
+  <button class="lightbox-nav lightbox-next" type="button">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // build the slide strip — anchors auto-discovered by /shared/lightbox.js
+  (function () {
+    const strip = document.getElementById("slideStrip");
+    const TOTAL = 34;
+    for (let i = 1; i <= TOTAL; i++) {
+      const n = String(i).padStart(2, "0");
+      const a = document.createElement("a");
+      a.href = `/slides/lesson5/slide-${n}.png`;
+      a.className = "slide-thumb";
+      a.dataset.slide = n;
+      a.innerHTML = `<img src="/slides/lesson5/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+      strip.appendChild(a);
+    }
+  })();
+</script>
+<script src="/shared/lightbox.js" defer></script>
+
 <div class="score" id="score">Score: 0 / 8</div>
 
 <script type="importmap">
@@ -666,7 +695,7 @@
 }
 </script>
 <!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
-<script type="module" src="/lesson-pretext.js"></script>
+<script type="module" src="/shared/lesson-pretext.js"></script>
 
 
 <script type="module">
@@ -1728,6 +1757,7 @@ if (!CanvasRenderingContext2D.prototype.roundRect) {
   };
 }
 </script>
-<script src="/lesson-mobile.js" defer></script>
+<script src="/deep-learning/lesson-mobile.js" defer></script>
+<script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

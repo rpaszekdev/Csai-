@@ -342,58 +342,62 @@
     h2 { font-size: var(--text-head); }
   }
 </style>
-<link rel="stylesheet" href="/lesson-brutal.css" />
-<link rel="stylesheet" href="/lesson-editorial.css" />
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/deep-learning/dl.base.css" />
+<link rel="stylesheet" href="/deep-learning/dl.skin.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
-<body>
+<body data-annot-scope="deep-learning:transformers">
+<div class="rust-bar"></div>
 
 <header class="topbar">
-  <div class="brand">
-    <span class="mark">CSAI</span>
-    <span class="title">Self-Attention and Transformers</span>
-    <span class="sub">Tilburg · Deep Learning · Lesson 7</span>
-  </div>
-  <nav class="lesson-nav">
-    <a href="lesson.html">Lesson 1</a>
-    <a href="lesson2.html">Lesson 2</a>
-    <a href="lesson3.html">Lesson 3</a>
-    <a href="lesson4.html">Lesson 4</a>
-    <a href="lesson5.html">Lesson 5</a>
-    <a href="lesson6.html">Lesson 6</a>
-    <a href="lesson7.html" class="active">Lesson 7</a>
-    <a href="lesson8.html">Lesson 8</a>
-  </nav>
-  <div class="progress"><span id="progress-bar"></span></div>
-  <button class="toc-btn" id="toc-btn">Contents</button>
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Deep Learning</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>CSAI</span>
+  </span>
 </header>
 
-<nav class="toc" id="toc">
-  <ol>
-    <li><a href="#hero">Overview</a></li>
-    <li><a href="#bottleneck">1 · The recurrence bottleneck</a></li>
-    <li><a href="#rnn-attn">2 · Attention inside an RNN</a></li>
-    <li><a href="#self-attn">3 · Self-attention — the core idea</a></li>
-    <li><a href="#qkv">4 · Q, K, V as learned projections</a></li>
-    <li><a href="#formula">5 · The full attention formula</a></li>
-    <li><a href="#multihead">6 · Multi-head attention</a></li>
-    <li><a href="#block">7 · The Transformer block</a></li>
-    <li><a href="#masked">8 · Masked self-attention</a></li>
-    <li><a href="#position">9 · Positional encoding</a></li>
-    <li><a href="#quiz">Final quiz</a></li>
-  </ol>
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
-<div class="hero" id="hero">
-  <div>
-    <div class="kicker" data-num="07">Lesson Seven · slides 1–2</div>
-    <h1>Every token, looking at every other token, all at once.</h1>
-    <p>Last lesson the encoder squeezed an entire sentence into <strong>one final hidden state</strong>. The decoder then read from that single vector. It was a bottleneck. <strong>Self-attention</strong> removes the bottleneck — every token gets to look at every other token, in parallel, with no recurrence.</p>
-    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
-    Department of Cognitive Sciences and AI · Tilburg University</div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">07</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Lesson 07 —</span>
+      <h1 class="hero-title">Self-Attention & Transformers</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Dr. Juan Sebastián Olier</span>
+      <span>43 slides</span>
+    </div>
   </div>
-  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+  <div class="hero-right">
+    <div id="hero-canvas" class="hero-scene"></div>
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="/lesson.html">L01</a>
+  <a class="chip" href="/lesson2.html">L02</a>
+  <a class="chip" href="/lesson3.html">L03</a>
+  <a class="chip" href="/lesson4.html">L04</a>
+  <a class="chip" href="/lesson5.html">L05</a>
+  <a class="chip" href="/lesson6.html">L06</a>
+  <a class="chip active" href="/lesson7.html">L07</a>
+  <a class="chip" href="/lesson8.html">L08</a>
 </div>
+
+<div class="slide-strip" id="slideStrip"></div>
 
 <!-- ═══════ 1. RECURRENCE BOTTLENECK ═══════ -->
 <section class="step" id="bottleneck">
@@ -843,6 +847,33 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
   <a href="lesson8.html">Continue to Lesson 8 · Computer Vision →</a>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button">‹</button>
+  <button class="lightbox-nav lightbox-next" type="button">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // build the slide strip — anchors auto-discovered by /shared/lightbox.js
+  (function () {
+    const strip = document.getElementById("slideStrip");
+    const TOTAL = 43;
+    for (let i = 1; i <= TOTAL; i++) {
+      const n = String(i).padStart(2, "0");
+      const a = document.createElement("a");
+      a.href = `/slides/lesson7/slide-${n}.png`;
+      a.className = "slide-thumb";
+      a.dataset.slide = n;
+      a.innerHTML = `<img src="/slides/lesson7/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+      strip.appendChild(a);
+    }
+  })();
+</script>
+<script src="/shared/lightbox.js" defer></script>
+
 <div class="score" id="score">Score: 0 / 13</div>
 
 <script type="importmap">
@@ -854,7 +885,7 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
 }
 </script>
 <!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
-<script type="module" src="/lesson-pretext.js"></script>
+<script type="module" src="/shared/lesson-pretext.js"></script>
 
 
 <script type="module">
@@ -1992,5 +2023,6 @@ const toc = document.getElementById('toc');
 document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
 toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 </script>
+<script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

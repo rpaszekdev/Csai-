@@ -342,57 +342,62 @@
     h2 { font-size: var(--text-head); }
   }
 </style>
-<link rel="stylesheet" href="/lesson-brutal.css" />
-<link rel="stylesheet" href="/lesson-editorial.css" />
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/deep-learning/dl.base.css" />
+<link rel="stylesheet" href="/deep-learning/dl.skin.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
-<body>
+<body data-annot-scope="deep-learning:vision">
+<div class="rust-bar"></div>
 
 <header class="topbar">
-  <div class="brand">
-    <span class="mark">CSAI</span>
-    <span class="title">Computer Vision</span>
-    <span class="sub">Tilburg · Deep Learning · Lesson 8</span>
-  </div>
-  <nav class="lesson-nav">
-    <a href="lesson.html">Lesson 1</a>
-    <a href="lesson2.html">Lesson 2</a>
-    <a href="lesson3.html">Lesson 3</a>
-    <a href="lesson4.html">Lesson 4</a>
-    <a href="lesson5.html">Lesson 5</a>
-    <a href="lesson6.html">Lesson 6</a>
-    <a href="lesson7.html">Lesson 7</a>
-    <a href="lesson8.html" class="active">Lesson 8</a>
-  </nav>
-  <div class="progress"><span id="progress-bar"></span></div>
-  <button class="toc-btn" id="toc-btn">Contents</button>
+  <a href="/" class="back">← Back</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Deep Learning</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>CSAI</span>
+  </span>
 </header>
 
-<nav class="toc" id="toc">
-  <ol>
-    <li><a href="#hero">Overview</a></li>
-    <li><a href="#why-hard">1 · Why vision is hard</a></li>
-    <li><a href="#task-zoo">2 · The task zoo</a></li>
-    <li><a href="#cnn-recap">3 · CNNs as the workhorse</a></li>
-    <li><a href="#ssl">4 · Self-supervised learning</a></li>
-    <li><a href="#mixer">5 · MLP-Mixer</a></li>
-    <li><a href="#mamba">6 · Mamba &amp; state-space models</a></li>
-    <li><a href="#multimodal">7 · LLMs meet vision</a></li>
-    <li><a href="#next">8 · Next trends</a></li>
-    <li><a href="#quiz">Final quiz</a></li>
-  </ol>
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="#" class="active">Lessons</a>
+  <a href="#">Quizzes</a>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
-<div class="hero" id="hero">
-  <div>
-    <div class="kicker" data-num="08">Lesson Eight · the finale</div>
-    <h1>Teaching machines to see — still unsolved.</h1>
-    <p>In <strong>1966</strong>, MIT thought a summer project could "solve vision". Sixty years later, we have <strong>CNNs</strong>, <strong>transformers</strong>, <strong>state-space models</strong>, and we still can't match a toddler. This lesson is a tour of where the field is now and where it's heading.</p>
-    <div class="meta">Slides by <strong>Silvia Pintea</strong><br/>
-    Department of Cognitive Sciences and AI · Tilburg University</div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-num">08</div>
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Lesson 08 —</span>
+      <h1 class="hero-title">Computer Vision</h1>
+    </div>
+    <div class="hero-meta">
+      <span>Dr. Juan Sebastián Olier</span>
+      <span>32 slides</span>
+    </div>
   </div>
-  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+  <div class="hero-right">
+    <div id="hero-canvas" class="hero-scene"></div>
+  </div>
+</section>
+
+<div class="chips">
+  <a class="chip" href="/lesson.html">L01</a>
+  <a class="chip" href="/lesson2.html">L02</a>
+  <a class="chip" href="/lesson3.html">L03</a>
+  <a class="chip" href="/lesson4.html">L04</a>
+  <a class="chip" href="/lesson5.html">L05</a>
+  <a class="chip" href="/lesson6.html">L06</a>
+  <a class="chip" href="/lesson7.html">L07</a>
+  <a class="chip active" href="/lesson8.html">L08</a>
 </div>
+
+<div class="slide-strip" id="slideStrip"></div>
 
 <!-- ═══════ 1. WHY VISION IS HARD ═══════ -->
 <section class="step" id="why-hard">
@@ -885,6 +890,33 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
   <a href="lesson.html">Back to Lesson 1 · Multilayer Perceptrons →</a>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button">‹</button>
+  <button class="lightbox-nav lightbox-next" type="button">›</button>
+  <img class="lightbox-img" id="lightboxImg" alt=""/>
+  <div class="lightbox-meta" id="lightboxMeta"></div>
+</div>
+
+<script>
+  // build the slide strip — anchors auto-discovered by /shared/lightbox.js
+  (function () {
+    const strip = document.getElementById("slideStrip");
+    const TOTAL = 32;
+    for (let i = 1; i <= TOTAL; i++) {
+      const n = String(i).padStart(2, "0");
+      const a = document.createElement("a");
+      a.href = `/slides/lesson8/slide-${n}.png`;
+      a.className = "slide-thumb";
+      a.dataset.slide = n;
+      a.innerHTML = `<img src="/slides/lesson8/slide-${n}.png" alt="Slide ${i}" loading="lazy"/><span class="num">${n}</span>`;
+      strip.appendChild(a);
+    }
+  })();
+</script>
+<script src="/shared/lightbox.js" defer></script>
+
 <div class="score" id="score">Score: 0 / 18</div>
 
 <script type="importmap">
@@ -896,7 +928,7 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
 }
 </script>
 <!-- Pretext: mono labels embedded in canvases (loaded once, attaches to window.Pretext) -->
-<script type="module" src="/lesson-pretext.js"></script>
+<script type="module" src="/shared/lesson-pretext.js"></script>
 
 
 <script type="module">
@@ -2234,5 +2266,6 @@ if (!CanvasRenderingContext2D.prototype.roundRect) {
   };
 }
 </script>
+<script src="/shared/annotations/annotations.js" defer></script>
 </body>
 </html>

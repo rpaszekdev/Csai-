@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>M5L2 — Executive Function (in depth)</title>
 <link rel="stylesheet" href="./cog-neuro.css" />
+<link rel="stylesheet" href="/shared/annotations/annotations.css" />
 </head>
 <body>
 <div class="rust-bar"></div>
@@ -40,7 +41,12 @@
       <span>3 sources</span>
       <span>32 slides</span>
     </div>
-  </div>
+      <div class="hero-tools">
+        <button type="button" class="hero-tool" data-toggle-panel="panel-m5_l2-transcript">📋 Transcript</button>
+        <button type="button" class="hero-tool" data-toggle-panel="panel-m5_l2-ch13">📖 Chapter</button>
+              <a class="hero-tool hero-tool-pptx" href="/cog-neuro/decks/m5_l2.pptx" download>📊 PPTX</a>
+      </div>
+    </div>
   <div class="hero-right">
     <img class="brain-illu" src="/cog-neuro/brain.svg" alt="Cognitive Neuroscience brain illustration" />
   </div>
@@ -58,6 +64,28 @@
   <a class="chip" href="./m5_l1.html">M5L1</a>
   <a class="chip active" href="./m5_l2.html">M5L2</a>
   <a class="chip" href="./midterm.html">MID</a>
+</div>
+
+
+
+
+<div class="hero-panels">
+  <div class="hero-panel" id="panel-m5_l2-transcript" hidden>
+      <div class="hero-panel-head">
+        <span class="hero-panel-title">Lecture transcript</span>
+        <button type="button" class="hero-panel-copy" data-copy-target="text-m5_l2-transcript">copy</button>
+        <button type="button" class="hero-panel-close" data-close="panel-m5_l2-transcript" aria-label="Close">×</button>
+      </div>
+      <pre class="hero-panel-text" id="text-m5_l2-transcript" data-src="/cog-neuro/transcripts/m5_l2.txt"></pre>
+    </div>
+  <div class="hero-panel" id="panel-m5_l2-ch13" hidden>
+      <div class="hero-panel-head">
+        <span class="hero-panel-title">Ch. 13 — Executive Functions</span>
+        <button type="button" class="hero-panel-copy" data-copy-target="text-m5_l2-ch13">copy</button>
+        <button type="button" class="hero-panel-close" data-close="panel-m5_l2-ch13" aria-label="Close">×</button>
+      </div>
+      <pre class="hero-panel-text" id="text-m5_l2-ch13" data-src="/cog-neuro/book/ch13.txt"></pre>
+    </div>
 </div>
 
 <div class="slide-strip">
@@ -95,7 +123,7 @@
 <a href="/cog-neuro/slides/m5_l2_slide-32.png" data-slide="32"><img src="/cog-neuro/slides/m5_l2_slide-32.png" alt="Slide 32" loading="lazy"/><span class="num">32</span></a>
 </div>
 
-<article id="content">
+<article id="content" data-annot-scope="cog-neuro:m5_l2">
 
 <section>
 <div class="col-slides">
@@ -644,27 +672,9 @@
 </section>
 
 </article>
-<section class="lecture-extras">
-  <details class="extras-fold">
-    <summary>Lecture transcript<span class="extras-meta">auto-generated · expand to load</span></summary>
-    <pre class="extras-text" data-src="/cog-neuro/transcripts/m5_l2.txt"></pre>
-  </details>
-  <details class="extras-fold">
-    <summary>Book chapter — Ch. 13 — Executive Functions<span class="extras-meta">expand to load</span></summary>
-    <pre class="extras-text" data-src="/cog-neuro/book/ch13.txt"></pre>
-  </details>
-</section>
 
 
-<!-- Annotation panel -->
-<aside class="annot-panel" aria-label="Saved annotations" id="annotPanel">
-  <button type="button" class="annot-panel-toggle">
-    <span class="annot-panel-icon">✎</span>
-    <span class="annot-panel-count">0</span>
-    <span class="annot-panel-label">notes</span>
-  </button>
-  <div class="annot-panel-list"></div>
-</aside>
+
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Slide viewer">
@@ -676,14 +686,8 @@
 </div>
 
 <script src="./cog-neuro-extras.js"></script>
-<script src="./lightbox.js"></script>
-<script src="./cog-neuro-annot.js"></script>
-<script>
-  window.cogAnnot.mount({
-    sectionId: "m5_l2",
-    contentEl: document.getElementById("content"),
-    panelEl: document.getElementById("annotPanel"),
-  });
-</script>
+<script src="/shared/lightbox.js" defer></script>
+<script src="/shared/annotations/annotations.js" defer></script>
+<script type="module" src="./brain-link.js"></script>
 </body>
 </html>

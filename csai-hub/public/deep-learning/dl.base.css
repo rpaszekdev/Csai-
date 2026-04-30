@@ -11,14 +11,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* ── editorial monochrome (matches csai-hub --cream) ──────── */
-  --hub-cream:    #FFFDF7;   /* main paper — same as hub */
-  --hub-cream-2:  #F5F0E5;   /* panel tint */
-  --hub-cream-3:  #E5DFD0;   /* warm border */
-  --hub-ink:      #0E0E0E;   /* deep ink, near-black */
-  --hub-ink-soft: #1B2230;   /* navy-ink for canvas / illustrations */
+  /* ── editorial monochrome (matches auto-sys + cog-neuro tokens) ── */
+  --hub-cream:    #F2EDE0;   /* main paper — auto-sys --paper */
+  --hub-cream-2:  #ECE6D6;   /* panel tint — auto-sys --paper-2 */
+  --hub-cream-3:  #C5BEAE;   /* warm border — auto-sys --ink-faint */
+  --hub-ink:      #1A1A1A;   /* deep ink — auto-sys --ink */
+  --hub-ink-soft: #2B2B2B;   /* canvas primary ink */
   --hub-ink-light:#3D3D3D;
-  --hub-ink-faint:#7A7A7A;
+  --hub-ink-faint:#8A8270;   /* auto-sys --ink-mute */
 
   /* single accent token — currently bound to ink for monochrome */
   --hub-accent: var(--hub-ink);
