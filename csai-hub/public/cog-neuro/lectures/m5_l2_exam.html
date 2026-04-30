@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>M5L2 — Exam · Executive Function</title>
+<link rel="stylesheet" href="./cog-neuro.css" />
+<link rel="stylesheet" href="./cog-neuro-exam.css" />
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./m5_l2.html" class="back">← Back to lecture</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Cognitive Neuroscience</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="/courses/cog-neuro/roadmap">Roadmap</a>
+  <a href="./m5_l2.html">Lessons</a>
+  <a href="#" class="active">Quizzes</a>
+  <a href="/courses/cog-neuro/brain-quiz">Brain Quiz</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Module 05 · Lecture 02 — Exam Mode</span>
+      <h1 class="hero-title">
+        Executive Function <span class="exam-mode-pill">Exam</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>8 questions</span>
+      <span>~12 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+
+  <!-- LEFT RAIL: question nav + progress -->
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">8</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <!-- RIGHT: single question column -->
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+
+    <div class="q-slide-refs" id="q-slides"></div>
+
+    <p class="q-prompt" id="q-prompt"></p>
+
+    <ul class="q-options" id="q-options"></ul>
+
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+
+    <!-- Final summary (hidden until all answered or user clicks finish) -->
+    <div class="q-summary" id="q-summary">
+      <h2>Exam Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">8</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;">correct</p>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./m5_l2.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lecture</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ── question bank — seeded from m5_l2.html ──────────────────── */
+const QUESTIONS = [
+  {
+    id: 1,
+    section: "1. PREFRONTAL CORTEX & INTELLIGENCE",
+    tag: "exam",
+    slides: ["03", "04"],
+    prompt: `Semendeferi et al. (1997, 2002) used structural MRI to revisit Brodmann's earlier estimate. Which finding most directly challenged the 19th-century claim that humans are cognitively unique because of an <strong>oversized prefrontal cortex</strong>?`,
+    options: [
+      { html: `Brodmann's original finding that PFC ≈ <strong>30%</strong> of human cortex.` },
+      { html: `Hitzig & Fritsch's evidence that <strong>anterior frontal</strong> stimulation produced no motor effect.` },
+      { html: `The proportional size of the frontal lobes is roughly equal (~<strong>35%</strong>) in humans <em>and</em> great apes.`, correct: true },
+      { html: `Phineas Gage's frontal lobe damage altered his personality.` },
+    ],
+    prof: `PFC scaling tracks overall brain growth — humans are not distinctive because of an oversized PFC, but because of overall brain scaling.`,
+  },
+  {
+    id: 2,
+    section: "1. HISTORICAL ANCHORS",
+    tag: "exam",
+    slides: ["02"],
+    prompt: `Franz Gall's <strong>phrenology</strong> was empirically wrong about reading skull shape. Despite this, what lasting contribution did it make to the study of cognition?`,
+    options: [
+      { html: `It established that mental faculties are equipotential across cortex.` },
+      { html: `It encouraged research into <strong>brain localisation</strong> of mental functions.`, correct: true },
+      { html: `It proved that absolute brain size predicts intelligence.` },
+      { html: `It introduced the lesion method to non-human primates.` },
+    ],
+    prof: `Wrong methodology, right question. The legacy of phrenology is the localisation question itself — does function map to anatomy?`,
+  },
+  {
+    id: 3,
+    section: "1. HISTORICAL ANCHORS",
+    tag: "exam",
+    slides: ["02"],
+    prompt: `Hitzig & Fritsch stimulated different parts of the frontal lobe in dogs in the late 1860s. Which observation seeded the idea that the <strong>anterior frontal lobe</strong> supports higher cognition rather than basic motor control?`,
+    options: [
+      { html: `<strong>Posterior</strong> frontal stimulation caused contralateral movement.` },
+      { html: `<strong>Posterior</strong> frontal damage abolished voluntary movement but spared reflexes.` },
+      { html: `<strong>Anterior</strong> frontal stimulation produced no motor or sensory effect.`, correct: true },
+      { html: `<strong>Anterior</strong> frontal damage caused total paralysis.` },
+    ],
+    prof: `The 'silent' result was the interesting one — absence of a motor effect implied the area must do something else, and that 'something else' became the seed of executive-function research.`,
+  },
+  {
+    id: 4,
+    section: "1. PREFRONTAL LESIONS — FERRIER & BIANCHI",
+    tag: "prof",
+    slides: ["02"],
+    prompt: `Ferrier and Bianchi found that <strong>bilateral</strong> prefrontal lesions in monkeys produced ALL of the following effects <strong>EXCEPT</strong>:`,
+    options: [
+      { html: `Failure to recognise objects.` },
+      { html: `Inability to use past experience.` },
+      { html: `Loss of voluntary movement and reflex arc.`, correct: true },
+      { html: `Blunted affect and disorganised behaviour.` },
+    ],
+    prof: `<strong>Unilateral</strong> damage rarely produced these effects — the bilateral / unilateral asymmetry is a frequent exam trap. Voluntary movement is mediated by posterior frontal motor areas, not prefrontal cortex.`,
+  },
+  {
+    id: 5,
+    section: "EXECUTIVE FUNCTION — DEFINITION",
+    tag: "exam",
+    slides: ["01"],
+    prompt: `Across nearly all definitions, executive function is built on two central concepts. Which pair best captures the textbook definition?`,
+    options: [
+      { html: `<strong>Memory</strong> and <strong>attention</strong>.` },
+      { html: `<strong>Rules</strong> (abstract behavioural prescriptions) and <strong>control</strong> (engaging the rule appropriate to context).`, correct: true },
+      { html: `<strong>Inhibition</strong> and <strong>reward</strong>.` },
+      { html: `<strong>Perception</strong> and <strong>motor output</strong>.` },
+    ],
+    prof: `EF = rules + control. "Drive on the right" is the rule; engaging it when you cross into a right-hand-traffic country is control.`,
+  },
+  {
+    id: 6,
+    section: "2. TAXONOMY OF EXECUTIVE FUNCTION",
+    tag: "exam",
+    slides: ["03", "04"],
+    prompt: `Figure 13.1 organises executive function into <strong>three top-level branches</strong>. Which set correctly names them?`,
+    options: [
+      { html: `Inhibition · Updating · Shifting.` },
+      { html: `Attention · Planning · Reasoning.` },
+      { html: `<strong>Establishing & modifying rules</strong> · <strong>Contextual control</strong> · <strong>Working memory</strong>.`, correct: true },
+      { html: `Encoding · Retrieval · Maintenance.` },
+    ],
+    prof: `Always think of EF as <strong>rules + control + WM</strong> working together — a coordinated system, not three independent modules.`,
+  },
+  {
+    id: 7,
+    section: "2. INHIBITION — SUB-TYPES",
+    tag: "exam",
+    slides: ["04"],
+    prompt: `The book lists <strong>four sub-types of inhibition</strong> under the "establishing & modifying rules" branch. Which of the following is <strong>NOT</strong> one of them?`,
+    options: [
+      { html: `Inhibiting actions.` },
+      { html: `Inhibiting interfering information.` },
+      { html: `Restraining socially inappropriate behaviour.` },
+      { html: `Inhibiting long-term memory <strong>consolidation</strong>.`, correct: true },
+    ],
+    prof: `The fourth one students forget is "removing irrelevant info from working memory." Inhibition isn't only about stopping motor output — it operates on representations too.`,
+  },
+  {
+    id: 8,
+    section: "1. BRAIN SIZE & INTELLIGENCE",
+    tag: "prof",
+    slides: ["03"],
+    prompt: `The professor used a single counter-example to argue that <strong>absolute brain size alone</strong> does not predict intelligence. Which case was it?`,
+    options: [
+      { html: `Whales have lobed frontal cortex similar to primates.` },
+      { html: `The <strong>elephant</strong> has a larger brain than humans yet does not exhibit human-level cognition.`, correct: true },
+      { html: `Newborns have large brains relative to body size.` },
+      { html: `Neanderthals had larger cranial capacity than modern humans.` },
+    ],
+    prof: `Brain size alone fails as a predictor; what matters is proportional scaling of association cortex (parietal + prefrontal), not raw volume.`,
+  },
+];
+
+/* ── state + persistence ─────────────────────────────────────── */
+const STORAGE_KEY = "csai_exam_m5_l2_v1";
+const SLIDE_BASE = "/cog-neuro/slides/m5_l2_slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+/* ── render ──────────────────────────────────────────────────── */
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  // section eyebrow + tag
+  const tagHtml = q.tag === "prof"
+    ? `<span class="badge prof">Prof</span>`
+    : `<span class="badge">Exam</span>`;
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-faint-2);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  // slide refs
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = q.slides.map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  // prompt
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  // options
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  // restore locked state if already answered
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  // reveal
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  // actions
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  // option clicks
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = answered ? Math.round((correct / QUESTIONS.length) * 100) : 0;
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+/* ── nav handlers ────────────────────────────────────────────── */
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return; // user must pick first
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the exam? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+/* ── keyboard shortcuts ─────────────────────────────────────── */
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  // 1-4 → pick option
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+/* ── boot ─────────────────────────────────────────────────────── */
+render();
+persist();
+</script>
+<script type="module" src="./brain-link.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════════════════
+   auto-sys.skin.css — course identity for Autonomous Systems.
+   Pairs with /shared/lesson-shell.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* palette */
+  --paper:     #F2EDE0;
+  --paper-2:   #ECE6D6;
+  --ink:       #1A1A1A;
+  --ink-soft:  #2B2B2B;
+  --ink-mute:  #8A8270;
+  --ink-faint: #C5BEAE;
+  --rust:      #A84F2A;
+  --rust-soft: #C46A3F;
+  --hair:      #1F1F1F;
+  --highlight: rgba(168, 79, 42, 0.10);
+
+  /* skin overrides */
+  --callout-line: url("/auto-sys/line.svg");
+}
+
+/* hero mascot — robot illustration */
+.robot-illu {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}

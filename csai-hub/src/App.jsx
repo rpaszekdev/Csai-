@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { PROGRAM } from "./data/courses";
 import Year from "./components/Year";
 import ExamTable from "./components/ExamTable";
+import AssignmentsTable from "./components/AssignmentsTable";
+import Introduction from "./components/Introduction";
 import LandingSvg from "./components/LandingSvg";
 import CogNeuroDashboard from "./courses/cog-neuro/routes/CogNeuroDashboard";
 import RoadmapView from "./courses/cog-neuro/routes/RoadmapView";
@@ -20,6 +22,7 @@ function Landing() {
       </header>
 
       <main className="content">
+        <Introduction />
         {PROGRAM.map((y) => (
           <Year
             key={y.year}
@@ -29,6 +32,7 @@ function Landing() {
           />
         ))}
         <ExamTable />
+        <AssignmentsTable />
       </main>
 
       <footer className="footer">

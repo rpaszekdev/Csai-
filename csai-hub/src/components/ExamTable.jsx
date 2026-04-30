@@ -1,7 +1,9 @@
 import { ALL_EXAMS } from "../data/courses";
 
+const FINALS = ALL_EXAMS.filter((e) => e.type === "Final");
+
 export default function ExamTable() {
-  if (ALL_EXAMS.length === 0) return null;
+  if (FINALS.length === 0) return null;
 
   return (
     <section className="exam-section">
@@ -19,7 +21,7 @@ export default function ExamTable() {
             </tr>
           </thead>
           <tbody>
-            {ALL_EXAMS.map((e, i) => (
+            {FINALS.map((e, i) => (
               <tr key={i}>
                 <td>{e.course}</td>
                 <td>

@@ -42,6 +42,15 @@ export const PROGRAM = [
                 date: "23 Jun",
               },
             ],
+            assignments: [
+              {
+                type: "4 of 6 practical assignments + flipped-classroom presentation",
+                weight: "20%",
+                min: "None",
+                due: "Throughout semester",
+                rules: "Skip either component → 0",
+              },
+            ],
             resources: [
               { label: "Roadmap", href: "/courses/cog-neuro/roadmap" },
               {
@@ -106,6 +115,22 @@ export const PROGRAM = [
                 min: "5.5",
                 date: "5 Jun",
               },
+              {
+                type: "Resit",
+                format: "Digital",
+                weight: "60%",
+                min: "5.5",
+                date: "30 Jun",
+              },
+            ],
+            assignments: [
+              {
+                type: "Practical project assignments (Team & SWOT · Proposal · Demo day · Report)",
+                weight: "40%",
+                min: "None",
+                due: "Throughout semester",
+                rules: "—",
+              },
             ],
             resources: [
               {
@@ -168,6 +193,22 @@ export const PROGRAM = [
                 min: "5.5",
                 date: "3 Jun",
               },
+              {
+                type: "Resit",
+                format: "Digital",
+                weight: "100%",
+                min: "5.5",
+                date: "1 Jul",
+              },
+            ],
+            assignments: [
+              {
+                type: "Group assignment",
+                weight: "30%",
+                min: "None",
+                due: "—",
+                rules: "—",
+              },
             ],
             resources: [
               { label: "Lesson 1: MLPs", href: "/lesson.html" },
@@ -194,6 +235,22 @@ export const PROGRAM = [
                 min: "5.5",
                 date: "28 May",
               },
+              {
+                type: "Resit",
+                format: "Digital",
+                weight: "100%",
+                min: "5.5",
+                date: "26 Jun",
+              },
+            ],
+            assignments: [
+              {
+                type: "4 in-class assessments",
+                weight: "5% each (20% total)",
+                min: "None",
+                due: "Throughout semester",
+                rules: "—",
+              },
             ],
             resources: [
               { label: "Lessons", href: "#" },
@@ -208,7 +265,51 @@ export const PROGRAM = [
     year: 3,
     semesters: [
       { number: 5, courses: [] },
-      { number: 6, courses: [] },
+      {
+        number: 6,
+        courses: [
+          {
+            id: "comp-ling",
+            name: "Computational Linguistics",
+            icon: "\u{1F4AC}",
+            color: "#1F8A70",
+            shape: "burst",
+            exams: [
+              {
+                type: "Midterm",
+                format: "Digital",
+                weight: "30%",
+                min: "None",
+                date: "25 Mar",
+              },
+              {
+                type: "Final",
+                format: "Digital",
+                weight: "50%",
+                min: "None",
+                date: "27 May",
+              },
+              {
+                type: "Resit",
+                format: "Digital",
+                weight: "—",
+                min: "None",
+                date: "24 Jun*",
+              },
+            ],
+            assignments: [
+              {
+                type: "Group assignment",
+                weight: "20%",
+                min: "None",
+                due: "—",
+                rules: "—",
+              },
+            ],
+            resources: [{ label: "Group Project", href: "#" }],
+          },
+        ],
+      },
     ],
   },
 ];
@@ -216,5 +317,13 @@ export const PROGRAM = [
 export const ALL_EXAMS = PROGRAM.flatMap((y) =>
   y.semesters.flatMap((s) =>
     s.courses.flatMap((c) => c.exams.map((e) => ({ course: c.name, ...e }))),
+  ),
+);
+
+export const ALL_ASSIGNMENTS = PROGRAM.flatMap((y) =>
+  y.semesters.flatMap((s) =>
+    s.courses.flatMap((c) =>
+      (c.assignments ?? []).map((a) => ({ course: c.name, ...a })),
+    ),
   ),
 );
