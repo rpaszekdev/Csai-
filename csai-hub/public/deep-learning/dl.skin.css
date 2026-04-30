@@ -58,23 +58,25 @@ body {
 .slide-strip .slide-thumb { aspect-ratio: 4 / 3; }
 
 /* ═══════════════════════════════════════════════════════════════
-   SHELL-PATTERN BODY · 2-column grid (text + stage)
-   text: column 1 (flexes), stage: column 2 (fixed-width animation).
-   Each column sizes independently — short text doesn't leave an empty
-   rectangle below itself, tall animation doesn't push next section
-   down. No floats, no clearfix surprises.
+   SHELL-PATTERN BODY · floated framed cluster
+   The .stage-wrap becomes a single bordered card that bundles canvas
+   + chip overlays + controls together. Text wraps around it like
+   cog-neuro slide clusters do.
    ═══════════════════════════════════════════════════════════════ */
 section.step {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) clamp(280px, 30vw, 340px) !important;
-  gap: 36px !important;
-  align-items: start !important;
+  display: block !important;
+  grid-template-columns: none !important;
   min-height: 0 !important;
   max-width: 1100px;
   margin: 0 auto !important;
   padding: 56px 36px 64px !important;
   border-bottom: 1px solid var(--ink-faint) !important;
   background: var(--paper) !important;
+}
+section.step::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 section.step .text {
   padding: 0 !important;
@@ -83,14 +85,17 @@ section.step .text {
   min-width: 0 !important;
   gap: 0 !important;
 }
+
+/* the framed cluster — one bordered rectangle, floated right,
+   text flows around it */
 section.step .stage-wrap {
-  position: static !important;
-  top: auto !important;
-  width: 100% !important;
-  margin: 0 !important;
-  border-left: none !important;
-  background: transparent !important;
-  align-self: start !important;
+  float: right !important;
+  width: clamp(260px, 30vw, 320px) !important;
+  margin: 6px 0 24px 32px !important;
+  padding: 0 !important;
+  border: 1px solid var(--ink-faint) !important;
+  background: var(--paper) !important;
+  box-shadow: 4px 4px 0 var(--ink) !important;
 }
 section.step .stage {
   position: static !important;
@@ -106,7 +111,8 @@ section.step .canvas-host {
   aspect-ratio: 4 / 3;
   height: auto !important;
   width: 100% !important;
-  border: 1px solid var(--ink-faint) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--ink-faint) !important;
   background: var(--paper-2) !important;
   overflow: hidden;
 }
@@ -116,12 +122,22 @@ section.step .canvas-host > canvas {
   height: 100% !important;
 }
 section.step .controls {
-  padding: 10px 0 0 !important;
+  padding: 10px 12px !important;
   border-top: none !important;
-  background: transparent !important;
+  background: var(--paper) !important;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+}
+section.step .controls .btn {
+  font-size: 9px !important;
+  padding: 4px 8px !important;
+  letter-spacing: 0.10em !important;
+}
+section.step .controls .slider-wrap {
+  width: 100%;
+  font-size: 9px !important;
+  letter-spacing: 0.10em !important;
 }
 section.step .canvas-host .chip {
   font-size: 8px !important;
@@ -129,13 +145,45 @@ section.step .canvas-host .chip {
   letter-spacing: 0.10em !important;
 }
 
-/* slide-thumbs inside .text drop their float — they're now inline
-   marginalia inside the text column, not floated alongside the stage */
+/* slide-thumbs inside .text are smaller floats that share the right
+   column with the framed animation. clear:right stacks them below
+   the .stage-wrap (which dl-layout.js moves to be the first child
+   of .text), so text wraps around the combined cluster. */
 section.step .text .slide-thumb {
-  float: none !important;
+  float: right !important;
+  clear: right !important;
   width: 200px !important;
   max-width: 100% !important;
-  margin: 12px 0 18px !important;
+  margin: 12px 0 18px 32px !important;
+  border: 1px solid var(--ink-faint) !important;
+  background: var(--paper) !important;
+  box-shadow: 4px 4px 0 var(--ink) !important;
+  overflow: hidden;
+  cursor: zoom-in;
+  text-decoration: none;
+}
+section.step .text .slide-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--ink-faint);
+}
+section.step .text .slide-thumb .cap {
+  padding: 6px 8px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  background: var(--paper);
+}
+
+@media (max-width: 800px) {
+  section.step .text .slide-thumb {
+    float: none !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 18px 0 !important;
+  }
 }
 
 .hero {
@@ -144,32 +192,16 @@ section.step .text .slide-thumb {
 }
 
 @media (max-width: 800px) {
-  section.step {
-    grid-template-columns: 1fr !important;
-  }
   section.step .stage-wrap {
-    position: static !important;
+    float: none !important;
+    width: 100% !important;
+    margin: 18px 0 24px !important;
   }
 }
 
 
-/* ── steps — KEEP the original 2-col grid; just shrink the sticky stage so
-   the prose isn't dwarfed by a viewport-tall canvas ── */
-section.step {
-  border-bottom: 1px solid var(--hairline) !important;
-  background: var(--paper) !important;
-  min-height: 0 !important;            /* override the inline 92vh */
-  align-items: start !important;
-}
-section.step .stage {
-  height: clamp(360px, 62vh, 560px) !important;
-  top: 80px !important;                /* pad below sticky topbar */
-}
-section.step .stage-wrap {
-  align-self: start !important;
-}
 section.step .text {
-  /* keep original padding/grid placement, just narrow type */
+  /* layout owned by the SHELL-PATTERN BODY block higher up */
 }
 section.step .text .eyebrow {
   display: block !important;
@@ -237,20 +269,9 @@ section.step .text code {
   padding: 0 4px !important;
 }
 
-/* the right canvas stage — keep the original sticky right rail */
-section.step .stage-wrap {
-  border-left: 1px solid var(--hairline) !important;
-  background: var(--paper) !important;
-  /* preserve original layout — no margin-top, no full-width override */
-}
-section.step .stage {
-  /* keep position: sticky; top: 54px; height: calc(100vh - 54px) from inline */
-  background: var(--paper) !important;
-}
-.canvas-host {
-  background: var(--paper) !important;
-  border-bottom: 1px solid var(--hairline) !important;
-}
+/* (the framed-cluster .stage-wrap / .stage / .canvas-host rules are
+   defined higher up in the SHELL-PATTERN BODY block — kept consolidated
+   there so the framed card has a single source of truth) */
 
 /* ── chips — fade them out so canvas-baked labels lead ─────── */
 .chip {
@@ -599,10 +620,8 @@ footer a {
 }
 footer a:hover { background: transparent !important; color: var(--ink-soft) !important; }
 
-/* ── canvas-host bg parity with paper (let baked labels read) ─ */
-.canvas-host { background: var(--paper) !important; }
-section.step .stage-wrap { background: var(--paper) !important; }
-.hero .stage { background: transparent !important; }
+/* (canvas-host / stage-wrap / hero scene backgrounds are owned by the
+   SHELL-PATTERN BODY block higher up) */
 
 /* ── responsive — let the lesson's own media queries collapse ── */
 @media (max-width: 700px) {

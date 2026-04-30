@@ -199,22 +199,19 @@ article section::after { content: ""; display: block; clear: both; }
 article section:last-child { margin-bottom: 0; }
 article section .col-text { min-width: 0; }
 
-/* Hand-drawn horizontal-linev3.svg as separator between sections.
-   The SVG concentrates its ink in the middle ~30% of its 450×62 canvas;
-   stretching the width to 240% makes the stroke span most of the band,
-   with the white background clipped left/right. `mix-blend-mode: multiply`
-   drops the off-white SVG background onto the cream paper. */
+/* Hand-drawn line.svg (rotated 90°, viewBox cropped tight to the ink) as
+   separator between sections. `preserveAspectRatio="none"` in the SVG lets us
+   stretch wide and squash short into a slim horizontal band. */
 article section + section::before {
   content: "";
   display: block;
   width: 100%;
-  height: 32px;
-  background-image: url('/cog-neuro/horizontal-linev3.svg');
-  background-size: 1200% 100%;
+  height: 18px;
+  background-image: url('/cog-neuro/line-horizontal.svg');
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  mix-blend-mode: multiply;
-  margin: 0 0 24px;
+  margin: 96px 0;
   opacity: 0.9;
 }
 
@@ -895,4 +892,35 @@ a.hero-tool-pptx:hover {
     width: 260px;
   }
   .brain-mini-canvas { height: 170px; }
+}
+
+/* Wider, taller mini viewer + interaction hint line. Override earlier
+   .brain-mini rules. */
+.brain-mini {
+  width: 420px;
+}
+
+.brain-mini-canvas {
+  height: 320px;
+  cursor: grab;
+}
+
+.brain-mini-canvas:active {
+  cursor: grabbing;
+}
+
+.brain-mini-hint {
+  margin: 0;
+  padding: 6px 14px 10px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-top: 1px dotted var(--ink-faint);
+  background: var(--paper);
+}
+
+@media (max-width: 720px) {
+  .brain-mini { width: 300px; }
+  .brain-mini-canvas { height: 220px; }
 }

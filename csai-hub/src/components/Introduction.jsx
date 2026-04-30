@@ -4,19 +4,22 @@ export default function Introduction() {
       <h2 className="section-title">I n t r o d u c t i o n</h2>
       <div className="year-line" />
 
-      <p className="intro-eyebrow">
-        Open source project initiated by Robert Paszek.
+      <p className="intro-body">
+        Hey! I built this to save us all some time — every lecture, transcript,
+        note and quiz in one place, ready to download and study.
       </p>
 
       <p className="intro-body">
-        This platform is a community-driven resource for CSAI students at
-        Tilburg University. Our goal is to create comprehensive,
-        easy-to-understand summaries of all CSAI lectures and course materials.
+        The notes are generated with Claude Opus 4.7, grounded in book chapters,
+        slides and lecture transcripts, so the quality stays high.
       </p>
 
       <p className="intro-body">
-        Have anything to add? We are looking for more contributors.
+        Studying is more fun together — if you'd like to contribute, drop me a
+        message.
       </p>
+
+      <p className="intro-signoff">— Robert</p>
 
       <div className="intro-actions">
         <a
@@ -27,7 +30,6 @@ export default function Introduction() {
         >
           Contact · WhatsApp +48 725 850 750
         </a>
-        <span className="resource-link">Contributors</span>
       </div>
     </section>
   );

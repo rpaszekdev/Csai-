@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { listSections, QUIZ_TYPES } from "../lib/pregeneratedQuizzes";
 
 const TYPE_LABELS = {
+  mixed: "Mixed (all types)",
   multiple_choice: "Multiple Choice",
   fill_in_blank: "Fill in Blank",
   multiple_response: "Multiple Response",
@@ -9,9 +10,21 @@ const TYPE_LABELS = {
   ordering: "Ordering",
 };
 
+// Render order: Mixed first (highlighted), then each individual type.
+const ROW_ORDER = [
+  "mixed",
+  "multiple_choice",
+  "multiple_response",
+  "fill_in_blank",
+  "matching",
+  "ordering",
+];
+
 function getSavedScore(sectionId, type) {
   try {
-    const raw = localStorage.getItem(`cog-neuro:quiz:${sectionId}:${type}:lastScore`);
+    const raw = localStorage.getItem(
+      `cog-neuro:quiz:${sectionId}:${type}:lastScore`,
+    );
     if (!raw) return null;
     return JSON.parse(raw);
   } catch {
@@ -21,50 +34,78 @@ function getSavedScore(sectionId, type) {
 
 export default function QuizIndex() {
   const sections = listSections();
+  const totalQuestions = sections.reduce((s, x) => s + x.questionCount, 0);
 
   return (
-    <>
-      <header className="roadmap-header">
-        <span className="roadmap-eyebrow">Quizzes</span>
-        <h2 className="roadmap-title">Practice questions per lecture</h2>
-        <p className="roadmap-meta">
-          5 question types per section · scoring with explanations · localStorage progress.
+    <div className="quiz-list">
+      <header className="quiz-list-head">
+        <p className="quiz-list-eyebrow">Quizzes</p>
+        <h1 className="quiz-list-title">Practice questions per lecture</h1>
+        <p className="quiz-list-meta">
+          <span>{sections.length} lectures</span>
+          <span className="quiz-list-dot">·</span>
+          <span>{totalQuestions} questions</span>
+          <span className="quiz-list-dot">·</span>
+          <span>5 types · MC · MR · Fill · Match · Order</span>
         </p>
       </header>
 
-      {sections.map((section) => (
-        <section key={section.id} className="quiz-section">
-          <header className="quiz-section-head">
-            <h3 className="quiz-section-title">{section.title}</h3>
-            <span className="quiz-section-count">
-              {section.questionCount} questions · {section.availableTypes.length} types
-            </span>
-          </header>
+      <div className="roadmap-list-rule" aria-hidden="true" />
 
-          <div className="quiz-types-grid">
-            {QUIZ_TYPES.filter((t) => section.availableTypes.includes(t)).map(
-              (type) => {
+      {sections.map((section, idx) => {
+        const num = String(idx + 1).padStart(2, "0");
+        return (
+          <section key={section.id} className="quiz-mod">
+            <div className="quiz-mod-head">
+              <span className="quiz-mod-num">{num}</span>
+              <h2 className="quiz-mod-title">{section.title}</h2>
+              <span className="quiz-mod-meta">
+                <span>{section.questionCount} Q</span>
+                <span className="quiz-mod-dot">·</span>
+                <span>{section.availableTypes.length} types</span>
+              </span>
+            </div>
+
+            <ul className="quiz-type-list">
+              {ROW_ORDER.filter(
+                (t) =>
+                  t === "mixed" ||
+                  (QUIZ_TYPES.includes(t) &&
+                    section.availableTypes.includes(t)),
+              ).map((type) => {
                 const score = getSavedScore(section.id, type);
+                const cls =
+                  "quiz-type-row" +
+                  (type === "mixed" ? " quiz-type-row--mixed" : "");
                 return (
-                  <Link
-                    key={type}
-                    to={`${section.id}/${type}`}
-                    className="quiz-type-card"
-                  >
-                    <div className="quiz-type-name">{TYPE_LABELS[type]}</div>
-                    <div className="quiz-type-meta">Last attempt</div>
-                    {score && (
-                      <span className="saved-score">
-                        {score.correct}/{score.total}
+                  <li key={type} className={cls}>
+                    <Link
+                      to={`${section.id}/${type}`}
+                      className="quiz-type-link"
+                    >
+                      <span className="quiz-type-arrow">→</span>
+                      <span className="quiz-type-name">
+                        {TYPE_LABELS[type]}
                       </span>
-                    )}
-                  </Link>
+                      {score ? (
+                        <span className="quiz-type-score">
+                          {score.correct}/{score.total}
+                        </span>
+                      ) : (
+                        <span className="quiz-type-score quiz-type-score--empty">
+                          —
+                        </span>
+                      )}
+                    </Link>
+                  </li>
                 );
-              },
-            )}
-          </div>
-        </section>
-      ))}
-    </>
+              })}
+            </ul>
+
+            <div className="roadmap-list-rule" aria-hidden="true" />
+          </section>
+        );
+      })}
+    </div>
   );
 }

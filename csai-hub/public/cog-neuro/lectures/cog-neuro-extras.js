@@ -37,8 +37,12 @@
     };
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(
-        function () { done(true); },
-        function () { done(false); },
+        function () {
+          done(true);
+        },
+        function () {
+          done(false);
+        },
       );
       return;
     }
@@ -59,49 +63,61 @@
   }
 
   // Toggle: hero buttons reveal/hide their target panel and fetch text on first open.
-  document.querySelectorAll(".hero-tool[data-toggle-panel]").forEach(function (btn) {
-    var targetId = btn.getAttribute("data-toggle-panel");
-    btn.addEventListener("click", function () {
-      var panel = document.getElementById(targetId);
-      if (!panel) return;
-      var willOpen = panel.hasAttribute("hidden");
-      // Close all other panels (one open at a time keeps the page tidy).
-      document.querySelectorAll(".hero-panel").forEach(function (p) {
-        p.setAttribute("hidden", "");
+  document
+    .querySelectorAll(".hero-tool[data-toggle-panel]")
+    .forEach(function (btn) {
+      var targetId = btn.getAttribute("data-toggle-panel");
+      btn.addEventListener("click", function () {
+        var panel = document.getElementById(targetId);
+        if (!panel) return;
+        var willOpen = panel.hasAttribute("hidden");
+        // Close all other panels (one open at a time keeps the page tidy).
+        document.querySelectorAll(".hero-panel").forEach(function (p) {
+          p.setAttribute("hidden", "");
+        });
+        document.querySelectorAll(".hero-tool").forEach(function (b) {
+          b.classList.remove("active");
+        });
+        if (willOpen) {
+          panel.removeAttribute("hidden");
+          btn.classList.add("active");
+          var pre = panel.querySelector("pre.hero-panel-text");
+          if (pre) fetchInto(pre);
+          // Smooth-scroll panel into view.
+          panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
-      document.querySelectorAll(".hero-tool").forEach(function (b) {
-        b.classList.remove("active");
-      });
-      if (willOpen) {
-        panel.removeAttribute("hidden");
-        btn.classList.add("active");
-        var pre = panel.querySelector("pre.hero-panel-text");
-        if (pre) fetchInto(pre);
-        // Smooth-scroll panel into view.
-        panel.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
     });
-  });
 
   // Inline copy button inside each panel.
-  document.querySelectorAll(".hero-panel-copy[data-copy-target]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var pre = document.getElementById(btn.getAttribute("data-copy-target"));
-      if (!pre) return;
-      fetchInto(pre).then(function (txt) {
-        if (txt) copyText(txt, btn);
+  document
+    .querySelectorAll(".hero-panel-copy[data-copy-target]")
+    .forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var pre = document.getElementById(btn.getAttribute("data-copy-target"));
+        if (!pre) return;
+        fetchInto(pre).then(function (txt) {
+          if (txt) copyText(txt, btn);
+        });
       });
     });
-  });
 
   // Close button (×) on each panel.
-  document.querySelectorAll(".hero-panel-close[data-close]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var panel = document.getElementById(btn.getAttribute("data-close"));
-      if (panel) panel.setAttribute("hidden", "");
-      document
-        .querySelectorAll('.hero-tool[data-toggle-panel="' + btn.getAttribute("data-close") + '"]')
-        .forEach(function (b) { b.classList.remove("active"); });
+  document
+    .querySelectorAll(".hero-panel-close[data-close]")
+    .forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var panel = document.getElementById(btn.getAttribute("data-close"));
+        if (panel) panel.setAttribute("hidden", "");
+        document
+          .querySelectorAll(
+            '.hero-tool[data-toggle-panel="' +
+              btn.getAttribute("data-close") +
+              '"]',
+          )
+          .forEach(function (b) {
+            b.classList.remove("active");
+          });
+      });
     });
-  });
 })();

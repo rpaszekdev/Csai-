@@ -162,6 +162,14 @@ body {
   margin-top: var(--space-md);
 }
 
+.intro-signoff {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin: var(--space-md) 0 var(--space-md);
+}
+
 .exam-note {
   font-size: 12px;
   color: var(--ink-faint);

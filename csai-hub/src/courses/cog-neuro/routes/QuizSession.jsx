@@ -4,6 +4,7 @@ import { getQuiz } from "../lib/pregeneratedQuizzes";
 import { scoreQuestion, calculateTotalScore } from "../lib/quizScoring";
 
 const TYPE_LABELS = {
+  mixed: "Mixed",
   multiple_choice: "Multiple Choice",
   fill_in_blank: "Fill in Blank",
   multiple_response: "Multiple Response",
@@ -11,40 +12,45 @@ const TYPE_LABELS = {
   ordering: "Ordering",
 };
 
-function MultipleChoice({ question, value, onChange, submitted }) {
+// Question types that auto-reveal the correct answer immediately on selection
+// (one-click answer). The rest require a "Check" button.
+const AUTO_REVEAL_TYPES = new Set(["multiple_choice"]);
+
+function MultipleChoice({ question, value, onChange, revealed }) {
   return (
-    <div className="quiz-options">
+    <ul className="quiz-options">
       {Object.entries(question.options).map(([key, label]) => {
         let cls = "quiz-option";
-        if (submitted) {
+        if (revealed) {
           if (key === question.correct_answer) cls += " correct";
           else if (key === value) cls += " wrong";
         } else if (value === key) {
           cls += " selected";
         }
         return (
-          <button
-            type="button"
-            key={key}
-            className={cls}
-            onClick={() => !submitted && onChange(key)}
-            disabled={submitted}
-          >
-            <span className="quiz-option-key">{key}.</span>
-            <span>{label}</span>
-          </button>
+          <li key={key}>
+            <button
+              type="button"
+              className={cls}
+              onClick={() => !revealed && onChange(key)}
+              disabled={revealed}
+            >
+              <span className="quiz-option-key">{key}</span>
+              <span className="quiz-option-label">{label}</span>
+            </button>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
-function MultipleResponse({ question, value = [], onChange, submitted }) {
+function MultipleResponse({ question, value = [], onChange, revealed }) {
   const correctSet = new Set(question.correct_answers || []);
   const selectedSet = new Set(value);
 
   const toggle = (key) => {
-    if (submitted) return;
+    if (revealed) return;
     const next = new Set(selectedSet);
     if (next.has(key)) next.delete(key);
     else next.add(key);
@@ -52,46 +58,51 @@ function MultipleResponse({ question, value = [], onChange, submitted }) {
   };
 
   return (
-    <div className="quiz-options">
+    <ul className="quiz-options">
       {Object.entries(question.options).map(([key, label]) => {
         let cls = "quiz-option";
-        if (submitted) {
+        if (revealed) {
           if (correctSet.has(key)) cls += " correct";
           else if (selectedSet.has(key)) cls += " wrong";
         } else if (selectedSet.has(key)) {
           cls += " selected";
         }
         return (
-          <button
-            type="button"
-            key={key}
-            className={cls}
-            onClick={() => toggle(key)}
-            disabled={submitted}
-          >
-            <span className="quiz-option-key">{selectedSet.has(key) ? "☑" : "☐"}</span>
-            <span><strong>{key}.</strong> {label}</span>
-          </button>
+          <li key={key}>
+            <button
+              type="button"
+              className={cls}
+              onClick={() => toggle(key)}
+              disabled={revealed}
+            >
+              <span className="quiz-option-key">
+                {selectedSet.has(key) ? "☑" : "☐"}
+              </span>
+              <span className="quiz-option-label">
+                <strong>{key}.</strong> {label}
+              </span>
+            </button>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
-function FillInBlank({ question, value = "", onChange, submitted }) {
+function FillInBlank({ question, value = "", onChange, revealed }) {
   return (
-    <div>
+    <div className="quiz-fb">
       <p className="quiz-q-blank">{question.blank_sentence}</p>
       <input
         type="text"
         className="quiz-fb-input"
         value={value}
         placeholder="Type your answer…"
-        disabled={submitted}
+        disabled={revealed}
         onChange={(e) => onChange(e.target.value)}
       />
-      {submitted && (
-        <p style={{ marginTop: "var(--space-sm)", fontSize: 13 }}>
+      {revealed && (
+        <p className="quiz-fb-correct">
           Correct: <strong>{question.correct_answer}</strong>
         </p>
       )}
@@ -99,27 +110,36 @@ function FillInBlank({ question, value = "", onChange, submitted }) {
   );
 }
 
-function Matching({ question, value = {}, onChange, submitted }) {
+function Matching({ question, value = {}, onChange, revealed }) {
   return (
     <div className="quiz-matching">
       {(question.items || []).map((item) => (
-        <label key={item}>
-          <span>{item}</span>
+        <label key={item} className="quiz-matching-row">
+          <span className="quiz-matching-item">{item}</span>
           <select
+            className="quiz-matching-select"
             value={value[item] ?? ""}
-            disabled={submitted}
+            disabled={revealed}
             onChange={(e) => onChange({ ...value, [item]: e.target.value })}
           >
             <option value="">— pick category —</option>
             {(question.categories || []).map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
             ))}
           </select>
-          {submitted && (
-            <small style={{ fontSize: 11 }}>
+          {revealed && (
+            <small
+              className={
+                value[item] === question.correct_mapping[item]
+                  ? "quiz-matching-feedback correct"
+                  : "quiz-matching-feedback wrong"
+              }
+            >
               {value[item] === question.correct_mapping[item]
                 ? "✓ correct"
-                : `✗ correct: ${question.correct_mapping[item]}`}
+                : `✗ ${question.correct_mapping[item]}`}
             </small>
           )}
         </label>
@@ -128,13 +148,12 @@ function Matching({ question, value = {}, onChange, submitted }) {
   );
 }
 
-function Ordering({ question, value, onChange, submitted }) {
-  const items = Array.isArray(value) && value.length > 0
-    ? value
-    : (question.items || []);
+function Ordering({ question, value, onChange, revealed }) {
+  const items =
+    Array.isArray(value) && value.length > 0 ? value : question.items || [];
 
   const move = (i, delta) => {
-    if (submitted) return;
+    if (revealed) return;
     const j = i + delta;
     if (j < 0 || j >= items.length) return;
     const next = [...items];
@@ -143,62 +162,96 @@ function Ordering({ question, value, onChange, submitted }) {
   };
 
   return (
-    <div className="quiz-ordering">
+    <ol className="quiz-ordering">
       {items.map((item, i) => {
-        const isCorrect = submitted && item === question.correct_order?.[i];
-        const isWrong = submitted && !isCorrect;
+        const isCorrect = revealed && item === question.correct_order?.[i];
+        const isWrong = revealed && !isCorrect;
+        let cls = "quiz-ordering-item";
+        if (isCorrect) cls += " correct";
+        if (isWrong) cls += " wrong";
         return (
-          <div
-            key={item}
-            className="quiz-ordering-item"
-            style={
-              submitted
-                ? {
-                    background: isCorrect ? "#5B7553" : "#B84747",
-                    color: "var(--cream)",
-                  }
-                : undefined
-            }
-          >
-            <button
-              type="button"
-              className="quiz-ordering-button"
-              onClick={() => move(i, -1)}
-              disabled={submitted || i === 0}
-            >
-              ↑
-            </button>
-            <button
-              type="button"
-              className="quiz-ordering-button"
-              onClick={() => move(i, 1)}
-              disabled={submitted || i === items.length - 1}
-            >
-              ↓
-            </button>
-            <span className="quiz-ordering-item-text">{i + 1}. {item}</span>
+          <li key={item} className={cls}>
+            <span className="quiz-ordering-rank">{i + 1}</span>
+            <span className="quiz-ordering-text">{item}</span>
+            <span className="quiz-ordering-controls">
+              <button
+                type="button"
+                className="quiz-ordering-button"
+                onClick={() => move(i, -1)}
+                disabled={revealed || i === 0}
+                aria-label="Move up"
+              >
+                ↑
+              </button>
+              <button
+                type="button"
+                className="quiz-ordering-button"
+                onClick={() => move(i, 1)}
+                disabled={revealed || i === items.length - 1}
+                aria-label="Move down"
+              >
+                ↓
+              </button>
+            </span>
             {isWrong && (
-              <small style={{ fontSize: 11 }}>(should be: {question.correct_order?.[i]})</small>
+              <small className="quiz-ordering-feedback">
+                should be: {question.correct_order?.[i]}
+              </small>
             )}
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ol>
   );
 }
 
-function QuestionRenderer({ question, value, onChange, submitted }) {
+function QuestionRenderer({ question, value, onChange, revealed }) {
   switch (question.type) {
     case "multiple_choice":
-      return <MultipleChoice question={question} value={value} onChange={onChange} submitted={submitted} />;
+      return (
+        <MultipleChoice
+          question={question}
+          value={value}
+          onChange={onChange}
+          revealed={revealed}
+        />
+      );
     case "multiple_response":
-      return <MultipleResponse question={question} value={value} onChange={onChange} submitted={submitted} />;
+      return (
+        <MultipleResponse
+          question={question}
+          value={value}
+          onChange={onChange}
+          revealed={revealed}
+        />
+      );
     case "fill_in_blank":
-      return <FillInBlank question={question} value={value} onChange={onChange} submitted={submitted} />;
+      return (
+        <FillInBlank
+          question={question}
+          value={value}
+          onChange={onChange}
+          revealed={revealed}
+        />
+      );
     case "matching":
-      return <Matching question={question} value={value} onChange={onChange} submitted={submitted} />;
+      return (
+        <Matching
+          question={question}
+          value={value}
+          onChange={onChange}
+          revealed={revealed}
+        />
+      );
     case "ordering":
-      return <Ordering question={question} value={value} onChange={onChange} submitted={submitted} />;
+      return (
+        <Ordering
+          question={question}
+          value={value}
+          onChange={onChange}
+          revealed={revealed}
+        />
+      );
     default:
       return <p>Unsupported question type: {question.type}</p>;
   }
@@ -206,22 +259,34 @@ function QuestionRenderer({ question, value, onChange, submitted }) {
 
 export default function QuizSession() {
   const { sectionId, quizType } = useParams();
-  const quiz = useMemo(() => getQuiz(sectionId, quizType), [sectionId, quizType]);
+  const quiz = useMemo(
+    () => getQuiz(sectionId, quizType),
+    [sectionId, quizType],
+  );
   const [answers, setAnswers] = useState(new Map());
-  const [submitted, setSubmitted] = useState(false);
+  // Per-question reveal — auto-set on MC selection, manual via "Check" button
+  // for multi-select / fill-in / matching / ordering.
+  const [revealed, setRevealed] = useState(new Set());
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     setAnswers(new Map());
-    setSubmitted(false);
+    setRevealed(new Set());
     setIndex(0);
   }, [sectionId, quizType]);
 
   if (!quiz) {
     return (
-      <div className="quiz-question">
-        <p>No quiz found for {sectionId} / {quizType}.</p>
-        <Link to="../" className="quiz-button secondary">Back to quizzes</Link>
+      <div className="quiz-list">
+        <header className="quiz-list-head">
+          <p className="quiz-list-eyebrow">Quiz not found</p>
+          <h1 className="quiz-list-title">
+            {sectionId} / {quizType}
+          </h1>
+        </header>
+        <Link to="../" className="quiz-btn">
+          ← Back to quizzes
+        </Link>
       </div>
     );
   }
@@ -229,6 +294,8 @@ export default function QuizSession() {
   const questions = quiz.questions;
   const current = questions[index];
   const value = answers.get(current.id);
+  const isRevealed = revealed.has(current.id);
+  const allRevealed = questions.every((q) => revealed.has(q.id));
 
   const setAnswer = (val) => {
     setAnswers((prev) => {
@@ -236,10 +303,33 @@ export default function QuizSession() {
       next.set(current.id, val);
       return next;
     });
+    if (AUTO_REVEAL_TYPES.has(current.type)) {
+      setRevealed((prev) => {
+        const next = new Set(prev);
+        next.add(current.id);
+        return next;
+      });
+    }
   };
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  const checkCurrent = () => {
+    setRevealed((prev) => {
+      const next = new Set(prev);
+      next.add(current.id);
+      return next;
+    });
+  };
+
+  const reset = () => {
+    setAnswers(new Map());
+    setRevealed(new Set());
+    setIndex(0);
+  };
+
+  // When the last question is revealed, persist the cumulative score so the
+  // quiz index can show "last attempt" badges.
+  useEffect(() => {
+    if (!quiz || !allRevealed) return;
     const result = calculateTotalScore(questions, answers);
     try {
       localStorage.setItem(
@@ -252,101 +342,144 @@ export default function QuizSession() {
         }),
       );
     } catch {
-      // Storage unavailable; safe to ignore.
+      /* storage unavailable; ignore */
     }
-  };
+  }, [allRevealed, quiz, questions, answers, sectionId, quizType]);
 
-  const reset = () => {
-    setAnswers(new Map());
-    setSubmitted(false);
-    setIndex(0);
-  };
-
-  const totalScore = submitted
+  const totalScore = allRevealed
     ? calculateTotalScore(questions, answers)
     : null;
-
-  const result = submitted && current ? scoreQuestion(current, value) : null;
+  const result = isRevealed && current ? scoreQuestion(current, value) : null;
+  const lectureCode = sectionId.replace("_", "·").toUpperCase();
+  const typeLabel = TYPE_LABELS[quizType] ?? quizType;
+  const num = String(index + 1).padStart(2, "0");
+  const hasAnswer =
+    value !== undefined &&
+    value !== "" &&
+    !(Array.isArray(value) && value.length === 0) &&
+    !(
+      typeof value === "object" &&
+      !Array.isArray(value) &&
+      Object.keys(value).length === 0
+    );
 
   return (
-    <div className="quiz-session">
-      <header className="roadmap-header">
-        <span className="roadmap-eyebrow">{sectionId.toUpperCase()} · {TYPE_LABELS[quizType] ?? quizType}</span>
-        <h2 className="roadmap-title">{quiz.title}</h2>
+    <div className="quiz-list quiz-session">
+      <header className="quiz-list-head">
+        <p className="quiz-list-eyebrow">
+          {lectureCode} · {typeLabel}
+        </p>
+        <h1 className="quiz-list-title">{quiz.title}</h1>
+        <p className="quiz-list-meta">
+          <span>
+            Question {index + 1} of {questions.length}
+          </span>
+          <span className="quiz-list-dot">·</span>
+          <span>{questions.length} total</span>
+          {totalScore && (
+            <>
+              <span className="quiz-list-dot">·</span>
+              <span>
+                Score {totalScore.totalCorrect}/{totalScore.total}
+              </span>
+            </>
+          )}
+        </p>
       </header>
 
-      <div className="quiz-progress">
-        <span>Question {index + 1} / {questions.length}</span>
-        <span>
-          <Link to="../" className="lecture-action">All quizzes</Link>
-        </span>
-      </div>
+      <div className="roadmap-list-rule" aria-hidden="true" />
 
-      <article className="quiz-question">
-        {current.type !== "fill_in_blank" && (
-          <p className="quiz-q-text">
-            {index + 1}. {current.question}
-          </p>
-        )}
+      <section className="quiz-card">
+        <div className="quiz-card-head">
+          <span className="quiz-card-num">{num}</span>
+          <span className="quiz-card-type">
+            {current.type.replace(/_/g, " ")}
+          </span>
+        </div>
 
-        <QuestionRenderer
-          question={current}
-          value={value}
-          onChange={setAnswer}
-          submitted={submitted}
-        />
+        <h2 className="quiz-card-question">
+          {current.type === "fill_in_blank"
+            ? "Fill in the blank"
+            : current.question}
+        </h2>
 
-        {submitted && current.explanation && (
-          <div className="quiz-explanation">
-            <span className={`quiz-result-badge ${result?.correct ? "correct" : "wrong"}`}>
-              {result?.correct ? "Correct" : "Wrong"}
-            </span>
-            <p style={{ marginTop: 8 }}>{current.explanation}</p>
-          </div>
-        )}
+        <div className="quiz-body">
+          <QuestionRenderer
+            question={current}
+            value={value}
+            onChange={setAnswer}
+            revealed={isRevealed}
+          />
 
-        <div className="quiz-actions">
-          <button
-            type="button"
-            className="quiz-button secondary"
-            onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            disabled={index === 0}
-          >
-            Prev
-          </button>
-          {index < questions.length - 1 ? (
-            <button
-              type="button"
-              className="quiz-button"
-              onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}
-            >
-              Next
-            </button>
-          ) : !submitted ? (
-            <button
-              type="button"
-              className="quiz-button"
-              onClick={handleSubmit}
-              disabled={answers.size === 0}
-            >
-              Submit
-            </button>
-          ) : (
-            <button type="button" className="quiz-button" onClick={reset}>
-              Try again
-            </button>
+          {!isRevealed && !AUTO_REVEAL_TYPES.has(current.type) && (
+            <div className="quiz-actions quiz-actions--center">
+              <button
+                type="button"
+                className="quiz-btn quiz-btn--primary"
+                onClick={checkCurrent}
+                disabled={!hasAnswer}
+              >
+                Check answer
+              </button>
+            </div>
           )}
-        </div>
-      </article>
 
-      {submitted && totalScore && (
-        <div className="quiz-summary">
-          <div className="quiz-summary-score">
-            {totalScore.totalCorrect}/{totalScore.total}
+          {isRevealed && current.explanation && (
+            <div
+              className={`quiz-explanation ${result?.correct ? "correct" : "wrong"}`}
+            >
+              <span className="quiz-explanation-label">
+                {result?.correct ? "✓ Correct" : "✗ Wrong"}
+              </span>
+              <p>{current.explanation}</p>
+            </div>
+          )}
+
+          <div className="quiz-actions">
+            <button
+              type="button"
+              className="quiz-btn quiz-btn--ghost"
+              onClick={() => setIndex((i) => Math.max(0, i - 1))}
+              disabled={index === 0}
+            >
+              ← Prev
+            </button>
+            {index < questions.length - 1 ? (
+              <button
+                type="button"
+                className="quiz-btn"
+                onClick={() =>
+                  setIndex((i) => Math.min(questions.length - 1, i + 1))
+                }
+              >
+                Next →
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="quiz-btn quiz-btn--primary"
+                onClick={reset}
+              >
+                Try again
+              </button>
+            )}
+            <Link to="../" className="quiz-btn quiz-btn--ghost quiz-btn--right">
+              All quizzes
+            </Link>
           </div>
-          <p>Partial score: {totalScore.totalPartial.toFixed(1)}/{totalScore.total}</p>
-          <Link to="../" className="quiz-button secondary">Back to quiz catalogue</Link>
         </div>
+      </section>
+
+      {totalScore && (
+        <section className="quiz-summary">
+          <div className="quiz-summary-score">
+            <span className="quiz-summary-num">{totalScore.totalCorrect}</span>
+            <span className="quiz-summary-of">/ {totalScore.total}</span>
+          </div>
+          <p className="quiz-summary-meta">
+            Partial: {totalScore.totalPartial.toFixed(1)} / {totalScore.total}
+          </p>
+        </section>
       )}
     </div>
   );

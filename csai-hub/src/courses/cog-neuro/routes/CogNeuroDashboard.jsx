@@ -54,23 +54,6 @@ export default function CogNeuroDashboard() {
         )}
       </nav>
 
-      {!FULL_BLEED_TABS.has(tab) && (
-        <>
-          <img
-            className="cog-neuro-brain-corner"
-            src="/cog-neuro/brain.svg"
-            alt=""
-            aria-hidden="true"
-          />
-          <img
-            className="editorial-line"
-            src="/cog-neuro/linev2.svg"
-            alt=""
-            aria-hidden="true"
-          />
-        </>
-      )}
-
       <div className="cog-neuro-content">
         <main className="cog-neuro-main">
           <Outlet />
