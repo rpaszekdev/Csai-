@@ -1,16 +1,90 @@
-# React + Vite
+# CSAI Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A study companion for the Cognitive Science & AI programme at VU Amsterdam. Built with React + Vite, deployed on Vercel.
 
-Currently, two official plugins are available:
+Courses covered: Cognitive Neuroscience, Autonomous Systems, Deep Learning, and more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Contributing
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Everyone is welcome to contribute — whether you're a fellow CSAI student, alumni, or just someone who wants to help improve the materials.
 
-## Expanding the ESLint configuration
+### Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+cd csai-hub
+npm install
+npm run dev
+```
+
+### How to contribute
+
+1. Fork the repo
+2. Create a branch (`git checkout -b feature/your-thing`)
+3. Make your changes
+4. Open a pull request with a short description of what you did
+
+---
+
+## Style Guide
+
+### Visual identity
+
+- **Palette**: cream paper `#F2EDE0`, ink `#1A1A1A`, rust accent `#A84F2A`
+- **Typography**: JetBrains Mono (primary), IBM Plex Mono (fallback) — monospace throughout
+- **Aesthetic**: brutalist editorial — clean, dense, no rounded corners or gradients
+
+### Lecture pages
+
+Lecture content lives as static HTML in `public/`. Each course has its own subfolder (`public/cog-neuro/`, `public/auto-sys/`, etc.).
+
+Every lecture page follows this structure:
+
+- **Hero block** with outlined number, eyebrow, title, and tool buttons
+- **Chip strip** linking sibling lectures
+- **Sections** with numbered headings, body text left, slide thumbnails right
+- **Hand-drawn ink dividers** between sections (SVG, stretched)
+- **Callouts** with `[Prof]` or `[Exam]` badges for emphasis
+
+### Code style
+
+- No emojis in code or copy
+- Small, focused files (under 400 lines)
+- Functional components with hooks
+- Immutable data patterns — never mutate state directly
+- Meaningful variable names over comments
+
+### Dos and Don'ts
+
+| Do | Don't |
+|---|---|
+| Keep lecture pages as static HTML | Convert working static pages to React |
+| Reuse shared assets (`lightbox.js`, `annotations.js`, SVGs) | Duplicate utilities per course |
+| Follow the cog-neuro template for new courses | Invent new layout systems |
+| Test locally before opening a PR | Push directly to main |
+
+---
+
+## Project structure
+
+```
+csai-hub/
+├── public/          # Static lecture pages, assets, shared scripts
+│   ├── auto-sys/    # Autonomous Systems lectures + quizzes
+│   ├── cog-neuro/   # Cognitive Neuroscience lectures (canonical template)
+│   ├── deep-learning/
+│   └── shared/      # Lightbox, annotations, common JS/CSS
+├── src/             # React app (landing page, quizzes, routing)
+│   ├── components/
+│   ├── courses/
+│   ├── data/
+│   └── routes/
+└── _legacy/         # Archived Python study tools (not deployed)
+```
+
+---
+
+## License
+
+Open for educational use. If you use this as a base for your own programme's hub, a mention is appreciated.
