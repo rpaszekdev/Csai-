@@ -1,0 +1,158 @@
+{
+  "section_id": "m2_l2",
+  "quiz_type": "multiple_response",
+  "title": "Motor Control Flipped - Multiple Response",
+  "questions": [
+    {
+      "id": "m2_l2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are types of apraxia? (Select all that apply)",
+      "options": {
+        "A": "Ideomotor apraxia",
+        "B": "Ideational apraxia",
+        "C": "Verbal apraxia",
+        "D": "Optic apraxia",
+        "E": "Constructional ataxia"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The three types of apraxia are: ideomotor (can't voluntarily perform learned actions), ideational (can't sequence multi-step actions), and verbal (can't produce speech movements). Optic ataxia is a different disorder involving hand-eye coordination."
+    },
+    {
+      "id": "m2_l2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which statements about mirror neurons are correct? (Select all that apply)",
+      "options": {
+        "A": "They fire for both performing and observing actions",
+        "B": "They were found in ventral premotor cortex (F5)",
+        "C": "They were found in inferior parietal lobule",
+        "D": "They show context specificity",
+        "E": "The human mirror system is more narrowly localised than in monkeys"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Mirror neurons fire for both action execution and observation, were found in F5 and inferior parietal areas, and show context specificity. The human mirror system is actually MORE widely distributed than in monkeys, not more narrowly localised."
+    },
+    {
+      "id": "m2_l2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which are features of the dorsal visual stream? (Select all that apply)",
+      "options": {
+        "A": "Guides visually-directed action",
+        "B": "Known as the 'where/how' pathway",
+        "C": "Damage causes optic ataxia",
+        "D": "Runs from occipital to parietal cortex",
+        "E": "Primarily responsible for object identification"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The dorsal stream runs from occipital to parietal cortex, guides action ('where/how'), and damage causes optic ataxia. Object identification is the role of the ventral ('what') stream running to temporal cortex."
+    },
+    {
+      "id": "m2_l2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which statements about motor skill learning are correct? (Select all that apply)",
+      "options": {
+        "A": "It includes both sequence learning and adaptation",
+        "B": "It is preserved in amnesic patients",
+        "C": "It is impaired in basal ganglia disorders",
+        "D": "The early phase involves broad brain activation",
+        "E": "It requires intact hippocampal function"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Motor skill learning involves sequence learning (SRT task) and adaptation, is preserved in amnesia (nondeclarative memory), impaired in BG disorders, and progresses from broad to specific activation. It does NOT require intact hippocampal function."
+    },
+    {
+      "id": "m2_l2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which brainstem/cerebellar circuits handle the following? (Select all that apply)",
+      "options": {
+        "A": "Postural adjustments",
+        "B": "Balance maintenance",
+        "C": "Multijoint movement coordination",
+        "D": "Conscious decision-making",
+        "E": "Error correction during movement"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Brainstem circuits with cerebellar input handle postural adjustments, balance, multijoint movements, and error correction. Conscious decision-making is a higher cortical function, not a brainstem/cerebellar function."
+    },
+    {
+      "id": "m2_l2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "What did the double dissociation between dorsal and ventral streams demonstrate? (Select all correct statements)",
+      "options": {
+        "A": "Temporal damage: can't describe orientation but can use mail slot",
+        "B": "Parietal damage: can name objects but can't reach and grasp",
+        "C": "Both streams process the same visual information identically",
+        "D": "Vision for perception and vision for action are dissociable"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "The double dissociation shows that temporal (ventral) damage impairs conscious perception of orientation while sparing action, and parietal (dorsal) damage impairs action while sparing identification. This proves vision for perception and action are separate systems."
+    },
+    {
+      "id": "m2_l2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the SMA (supplementary motor area)? (Select all that apply)",
+      "options": {
+        "A": "Involved in self-initiated movements",
+        "B": "Encodes learned movement sequences (Tanji experiment)",
+        "C": "Pharmacological inactivation disrupts learned sequences",
+        "D": "Primarily responds to external sensory cues",
+        "E": "Located anterior to primary motor cortex"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The SMA is involved in self-initiated movements and learned sequences (Tanji), inactivation disrupts these sequences, and it is located anterior to M1. It is the premotor cortex (not SMA) that primarily responds to external sensory cues."
+    },
+    {
+      "id": "m2_l2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which areas are damaged in apraxia? (Select all that apply)",
+      "options": {
+        "A": "Parietal cortex",
+        "B": "Premotor cortex",
+        "C": "Hippocampus",
+        "D": "Language-dominant hemisphere",
+        "E": "Cerebellum"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "Apraxia is linked to damage in the parietal cortex, premotor cortex, and typically on the language-dominant side (usually left hemisphere). Hippocampal damage causes amnesia, and cerebellar damage causes ataxia, not apraxia."
+    },
+    {
+      "id": "m2_l2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following describe cerebellar damage to the medial vermis? (Select all that apply)",
+      "options": {
+        "A": "General ataxia",
+        "B": "Problems with posture and gait",
+        "C": "Intention tremor of ipsilateral limb",
+        "D": "Affects balance and coordination",
+        "E": "Affects only voluntary fine movements"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "Medial vermis damage causes general ataxia affecting posture, gait, and balance. Intention tremor affecting ipsilateral limbs and fine voluntary movements is caused by lateral cerebellar damage, not medial vermis damage."
+    },
+    {
+      "id": "m2_l2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which are fundamental units or circuits in local motor control? (Select all that apply)",
+      "options": {
+        "A": "Reflexes",
+        "B": "Central Pattern Generators",
+        "C": "Spinal interneuron networks",
+        "D": "Basal ganglia gating circuits",
+        "E": "Cortical population coding"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The fundamental units of local motor control are reflexes (the basic unit), Central Pattern Generators (rhythmic movement circuits), and spinal interneuron networks. Basal ganglia gating and cortical population coding operate at higher levels of the hierarchy."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 24-31"]
+}

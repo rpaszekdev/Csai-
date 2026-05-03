@@ -1,0 +1,149 @@
+{
+  "section_id": "m4_l1",
+  "quiz_type": "multiple_choice",
+  "title": "Emotion and Social Cognition - Multiple Choice",
+  "questions": [
+    {
+      "id": "m4_l1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "Which three components together define an emotion in the lecture's formal definition?",
+      "options": {
+        "A": "Memory, attention, and perception",
+        "B": "Physiological response, action tendency, and subjective feeling",
+        "C": "Stimulus, thalamus, and cortex",
+        "D": "Arousal, valence, and novelty"
+      },
+      "correct_answer": "B",
+      "explanation": "Emotion is defined as sets of physiological responses, action tendencies, and subjective feelings that adaptively engage organisms to react to biologically significant events. The integration of body, behaviour, and feeling is what defines a healthy emotional response."
+    },
+    {
+      "id": "m4_l1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Which of the following is NOT one of the six canonical basic emotions?",
+      "options": {
+        "A": "Fear",
+        "B": "Disgust",
+        "C": "Pride",
+        "D": "Surprise"
+      },
+      "correct_answer": "C",
+      "explanation": "The six basic emotions are anger, sadness, happiness, fear, disgust, and surprise. Pride is a complex emotion — culturally shaped and learned — and depends on cultural context (e.g. some East Asian cultures discourage personal pride)."
+    },
+    {
+      "id": "m4_l1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What is the key difference between the vector model and the circumplex model of emotion?",
+      "options": {
+        "A": "The vector model uses three axes; the circumplex uses two",
+        "B": "The vector model couples valence and arousal so low arousal is automatically neutral; the circumplex treats them as orthogonal",
+        "C": "The vector model is dimensional; the circumplex is component-process",
+        "D": "The circumplex is innate; the vector model is learned"
+      },
+      "correct_answer": "B",
+      "explanation": "The vector model has axes meeting at a neutral endpoint forming a 'boomerang' — arousal and valence are tightly coupled. Russell's circumplex model treats arousal and valence as orthogonal axes, allowing emotions like calm/content (low arousal + high valence)."
+    },
+    {
+      "id": "m4_l1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "According to the James-Lange theory, what is the sequence leading to an emotion?",
+      "options": {
+        "A": "Stimulus → cognitive label → emotion",
+        "B": "Stimulus → bodily reaction → feeling",
+        "C": "Stimulus → thalamus → simultaneous body + feeling",
+        "D": "Stimulus → limbic system → action"
+      },
+      "correct_answer": "B",
+      "explanation": "James-Lange theory holds that bodily feedback causes the emotion: stimulus triggers a bodily reaction, and the perception of that bodily reaction produces the feeling ('we are afraid because we run from the bear')."
+    },
+    {
+      "id": "m4_l1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Which prefrontal region is required for fear extinction by inhibiting amygdala output via intercalated cells?",
+      "options": {
+        "A": "Dorsolateral prefrontal cortex (dlPFC)",
+        "B": "Ventromedial prefrontal cortex (vmPFC)",
+        "C": "Inferior frontal gyrus (IFG)",
+        "D": "Anterior cingulate cortex (ACC)"
+      },
+      "correct_answer": "B",
+      "explanation": "Fear extinction requires the vmPFC, which inhibits amygdala output via intercalated cells. PTSD patients show exaggerated amygdala activity and failure to engage the vmPFC during extinction, leading to persistent CS+ reactivity."
+    },
+    {
+      "id": "m4_l1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "In the Iowa Gambling Task, what behavioural pattern do vmPFC-damaged patients (e.g. patient Elliot) show?",
+      "options": {
+        "A": "They shift to advantageous decks faster than controls",
+        "B": "They keep choosing disadvantageous decks A & B and produce no anticipatory SCRs",
+        "C": "They show exaggerated anticipatory SCRs but choose correctly",
+        "D": "They cannot learn the rules at all"
+      },
+      "correct_answer": "B",
+      "explanation": "vmPFC-damaged patients keep choosing disadvantageous decks A & B and produce no anticipatory skin conductance responses when reaching for risky decks. They 'know' the rules factually but cannot use somatic feedback to guide choice — the core deficit predicted by the somatic marker hypothesis."
+    },
+    {
+      "id": "m4_l1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "How does the amygdala influence attention given that it has no direct connection to dorsal frontoparietal attention regions?",
+      "options": {
+        "A": "By projecting directly to dlPFC",
+        "B": "Via release of acetylcholine from the nucleus basalis of Meynert and projections to ACC, insula, vmPFC, OFC",
+        "C": "By bypassing the cortex entirely",
+        "D": "By increasing dopamine release in the striatum"
+      },
+      "correct_answer": "B",
+      "explanation": "The amygdala influences attention indirectly: through the nucleus basalis of Meynert (releasing acetylcholine for broad cortical attentional enhancement) and via projections to ACC, insula, vmPFC, and OFC, which in turn target dlPFC, parietal lobe, and PCC."
+    },
+    {
+      "id": "m4_l1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "According to McGaugh's memory modulation hypothesis, why are hormones primarily involved in consolidation rather than encoding?",
+      "options": {
+        "A": "Hormones cannot cross the blood-brain barrier during encoding",
+        "B": "Hormones act slowly, matching the post-encoding consolidation window",
+        "C": "Hormones only affect nondeclarative memory",
+        "D": "The hippocampus blocks hormonal effects during encoding"
+      },
+      "correct_answer": "B",
+      "explanation": "Hormones (norepinephrine, cortisol) act slowly, and their slow time-course matches the post-encoding consolidation window. This is why emotional events strengthen memories after the fact, not at the moment of encoding."
+    },
+    {
+      "id": "m4_l1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Where were mirror neurons originally discovered, and in what type of cortex?",
+      "options": {
+        "A": "Macaque inferior frontal gyrus (area F5), premotor cortex",
+        "B": "Macaque hippocampus",
+        "C": "Human anterior cingulate cortex",
+        "D": "Macaque primary visual cortex"
+      },
+      "correct_answer": "A",
+      "explanation": "Mirror neurons were originally found by Rizzolatti et al. in the inferior frontal gyrus (area F5) of macaque premotor cortex. They fire both when the monkey performs a goal-directed action AND when it passively observes another individual perform that same action."
+    },
+    {
+      "id": "m4_l1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "At what age do children typically develop the ability to pass false-belief tasks?",
+      "options": {
+        "A": "Age 1-2",
+        "B": "Age 4-5",
+        "C": "Age 8-10",
+        "D": "Adolescence"
+      },
+      "correct_answer": "B",
+      "explanation": "The ability to take the intentional stance and pass classic false-belief tasks (location-change, unexpected-contents) develops around age 4-5. Younger children and many autistic individuals tend to fail explicit false-belief tasks."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 1"]
+}

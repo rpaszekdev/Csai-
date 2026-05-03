@@ -1,0 +1,99 @@
+{
+  "section_id": "m2_l2",
+  "quiz_type": "ordering",
+  "title": "Motor Control Flipped - Ordering",
+  "questions": [
+    {
+      "id": "m2_l2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Arrange the motor hierarchy from highest to lowest level:",
+      "items": ["Lower levels (spinal cord, reflexes)", "Cerebellum (error correction)", "Upper motor neurons (M1, premotor)", "Basal ganglia (initiation)"],
+      "correct_order": ["Upper motor neurons (M1, premotor)", "Basal ganglia (initiation)", "Cerebellum (error correction)", "Lower levels (spinal cord, reflexes)"],
+      "explanation": "The hierarchy table from the lecture: Upper motor neurons (command specification) → Basal ganglia (movement initiation gating) → Cerebellum (error correction) → Lower levels (spinal cord reflexes, final output)."
+    },
+    {
+      "id": "m2_l2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the stages of the dot motion paradigm from stimulus to response:",
+      "items": ["Motor response executed", "Motion coherence level presented", "Neural firing rate scales with coherence", "Decision threshold reached"],
+      "correct_order": ["Motion coherence level presented", "Neural firing rate scales with coherence", "Decision threshold reached", "Motor response executed"],
+      "explanation": "In the dot motion paradigm: a visual display with varying coherence is presented → neurons fire proportionally to coherence level (graded conversion) → firing accumulates to a decision threshold → the motor response is executed."
+    },
+    {
+      "id": "m2_l2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the progression of Bernstein's signature experiment from specific to general:",
+      "items": ["Abstract motor program (effector-independent)", "Write signature with dominant hand", "Same distinctive features appear with elbow/mouth writing", "Motor program is not tied to specific muscles"],
+      "correct_order": ["Write signature with dominant hand", "Same distinctive features appear with elbow/mouth writing", "Motor program is not tied to specific muscles", "Abstract motor program (effector-independent)"],
+      "explanation": "The logic: you write with your hand → the same features appear with other body parts → this proves the program isn't muscle-specific → therefore motor programs exist at an abstract, effector-independent level."
+    },
+    {
+      "id": "m2_l2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the dorsal/ventral stream processing from input to function:",
+      "items": ["Object identification (ventral) or action guidance (dorsal)", "Visual cortex processes basic features", "Visual information enters occipital cortex", "Streams diverge to temporal or parietal cortex"],
+      "correct_order": ["Visual information enters occipital cortex", "Visual cortex processes basic features", "Streams diverge to temporal or parietal cortex", "Object identification (ventral) or action guidance (dorsal)"],
+      "explanation": "Visual processing flows: input enters occipital cortex → basic features processed → streams diverge (ventral to temporal, dorsal to parietal) → ventral stream identifies objects ('what'), dorsal stream guides actions ('where/how')."
+    },
+    {
+      "id": "m2_l2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the putamen learning experiment from novel to learned:",
+      "items": ["Putamen activation decreases", "Joystick offset introduced (novel mapping)", "Strong putamen activation during learning", "Sensorimotor mapping becomes automatic"],
+      "correct_order": ["Joystick offset introduced (novel mapping)", "Strong putamen activation during learning", "Sensorimotor mapping becomes automatic", "Putamen activation decreases"],
+      "explanation": "When a novel sensorimotor mapping is introduced → the putamen activates strongly during the learning phase → the mapping becomes automatic with practice → putamen activation decreases as the skill is consolidated."
+    },
+    {
+      "id": "m2_l2_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the types of apraxia from most basic to most complex:",
+      "items": ["Ideational apraxia (can't sequence multi-step actions)", "Verbal apraxia (can't produce speech movements)", "Ideomotor apraxia (can't voluntarily perform single actions)"],
+      "correct_order": ["Verbal apraxia (can't produce speech movements)", "Ideomotor apraxia (can't voluntarily perform single actions)", "Ideational apraxia (can't sequence multi-step actions)"],
+      "explanation": "From most basic to most complex: verbal apraxia affects single speech movements, ideomotor apraxia affects single voluntary skilled actions, and ideational apraxia affects sequencing complex multi-step action plans."
+    },
+    {
+      "id": "m2_l2_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the SRT (serial reaction time) task steps:",
+      "items": ["Reaction times increase when sequence removed", "Stimuli appear in hidden repeating sequence", "Participant responds to each stimulus", "Reaction times gradually decrease (implicit learning)"],
+      "correct_order": ["Stimuli appear in hidden repeating sequence", "Participant responds to each stimulus", "Reaction times gradually decrease (implicit learning)", "Reaction times increase when sequence removed"],
+      "explanation": "In the SRT task: stimuli follow a hidden repeating pattern → participants respond to each → reaction times decrease (showing implicit sequence learning) → when the sequence is removed, reaction times increase, confirming learning occurred."
+    },
+    {
+      "id": "m2_l2_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the cerebellar error correction process during a reaching movement:",
+      "items": ["Corrective signal sent to adjust movement trajectory", "Copy of motor command sent to cerebellum", "Cerebellum detects mismatch", "Proprioceptive feedback about actual limb position arrives"],
+      "correct_order": ["Copy of motor command sent to cerebellum", "Proprioceptive feedback about actual limb position arrives", "Cerebellum detects mismatch", "Corrective signal sent to adjust movement trajectory"],
+      "explanation": "During reaching: a copy of the motor command goes to the cerebellum → sensory feedback about actual position arrives → the cerebellum compares and detects any mismatch → it sends corrective signals to adjust the trajectory in real-time."
+    },
+    {
+      "id": "m2_l2_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the Tanji SMA experiment steps:",
+      "items": ["Pharmacological inactivation disrupts sequence performance", "SMA neurons show sequence-specific firing", "Monkey learns specific movement sequences", "Confirms SMA is necessary for learned sequences"],
+      "correct_order": ["Monkey learns specific movement sequences", "SMA neurons show sequence-specific firing", "Pharmacological inactivation disrupts sequence performance", "Confirms SMA is necessary for learned sequences"],
+      "explanation": "In Tanji's experiment: monkeys learned specific sequences → SMA neurons fired in sequence-specific patterns → when the SMA was pharmacologically inactivated, sequence performance was disrupted → confirming the SMA is necessary for learned movement sequences."
+    },
+    {
+      "id": "m2_l2_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the mirror neuron discovery from observation to theory:",
+      "items": ["Theory: mirror neurons underlie action understanding", "Neurons in F5 fire during monkey's own grasping", "Human mirror system found to be more widely distributed", "Same neurons fire when observing another's grasping"],
+      "correct_order": ["Neurons in F5 fire during monkey's own grasping", "Same neurons fire when observing another's grasping", "Human mirror system found to be more widely distributed", "Theory: mirror neurons underlie action understanding"],
+      "explanation": "The mirror neuron story: first found that F5 neurons fire during the monkey's own actions → then found the same neurons fire during observation → studies showed humans have a more widely distributed mirror system → theories developed about action understanding."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 24-31"]
+}

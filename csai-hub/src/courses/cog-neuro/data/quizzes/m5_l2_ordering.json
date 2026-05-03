@@ -1,0 +1,99 @@
+{
+  "section_id": "m5_l2",
+  "quiz_type": "ordering",
+  "title": "Executive Function (in depth) - Ordering",
+  "questions": [
+    {
+      "id": "m5_l2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the historical anchors of PFC research chronologically:",
+      "items": ["Brodmann (1912) estimates PFC ~30% of human cortex", "Franz Gall proposes phrenology (early 1800s)", "Hitzig & Fritsch (late 1860s) stimulate posterior frontal cortex", "Semendeferi (1997, 2002) revises PFC scaling to ~35% in humans and great apes"],
+      "correct_order": ["Franz Gall proposes phrenology (early 1800s)", "Hitzig & Fritsch (late 1860s) stimulate posterior frontal cortex", "Brodmann (1912) estimates PFC ~30% of human cortex", "Semendeferi (1997, 2002) revises PFC scaling to ~35% in humans and great apes"],
+      "explanation": "The historical lineage runs Gall (phrenology, early 1800s) → Hitzig & Fritsch (1860s motor stimulation) → Brodmann (1912 PFC scaling estimates) → Semendeferi (1997/2002 MRI revision showing humans and great apes have similar proportional PFC)."
+    },
+    {
+      "id": "m5_l2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of Miller & Cohen's (2001) switch-operator metaphor in action when a phone rings:",
+      "items": ["Behaviour: ignore the phone (or answer it)", "PFC sets up the appropriate pattern of information flow for the context", "Phone rings — sensory input enters the system", "Context evaluated: 'I am at home' vs 'I am at the neighbour's'"],
+      "correct_order": ["Phone rings — sensory input enters the system", "Context evaluated: 'I am at home' vs 'I am at the neighbour's'", "PFC sets up the appropriate pattern of information flow for the context", "Behaviour: ignore the phone (or answer it)"],
+      "explanation": "Miller & Cohen's switch-operator: input arrives → context is identified → PFC strengthens the appropriate pathways and inhibits others → context-appropriate behaviour emerges (answer at home, ignore at the neighbour's)."
+    },
+    {
+      "id": "m5_l2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the trial structure of the Wallis, Anderson & Miller (2001) rule-coding experiment:",
+      "items": ["Test 1 — respond if cued rule says 'match'", "Sample image presented", "Cue indicates rule (juice → matching, tone → non-matching)", "Delay", "Test 2"],
+      "correct_order": ["Sample image presented", "Cue indicates rule (juice → matching, tone → non-matching)", "Delay", "Test 1 — respond if cued rule says 'match'", "Test 2"],
+      "explanation": "Wallis et al.'s trial structure: sample → rule cue (juice or tone) → delay → test 1 → test 2. Single-unit recordings during this sequence showed rule-selective firing in lateral PFC neurons, independent of cue and stimulus."
+    },
+    {
+      "id": "m5_l2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the lateral PFC topography from posterior to anterior (Badre & D'Esposito):",
+      "items": ["Mid-dlPFC: task switching, complex S-R contingencies", "Premotor: response selection, rule matching", "Frontopolar cortex: tracking goals/sub-goals, relational integration", "Posterior lateral PFC: response sequences, rule learning"],
+      "correct_order": ["Premotor: response selection, rule matching", "Posterior lateral PFC: response sequences, rule learning", "Mid-dlPFC: task switching, complex S-R contingencies", "Frontopolar cortex: tracking goals/sub-goals, relational integration"],
+      "explanation": "Badre & D'Esposito's policy abstraction hierarchy maps a rostral-caudal gradient: premotor (concrete S-R) → posterior lateral PFC (sequences) → mid-dlPFC (task switching) → frontopolar (goals, branching, relational integration) — least to most abstract."
+    },
+    {
+      "id": "m5_l2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the Funahashi, Bruce & Goldman-Rakic (1989) oculomotor delayed response trial:",
+      "items": ["Saccade to remembered location", "Target flashes at one of 8 spatial locations", "3-second delay (no stimulus, no movement)", "dlPFC neurons fire continuously through delay (delay-period activity)"],
+      "correct_order": ["Target flashes at one of 8 spatial locations", "3-second delay (no stimulus, no movement)", "dlPFC neurons fire continuously through delay (delay-period activity)", "Saccade to remembered location"],
+      "explanation": "The oculomotor delayed response task: target appears → 3-s delay with no stimulus → during the delay, dlPFC neurons sustain content-specific firing (memory fields) → monkey saccades to the remembered location. Errors followed breakdowns of delay-period firing."
+    },
+    {
+      "id": "m5_l2_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the conflict-monitoring sequence in the original Kerns et al. (2004) account:",
+      "items": ["Behavioural adjustment on trial N+1", "Conflict on trial N (e.g., incongruent Stroop)", "dlPFC adjusts attention/control on trial N+1", "ACC activation signals conflict on trial N"],
+      "correct_order": ["Conflict on trial N (e.g., incongruent Stroop)", "ACC activation signals conflict on trial N", "dlPFC adjusts attention/control on trial N+1", "Behavioural adjustment on trial N+1"],
+      "explanation": "Kerns et al. (2004) framed ACC as a conflict detector that hands off to lateral PFC: incongruent trial → ACC signals → dlPFC implements control on the next trial → behaviour adjusts. Fellows & Farah (2005) later challenged this with lesion data."
+    },
+    {
+      "id": "m5_l2_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the dmPFC posterior-to-anterior gradient by abstraction (Venkatraman et al. 2009):",
+      "items": ["Anterior dmPFC: strategy-related control (deviate from baseline)", "Middle dmPFC: decision-related control (face attractiveness)", "Posterior dmPFC: response-related control (counting Stroop)"],
+      "correct_order": ["Posterior dmPFC: response-related control (counting Stroop)", "Middle dmPFC: decision-related control (face attractiveness)", "Anterior dmPFC: strategy-related control (deviate from baseline)"],
+      "explanation": "Venkatraman et al. (2009) ran three conflict tasks and showed control demands map onto a posterior-to-anterior dmPFC gradient (response → decision → strategy), running least-abstract to most-abstract — mirroring the dlPFC gradient."
+    },
+    {
+      "id": "m5_l2_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the arc of conflict-monitoring theory chronologically:",
+      "items": ["Behrens et al. (2007) — dmPFC tracks volatility / expectation mismatch", "Fellows & Farah (2005) — dorsal-ACC lesion patients have normal Stroop", "Posner & Petersen (1990) — three control systems including conflict detection", "Kerns et al. (2004) — ACC N → dlPFC N+1"],
+      "correct_order": ["Posner & Petersen (1990) — three control systems including conflict detection", "Kerns et al. (2004) — ACC N → dlPFC N+1", "Fellows & Farah (2005) — dorsal-ACC lesion patients have normal Stroop", "Behrens et al. (2007) — dmPFC tracks volatility / expectation mismatch"],
+      "explanation": "The theoretical arc: Posner & Petersen propose the framework (1990), Kerns et al. supply fMRI support (2004), Fellows & Farah's lesion data challenges it (2005), and Behrens et al. reframe dmPFC as a learning/volatility signal (2007)."
+    },
+    {
+      "id": "m5_l2_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the working-memory retrieval pipeline under the distributed-network view:",
+      "items": ["Sensory cortex (e.g., V1-V4) sustains content-specific activity", "PFC sends top-down signals to keep representations online", "Stimulus disappears, but task requires holding it", "Behavioural response uses the maintained representation"],
+      "correct_order": ["Stimulus disappears, but task requires holding it", "PFC sends top-down signals to keep representations online", "Sensory cortex (e.g., V1-V4) sustains content-specific activity", "Behavioural response uses the maintained representation"],
+      "explanation": "The distributed network view: when the stimulus disappears, PFC sends top-down signals back to the sensory regions that processed it; those regions sustain content-specific activity (Harrison & Tong 2009 decoded orientation from V1-V4); the behavioural response then draws on the maintained representation."
+    },
+    {
+      "id": "m5_l2_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the EF taxonomy hierarchy from rule mechanics to coordinating systems:",
+      "items": ["Working memory — maintenance and manipulation keep rules online", "Inhibiting inappropriate rules / shifting / relating rules", "Initiating new rules", "Contextual control — monitoring the environment to know when rules apply"],
+      "correct_order": ["Initiating new rules", "Inhibiting inappropriate rules / shifting / relating rules", "Contextual control — monitoring the environment to know when rules apply", "Working memory — maintenance and manipulation keep rules online"],
+      "explanation": "Figure 13.1 organises EF along a logical chain: first the rule is initiated, then it can be inhibited / shifted / related to others, then contextual control monitors when it applies, and working memory holds the whole apparatus online — rules + control + WM working together."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 2"]
+}

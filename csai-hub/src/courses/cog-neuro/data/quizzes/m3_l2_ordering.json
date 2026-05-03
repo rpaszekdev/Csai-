@@ -1,0 +1,99 @@
+{
+  "section_id": "m3_l2",
+  "quiz_type": "ordering",
+  "title": "Declarative Memory (Flipped) - Ordering",
+  "questions": [
+    {
+      "id": "m3_l2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Put the three phases of declarative memory in the correct order.",
+      "items": ["Retrieval", "Storage/Consolidation", "Encoding"],
+      "correct_order": ["Encoding", "Storage/Consolidation", "Retrieval"],
+      "explanation": "The three-phase model proceeds: (1) Encoding — formation of cortical traces and hippocampal indices, (2) Storage/Consolidation — strengthening and stabilising memory traces, (3) Retrieval — using cues to reactivate stored memories."
+    },
+    {
+      "id": "m3_l2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the consolidation types from fastest to slowest.",
+      "items": ["System consolidation (~28 days)", "Synaptic consolidation (~90 min)"],
+      "correct_order": ["Synaptic consolidation (~90 min)", "System consolidation (~28 days)"],
+      "explanation": "Synaptic consolidation is fast (approximately 90 minutes) and occurs at the level of individual synapses. System consolidation is much slower (approximately 28 days) and involves the gradual transfer of memory traces from hippocampal to cortical storage."
+    },
+    {
+      "id": "m3_l2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the retrieval process according to the three-phase model, from cue to memory experience.",
+      "items": ["Cortical traces reactivated", "Retrieval cue presented", "Memory experience", "Hippocampal index activated"],
+      "correct_order": ["Retrieval cue presented", "Hippocampal index activated", "Cortical traces reactivated", "Memory experience"],
+      "explanation": "During retrieval: (1) a cue is presented, (2) the cue activates the relevant hippocampal index, (3) the hippocampal index reactivates distributed cortical traces, (4) the reactivated traces produce the conscious memory experience."
+    },
+    {
+      "id": "m3_l2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the memory taxonomy from broadest to most specific category.",
+      "items": ["Episodic memory", "Long-term memory", "Declarative (explicit) memory"],
+      "correct_order": ["Long-term memory", "Declarative (explicit) memory", "Episodic memory"],
+      "explanation": "The taxonomy proceeds from broad to specific: Long-term memory divides into declarative and nondeclarative; Declarative (explicit) memory further divides into episodic (events) and semantic (facts)."
+    },
+    {
+      "id": "m3_l2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the process of semanticisation from beginning to end.",
+      "items": ["General factual knowledge remains", "Memory encoded as episodic (specific context)", "Contextual details gradually fade", "Memory becomes semantic"],
+      "correct_order": ["Memory encoded as episodic (specific context)", "Contextual details gradually fade", "Memory becomes semantic", "General factual knowledge remains"],
+      "explanation": "Semanticisation is the gradual transformation of episodic to semantic memory: a memory is first encoded with full episodic context, then contextual details fade over time, the memory transitions to semantic form, and ultimately only the general factual knowledge remains."
+    },
+    {
+      "id": "m3_l2_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the Idea Factory pipeline status for a bug fix from start to finish.",
+      "items": ["Remote memories bypass hippocampus via cortical connections", "Encoding creates cortical traces + hippocampal indices", "System consolidation transfers traces to cortex", "Recent memories depend heavily on hippocampus"],
+      "correct_order": ["Encoding creates cortical traces + hippocampal indices", "Recent memories depend heavily on hippocampus", "System consolidation transfers traces to cortex", "Remote memories bypass hippocampus via cortical connections"],
+      "explanation": "According to standard consolidation theory: memories are first encoded with hippocampal indices, recent memories are heavily hippocampus-dependent, system consolidation gradually transfers traces to cortex, and eventually remote memories can be retrieved via direct cortical connections without hippocampal involvement."
+    },
+    {
+      "id": "m3_l2_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the perirhinal cortex response pattern from strongest to weakest signal.",
+      "items": ["Repeated presentations", "Second presentation", "First presentation (novel)"],
+      "correct_order": ["First presentation (novel)", "Second presentation", "Repeated presentations"],
+      "explanation": "Single-cell recordings show that perirhinal cortex neurons respond most strongly to the first (novel) presentation of a stimulus. The response decreases with subsequent presentations, reflecting the perirhinal cortex's role in novelty detection."
+    },
+    {
+      "id": "m3_l2_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "According to Ribot's Law, order memories from most vulnerable to least vulnerable to disruption.",
+      "items": ["Remote memories (years old)", "Recent memories (days old)", "Intermediate memories (weeks old)"],
+      "correct_order": ["Recent memories (days old)", "Intermediate memories (weeks old)", "Remote memories (years old)"],
+      "explanation": "Ribot's Law states that recent memories are most vulnerable to disruption, with vulnerability decreasing as memories age. This temporal gradient is explained by the progressive consolidation from hippocampal to cortical storage over time."
+    },
+    {
+      "id": "m3_l2_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the developmental cases' evidence for the relationship between episodic and semantic memory.",
+      "items": ["Conclusion: episodic develops after semantic", "Normal semantic memory develops", "Episodic memory impaired", "Early hippocampal damage from hypoxia"],
+      "correct_order": ["Early hippocampal damage from hypoxia", "Normal semantic memory develops", "Episodic memory impaired", "Conclusion: episodic develops after semantic"],
+      "explanation": "Beth, Jon, and Kate had early hippocampal damage from developmental hypoxia. Despite this, they developed normal semantic memory, while their episodic memory was impaired. This pattern suggests that semantic memory can develop independently and that episodic memory develops after semantic memory."
+    },
+    {
+      "id": "m3_l2_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the encoding-retrieval flip pattern in posterior parietal cortex from encoding to retrieval.",
+      "items": ["At retrieval: ventral PPC active for remembered items", "At encoding: dorsal PPC active for later-remembered items", "At encoding: ventral PPC active for later-forgotten items", "At retrieval: dorsal PPC active for familiarity judgments"],
+      "correct_order": ["At encoding: dorsal PPC active for later-remembered items", "At encoding: ventral PPC active for later-forgotten items", "At retrieval: dorsal PPC active for familiarity judgments", "At retrieval: ventral PPC active for remembered items"],
+      "explanation": "The encoding-retrieval flip shows opposite patterns: during encoding, dorsal PPC is active for items later remembered and ventral PPC for items later forgotten. During retrieval, the pattern reverses — dorsal PPC supports familiarity and ventral PPC supports recollection of remembered items."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapter 9"]
+}

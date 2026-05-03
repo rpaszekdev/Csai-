@@ -1,0 +1,99 @@
+{
+  "section_id": "m4_l2",
+  "quiz_type": "ordering",
+  "title": "Emotion (in depth) - Ordering",
+  "questions": [
+    {
+      "id": "m4_l2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of the LeDoux two-pathway 'bear on a forest trail' fear response:",
+      "items": ["Cortex performs detailed analysis and refines/suppresses the response", "Sensory input arrives at thalamus", "Low road: thalamus → amygdala primes a fast defensive response", "Intercalated cells gate signals; central amygdala drives hypothalamus and midbrain"],
+      "correct_order": ["Sensory input arrives at thalamus", "Low road: thalamus → amygdala primes a fast defensive response", "Cortex performs detailed analysis and refines/suppresses the response", "Intercalated cells gate signals; central amygdala drives hypothalamus and midbrain"],
+      "explanation": "The thalamus sends sensory input simultaneously down the fast low road (priming the amygdala) and up the slower high road (cortical analysis). Intercalated cells then gate the central amygdala's output to hypothalamus (heart rate, breathing) and midbrain/striatum (action selection)."
+    },
+    {
+      "id": "m4_l2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of fear acquisition and extinction over time:",
+      "items": ["Fear extinction: CS presented without US, new competing associations form", "Initial CS-US pairing creates conditioned fear response", "Without vmPFC brake, emotional perseveration persists", "vmPFC applies inhibitory brake, suppressing amygdala output"],
+      "correct_order": ["Initial CS-US pairing creates conditioned fear response", "Fear extinction: CS presented without US, new competing associations form", "vmPFC applies inhibitory brake, suppressing amygdala output", "Without vmPFC brake, emotional perseveration persists"],
+      "explanation": "Acquisition pairs CS with US to create the fear response. Extinction layers new competing associations on top (it does NOT erase the original). The vmPFC then applies the brake on the amygdala. If vmPFC is damaged, fear perseveres — the hallmark of anxiety, phobias, and PTSD."
+    },
+    {
+      "id": "m4_l2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the HPA axis cascade:",
+      "items": ["Cortisol released from adrenal cortex", "ACTH released from anterior pituitary", "Stressful event triggers hypothalamus", "CRF released from hypothalamus"],
+      "correct_order": ["Stressful event triggers hypothalamus", "CRF released from hypothalamus", "ACTH released from anterior pituitary", "Cortisol released from adrenal cortex"],
+      "explanation": "HPA axis cascade: stress → hypothalamus releases CRF → anterior pituitary releases ACTH → adrenal cortex releases cortisol. Because hormones are slow, they primarily affect consolidation rather than encoding — explaining why memory of a stressful moment is sometimes patchy at the time but vivid later."
+    },
+    {
+      "id": "m4_l2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of the Iowa Gambling Task as healthy controls perform it:",
+      "items": ["After ~80 trials, controls verbally articulate which decks are bad", "Anticipatory SCR develops before reaching for A/B", "Participants begin sampling all four decks roughly equally", "Behaviour shifts toward advantageous decks C/D"],
+      "correct_order": ["Participants begin sampling all four decks roughly equally", "Anticipatory SCR develops before reaching for A/B", "Behaviour shifts toward advantageous decks C/D", "After ~80 trials, controls verbally articulate which decks are bad"],
+      "explanation": "Controls first explore all decks, then their bodies start producing anticipatory SCRs before the disadvantageous A/B picks (somatic marker), behaviour shifts to C/D, and finally explicit verbal knowledge appears. vmPFC patients never develop the SCR or the shift."
+    },
+    {
+      "id": "m4_l2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the events of the propranolol experiment:",
+      "items": ["Compare memory: control vs propranolol vs amygdala-lesion", "Subjects view audio-visual narrative with emotional middle (car crash) and neutral framing", "Participants given propranolol (β-adrenergic blocker) or placebo", "Result: propranolol mimics amygdala lesion — no emotional memory boost"],
+      "correct_order": ["Participants given propranolol (β-adrenergic blocker) or placebo", "Subjects view audio-visual narrative with emotional middle (car crash) and neutral framing", "Compare memory: control vs propranolol vs amygdala-lesion", "Result: propranolol mimics amygdala lesion — no emotional memory boost"],
+      "explanation": "Propranolol or placebo is given before the narrative; participants then view the emotional/neutral material; later memory is tested across groups; the result confirms β-adrenergic action mediates the amygdala's enhancement of emotional memory consolidation."
+    },
+    {
+      "id": "m4_l2_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the steps of the Ochsner reappraisal experiment top-down model:",
+      "items": ["Amygdala and insula activity is dampened", "Negative image presented under 'decrease' instructions", "Dorsal frontoparietal network selects the reappraisal strategy", "Dorsal ACC, vlPFC, dlPFC translate strategy into regulatory control signals"],
+      "correct_order": ["Negative image presented under 'decrease' instructions", "Dorsal frontoparietal network selects the reappraisal strategy", "Dorsal ACC, vlPFC, dlPFC translate strategy into regulatory control signals", "Amygdala and insula activity is dampened"],
+      "explanation": "When asked to reappraise a negative image, the dorsal frontoparietal attentional network selects the strategy, dorsal ACC/vlPFC/dlPFC translate it into control signals, and those signals dampen amygdala and insula activity — reducing self-reported negative affect."
+    },
+    {
+      "id": "m4_l2_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the developmental trajectory of empathy:",
+      "items": ["Adult: fully developed, controlled empathy with self/other distinction", "Infant: automatic emotional contagion (hearing one infant cry triggers others)", "Child: egocentric sympathy ('I'd comfort them with what comforts me')"],
+      "correct_order": ["Infant: automatic emotional contagion (hearing one infant cry triggers others)", "Child: egocentric sympathy ('I'd comfort them with what comforts me')", "Adult: fully developed, controlled empathy with self/other distinction"],
+      "explanation": "Empathy develops automatic-to-controlled: infants show contagion, children offer egocentric comfort, and adults achieve regulated empathy that distinguishes self from other. Without the regulation step, automatic mirroring produces personal distress, not helpful empathy."
+    },
+    {
+      "id": "m4_l2_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the steps of the Sally-Anne false-belief task:",
+      "items": ["Sally returns and looks for her object", "Sally places object in container A and leaves", "Child is asked: 'Where will Sally look?'", "Anne moves the object from A to B while Sally is away"],
+      "correct_order": ["Sally places object in container A and leaves", "Anne moves the object from A to B while Sally is away", "Sally returns and looks for her object", "Child is asked: 'Where will Sally look?'"],
+      "explanation": "The Sally-Anne location-change task tests whether the child can attribute a false belief to Sally. Around age 4, children correctly answer 'A' (Sally believes the object is still where she left it) — the 'acid test' for explicit Theory of Mind."
+    },
+    {
+      "id": "m4_l2_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the amygdala feedback loop on visual processing:",
+      "items": ["Fusiform gyrus shows enhanced activation for fearful faces", "Visual input ascends ventral stream to inferior temporal cortex", "Amygdala receives late-stage visual input and detects emotional salience", "Amygdala feeds back to early visual areas including V1"],
+      "correct_order": ["Visual input ascends ventral stream to inferior temporal cortex", "Amygdala receives late-stage visual input and detects emotional salience", "Amygdala feeds back to early visual areas including V1", "Fusiform gyrus shows enhanced activation for fearful faces"],
+      "explanation": "Visual input climbs the ventral stream → amygdala detects emotional salience → amygdala feeds back to V1 and fusiform → fusiform shows enhanced response to fearful faces (e.g., fearful eye-whites). Patients with amygdala damage lack this fusiform enhancement, proving causation."
+    },
+    {
+      "id": "m4_l2_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the McGaugh memory modulation pathway from event to enhanced memory:",
+      "items": ["Stress hormones (cortisol, epinephrine, norepinephrine) released into bloodstream", "Hormones act on β-adrenergic receptors and enhance MTL/PFC consolidation", "Emotionally arousing event occurs", "Amygdala activated; sends direct projections to MTL"],
+      "correct_order": ["Emotionally arousing event occurs", "Amygdala activated; sends direct projections to MTL", "Stress hormones (cortisol, epinephrine, norepinephrine) released into bloodstream", "Hormones act on β-adrenergic receptors and enhance MTL/PFC consolidation"],
+      "explanation": "Memory modulation has two routes: a fast direct one (amygdala axonal projections to MTL/dlPFC/vlPFC) and a slow indirect hormonal one (cortisol crossing the BBB; epinephrine/norepinephrine on peripheral β-adrenergic receptors). Both converge to enhance consolidation of the emotional event."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 2"]
+}

@@ -1,0 +1,149 @@
+{
+  "section_id": "m4_l2",
+  "quiz_type": "matching",
+  "title": "Emotion (in depth) - Matching",
+  "questions": [
+    {
+      "id": "m4_l2_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each emotion-classification theory to its core claim:",
+      "items": ["Categorical theories", "Dimensional theories", "Component-process theories"],
+      "categories": ["Discrete basic vs complex emotion categories", "Each emotion is a point in arousal × valence space", "Emotions are dynamic states arising from cognitive appraisal"],
+      "correct_mapping": {
+        "Categorical theories": "Discrete basic vs complex emotion categories",
+        "Dimensional theories": "Each emotion is a point in arousal × valence space",
+        "Component-process theories": "Emotions are dynamic states arising from cognitive appraisal"
+      },
+      "explanation": "Categorical theories split emotions into discrete (basic vs complex) categories. Dimensional theories place emotions on continuous arousal × valence axes. Component-process theories treat emotions as fluid states arising from appraisals (goal relevance, urgency, control, etc.) and are rarely tested with neuroscience methods."
+    },
+    {
+      "id": "m4_l2_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each dimensional model to its geometry:",
+      "items": ["Vector model", "Circumplex model (Russell, 1980)"],
+      "categories": ["Boomerang shape — two arms (positive/negative valence) meeting at a neutral endpoint", "Circle — orthogonal arousal × valence axes with similar emotions clustering"],
+      "correct_mapping": {
+        "Vector model": "Boomerang shape — two arms (positive/negative valence) meeting at a neutral endpoint",
+        "Circumplex model (Russell, 1980)": "Circle — orthogonal arousal × valence axes with similar emotions clustering"
+      },
+      "explanation": "The vector model uses a boomerang shape where arousal is distance from a neutral endpoint along a positive or negative valence arm. Russell's circumplex arranges emotions around a circle with orthogonal arousal and valence axes — relaxed and excited share positive valence but differ in arousal."
+    },
+    {
+      "id": "m4_l2_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each fear pathway to its description:",
+      "items": ["Low road (rapid subcortical)", "High road (slow cortical)"],
+      "categories": ["Thalamus → amygdala in milliseconds; pre-conscious; triggers fight/flight/freeze/fawn", "Thalamus → neocortex → amygdala; slower; detailed analysis with conscious awareness"],
+      "correct_mapping": {
+        "Low road (rapid subcortical)": "Thalamus → amygdala in milliseconds; pre-conscious; triggers fight/flight/freeze/fawn",
+        "High road (slow cortical)": "Thalamus → neocortex → amygdala; slower; detailed analysis with conscious awareness"
+      },
+      "explanation": "LeDoux's two-pathway model: the low road is fast and crude (priming the amygdala for immediate defense), while the high road is slower and detailed (refining or suppressing the initial response). Intercalated cells gate output between them."
+    },
+    {
+      "id": "m4_l2_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each patient/lesion to its fear-conditioning profile:",
+      "items": ["Patient S.M. (bilateral amygdala)", "Patient W.C. (bilateral hippocampus)", "Rat with dorsal hippocampal lesion", "Rat with amygdala lesion"],
+      "categories": ["Absent SCR; intact declarative knowledge of CS-US link", "Intact SCR; absent declarative knowledge of CS-US link", "Cued conditioning fine; contextual conditioning impaired", "Fails both cued and contextual freezing"],
+      "correct_mapping": {
+        "Patient S.M. (bilateral amygdala)": "Absent SCR; intact declarative knowledge of CS-US link",
+        "Patient W.C. (bilateral hippocampus)": "Intact SCR; absent declarative knowledge of CS-US link",
+        "Rat with dorsal hippocampal lesion": "Cued conditioning fine; contextual conditioning impaired",
+        "Rat with amygdala lesion": "Fails both cued and contextual freezing"
+      },
+      "explanation": "Classic double dissociation: the amygdala underwrites the fear response (S.M., amygdala-lesion rats), while the hippocampus binds the fear to spatial/episodic context (W.C., dorsal-hippocampus rats). Hippocampus is therefore not 'purely emotional' as the limbic system theory would predict."
+    },
+    {
+      "id": "m4_l2_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each somatic-marker route to its mechanism:",
+      "items": ["Direct ('body loop')", "Indirect ('as-if loop')"],
+      "categories": ["vmPFC triggers actual visceral response via the amygdala", "vmPFC simulates somatosensory pattern in insula and somatosensory cortex without a bodily response"],
+      "correct_mapping": {
+        "Direct ('body loop')": "vmPFC triggers actual visceral response via the amygdala",
+        "Indirect ('as-if loop')": "vmPFC simulates somatosensory pattern in insula and somatosensory cortex without a bodily response"
+      },
+      "explanation": "Somatic markers can be triggered directly through the body (body loop, via amygdala-driven viscera) or indirectly by simulating the body state internally (as-if loop in insula and somatosensory cortex). Both flag options before logical evaluation."
+    },
+    {
+      "id": "m4_l2_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each Iowa Gambling Task deck/group to its profile:",
+      "items": ["Decks A/B", "Decks C/D", "Healthy controls", "vmPFC patients"],
+      "categories": ["High reward (+$100), occasional very large losses — disadvantageous", "Smaller reward (+$50), smaller losses — advantageous", "Develop anticipatory SCR; shift to C/D", "Lack anticipatory SCR; persist with A/B"],
+      "correct_mapping": {
+        "Decks A/B": "High reward (+$100), occasional very large losses — disadvantageous",
+        "Decks C/D": "Smaller reward (+$50), smaller losses — advantageous",
+        "Healthy controls": "Develop anticipatory SCR; shift to C/D",
+        "vmPFC patients": "Lack anticipatory SCR; persist with A/B"
+      },
+      "explanation": "The IGT shows that healthy bodies flag risk via anticipatory SCR before the consequence occurs, steering choice toward C/D. vmPFC patients lack this somatic-marker signal and persistently choose the disadvantageous A/B decks even after 80 trials."
+    },
+    {
+      "id": "m4_l2_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each hormone to where it acts:",
+      "items": ["Cortisol", "Epinephrine", "Norepinephrine"],
+      "categories": ["Crosses the blood-brain barrier; acts on central glucocorticoid/mineralocorticoid receptors", "Peripheral β-adrenergic receptors on visceral sensory endings", "Same peripheral β-adrenergic targets on visceral sensory endings"],
+      "correct_mapping": {
+        "Cortisol": "Crosses the blood-brain barrier; acts on central glucocorticoid/mineralocorticoid receptors",
+        "Epinephrine": "Peripheral β-adrenergic receptors on visceral sensory endings",
+        "Norepinephrine": "Same peripheral β-adrenergic targets on visceral sensory endings"
+      },
+      "explanation": "Cortisol crosses the BBB and binds central receptors. Epinephrine and norepinephrine act peripherally on β-adrenergic receptors of visceral sensory endings — the very receptors that propranolol blocks, eliminating the emotional memory boost."
+    },
+    {
+      "id": "m4_l2_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each region in the reappraisal top-down model to its role:",
+      "items": ["Dorsal frontoparietal attentional network", "Dorsal ACC, vlPFC, dlPFC", "Amygdala and insula"],
+      "categories": ["Selects and applies the cognitive strategy", "Translates strategy into regulatory control signals", "Emotion-processing targets that get dampened"],
+      "correct_mapping": {
+        "Dorsal frontoparietal attentional network": "Selects and applies the cognitive strategy",
+        "Dorsal ACC, vlPFC, dlPFC": "Translates strategy into regulatory control signals",
+        "Amygdala and insula": "Emotion-processing targets that get dampened"
+      },
+      "explanation": "Ochsner's top-down model: the dorsal frontoparietal (task-positive) network selects strategy, dorsal ACC + vlPFC + dlPFC translate it into control signals, and these signals dampen amygdala and insula activity. The frontoparietal network is general control — it activates for both 'increase' and 'decrease' conditions."
+    },
+    {
+      "id": "m4_l2_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each social-cognition theory to its core stance:",
+      "items": ["Simulation theory", "Theory-theory", "Dennett's intentional stance"],
+      "categories": ["Run the experience yourself — mirror neurons as candidate mechanism", "Recall accumulated patterns of how people 'like this' usually feel", "Treat others as rational agents with goals/beliefs to predict their behaviour"],
+      "correct_mapping": {
+        "Simulation theory": "Run the experience yourself — mirror neurons as candidate mechanism",
+        "Theory-theory": "Recall accumulated patterns of how people 'like this' usually feel",
+        "Dennett's intentional stance": "Treat others as rational agents with goals/beliefs to predict their behaviour"
+      },
+      "explanation": "Three accounts of mind-reading: simulation runs others' states in oneself (mirror neurons fit here), theory-theory builds knowledge from social experience, and Dennett's intentional stance is the meta-strategy of treating agents as rational to predict behaviour."
+    },
+    {
+      "id": "m4_l2_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each Decety empathy component to its brain regions:",
+      "items": ["Emotion sharing", "Self-awareness", "Mental flexibility", "Emotion regulation"],
+      "categories": ["Insula, ACC, somatosensory cortex", "Parietal lobe, PFC, insula", "Medial + dorsolateral PFC", "ACC, lateral PFC, vmPFC"],
+      "correct_mapping": {
+        "Emotion sharing": "Insula, ACC, somatosensory cortex",
+        "Self-awareness": "Parietal lobe, PFC, insula",
+        "Mental flexibility": "Medial + dorsolateral PFC",
+        "Emotion regulation": "ACC, lateral PFC, vmPFC"
+      },
+      "explanation": "Decety's four-component model: emotion sharing (perception-action coupling in insula/ACC/somatosensory cortex), self-awareness (parietal/PFC/insula self-other distinction), mental flexibility (medial + dorsolateral PFC perspective-taking), and emotion regulation (ACC/lateral PFC/vmPFC). Without regulation, mirroring leads to personal distress."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 2"]
+}

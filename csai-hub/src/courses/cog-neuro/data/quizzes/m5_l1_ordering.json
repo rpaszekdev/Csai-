@@ -1,0 +1,99 @@
+{
+  "section_id": "m5_l1",
+  "quiz_type": "ordering",
+  "title": "Executive Function - Ordering",
+  "questions": [
+    {
+      "id": "m5_l1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the basal-ganglia loop architecture from cortical entry back to cortex:",
+      "items": ["Pallidum", "Cortex (entry)", "Thalamus (mediodorsal)", "Striatum", "Cortex (return)"],
+      "correct_order": ["Cortex (entry)", "Striatum", "Pallidum", "Thalamus (mediodorsal)", "Cortex (return)"],
+      "explanation": "All three basal-ganglia loops share the same architecture: Cortex → Striatum → Pallidum → Thalamus → back to Cortex. The mediodorsal thalamus is the relay that closes the loop."
+    },
+    {
+      "id": "m5_l1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the book's three branches of executive function in the green taxonomy of rule processing:",
+      "items": ["Inhibiting inappropriate rules", "Shifting among rules", "Initiating new rules", "Relating rules to each other"],
+      "correct_order": ["Initiating new rules", "Inhibiting inappropriate rules", "Shifting among rules", "Relating rules to each other"],
+      "explanation": "The green branch of the taxonomy — establishing and modifying rules — has four sub-branches the lecture covers in this order: initiating, inhibiting, shifting, and relating."
+    },
+    {
+      "id": "m5_l1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the steps of an oddball task trial that ends with a P300 measurement:",
+      "items": ["P300 emerges around 300 ms post-target", "Standard stimulus (A) is presented requiring the standard response", "Rare oddball stimulus (B) appears requiring inhibition / different response", "Brain detects rarity and engages inhibitory control"],
+      "correct_order": ["Standard stimulus (A) is presented requiring the standard response", "Rare oddball stimulus (B) appears requiring inhibition / different response", "Brain detects rarity and engages inhibitory control", "P300 emerges around 300 ms post-target"],
+      "explanation": "Oddball task flow: a stream of standards establishes the dominant response → rare oddball appears → brain detects rarity and engages inhibitory control → P300 emerges roughly 300 ms post-target. This is the basis of the M5 practical."
+    },
+    {
+      "id": "m5_l1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the WCST sequence that exposes perseveration in PFC patients:",
+      "items": ["Patient continues sorting by colour despite repeated 'incorrect' feedback (perseveration)", "Patient learns to sort by colour using correct/incorrect feedback", "Experimenter silently changes the rule from colour to shape", "Cards differ in colour, shape, and number; sorting begins"],
+      "correct_order": ["Cards differ in colour, shape, and number; sorting begins", "Patient learns to sort by colour using correct/incorrect feedback", "Experimenter silently changes the rule from colour to shape", "Patient continues sorting by colour despite repeated 'incorrect' feedback (perseveration)"],
+      "explanation": "WCST sequence as Brenda Milner described in 1963: cards introduced → patient learns colour rule → experimenter silently shifts to shape → PFC patients perseverate, continuing the original rule despite repeated negative feedback."
+    },
+    {
+      "id": "m5_l1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order Wallis et al. (2001)'s monkey rule-encoding study:",
+      "items": ["Identify rule-selective neurons whose firing is independent of cue and stimuli", "Train monkeys on matching / non-matching task with juice or tone cues signalling the rule", "Conclude that lateral PFC encodes abstract rules", "Record from single units in lateral PFC during task performance"],
+      "correct_order": ["Train monkeys on matching / non-matching task with juice or tone cues signalling the rule", "Record from single units in lateral PFC during task performance", "Identify rule-selective neurons whose firing is independent of cue and stimuli", "Conclude that lateral PFC encodes abstract rules"],
+      "explanation": "Wallis et al. (2001): trained monkeys on a matching/non-matching task with cues (juice or tone) signalling the rule → recorded single units in lateral PFC → found rule-selective neurons independent of cue and stimuli → concluded lateral PFC encodes abstract rules."
+    },
+    {
+      "id": "m5_l1_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the conflict-monitoring sequence on a Stroop incongruent trial:",
+      "items": ["DLPFC activity increases on the next trial to implement control", "Word-reading and colour-naming responses compete (conflict)", "ACC detects the conflict and signals the need for control", "Incongruent stimulus appears (e.g., 'YELLOW' in green ink)"],
+      "correct_order": ["Incongruent stimulus appears (e.g., 'YELLOW' in green ink)", "Word-reading and colour-naming responses compete (conflict)", "ACC detects the conflict and signals the need for control", "DLPFC activity increases on the next trial to implement control"],
+      "explanation": "Stroop conflict-monitoring: incongruent stimulus arrives → competing responses generate conflict → ACC detects the conflict → trial N+1 DLPFC activity rises to implement the control adjustment. ACC signals; DLPFC implements."
+    },
+    {
+      "id": "m5_l1_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the rostro-caudal abstraction levels in Koechlin's temporal-abstraction model from posterior to anterior:",
+      "items": ["Anterior PFC — long-term goal rules", "Middle PFC — changing-context rules", "Posterior PFC — current-time rules"],
+      "correct_order": ["Posterior PFC — current-time rules", "Middle PFC — changing-context rules", "Anterior PFC — long-term goal rules"],
+      "explanation": "Koechlin's temporal abstraction model: posterior PFC handles current-time rules, middle PFC handles changing-context rules, and anterior PFC handles long-term goal rules — abstraction increases as you move rostrally."
+    },
+    {
+      "id": "m5_l1_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the Progressive Matrices reasoning steps as described in the lecture:",
+      "items": ["Compare the dimensions: do the two pairs differ on the same dimension?", "Extract the rule for the bottom pair (e.g., differs on texture)", "Inspect the top pair and extract its rule (e.g., differs on shape)", "Output the answer (yes / no)"],
+      "correct_order": ["Inspect the top pair and extract its rule (e.g., differs on shape)", "Extract the rule for the bottom pair (e.g., differs on texture)", "Compare the dimensions: do the two pairs differ on the same dimension?", "Output the answer (yes / no)"],
+      "explanation": "Progressive Matrices: extract a rule from the top pair → extract a rule from the bottom pair → relate the two rules to one another → output the answer. Relating rules is the frontopolar-cortex-dependent step."
+    },
+    {
+      "id": "m5_l1_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the cutting-edge 7T meditation paper findings from setup to interpretation:",
+      "items": ["Effects survive after controlling for alertness and effort covariates", "Compare focused meditation vs passive rest with whole-brain stringent statistics", "Interpret as perceptual decoupling and trained executive control over mind-wandering", "Observe DMN deactivation (PCC + mPFC); thalamic and occipital deactivation; no region increases"],
+      "correct_order": ["Compare focused meditation vs passive rest with whole-brain stringent statistics", "Observe DMN deactivation (PCC + mPFC); thalamic and occipital deactivation; no region increases", "Effects survive after controlling for alertness and effort covariates", "Interpret as perceptual decoupling and trained executive control over mind-wandering"],
+      "explanation": "Paper structure: 7T fMRI meditation vs rest contrast → key result is DMN deactivation with thalamic/occipital deactivation and no increases anywhere → robustness check after covariate control → interpretation as perceptual decoupling and trained executive control."
+    },
+    {
+      "id": "m5_l1_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the rule-encoding flow from environmental input to behaviour, based on the lecture's network account:",
+      "items": ["Basal ganglia link the specific stimulus to the appropriate response", "Parietal cortex (LIP) encodes expected value of possible actions", "Sensory input arrives via posterior cortices", "PFC engages the abstract rule appropriate to the context", "Motor system executes the selected action"],
+      "correct_order": ["Sensory input arrives via posterior cortices", "PFC engages the abstract rule appropriate to the context", "Parietal cortex (LIP) encodes expected value of possible actions", "Basal ganglia link the specific stimulus to the appropriate response", "Motor system executes the selected action"],
+      "explanation": "Network account of rule-driven behaviour: sensory input arrives → PFC engages the relevant abstract rule → parietal LIP neurons evaluate expected value of possible actions → basal ganglia map the specific stimulus to the response → motor system executes."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 1"]
+}

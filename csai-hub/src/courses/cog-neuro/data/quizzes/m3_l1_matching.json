@@ -1,0 +1,148 @@
+{
+  "section_id": "m3_l1",
+  "quiz_type": "matching",
+  "title": "Memory - Matching",
+  "questions": [
+    {
+      "id": "m3_l1_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each memory stage to its definition:",
+      "items": ["Encoding", "Storage", "Retrieval"],
+      "categories": ["Experiences alter the nervous system, creating memory traces", "Retention over time through consolidation", "Accessing stored traces via cues"],
+      "correct_mapping": {
+        "Encoding": "Experiences alter the nervous system, creating memory traces",
+        "Storage": "Retention over time through consolidation",
+        "Retrieval": "Accessing stored traces via cues"
+      },
+      "explanation": "The three stages of memory: encoding transforms experiences into neural traces (synaptic changes), storage retains them over time through consolidation processes, and retrieval accesses stored traces using external or internal cues."
+    },
+    {
+      "id": "m3_l1_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each memory type to its description:",
+      "items": ["Semantic memory", "Episodic memory", "Autobiographical memory", "Nondeclarative memory"],
+      "categories": ["General knowledge and facts", "Specific events (what, where, when)", "Overlap of episodic + semantic, creates sense of self", "Implicit skills and habits, spared in amnesia"],
+      "correct_mapping": {
+        "Semantic memory": "General knowledge and facts",
+        "Episodic memory": "Specific events (what, where, when)",
+        "Autobiographical memory": "Overlap of episodic + semantic, creates sense of self",
+        "Nondeclarative memory": "Implicit skills and habits, spared in amnesia"
+      },
+      "explanation": "Semantic = decontextualised facts, episodic = contextual events, autobiographical = personal narrative combining both, nondeclarative = implicit skills/habits that don't require conscious recollection and are spared in MTL amnesia."
+    },
+    {
+      "id": "m3_l1_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each consolidation theory to its claim about remote episodic memories:",
+      "items": ["Standard Consolidation Theory", "Multiple Trace Theory"],
+      "categories": ["Remote memories become hippocampus-independent via direct cortical connections", "Episodic memories ALWAYS need the hippocampus, older = more traces = more resistant"],
+      "correct_mapping": {
+        "Standard Consolidation Theory": "Remote memories become hippocampus-independent via direct cortical connections",
+        "Multiple Trace Theory": "Episodic memories ALWAYS need the hippocampus, older = more traces = more resistant"
+      },
+      "explanation": "Standard theory says remote memories eventually form direct cortical connections and no longer need the hippocampus. MTT says episodic memories always require hippocampal traces, but older memories have more traces making them more resistant to partial hippocampal damage."
+    },
+    {
+      "id": "m3_l1_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each hippocampal theory to its focus:",
+      "items": ["Cognitive Map Theory", "Relational Memory Theory", "Episodic Memory Theory (Tulving)"],
+      "categories": ["Spatial navigation and representation (right HC)", "Binding elements into associations (left HC)", "Hippocampus as the seat of episodic memory"],
+      "correct_mapping": {
+        "Cognitive Map Theory": "Spatial navigation and representation (right HC)",
+        "Relational Memory Theory": "Binding elements into associations (left HC)",
+        "Episodic Memory Theory (Tulving)": "Hippocampus as the seat of episodic memory"
+      },
+      "explanation": "Three theories: Cognitive Map (right HC for spatial representation), Relational Memory (left HC for binding/associating elements), and Tulving's Episodic Memory Theory (hippocampus is essential for episodic memory encoding and retrieval)."
+    },
+    {
+      "id": "m3_l1_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each consolidation type to its characteristics:",
+      "items": ["Synaptic consolidation", "System consolidation"],
+      "categories": ["Fast, occurs at the synapse level", "Slow, transfers from MTL to distributed cortex"],
+      "correct_mapping": {
+        "Synaptic consolidation": "Fast, occurs at the synapse level",
+        "System consolidation": "Slow, transfers from MTL to distributed cortex"
+      },
+      "explanation": "Synaptic consolidation is fast and local (strengthening connections at individual synapses). System consolidation is slow and large-scale (gradually transferring memory dependence from MTL to distributed cortical networks)."
+    },
+    {
+      "id": "m3_l1_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each PPC region to its role in memory:",
+      "items": ["Dorsal posterior parietal cortex", "Ventral posterior parietal cortex"],
+      "categories": ["Memory search and top-down attention", "Salience detection and bottom-up attention"],
+      "correct_mapping": {
+        "Dorsal posterior parietal cortex": "Memory search and top-down attention",
+        "Ventral posterior parietal cortex": "Salience detection and bottom-up attention"
+      },
+      "explanation": "Dorsal PPC supports strategic, goal-directed memory search (top-down attention), while ventral PPC responds to salient or unexpected information (bottom-up attention). Ventral parietal encoding activation actually predicts subsequent forgetting."
+    },
+    {
+      "id": "m3_l1_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each Baddeley component to what it handles:",
+      "items": ["Phonological loop", "Visuospatial sketchpad", "Episodic buffer", "Central executive"],
+      "categories": ["Verbal and acoustic information", "Spatial and visual information", "Integrates information into coherent episodes", "Attentional control and coordination"],
+      "correct_mapping": {
+        "Phonological loop": "Verbal and acoustic information",
+        "Visuospatial sketchpad": "Spatial and visual information",
+        "Episodic buffer": "Integrates information into coherent episodes",
+        "Central executive": "Attentional control and coordination"
+      },
+      "explanation": "Each working memory component has a distinct role: phonological loop for verbal/acoustic info, visuospatial sketchpad for spatial/visual info, episodic buffer for integration, and central executive for attentional control."
+    },
+    {
+      "id": "m3_l1_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each brain structure to its role in the neurological memory model:",
+      "items": ["Hippocampus", "Cortical regions", "Amygdala", "Prefrontal cortex"],
+      "categories": ["Stores index/pointers linking traces", "Store distributed memory trace components", "Enhances emotional memory consolidation", "Supports encoding and retrieval processes"],
+      "correct_mapping": {
+        "Hippocampus": "Stores index/pointers linking traces",
+        "Cortical regions": "Store distributed memory trace components",
+        "Amygdala": "Enhances emotional memory consolidation",
+        "Prefrontal cortex": "Supports encoding and retrieval processes"
+      },
+      "explanation": "The hippocampus indexes distributed cortical traces, cortical regions store the actual content (visual, auditory, etc.), the amygdala enhances emotional memory consolidation, and the PFC supports both encoding and retrieval executive processes."
+    },
+    {
+      "id": "m3_l1_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each lesion type to its memory consequence:",
+      "items": ["Small cortical lesion", "Bilateral MTL lesion", "Amygdala damage"],
+      "categories": ["Mild memory deficits (distributed traces only partially lost)", "Severe amnesia (index destroyed, can't link traces)", "Impaired emotional enhancement of memory"],
+      "correct_mapping": {
+        "Small cortical lesion": "Mild memory deficits (distributed traces only partially lost)",
+        "Bilateral MTL lesion": "Severe amnesia (index destroyed, can't link traces)",
+        "Amygdala damage": "Impaired emotional enhancement of memory"
+      },
+      "explanation": "Small cortical lesions cause mild deficits because traces are distributed. Bilateral MTL lesions cause severe amnesia because the hippocampal index is destroyed. Amygdala damage impairs the emotional modulation of memory consolidation."
+    },
+    {
+      "id": "m3_l1_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each PFC encoding/retrieval characteristic:",
+      "items": ["PFC encoding role", "PFC retrieval role"],
+      "categories": ["Inferior frontal gyrus — region-specific", "Multiple PFC subregions — less regionally specific"],
+      "correct_mapping": {
+        "PFC encoding role": "Inferior frontal gyrus — region-specific",
+        "PFC retrieval role": "Multiple PFC subregions — less regionally specific"
+      },
+      "explanation": "PFC encoding is relatively specific to the inferior frontal gyrus. PFC retrieval involves multiple subregions and is less regionally specific, reflecting the broader executive demands of memory search and evaluation during retrieval."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 32-39"]
+}

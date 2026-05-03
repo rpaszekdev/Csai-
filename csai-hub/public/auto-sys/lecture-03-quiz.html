@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/shared/lesson-shell.css" />
 <link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
 <link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <div class="rust-bar"></div>
@@ -111,7 +112,7 @@ const QUESTIONS = [
         "html": "A static lookup table of motor commands."
       },
       {
-        "html": "A function that, given the current (and possibly past) sensor states, <strong>regulates the actuators</strong> to achieve a task.",
+        "html": "A function that, given the current (and possibly past) sensor states, regulates the actuators to achieve a task.",
         "correct": true
       },
       {
@@ -157,7 +158,7 @@ const QUESTIONS = [
         "html": "Forward kinematics has no closed-form solution."
       },
       {
-        "html": "Inverse kinematics can have <strong>multiple solutions or none</strong>, and is generally non-linear.",
+        "html": "Inverse kinematics can have multiple solutions or none, and is generally non-linear.",
         "correct": true
       },
       {
@@ -180,7 +181,7 @@ const QUESTIONS = [
         "html": "It cannot reach the setpoint at all."
       },
       {
-        "html": "It produces <strong>oscillation</strong> around the setpoint and aggressive wear on actuators.",
+        "html": "It produces oscillation around the setpoint and aggressive wear on actuators.",
         "correct": true
       },
       {
@@ -200,7 +201,7 @@ const QUESTIONS = [
     "prompt": "In a P-controller, the actuator command equals <code>K · error</code>. As the gain <code>K</code> increases, what is the typical trade-off?",
     "options": [
       {
-        "html": "Faster response but <strong>more overshoot and oscillation</strong>; too small and the system is sluggish.",
+        "html": "Faster response but more overshoot and oscillation; too small and the system is sluggish.",
         "correct": true
       },
       {
@@ -226,7 +227,7 @@ const QUESTIONS = [
         "html": "It cannot use cameras."
       },
       {
-        "html": "<strong>Planning</strong> over a symbolic world model is slow, and the world changes faster than the planner.",
+        "html": "Planning over a symbolic world model is slow, and the world changes faster than the planner.",
         "correct": true
       },
       {
@@ -249,7 +250,7 @@ const QUESTIONS = [
         "html": "A single huge neural network end-to-end."
       },
       {
-        "html": "Multiple <strong>tightly coupled sensor-motor behaviours</strong>, layered so higher-priority behaviours suppress lower ones.",
+        "html": "Multiple tightly coupled sensor-motor behaviours, layered so higher-priority behaviours suppress lower ones.",
         "correct": true
       },
       {
@@ -272,7 +273,7 @@ const QUESTIONS = [
         "html": "Deliberative handles low-level motor commands; reactive handles long-horizon goals."
       },
       {
-        "html": "Deliberative handles <strong>long-horizon planning</strong>; reactive handles <strong>fast obstacle/safety responses</strong>.",
+        "html": "Deliberative handles long-horizon planning; reactive handles fast obstacle/safety responses.",
         "correct": true
       },
       {

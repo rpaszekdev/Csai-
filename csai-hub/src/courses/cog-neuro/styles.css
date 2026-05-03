@@ -2749,15 +2749,23 @@
 
 /* ─── Quiz session — centered question card ──────────────────────── */
 
-.quiz-session .quiz-list-head { text-align: center; }
+.quiz-session .quiz-list-head {
+  text-align: center;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin: var(--space-sm) 0 var(--space-md);
+  padding: 20px 0 14px;
+}
 .quiz-session .quiz-list-head::before { display: none; }
 .quiz-session .quiz-list-head > * { grid-column: 1 / -1; max-width: none; }
-.quiz-session .quiz-list-head { grid-template-columns: 1fr; justify-items: center; }
 .quiz-session .quiz-list-meta { justify-content: center; }
 .quiz-session .quiz-list-title {
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  font-size: clamp(16px, 2vw, 22px);
+  margin: 0 0 8px;
 }
+.quiz-session .quiz-list-eyebrow { margin: 0 0 6px; }
 
 .quiz-card {
   max-width: 760px;
@@ -2797,6 +2805,10 @@
   letter-spacing: 0.005em;
   margin: 0 0 var(--space-md);
   color: var(--ink);
+}
+
+.quiz-session .roadmap-list-rule {
+  margin: var(--space-sm) 0 var(--space-md);
 }
 
 /* Override the previous left-indented quiz-body — now centered with the card */

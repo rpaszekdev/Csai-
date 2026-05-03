@@ -1,0 +1,149 @@
+{
+  "section_id": "m2_l1",
+  "quiz_type": "multiple_choice",
+  "title": "Motor Control - Multiple Choice",
+  "questions": [
+    {
+      "id": "m2_l1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "In the motor hierarchy, which neurons specify WHAT movement to make AND HOW to make it?",
+      "options": {
+        "A": "Lower motor neurons in the spinal cord",
+        "B": "Upper motor neurons in the motor cortex",
+        "C": "Interneurons in the basal ganglia",
+        "D": "Purkinje cells in the cerebellum"
+      },
+      "correct_answer": "B",
+      "explanation": "Upper motor neurons in the motor cortex specify both WHAT movement to execute and HOW to execute it, forming the top of the motor hierarchy that descends through basal ganglia and cerebellum to lower motor neurons."
+    },
+    {
+      "id": "m2_l1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What did the classic cat experiment with spinal transection demonstrate about Central Pattern Generators?",
+      "options": {
+        "A": "Cats cannot walk without cortical input",
+        "B": "Spinal circuits can produce rhythmic walking movements without higher brain input",
+        "C": "The cerebellum is essential for all locomotion",
+        "D": "Basal ganglia initiate walking patterns"
+      },
+      "correct_answer": "B",
+      "explanation": "After spinal transection (cutting off higher brain input), the cat's hindlimbs could still produce coordinated walking movements on a treadmill, demonstrating that Central Pattern Generators — spinal circuits — can generate rhythmic motor patterns independently."
+    },
+    {
+      "id": "m2_l1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "The readiness potential in motor cortex appears:",
+      "options": {
+        "A": "At the same moment as the conscious urge to move",
+        "B": "Several seconds AFTER the conscious urge to move",
+        "C": "Several seconds BEFORE the conscious urge to move",
+        "D": "Only during involuntary reflex movements"
+      },
+      "correct_answer": "C",
+      "explanation": "The readiness potential appears seconds BEFORE a person reports the conscious urge to move. This finding has profound implications for free will — the brain begins preparing a movement before we are consciously aware of wanting to move."
+    },
+    {
+      "id": "m2_l1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What is anosognosia in the context of motor control?",
+      "options": {
+        "A": "Inability to plan complex movement sequences",
+        "B": "Patients with premotor/motor cortex damage who are unaware of their inability to move",
+        "C": "Loss of sensation in the contralateral limb",
+        "D": "Tremor at rest caused by basal ganglia dysfunction"
+      },
+      "correct_answer": "B",
+      "explanation": "Anosognosia occurs when patients with damage to premotor or primary motor cortex are unaware of their inability to move. They genuinely do not recognise their motor deficit."
+    },
+    {
+      "id": "m2_l1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Cortical motor axons cross to the opposite side of the body at the:",
+      "options": {
+        "A": "Corpus callosum",
+        "B": "Thalamus",
+        "C": "Medullary pyramids",
+        "D": "Cerebellar peduncles"
+      },
+      "correct_answer": "C",
+      "explanation": "Cortical motor pathways decussate (cross over) at the medullary pyramids in the brainstem. This is why the left motor cortex controls the right side of the body and vice versa — contralateral control."
+    },
+    {
+      "id": "m2_l1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "In Georgopoulos' (1986) population coding experiment, how is movement direction determined?",
+      "options": {
+        "A": "By the single neuron with the highest firing rate",
+        "B": "By a majority vote across a population of neurons",
+        "C": "By the neuron closest to the target location",
+        "D": "By inhibition of opposing movement neurons"
+      },
+      "correct_answer": "B",
+      "explanation": "Georgopoulos (1986) demonstrated population coding: each neuron has a preferred direction but fires for a range of directions. The actual movement direction is determined by a 'majority vote' — the vector sum of activity across the entire neural population."
+    },
+    {
+      "id": "m2_l1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Which basal ganglia pathway DISINHIBITS movement, allowing it to proceed?",
+      "options": {
+        "A": "The indirect pathway",
+        "B": "The hyperdirect pathway",
+        "C": "The direct pathway",
+        "D": "The nigrostriatal pathway"
+      },
+      "correct_answer": "C",
+      "explanation": "The direct pathway through the basal ganglia disinhibits movement — it releases the thalamus from tonic inhibition by the globus pallidus, allowing desired movements to proceed. The indirect pathway provides additional inhibition to suppress unwanted movements."
+    },
+    {
+      "id": "m2_l1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Parkinson's disease is caused by the death of neurons in the:",
+      "options": {
+        "A": "Caudate nucleus",
+        "B": "Subthalamic nucleus",
+        "C": "Substantia nigra",
+        "D": "Globus pallidus"
+      },
+      "correct_answer": "C",
+      "explanation": "Parkinson's disease results from the death of dopaminergic neurons in the substantia nigra. This leads to reduced dopamine in the striatum, causing tremor at rest, rigidity, and bradykinesia. L-dopa treatment partially compensates for the dopamine loss."
+    },
+    {
+      "id": "m2_l1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Unlike cortical motor pathways, the cerebellum controls movement on the:",
+      "options": {
+        "A": "Contralateral side (opposite side)",
+        "B": "Bilateral side (both sides equally)",
+        "C": "Ipsilateral side (same side)",
+        "D": "It does not directly control any side"
+      },
+      "correct_answer": "C",
+      "explanation": "The cerebellum controls movement ipsilaterally — on the same side of the body. This contrasts with cortical motor pathways, which cross at the medullary pyramids for contralateral control. Damage to the right cerebellum therefore affects right-sided movements."
+    },
+    {
+      "id": "m2_l1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Hemiballismus (violent involuntary flinging movements) results from damage to the:",
+      "options": {
+        "A": "Substantia nigra",
+        "B": "Caudate nucleus",
+        "C": "Subthalamic nucleus",
+        "D": "Cerebellar vermis"
+      },
+      "correct_answer": "C",
+      "explanation": "Hemiballismus is caused by damage to the subthalamic nucleus, which is part of the basal ganglia's indirect pathway. When the subthalamic nucleus is damaged, its excitatory drive on the globus pallidus is lost, leading to excessive disinhibition and violent involuntary movements."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 17-23"]
+}

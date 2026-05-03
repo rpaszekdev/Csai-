@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Introduction() {
   return (
     <section className="intro">
@@ -22,6 +24,9 @@ export default function Introduction() {
       <p className="intro-signoff">— Robert</p>
 
       <div className="intro-actions">
+        <Link className="resource-link" to="/notes">
+          Notes
+        </Link>
         <a
           className="resource-link"
           href="https://wa.me/48725850750"
@@ -29,6 +34,14 @@ export default function Introduction() {
           rel="noreferrer"
         >
           Contact · WhatsApp +48 725 850 750
+        </a>
+        <a
+          className="resource-link"
+          href="https://github.com/rpaszekdev/Csai-"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Contribute · GitHub
         </a>
       </div>
     </section>

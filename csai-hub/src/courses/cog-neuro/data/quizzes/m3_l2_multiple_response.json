@@ -1,0 +1,159 @@
+{
+  "section_id": "m3_l2",
+  "quiz_type": "multiple_response",
+  "title": "Declarative Memory (Flipped) - Multiple Response",
+  "questions": [
+    {
+      "id": "m3_l2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are subtypes of nondeclarative (implicit) memory? (Select all that apply)",
+      "options": {
+        "A": "Priming",
+        "B": "Episodic memory",
+        "C": "Skill learning",
+        "D": "Conditioning",
+        "E": "Semantic memory"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Nondeclarative (implicit) memory includes priming, skill learning, and conditioning. Episodic and semantic memory are both subtypes of declarative (explicit) memory."
+    },
+    {
+      "id": "m3_l2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are characteristics of the hippocampus compared to the perirhinal cortex? (Select all that apply)",
+      "options": {
+        "A": "Slow processing",
+        "B": "Relational binding",
+        "C": "Item-based processing",
+        "D": "Spatial processing",
+        "E": "Supports recollection"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The hippocampus is characterised by slow processing, relational binding (forming associations), spatial processing, and supporting recollection. Item-based processing is a feature of the perirhinal cortex."
+    },
+    {
+      "id": "m3_l2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are true about patient H.M.? (Select all that apply)",
+      "options": {
+        "A": "He had bilateral medial temporal lobe removal",
+        "B": "He developed severe anterograde amnesia",
+        "C": "His nondeclarative memory was spared",
+        "D": "He could still form new episodic memories",
+        "E": "His case demonstrated the distinction between declarative and nondeclarative memory"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "H.M. had bilateral MTL removal, developed severe anterograde amnesia (could NOT form new episodic memories), but his nondeclarative memory (skill learning, priming) was preserved. His case was critical in establishing that declarative and nondeclarative memory are distinct systems."
+    },
+    {
+      "id": "m3_l2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are part of the three-phase model of declarative memory? (Select all that apply)",
+      "options": {
+        "A": "Encoding",
+        "B": "Priming",
+        "C": "Storage/Consolidation",
+        "D": "Retrieval",
+        "E": "Habituation"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "The three-phase model of declarative memory consists of: (1) Encoding — formation of cortical traces with hippocampal indices, (2) Storage/Consolidation — stabilisation and strengthening of memory traces, and (3) Retrieval — cue-driven reactivation via hippocampal indices. Priming and habituation are forms of nondeclarative memory."
+    },
+    {
+      "id": "m3_l2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following describe the role of the prefrontal cortex in memory? (Select all that apply)",
+      "options": {
+        "A": "Memory search",
+        "B": "Monitoring retrieved information",
+        "C": "Maintaining retrieval mode",
+        "D": "Encoding — inferior frontal gyrus specifically",
+        "E": "Storing long-term semantic memories"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The PFC plays multiple roles: memory search, monitoring of retrieved information, maintaining retrieval mode (multiple subregions involved, less specific than encoding), and encoding — specifically the inferior frontal gyrus identified via the subsequent memory paradigm. The PFC does not store long-term memories; cortical storage is distributed."
+    },
+    {
+      "id": "m3_l2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are types of priming? (Select all that apply)",
+      "options": {
+        "A": "Perceptual priming",
+        "B": "Conceptual priming",
+        "C": "Episodic priming",
+        "D": "Semantic priming",
+        "E": "Motor priming"
+      },
+      "correct_answers": ["A", "B"],
+      "explanation": "The lecture distinguishes two main types of priming: perceptual priming (mediated by sensory cortices, spared in amnesia) and conceptual priming (mediated by prefrontal/lateral temporal regions, spared in amnesia but impaired in Alzheimer's). The double dissociation between patient M.S. (no perceptual priming, normal explicit) and amnesic patients (preserved perceptual priming, impaired explicit) supports this distinction."
+    },
+    {
+      "id": "m3_l2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "According to the AToM model, which features are associated with ventral posterior parietal cortex? (Select all that apply)",
+      "options": {
+        "A": "Recollection",
+        "B": "High-confidence recognition",
+        "C": "Bottom-up attention",
+        "D": "Top-down memory search",
+        "E": "Low-confidence familiarity"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The AToM model associates ventral PPC with recollection, high-confidence recognition, and bottom-up attention (attention captured by recollected memories). Top-down memory search and low-confidence familiarity are associated with dorsal PPC."
+    },
+    {
+      "id": "m3_l2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the encoding-retrieval flip in posterior parietal cortex? (Select all that apply)",
+      "options": {
+        "A": "Dorsal PPC is more active during encoding for items later remembered",
+        "B": "Ventral PPC is more active during encoding for items later forgotten",
+        "C": "The same region shows opposite patterns during encoding vs. retrieval",
+        "D": "Both regions show the same pattern during encoding and retrieval",
+        "E": "Ventral PPC is more active during retrieval for items remembered"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The encoding-retrieval flip shows that dorsal PPC is more active during encoding for subsequently remembered items, while ventral PPC is more active during encoding for subsequently forgotten items. During retrieval, ventral PPC is more active for remembered items. The same regions show opposite patterns across encoding and retrieval."
+    },
+    {
+      "id": "m3_l2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which statements about the Multiple Trace Theory are correct? (Select all that apply)",
+      "options": {
+        "A": "It was proposed by Nadel and Moscovitch in 1997",
+        "B": "Episodic memories always require the hippocampus",
+        "C": "Older memories have more hippocampal traces",
+        "D": "Remote memories become entirely cortical",
+        "E": "Complete hippocampal loss would cause total retrograde amnesia for episodic memories"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Multiple Trace Theory (Nadel & Moscovitch, 1997) proposes that episodic memories always require hippocampal involvement, older memories accumulate more traces (making them more resistant to partial damage), and complete hippocampal destruction would cause total retrograde amnesia for episodic memories. It contrasts with standard theory which says remote memories become hippocampus-independent."
+    },
+    {
+      "id": "m3_l2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following hippocampal function theories are discussed in the lecture? (Select all that apply)",
+      "options": {
+        "A": "Relational Memory theory",
+        "B": "Episodic Memory theory",
+        "C": "Working Memory theory",
+        "D": "Both theories are supported by evidence",
+        "E": "The hippocampus is more associated with recollection than familiarity"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Two hippocampal function theories are discussed: the Relational Memory theory (hippocampus forms new associations) and the Episodic Memory theory (hippocampus specifically supports episodic but not semantic memory). Both are supported by evidence, and the hippocampus is generally more associated with recollection than familiarity."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapter 9"]
+}

@@ -1,0 +1,152 @@
+{
+  "section_id": "m4_l1",
+  "quiz_type": "matching",
+  "title": "Emotion and Social Cognition - Matching",
+  "questions": [
+    {
+      "id": "m4_l1_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each component of emotion to its description:",
+      "items": ["Physiological response", "Action tendency", "Subjective feeling"],
+      "categories": ["Autonomic / bodily change (sweating, heart rate up)", "Behavioural disposition (fight or flight)", "Conscious experience ('I feel afraid')"],
+      "correct_mapping": {
+        "Physiological response": "Autonomic / bodily change (sweating, heart rate up)",
+        "Action tendency": "Behavioural disposition (fight or flight)",
+        "Subjective feeling": "Conscious experience ('I feel afraid')"
+      },
+      "explanation": "Emotion has three components: physiological response (autonomic), action tendency (behavioural), and subjective feeling (conscious). Healthy emotional responses integrate all three; in schizophrenia they dissociate."
+    },
+    {
+      "id": "m4_l1_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each historical theory of emotion to its core claim:",
+      "items": ["James-Lange", "Cannon-Bard", "Schachter-Singer", "Papez / limbic system"],
+      "categories": ["Bodily feedback causes the emotion (stimulus → body → feeling)", "Thalamus relays simultaneously to cortex (feeling) and hypothalamus (body)", "Bodily arousal plus cognitive label produces the emotion", "Emotion arises from a medial-wall forebrain ring (cingulate, hippocampus, hypothalamus)"],
+      "correct_mapping": {
+        "James-Lange": "Bodily feedback causes the emotion (stimulus → body → feeling)",
+        "Cannon-Bard": "Thalamus relays simultaneously to cortex (feeling) and hypothalamus (body)",
+        "Schachter-Singer": "Bodily arousal plus cognitive label produces the emotion",
+        "Papez / limbic system": "Emotion arises from a medial-wall forebrain ring (cingulate, hippocampus, hypothalamus)"
+      },
+      "explanation": "James-Lange: peripheral feedback drives emotion. Cannon-Bard (diencephalic): parallel thalamic relay. Schachter-Singer: two-factor (arousal + label). Papez/MacLean: limbic-system theory; criticized for lacking strict anatomical coherence."
+    },
+    {
+      "id": "m4_l1_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each dimensional / process theory to its key feature:",
+      "items": ["Vector model", "Circumplex model (Russell)", "Component-process theory"],
+      "categories": ["Two axes meeting at a neutral endpoint; arousal and valence tightly coupled", "Orthogonal arousal × valence axes; emotions arranged around a circle", "Emotions as fluid combinations of appraisals (novelty, pleasantness, goals, coping)"],
+      "correct_mapping": {
+        "Vector model": "Two axes meeting at a neutral endpoint; arousal and valence tightly coupled",
+        "Circumplex model (Russell)": "Orthogonal arousal × valence axes; emotions arranged around a circle",
+        "Component-process theory": "Emotions as fluid combinations of appraisals (novelty, pleasantness, goals, coping)"
+      },
+      "explanation": "Vector model couples arousal and valence ('boomerang'). Russell's circumplex treats them as orthogonal, allowing low-arousal high-valence states (calm/content). Component-process theories treat emotions as fluid — but the prof noted they are not well-studied with neuroscience methods."
+    },
+    {
+      "id": "m4_l1_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each amygdala subnucleus / structure to its role in fear conditioning:",
+      "items": ["Lateral amygdala", "Central amygdala", "Intercalated cells", "Hippocampus"],
+      "categories": ["Sensory input from thalamus and cortex", "Output to hypothalamus and brainstem for autonomic / behavioural fear", "Inhibitory gating, mediates vmPFC-driven extinction", "Contextual fear conditioning (fear tied to place)"],
+      "correct_mapping": {
+        "Lateral amygdala": "Sensory input from thalamus and cortex",
+        "Central amygdala": "Output to hypothalamus and brainstem for autonomic / behavioural fear",
+        "Intercalated cells": "Inhibitory gating, mediates vmPFC-driven extinction",
+        "Hippocampus": "Contextual fear conditioning (fear tied to place)"
+      },
+      "explanation": "Acquisition pathway: sensory input → thalamus → lateral → basal → central amygdala → hypothalamus / brainstem → fear output. The vmPFC inhibits via intercalated cells during extinction. The hippocampus handles place-based contextual fear."
+    },
+    {
+      "id": "m4_l1_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each fear-output measure to what it indexes:",
+      "items": ["Skin conductance response (SCR)", "Fear-potentiated startle", "Pupil dilation"],
+      "categories": ["Sweating measure of sympathetic arousal", "Exaggerated eyeblink to a sudden stimulus during a fear state", "Autonomic / arousal change visible in the eye"],
+      "correct_mapping": {
+        "Skin conductance response (SCR)": "Sweating measure of sympathetic arousal",
+        "Fear-potentiated startle": "Exaggerated eyeblink to a sudden stimulus during a fear state",
+        "Pupil dilation": "Autonomic / arousal change visible in the eye"
+      },
+      "explanation": "These three autonomic indices are the standard outputs of fear conditioning: SCR (sympathetic sweat), fear-potentiated startle (exaggerated eyeblink during fear), and pupil dilation (sympathetic eye response)."
+    },
+    {
+      "id": "m4_l1_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each Iowa Gambling Task profile to its description:",
+      "items": ["Healthy controls", "vmPFC-damaged patients (e.g. Elliot)", "Healthy risk-takers"],
+      "categories": ["Shift toward C & D and develop anticipatory SCRs at risky decks", "Keep choosing A & B and produce no anticipatory SCRs", "Still produce SCRs (signal awareness) but choose risky decks anyway"],
+      "correct_mapping": {
+        "Healthy controls": "Shift toward C & D and develop anticipatory SCRs at risky decks",
+        "vmPFC-damaged patients (e.g. Elliot)": "Keep choosing A & B and produce no anticipatory SCRs",
+        "Healthy risk-takers": "Still produce SCRs (signal awareness) but choose risky decks anyway"
+      },
+      "explanation": "Controls develop anticipatory SCRs and shift to advantageous decks. vmPFC patients (like Damasio's Elliot) know the rules but cannot use somatic feedback — no SCR, no shift. Healthy risk-takers still produce SCRs (the awareness signal is intact) but choose risk anyway."
+    },
+    {
+      "id": "m4_l1_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each emotion-regulation strategy to its description:",
+      "items": ["Situation selection", "Cognitive reappraisal"],
+      "categories": ["Antecedent change of behaviour to avoid the emotional encounter (e.g. fear of flying → travel by train)", "Reinterpret the elicitor's meaning to alter emotional impact after it appears"],
+      "correct_mapping": {
+        "Situation selection": "Antecedent change of behaviour to avoid the emotional encounter (e.g. fear of flying → travel by train)",
+        "Cognitive reappraisal": "Reinterpret the elicitor's meaning to alter emotional impact after it appears"
+      },
+      "explanation": "Situation selection prevents the encounter; cognitive reappraisal reinterprets it after the fact. Reappraisal upregulates dlPFC/parietal, downregulates the amygdala, and reduces subjective negative affect — operating at all three levels of emotion."
+    },
+    {
+      "id": "m4_l1_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each mentalizing-network region to its function:",
+      "items": ["Medial PFC (paracingulate)", "Temporoparietal junction (TPJ)", "Superior temporal sulcus (STS)", "Precuneus / posterior cingulate"],
+      "categories": ["Inferences about enduring traits", "Transient context-based inferences; body location", "Biological motion and gaze processing", "Self-projection into past / future"],
+      "correct_mapping": {
+        "Medial PFC (paracingulate)": "Inferences about enduring traits",
+        "Temporoparietal junction (TPJ)": "Transient context-based inferences; body location",
+        "Superior temporal sulcus (STS)": "Biological motion and gaze processing",
+        "Precuneus / posterior cingulate": "Self-projection into past / future"
+      },
+      "explanation": "The mentalizing network: mPFC for trait inferences, TPJ for transient context (also implicated in body location and out-of-body experiences), STS for biological motion/gaze, and precuneus/PCC for self-projection across time."
+    },
+    {
+      "id": "m4_l1_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each empathy-related concept to its definition:",
+      "items": ["Empathy", "Sympathy", "Personal distress"],
+      "categories": ["Capacity to resonate with another's emotional state — sharing the feeling", "Understanding another's emotional state without sharing it — concern, pity", "Excessive arousal at another's distress, leading to self-focused coping rather than helping"],
+      "correct_mapping": {
+        "Empathy": "Capacity to resonate with another's emotional state — sharing the feeling",
+        "Sympathy": "Understanding another's emotional state without sharing it — concern, pity",
+        "Personal distress": "Excessive arousal at another's distress, leading to self-focused coping rather than helping"
+      },
+      "explanation": "Empathy = shared feeling. Sympathy = understanding without sharing. Personal distress = excessive contagion that leads to self-focused coping rather than other-oriented helping."
+    },
+    {
+      "id": "m4_l1_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each component of Decety's 4-component empathy model to its primary brain regions:",
+      "items": ["Emotion sharing", "Self-awareness", "Mental flexibility", "Emotion regulation"],
+      "categories": ["Somatosensory cortex, insula, ACC, limbic system", "Inferior parietal cortex, PFC, insula", "Medial and dorsolateral PFC", "ACC, lateral and ventromedial PFC"],
+      "correct_mapping": {
+        "Emotion sharing": "Somatosensory cortex, insula, ACC, limbic system",
+        "Self-awareness": "Inferior parietal cortex, PFC, insula",
+        "Mental flexibility": "Medial and dorsolateral PFC",
+        "Emotion regulation": "ACC, lateral and ventromedial PFC"
+      },
+      "explanation": "Decety's model: emotion sharing is more automatic and limbic; self-awareness, mental flexibility, and emotion regulation are more cognitive. The PFC is a hub appearing in three of the four components."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 1"]
+}

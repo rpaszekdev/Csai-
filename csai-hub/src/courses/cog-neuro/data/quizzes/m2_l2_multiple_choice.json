@@ -1,0 +1,149 @@
+{
+  "section_id": "m2_l2",
+  "quiz_type": "multiple_choice",
+  "title": "Motor Control Flipped - Multiple Choice",
+  "questions": [
+    {
+      "id": "m2_l2_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What did Bernstein's signature experiment demonstrate?",
+      "options": {
+        "A": "Signatures become identical when written with different muscle groups",
+        "B": "Complex movements preserve distinctive features across different muscle groups, suggesting higher-level motor programs",
+        "C": "Only the dominant hand can produce recognisable signatures",
+        "D": "Signatures are stored entirely in the primary motor cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "Bernstein showed that when people write their signature with different effectors (hand, elbow, mouth), the distinctive features are preserved. This demonstrates that motor programs are represented at an abstract, higher level rather than as specific muscle commands."
+    },
+    {
+      "id": "m2_l2_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In the dot motion paradigm, what happens to neural firing rate as motion coherence increases?",
+      "options": {
+        "A": "Firing rate decreases proportionally",
+        "B": "Firing rate remains constant regardless of coherence",
+        "C": "Firing rate increases proportionally to motion coherence",
+        "D": "Firing rate oscillates unpredictably"
+      },
+      "correct_answer": "C",
+      "explanation": "In the dot motion paradigm, neural firing rate is proportional to the coherence of dot motion. This demonstrates graded sensory-motor conversion — the more coherent the motion signal, the stronger the neural response driving the motor decision."
+    },
+    {
+      "id": "m2_l2_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What is the key difference between SMA and premotor cortex function?",
+      "options": {
+        "A": "SMA handles externally cued movements; premotor handles self-initiated ones",
+        "B": "SMA handles self-initiated movements and sequences; premotor handles externally cued movements",
+        "C": "Both areas serve identical functions",
+        "D": "SMA controls lower limbs; premotor controls upper limbs"
+      },
+      "correct_answer": "B",
+      "explanation": "The SMA is specialised for self-initiated movements and learned sequences (shown by Tanji's experiment with SMA neurons encoding sequences). The premotor cortex is more involved in externally cued movements guided by sensory information."
+    },
+    {
+      "id": "m2_l2_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What is optic ataxia?",
+      "options": {
+        "A": "Inability to recognise objects visually",
+        "B": "Failure of hand-eye coordination due to parietal cortex damage",
+        "C": "Loss of balance from cerebellar damage",
+        "D": "Tremor during reaching movements from basal ganglia damage"
+      },
+      "correct_answer": "B",
+      "explanation": "Optic ataxia is a failure of visually-guided hand-eye coordination caused by parietal cortex damage. Patients can see objects and know what they are, but cannot accurately reach for or grasp them. Patient R.V. demonstrated impaired precision grip."
+    },
+    {
+      "id": "m2_l2_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "In Goodale and Milner's model, what does the dorsal stream do?",
+      "options": {
+        "A": "Identifies what an object is",
+        "B": "Guides action — the 'where/how' pathway",
+        "C": "Processes auditory information",
+        "D": "Stores long-term memories of objects"
+      },
+      "correct_answer": "B",
+      "explanation": "Goodale and Milner characterised the dorsal stream as the 'where/how' pathway that guides action. Temporal (ventral) damage = can't describe orientation but CAN use a mail slot; parietal (dorsal) damage = can name objects but CAN'T reach/grasp — a double dissociation."
+    },
+    {
+      "id": "m2_l2_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "When do the basal ganglia (putamen) show the STRONGEST activation during motor learning?",
+      "options": {
+        "A": "During well-practised automatic movements",
+        "B": "During learning of novel sensorimotor mappings",
+        "C": "Only during rest between movement trials",
+        "D": "During passive observation of others moving"
+      },
+      "correct_answer": "B",
+      "explanation": "The putamen shows strongest activation when learning novel sensorimotor mappings (e.g., using a joystick with a 90-degree offset). Once the mapping is learned, activation decreases. The basal ganglia are critical for acquiring new motor associations."
+    },
+    {
+      "id": "m2_l2_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What type of apraxia involves the inability to voluntarily perform a learned action despite being able to do it automatically?",
+      "options": {
+        "A": "Ideational apraxia",
+        "B": "Verbal apraxia",
+        "C": "Ideomotor apraxia",
+        "D": "Constructional apraxia"
+      },
+      "correct_answer": "C",
+      "explanation": "Ideomotor apraxia is the inability to voluntarily perform a learned skilled action on command, even though the patient may perform it automatically in the right context. Ideational apraxia involves inability to sequence actions, and verbal apraxia affects speech production."
+    },
+    {
+      "id": "m2_l2_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Mirror neurons fire when:",
+      "options": {
+        "A": "Only when performing an action",
+        "B": "Only when observing someone else perform an action",
+        "C": "Both when performing AND observing the same action",
+        "D": "Only during imagined movements"
+      },
+      "correct_answer": "C",
+      "explanation": "Mirror neurons fire both when performing an action AND when observing someone else perform the same action. They were originally found in the ventral premotor cortex (area F5) and inferior parietal lobule of monkeys, with a more widely distributed system in humans."
+    },
+    {
+      "id": "m2_l2_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In the serial reaction time (SRT) task, motor sequence learning is:",
+      "options": {
+        "A": "Impaired in amnesia and preserved in basal ganglia disorders",
+        "B": "Preserved in amnesia but impaired in basal ganglia disorders",
+        "C": "Impaired in both amnesia and basal ganglia disorders",
+        "D": "Preserved in both amnesia and basal ganglia disorders"
+      },
+      "correct_answer": "B",
+      "explanation": "Motor sequence learning (SRT task) is a form of nondeclarative/implicit memory. It is preserved in amnesia (intact basal ganglia, damaged hippocampus) but impaired in basal ganglia disorders like Parkinson's, confirming the BG's role in motor skill learning."
+    },
+    {
+      "id": "m2_l2_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Damage to the medial cerebellar vermis causes:",
+      "options": {
+        "A": "Intention tremor of the ipsilateral limb",
+        "B": "General ataxia affecting posture and gait",
+        "C": "Choreiform movements",
+        "D": "Tremor at rest"
+      },
+      "correct_answer": "B",
+      "explanation": "Damage to the medial vermis of the cerebellum causes general ataxia — problems with posture, balance, and gait. In contrast, lateral cerebellar damage causes intention tremor affecting ipsilateral limb movements during voluntary actions."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 24-31"]
+}

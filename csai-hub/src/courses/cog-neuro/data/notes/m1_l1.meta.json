@@ -1,0 +1,18 @@
+{
+  "section_id": "m1_l1",
+  "title": "Module 1 Lecture 1: History & Approaches",
+  "model": "opus",
+  "sources": [
+    "transcript_lecture1.txt",
+    "M001_Lecture1_CognitiveNeuroscience.pptx",
+    "Principles of Cognitive Neu_ (Z-Library)_260128_091123.pdf",
+    "Module1_Exam_Predictions.md",
+    "Module1_Key_Exam_Themes.md"
+  ],
+  "prompt": "You are creating exam-focused study notes for \"Module 1 Lecture 1: History & Approaches\" in Cognitive Neuroscience.\n\n## Instructions\n- Create COMPREHENSIVE study notes based ONLY on the provided materials\n- Structure with clear headings (##), sub-sections (###), and bullet points\n- **Bold** key terms, brain areas, and important concepts\n- Include specific examples, experiments, and researcher names from the material\n- Mark exam-likely content with [EXAM] tags\n- Mention relevant brain areas with their functions\n- End with a \"Key Takeaways\" section summarizing the 5-8 most important points\n- If the professor emphasized something in the transcript, note it as [PROF EMPHASIS]\n- Cross-reference between textbook definitions and lecture explanations where they differ\n\n## Study Materials (40 chunks, 56,431 characters from 5 sources)\n\n[... 56,431 characters of RAG context from: transcript_lecture1.txt, M001_Lecture1_CognitiveNeuroscience.pptx, Principles of Cognitive Neu_ (Z-Library)_260128_091123.pdf, Module1_Exam_Predictions.md, Module1_Key_Exam_Themes.md ...]",
+  "chunks_used": 40,
+  "context_chars": 56431,
+  "char_count": 1,
+  "line_count": 1,
+  "error": null
+}

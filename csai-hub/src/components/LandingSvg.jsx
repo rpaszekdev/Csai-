@@ -11,8 +11,13 @@ export default function LandingSvg() {
       .then((text) => {
         if (cancelled || !containerRef.current) return;
 
-        containerRef.current.innerHTML = text;
-        const svg = containerRef.current.querySelector("svg");
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, "image/svg+xml");
+        const parsedSvg = doc.querySelector("svg");
+        if (!parsedSvg) return;
+        parsedSvg.querySelectorAll("script").forEach((s) => s.remove());
+        containerRef.current.replaceChildren(parsedSvg);
+        const svg = parsedSvg;
         if (!svg) return;
 
         const viewBox = svg.getAttribute("viewBox") || "0 0 1344 768";

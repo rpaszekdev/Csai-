@@ -1,0 +1,149 @@
+{
+  "section_id": "m1_l1",
+  "quiz_type": "multiple_choice",
+  "title": "History & Approaches - Multiple Choice",
+  "questions": [
+    {
+      "id": "m1_l1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What is the primary goal of cognitive neuroscience?",
+      "options": {
+        "A": "Mapping brain regions to specific cognitive functions",
+        "B": "Creating neurobiologically grounded models of cognition",
+        "C": "Finding neural correlates of behaviour",
+        "D": "Studying the chemical composition of neurons"
+      },
+      "correct_answer": "B",
+      "explanation": "Cognitive neuroscience aims to go beyond simply mapping brain regions (finding 'neural correlates') — it seeks to create neurobiologically grounded models of cognition that explain how brain mechanisms give rise to mental processes."
+    },
+    {
+      "id": "m1_l1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What was the key insight of phrenology that turned out to be correct, despite the method being wrong?",
+      "options": {
+        "A": "Skull shape determines personality",
+        "B": "The brain is a single undifferentiated organ",
+        "C": "Different brain regions are specialised for different functions",
+        "D": "Mental faculties are inherited traits"
+      },
+      "correct_answer": "C",
+      "explanation": "Franz Joseph Gall's phrenology was wrong in its method (reading skull bumps), but the underlying idea that different brain regions are specialised for different cognitive functions (localisation of function) turned out to be largely correct."
+    },
+    {
+      "id": "m1_l1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Who demonstrated through staining techniques that neurons are discrete individual cells rather than a continuous network?",
+      "options": {
+        "A": "Golgi",
+        "B": "Helmholtz",
+        "C": "Cajal",
+        "D": "Wundt"
+      },
+      "correct_answer": "C",
+      "explanation": "Santiago Ramón y Cajal used Golgi's own staining technique to demonstrate that neurons are discrete, individual cells — establishing the Neuron Doctrine. Ironically, Golgi himself believed the nervous system was a continuous network (reticular theory)."
+    },
+    {
+      "id": "m1_l1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What characterised the behaviourist approach to studying the mind?",
+      "options": {
+        "A": "Introspection as the primary method",
+        "B": "Focus on stimulus-response relationships, treating the mind as a 'black box'",
+        "C": "Using brain imaging to study internal representations",
+        "D": "Combining philosophy with experimental neuroscience"
+      },
+      "correct_answer": "B",
+      "explanation": "Behaviourism (championed by Skinner and others) focused exclusively on observable stimulus-response relationships, deliberately treating the mind as a 'black box' and refusing to speculate about internal mental processes."
+    },
+    {
+      "id": "m1_l1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Which event is most closely associated with the beginning of the Cognitive Revolution?",
+      "options": {
+        "A": "Penfield's cortical stimulation experiments",
+        "B": "The invention of fMRI",
+        "C": "The Dartmouth conference and Chomsky's critique of behaviourism",
+        "D": "The discovery of the neuron doctrine"
+      },
+      "correct_answer": "C",
+      "explanation": "The Cognitive Revolution of the 1950s-60s was catalysed by events including the Dartmouth conference (1956) and Chomsky's devastating critique of Skinner's behaviourist account of language, which argued that internal mental representations must be studied."
+    },
+    {
+      "id": "m1_l1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What did Penfield's cortical mapping experiments reveal?",
+      "options": {
+        "A": "That all brain regions are equally involved in all functions",
+        "B": "The organisation of somatosensory and motor cortex, visualised as the homunculus",
+        "C": "That consciousness is located in the prefrontal cortex",
+        "D": "That memories are stored in the hippocampus"
+      },
+      "correct_answer": "B",
+      "explanation": "Wilder Penfield electrically stimulated the cortex of awake neurosurgery patients and mapped the somatosensory and motor cortex, creating the famous 'homunculus' — a distorted figure showing how body parts are represented across the cortical surface."
+    },
+    {
+      "id": "m1_l1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What is the physical basis of the fMRI signal?",
+      "options": {
+        "A": "Electrical activity of neurons measured through the skull",
+        "B": "Radioactive isotope decay in brain tissue",
+        "C": "Changes in blood oxygenation related to neural energy consumption",
+        "D": "Magnetic fields generated by neuronal action potentials"
+      },
+      "correct_answer": "C",
+      "explanation": "fMRI measures the BOLD (Blood Oxygen Level Dependent) signal. When neurons are active, they consume more energy, leading to changes in local blood flow and oxygenation that can be detected by the MRI scanner."
+    },
+    {
+      "id": "m1_l1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What is the APOE4 allele associated with?",
+      "options": {
+        "A": "Enhanced memory performance",
+        "B": "Increased risk of Alzheimer's disease",
+        "C": "Larger prefrontal cortex volume",
+        "D": "Faster action potential conduction"
+      },
+      "correct_answer": "B",
+      "explanation": "The APOE4 polymorphism is a well-established genetic risk factor for Alzheimer's disease. It is a key example in the field of neuroimaging genomics, which combines genetic data with brain imaging."
+    },
+    {
+      "id": "m1_l1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Which part of a neuron is responsible for transmitting action potentials to other neurons?",
+      "options": {
+        "A": "Dendrites",
+        "B": "Cell body (soma)",
+        "C": "Axon",
+        "D": "Synapse"
+      },
+      "correct_answer": "C",
+      "explanation": "The axon carries action potentials away from the cell body toward other neurons. Dendrites receive incoming signals, and the synapse is the junction between neurons where neurotransmitters are released."
+    },
+    {
+      "id": "m1_l1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What does the principle of 'multimethodological synthesis' mean in cognitive neuroscience?",
+      "options": {
+        "A": "Using only the most advanced imaging technique available",
+        "B": "Combining evidence from multiple research methods to build stronger conclusions",
+        "C": "Synthesising new chemicals for brain research",
+        "D": "Applying a single method across multiple brain regions"
+      },
+      "correct_answer": "B",
+      "explanation": "Multimethodological synthesis means combining evidence from multiple methods (e.g., lesion studies, fMRI, EEG, TMS) to build stronger, more converging conclusions about brain-cognition relationships. No single method is sufficient on its own."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 1 slides", "Chapter 1"]
+}

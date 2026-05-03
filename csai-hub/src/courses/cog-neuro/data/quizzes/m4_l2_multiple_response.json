@@ -1,0 +1,162 @@
+{
+  "section_id": "m4_l2",
+  "quiz_type": "multiple_response",
+  "title": "Emotion (in depth) - Multiple Response",
+  "questions": [
+    {
+      "id": "m4_l2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which are the three theoretical families of emotion classification covered in the lecture? (Select all that apply)",
+      "options": {
+        "A": "Categorical theories (basic vs complex emotions)",
+        "B": "Dimensional theories (arousal × valence)",
+        "C": "Component-process theories (cognitive appraisal)",
+        "D": "Limbic system theory",
+        "E": "Connectionist theory of emotion"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The three theoretical families are categorical (discrete basic vs complex emotions), dimensional (point in arousal × valence space), and component-process (dynamic states from appraisal patterns). Categorical and dimensional theories dominate neuroscience because they are more testable."
+    },
+    {
+      "id": "m4_l2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which are the six basic emotions most researchers agree on? (Select all that apply)",
+      "options": {
+        "A": "Anger",
+        "B": "Sadness",
+        "C": "Happiness",
+        "D": "Fear",
+        "E": "Disgust",
+        "F": "Surprise",
+        "G": "Pride"
+      },
+      "correct_answers": ["A", "B", "C", "D", "E", "F"],
+      "explanation": "The six core basic emotions are anger, sadness, happiness, fear, disgust, and surprise — innate and pan-cultural. Pride is a complex emotion: more subdued, learned, culture-dependent (e.g., suppressed in some East Asian cultures)."
+    },
+    {
+      "id": "m4_l2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which features are characteristic of the rapid subcortical fear pathway ('low road')? (Select all that apply)",
+      "options": {
+        "A": "Routes thalamus directly to amygdala bypassing cortex",
+        "B": "Operates in a few milliseconds",
+        "C": "Pre-conscious; not fully integrated into awareness",
+        "D": "Provides detailed perceptual analysis",
+        "E": "Triggers fight/flight/freeze/fawn"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The low road is fast, subcortical, pre-conscious, and triggers immediate defensive responses. It does NOT provide detailed perceptual analysis — that is the slow cortical 'high road' (thalamus → cortex → amygdala)."
+    },
+    {
+      "id": "m4_l2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which statements about the vmPFC and fear are correct? (Select all that apply)",
+      "options": {
+        "A": "It applies a 'braking' function on the amygdala via inhibitory projections",
+        "B": "Rats with vmPFC damage take much longer to extinguish fear",
+        "C": "vmPFC activity during extinction correlates with extinction retention",
+        "D": "vmPFC damage abolishes the ability to acquire fear",
+        "E": "Damage causes emotional perseveration in clinical conditions like PTSD"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The vmPFC inhibits the amygdala, supports extinction, and its activity correlates with extinction retention. vmPFC damage does NOT abolish fear acquisition — rats acquire fear normally but fail to extinguish, leading to emotional perseveration."
+    },
+    {
+      "id": "m4_l2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which statements about the somatic marker hypothesis are correct? (Select all that apply)",
+      "options": {
+        "A": "The vmPFC links factual knowledge to bioregulatory states from past events",
+        "B": "Direct 'body loop' triggers actual visceral responses via the amygdala",
+        "C": "Indirect 'as-if loop' simulates somatosensory patterns in the insula and somatosensory cortex",
+        "D": "Somatic markers act as a heuristic that prunes the decision tree",
+        "E": "Pure logic without somatic markers is sufficient for rational decisions"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Damasio's hypothesis: the vmPFC stores knowledge-body links (direct body loop or indirect as-if loop) that flag options before logical weighing. Patient Elliot proves pure logic alone leads to paralysis — gut feelings are NEEDED for rational decisions."
+    },
+    {
+      "id": "m4_l2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which mechanisms underlie the amygdala's influence on perception and attention? (Select all that apply)",
+      "options": {
+        "A": "Direct feedback projections to V1 and fusiform gyrus",
+        "B": "Amygdala → nucleus basalis of Meynert → cortical acetylcholine release",
+        "C": "Amygdala → ACC, insula, mPFC, OFC → dlPFC, parietal cortex, PCC",
+        "D": "Direct dopamine release into ventral striatum for attention",
+        "E": "Amygdala storage of declarative memory traces"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Amygdala biases attention via direct feedback to V1/fusiform, indirect cholinergic enhancement through nucleus basalis of Meynert, and via ACC/insula/mPFC/OFC routing signals to dlPFC, parietal cortex, and PCC. Dopamine and declarative storage are not its mechanisms here."
+    },
+    {
+      "id": "m4_l2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which hormones are involved in McGaugh's memory modulation hypothesis? (Select all that apply)",
+      "options": {
+        "A": "Cortisol",
+        "B": "Epinephrine",
+        "C": "Norepinephrine",
+        "D": "Insulin",
+        "E": "Melatonin"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Three key hormones modulate emotional memory consolidation: cortisol (crosses BBB to act on central receptors), epinephrine and norepinephrine (act on peripheral β-adrenergic receptors on visceral sensory endings). Insulin and melatonin are not part of this pathway."
+    },
+    {
+      "id": "m4_l2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which regions are part of the mentalizing network? (Select all that apply)",
+      "options": {
+        "A": "Medial prefrontal cortex (mPFC)",
+        "B": "Temporoparietal junction (TPJ)",
+        "C": "Superior temporal sulcus (STS)",
+        "D": "Temporal poles",
+        "E": "Precuneus / cingulate cortex",
+        "F": "Primary motor cortex"
+      },
+      "correct_answers": ["A", "B", "C", "D", "E"],
+      "explanation": "The mentalizing network includes mPFC, TPJ, STS, temporal poles, and precuneus/cingulate. TPJ is particularly involved in transient inferences about others' mental states. Primary motor cortex is not part of this network."
+    },
+    {
+      "id": "m4_l2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which are components of Decety's four-component model of empathy? (Select all that apply)",
+      "options": {
+        "A": "Emotion sharing (insula, ACC, somatosensory cortex)",
+        "B": "Self-awareness (parietal lobe, PFC, insula)",
+        "C": "Mental flexibility (medial + dorsolateral PFC)",
+        "D": "Emotion regulation (ACC, lateral PFC, vmPFC)",
+        "E": "Mirror motor imitation (premotor cortex)"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Decety's four components are emotion sharing, self-awareness, mental flexibility (perspective taking), and emotion regulation. Without the regulation step, automatic mirroring leads to personal distress rather than helpful empathy. Pure motor imitation is not a component."
+    },
+    {
+      "id": "m4_l2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which statements about mirror neurons and STS are correct? (Select all that apply)",
+      "options": {
+        "A": "F5 and PFG form an interconnected fronto-parietal mirror system",
+        "B": "STS relays biological motion information to the parietal mirror node",
+        "C": "STS itself mirrors actions just like F5",
+        "D": "Mirror neurons fire denser action potentials when the action's goal is achieved",
+        "E": "Human fMRI cannot definitively show that the same neuron fires for doing and watching"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "F5 and PFG form the fronto-parietal mirror system; STS feeds biological motion to it but does NOT itself mirror. Mirror neurons encode goals (denser firing after goal achievement). A challenge to the theory is that fMRI cannot resolve whether the same neuron fires for doing and watching."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 2"]
+}

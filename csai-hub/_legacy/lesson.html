@@ -1,0 +1,1801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Multilayer Perceptrons — Interactive Lesson</title>
+<style>
+  /* ═══════════════════════════════════════════════
+     Japanese Design System — adapted from md-reader
+     Washi (paper) · Sumi (ink) · Shizen (nature)
+     Ma (間) — breathing space
+     ═══════════════════════════════════════════════ */
+  :root {
+    /* Washi — paper neutrals */
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+
+    /* Sumi — ink darks */
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+
+    /* Shizen — natural accents */
+    --ai:        #264E70;   /* indigo — primary */
+    --beni:      #9B4E4E;   /* dyed red — wrong / loss */
+    --moegi:     #5B7553;   /* fresh green — correct */
+    --kitsune:   #B87333;   /* fox orange — highlight */
+    --murasaki:  #4A3B5C;   /* purple — code ink */
+
+    /* Ma (間) — spacing */
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+
+    /* Type */
+    --text-whisper: 11px;
+    --text-body: 14px;
+    --text-lead: 16px;
+    --text-subhead: 18px;
+    --text-head: 24px;
+    --text-display: 32px;
+    --text-hero: 48px;
+
+    --radius-subtle: 2px;
+    --radius-gentle: 4px;
+    --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+
+    --duration-swift: 200ms;
+    --duration-natural: 300ms;
+    --duration-deliberate: 500ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep);
+    line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  /* ─── topbar — 極細 (gokuboso), barely there ─── */
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav { display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase; }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  /* ─── hero — 間 of the opening page ─── */
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: var(--ma-5);
+  }
+  .hero h1 { max-width: 20ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+    display: flex; flex-direction: column;
+  }
+
+  /* ─── sections — Ma (間) breathing between chapters ─── */
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  /* overlay chips */
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  /* controls — ghost buttons, minimal */
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.ghost { /* same as .btn now */ }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  /* callouts — washi paper feel */
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout strong { color: var(--sumi-deep); }
+
+  /* predict / quiz cards */
+  .predict {
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    padding: var(--ma-5);
+    border-radius: var(--radius-soft);
+  }
+  .predict h4 {
+    margin-bottom: var(--ma-3);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  }
+  .predict > p {
+    font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3);
+  }
+  .predict .opts { display: grid; gap: var(--ma-2); }
+  .opt {
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    padding: var(--ma-3) var(--ma-4);
+    border-radius: var(--radius-gentle);
+    cursor: pointer; text-align: left;
+    font-family: inherit; font-size: var(--text-body);
+    color: var(--sumi-deep);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal {
+    display: none; margin-top: var(--ma-3);
+    color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7;
+    padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm);
+  }
+  .reveal.show { display: block; }
+
+  /* ssl code — sumi ink block */
+  .ssl-code {
+    background: var(--sumi-deep);
+    color: var(--washi-cream);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: var(--radius-soft);
+    font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+    font-size: 12.5px; line-height: 1.7;
+    white-space: pre; overflow-x: auto;
+    box-shadow: var(--shadow-breath);
+  }
+  .ssl-code .cm  { color: var(--sumi-light); }
+  .ssl-code .tok { color: var(--kitsune); }
+  .ssl-code .num { color: var(--moegi); }
+
+  /* slide thumbnail — a reference, not decoration */
+  .slide-thumb {
+    margin-top: var(--ma-3);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-gentle);
+    overflow: hidden; max-width: 360px;
+    box-shadow: var(--shadow-whisper);
+  }
+  .slide-thumb img { width: 100%; display: block; }
+  .slide-thumb .cap {
+    padding: var(--ma-2) var(--ma-3);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-light); background: var(--washi-cream);
+  }
+
+  /* quiz */
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card {
+    background: var(--washi-white);
+    padding: var(--ma-5);
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--washi-warm);
+  }
+  .q-card > p:first-child {
+    font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3);
+  }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white);
+    color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4);
+    border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm);
+    box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light);
+    font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center;
+    line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">学</span>
+    <span class="title">Multilayer Perceptrons</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 1</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html" class="active">一 Lesson 1</a>
+    <a href="lesson2.html">二 Lesson 2</a>
+    <a href="lesson3.html">三 Lesson 3</a>
+    <a href="lesson4.html">四 Lesson 4</a>
+    <a href="lesson5.html">五 Lesson 5</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">目次 Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#perceptron">1 · The Perceptron</a></li>
+    <li><a href="#linear-and">2 · Linear separability (AND)</a></li>
+    <li><a href="#xor-flat">3 · The XOR problem</a></li>
+    <li><a href="#xor-lift">4 · Lifting into hidden space</a></li>
+    <li><a href="#stacking">5 · Stacking perceptrons</a></li>
+    <li><a href="#linear-tf">6 · Linear transformations</a></li>
+    <li><a href="#mlp">7 · The MLP</a></li>
+    <li><a href="#loss">8 · Loss function</a></li>
+    <li><a href="#apps">9 · Applications</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">第一課 · Lesson One</div>
+    <h1>Why one neuron isn't enough.</h1>
+    <p>A <strong>perceptron</strong> draws a single straight line to separate data. The <strong>XOR problem</strong> refuses to be solved that way. You'll see why — and how a <strong>hidden layer</strong> fixes it.</p>
+    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+</div>
+
+<!-- ═══════ 1. PERCEPTRON ═══════ -->
+<section class="step" id="perceptron">
+  <div class="text">
+    <div class="eyebrow">Section 1 · slide 2</div>
+    <h2>The Perceptron</h2>
+    <p>A perceptron takes <strong>inputs</strong>, multiplies each one by a <strong>weight</strong>, adds a <strong>bias</strong>, then passes the total through an <strong>activation function</strong>. The classic perceptron uses a <strong>step function</strong>: output <strong>1</strong> if the total ≥ 0, otherwise <strong>0</strong>.</p>
+    <p>The <strong>error</strong> (target − output) tells us how to adjust the weights. This is the <strong>perceptron learning rule</strong>:</p>
+    <div class="callout navy">
+      <strong>Δw = η · error · input</strong><br/>
+      For each weight, the update is the <strong>learning rate η</strong> times the <strong>error</strong> times the <strong>input</strong> that weight was connected to. The bias updates the same way — just treat it as an input that's always 1.
+    </div>
+    <p class="muted">Press ▶. Each input pulses along its weight, they meet at <strong>Σ</strong>, then <strong>f</strong> squashes the total into an output.</p>
+    <div class="callout">A perceptron is a <strong>linear classifier</strong>. Its decision boundary is always a <strong>straight line</strong> in 2D (or a flat plane in higher dimensions). It's essentially the same idea as <strong>logistic regression</strong>.</div>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>If we <strong>doubled all the weights</strong> but kept the inputs the same, what happens to the decision boundary?</p>
+      <div class="opts" data-q="p1">
+        <button class="opt" data-correct="false">It moves to a new position</button>
+        <button class="opt" data-correct="false">It rotates</button>
+        <button class="opt" data-correct="true">It stays in the same place</button>
+      </div>
+      <div class="reveal">Scaling the weights scales the total, but the <strong>zero crossing</strong> stays put. Bigger weights mean more <em>confidence</em>, not a different <em>decision</em>.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="perceptron-canvas">
+      <div class="chip nw">one perceptron</div>
+      <div class="chip se" id="perc-state">Σ = 0.00 · o = 0.00</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="perc-fire">▶ Forward pass</button>
+      <button class="btn ghost" id="perc-reset">Reset</button>
+      <div class="slider-wrap">x₁ <input type="range" id="perc-x1" min="-1" max="1" step="0.1" value="0.5"></div>
+      <div class="slider-wrap">x₂ <input type="range" id="perc-x2" min="-1" max="1" step="0.1" value="0.8"></div>
+      <div class="slider-wrap">x₃ <input type="range" id="perc-x3" min="-1" max="1" step="0.1" value="-0.3"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 2. LINEAR SEPARABILITY (AND) ═══════ -->
+<section class="step" id="linear-and">
+  <div class="text">
+    <div class="eyebrow">Section 2 · slides 4–6</div>
+    <h2>Easy case: AND</h2>
+    <p><strong>AND</strong> outputs <strong>1 only when both inputs are 1</strong>. Plot the four cases. You can draw <strong>a single line</strong> that separates the 1-point from the three 0-points.</p>
+    <p class="muted">Drag the two white endpoints. <strong>Green</strong> = the line separates both classes. <strong>Red</strong> = at least one point is on the wrong side.</p>
+    <div class="callout">Data that can be split by one straight line is called <strong>linearly separable</strong>. A single perceptron can learn it.</div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="and-canvas">
+      <div class="chip nw">AND · 4 points in 2D</div>
+      <div class="chip se" id="and-status">drag the line endpoints</div>
+    </div>
+    <div class="controls">
+      <button class="btn ghost" id="and-reset">Reset line</button>
+      <span class="slider-wrap" id="and-score">misclassified: 0 / 4</span>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 3. XOR FLAT ═══════ -->
+<section class="step" id="xor-flat">
+  <div class="text">
+    <div class="eyebrow">Section 3 · slides 7–9</div>
+    <h2>Hard case: XOR</h2>
+    <p><strong>XOR</strong> outputs <strong>1 when exactly one input is 1</strong>. The two 1-points sit on <strong>opposite corners</strong> of the square. So do the two 0-points.</p>
+    <p class="muted">Try to draw one line that separates them. You can't — <strong>no single straight line</strong> can split the 1's from the 0's in this layout.</p>
+    <div class="predict">
+      <h4>Quick check</h4>
+      <p>Why does XOR break the perceptron?</p>
+      <div class="opts" data-q="xor1">
+        <button class="opt" data-correct="false">XOR has more than 2 classes</button>
+        <button class="opt" data-correct="true">A perceptron can only draw a straight boundary</button>
+        <button class="opt" data-correct="false">There are too few data points</button>
+      </div>
+      <div class="reveal">A perceptron's decision boundary is always a <strong>straight line</strong>. XOR needs a <strong>curved</strong> or <strong>broken</strong> boundary. One perceptron can't make one.</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="xor-flat-canvas">
+      <div class="chip nw">XOR · same frame as AND</div>
+      <div class="chip se" id="xor-flat-status">drag the line — it'll never get to 0/4</div>
+    </div>
+    <div class="controls">
+      <button class="btn ghost" id="xor-flat-reset">Reset line</button>
+      <span class="slider-wrap" id="xor-flat-score">misclassified: 0 / 4</span>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 4. XOR LIFT (the killer demo) ═══════ -->
+<section class="step" id="xor-lift">
+  <div class="text">
+    <div class="eyebrow">Section 4 · slides 10–13 · the key idea</div>
+    <h2>The fix: a hidden layer</h2>
+    <p>Use <strong>two perceptrons</strong> instead of one. Call them <strong>p₁</strong> and <strong>p₂</strong>. Feed their outputs into a <strong>third perceptron</strong>.</p>
+    <p>The first two perceptrons <strong>reshape the data into a new space</strong>. In that new space, a <strong>single straight line</strong> is enough.</p>
+    <p class="muted">Press ▶. The four points rise out of the flat plane. The two 1-points go up; the two 0-points stay down. A <strong>flat plane</strong> now slides between them.</p>
+    <div class="callout navy"><strong>This is what a hidden layer does.</strong> It reshapes the input into a new space where a straight boundary finally works. Every <strong>deep network</strong> is this trick, repeated.</div>
+    <div class="slide-thumb">
+      <img src="out/slides_png/slide-13.png" alt="slide 13" />
+      <div class="cap">slide 13 — p₁ and p₂ are the hidden layer's outputs</div>
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="xor-lift-canvas">
+      <div class="chip nw">XOR · 4 points</div>
+      <div class="chip ne" id="xor-lift-space">space: input (x₁, x₂)</div>
+      <div class="chip sw">drag to rotate · scroll to zoom</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="lift-play">▶ Lift into hidden space</button>
+      <button class="btn ghost" id="lift-reset">Back to 2D</button>
+      <div class="slider-wrap">lift <input type="range" id="lift-slider" min="0" max="100" value="0"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 5. STACKING ═══════ -->
+<section class="step" id="stacking">
+  <div class="text">
+    <div class="eyebrow">Section 5 · slide 16</div>
+    <h2>A layer is stacked perceptrons</h2>
+    <p>One perceptron gives <strong>one output</strong>. Put several of them <strong>side by side</strong>, sharing the same inputs. Now you have a <strong>layer</strong> with <strong>many outputs</strong>. Each neuron keeps its own weights and bias.</p>
+    <p class="muted">Press ▶ to add neurons to the layer.</p>
+    <div class="callout">A whole layer collapses into one formula: <strong>o = f(Wx + b)</strong>. <strong>W</strong> is the <strong>weight matrix</strong>, <strong>b</strong> is the <strong>bias vector</strong>. This is why <strong>GPUs</strong> matter — matrix multiplication is the one thing they do very fast.</div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="stack-canvas">
+      <div class="chip nw">a layer of perceptrons</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="stack-play">▶ Clone &amp; stack</button>
+      <button class="btn ghost" id="stack-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 6. LINEAR TRANSFORMATIONS ═══════ -->
+<section class="step" id="linear-tf">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 19–23</div>
+    <h2>Weights bend space</h2>
+    <p>A <strong>weight matrix</strong> doesn't just multiply numbers. It <strong>bends the grid</strong>. Every point in the plane moves to a new place, following one consistent rule.</p>
+    <p class="muted">Drag the slider. At <strong>t = 0</strong> you see the original grid. At <strong>t = 1</strong> you see the grid after the transformation <strong>y = Wx</strong>. Watch the <strong>red and green arrows</strong> — those are the new directions of the axes.</p>
+
+    <div class="callout warn">
+      <strong>But bending alone isn't enough.</strong> Try this matrix on the four XOR points:
+      <br/><br/>
+      <code>(0,0) → (0,0)</code> &nbsp; <code>(1,0) → (1,−1)</code> &nbsp; <code>(0,1) → (−1,1)</code> &nbsp; <code>(1,1) → (0,0)</code>
+      <br/><br/>
+      Still <strong>four distinct points</strong>. Still <strong>not linearly separable</strong>. The matrix just rotated and mirrored them. The problem is unchanged.
+    </div>
+
+    <p>The missing piece is the <strong>activation function</strong>. The step function maps any negative number to <strong>0</strong>. So <code>(1,−1)</code> becomes <code>(1,0)</code> and <code>(−1,1)</code> becomes <code>(0,1)</code>. And <code>(1,1)</code> stays at <code>(0,0)</code>. Now two points sit on top of each other — and one straight line can separate them.</p>
+
+    <div class="callout navy">
+      <strong>This is the real trick.</strong> A stack of matrix multiplications without activations collapses into <strong>one</strong> matrix multiplication — still linear, still just a single straight line. The <strong>non-linear activation between layers</strong> is what lets a network bend the problem into a new shape. No activation, no deep learning.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="lintf-canvas">
+      <div class="chip nw">W = [[1,-1],[-1,1]]</div>
+      <div class="chip se" id="lintf-status">t = 0.00</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">transform t <input type="range" id="lintf-slider" min="0" max="100" value="0"></div>
+      <button class="btn ghost" id="lintf-cycle">▶ Animate loop</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 7. MLP ═══════ -->
+<section class="step" id="mlp">
+  <div class="text">
+    <div class="eyebrow">Section 7 · slides 25–26</div>
+    <h2>The Multilayer Perceptron</h2>
+    <p>Stack an <strong>input layer</strong>, one or more <strong>hidden layers</strong>, and an <strong>output layer</strong>. Connect every node to every node in the next layer. That's a <strong>Multilayer Perceptron</strong>, or <strong>MLP</strong>.</p>
+    <p class="muted">Each layer does the same thing: <strong>take the previous layer's output, multiply by weights, add bias, activate</strong>. Press ▶ to watch a signal travel through.</p>
+    <div class="callout">The same layer goes by three names: <strong>dense</strong>, <strong>fully connected</strong>, or <strong>linear</strong>. In PyTorch you'll see it as <code>nn.Linear</code>. All the same thing.</div>
+    <div class="callout navy">An MLP with <strong>one hidden layer</strong> and enough neurons can approximate <strong>any continuous function</strong>. In practice we use <strong>many thin layers</strong> — easier to train, better generalization.</div>
+    <div class="callout warn">
+      <strong>But how do we train it?</strong> The perceptron update rule <code>Δw = η · error · input</code> only works when you know the <strong>target</strong> for that neuron. For a <strong>hidden neuron</strong>, you don't — you only know the target at the output. So the perceptron rule <strong>breaks</strong> for MLPs. The fix is <strong>backpropagation</strong> — coming in the next lesson.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="mlp-canvas">
+      <div class="chip nw">MLP · 3 → 4 → 2</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="mlp-play">▶ Forward pass</button>
+      <button class="btn ghost" id="mlp-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 8. LOSS ═══════ -->
+<section class="step" id="loss">
+  <div class="text">
+    <div class="eyebrow">Section 8 · slide 27</div>
+    <h2>Loss: how wrong are we?</h2>
+    <p>The <strong>loss</strong> (also called <strong>error</strong> or <strong>cost</strong>) measures <strong>how wrong</strong> the network's output is. Training a neural network means <strong>finding weights that make the loss as small as possible</strong>.</p>
+    <p class="muted">Drag the blue <strong>output</strong> point. The bar shows the squared distance to the gold <strong>target</strong>. <strong>Zero bar = perfect prediction.</strong></p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="loss-canvas">
+      <div class="chip nw">drag the blue point</div>
+      <div class="chip se" id="loss-value">L = 0.00</div>
+    </div>
+    <div class="controls">
+      <button class="btn ghost" id="loss-randomize">Randomize target</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ 9. APPLICATIONS ═══════ -->
+<section class="step" id="apps">
+  <div class="text">
+    <div class="eyebrow">Section 9 · slides 29–33</div>
+    <h2>Same network, many jobs</h2>
+    <p>Under the hood, every task is either <strong>classification</strong> (which category?) or <strong>regression</strong> (what number?). You just change <strong>what the outputs mean</strong> and <strong>which loss you measure</strong>.</p>
+    <ul>
+      <li><strong>Classification</strong> — one output per class. Target is <strong>one-hot</strong>: exactly one output should fire.</li>
+      <li><strong>Compression (autoencoder)</strong> — squeeze the input through a <strong>narrow hidden layer</strong>, then rebuild it on the other side. What survives the squeeze is what actually mattered.</li>
+      <li><strong>Time-series prediction</strong> — past values in, next value out. A regression task.</li>
+      <li><strong>Multi-head</strong> — one network, several outputs at once: <strong>what</strong> (classification) <em>and</em> <strong>where</strong> (regression).</li>
+    </ul>
+    <p class="muted">Click a button below to switch the network's purpose.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="apps-canvas">
+      <div class="chip nw" id="apps-mode">mode: classification</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-mode="classification">Classification</button>
+      <button class="btn ghost" data-mode="compression">Compression</button>
+      <button class="btn ghost" data-mode="timeseries">Time series</button>
+      <button class="btn ghost" data-mode="multihead">Multi-head</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- ═══════ QUIZ ═══════ -->
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> A single perceptron's decision boundary is always:</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">A circle</button>
+        <button class="opt" data-correct="true">A straight line</button>
+        <button class="opt" data-correct="false">A curved shape</button>
+      </div>
+      <div class="reveal">A perceptron computes <strong>w·x + b = 0</strong>, which is always a <strong>straight line</strong> in 2D or a flat plane in higher dimensions.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q2.</strong> Why can't a single perceptron solve XOR?</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">XOR is too noisy</button>
+        <button class="opt" data-correct="true">XOR is not linearly separable</button>
+        <button class="opt" data-correct="false">XOR has 4 classes</button>
+      </div>
+      <div class="reveal">No single straight line can separate the two 1-points from the two 0-points.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q3.</strong> What does a hidden layer do?</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">Adds more training data</button>
+        <button class="opt" data-correct="true">Reshapes the input into a new space where a line can separate it</button>
+        <button class="opt" data-correct="false">Slows down training</button>
+      </div>
+      <div class="reveal">The hidden layer <strong>transforms the input</strong>. In the new space, the final layer can finally find a straight boundary.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q4.</strong> Why do we write a whole layer as <strong>Wx + b</strong> instead of looping over neurons?</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">Readability</button>
+        <button class="opt" data-correct="true">GPUs are built for matrix multiplication</button>
+        <button class="opt" data-correct="false">Memory savings</button>
+      </div>
+      <div class="reveal">Matrix multiplication runs <strong>massively in parallel</strong> on GPUs. That's what makes modern deep learning feasible.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q5.</strong> An <strong>autoencoder</strong>'s hidden layer is narrower than the input. This forces it to:</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">Memorize every sample</button>
+        <button class="opt" data-correct="true">Learn a compressed version that keeps what matters</button>
+        <button class="opt" data-correct="false">Overfit</button>
+      </div>
+      <div class="reveal">Information has to <strong>squeeze through the bottleneck</strong>. The network learns to keep what's important and throw away the rest.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q6.</strong> The <strong>loss function</strong> exists to:</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="false">Make predictions</button>
+        <button class="opt" data-correct="true">Measure how wrong the output is, so weights can be adjusted</button>
+        <button class="opt" data-correct="false">Pick the learning rate</button>
+      </div>
+      <div class="reveal">Loss is a <strong>single number</strong> saying how wrong you are. Its gradient tells the weights which way to move.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q7.</strong> What happens if you stack several layers <strong>without</strong> a non-linear activation between them?</p>
+      <div class="opts" data-q="q7">
+        <button class="opt" data-correct="false">The network becomes non-linear</button>
+        <button class="opt" data-correct="true">The whole stack collapses to one linear layer — no extra power</button>
+        <button class="opt" data-correct="false">The network overfits</button>
+      </div>
+      <div class="reveal">A chain of matrix multiplies is still <strong>one matrix multiply</strong>. Without <strong>non-linearity</strong>, depth adds nothing — you're back to drawing a single straight line.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q8.</strong> Why can't the perceptron learning rule <code>Δw = η · error · input</code> train an MLP?</p>
+      <div class="opts" data-q="q8">
+        <button class="opt" data-correct="false">It's too slow</button>
+        <button class="opt" data-correct="true">We don't know the target for hidden-layer neurons</button>
+        <button class="opt" data-correct="false">Inputs are no longer binary</button>
+      </div>
+      <div class="reveal">The rule needs an <strong>error</strong> for each neuron. In a hidden layer there's no target — only the final output has one. That's what <strong>backpropagation</strong> solves.</div>
+    </div>
+
+    <div class="q-card">
+      <p><strong>Q9.</strong> At the core, every neural network task is either:</p>
+      <div class="opts" data-q="q9">
+        <button class="opt" data-correct="false">Supervised or unsupervised</button>
+        <button class="opt" data-correct="true">Classification or regression</button>
+        <button class="opt" data-correct="false">Vision or language</button>
+      </div>
+      <div class="reveal">Every output is either a <strong>category</strong> (classification) or a <strong>number</strong> (regression). Everything else is a combination of these two.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  終 · end of lesson one<br/>
+  built from <code>1 Multilayer Perceptrons.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
+  <a href="lesson2.html">Continue to Lesson 2 · Backpropagation →</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 9</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// Safe isolation — one broken scene must never blank the whole page.
+function safeScene(name, fn) {
+  try { fn(); }
+  catch (e) { console.warn(`[scene:${name}]`, e); }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// MINI SCENE DSL
+// A tiny scene description DSL where each line is one primitive.
+// Tokens:  shape size color at X Y Z [label "..."]
+// Shapes:  sphere box cylinder line dot axis plane arrow
+// Sizes:   xs s m l xl    (mapped to unit radii)
+// Colors:  navy gold red blue green orange gray white black cyan
+// ═══════════════════════════════════════════════════════════════════
+
+// Shizen (natural) palette — matches CSS Japanese design tokens
+const COLORS = {
+  navy:  0x264E70,   // ai
+  gold:  0xB87333,   // kitsune
+  red:   0x9B4E4E,   // beni
+  blue:  0x3E6B8A,   // softer ai
+  green: 0x5B7553,   // moegi
+  orange:0xB87333,   // kitsune
+  gray:  0x8C867A,   // softened sumi
+  white: 0xF5F2EB,   // washi-white
+  black: 0x1A1A1A,   // sumi-deep
+  cyan:  0x6B8A8F,   // sabi patina
+  ink:   0x1A1A1A,
+  lightblue: 0x7FA0BA,
+};
+const SIZES = { xs: 0.05, s: 0.1, m: 0.18, l: 0.3, xl: 0.5 };
+
+function makeScene(host, opts={}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  scene.background = null;
+  const camera = new THREE.PerspectiveCamera(45, rect.width/rect.height, 0.1, 100);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 4);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(rect.width, rect.height);
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+  const key = new THREE.DirectionalLight(0xffffff, 0.6);
+  key.position.set(3, 5, 2);
+  scene.add(key);
+
+  const resize = () => {
+    const r = host.getBoundingClientRect();
+    camera.aspect = r.width / r.height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(r.width, r.height);
+  };
+  new ResizeObserver(resize).observe(host);
+
+  return { scene, camera, renderer, controls, resize };
+}
+
+// ─── label helper (canvas → sprite) ────────────────────────────────
+function makeLabel(text, color = '#1A1A1A', bg = null, size = 64) {
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 128;
+  const ctx = c.getContext('2d');
+  if (bg) { ctx.fillStyle = bg; ctx.fillRect(0,0,c.width,c.height); }
+  ctx.font = `600 ${size}px -apple-system, Inter, sans-serif`;
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, c.width/2, c.height/2);
+  const tex = new THREE.CanvasTexture(c);
+  tex.minFilter = THREE.LinearFilter;
+  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+  const sprite = new THREE.Sprite(mat);
+  sprite.scale.set(1.0, 0.25, 1);
+  return sprite;
+}
+
+function makeSphere(size, color) {
+  const r = SIZES[size] ?? 0.15;
+  const geom = new THREE.SphereGeometry(r, 32, 32);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.55 });
+  return new THREE.Mesh(geom, mat);
+}
+function makeBox(w, h, d, color) {
+  const geom = new THREE.BoxGeometry(w, h, d);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6, transparent: true, opacity: 0.9 });
+  return new THREE.Mesh(geom, mat);
+}
+function makeLine(a, b, color, dashed=false) {
+  const mat = dashed
+    ? new THREE.LineDashedMaterial({ color, dashSize: 0.08, gapSize: 0.06 })
+    : new THREE.LineBasicMaterial({ color });
+  const geom = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(...a), new THREE.Vector3(...b)]);
+  const line = new THREE.Line(geom, mat);
+  if (dashed) line.computeLineDistances();
+  return line;
+}
+function makeCylinderBetween(a, b, color, radius = 0.02) {
+  const va = new THREE.Vector3(...a), vb = new THREE.Vector3(...b);
+  const dir = new THREE.Vector3().subVectors(vb, va);
+  const len = dir.length();
+  const geom = new THREE.CylinderGeometry(radius, radius, len, 12);
+  const mat = new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.6 });
+  const mesh = new THREE.Mesh(geom, mat);
+  mesh.position.copy(va).add(vb).multiplyScalar(0.5);
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), dir.clone().normalize());
+  return mesh;
+}
+function makeAxes(len = 2) {
+  const g = new THREE.Group();
+  g.add(makeLine([0,0,0],[len,0,0], COLORS.red));
+  g.add(makeLine([0,0,0],[0,len,0], COLORS.green));
+  g.add(makeLine([0,0,0],[0,0,len], COLORS.blue));
+  return g;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO  — ambient rotating perceptron
+// ═══════════════════════════════════════════════════════════════════
+safeScene('hero', function heroScene() {
+  const host = document.getElementById('hero-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [3,2,4] });
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // 4 XOR points floating & drifting between flat and lifted
+  const pts = [[0,0,0, COLORS.navy],[1,0,0, COLORS.blue],[0,1,0, COLORS.blue],[1,1,0, COLORS.navy]];
+  const meshes = pts.map(([x,y,z,c]) => {
+    const m = makeSphere('l', c);
+    m.position.set(x-0.5, y-0.5, z);
+    group.add(m);
+    return m;
+  });
+
+  // grid
+  const grid = new THREE.GridHelper(2, 8, 0xd4cdba, 0xe5dfd0);
+  grid.rotation.x = Math.PI/2;
+  grid.position.z = -0.01;
+  group.add(grid);
+
+  // separating plane (appears when lifted)
+  const plane = makeBox(2, 2, 0.01, COLORS.gold);
+  plane.material.opacity = 0.2;
+  plane.rotation.x = Math.PI/2;
+  group.add(plane);
+
+  let t = 0;
+  function loop() {
+    t += 0.006;
+    const lift = (Math.sin(t) + 1) / 2; // 0..1
+    meshes.forEach((m, i) => {
+      const [x,y,_,c] = pts[i];
+      // XOR class: (1,0) and (0,1) lift UP; (0,0) and (1,1) stay DOWN
+      const xorClass = (x + y) % 2;
+      const targetZ = xorClass === 1 ? lift * 0.9 : 0;
+      m.position.z = targetZ;
+    });
+    plane.position.z = lift * 0.45;
+    plane.material.opacity = 0.05 + 0.3 * lift;
+    group.rotation.z = Math.sin(t*0.4) * 0.1;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 1. PERCEPTRON — forward pass animation
+// ═══════════════════════════════════════════════════════════════════
+safeScene('perceptron', function perceptronScene() {
+  const host = document.getElementById('perceptron-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 4.5], noOrbit: true });
+  camera.lookAt(0,0,0);
+
+  // Nodes
+  const inputs = [[-1.8, 1, 0],[-1.8, 0, 0],[-1.8, -1, 0]];
+  const weights = [[-0.6, 1, 0],[-0.6, 0, 0],[-0.6, -1, 0]];
+  const sumPos = [0.3, 0, 0];
+  const actPos = [1.1, 0, 0];
+  const outPos = [1.9, 0, 0];
+
+  const inputMeshes = inputs.map((p, i) => {
+    const m = makeSphere('m', COLORS.navy);
+    m.position.set(...p);
+    scene.add(m);
+    const lab = makeLabel(`x${i+1}`, '#ffffff');
+    lab.position.set(p[0], p[1], p[2]);
+    lab.scale.set(0.5, 0.12, 1);
+    scene.add(lab);
+    return m;
+  });
+  const weightMeshes = weights.map((p, i) => {
+    const m = makeBox(0.3, 0.3, 0.1, COLORS.gold);
+    m.position.set(...p);
+    scene.add(m);
+    const lab = makeLabel(`w${i+1}`, '#1a1203');
+    lab.position.set(p[0], p[1], 0.15);
+    lab.scale.set(0.4, 0.12, 1);
+    scene.add(lab);
+    return m;
+  });
+  const sumMesh = makeSphere('l', COLORS.navy);
+  sumMesh.position.set(...sumPos);
+  scene.add(sumMesh);
+  scene.add((() => { const l = makeLabel('Σ', '#fff'); l.position.set(sumPos[0], sumPos[1], 0.35); l.scale.set(0.3, 0.18, 1); return l; })());
+
+  const actMesh = makeBox(0.45, 0.45, 0.1, COLORS.gray);
+  actMesh.position.set(...actPos);
+  scene.add(actMesh);
+  scene.add((() => { const l = makeLabel('f', '#1A1A1A'); l.position.set(actPos[0], actPos[1], 0.15); l.scale.set(0.35, 0.2, 1); return l; })());
+
+  const outMesh = makeSphere('m', COLORS.blue);
+  outMesh.position.set(...outPos);
+  scene.add(outMesh);
+  scene.add((() => { const l = makeLabel('o', '#fff'); l.position.set(outPos[0], outPos[1], 0.25); l.scale.set(0.3, 0.18, 1); return l; })());
+
+  // Edges
+  inputs.forEach((p, i) => scene.add(makeCylinderBetween(p, weights[i], COLORS.gray, 0.015)));
+  weights.forEach(p => scene.add(makeCylinderBetween(p, sumPos, COLORS.gray, 0.015)));
+  scene.add(makeCylinderBetween(sumPos, actPos, COLORS.gray, 0.015));
+  scene.add(makeCylinderBetween(actPos, outPos, COLORS.gray, 0.015));
+
+  // Pulse particles
+  const pulseGroup = new THREE.Group();
+  scene.add(pulseGroup);
+
+  let firing = false;
+  let fireT = 0;
+  const getX = () => [parseFloat(document.getElementById('perc-x1').value),
+                      parseFloat(document.getElementById('perc-x2').value),
+                      parseFloat(document.getElementById('perc-x3').value)];
+  const W = [0.7, 0.5, -0.4];
+  const stateEl = document.getElementById('perc-state');
+
+  function fire() {
+    firing = true; fireT = 0; pulseGroup.clear();
+    const xs = getX();
+    for (let i = 0; i < 3; i++) {
+      const intensity = Math.abs(xs[i]);
+      const color = xs[i] >= 0 ? COLORS.blue : COLORS.red;
+      const p = makeSphere('s', color);
+      p.scale.setScalar(0.4 + intensity);
+      p.userData = { path: [inputs[i], weights[i], sumPos], stage: 0, i };
+      pulseGroup.add(p);
+    }
+  }
+  document.getElementById('perc-fire').onclick = fire;
+  document.getElementById('perc-reset').onclick = () => {
+    firing = false; pulseGroup.clear();
+    inputMeshes.forEach(m => m.material.emissive = new THREE.Color(0));
+    stateEl.textContent = 'Σ = 0.00 · o = 0.00';
+  };
+
+  function loop() {
+    if (firing) {
+      fireT += 0.015;
+      const xs = getX();
+      let accumulated = 0;
+      pulseGroup.children.forEach((p, i) => {
+        const stage = Math.min(2, Math.floor(fireT * 2));
+        const localT = (fireT * 2) - stage;
+        if (stage >= 2) {
+          // arrived at Σ
+          if (!p.userData.done) {
+            p.userData.done = true;
+            accumulated += xs[i] * W[i];
+          }
+          p.visible = false;
+        } else {
+          const a = p.userData.path[stage], b = p.userData.path[stage+1];
+          p.position.set(
+            a[0] + (b[0]-a[0])*localT,
+            a[1] + (b[1]-a[1])*localT,
+            a[2] + (b[2]-a[2])*localT
+          );
+        }
+      });
+      if (fireT > 1.2) {
+        const sum = xs.reduce((s, x, i) => s + x * W[i], 0);
+        const out = 1 / (1 + Math.exp(-sum * 3));
+        sumMesh.material.color.setHex(sum >= 0 ? COLORS.blue : COLORS.red);
+        outMesh.material.color.setHex(out >= 0.5 ? COLORS.blue : COLORS.red);
+        outMesh.scale.setScalar(0.8 + out * 0.6);
+        stateEl.textContent = `Σ = ${sum.toFixed(2)} · o = ${out.toFixed(2)}`;
+        if (fireT > 2) firing = false;
+      }
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 2 + 3. AND / XOR 2D — draggable separating line
+// ═══════════════════════════════════════════════════════════════════
+function make2DClassifier(hostId, dataset, statusId, scoreId, resetBtnId) {
+  const host = document.getElementById(hostId);
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let line = { a: { x: 0.2, y: 0.7 }, b: { x: 0.9, y: 0.3 } }; // in data coords 0..1.2
+  const resetLine = () => { line = { a: { x: 0.2, y: 0.7 }, b: { x: 0.9, y: 0.3 } }; draw(); };
+  document.getElementById(resetBtnId).onclick = resetLine;
+
+  let dragging = null;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  // data-space (0..1.2) → canvas pixels
+  const toPx = (pt) => {
+    const r = host.getBoundingClientRect();
+    const pad = 40;
+    const W = r.width - pad*2, H = r.height - pad*2;
+    return { x: pad + pt.x/1.2 * W, y: r.height - pad - pt.y/1.2 * H };
+  };
+  const fromPx = (px) => {
+    const r = host.getBoundingClientRect();
+    const pad = 40;
+    const W = r.width - pad*2, H = r.height - pad*2;
+    return { x: (px.x - pad) / W * 1.2, y: (r.height - pad - px.y) / H * 1.2 };
+  };
+
+  function sideOf(pt) {
+    const ax = line.a.x, ay = line.a.y, bx = line.b.x, by = line.b.y;
+    return (bx-ax)*(pt.y-ay) - (by-ay)*(pt.x-ax);
+  }
+  function misclass() {
+    let miss = 0;
+    const signForLabel = {};
+    dataset.points.forEach(p => {
+      const s = Math.sign(sideOf(p));
+      if (signForLabel[p.label] === undefined) signForLabel[p.label] = s;
+      else if (signForLabel[p.label] !== s) miss++;
+    });
+    // simpler: count points whose side disagrees with majority for their class
+    miss = 0;
+    const sides = dataset.points.map(p => ({ p, s: Math.sign(sideOf(p)) }));
+    const byLabel = {};
+    sides.forEach(({p, s}) => {
+      byLabel[p.label] = byLabel[p.label] || [];
+      byLabel[p.label].push(s);
+    });
+    Object.values(byLabel).forEach(arr => {
+      const pos = arr.filter(x=>x>=0).length;
+      const neg = arr.length - pos;
+      miss += Math.min(pos, neg);
+    });
+    return miss;
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+
+    // grid
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 6; i++) {
+      const t = i / 6 * 1.2;
+      const p1 = toPx({x:t, y:0}), p2 = toPx({x:t, y:1.2});
+      ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+      const p3 = toPx({x:0, y:t}), p4 = toPx({x:1.2, y:t});
+      ctx.beginPath(); ctx.moveTo(p3.x, p3.y); ctx.lineTo(p4.x, p4.y); ctx.stroke();
+    }
+
+    // axes
+    ctx.strokeStyle = '#6B6B6B'; ctx.lineWidth = 1.5;
+    const o = toPx({x:0, y:0}), xe = toPx({x:1.2, y:0}), ye = toPx({x:0, y:1.2});
+    ctx.beginPath(); ctx.moveTo(o.x, o.y); ctx.lineTo(xe.x, xe.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(o.x, o.y); ctx.lineTo(ye.x, ye.y); ctx.stroke();
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '13px -apple-system, Inter, sans-serif';
+    ctx.fillText('x₁', xe.x + 8, xe.y + 5); ctx.fillText('x₂', ye.x - 5, ye.y - 8);
+
+    // line
+    const miss = misclass();
+    const lineColor = miss === 0 ? '#5B7553' : '#9B4E4E';
+    const la = toPx(line.a), lb = toPx(line.b);
+    const dx = lb.x - la.x, dy = lb.y - la.y;
+    const len = Math.hypot(dx, dy) || 1;
+    const ext = 2000;
+    const ex = dx/len*ext, ey = dy/len*ext;
+    ctx.strokeStyle = lineColor; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(la.x - ex, la.y - ey); ctx.lineTo(lb.x + ex, lb.y + ey); ctx.stroke();
+
+    // endpoints
+    [line.a, line.b].forEach(pt => {
+      const p = toPx(pt);
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = lineColor; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 7, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+    });
+
+    // points
+    dataset.points.forEach(pt => {
+      const px = toPx(pt);
+      ctx.fillStyle = pt.label === 1 ? '#3E6B8A' : '#264E70';
+      ctx.beginPath(); ctx.arc(px.x, px.y, 10, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 11px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(pt.label, px.x, px.y);
+    });
+
+    // labels on points
+    dataset.points.forEach(pt => {
+      const px = toPx(pt);
+      ctx.fillStyle = '#6B6B6B'; ctx.font = '11px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`(${pt.x},${pt.y})`, px.x + 14, px.y + 4);
+    });
+
+    document.getElementById(statusId).textContent = miss === 0 ? '✔ separated' : `${miss} misclassified`;
+    document.getElementById(scoreId).textContent = `misclassified: ${miss} / ${dataset.points.length}`;
+  }
+
+  canvas.onpointerdown = (e) => {
+    const r = host.getBoundingClientRect();
+    const px = { x: e.clientX - r.left, y: e.clientY - r.top };
+    const dA = Math.hypot(px.x - toPx(line.a).x, px.y - toPx(line.a).y);
+    const dB = Math.hypot(px.x - toPx(line.b).x, px.y - toPx(line.b).y);
+    if (dA < 18) dragging = 'a';
+    else if (dB < 18) dragging = 'b';
+  };
+  window.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const r = host.getBoundingClientRect();
+    const px = { x: e.clientX - r.left, y: e.clientY - r.top };
+    const pt = fromPx(px);
+    pt.x = Math.max(-0.2, Math.min(1.4, pt.x));
+    pt.y = Math.max(-0.2, Math.min(1.4, pt.y));
+    line[dragging] = pt;
+    draw();
+  });
+  window.addEventListener('pointerup', () => { dragging = null; });
+
+  setTimeout(resize, 50);
+}
+
+make2DClassifier('and-canvas',
+  { points: [{x:0,y:0,label:0},{x:1,y:0,label:0},{x:0,y:1,label:0},{x:1,y:1,label:1}] },
+  'and-status', 'and-score', 'and-reset');
+
+make2DClassifier('xor-flat-canvas',
+  { points: [{x:0,y:0,label:0},{x:1,y:0,label:1},{x:0,y:1,label:1},{x:1,y:1,label:0}] },
+  'xor-flat-status', 'xor-flat-score', 'xor-flat-reset');
+
+// ═══════════════════════════════════════════════════════════════════
+// 4. XOR LIFT — the killer demo
+// ═══════════════════════════════════════════════════════════════════
+safeScene('xorLift', function xorLiftScene() {
+  const host = document.getElementById('xor-lift-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [2.4, 2.2, 3] });
+  controls.target.set(0.5, 0.5, 0.3);
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  const pts = [
+    { pos: [0, 0, 0], label: 0, color: COLORS.navy,  name: '(0,0)' },
+    { pos: [1, 0, 0], label: 1, color: COLORS.blue,  name: '(1,0)' },
+    { pos: [0, 1, 0], label: 1, color: COLORS.blue,  name: '(0,1)' },
+    { pos: [1, 1, 0], label: 0, color: COLORS.navy,  name: '(1,1)' },
+  ];
+  const meshes = pts.map(p => {
+    const m = makeSphere('l', p.color);
+    m.position.set(...p.pos);
+    group.add(m);
+    const lab = makeLabel(p.name, '#1A1A1A');
+    lab.position.set(p.pos[0], p.pos[1] + 0.25, p.pos[2]);
+    lab.scale.set(0.6, 0.15, 1);
+    group.add(lab);
+    return { mesh: m, label: lab, orig: p };
+  });
+
+  // ground grid (input plane)
+  const grid = new THREE.GridHelper(2, 8, 0xd4cdba, 0xe5dfd0);
+  grid.rotation.x = Math.PI/2;
+  grid.position.set(0.5, 0.5, -0.001);
+  group.add(grid);
+
+  // axes with labels
+  const axes = new THREE.Group();
+  axes.add(makeCylinderBetween([-0.1,0,0],[1.4,0,0], COLORS.red, 0.008));
+  axes.add(makeCylinderBetween([0,-0.1,0],[0,1.4,0], COLORS.green, 0.008));
+  const zAxis = makeCylinderBetween([0,0,-0.1],[0,0,1.4], COLORS.blue, 0.008);
+  axes.add(zAxis);
+  group.add(axes);
+
+  const xLab = makeLabel('x₁', '#9B4E4E'); xLab.position.set(1.5, 0, 0); xLab.scale.set(0.35,0.1,1); group.add(xLab);
+  const yLab = makeLabel('x₂', '#5B7553'); yLab.position.set(0, 1.5, 0); yLab.scale.set(0.35,0.1,1); group.add(yLab);
+  const p1Lab = makeLabel('p₁ (lifted)', '#264E70'); p1Lab.position.set(0, 0, 1.55); p1Lab.scale.set(0.8,0.13,1); group.add(p1Lab);
+  p1Lab.visible = false;
+
+  // separating plane (appears when lifted)
+  const sepPlane = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.2, 2.2),
+    new THREE.MeshStandardMaterial({ color: COLORS.gold, transparent: true, opacity: 0, side: THREE.DoubleSide })
+  );
+  sepPlane.rotation.x = Math.PI/2;
+  sepPlane.position.set(0.5, 0.5, 0.45);
+  group.add(sepPlane);
+
+  const spaceEl = document.getElementById('xor-lift-space');
+  const slider = document.getElementById('lift-slider');
+  let autoPlay = false;
+
+  // Hidden layer output function: h(x,y) = relu( x + y - 2xy )  gives XOR
+  //   (0,0) → 0, (1,0) → 1, (0,1) → 1, (1,1) → 0
+  function hiddenLift(x, y) { return Math.max(0, x + y - 2 * x * y); }
+
+  function setLift(t) {
+    meshes.forEach(({ mesh, label, orig }) => {
+      const [x, y] = orig.pos;
+      const h = hiddenLift(x, y);
+      const z = h * t;
+      mesh.position.set(x, y, z);
+      label.position.set(x, y + 0.25, z);
+    });
+    sepPlane.position.z = 0.45 * t;
+    sepPlane.material.opacity = 0.18 * t;
+    zAxis.visible = t > 0.05;
+    p1Lab.visible = t > 0.1;
+    spaceEl.textContent = t < 0.02
+      ? 'space: input (x₁, x₂)'
+      : t > 0.95
+      ? 'space: hidden (x₁, x₂, p₁) · separable ✔'
+      : `lifting… t = ${t.toFixed(2)}`;
+  }
+
+  slider.oninput = () => { autoPlay = false; setLift(slider.value/100); };
+  document.getElementById('lift-play').onclick = () => {
+    autoPlay = true; slider.value = 0;
+  };
+  document.getElementById('lift-reset').onclick = () => {
+    autoPlay = false; slider.value = 0; setLift(0);
+  };
+
+  setLift(0);
+
+  let t0 = null;
+  function loop(ts) {
+    if (autoPlay) {
+      if (t0 === null) t0 = ts;
+      const k = Math.min(1, (ts - t0) / 2200);
+      const eased = k < 0.5 ? 2*k*k : 1 - Math.pow(-2*k+2, 2)/2;
+      slider.value = eased * 100;
+      setLift(eased);
+      if (k >= 1) { autoPlay = false; t0 = null; }
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 5. STACKING — clone perceptron into a layer
+// ═══════════════════════════════════════════════════════════════════
+safeScene('stacking', function stackingScene() {
+  const host = document.getElementById('stack-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5], noOrbit: true });
+  camera.lookAt(0, 0, 0);
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  const inputs = [[-2, 0.7, 0], [-2, 0, 0], [-2, -0.7, 0]];
+  let neurons = [{ pos: [0, 0, 0], out: [1.3, 0, 0] }];
+
+  let edgeGroup = new THREE.Group();
+  let nodeGroup = new THREE.Group();
+  group.add(edgeGroup);
+  group.add(nodeGroup);
+
+  function rebuild() {
+    edgeGroup.clear();
+    nodeGroup.clear();
+
+    inputs.forEach((p, i) => {
+      const m = makeSphere('m', COLORS.navy);
+      m.position.set(...p);
+      nodeGroup.add(m);
+      const lab = makeLabel(`x${i+1}`, '#fff');
+      lab.position.set(p[0], p[1], 0.25);
+      lab.scale.set(0.3, 0.12, 1);
+      nodeGroup.add(lab);
+    });
+
+    neurons.forEach((n, j) => {
+      const m = makeSphere('l', COLORS.gold);
+      m.position.set(...n.pos);
+      nodeGroup.add(m);
+      const lab = makeLabel(`Σ${j+1}`, '#1a1203');
+      lab.position.set(n.pos[0], n.pos[1], 0.3);
+      lab.scale.set(0.3, 0.15, 1);
+      nodeGroup.add(lab);
+      const o = makeSphere('m', COLORS.blue);
+      o.position.set(...n.out);
+      nodeGroup.add(o);
+      const olab = makeLabel(`o${j+1}`, '#fff');
+      olab.position.set(n.out[0], n.out[1], 0.2);
+      olab.scale.set(0.3, 0.12, 1);
+      nodeGroup.add(olab);
+      inputs.forEach(ip => edgeGroup.add(makeCylinderBetween(ip, n.pos, COLORS.gray, 0.01)));
+      edgeGroup.add(makeCylinderBetween(n.pos, n.out, COLORS.gray, 0.01));
+    });
+  }
+  rebuild();
+
+  document.getElementById('stack-play').onclick = () => {
+    if (neurons.length < 3) {
+      const y = neurons.length === 0 ? 0 : neurons.length === 1 ? -1.1 : 1.1;
+      const ny = [neurons.length * 0 + (neurons.length === 0 ? 0.9 : neurons.length === 1 ? -0.9 : 1.1)];
+      const yOffset = neurons.length === 0 ? 0.9 : neurons.length === 1 ? -0.9 : 1.3;
+      neurons.push({ pos: [0, yOffset, 0], out: [1.3, yOffset, 0] });
+      // rebalance vertical
+      neurons = neurons.map((n, i) => {
+        const center = (neurons.length - 1) / 2;
+        const y = (i - center) * 1.1;
+        return { pos: [0, y, 0], out: [1.3, y, 0] };
+      });
+      rebuild();
+    }
+  };
+  document.getElementById('stack-reset').onclick = () => {
+    neurons = [{ pos: [0, 0, 0], out: [1.3, 0, 0] }];
+    rebuild();
+  };
+
+  function loop() {
+    group.rotation.y = Math.sin(performance.now() / 4000) * 0.08;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6. LINEAR TRANSFORMATION — grid warp
+// ═══════════════════════════════════════════════════════════════════
+safeScene('lintf', function lintfScene() {
+  const host = document.getElementById('lintf-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5], noOrbit: true });
+  camera.lookAt(0, 0, 0);
+
+  const W = [[1, -1], [-1, 1]];
+
+  const N = 9;
+  const lines = [];
+  const mats = [];
+  for (let i = 0; i <= N; i++) {
+    for (const [axis, dir] of [[0, 'h'], [1, 'v']]) {
+      const pts = [];
+      for (let j = 0; j <= N; j++) {
+        const u = (i / N - 0.5) * 2;
+        const v = (j / N - 0.5) * 2;
+        const p = dir === 'h' ? [v, u] : [u, v];
+        pts.push(p);
+      }
+      const mat = new THREE.LineBasicMaterial({
+        color: (i === Math.floor(N/2)) ? 0x264E70 : 0xd4cdba,
+        transparent: true, opacity: 0.8
+      });
+      const geom = new THREE.BufferGeometry().setFromPoints(pts.map(p => new THREE.Vector3(p[0], p[1], 0)));
+      const line = new THREE.Line(geom, mat);
+      line.userData.pts = pts;
+      scene.add(line);
+      lines.push(line);
+    }
+  }
+  // basis vectors
+  function makeArrow(from, to, color) {
+    return makeCylinderBetween([...from, 0], [...to, 0], color, 0.03);
+  }
+  let iHat = makeArrow([0,0], [1,0], COLORS.red);
+  let jHat = makeArrow([0,0], [0,1], COLORS.green);
+  scene.add(iHat); scene.add(jHat);
+
+  function applyT(t) {
+    lines.forEach(line => {
+      const positions = [];
+      line.userData.pts.forEach(([x, y]) => {
+        const Wx = W[0][0]*x + W[0][1]*y;
+        const Wy = W[1][0]*x + W[1][1]*y;
+        positions.push((1-t)*x + t*Wx, (1-t)*y + t*Wy, 0);
+      });
+      line.geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      line.geometry.attributes.position.needsUpdate = true;
+    });
+    // rebuild basis arrows
+    scene.remove(iHat); scene.remove(jHat);
+    const i = [(1-t)*1 + t*W[0][0], (1-t)*0 + t*W[1][0]];
+    const j = [(1-t)*0 + t*W[0][1], (1-t)*1 + t*W[1][1]];
+    iHat = makeArrow([0,0], i, COLORS.red);
+    jHat = makeArrow([0,0], j, COLORS.green);
+    scene.add(iHat); scene.add(jHat);
+    document.getElementById('lintf-status').textContent = `t = ${t.toFixed(2)}`;
+  }
+
+  applyT(0);
+  const slider = document.getElementById('lintf-slider');
+  slider.oninput = () => applyT(slider.value/100);
+  let cycling = false, t0 = null;
+  document.getElementById('lintf-cycle').onclick = () => { cycling = !cycling; t0 = null; };
+
+  function loop(ts) {
+    if (cycling) {
+      if (t0 === null) t0 = ts;
+      const phase = ((ts - t0) / 3000) % 2;
+      const t = phase < 1 ? phase : 2 - phase;
+      slider.value = t * 100;
+      applyT(t);
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 7. MLP — full network forward pass
+// ═══════════════════════════════════════════════════════════════════
+safeScene('mlp', function mlpScene() {
+  const host = document.getElementById('mlp-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5.5], noOrbit: true });
+  camera.lookAt(0, 0, 0);
+
+  const layers = [3, 4, 2]; // input, hidden, output (slide 25)
+  const layerX = [-2, 0, 2];
+  const nodes = [];
+  const edges = [];
+  layers.forEach((n, li) => {
+    const row = [];
+    for (let i = 0; i < n; i++) {
+      const y = (i - (n - 1) / 2) * 0.9;
+      const m = makeSphere('m', li === 0 ? COLORS.navy : li === layers.length - 1 ? COLORS.blue : COLORS.gray);
+      m.position.set(layerX[li], y, 0);
+      scene.add(m);
+      row.push(m);
+    }
+    nodes.push(row);
+  });
+  for (let li = 0; li < layers.length - 1; li++) {
+    nodes[li].forEach(a => {
+      nodes[li+1].forEach(b => {
+        const line = makeLine([a.position.x, a.position.y, 0], [b.position.x, b.position.y, 0], 0xd4cdba);
+        line.material = new THREE.LineBasicMaterial({ color: 0xd4cdba, transparent: true, opacity: 0.5 });
+        scene.add(line);
+        edges.push({ line, from: a, to: b });
+      });
+    });
+  }
+  // labels
+  ['Input','Hidden','Output'].forEach((t, i) => {
+    const lab = makeLabel(t, '#6B6B6B');
+    lab.position.set(layerX[i], -2.3, 0);
+    lab.scale.set(0.5, 0.14, 1);
+    scene.add(lab);
+  });
+
+  let playing = false, pulseT = 0;
+  let pulses = [];
+  function fire() {
+    playing = true; pulseT = 0; pulses = [];
+    nodes[0].forEach(n => n.material.emissive = new THREE.Color(0x003d6e));
+    for (let li = 0; li < layers.length - 1; li++) {
+      nodes[li].forEach(a => nodes[li+1].forEach(b => {
+        const p = makeSphere('s', COLORS.gold);
+        p.scale.setScalar(0.4);
+        p.userData = { layer: li, from: a, to: b, phase: li };
+        scene.add(p);
+        p.visible = false;
+        pulses.push(p);
+      }));
+    }
+  }
+  document.getElementById('mlp-play').onclick = fire;
+  document.getElementById('mlp-reset').onclick = () => {
+    playing = false;
+    pulses.forEach(p => scene.remove(p));
+    pulses = [];
+    [...nodes[0], ...nodes[1], ...nodes[2]].forEach(n => n.material.emissive = new THREE.Color(0));
+  };
+
+  function loop() {
+    if (playing) {
+      pulseT += 0.012;
+      pulses.forEach(p => {
+        const layerT = pulseT - p.userData.phase * 0.6;
+        if (layerT < 0 || layerT > 1) { p.visible = false; return; }
+        p.visible = true;
+        const a = p.userData.from.position, b = p.userData.to.position;
+        p.position.set(a.x + (b.x-a.x)*layerT, a.y + (b.y-a.y)*layerT, 0.05);
+        if (layerT > 0.95) {
+          const nextLayer = p.userData.layer + 1;
+          nodes[nextLayer].forEach(n => {
+            if (n === p.userData.to) n.material.emissive = new THREE.Color(0x003d6e);
+          });
+        }
+      });
+      if (pulseT > 2.5) { playing = false; pulses.forEach(pp => scene.remove(pp)); pulses=[]; }
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 8. LOSS — drag output, see distance-squared
+// ═══════════════════════════════════════════════════════════════════
+safeScene('loss', function lossScene() {
+  const host = document.getElementById('loss-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let output = { x: 0.3, y: 0.6 };
+  let target = { x: 0.7, y: 0.4 };
+  let dragging = false;
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  const toPx = (pt) => {
+    const r = host.getBoundingClientRect();
+    const pad = 60;
+    return { x: pad + pt.x * (r.width - pad*2), y: r.height - pad - pt.y * (r.height - pad*2) };
+  };
+  const fromPx = (px) => {
+    const r = host.getBoundingClientRect();
+    const pad = 60;
+    return { x: (px.x - pad) / (r.width - pad*2), y: (r.height - pad - px.y) / (r.height - pad*2) };
+  };
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+
+    // grid
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 5; i++) {
+      const t = i / 5;
+      const p1 = toPx({x:t, y:0}), p2 = toPx({x:t, y:1});
+      ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+      const p3 = toPx({x:0, y:t}), p4 = toPx({x:1, y:t});
+      ctx.beginPath(); ctx.moveTo(p3.x, p3.y); ctx.lineTo(p4.x, p4.y); ctx.stroke();
+    }
+
+    // line from output to target
+    const ap = toPx(output), bp = toPx(target);
+    ctx.strokeStyle = '#9B4E4E'; ctx.lineWidth = 3; ctx.setLineDash([6, 6]);
+    ctx.beginPath(); ctx.moveTo(ap.x, ap.y); ctx.lineTo(bp.x, bp.y); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // target
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(bp.x, bp.y, 14, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 11px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('y', bp.x, bp.y);
+
+    // output
+    ctx.fillStyle = '#3E6B8A';
+    ctx.beginPath(); ctx.arc(ap.x, ap.y, 14, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.fillText('o', ap.x, ap.y);
+
+    // labels
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillText('output (drag me)', ap.x + 20, ap.y - 4);
+    ctx.fillText('target', bp.x + 20, bp.y - 4);
+
+    // bar
+    const loss = (output.x - target.x)**2 + (output.y - target.y)**2;
+    const barW = Math.min(200, loss * 200);
+    ctx.fillStyle = '#E5DFD0';
+    ctx.fillRect(40, 20, 200, 14);
+    ctx.fillStyle = loss < 0.01 ? '#5B7553' : '#9B4E4E';
+    ctx.fillRect(40, 20, barW, 14);
+    ctx.fillStyle = '#1A1A1A'; ctx.font = '12px -apple-system, Inter, sans-serif';
+    ctx.fillText(`L = ||o − y||² = ${loss.toFixed(3)}`, 250, 31);
+    document.getElementById('loss-value').textContent = `L = ${loss.toFixed(3)}`;
+  }
+
+  canvas.onpointerdown = (e) => {
+    const r = host.getBoundingClientRect();
+    const px = { x: e.clientX - r.left, y: e.clientY - r.top };
+    const op = toPx(output);
+    if (Math.hypot(px.x - op.x, px.y - op.y) < 22) dragging = true;
+  };
+  window.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const r = host.getBoundingClientRect();
+    const pt = fromPx({ x: e.clientX - r.left, y: e.clientY - r.top });
+    output.x = Math.max(0, Math.min(1, pt.x));
+    output.y = Math.max(0, Math.min(1, pt.y));
+    draw();
+  });
+  window.addEventListener('pointerup', () => { dragging = false; });
+
+  document.getElementById('loss-randomize').onclick = () => {
+    target = { x: 0.2 + Math.random() * 0.6, y: 0.2 + Math.random() * 0.6 };
+    draw();
+  };
+
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 9. APPLICATIONS — recolor same MLP for different tasks
+// ═══════════════════════════════════════════════════════════════════
+safeScene('apps', function appsScene() {
+  const host = document.getElementById('apps-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5.5], noOrbit: true });
+  camera.lookAt(0, 0, 0);
+
+  const modes = {
+    classification: { layers: [3, 4, 3], hiddenColor: COLORS.gray, outColor: COLORS.green, label: 'one-hot class output' },
+    compression:    { layers: [4, 2, 4], hiddenColor: COLORS.gold, outColor: COLORS.navy, label: 'narrow bottleneck → reconstruct' },
+    timeseries:     { layers: [4, 3, 1], hiddenColor: COLORS.cyan, outColor: COLORS.orange, label: 'predict next value' },
+    multihead:      { layers: [3, 4, 4], hiddenColor: COLORS.gray, outColor: COLORS.navy, label: 'half=class, half=coords' },
+  };
+
+  let current = 'classification';
+  const group = new THREE.Group();
+  scene.add(group);
+
+  function build(mode) {
+    group.clear();
+    const cfg = modes[mode];
+    const layerX = [-2, 0, 2];
+    const nodeArrays = [];
+    cfg.layers.forEach((n, li) => {
+      const row = [];
+      for (let i = 0; i < n; i++) {
+        const y = (i - (n - 1) / 2) * 0.75;
+        let color = COLORS.navy;
+        if (li === 1) color = cfg.hiddenColor;
+        else if (li === cfg.layers.length - 1) color = cfg.outColor;
+        const m = makeSphere('m', color);
+        m.position.set(layerX[li], y, 0);
+        group.add(m);
+        row.push(m);
+      }
+      nodeArrays.push(row);
+    });
+    for (let li = 0; li < nodeArrays.length - 1; li++) {
+      nodeArrays[li].forEach(a => nodeArrays[li+1].forEach(b => {
+        const line = makeLine([a.position.x, a.position.y, 0], [b.position.x, b.position.y, 0], 0xd4cdba);
+        line.material = new THREE.LineBasicMaterial({ color: 0xd4cdba, transparent: true, opacity: 0.4 });
+        group.add(line);
+      }));
+    }
+    const lab = makeLabel(cfg.label, '#6B6B6B');
+    lab.position.set(0, -2.3, 0);
+    lab.scale.set(1.5, 0.15, 1);
+    group.add(lab);
+    document.getElementById('apps-mode').textContent = `mode: ${mode}`;
+  }
+  build(current);
+
+  document.querySelectorAll('#apps [data-mode]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('#apps [data-mode]').forEach(b => b.classList.add('ghost'));
+      btn.classList.remove('ghost');
+      build(btn.dataset.mode);
+    };
+  });
+
+  function loop() {
+    group.rotation.y = Math.sin(performance.now()/5000) * 0.1;
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz / predict answering logic
+// ═══════════════════════════════════════════════════════════════════
+let score = 0;
+const seen = new Set();
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) {
+        opts.querySelectorAll('.opt').forEach(b => {
+          if (b.dataset.correct === 'true') b.classList.add('correct');
+        });
+      }
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        const total = document.querySelectorAll('.opts').length;
+        document.getElementById('score').textContent = `Score: ${score} / ${total}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
+
+// ═══════════════════════════════════════════════════════════════════
+// Progress bar + TOC
+// ═══════════════════════════════════════════════════════════════════
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = Math.min(100, Math.max(0, window.scrollY / h * 100));
+  bar.style.width = p + '%';
+}, { passive: true });
+
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+</script>
+</body>
+</html>

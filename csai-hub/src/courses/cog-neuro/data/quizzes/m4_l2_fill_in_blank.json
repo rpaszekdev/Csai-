@@ -1,0 +1,109 @@
+{
+  "section_id": "m4_l2",
+  "quiz_type": "fill_in_blank",
+  "title": "Emotion (in depth) - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m4_l2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Russell's (1980) ___ model places emotions on a circle defined by orthogonal axes of arousal and valence.",
+      "blank_sentence": "Russell's (1980) ___ model places emotions on a circle defined by orthogonal axes of arousal and valence.",
+      "correct_answer": "circumplex",
+      "acceptable_answers": ["circumplex", "Circumplex"],
+      "explanation": "Russell's circumplex model arranges emotions around the circumference of a circle with orthogonal arousal × valence axes; similar emotions cluster. This contrasts with the boomerang-shaped vector model whose two arms meet at a neutral endpoint."
+    },
+    {
+      "id": "m4_l2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Within the amygdala, ___ cells act as a gating mechanism that inhibits central-amygdala output if the threat turns out to be unreal.",
+      "blank_sentence": "Within the amygdala, ___ cells act as a gating mechanism that inhibits central-amygdala output if the threat turns out to be unreal.",
+      "correct_answer": "intercalated",
+      "acceptable_answers": ["intercalated", "Intercalated", "ITC", "intercalated (ITC)"],
+      "explanation": "Intercalated cells (ITC) gate signal flow within the amygdala — if cortical analysis confirms the stimulus is not a real threat, ITCs inhibit the central amygdala and break the fear chain before output to hypothalamus and midbrain/striatum."
+    },
+    {
+      "id": "m4_l2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Patient ___ had bilateral amygdala damage and showed absent conditioned SCR despite intact declarative knowledge of the CS-US link.",
+      "blank_sentence": "Patient ___ had bilateral amygdala damage and showed absent conditioned SCR despite intact declarative knowledge of the CS-US link.",
+      "correct_answer": "S.M.",
+      "acceptable_answers": ["S.M.", "SM"],
+      "explanation": "Patient S.M. is the classic case of bilateral amygdala damage — she could explicitly state the CS-US contingency but produced no conditioned SCR. Patient W.C. (bilateral hippocampal damage) showed the opposite pattern, forming the famous double dissociation."
+    },
+    {
+      "id": "m4_l2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Damasio's ___ marker hypothesis holds that bodily traces of past emotional states steer current decision-making before logical reasoning kicks in.",
+      "blank_sentence": "Damasio's ___ marker hypothesis holds that bodily traces of past emotional states steer current decision-making before logical reasoning kicks in.",
+      "correct_answer": "somatic",
+      "acceptable_answers": ["somatic", "Somatic"],
+      "explanation": "The somatic marker hypothesis posits that the vmPFC links factual knowledge to bioregulatory states; recurring situations call up these autonomic/endocrine/musculoskeletal traces, which prune the decision tree as a heuristic."
+    },
+    {
+      "id": "m4_l2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "In the Iowa Gambling Task, decks A and B yield large rewards but devastating occasional punishments, making them ___ in the long run.",
+      "blank_sentence": "In the Iowa Gambling Task, decks A and B yield large rewards but devastating occasional punishments, making them ___ in the long run.",
+      "correct_answer": "disadvantageous",
+      "acceptable_answers": ["disadvantageous", "Disadvantageous", "bad"],
+      "explanation": "Decks A/B (+$100 with rare large losses) are disadvantageous; decks C/D (+$50 with smaller losses) are advantageous. Healthy controls develop anticipatory SCRs and shift to C/D, but vmPFC patients keep choosing A/B and lack anticipatory SCR."
+    },
+    {
+      "id": "m4_l2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "The ___ is the cortical hub for interoception — monitoring the body's physiological state and storing visceral representations of emotional states.",
+      "blank_sentence": "The ___ is the cortical hub for interoception — monitoring the body's physiological state and storing visceral representations of emotional states.",
+      "correct_answer": "insula",
+      "acceptable_answers": ["insula", "Insula"],
+      "explanation": "The insula is critical for interoception (perceiving internal bodily states) and is part of both the somatic-marker as-if loop and the salience-detection network. It is also strongly implicated in the emotion of disgust."
+    },
+    {
+      "id": "m4_l2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "The amygdala drives cortical acetylcholine release for attention enhancement via the nucleus basalis of ___.",
+      "blank_sentence": "The amygdala drives cortical acetylcholine release for attention enhancement via the nucleus basalis of ___.",
+      "correct_answer": "Meynert",
+      "acceptable_answers": ["Meynert", "meynert"],
+      "explanation": "The amygdala projects to the nucleus basalis of Meynert, which releases acetylcholine across cortex to enhance attention. This is one indirect route by which emotional salience biases the attentional network."
+    },
+    {
+      "id": "m4_l2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The ___ axis releases CRF from the hypothalamus, which triggers ACTH from the anterior pituitary, which finally releases cortisol from the adrenal cortex.",
+      "blank_sentence": "The ___ axis releases CRF from the hypothalamus, which triggers ACTH from the anterior pituitary, which finally releases cortisol from the adrenal cortex.",
+      "correct_answer": "HPA",
+      "acceptable_answers": ["HPA", "hypothalamic-pituitary-adrenal", "Hypothalamic-Pituitary-Adrenal"],
+      "explanation": "The Hypothalamic-Pituitary-Adrenal (HPA) axis is the principal stress response cascade: CRF → ACTH → cortisol. Because hormones are slow, they primarily act during consolidation rather than encoding — explaining why people sometimes can't recall what they said immediately after a stressful event."
+    },
+    {
+      "id": "m4_l2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "McEwen's concept of ___ overload describes the cumulative wear-and-tear from chronic stress, in contrast to allostasis ('stability through change').",
+      "blank_sentence": "McEwen's concept of ___ overload describes the cumulative wear-and-tear from chronic stress, in contrast to allostasis ('stability through change').",
+      "correct_answer": "allostatic",
+      "acceptable_answers": ["allostatic", "Allostatic"],
+      "explanation": "Bruce McEwen coined 'allostatic overload' to describe the cumulative biological cost of repeated or chronic stress responses. Allostasis itself is the adaptive process of maintaining stability through change; overload occurs when this regulatory capacity is exceeded."
+    },
+    {
+      "id": "m4_l2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Mirror neurons were discovered by ___ in macaques, mainly in premotor area F5.",
+      "blank_sentence": "Mirror neurons were discovered by ___ in macaques, mainly in premotor area F5.",
+      "correct_answer": "Rizzolatti",
+      "acceptable_answers": ["Rizzolatti", "rizzolatti", "Giacomo Rizzolatti"],
+      "explanation": "Giacomo Rizzolatti's group (1996) discovered mirror neurons in macaque premotor area F5 that fire both when the monkey performs an action and when it observes another agent doing the same action. F5 connects with parietal area PFG to form the fronto-parietal mirror system."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 2"]
+}

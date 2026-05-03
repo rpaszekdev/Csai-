@@ -1,0 +1,109 @@
+{
+  "section_id": "m1_l2",
+  "quiz_type": "fill_in_blank",
+  "title": "Methodology - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m1_l2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "EEG measures the summed post-synaptic dendritic field potentials of ___ cells.",
+      "blank_sentence": "EEG measures the summed post-synaptic dendritic field potentials of ___ cells.",
+      "correct_answer": "pyramidal",
+      "acceptable_answers": ["pyramidal"],
+      "explanation": "EEG specifically detects the electrical activity of pyramidal cells, which are aligned in parallel perpendicular to the cortical surface. This alignment allows their post-synaptic potentials to summate and be measurable at the scalp."
+    },
+    {
+      "id": "m1_l2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "The BOLD signal in fMRI stands for ___ Level Dependent.",
+      "blank_sentence": "The BOLD signal in fMRI stands for ___ Level Dependent.",
+      "correct_answer": "Blood Oxygen",
+      "acceptable_answers": ["Blood Oxygen", "Blood Oxygenation", "blood oxygen", "blood oxygenation"],
+      "explanation": "BOLD stands for Blood Oxygen (or Oxygenation) Level Dependent. The signal reflects changes in the ratio of oxygenated to deoxygenated haemoglobin in the blood near active neurons."
+    },
+    {
+      "id": "m1_l2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "TMS can only reach superficial cortex, penetrating to approximately ___ cm depth.",
+      "blank_sentence": "TMS can only reach superficial cortex, penetrating to approximately ___ cm depth.",
+      "correct_answer": "1.5",
+      "acceptable_answers": ["1.5", "1.5cm"],
+      "explanation": "TMS is limited to stimulating superficial cortical areas, reaching only about 1.5 cm in depth. This means deep brain structures like the hippocampus or thalamus cannot be directly targeted with TMS."
+    },
+    {
+      "id": "m1_l2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "The disruption of function in brain areas remote from a lesion site is called ___.",
+      "blank_sentence": "The disruption of function in brain areas remote from a lesion site is called ___.",
+      "correct_answer": "diaschisis",
+      "acceptable_answers": ["diaschisis"],
+      "explanation": "Diaschisis occurs when damage to one brain area disrupts function in distant but connected regions. This complicates interpretation of lesion studies because observed deficits may not be solely attributable to the damaged area."
+    },
+    {
+      "id": "m1_l2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "___ combines genetics with light to control neural activity with very high precision.",
+      "blank_sentence": "___ combines genetics with light to control neural activity with very high precision.",
+      "correct_answer": "Optogenetics",
+      "acceptable_answers": ["Optogenetics", "optogenetics"],
+      "explanation": "Optogenetics involves inserting light-sensitive proteins (opsins) into specific neuron types via genetic techniques, then using light to activate or inhibit those neurons with millisecond precision. It is invasive and currently limited to animal research."
+    },
+    {
+      "id": "m1_l2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "ERPs are derived from EEG by ___ averaging of responses to repeated stimuli.",
+      "blank_sentence": "ERPs are derived from EEG by ___ averaging of responses to repeated stimuli.",
+      "correct_answer": "time-locked",
+      "acceptable_answers": ["time-locked", "time locked", "timelocked"],
+      "explanation": "Event-Related Potentials (ERPs) are extracted from raw EEG by averaging many trials that are time-locked to a specific stimulus or event. This averaging process cancels out random noise, revealing the consistent neural response to the event."
+    },
+    {
+      "id": "m1_l2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "fNIRS is sometimes called the 'poor man's ___' because it measures the same blood-based signal.",
+      "blank_sentence": "fNIRS is sometimes called the 'poor man's ___' because it measures the same blood-based signal.",
+      "correct_answer": "fMRI",
+      "acceptable_answers": ["fMRI"],
+      "explanation": "fNIRS (functional near-infrared spectroscopy) measures changes in blood oxygenation similar to fMRI but using near-infrared light. It is portable and cheaper than fMRI, though with more limited spatial coverage, earning the nickname 'poor man's fMRI'."
+    },
+    {
+      "id": "m1_l2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "DTI measures the ___ of water molecules to map white matter tracts in the brain.",
+      "blank_sentence": "DTI measures the ___ of water molecules to map white matter tracts in the brain.",
+      "correct_answer": "diffusion",
+      "acceptable_answers": ["diffusion"],
+      "explanation": "Diffusion Tensor Imaging (DTI) tracks how water molecules diffuse through brain tissue. Water diffuses preferentially along the direction of axon bundles (white matter tracts), allowing researchers to map the brain's structural connectivity."
+    },
+    {
+      "id": "m1_l2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "A ___ dissociation provides the strongest evidence that two cognitive processes are independent.",
+      "blank_sentence": "A ___ dissociation provides the strongest evidence that two cognitive processes are independent.",
+      "correct_answer": "double",
+      "acceptable_answers": ["double"],
+      "explanation": "A double dissociation occurs when damage to area A impairs function X but not Y, while damage to area B impairs function Y but not X. This provides strong evidence that the two functions rely on separate neural mechanisms, ruling out generalised impairment."
+    },
+    {
+      "id": "m1_l2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "The ___ problem applies to both EEG and MEG, making it difficult to determine the exact brain sources of recorded signals.",
+      "blank_sentence": "The ___ problem applies to both EEG and MEG, making it difficult to determine the exact brain sources of recorded signals.",
+      "correct_answer": "inverse",
+      "acceptable_answers": ["inverse"],
+      "explanation": "The inverse problem refers to the mathematical impossibility of uniquely determining brain source locations from surface recordings alone. Multiple different source configurations can produce identical scalp patterns, affecting both EEG and MEG."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 2 slides", "Chapter 2"]
+}

@@ -1,0 +1,99 @@
+{
+  "section_id": "m1_l2",
+  "quiz_type": "ordering",
+  "title": "Methodology - Ordering",
+  "questions": [
+    {
+      "id": "m1_l2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order these neuroimaging methods from best temporal resolution to worst temporal resolution.",
+      "items": ["fMRI", "EEG", "PET", "MEG"],
+      "correct_order": ["EEG", "MEG", "fMRI", "PET"],
+      "explanation": "EEG and MEG both have millisecond temporal resolution (EEG is typically listed first). fMRI has resolution on the order of seconds (limited by the BOLD response). PET has the worst temporal resolution, relying on blocked task comparisons."
+    },
+    {
+      "id": "m1_l2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of the BOLD response from neural event to recorded signal.",
+      "items": ["BOLD signal is recorded by MRI scanner", "Blood flow increases to the active area", "Neural population becomes active", "Ratio of oxy- to deoxy-haemoglobin changes", "Local oxygen and glucose consumption increases"],
+      "correct_order": ["Neural population becomes active", "Local oxygen and glucose consumption increases", "Blood flow increases to the active area", "Ratio of oxy- to deoxy-haemoglobin changes", "BOLD signal is recorded by MRI scanner"],
+      "explanation": "The BOLD cascade: neurons fire → they consume oxygen/glucose → compensatory blood flow increases → the balance of oxygenated and deoxygenated haemoglobin shifts → the MRI scanner detects this magnetic change as the BOLD signal."
+    },
+    {
+      "id": "m1_l2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order these methods from most invasive to least invasive.",
+      "items": ["EEG", "Optogenetics", "Brain lesion study", "TMS", "fMRI"],
+      "correct_order": ["Brain lesion study", "Optogenetics", "TMS", "fMRI", "EEG"],
+      "explanation": "Brain lesions involve permanent tissue damage; optogenetics requires genetic modification and implanted fibres; TMS applies magnetic pulses to the scalp (some risk); fMRI places subjects in a magnetic field; EEG simply places electrodes on the scalp."
+    },
+    {
+      "id": "m1_l2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the strength of evidence from weakest to strongest for claiming that a brain region is necessary for a cognitive function.",
+      "items": ["Double dissociation", "Correlation from fMRI activation", "TMS disruption impairs task", "Single dissociation from lesion", "Convergence across lesion + TMS + fMRI"],
+      "correct_order": ["Correlation from fMRI activation", "Single dissociation from lesion", "TMS disruption impairs task", "Double dissociation", "Convergence across lesion + TMS + fMRI"],
+      "explanation": "fMRI activation alone is weakest (correlation). Single dissociations from lesions are stronger but not conclusive. TMS provides causal evidence. Double dissociations are strong evidence for independence. Convergence across multiple methods provides the strongest overall evidence."
+    },
+    {
+      "id": "m1_l2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order these neuroimaging methods from best spatial resolution to worst spatial resolution.",
+      "items": ["PET", "fMRI", "EEG", "MEG"],
+      "correct_order": ["fMRI", "PET", "MEG", "EEG"],
+      "explanation": "fMRI has the best spatial resolution (millimetres). PET has moderate spatial resolution. MEG has somewhat better spatial resolution than EEG because magnetic fields are not distorted by tissue. EEG has the poorest spatial resolution due to signal smearing."
+    },
+    {
+      "id": "m1_l2_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the historical development of neuroimaging methods from earliest to most recent.",
+      "items": ["fMRI", "EEG", "PET", "fNIRS", "MEG"],
+      "correct_order": ["EEG", "PET", "MEG", "fMRI", "fNIRS"],
+      "explanation": "EEG was developed first (1920s, Hans Berger). PET emerged in the 1970s-80s. MEG followed. fMRI revolutionised the field in the early 1990s. fNIRS is a more recent portable alternative."
+    },
+    {
+      "id": "m1_l2_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the steps of ERP analysis from raw data to final component.",
+      "items": ["Identify ERP component (e.g., N400, P300)", "Record continuous EEG", "Average across many trials", "Time-lock epochs to stimulus onset", "Random noise cancels out"],
+      "correct_order": ["Record continuous EEG", "Time-lock epochs to stimulus onset", "Average across many trials", "Random noise cancels out", "Identify ERP component (e.g., N400, P300)"],
+      "explanation": "ERP extraction: record raw EEG → extract time-locked epochs around each stimulus → average many trials together → random noise cancels, leaving the consistent signal → identify and measure specific ERP components."
+    },
+    {
+      "id": "m1_l2_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order these perturbation methods from most permanent effect to most transient effect.",
+      "items": ["TMS pulse", "Pharmacological intervention", "Permanent brain lesion", "tDCS session", "Optogenetic light pulse"],
+      "correct_order": ["Permanent brain lesion", "Pharmacological intervention", "tDCS session", "TMS pulse", "Optogenetic light pulse"],
+      "explanation": "Brain lesions are permanent. Pharmacological effects last hours. tDCS effects outlast the stimulation period by minutes to hours. Single TMS pulses have very brief effects. Optogenetic activation can be controlled with millisecond precision, ending instantly when light is off."
+    },
+    {
+      "id": "m1_l2_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the connectivity analysis methods from simplest to most complex in terms of assumptions.",
+      "items": ["DCM (Dynamic Causal Modelling)", "Functional connectivity (correlations)", "PPI (Psychophysiological Interaction)", "SEM (Structural Equation Modelling)"],
+      "correct_order": ["Functional connectivity (correlations)", "PPI (Psychophysiological Interaction)", "SEM (Structural Equation Modelling)", "DCM (Dynamic Causal Modelling)"],
+      "explanation": "Functional connectivity is the simplest (just correlations). PPI adds task modulation. SEM tests predefined structural models. DCM is the most complex, modelling effective connectivity with biophysical parameters and Bayesian model comparison."
+    },
+    {
+      "id": "m1_l2_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the BOLD response time course milestones.",
+      "items": ["Return to baseline", "Initial dip (optional)", "Peak amplitude", "Onset of response", "Post-stimulus undershoot"],
+      "correct_order": ["Initial dip (optional)", "Onset of response", "Peak amplitude", "Post-stimulus undershoot", "Return to baseline"],
+      "explanation": "The full BOLD time course: an optional initial dip may occur → the response onset at 1-2 sec → peak at 5-6 sec → a post-stimulus undershoot below baseline → final return to baseline at 12-15 sec."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 2 slides", "Chapter 2"]
+}

@@ -1,0 +1,99 @@
+{
+  "section_id": "m1_l1",
+  "quiz_type": "ordering",
+  "title": "History & Approaches - Ordering",
+  "questions": [
+    {
+      "id": "m1_l1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Put the historical eras of cognitive neuroscience in chronological order (earliest first).",
+      "items": ["Cognitive Revolution", "Behaviourism", "Natural Philosophy", "Modern Cognitive Neuroscience", "Phrenology", "Neuron Doctrine"],
+      "correct_order": ["Natural Philosophy", "Phrenology", "Neuron Doctrine", "Behaviourism", "Cognitive Revolution", "Modern Cognitive Neuroscience"],
+      "explanation": "The progression was: Natural Philosophy (Helmholtz, Wundt, James) → Phrenology (Gall) → Neuron Doctrine (Cajal) → Behaviourism (Skinner) → Cognitive Revolution (1950s-60s) → Modern Cognitive Neuroscience (fMRI era, 1990s+)."
+    },
+    {
+      "id": "m1_l1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of neural signal transmission from start to finish.",
+      "items": ["Neurotransmitter binds to postsynaptic receptors", "Action potential travels down the axon", "Dendrites receive incoming signals", "Neurotransmitter is released into the synapse", "Cell body integrates signals"],
+      "correct_order": ["Dendrites receive incoming signals", "Cell body integrates signals", "Action potential travels down the axon", "Neurotransmitter is released into the synapse", "Neurotransmitter binds to postsynaptic receptors"],
+      "explanation": "Neural transmission follows this sequence: dendrites receive input → the soma integrates it → if threshold is reached, an action potential fires down the axon → neurotransmitter is released at the synapse → it binds to the next neuron's receptors."
+    },
+    {
+      "id": "m1_l1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order these contributors chronologically by when their major contributions occurred (earliest first).",
+      "items": ["Chomsky", "Gall", "Penfield", "Cajal", "Helmholtz"],
+      "correct_order": ["Helmholtz", "Gall", "Cajal", "Penfield", "Chomsky"],
+      "explanation": "Helmholtz (mid 1800s) → Gall (early-mid 1800s, though overlapping) → Cajal (late 1800s-early 1900s) → Penfield (1930s-50s) → Chomsky (1950s-60s). Note: Gall and Helmholtz overlapped but Helmholtz's Natural Philosophy tradition is generally placed as the earlier framework."
+    },
+    {
+      "id": "m1_l1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the development of ideas about brain organisation from simplest to most sophisticated.",
+      "items": ["Multimethodological synthesis of brain-cognition models", "Brain has localised functions (phrenology)", "Brain is made of discrete neurons", "Neural correlates of cognition via imaging", "Brain is a 'black box' — only study behaviour"],
+      "correct_order": ["Brain has localised functions (phrenology)", "Brain is made of discrete neurons", "Brain is a 'black box' — only study behaviour", "Neural correlates of cognition via imaging", "Multimethodological synthesis of brain-cognition models"],
+      "explanation": "Understanding progressed from localisation (phrenology) → cellular structure (neuron doctrine) → behaviourist detour → imaging-based correlates → modern multimethodological models of cognition grounded in neurobiology."
+    },
+    {
+      "id": "m1_l1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the brain structures from most superficial (outer) to deepest (inner).",
+      "items": ["Thalamus", "Cerebral cortex", "Hippocampus", "Amygdala"],
+      "correct_order": ["Cerebral cortex", "Amygdala", "Hippocampus", "Thalamus"],
+      "explanation": "The cerebral cortex is the outermost layer of the brain. Moving inward, the amygdala and hippocampus sit in the medial temporal lobe, and the thalamus is a deep diencephalic structure at the centre of the brain."
+    },
+    {
+      "id": "m1_l1_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the steps by which fMRI detects brain activity.",
+      "items": ["MRI scanner detects change in blood oxygenation", "Neurons become active", "BOLD signal is recorded", "Increased blood flow to active region", "Active neurons consume more energy/oxygen"],
+      "correct_order": ["Neurons become active", "Active neurons consume more energy/oxygen", "Increased blood flow to active region", "MRI scanner detects change in blood oxygenation", "BOLD signal is recorded"],
+      "explanation": "The fMRI chain: neurons fire → they use energy/oxygen → blood flow increases to replenish → the MRI detects changes in oxygenated vs deoxygenated blood → this is recorded as the BOLD signal."
+    },
+    {
+      "id": "m1_l1_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the progression from Gall's phrenology to modern neuroscience in terms of methodological rigour.",
+      "items": ["Neuroimaging genomics (APOE4 + fMRI)", "Skull bump reading", "Electrical cortical stimulation", "Golgi staining of neurons", "Behavioural experiments only"],
+      "correct_order": ["Skull bump reading", "Golgi staining of neurons", "Behavioural experiments only", "Electrical cortical stimulation", "Neuroimaging genomics (APOE4 + fMRI)"],
+      "explanation": "Methodological rigour progressed from pseudoscientific skull reading → microscopic staining techniques → controlled behavioural experiments → direct cortical stimulation → modern genomics combined with neuroimaging."
+    },
+    {
+      "id": "m1_l1_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the key events of the Neuron Doctrine story.",
+      "items": ["Cajal demonstrates neurons are discrete cells", "Golgi develops his staining technique", "The Neuron Doctrine is established", "Golgi and Cajal share the Nobel Prize", "Debate between reticular theory and neuron theory"],
+      "correct_order": ["Golgi develops his staining technique", "Cajal demonstrates neurons are discrete cells", "Debate between reticular theory and neuron theory", "The Neuron Doctrine is established", "Golgi and Cajal share the Nobel Prize"],
+      "explanation": "Golgi invented the stain → Cajal used it to show discrete neurons → a fierce debate ensued (Golgi favoured reticular theory) → the neuron doctrine won → they shared the 1906 Nobel Prize despite disagreeing."
+    },
+    {
+      "id": "m1_l1_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order these paradigm shifts in the study of the mind from earliest to latest.",
+      "items": ["Internal mental processes can be studied scientifically", "Only observable behaviour should be studied", "Mind can be studied through philosophical reflection", "Brain biology constrains and enables cognition"],
+      "correct_order": ["Mind can be studied through philosophical reflection", "Only observable behaviour should be studied", "Internal mental processes can be studied scientifically", "Brain biology constrains and enables cognition"],
+      "explanation": "The progression: philosophical reflection (Natural Philosophy) → behaviourist restriction to observables → cognitive revolution reopens mental processes → modern cognitive neuroscience grounds cognition in neurobiology."
+    },
+    {
+      "id": "m1_l1_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the levels of analysis in neuroscience from smallest to largest scale.",
+      "items": ["Brain regions and networks", "Neurotransmitter molecules", "Individual neurons", "Whole-brain imaging", "Synaptic connections"],
+      "correct_order": ["Neurotransmitter molecules", "Synaptic connections", "Individual neurons", "Brain regions and networks", "Whole-brain imaging"],
+      "explanation": "Neuroscience spans scales from molecular (neurotransmitters) → synaptic (connections between neurons) → cellular (individual neurons) → systems (brain regions/networks) → whole-brain (imaging studies)."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 1 slides", "Chapter 1"]
+}

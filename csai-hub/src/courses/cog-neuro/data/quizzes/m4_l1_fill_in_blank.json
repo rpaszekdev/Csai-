@@ -1,0 +1,109 @@
+{
+  "section_id": "m4_l1",
+  "quiz_type": "fill_in_blank",
+  "title": "Emotion and Social Cognition - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m4_l1_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Emotion is defined as the integration of three components: physiological response, action tendency, and subjective ___.",
+      "blank_sentence": "Emotion is defined as the integration of three components: physiological response, action tendency, and subjective ___.",
+      "correct_answer": "feeling",
+      "acceptable_answers": ["feeling", "Feeling"],
+      "explanation": "Emotion = physiological response + action tendency + subjective feeling. Healthy emotional responses integrate body, behaviour, and feeling; in schizophrenia these components dissociate (high autonomic arousal but reduced motor output)."
+    },
+    {
+      "id": "m4_l1_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "The two-factor theory by Schachter and Singer claims emotion arises from bodily arousal plus a cognitive ___.",
+      "blank_sentence": "The two-factor theory by Schachter and Singer claims emotion arises from bodily arousal plus a cognitive ___.",
+      "correct_answer": "label",
+      "acceptable_answers": ["label", "Label"],
+      "explanation": "Schachter-Singer's two-factor theory says the same physiological arousal can be labelled as different emotions depending on the cognitive context — arousal + cognitive label → emotion."
+    },
+    {
+      "id": "m4_l1_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The central hub of the fear-conditioning vertical integration model is the ___.",
+      "blank_sentence": "The central hub of the fear-conditioning vertical integration model is the ___.",
+      "correct_answer": "amygdala",
+      "acceptable_answers": ["amygdala", "Amygdala"],
+      "explanation": "The amygdala is the central hub of the fear-conditioning model with subnuclei (lateral, basal, central, intercalated cells). It is described as 'the most densely interconnected structure in the primate forebrain.'"
+    },
+    {
+      "id": "m4_l1_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Fear extinction is the reduction of fear by uncoupling the conditioned stimulus from the ___ stimulus.",
+      "blank_sentence": "Fear extinction is the reduction of fear by uncoupling the conditioned stimulus from the ___ stimulus.",
+      "correct_answer": "unconditioned",
+      "acceptable_answers": ["unconditioned", "Unconditioned", "US"],
+      "explanation": "Fear extinction uncouples the conditioned stimulus (CS) from the unconditioned stimulus (US). The amygdala alone cannot extinguish fear — it requires a loop through cortex, specifically the vmPFC, which inhibits amygdala output via intercalated cells."
+    },
+    {
+      "id": "m4_l1_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "The amygdala influences cortical attention indirectly via release of acetylcholine from the nucleus basalis of ___.",
+      "blank_sentence": "The amygdala influences cortical attention indirectly via release of acetylcholine from the nucleus basalis of ___.",
+      "correct_answer": "Meynert",
+      "acceptable_answers": ["Meynert", "meynert"],
+      "explanation": "The amygdala has no direct connection to dorsal frontoparietal attention regions, so it influences attention indirectly via acetylcholine release from the nucleus basalis of Meynert, which produces broad cortical attentional enhancement."
+    },
+    {
+      "id": "m4_l1_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Vivid, highly detailed recollection of a brief emotionally significant event is called ___ memory.",
+      "blank_sentence": "Vivid, highly detailed recollection of a brief emotionally significant event is called ___ memory.",
+      "correct_answer": "flashbulb",
+      "acceptable_answers": ["flashbulb", "Flashbulb"],
+      "explanation": "Flashbulb memories ('scars on the mind,' coined by William James) are vivid, highly detailed memories of brief emotionally significant events. The prof emphasized that vividness ≠ accuracy — people often feel certain about flashbulb memories that turn out to be wrong."
+    },
+    {
+      "id": "m4_l1_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "The β-adrenergic blocker ___ is studied as a memory modulator that can reduce emotional memory consolidation.",
+      "blank_sentence": "The β-adrenergic blocker ___ is studied as a memory modulator that can reduce emotional memory consolidation.",
+      "correct_answer": "propranolol",
+      "acceptable_answers": ["propranolol", "Propranolol"],
+      "explanation": "Propranolol is a β-adrenergic blocker that interferes with the slow hormonal route of McGaugh's memory modulation hypothesis. Together with (nor)epinephrine and cortisol, β-adrenergic effects modulate post-encoding consolidation in MTL, dlPFC, and vlPFC."
+    },
+    {
+      "id": "m4_l1_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Inferring the mental states of others — attributing their actions to their beliefs, goals, desires, and feelings — is called ___ or theory of mind.",
+      "blank_sentence": "Inferring the mental states of others — attributing their actions to their beliefs, goals, desires, and feelings — is called ___ or theory of mind.",
+      "correct_answer": "mentalizing",
+      "acceptable_answers": ["mentalizing", "Mentalizing", "mentalising"],
+      "explanation": "Mentalizing (theory of mind, ToM) is the inference of others' mental states. Two proposed mechanisms are simulation (representing another's actions/feelings as your own) and theory-building (scripts of how others typically behave)."
+    },
+    {
+      "id": "m4_l1_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Daniel ___ proposed the 'intentional stance' — predicting that another agent will act consistently with their own current mental state.",
+      "blank_sentence": "Daniel ___ proposed the 'intentional stance' — predicting that another agent will act consistently with their own current mental state.",
+      "correct_answer": "Dennett",
+      "acceptable_answers": ["Dennett", "dennett"],
+      "explanation": "Daniel Dennett proposed the intentional stance: assuming another agent will behave consistently with their mental state, which may differ from your own. You don't switch beliefs — you accept the divergence and predict accordingly."
+    },
+    {
+      "id": "m4_l1_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Decety's 4-component empathy model includes emotion sharing, self-awareness, mental flexibility, and emotion ___.",
+      "blank_sentence": "Decety's 4-component empathy model includes emotion sharing, self-awareness, mental flexibility, and emotion ___.",
+      "correct_answer": "regulation",
+      "acceptable_answers": ["regulation", "Regulation"],
+      "explanation": "Decety's 4-component model: (1) emotion sharing (somatosensory cortex, insula, ACC, limbic), (2) self-awareness (parietal, PFC, insula), (3) mental flexibility (mPFC, dlPFC), (4) emotion regulation (ACC, lateral and vmPFC). PFC appears in three of the four components."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 1"]
+}

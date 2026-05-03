@@ -282,6 +282,110 @@ section.step .formula {
   line-height: 1.6;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   QUIZZES · inline section "quick check" + end-of-lesson final
+   Click an option → green = correct, rust = wrong, reveal shows.
+   ═══════════════════════════════════════════════════════════════ */
+.predict, .q-card {
+  margin: 24px 0;
+  padding: 16px 18px;
+  border: 1px solid var(--ink-faint);
+  background: var(--paper);
+  position: relative;
+  z-index: 2;
+}
+.predict-eyebrow, .q-card-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.predict-q, .q-card-q {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.opt {
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 9px 12px;
+  border: 1px solid var(--ink-faint);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  pointer-events: auto;
+}
+.opt:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+.opt.correct {
+  border-color: #2F4A33;
+  background: rgba(47, 74, 51, 0.08);
+  color: var(--ink);
+  font-weight: 600;
+}
+.opt.wrong {
+  border-color: var(--rust);
+  background: rgba(168, 79, 42, 0.08);
+  color: var(--ink-soft);
+}
+.opt:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+.reveal {
+  display: none;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-faint);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.reveal.show { display: block; }
+
+/* end-of-lesson final quiz block */
+.final-quiz {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 36px 96px;
+  border-top: 1px solid var(--ink);
+  background: var(--paper);
+}
+.final-quiz-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.final-quiz-title {
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+.final-quiz .q-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
 .hero {
   max-width: 1100px;
   margin: 0 auto;

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/shared/lesson-shell.css" />
 <link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
 <link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <div class="rust-bar"></div>
@@ -108,7 +109,7 @@ const QUESTIONS = [
     prompt: `Following Nolfi's textbook definition adopted by this course, an <strong>autonomous robot system</strong> must satisfy <strong>three</strong> conditions simultaneously. Which trio correctly captures them?`,
     options: [
       { html: `Operates without intervention · is fully programmed · uses sensors only.` },
-      { html: `Operates <strong>without human intervention</strong> · for <strong>prolonged periods</strong> · in <strong>partially unknown</strong> environments.`, correct: true },
+      { html: `Operates without human intervention · for prolonged periods · in partially unknown environments.`, correct: true },
       { html: `Operates with high precision · in known environments · with predefined goals.` },
       { html: `Has a body · has a brain · has a function.` },
     ],
@@ -122,7 +123,7 @@ const QUESTIONS = [
     prompt: `Prof. Spigler claims: <em>"a simulated agent that works in a fully known environment, e.g., a factory environment, with a predefined set of actions, is an autonomous system."</em> Why does the course's definition force you to <strong>disagree</strong>?`,
     options: [
       { html: `Because simulated agents can never count as robots.` },
-      { html: `Because a fully known environment violates the <strong>partially unknown</strong> condition.`, correct: true },
+      { html: `Because a fully known environment violates the partially unknown condition.`, correct: true },
       { html: `Because predefined actions are inherently impossible to implement.` },
       { html: `Because Nolfi requires the agent to be physically embodied.` },
     ],
@@ -149,8 +150,8 @@ const QUESTIONS = [
     slides: ["44"],
     prompt: `A joint-angle encoder reports the position of one of the robot's own joints. In the proprioceptive / exteroceptive split, which category does it belong to, and why?`,
     options: [
-      { html: `<strong>Exteroceptive</strong> — it reports a measurable physical quantity.` },
-      { html: `<strong>Proprioceptive</strong> — it measures the <strong>internal state</strong> of the robot itself.`, correct: true },
+      { html: `Exteroceptive — it reports a measurable physical quantity.` },
+      { html: `Proprioceptive — it measures the internal state of the robot itself.`, correct: true },
       { html: `Neither — encoders are actuators, not sensors.` },
       { html: `Both — it's defined by context.` },
     ],
@@ -165,8 +166,8 @@ const QUESTIONS = [
     options: [
       { html: `Final exam ≥ 5.5 alone is sufficient.` },
       { html: `Project deliverables alone are sufficient.` },
-      { html: `Final exam ≥ 5.5 <strong>and</strong> all project deliverables submitted <strong>and</strong> Demo Day attended.`, correct: true },
-      { html: `Final exam ≥ 5.5 <strong>or</strong> project report — whichever is higher.` },
+      { html: `Final exam ≥ 5.5 and all project deliverables submitted and Demo Day attended.`, correct: true },
+      { html: `Final exam ≥ 5.5 or project report — whichever is higher.` },
     ],
     prof: `Pass-the-exam alone ≠ pass-the-course. Project deliverables are pass/fail (only the report is graded numerically), but each one must be turned in.`,
   },
@@ -180,7 +181,7 @@ const QUESTIONS = [
       { html: `You must declare which parts were LLM-generated.` },
       { html: `You must be able to explain every component the LLM produced.` },
       { html: `You must not put personal/sensitive data in prompts.` },
-      { html: `LLMs are <strong>banned</strong> for any code or report content.`, correct: true },
+      { html: `LLMs are banned for any code or report content.`, correct: true },
     ],
     prof: `Use is fine — silence is not. Undeclared LLM output flagged by plagiarism software is referred to the Examination Board.`,
   },
@@ -193,7 +194,7 @@ const QUESTIONS = [
     options: [
       { html: `Controllers are always necessary; passive walkers are toys.` },
       { html: `Cloud-enabled robotics replaces the need for an on-board brain.` },
-      { html: `<strong>Embodiment can substitute for computation</strong> — body morphology can produce behavior on its own.`, correct: true },
+      { html: `Embodiment can substitute for computation — body morphology can produce behavior on its own.`, correct: true },
       { html: `Reinforcement learning eventually replaces all controllers.` },
     ],
     prof: `This is the crack that opens Week 04 (Embodiment). The body itself is computational — clever morphology offloads work the controller would otherwise do.`,
@@ -206,7 +207,7 @@ const QUESTIONS = [
     prompt: `In this course, when the lecturer says "robot" without further qualification, which form is meant by default?`,
     options: [
       { html: `A simulated agent in any environment.` },
-      { html: `A <strong>physically embodied</strong> robot, unless stated otherwise.`, correct: true },
+      { html: `A physically embodied robot, unless stated otherwise.`, correct: true },
       { html: `Either physical or simulated — the terms are equivalent throughout.` },
       { html: `Cloud-enabled controllers running on remote hardware.` },
     ],

@@ -1,0 +1,1740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Optimizers — Lesson 3</title>
+<style>
+  :root {
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+    --ai:        #264E70;
+    --beni:      #9B4E4E;
+    --moegi:     #5B7553;
+    --kitsune:   #B87333;
+    --murasaki:  #4A3B5C;
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+    --text-whisper: 11px; --text-body: 14px; --text-lead: 16px;
+    --text-subhead: 18px; --text-head: 24px; --text-display: 32px; --text-hero: 48px;
+    --radius-subtle: 2px; --radius-gentle: 4px; --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+    --duration-swift: 200ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep); line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .lesson-nav {
+    display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker { font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--ma-5); }
+  .hero h1 { max-width: 22ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+    display: flex; flex-direction: column;
+  }
+
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .btn.active { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.08); }
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout.green { border-left-color: var(--moegi); }
+  .callout strong { color: var(--sumi-deep); }
+
+  .formula {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+    font-size: var(--text-subhead); text-align: center;
+    padding: var(--ma-5);
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-soft);
+    color: var(--sumi-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card { background: var(--washi-white); padding: var(--ma-5); border-radius: var(--radius-soft); border: 1px solid var(--washi-warm); }
+  .opts { display: grid; gap: var(--ma-2); margin-top: var(--ma-3); }
+  .opt { background: var(--washi-white); border: 1px solid var(--washi-warm); padding: var(--ma-3) var(--ma-4); border-radius: var(--radius-gentle); cursor: pointer; text-align: left; font-family: inherit; font-size: var(--text-body); color: var(--sumi-deep); transition: all var(--duration-swift) var(--ease-gentle); }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal { display: none; margin-top: var(--ma-3); color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm); }
+  .reveal.show { display: block; }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white); color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4); border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm); box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light); font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center; line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">学</span>
+    <span class="title">Optimizers</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 3</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html">一 Lesson 1</a>
+    <a href="lesson2.html">二 Lesson 2</a>
+    <a href="lesson3.html" class="active">三 Lesson 3</a>
+    <a href="lesson4.html">四 Lesson 4</a>
+    <a href="lesson5.html">五 Lesson 5</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">目次 Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#recap">1 · From backprop to optimizers</a></li>
+    <li><a href="#batches">2 · Batch, mini-batch, stochastic</a></li>
+    <li><a href="#momentum">3 · Momentum</a></li>
+    <li><a href="#nesterov">4 · Nesterov look-ahead</a></li>
+    <li><a href="#adagrad">5 · AdaGrad — per-parameter rates</a></li>
+    <li><a href="#rmsprop">6 · RMSprop — forget the past</a></li>
+    <li><a href="#adam">7 · Adam — the workhorse</a></li>
+    <li><a href="#adamw">8 · AdamW and Lion</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">第三課 · Lesson Three</div>
+    <h1>How a network actually takes each step.</h1>
+    <p>Backprop gives us the <strong>gradient</strong>. But what do we <em>do</em> with it? Plain gradient descent is the obvious answer — and the broken one. Today: the family of <strong>optimizers</strong> that patch its flaws, one idea at a time.</p>
+    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas"></div></div>
+</div>
+
+<!-- 1 · RECAP -->
+<section class="step" id="recap">
+  <div class="text">
+    <div class="eyebrow">Section 1 · slides 1–4</div>
+    <h2>From gradients to optimizers</h2>
+    <p>Last lesson ended with <strong>backpropagation</strong> — a way to compute <code>∂L/∂W</code> for every weight. The actual update was a one-liner:</p>
+    <div class="formula">W ← W − η · ∇L</div>
+    <p>That simple rule is the <strong>plain gradient descent</strong> optimizer. It works. But it has sharp edges — <strong>noise</strong>, <strong>local minima</strong>, <strong>narrow valleys</strong>, a single learning rate for every parameter — and each of today's optimizers is a fix for one of them.</p>
+    <div class="callout">
+      <strong>Think of the loss as a landscape.</strong> Each weight is a coordinate; the loss at that point is the height. Training = walking downhill. Every optimizer is a different <em>walking strategy</em>.
+    </div>
+    <p class="muted">Click on the surface on the right to drop a ball. It follows the gradient. Start from different places and you'll land in different valleys — welcome to the core problem.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="recap-canvas">
+      <div class="chip nw">loss surface · L(w₁, w₂)</div>
+      <div class="chip ne" id="recap-status">click the surface</div>
+      <div class="chip sw">drag to rotate</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="recap-random">✦ Random drop</button>
+      <button class="btn" id="recap-clear">Clear trails</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 2 · BATCH vs MINI-BATCH vs STOCHASTIC -->
+<section class="step" id="batches">
+  <div class="text">
+    <div class="eyebrow">Section 2 · slides 5–8</div>
+    <h2>Batch, mini-batch, stochastic</h2>
+    <p>Before choosing <em>how</em> to step, we choose <strong>how much data</strong> we look at per step.</p>
+    <ul>
+      <li><strong>Batch gradient descent</strong> — use <em>all</em> training examples. The gradient is the true average direction. Smooth path — but impossibly slow on a modern dataset.</li>
+      <li><strong>Stochastic gradient descent (SGD)</strong> — use <em>one</em> sample at a time. Very fast per step, but the gradient is a noisy estimate. The path zigzags.</li>
+      <li><strong>Mini-batch gradient descent</strong> — the compromise everyone uses. Take a small random group (say 32 or 128 samples), average their gradients. Most of SGD's speed, most of batch's stability.</li>
+    </ul>
+    <div class="callout navy">
+      <strong>Noise is not always bad.</strong> The randomness of mini-batch and SGD actually helps the path <em>jump out</em> of shallow local minima that full-batch would get trapped in.
+    </div>
+    <p class="muted">On the right, three paths descend the same contour map. Watch how <strong>batch</strong> glides, <strong>SGD</strong> zigzags, and <strong>mini-batch</strong> lives in between.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="batch-canvas">
+      <div class="chip nw">contour of L(w₁, w₂)</div>
+      <div class="chip se" id="batch-status">idle</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="batch-play">▶ Race all three</button>
+      <button class="btn" id="batch-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 3 · MOMENTUM -->
+<section class="step" id="momentum">
+  <div class="text">
+    <div class="eyebrow">Section 3 · slides 10–14</div>
+    <h2>Momentum: remember where you came from</h2>
+    <p>SGD has a specific failure mode: in a <strong>narrow valley</strong>, the gradient points mostly <em>across</em> the walls, barely along the valley. Plain SGD oscillates wall-to-wall and barely progresses.</p>
+    <p>The trick: don't use the raw gradient — use an <strong>exponentially weighted average</strong> of the past few gradients. Oscillations cancel. The consistent direction survives.</p>
+    <div class="formula">v<sub>t</sub> = β · v<sub>t−1</sub> + (1 − β) · ∇L <br/> W ← W − α · v<sub>t</sub></div>
+    <p><strong>β ≈ 0.9</strong> is the typical value — roughly "average over the last 10 steps." A higher β means you trust the history more; a lower β keeps you reactive to the current gradient.</p>
+    <div class="callout">
+      <strong>Rolling-ball intuition.</strong> Imagine a ball rolling down a valley. It does not stop at every wiggle in the floor because it has <em>momentum</em>. The derivative is <em>acceleration</em>; β is <em>friction</em> (just under 1 so it doesn't speed up forever). The accumulated velocity <em>is</em> <code>v<sub>t</sub></code>.
+    </div>
+    <p class="muted">Toggle β on the right — watch plain SGD slam between the walls of the ravine while momentum glides along its floor.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="momentum-canvas">
+      <div class="chip nw">narrow ravine</div>
+      <div class="chip se" id="momentum-status">β = 0.9 · momentum</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="mom-sgd">β = 0 (plain SGD)</button>
+      <button class="btn active" id="mom-mom">β = 0.9 (momentum)</button>
+      <button class="btn gold" id="mom-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 4 · NESTEROV -->
+<section class="step" id="nesterov">
+  <div class="text">
+    <div class="eyebrow">Section 4 · slides 15–17</div>
+    <h2>Nesterov: a smarter ball</h2>
+    <p>Momentum has one weakness: it is <strong>blind</strong>. It accumulates velocity and keeps going — straight past the minimum, then has to come back.</p>
+    <p>Nesterov's fix is almost comically simple: before computing the gradient, <strong>look ahead</strong> first. Use the momentum to peek at the position you'll <em>probably</em> be in next step, and take the gradient <em>there</em>.</p>
+    <div class="formula">v<sub>t</sub> = β · v<sub>t−1</sub> + (1 − β) · ∇L(W − β·v<sub>t−1</sub>)</div>
+    <p>The gradient now <em>knows</em> about the momentum. If momentum is overshooting, the look-ahead gradient will already be pointing back — correcting the step <em>in the same update</em>, not one step later.</p>
+    <div class="callout green">
+      <strong>"A ball with a notion of where it is going."</strong> The standard ball blindly rolls; Nesterov's ball knows to slow down before the hill rises again. Less overshoot, less wasted backtracking, faster convergence.
+    </div>
+    <p class="muted">On the right: the <strong>blue arrow</strong> is the pure momentum step. The <strong>orange arrow</strong> is the gradient at that look-ahead point. The <strong>green arrow</strong> is the final Nesterov step — already corrected.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="nesterov-canvas">
+      <div class="chip nw">look-ahead correction</div>
+      <div class="chip se" id="nesterov-status">drag the weight point</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="nest-step">▶ Take 1 step</button>
+      <button class="btn" id="nest-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 5 · ADAGRAD -->
+<section class="step" id="adagrad">
+  <div class="text">
+    <div class="eyebrow">Section 5 · slides 19–22</div>
+    <h2>AdaGrad: a learning rate per parameter</h2>
+    <p>So far every parameter has used the <em>same</em> learning rate. But different weights behave differently — some see <strong>frequent, large gradients</strong> (a weight tied to a common feature), others rarely move (a weight for a rare feature).</p>
+    <p><strong>AdaGrad</strong> (Adaptive Gradient) keeps a running <strong>sum of squared gradients</strong> <code>r</code> for each parameter, and uses it to shrink that parameter's learning rate.</p>
+    <div class="formula">r<sub>t,i</sub> = r<sub>t−1,i</sub> + g<sub>t,i</sub>²<br/>W<sub>i</sub> ← W<sub>i</sub> − (α / (√r<sub>t,i</sub> + ε)) · g<sub>t,i</sub></div>
+    <p>Frequently-updated weights get their effective rate <em>shrunk</em>; rarely-updated ones keep a <em>big</em> rate. Good for sparse features, word embeddings, NLP.</p>
+    <div class="callout warn">
+      <strong>The fatal flaw:</strong> <code>r</code> only <em>grows</em>. After many steps it becomes huge for every parameter, the effective rate collapses toward zero, and learning simply <strong>stops</strong>. There is no way back.
+    </div>
+    <p class="muted">On the right: two parameters. One gets many updates, one gets few. Watch the effective learning rates drift apart — and watch the frequent one <em>die</em>.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="adagrad-canvas">
+      <div class="chip nw">two parameters · 200 steps</div>
+      <div class="chip se" id="adagrad-status">idle</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="ada-play">▶ Run 200 steps</button>
+      <button class="btn" id="ada-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 6 · RMSPROP -->
+<section class="step" id="rmsprop">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 23–26</div>
+    <h2>RMSprop: forget the distant past</h2>
+    <p>Hinton's fix for AdaGrad is minimal: replace the <em>cumulative sum</em> of squared gradients with an <strong>exponentially weighted average</strong>.</p>
+    <div class="formula">v<sub>t,i</sub> = β · v<sub>t−1,i</sub> + (1 − β) · g<sub>t,i</sub>²<br/>W<sub>i</sub> ← W<sub>i</sub> − (α / (√v<sub>t,i</sub> + ε)) · g<sub>t,i</sub></div>
+    <p>Now <code>v</code> is a <em>moving average</em>, not a sum. It can go <strong>up or down</strong>. Old gradients are forgotten; only recent magnitude matters.</p>
+    <div class="callout navy">
+      <strong>What this fixes:</strong> no more collapse to zero. If a parameter's gradients suddenly become large, RMSprop damps it. If they become small, RMSprop gives it more room again. The rate <em>adapts continuously</em>.
+    </div>
+    <p class="muted">On the right: the same gradient stream through AdaGrad (cumulative) and RMSprop (moving average). See how AdaGrad climbs without bound — and RMSprop stays bounded.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="rmsprop-canvas">
+      <div class="chip nw">accumulator over time</div>
+      <div class="chip se" id="rmsprop-status">idle</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="rms-play">▶ Play stream</button>
+      <button class="btn" id="rms-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 7 · ADAM -->
+<section class="step" id="adam">
+  <div class="text">
+    <div class="eyebrow">Section 7 · slides 27–32</div>
+    <h2>Adam: momentum + RMSprop + bias fix</h2>
+    <p><strong>Adam</strong> (Adaptive Moment Estimation) is the practical default. It combines the best ideas you have seen:</p>
+    <ul>
+      <li><strong>Momentum</strong> — a moving average of the gradients themselves <code>m<sub>t</sub></code>.</li>
+      <li><strong>RMSprop</strong> — a moving average of the squared gradients <code>v<sub>t</sub></code>.</li>
+      <li><strong>Bias correction</strong> — early averages start biased toward zero (because they're initialized at zero). Adam divides them by <code>1 − β<sup>t</sup></code> to boost them at the start.</li>
+    </ul>
+    <div class="formula">m<sub>t</sub> = β₁ m<sub>t−1</sub> + (1−β₁) g<sub>t</sub> &nbsp;&nbsp; v<sub>t</sub> = β₂ v<sub>t−1</sub> + (1−β₂) g<sub>t</sub>²<br/>
+    m̂ = m<sub>t</sub> / (1 − β₁ᵗ) &nbsp;&nbsp; v̂ = v<sub>t</sub> / (1 − β₂ᵗ)<br/>
+    W ← W − α · m̂ / (√v̂ + ε)</div>
+    <p class="muted">Defaults: <code>α = 0.001</code>, <code>β₁ = 0.9</code>, <code>β₂ = 0.999</code>. These were chosen empirically across many tasks in the original paper.</p>
+    <div class="callout green">
+      <strong>Adam is the workhorse.</strong> It's not always best — sometimes plain SGD with momentum generalizes better — but it <em>usually</em> converges faster and needs less tuning. It is the sane default.
+    </div>
+    <p>On the right: four balls race from the same start. <strong>SGD</strong>, <strong>Momentum</strong>, <strong>RMSprop</strong>, <strong>Adam</strong>. Who arrives first?</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="adam-canvas">
+      <div class="chip nw">race · same start, same surface</div>
+      <div class="chip se" id="adam-status">idle</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="adam-play">▶ Race</button>
+      <button class="btn" id="adam-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 8 · ADAMW / LION -->
+<section class="step" id="adamw">
+  <div class="text">
+    <div class="eyebrow">Section 8 · slides 33–39</div>
+    <h2>AdamW and Lion</h2>
+    <p><strong>AdamW</strong> is a tiny fix to Adam. A common trick is <strong>weight decay</strong>: nudge every weight a little toward zero on each step (to prevent overfitting). The old way folded this into the gradient — but then Adam's per-parameter scaling <em>also</em> scaled the decay, inconsistently. AdamW <strong>decouples</strong> weight decay, subtracting it directly <em>after</em> the Adam step.</p>
+    <div class="formula">W ← W − α · m̂ / (√v̂ + ε) − α · λ · W</div>
+    <p>Small change; big effect in practice. AdamW is the standard optimizer for transformers today.</p>
+    <p><strong>Lion</strong> (EvoLved Sign Momentum) is a 2023 surprise: Google used a genetic algorithm to <em>search</em> for a better optimizer. What it found keeps momentum but uses only the <strong>sign</strong> of the update. No squared gradients — so it stores <strong>half</strong> the state of Adam.</p>
+    <div class="formula">m<sub>t</sub> = β m<sub>t−1</sub> + (1 − β) g<sub>t</sub><br/>W ← W − α · sign(m<sub>t</sub>)</div>
+    <div class="callout">
+      <strong>When Lion shines:</strong> large batches (gradient direction is reliable), lots of data, and tight memory. When it struggles: small batches and situations where the <em>magnitude</em> of the gradient matters. Because you throw away magnitude, use a <em>much smaller</em> learning rate.
+    </div>
+    <p class="muted">On the right: a summary table — memory, state kept per parameter, typical learning rate, what problem it solves.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="summary-canvas">
+      <div class="chip nw">optimizer cheat sheet</div>
+    </div>
+    <div class="controls">
+      <span class="slider-wrap">the family tree, at a glance</span>
+    </div>
+  </div></div>
+</section>
+
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> Why is <strong>mini-batch</strong> gradient descent the standard in practice?</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">It always finds the global minimum</button>
+        <button class="opt" data-correct="true">Compromise: faster than full batch, less noisy than SGD</button>
+        <button class="opt" data-correct="false">It needs no learning rate</button>
+      </div>
+      <div class="reveal">Full-batch is accurate but too slow for modern datasets. Pure SGD is fast but very noisy. <strong>Mini-batch</strong> averages a small random group — most of the speed, most of the stability, and the leftover noise actually <em>helps</em> escape shallow local minima.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q2.</strong> What specific problem does <strong>momentum</strong> fix?</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">Vanishing gradients in deep networks</button>
+        <button class="opt" data-correct="true">Oscillation across narrow valleys; getting stuck in flat spots</button>
+        <button class="opt" data-correct="false">The chain rule's computational cost</button>
+      </div>
+      <div class="reveal">Momentum smooths the step by averaging past gradients. Wall-to-wall oscillations <em>cancel</em>; consistent directions <em>survive</em>. A rolling ball with inertia glides through the valley instead of bouncing.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q3.</strong> What is the <strong>key difference</strong> between Nesterov momentum and standard momentum?</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">Nesterov uses a different learning rate</button>
+        <button class="opt" data-correct="true">Nesterov computes the gradient at the <em>look-ahead</em> position, not the current one</button>
+        <button class="opt" data-correct="false">Nesterov has no hyperparameters</button>
+      </div>
+      <div class="reveal">Standard momentum: gradient at <em>current</em> point + momentum. Nesterov: peek ahead using the momentum <em>first</em>, then take the gradient <em>there</em>. If momentum overshoots, the look-ahead gradient already points back — correcting in the same step.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q4.</strong> Why does <strong>AdaGrad</strong> eventually stop learning?</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">Gradients explode</button>
+        <button class="opt" data-correct="true">Its accumulator <em>r</em> only grows, so effective rates shrink toward zero forever</button>
+        <button class="opt" data-correct="false">It runs out of memory</button>
+      </div>
+      <div class="reveal">AdaGrad sums squared gradients <em>cumulatively</em>. That sum never decreases. After enough steps the denominator √r explodes and the effective learning rate collapses. Nothing can recover it.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q5.</strong> What single change does <strong>RMSprop</strong> make vs. AdaGrad?</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">It adds momentum</button>
+        <button class="opt" data-correct="true">It uses a moving average of g² instead of a cumulative sum</button>
+        <button class="opt" data-correct="false">It removes the per-parameter idea</button>
+      </div>
+      <div class="reveal">RMSprop replaces the growing sum with an <strong>exponentially weighted average</strong>. It can go up <em>or</em> down, so effective rates no longer collapse — they adapt continuously.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q6.</strong> <strong>Adam</strong> combines which ideas?</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="false">SGD + weight decay</button>
+        <button class="opt" data-correct="true">Momentum + RMSprop + bias correction</button>
+        <button class="opt" data-correct="false">Nesterov + dropout</button>
+      </div>
+      <div class="reveal">Adam keeps a moving average of gradients (<strong>momentum</strong>), a moving average of squared gradients (<strong>RMSprop</strong>), and divides both by <code>1 − β<sup>t</sup></code> to correct their <strong>bias-toward-zero</strong> at the start of training.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q7.</strong> What does <strong>AdamW</strong> change about Adam?</p>
+      <div class="opts" data-q="q7">
+        <button class="opt" data-correct="false">It replaces momentum with Nesterov</button>
+        <button class="opt" data-correct="true">It applies weight decay <em>after</em> the adaptive step, not through the gradient</button>
+        <button class="opt" data-correct="false">It uses the sign of the gradient</button>
+      </div>
+      <div class="reveal">Classic L2 regularization goes through the gradient, so Adam's per-parameter scaling distorts the decay. AdamW <em>decouples</em> weight decay: subtract <code>α·λ·W</code> as its own term, <em>after</em> the main Adam update. Small fix, big practical win for transformers.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q8.</strong> Why does <strong>Lion</strong> use a much smaller learning rate than Adam?</p>
+      <div class="opts" data-q="q8">
+        <button class="opt" data-correct="false">Because it has no momentum</button>
+        <button class="opt" data-correct="true">It only uses the <em>sign</em> of the momentum, so every step is ±1 — magnitude is gone</button>
+        <button class="opt" data-correct="false">Because it stores extra state</button>
+      </div>
+      <div class="reveal">Lion throws away gradient magnitude and just takes <code>sign(m)</code>. Every per-parameter step is either +1 or −1 before the learning rate. With no self-damping, a normal α would overshoot wildly — so Lion needs a much smaller α.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  終 · end of lesson three<br/>
+  built from <code>3. Optimizers.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
+  <a href="lesson2.html">← back to Lesson 2</a> &nbsp;·&nbsp; <a href="lesson4.html">forward to Lesson 4 →</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 8</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const COLORS = {
+  washi:  0xF5F2EB,
+  cream:  0xEDE8DC,
+  warm:   0xE5DFD0,
+  sumi:   0x1A1A1A,
+  sumiMd: 0x3D3D3D,
+  sumiLt: 0x6B6B6B,
+  ai:     0x264E70,
+  aiLt:   0x3E6B8A,
+  beni:   0x9B4E4E,
+  moegi:  0x5B7553,
+  kitsune:0xB87333,
+  murasaki:0x4A3B5C,
+};
+
+function safeScene(name, fn) {
+  try { fn(); } catch (e) { console.warn('[scene:' + name + ']', e); }
+}
+
+function makeScene(host, opts = {}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, Math.max(1, rect.width) / Math.max(1, rect.height), 0.1, 100);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 4);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(Math.max(1, rect.width), Math.max(1, rect.height));
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+  scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+  const dir = new THREE.DirectionalLight(0xffffff, 0.55);
+  dir.position.set(3, 5, 2); scene.add(dir);
+  new ResizeObserver(() => {
+    const r = host.getBoundingClientRect();
+    camera.aspect = Math.max(1, r.width) / Math.max(1, r.height);
+    camera.updateProjectionMatrix();
+    renderer.setSize(Math.max(1, r.width), Math.max(1, r.height));
+  }).observe(host);
+  return { scene, camera, renderer, controls };
+}
+
+function makeSphere(radius, color) {
+  return new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 24, 24),
+    new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.55 })
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// Shared: loss surface (same as lesson 2's formula)
+// ═══════════════════════════════════════════════════════════════════
+function lossSurface(x, y) {
+  return 0.18 * (x*x + y*y) + 0.4 * Math.sin(x*1.2) * Math.cos(y*1.2);
+}
+function lossGradient(x, y) {
+  const dx = 0.36 * x + 0.4 * 1.2 * Math.cos(x*1.2) * Math.cos(y*1.2);
+  const dy = 0.36 * y - 0.4 * 1.2 * Math.sin(x*1.2) * Math.sin(y*1.2);
+  return [dx, dy];
+}
+
+function buildLossSurfaceMesh(extent = 4, segments = 60) {
+  const geom = new THREE.PlaneGeometry(extent*2, extent*2, segments, segments);
+  const pos = geom.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), y = pos.getY(i);
+    pos.setZ(i, lossSurface(x, y));
+  }
+  geom.computeVertexNormals();
+  const mat = new THREE.MeshStandardMaterial({
+    color: 0xd8d2c0, side: THREE.DoubleSide,
+    flatShading: false, roughness: 0.8, metalness: 0.05,
+    transparent: true, opacity: 0.95,
+  });
+  const mesh = new THREE.Mesh(geom, mat);
+  const wire = new THREE.Mesh(
+    geom.clone(),
+    new THREE.MeshBasicMaterial({ color: 0x8c867a, wireframe: true, transparent: true, opacity: 0.12 })
+  );
+  const group = new THREE.Group();
+  group.add(mesh); group.add(wire);
+  group.rotation.x = -Math.PI/2;
+  return group;
+}
+
+// Narrow ravine surface for the momentum scene
+function ravineSurface(x, y) {
+  // narrow in y, gentle in x; global min around x≈0
+  return 0.05 * x*x + 0.6 * y*y + 0.05 * Math.sin(x*0.8);
+}
+function ravineGradient(x, y) {
+  return [0.10 * x + 0.05 * 0.8 * Math.cos(x*0.8), 1.2 * y];
+}
+
+function buildRavineMesh(extent = 4, segments = 60) {
+  const geom = new THREE.PlaneGeometry(extent*2, extent*1.2, segments, Math.floor(segments*0.6));
+  const pos = geom.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), y = pos.getY(i);
+    pos.setZ(i, ravineSurface(x, y));
+  }
+  geom.computeVertexNormals();
+  const mat = new THREE.MeshStandardMaterial({
+    color: 0xd8d2c0, side: THREE.DoubleSide, roughness: 0.8, metalness: 0.05,
+    transparent: true, opacity: 0.95,
+  });
+  const mesh = new THREE.Mesh(geom, mat);
+  const wire = new THREE.Mesh(
+    geom.clone(),
+    new THREE.MeshBasicMaterial({ color: 0x8c867a, wireframe: true, transparent: true, opacity: 0.15 })
+  );
+  const group = new THREE.Group();
+  group.add(mesh); group.add(wire);
+  group.rotation.x = -Math.PI/2;
+  return group;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO — rolling ball
+// ═══════════════════════════════════════════════════════════════════
+safeScene('hero', function () {
+  const host = document.getElementById('hero-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [4, 3.5, 5] });
+  controls.target.set(0, 0.5, 0);
+  scene.add(buildLossSurfaceMesh());
+  const ball = makeSphere(0.14, COLORS.kitsune);
+  scene.add(ball);
+  let w = [-2.2, 2.1];
+  function loop() {
+    const [gx, gy] = lossGradient(w[0], w[1]);
+    w[0] -= 0.05 * gx;
+    w[1] -= 0.05 * gy;
+    const h = lossSurface(w[0], w[1]);
+    ball.position.set(w[0], h + 0.1, -w[1]);
+    controls.update();
+    renderer.render(scene, camera);
+    if (Math.hypot(gx, gy) < 0.01) { w = [-2 + Math.random()*4, -2 + Math.random()*4]; }
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 1 · RECAP — drop a ball, descend, draw a trail
+// ═══════════════════════════════════════════════════════════════════
+safeScene('recap', function () {
+  const host = document.getElementById('recap-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [4, 3.5, 5] });
+  controls.target.set(0, 0.3, 0);
+  scene.add(buildLossSurfaceMesh());
+  const statusEl = document.getElementById('recap-status');
+
+  const ballGroup = new THREE.Group();
+  scene.add(ballGroup);
+
+  // trail via a single Line buffer, updated in place, capped
+  const TRAIL_CAP = 400;
+  const trailPositions = new Float32Array(TRAIL_CAP * 3);
+  const trailGeo = new THREE.BufferGeometry();
+  trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3));
+  const trailMat = new THREE.LineBasicMaterial({ color: COLORS.beni, transparent: true, opacity: 0.7 });
+  const trailLine = new THREE.Line(trailGeo, trailMat);
+  trailLine.frustumCulled = false;
+  scene.add(trailLine);
+
+  let runners = []; // {w, ball, trailStart, trailEnd}
+  let trailCursor = 0;
+
+  function dropAt(x, y) {
+    if (runners.length >= 6) { // keep it bounded
+      const old = runners.shift();
+      scene.remove(old.ball);
+      old.ball.geometry.dispose();
+      old.ball.material.dispose();
+    }
+    const ball = makeSphere(0.12, COLORS.kitsune);
+    ballGroup.add(ball);
+    runners.push({ w: [x, y], ball, alive: true });
+    statusEl.textContent = `descending from (${x.toFixed(1)}, ${y.toFixed(1)})`;
+  }
+
+  host.addEventListener('click', (ev) => {
+    const r = host.getBoundingClientRect();
+    const mx = ((ev.clientX - r.left) / r.width) * 2 - 1;
+    const my = -((ev.clientY - r.top) / r.height) * 2 + 1;
+    const ray = new THREE.Raycaster();
+    ray.setFromCamera(new THREE.Vector2(mx, my), camera);
+    // intersect against ground plane y=0
+    const planeHit = new THREE.Vector3();
+    if (ray.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0), 0), planeHit)) {
+      const x = Math.max(-3.5, Math.min(3.5, planeHit.x));
+      const y = Math.max(-3.5, Math.min(3.5, -planeHit.z));
+      dropAt(x, y);
+    }
+  });
+
+  document.getElementById('recap-random').onclick = () => {
+    dropAt(-3 + Math.random()*6, -3 + Math.random()*6);
+  };
+  document.getElementById('recap-clear').onclick = () => {
+    runners.forEach(r => {
+      ballGroup.remove(r.ball);
+      r.ball.geometry.dispose(); r.ball.material.dispose();
+    });
+    runners = [];
+    trailCursor = 0;
+    for (let i = 0; i < TRAIL_CAP*3; i++) trailPositions[i] = 0;
+    trailGeo.attributes.position.needsUpdate = true;
+    trailGeo.setDrawRange(0, 0);
+    statusEl.textContent = 'click the surface';
+  };
+
+  function loop() {
+    runners.forEach(r => {
+      if (!r.alive) return;
+      const [gx, gy] = lossGradient(r.w[0], r.w[1]);
+      r.w[0] -= 0.09 * gx;
+      r.w[1] -= 0.09 * gy;
+      const h = lossSurface(r.w[0], r.w[1]);
+      r.ball.position.set(r.w[0], h + 0.1, -r.w[1]);
+      if (trailCursor < TRAIL_CAP) {
+        trailPositions[trailCursor*3]     = r.w[0];
+        trailPositions[trailCursor*3 + 1] = h + 0.05;
+        trailPositions[trailCursor*3 + 2] = -r.w[1];
+        trailCursor++;
+        trailGeo.setDrawRange(0, trailCursor);
+        trailGeo.attributes.position.needsUpdate = true;
+      }
+      if (Math.hypot(gx, gy) < 0.01) r.alive = false;
+    });
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 2 · BATCH vs MINI-BATCH vs SGD — 2D contour with three paths
+// ═══════════════════════════════════════════════════════════════════
+safeScene('batches', function () {
+  const host = document.getElementById('batch-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('batch-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  // surface: L = 0.25 w1^2 + w2^2 (tilted bowl)
+  const L = (w1, w2) => 0.25*w1*w1 + w2*w2;
+  const grad = (w1, w2) => [0.5*w1, 2*w2];
+
+  const start = [-3.0, 1.4];
+  let paths = { batch: [], sgd: [], mini: [] };
+  let step = 0;
+  let timer = null;
+
+  function noisyGrad(w1, w2, scale) {
+    const [gx, gy] = grad(w1, w2);
+    return [gx + (Math.random()*2-1)*scale, gy + (Math.random()*2-1)*scale];
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 30;
+    const W = r.width - pad*2, H = r.height - pad*2;
+    const xMin = -3.5, xMax = 1.5, yMin = -2, yMax = 2;
+    const sx = (x) => pad + (x - xMin) / (xMax - xMin) * W;
+    const sy = (y) => pad + H - (y - yMin) / (yMax - yMin) * H;
+
+    // contour levels
+    ctx.lineWidth = 1;
+    for (let k = 1; k <= 7; k++) {
+      const c = k * 0.35;
+      ctx.strokeStyle = 'rgba(140, 134, 122, 0.35)';
+      // ellipse: 0.25 w1^2 + w2^2 = c  →  w1 = 2√c cosθ, w2 = √c sinθ
+      ctx.beginPath();
+      for (let a = 0; a <= 200; a++) {
+        const th = a/200 * Math.PI * 2;
+        const w1 = 2 * Math.sqrt(c) * Math.cos(th);
+        const w2 = Math.sqrt(c) * Math.sin(th);
+        const px = sx(w1), py = sy(w2);
+        if (a === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+    }
+    // minimum marker
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(sx(0), sy(0), 4, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.fillText('minimum', sx(0) + 8, sy(0) + 4);
+
+    // paths
+    const styles = [
+      { key: 'batch', color: '#5B7553', label: 'Batch (smooth)' },
+      { key: 'sgd',   color: '#9B4E4E', label: 'SGD (noisy)' },
+      { key: 'mini',  color: '#264E70', label: 'Mini-batch' },
+    ];
+    styles.forEach(s => {
+      const p = paths[s.key];
+      if (p.length < 2) return;
+      ctx.strokeStyle = s.color; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      p.forEach((pt, i) => {
+        const px = sx(pt[0]), py = sy(pt[1]);
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+      const last = p[p.length-1];
+      ctx.fillStyle = s.color;
+      ctx.beginPath(); ctx.arc(sx(last[0]), sy(last[1]), 4, 0, Math.PI*2); ctx.fill();
+    });
+
+    // legend
+    let ly = pad + 10;
+    styles.forEach(s => {
+      ctx.fillStyle = s.color;
+      ctx.fillRect(pad + 6, ly - 6, 12, 2);
+      ctx.fillStyle = '#3D3D3D'; ctx.font = '12px -apple-system, Inter, sans-serif';
+      ctx.fillText(s.label, pad + 24, ly);
+      ly += 16;
+    });
+  }
+
+  function reset() {
+    paths = { batch: [start.slice()], sgd: [start.slice()], mini: [start.slice()] };
+    step = 0;
+    if (timer) { clearInterval(timer); timer = null; }
+    statusEl.textContent = 'idle';
+    draw();
+  }
+  reset();
+
+  function play() {
+    if (timer) return;
+    reset();
+    const eta = 0.10;
+    timer = setInterval(() => {
+      step++;
+      // batch — true gradient
+      {
+        const last = paths.batch[paths.batch.length-1];
+        const [gx, gy] = grad(last[0], last[1]);
+        paths.batch.push([last[0] - eta*gx, last[1] - eta*gy]);
+      }
+      // sgd — big noise
+      {
+        const last = paths.sgd[paths.sgd.length-1];
+        const [gx, gy] = noisyGrad(last[0], last[1], 1.2);
+        paths.sgd.push([last[0] - eta*gx, last[1] - eta*gy]);
+      }
+      // mini — mild noise
+      {
+        const last = paths.mini[paths.mini.length-1];
+        const [gx, gy] = noisyGrad(last[0], last[1], 0.35);
+        paths.mini.push([last[0] - eta*gx, last[1] - eta*gy]);
+      }
+      statusEl.textContent = `step ${step}`;
+      draw();
+      if (step > 70) { clearInterval(timer); timer = null; }
+    }, 80);
+  }
+  document.getElementById('batch-play').onclick = play;
+  document.getElementById('batch-reset').onclick = reset;
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 3 · MOMENTUM — 3D narrow ravine, SGD vs momentum
+// ═══════════════════════════════════════════════════════════════════
+safeScene('momentum', function () {
+  const host = document.getElementById('momentum-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 4, 6] });
+  camera.lookAt(0, 0, 0);
+  controls.target.set(0, 0.2, 0);
+  scene.add(buildRavineMesh());
+
+  const statusEl = document.getElementById('momentum-status');
+
+  // Two balls: sgd (no momentum), momentum (β=0.9)
+  const sgdBall = makeSphere(0.14, COLORS.beni); scene.add(sgdBall);
+  const momBall = makeSphere(0.14, COLORS.ai);   scene.add(momBall);
+
+  const TRAIL_CAP = 600;
+  function makeTrail(color) {
+    const pos = new Float32Array(TRAIL_CAP*3);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    geo.setDrawRange(0, 0);
+    const m = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.8 });
+    const line = new THREE.Line(geo, m); line.frustumCulled = false;
+    return { pos, geo, line, cursor: 0 };
+  }
+  const sgdTrail = makeTrail(COLORS.beni); scene.add(sgdTrail.line);
+  const momTrail = makeTrail(COLORS.ai);   scene.add(momTrail.line);
+
+  const startX = -3.4, startY = 0.9;
+  let sgdW = [startX, startY];
+  let momW = [startX, startY];
+  let momV = [0, 0];
+  let beta = 0.9;
+  const alpha = 0.06;
+
+  function pushTrail(t, x, y) {
+    if (t.cursor >= TRAIL_CAP) return;
+    const h = ravineSurface(x, y);
+    t.pos[t.cursor*3] = x;
+    t.pos[t.cursor*3+1] = h + 0.04;
+    t.pos[t.cursor*3+2] = -y;
+    t.cursor++;
+    t.geo.setDrawRange(0, t.cursor);
+    t.geo.attributes.position.needsUpdate = true;
+  }
+  function placeBall(ball, x, y) {
+    const h = ravineSurface(x, y);
+    ball.position.set(x, h + 0.1, -y);
+  }
+  function reset() {
+    sgdW = [startX, startY];
+    momW = [startX, startY];
+    momV = [0, 0];
+    sgdTrail.cursor = 0; sgdTrail.geo.setDrawRange(0, 0); sgdTrail.geo.attributes.position.needsUpdate = true;
+    momTrail.cursor = 0; momTrail.geo.setDrawRange(0, 0); momTrail.geo.attributes.position.needsUpdate = true;
+    placeBall(sgdBall, startX, startY);
+    placeBall(momBall, startX, startY);
+  }
+  reset();
+
+  document.getElementById('mom-sgd').onclick = () => {
+    beta = 0;
+    document.getElementById('mom-sgd').classList.add('active');
+    document.getElementById('mom-mom').classList.remove('active');
+    statusEl.textContent = 'β = 0 · plain SGD';
+    reset();
+  };
+  document.getElementById('mom-mom').onclick = () => {
+    beta = 0.9;
+    document.getElementById('mom-mom').classList.add('active');
+    document.getElementById('mom-sgd').classList.remove('active');
+    statusEl.textContent = 'β = 0.9 · momentum';
+    reset();
+  };
+  document.getElementById('mom-reset').onclick = reset;
+
+  function loop() {
+    // SGD (always β=0 reference)
+    {
+      const [gx, gy] = ravineGradient(sgdW[0], sgdW[1]);
+      // inject cross-axis noise to mimic mini-batch zigzag
+      const nx = (Math.random()*2-1) * 0.2;
+      const ny = (Math.random()*2-1) * 0.6;
+      sgdW[0] -= alpha * (gx + nx);
+      sgdW[1] -= alpha * (gy + ny);
+      sgdW[0] = Math.max(-4, Math.min(4, sgdW[0]));
+      sgdW[1] = Math.max(-1.8, Math.min(1.8, sgdW[1]));
+      placeBall(sgdBall, sgdW[0], sgdW[1]);
+      pushTrail(sgdTrail, sgdW[0], sgdW[1]);
+    }
+    // Chosen beta (0 or 0.9)
+    {
+      const [gx, gy] = ravineGradient(momW[0], momW[1]);
+      const nx = (Math.random()*2-1) * 0.2;
+      const ny = (Math.random()*2-1) * 0.6;
+      momV[0] = beta * momV[0] + (1 - beta) * (gx + nx);
+      momV[1] = beta * momV[1] + (1 - beta) * (gy + ny);
+      momW[0] -= alpha * momV[0];
+      momW[1] -= alpha * momV[1];
+      momW[0] = Math.max(-4, Math.min(4, momW[0]));
+      momW[1] = Math.max(-1.8, Math.min(1.8, momW[1]));
+      placeBall(momBall, momW[0], momW[1]);
+      pushTrail(momTrail, momW[0], momW[1]);
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 4 · NESTEROV — 2D arrows showing look-ahead
+// ═══════════════════════════════════════════════════════════════════
+safeScene('nesterov', function () {
+  const host = document.getElementById('nesterov-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('nesterov-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  // bowl around (0,0), L = 0.5(x^2 + y^2)
+  const grad = (x, y) => [x, y];
+  let w = [-2.5, 1.8];
+  let v = [-0.6, -0.3]; // current momentum vector
+  const beta = 0.9;
+
+  function arrow(x1, y1, x2, y2, color, width = 2, dash = null) {
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width;
+    if (dash) ctx.setLineDash(dash); else ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    const ang = Math.atan2(y2 - y1, x2 - x1);
+    const len = 10;
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - len * Math.cos(ang - 0.3), y2 - len * Math.sin(ang - 0.3));
+    ctx.lineTo(x2 - len * Math.cos(ang + 0.3), y2 - len * Math.sin(ang + 0.3));
+    ctx.closePath(); ctx.fill();
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 40;
+    const W = r.width - pad*2, H = r.height - pad*2;
+    const xMin = -4, xMax = 2, yMin = -2, yMax = 3;
+    const sx = (x) => pad + (x - xMin) / (xMax - xMin) * W;
+    const sy = (y) => pad + H - (y - yMin) / (yMax - yMin) * H;
+
+    // contour rings
+    for (let k = 1; k <= 6; k++) {
+      const R = k * 0.5;
+      ctx.strokeStyle = 'rgba(140,134,122,0.35)'; ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let a = 0; a <= 100; a++) {
+        const th = a/100 * Math.PI*2;
+        const px = sx(R * Math.cos(th)), py = sy(R * Math.sin(th));
+        if (a === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+    }
+    // origin
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(sx(0), sy(0), 4, 0, Math.PI*2); ctx.fill();
+
+    // current position
+    const px = sx(w[0]), py = sy(w[1]);
+
+    // pure momentum step (blue dashed)
+    const momEnd = [w[0] - beta * v[0], w[1] - beta * v[1]];
+    // Nesterov gradient at look-ahead
+    const look = [w[0] - beta * v[0], w[1] - beta * v[1]];
+    const [gx, gy] = grad(look[0], look[1]);
+    // nesterov update direction
+    const nestStep = [-(beta * v[0] + 0.3 * gx), -(beta * v[1] + 0.3 * gy)];
+    const nestEnd = [w[0] + nestStep[0] * 0.8, w[1] + nestStep[1] * 0.8];
+    // standard momentum step for comparison (current-point gradient)
+    const [cgx, cgy] = grad(w[0], w[1]);
+    const stdStep = [-(beta * v[0] + 0.3 * cgx), -(beta * v[1] + 0.3 * cgy)];
+    const stdEnd = [w[0] + stdStep[0] * 0.8, w[1] + stdStep[1] * 0.8];
+
+    // draw: momentum peek (blue dashed) → look-ahead gradient (orange) → net Nesterov (green)
+    arrow(px, py, sx(momEnd[0]), sy(momEnd[1]), '#264E70', 2, [5,4]);
+    const lx = sx(look[0]), ly = sy(look[1]);
+    ctx.fillStyle = '#264E70'; ctx.beginPath(); ctx.arc(lx, ly, 5, 0, Math.PI*2); ctx.fill();
+    arrow(lx, ly, lx - gx * 30, ly + gy * 30, '#B87333', 2);
+    arrow(px, py, sx(nestEnd[0]), sy(nestEnd[1]), '#5B7553', 3);
+    arrow(px, py, sx(stdEnd[0]), sy(stdEnd[1]), 'rgba(155,78,78,0.6)', 2, [3,3]);
+
+    // current W dot
+    ctx.fillStyle = '#1A1A1A';
+    ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI*2); ctx.fill();
+
+    // legend
+    ctx.font = '12px -apple-system, Inter, sans-serif';
+    const keys = [
+      { c: '#264E70', t: '1. momentum peek (β v)', d: [5,4] },
+      { c: '#B87333', t: '2. gradient at the peek' },
+      { c: '#5B7553', t: '3. Nesterov step (combined)' },
+      { c: 'rgba(155,78,78,0.6)', t: 'vs. standard momentum', d: [3,3] },
+    ];
+    let kx = pad, ky = pad - 10;
+    keys.forEach(k => {
+      ctx.strokeStyle = k.c; ctx.lineWidth = 2;
+      if (k.d) ctx.setLineDash(k.d); else ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(kx, ky); ctx.lineTo(kx + 22, ky); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#3D3D3D';
+      ctx.fillText(k.t, kx + 30, ky + 4);
+      kx += 180;
+      if (kx > r.width - 200) { kx = pad; ky += 18; }
+    });
+
+    statusEl.textContent = `w = (${w[0].toFixed(2)}, ${w[1].toFixed(2)})`;
+  }
+
+  document.getElementById('nest-step').onclick = () => {
+    // one Nesterov step
+    const look = [w[0] - beta * v[0], w[1] - beta * v[1]];
+    const [gx, gy] = grad(look[0], look[1]);
+    v[0] = beta * v[0] + 0.3 * gx;
+    v[1] = beta * v[1] + 0.3 * gy;
+    w[0] = w[0] - v[0];
+    w[1] = w[1] - v[1];
+    draw();
+  };
+  document.getElementById('nest-reset').onclick = () => {
+    w = [-2.5, 1.8]; v = [-0.6, -0.3]; draw();
+  };
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 5 · ADAGRAD — two parameters, cumulative accumulator vs effective lr
+// ═══════════════════════════════════════════════════════════════════
+safeScene('adagrad', function () {
+  const host = document.getElementById('adagrad-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('adagrad-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  // Two parameters:
+  //   frequent: gets large gradient every step (|g| ≈ 1)
+  //   rare:     gets a tiny gradient (|g| ≈ 0.05)
+  const STEPS_MAX = 200;
+  const alpha = 0.1;
+  const eps = 1e-7;
+  let steps = 0;
+  let rFreq = 0, rRare = 0;
+  const rHistFreq = [], rHistRare = [], lrHistFreq = [], lrHistRare = [];
+
+  function reset() {
+    steps = 0; rFreq = 0; rRare = 0;
+    rHistFreq.length = 0; rHistRare.length = 0;
+    lrHistFreq.length = 0; lrHistRare.length = 0;
+    statusEl.textContent = 'idle'; draw();
+  }
+  reset();
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 40;
+    // split into two columns: accumulator r (left), effective lr (right)
+    const cw = (r.width - pad*3) / 2;
+    const ch = r.height - pad*2;
+
+    function plot(x0, hist1, hist2, title, yMax, label1, label2) {
+      ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+      ctx.strokeRect(x0, pad, cw, ch);
+      ctx.fillStyle = '#6B6B6B'; ctx.font = '12px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(title, x0 + cw/2, pad - 8);
+      // axes
+      ctx.fillStyle = '#8c867a'; ctx.font = '10px -apple-system, Inter, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(yMax.toFixed(2), x0 - 4, pad + 10);
+      ctx.fillText('0', x0 - 4, pad + ch);
+      ctx.textAlign = 'left';
+      ctx.fillText('step →', x0 + cw - 40, pad + ch + 14);
+
+      const line = (data, color) => {
+        if (data.length < 2) return;
+        ctx.strokeStyle = color; ctx.lineWidth = 2;
+        ctx.beginPath();
+        data.forEach((v, i) => {
+          const px = x0 + i / (STEPS_MAX - 1) * cw;
+          const py = pad + ch - Math.min(1, v / yMax) * ch;
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        });
+        ctx.stroke();
+      };
+      line(hist1, '#9B4E4E');
+      line(hist2, '#5B7553');
+
+      // legend
+      ctx.fillStyle = '#9B4E4E'; ctx.fillRect(x0 + 10, pad + 10, 12, 2);
+      ctx.fillStyle = '#3D3D3D'; ctx.font = '11px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(label1, x0 + 28, pad + 14);
+      ctx.fillStyle = '#5B7553'; ctx.fillRect(x0 + 10, pad + 26, 12, 2);
+      ctx.fillStyle = '#3D3D3D';
+      ctx.fillText(label2, x0 + 28, pad + 30);
+    }
+    plot(pad, rHistFreq, rHistRare, 'accumulator r  (cumulative sum of g²)',
+         Math.max(40, Math.max(...rHistFreq, 1)),
+         'frequent param', 'rare param');
+    plot(pad*2 + cw, lrHistFreq, lrHistRare, 'effective learning rate  α / √r',
+         0.2,
+         'frequent (dying)', 'rare (still alive)');
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#1A1A1A'; ctx.font = '13px -apple-system, Inter, sans-serif';
+    ctx.fillText(`step ${steps} / ${STEPS_MAX}`, r.width/2, r.height - 8);
+  }
+
+  let rafId = null;
+  function tick() {
+    if (steps >= STEPS_MAX) { rafId = null; statusEl.textContent = `done · frequent param's rate → 0`; return; }
+    const gFreq = 1.0;   // always large
+    const gRare = 0.05;  // always small
+    rFreq += gFreq * gFreq;
+    rRare += gRare * gRare;
+    rHistFreq.push(rFreq);
+    rHistRare.push(rRare);
+    lrHistFreq.push(alpha / (Math.sqrt(rFreq) + eps));
+    lrHistRare.push(alpha / (Math.sqrt(rRare) + eps));
+    steps++;
+    if (steps % 2 === 0) draw();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  document.getElementById('ada-play').onclick = () => {
+    reset();
+    statusEl.textContent = 'running…';
+    rafId = requestAnimationFrame(tick);
+  };
+  document.getElementById('ada-reset').onclick = () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null; reset();
+  };
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6 · RMSPROP — cumulative sum vs exp moving average of g²
+// ═══════════════════════════════════════════════════════════════════
+safeScene('rmsprop', function () {
+  const host = document.getElementById('rmsprop-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('rmsprop-status');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  const STEPS_MAX = 300;
+  const beta = 0.9;
+  let step = 0;
+  let cumR = 0;  // AdaGrad-style
+  let ema = 0;   // RMSprop-style
+  const gHist = [], rHist = [], emaHist = [];
+
+  function reset() {
+    step = 0; cumR = 0; ema = 0;
+    gHist.length = 0; rHist.length = 0; emaHist.length = 0;
+    statusEl.textContent = 'idle'; draw();
+  }
+  reset();
+
+  function sampleGradient(t) {
+    // a mix: first 100 steps large |g|, then small, then occasional bursts
+    const base = 0.4 + 0.6 * Math.abs(Math.sin(t * 0.07));
+    const phase = t < 100 ? 1.0 : (t < 200 ? 0.25 : 0.6);
+    return base * phase + (Math.random() - 0.5) * 0.15;
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 40;
+    const W = r.width - pad*2, H = r.height - pad*2;
+
+    // axes: g² history on top strip, the accumulators below
+    const topH = H * 0.25;
+    const btmH = H * 0.68;
+
+    // top: |g| stream
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    ctx.strokeRect(pad, pad, W, topH);
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'left'; ctx.fillText('gradient stream |g|', pad + 6, pad - 4);
+    if (gHist.length > 1) {
+      ctx.strokeStyle = '#3D3D3D'; ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      gHist.forEach((g, i) => {
+        const px = pad + i / (STEPS_MAX - 1) * W;
+        const py = pad + topH - Math.min(1, Math.abs(g) / 1.2) * topH;
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+    }
+
+    // bottom: two accumulators
+    const y0 = pad + topH + 20;
+    ctx.strokeStyle = '#E5DFD0';
+    ctx.strokeRect(pad, y0, W, btmH);
+    ctx.fillStyle = '#6B6B6B';
+    ctx.fillText('accumulator value', pad + 6, y0 - 4);
+
+    const maxR = Math.max(50, Math.max(...rHist, 1));
+    // AdaGrad-style cumulative (always growing)
+    if (rHist.length > 1) {
+      ctx.strokeStyle = '#9B4E4E'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      rHist.forEach((v, i) => {
+        const px = pad + i / (STEPS_MAX - 1) * W;
+        const py = y0 + btmH - Math.min(1, v / maxR) * btmH;
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+    }
+    // RMSprop-style EMA (scaled for visibility, shown against same baseline)
+    if (emaHist.length > 1) {
+      ctx.strokeStyle = '#5B7553'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      emaHist.forEach((v, i) => {
+        const px = pad + i / (STEPS_MAX - 1) * W;
+        // show scaled for visibility — EMA is tiny vs cum sum
+        const py = y0 + btmH - Math.min(1, v * 30 / maxR) * btmH;
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+    }
+
+    // legend
+    ctx.font = '12px -apple-system, Inter, sans-serif';
+    ctx.fillStyle = '#9B4E4E'; ctx.fillRect(pad + 10, y0 + 14, 12, 2);
+    ctx.fillStyle = '#3D3D3D'; ctx.fillText('AdaGrad: Σ g²  (unbounded)', pad + 28, y0 + 18);
+    ctx.fillStyle = '#5B7553'; ctx.fillRect(pad + 10, y0 + 32, 12, 2);
+    ctx.fillStyle = '#3D3D3D'; ctx.fillText('RMSprop: β v + (1−β)g²  (bounded)', pad + 28, y0 + 36);
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#1A1A1A';
+    ctx.fillText(`step ${step} / ${STEPS_MAX}`, r.width/2, r.height - 6);
+  }
+
+  let rafId = null;
+  function tick() {
+    if (step >= STEPS_MAX) { rafId = null; statusEl.textContent = 'done — AdaGrad grew without bound'; return; }
+    const g = sampleGradient(step);
+    cumR += g*g;
+    ema  = beta * ema + (1 - beta) * g*g;
+    gHist.push(g);
+    rHist.push(cumR);
+    emaHist.push(ema);
+    step++;
+    if (step % 2 === 0) draw();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  document.getElementById('rms-play').onclick = () => {
+    reset(); statusEl.textContent = 'running…';
+    rafId = requestAnimationFrame(tick);
+  };
+  document.getElementById('rms-reset').onclick = () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null; reset();
+  };
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 7 · ADAM — race four optimizers on the loss surface
+// ═══════════════════════════════════════════════════════════════════
+safeScene('adam', function () {
+  const host = document.getElementById('adam-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [4, 3.5, 5] });
+  controls.target.set(0, 0.3, 0);
+  scene.add(buildLossSurfaceMesh());
+  const statusEl = document.getElementById('adam-status');
+
+  const racers = [
+    { name: 'SGD',      color: COLORS.sumiLt,   mode: 'sgd' },
+    { name: 'Momentum', color: COLORS.beni,     mode: 'mom' },
+    { name: 'RMSprop',  color: COLORS.kitsune,  mode: 'rms' },
+    { name: 'Adam',     color: COLORS.moegi,    mode: 'adam' },
+  ];
+
+  const startW = [-2.8, 2.4];
+  racers.forEach(r => {
+    r.ball = makeSphere(0.14, r.color);
+    scene.add(r.ball);
+    r.w = startW.slice();
+    r.m = [0, 0];
+    r.v = [0, 0];
+    r.t = 0;
+    r.done = false;
+  });
+
+  // finish marker at ~(0,0)
+  const finish = makeSphere(0.1, COLORS.ai);
+  finish.material.opacity = 0.5; finish.material.transparent = true;
+  finish.position.set(0, lossSurface(0,0) + 0.1, 0);
+  scene.add(finish);
+
+  let running = false, tick = 0, winner = null;
+
+  function stepRacer(r) {
+    if (r.done) return;
+    const [gx, gy] = lossGradient(r.w[0], r.w[1]);
+    const eps = 1e-8;
+    if (r.mode === 'sgd') {
+      r.w[0] -= 0.08 * gx;
+      r.w[1] -= 0.08 * gy;
+    } else if (r.mode === 'mom') {
+      r.m[0] = 0.9 * r.m[0] + 0.1 * gx;
+      r.m[1] = 0.9 * r.m[1] + 0.1 * gy;
+      r.w[0] -= 0.3 * r.m[0];
+      r.w[1] -= 0.3 * r.m[1];
+    } else if (r.mode === 'rms') {
+      r.v[0] = 0.9 * r.v[0] + 0.1 * gx*gx;
+      r.v[1] = 0.9 * r.v[1] + 0.1 * gy*gy;
+      r.w[0] -= 0.1 * gx / (Math.sqrt(r.v[0]) + eps);
+      r.w[1] -= 0.1 * gy / (Math.sqrt(r.v[1]) + eps);
+    } else if (r.mode === 'adam') {
+      r.t++;
+      r.m[0] = 0.9 * r.m[0] + 0.1 * gx;
+      r.m[1] = 0.9 * r.m[1] + 0.1 * gy;
+      r.v[0] = 0.999 * r.v[0] + 0.001 * gx*gx;
+      r.v[1] = 0.999 * r.v[1] + 0.001 * gy*gy;
+      const mh0 = r.m[0] / (1 - Math.pow(0.9, r.t));
+      const mh1 = r.m[1] / (1 - Math.pow(0.9, r.t));
+      const vh0 = r.v[0] / (1 - Math.pow(0.999, r.t));
+      const vh1 = r.v[1] / (1 - Math.pow(0.999, r.t));
+      r.w[0] -= 0.15 * mh0 / (Math.sqrt(vh0) + eps);
+      r.w[1] -= 0.15 * mh1 / (Math.sqrt(vh1) + eps);
+    }
+    // place ball
+    const h = lossSurface(r.w[0], r.w[1]);
+    r.ball.position.set(r.w[0], h + 0.1, -r.w[1]);
+    // done if near origin
+    if (Math.hypot(r.w[0], r.w[1]) < 0.3) {
+      r.done = true;
+      if (!winner) { winner = r.name; statusEl.textContent = `${r.name} arrived first at step ${tick}`; }
+    }
+  }
+
+  function reset() {
+    racers.forEach(r => {
+      r.w = startW.slice(); r.m = [0,0]; r.v = [0,0]; r.t = 0; r.done = false;
+      const h = lossSurface(r.w[0], r.w[1]);
+      r.ball.position.set(r.w[0], h + 0.1, -r.w[1]);
+    });
+    tick = 0; winner = null; running = false;
+    statusEl.textContent = 'idle · click Race';
+  }
+  reset();
+
+  document.getElementById('adam-play').onclick = () => { reset(); running = true; statusEl.textContent = 'racing…'; };
+  document.getElementById('adam-reset').onclick = reset;
+
+  function loop() {
+    if (running) {
+      racers.forEach(stepRacer);
+      tick++;
+      if (tick > 500) running = false;
+    }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 8 · SUMMARY TABLE — AdamW / Lion cheat sheet
+// ═══════════════════════════════════════════════════════════════════
+safeScene('summary', function () {
+  const host = document.getElementById('summary-canvas');
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    const r = host.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    draw();
+  }
+  new ResizeObserver(resize).observe(host);
+
+  const rows = [
+    { name: 'SGD',       mem: 0, state: 'none',        lr: '0.01 – 0.1',   fix: 'baseline',         color: '#6B6B6B' },
+    { name: 'Momentum',  mem: 1, state: 'v',           lr: '0.01 – 0.1',   fix: 'oscillations',      color: '#9B4E4E' },
+    { name: 'AdaGrad',   mem: 1, state: 'r  (Σg²)',    lr: '0.01',         fix: 'per-param rate',    color: '#B87333' },
+    { name: 'RMSprop',   mem: 1, state: 'v  (ema g²)', lr: '0.001',        fix: 'decay',             color: '#B87333' },
+    { name: 'Adam',      mem: 2, state: 'm + v',       lr: '0.001',        fix: 'momentum + adapt',  color: '#5B7553' },
+    { name: 'AdamW',     mem: 2, state: 'm + v',       lr: '0.001',        fix: 'decoupled decay',   color: '#5B7553' },
+    { name: 'Lion',      mem: 1, state: 'm  (sign)',   lr: '0.0001 – 0.001', fix: 'memory-light',    color: '#4A3B5C' },
+  ];
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 28;
+    const rowH = Math.min(42, (r.height - pad*2 - 36) / rows.length);
+    const cols = [
+      { title: 'optimizer', w: 0.16, align: 'left' },
+      { title: 'state / param', w: 0.20, align: 'left' },
+      { title: 'memory × params', w: 0.17, align: 'center' },
+      { title: 'typical α', w: 0.17, align: 'center' },
+      { title: 'what it fixes', w: 0.30, align: 'left' },
+    ];
+    const totalW = r.width - pad*2;
+    let x = pad;
+    const colX = [];
+    cols.forEach(c => { colX.push(x); x += c.w * totalW; });
+
+    // header
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '600 11px -apple-system, Inter, sans-serif';
+    cols.forEach((c, i) => {
+      ctx.textAlign = c.align;
+      const ax = c.align === 'center' ? colX[i] + c.w*totalW/2 : colX[i] + 6;
+      ctx.fillText(c.title.toUpperCase(), ax, pad + 14);
+    });
+    ctx.strokeStyle = '#d4cdba'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad, pad + 22); ctx.lineTo(r.width - pad, pad + 22); ctx.stroke();
+
+    // rows
+    rows.forEach((row, i) => {
+      const y = pad + 22 + 8 + i * rowH;
+      // name cell
+      ctx.fillStyle = row.color; ctx.font = '600 14px "Hiragino Mincho ProN", Georgia, serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(row.name, colX[0] + 6, y + rowH/2 + 4);
+      // state
+      ctx.fillStyle = '#1A1A1A'; ctx.font = '13px "SF Mono", ui-monospace, monospace';
+      ctx.fillText(row.state, colX[1] + 6, y + rowH/2 + 4);
+      // memory bar
+      ctx.textAlign = 'center';
+      const memX = colX[2] + cols[2].w*totalW/2;
+      ctx.fillStyle = '#E5DFD0';
+      ctx.fillRect(memX - 40, y + rowH/2 - 4, 80, 8);
+      ctx.fillStyle = row.color;
+      ctx.fillRect(memX - 40, y + rowH/2 - 4, (row.mem / 2) * 80, 8);
+      ctx.fillStyle = '#6B6B6B'; ctx.font = '11px -apple-system, Inter, sans-serif';
+      ctx.fillText(row.mem === 0 ? '—' : `${row.mem}×`, memX, y + rowH/2 + 18);
+      // lr
+      ctx.fillStyle = '#1A1A1A'; ctx.font = '12px "SF Mono", ui-monospace, monospace';
+      const lrX = colX[3] + cols[3].w*totalW/2;
+      ctx.fillText(row.lr, lrX, y + rowH/2 + 4);
+      // fixes
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#3D3D3D'; ctx.font = '12px -apple-system, Inter, sans-serif';
+      ctx.fillText(row.fix, colX[4] + 6, y + rowH/2 + 4);
+
+      // divider
+      ctx.strokeStyle = '#eae5d6';
+      ctx.beginPath(); ctx.moveTo(pad, y + rowH); ctx.lineTo(r.width - pad, y + rowH); ctx.stroke();
+    });
+
+    // footnote
+    ctx.fillStyle = '#6B6B6B'; ctx.font = 'italic 11px -apple-system, Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('memory × parameter count — roughly the extra state each optimizer keeps per weight', r.width/2, r.height - 10);
+  }
+  setTimeout(resize, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz logic
+// ═══════════════════════════════════════════════════════════════════
+let score = 0; const seen = new Set();
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
+        if (b.dataset.correct === 'true') b.classList.add('correct');
+      });
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        document.getElementById('score').textContent = `Score: ${score} / ${document.querySelectorAll('.opts').length}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
+
+// Progress + TOC
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = Math.min(100, Math.max(0, window.scrollY / h * 100)) + '%';
+}, { passive: true });
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+
+// polyfill roundRect
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+    if (r === undefined) r = 4;
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y, x + w, y + h, r);
+    this.arcTo(x + w, y + h, x, y + h, r);
+    this.arcTo(x, y + h, x, y, r);
+    this.arcTo(x, y, x + w, y, r);
+    return this;
+  };
+}
+</script>
+</body>
+</html>

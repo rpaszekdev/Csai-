@@ -1,0 +1,149 @@
+{
+  "section_id": "m3_l1",
+  "quiz_type": "multiple_choice",
+  "title": "Memory - Multiple Choice",
+  "questions": [
+    {
+      "id": "m3_l1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What is the role of the hippocampus in the neurological model of memory?",
+      "options": {
+        "A": "It stores all long-term memories directly",
+        "B": "It stores an index/pointers to distributed cortical traces",
+        "C": "It processes only spatial information",
+        "D": "It is only involved in emotional memory"
+      },
+      "correct_answer": "B",
+      "explanation": "The hippocampus stores an index — pointers to the distributed cortical traces that make up a memory (like a book index). During retrieval, a cue activates the hippocampal index, which then simultaneously reactivates the relevant cortical regions."
+    },
+    {
+      "id": "m3_l1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Patient H.M. had bilateral removal of the medial temporal lobes. What was the result?",
+      "options": {
+        "A": "Loss of all memory types including procedural skills",
+        "B": "Severe declarative memory impairment with spared nondeclarative memory",
+        "C": "Loss of only episodic memory, semantic memory intact",
+        "D": "Complete retrograde amnesia with no anterograde amnesia"
+      },
+      "correct_answer": "B",
+      "explanation": "H.M. showed severe impairment in forming new declarative (explicit) memories, but his nondeclarative (implicit) memory was spared — he could learn the mirror drawing task, demonstrating that declarative and nondeclarative systems are independent."
+    },
+    {
+      "id": "m3_l1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "According to Multiple Trace Theory (MTT), what happens to episodic memories over time?",
+      "options": {
+        "A": "They become completely independent of the hippocampus",
+        "B": "They are always hippocampus-dependent, with older memories having more traces making them more resistant",
+        "C": "They are transferred to the amygdala for permanent storage",
+        "D": "They decay exponentially and are lost within years"
+      },
+      "correct_answer": "B",
+      "explanation": "Multiple Trace Theory argues that episodic memories ALWAYS require the hippocampus, even remote ones. Older memories have more hippocampal traces (from repeated reactivation), making them more resistant to damage but never fully hippocampus-independent."
+    },
+    {
+      "id": "m3_l1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What is the key difference between the Standard Consolidation Theory and Multiple Trace Theory regarding remote memories?",
+      "options": {
+        "A": "Standard theory says remote memories always need the hippocampus; MTT says they don't",
+        "B": "Standard theory says remote memories become hippocampus-independent; MTT says they always need the hippocampus",
+        "C": "Both theories agree that remote memories are hippocampus-independent",
+        "D": "Both theories agree that remote memories always need the hippocampus"
+      },
+      "correct_answer": "B",
+      "explanation": "Standard Consolidation Theory proposes that over time, direct cortical connections form and remote memories become hippocampus-independent. Multiple Trace Theory argues episodic memories ALWAYS require hippocampal involvement, no matter how old they are."
+    },
+    {
+      "id": "m3_l1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "In the Subsequent Memory Paradigm, what are 'SMEs'?",
+      "options": {
+        "A": "Synaptic Memory Enhancers",
+        "B": "Subsequent Memory Effects — brain activity differences for later-remembered vs later-forgotten items",
+        "C": "Semantic Memory Encoders in the hippocampus",
+        "D": "Sequential Memory Episodes in the PFC"
+      },
+      "correct_answer": "B",
+      "explanation": "Subsequent Memory Effects (SMEs) are the differences in brain activity during encoding between items that are subsequently remembered versus subsequently forgotten. This paradigm reveals which brain activity patterns predict successful memory formation."
+    },
+    {
+      "id": "m3_l1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Which Baddeley working memory component integrates information from multiple sources into coherent episodes?",
+      "options": {
+        "A": "Phonological loop",
+        "B": "Visuospatial sketchpad",
+        "C": "Episodic buffer",
+        "D": "Central executive"
+      },
+      "correct_answer": "C",
+      "explanation": "The episodic buffer integrates information from the phonological loop, visuospatial sketchpad, and long-term memory into coherent episodes. The central executive controls attention, while the loops handle verbal and spatial information respectively."
+    },
+    {
+      "id": "m3_l1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Why do small cortical lesions cause only mild memory deficits?",
+      "options": {
+        "A": "Cortical regions are not involved in memory at all",
+        "B": "Memory traces are distributed across cortex, so small lesions only destroy part of the trace",
+        "C": "The hippocampus immediately compensates for any cortical damage",
+        "D": "Small lesions are always in non-memory areas"
+      },
+      "correct_answer": "B",
+      "explanation": "Memory traces are distributed across multiple cortical regions. A small lesion only destroys one component of the distributed trace, resulting in mild deficits. Bilateral MTL lesions are devastating because they destroy the hippocampal index that links all the cortical components."
+    },
+    {
+      "id": "m3_l1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Which brain region is specifically important for encoding in the PFC?",
+      "options": {
+        "A": "Dorsolateral prefrontal cortex",
+        "B": "Inferior frontal gyrus",
+        "C": "Orbitofrontal cortex",
+        "D": "Anterior cingulate cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "The inferior frontal gyrus has been specifically linked to encoding processes. In contrast, retrieval involves multiple PFC subregions and is less regionally specific within the prefrontal cortex."
+    },
+    {
+      "id": "m3_l1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "What does ventral parietal activation during encoding predict?",
+      "options": {
+        "A": "Subsequent successful remembering",
+        "B": "Subsequent forgetting",
+        "C": "Enhanced emotional processing",
+        "D": "Better spatial memory"
+      },
+      "correct_answer": "B",
+      "explanation": "Ventral parietal activation during encoding is associated with subsequent forgetting, likely because it reflects bottom-up attention capture by distracting information rather than focused encoding. Dorsal parietal activation supports memory search and top-down attention."
+    },
+    {
+      "id": "m3_l1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Consolidation is promoted by all of the following EXCEPT:",
+      "options": {
+        "A": "Practice and rehearsal",
+        "B": "Slow-wave sleep",
+        "C": "Rest periods",
+        "D": "Acute stress during encoding"
+      },
+      "correct_answer": "D",
+      "explanation": "Consolidation is promoted by practice, slow-wave sleep, and rest. While moderate arousal can enhance encoding, acute stress can actually impair consolidation processes. The three established promoters of consolidation are practice, slow-wave sleep, and rest."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 32-39"]
+}

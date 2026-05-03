@@ -1,0 +1,159 @@
+{
+  "section_id": "m3_l1",
+  "quiz_type": "multiple_response",
+  "title": "Memory - Multiple Response",
+  "questions": [
+    {
+      "id": "m3_l1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are components of Baddeley's working memory model? (Select all that apply)",
+      "options": {
+        "A": "Phonological loop",
+        "B": "Visuospatial sketchpad",
+        "C": "Episodic buffer",
+        "D": "Central executive",
+        "E": "Hippocampal index"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Baddeley's working memory model has four components: phonological loop (verbal), visuospatial sketchpad (spatial), episodic buffer (integration), and central executive (attentional control). The hippocampal index is part of long-term memory models, not working memory."
+    },
+    {
+      "id": "m3_l1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which are subregions of the hippocampus? (Select all that apply)",
+      "options": {
+        "A": "CA1",
+        "B": "CA3",
+        "C": "Dentate gyrus",
+        "D": "Subiculum",
+        "E": "Amygdala"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The hippocampal subregions are CA1, CA3, dentate gyrus, and subiculum. The amygdala is a separate structure adjacent to the hippocampus that is involved in emotional memory processing."
+    },
+    {
+      "id": "m3_l1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following promote memory consolidation? (Select all that apply)",
+      "options": {
+        "A": "Practice and rehearsal",
+        "B": "Slow-wave sleep",
+        "C": "Rest periods",
+        "D": "Continuous distraction",
+        "E": "Divided attention during encoding"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Consolidation is promoted by practice, slow-wave sleep, and rest. Distraction and divided attention impair consolidation by preventing the rehearsal and reactivation processes needed to strengthen memory traces."
+    },
+    {
+      "id": "m3_l1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which are true about Patient H.M.? (Select all that apply)",
+      "options": {
+        "A": "Had bilateral medial temporal lobe removal",
+        "B": "Could not form new declarative memories",
+        "C": "Could learn the mirror drawing task",
+        "D": "Had impaired nondeclarative memory",
+        "E": "Demonstrated the declarative/nondeclarative distinction"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "H.M. had bilateral MTL removal, resulting in severe anterograde amnesia for declarative memories. His nondeclarative memory was SPARED (not impaired) — he could learn mirror drawing — demonstrating that these are independent memory systems."
+    },
+    {
+      "id": "m3_l1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which are the three theories of hippocampal function discussed in the lecture? (Select all that apply)",
+      "options": {
+        "A": "Cognitive Map Theory (spatial, right HC)",
+        "B": "Relational Memory Theory (binding, left HC)",
+        "C": "Episodic Memory Theory (Tulving)",
+        "D": "Working Memory Theory",
+        "E": "Emotional Processing Theory"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Three theories of hippocampal function: Cognitive Map Theory (right HC, spatial navigation), Relational Memory Theory (left HC, binding elements together), and Tulving's Episodic Memory Theory (hippocampus as the seat of episodic memory)."
+    },
+    {
+      "id": "m3_l1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which statements about episodic memory are correct? (Select all that apply)",
+      "options": {
+        "A": "It encodes specific events (what, where, when)",
+        "B": "It involves both recollection and familiarity",
+        "C": "It is a type of declarative memory",
+        "D": "It is fully independent of the hippocampus after consolidation",
+        "E": "It is damaged by medial temporal lobe lesions"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Episodic memory encodes specific events, involves recollection and familiarity, is declarative, and is damaged by MTL lesions. Whether it becomes hippocampus-independent is debated (Standard theory says yes, MTT says no)."
+    },
+    {
+      "id": "m3_l1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "What are the roles of the PFC in memory? (Select all that apply)",
+      "options": {
+        "A": "Encoding (specifically inferior frontal gyrus)",
+        "B": "Retrieval (multiple subregions, less specific)",
+        "C": "Serving as the primary storage site for long-term memories",
+        "D": "Both encoding and retrieval functions",
+        "E": "Executive control during memory processes"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The PFC has many roles in memory: encoding (inferior frontal gyrus is region-specific), retrieval (multiple subregions, less specific), and executive control. It is NOT the primary storage site — that role is distributed across cortex."
+    },
+    {
+      "id": "m3_l1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which statements about the posterior parietal cortex (PPC) in memory are correct? (Select all that apply)",
+      "options": {
+        "A": "Dorsal PPC supports memory search and top-down attention",
+        "B": "Ventral PPC is related to salience and bottom-up attention",
+        "C": "Ventral parietal activation during encoding predicts subsequent forgetting",
+        "D": "The PPC stores the hippocampal index",
+        "E": "Dorsal and ventral PPC have different roles in memory"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Dorsal PPC supports strategic memory search (top-down), ventral PPC responds to salient information (bottom-up). Ventral parietal encoding activation predicts forgetting (distraction). The PPC does NOT store the hippocampal index."
+    },
+    {
+      "id": "m3_l1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which types of retrieval cues can trigger memory recall? (Select all that apply)",
+      "options": {
+        "A": "External cues (e.g., a smell, a song)",
+        "B": "Internal cues (e.g., a mood, a thought)",
+        "C": "Involuntary cues (spontaneous)",
+        "D": "Voluntary cues (deliberate search)",
+        "E": "Only visual cues can trigger retrieval"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Retrieval can be triggered by external cues (sensory stimuli), internal cues (thoughts, moods), and can occur involuntarily (spontaneous memories) or voluntarily (deliberate memory search). All sensory modalities can serve as cues, not just vision."
+    },
+    {
+      "id": "m3_l1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which are features of the neurological model of memory encoding? (Select all that apply)",
+      "options": {
+        "A": "Same cortical regions store different aspects of an experience",
+        "B": "Hippocampal indices link the distributed cortical traces",
+        "C": "All aspects of a memory are stored in one location",
+        "D": "Encoding creates memory traces through synaptic changes",
+        "E": "Visual, auditory, and emotional components are stored in their respective cortical areas"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Memory encoding distributes different aspects across cortex (visual in visual cortex, etc.), with hippocampal indices linking them. Encoding creates traces via synaptic changes. Memories are NOT stored in one location — they are distributed."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 32-39"]
+}

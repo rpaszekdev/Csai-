@@ -1,0 +1,109 @@
+{
+  "section_id": "m3_l2",
+  "quiz_type": "fill_in_blank",
+  "title": "Declarative Memory (Flipped) - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m3_l2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Declarative memory divides into two subtypes: ___ memory (events) and semantic memory (facts).",
+      "blank_sentence": "Declarative memory divides into two subtypes: ___ memory (events) and semantic memory (facts).",
+      "correct_answer": "episodic",
+      "acceptable_answers": ["episodic"],
+      "explanation": "Declarative (explicit) memory is divided into episodic memory (memory for events at a specific time and place) and semantic memory (memory for facts and general knowledge). This distinction was proposed by Endel Tulving."
+    },
+    {
+      "id": "m3_l2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "The concept of episodic memory — memory for events at a specific place and time — was introduced by ___.",
+      "blank_sentence": "The concept of episodic memory — memory for events at a specific place and time — was introduced by ___.",
+      "correct_answer": "Endel Tulving",
+      "acceptable_answers": ["Endel Tulving", "Tulving"],
+      "explanation": "Endel Tulving proposed the distinction between episodic memory (autobiographical events tied to specific contexts) and semantic memory (general knowledge and facts)."
+    },
+    {
+      "id": "m3_l2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "In memory research, ___ refers to full contextual recollection of details, while familiarity is a sense of knowing without specifics.",
+      "blank_sentence": "In memory research, ___ refers to full contextual recollection of details, while familiarity is a sense of knowing without specifics.",
+      "correct_answer": "recollection",
+      "acceptable_answers": ["recollection"],
+      "explanation": "Recollection involves retrieving full contextual details of an experience (where, when, how), while familiarity is just a general sense of having encountered something before without specific details."
+    },
+    {
+      "id": "m3_l2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Patient ___ had bilateral medial temporal lobe removal resulting in severe anterograde amnesia but spared nondeclarative memory.",
+      "blank_sentence": "Patient ___ had bilateral medial temporal lobe removal resulting in severe anterograde amnesia but spared nondeclarative memory.",
+      "correct_answer": "H.M.",
+      "acceptable_answers": ["H.M.", "HM", "Henry Molaison"],
+      "explanation": "Patient H.M. (Henry Molaison) underwent bilateral medial temporal lobe resection for epilepsy. He developed severe anterograde amnesia but retained nondeclarative memory abilities like skill learning, demonstrating that declarative and nondeclarative memory are distinct systems."
+    },
+    {
+      "id": "m3_l2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "___'s Law states that recent memories are more vulnerable to disruption than remote memories.",
+      "blank_sentence": "___'s Law states that recent memories are more vulnerable to disruption than remote memories.",
+      "correct_answer": "Ribot",
+      "acceptable_answers": ["Ribot", "Ribot's"],
+      "explanation": "Ribot's Law describes the temporal gradient of retrograde amnesia: recently formed memories are more susceptible to disruption than older, well-consolidated memories."
+    },
+    {
+      "id": "m3_l2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Synaptic consolidation occurs rapidly (~90 minutes) at the synapse, while ___ consolidation is slow (~28 days) and involves transfer from MTL to cortex.",
+      "blank_sentence": "Synaptic consolidation occurs rapidly (~90 minutes) at the synapse, while ___ consolidation is slow (~28 days) and involves transfer from MTL to cortex.",
+      "correct_answer": "system",
+      "acceptable_answers": ["system", "systems"],
+      "explanation": "Memory consolidation occurs at two levels: synaptic consolidation (fast, ~90 minutes, strengthening connections at the synapse) and system consolidation (slow, ~28 days, gradual transfer of memory representations from the medial temporal lobe to neocortical networks)."
+    },
+    {
+      "id": "m3_l2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "The ___ memory paradigm compares brain activity during encoding for items later remembered vs. forgotten.",
+      "blank_sentence": "The ___ memory paradigm compares brain activity during encoding for items later remembered vs. forgotten.",
+      "correct_answer": "subsequent",
+      "acceptable_answers": ["subsequent", "subsequent memory"],
+      "explanation": "The subsequent memory paradigm (also called the Dm effect) compares neural activity during encoding for items that are subsequently remembered versus forgotten, revealing which brain regions predict successful memory formation. The inferior frontal gyrus is particularly implicated."
+    },
+    {
+      "id": "m3_l2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The left ___ temporal cortex is considered critical for semantic memory storage.",
+      "blank_sentence": "The left ___ temporal cortex is considered critical for semantic memory storage.",
+      "correct_answer": "anterior",
+      "acceptable_answers": ["anterior"],
+      "explanation": "The left anterior temporal cortex plays a critical role in semantic memory. This is evidenced by semantic dementia patients like A.M. who have left anterior temporal atrophy and show impaired semantic knowledge."
+    },
+    {
+      "id": "m3_l2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "The ___ cortex in the MTL is characterised by fast, item-based processing and novelty detection.",
+      "blank_sentence": "The ___ cortex in the MTL is characterised by fast, item-based processing and novelty detection.",
+      "correct_answer": "perirhinal",
+      "acceptable_answers": ["perirhinal"],
+      "explanation": "The perirhinal cortex processes information rapidly, focuses on individual items (item-based), and is particularly responsive to novelty. Single-cell recordings show perirhinal neurons respond more to first presentations of stimuli."
+    },
+    {
+      "id": "m3_l2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Memory replay during ___ and rest is thought to promote consolidation of declarative memories.",
+      "blank_sentence": "Memory replay during ___ and rest is thought to promote consolidation of declarative memories.",
+      "correct_answer": "sleep",
+      "acceptable_answers": ["sleep"],
+      "explanation": "Research shows that memory replay — the reactivation of memory traces — occurs during sleep and rest periods, and this replay process is believed to promote the consolidation of memories from hippocampal to cortical storage."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapter 9"]
+}

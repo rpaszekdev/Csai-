@@ -1,0 +1,159 @@
+{
+  "section_id": "m5_l2",
+  "quiz_type": "multiple_response",
+  "title": "Executive Function (in depth) - Multiple Response",
+  "questions": [
+    {
+      "id": "m5_l2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which are the three top-level branches of the executive function taxonomy (Figure 13.1)? (Select all that apply)",
+      "options": {
+        "A": "Establishing & modifying rules",
+        "B": "Contextual control (monitoring)",
+        "C": "Working memory (maintenance + manipulation)",
+        "D": "Sensory integration",
+        "E": "Long-term memory consolidation"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The chapter organises EF into three branches: establishing & modifying rules (initiating, inhibiting, shifting, relating), contextual control (monitoring the environment), and working memory (maintenance + manipulation). Sensory integration and consolidation are not EF branches."
+    },
+    {
+      "id": "m5_l2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which features characterise the frontal disinhibition syndrome (ventral/medial PFC damage)? (Select all that apply)",
+      "options": {
+        "A": "Constant unproductive movement",
+        "B": "Euphoric or manic affect",
+        "C": "Apathy and failure to initiate tasks",
+        "D": "Failure to read social cues, profanity, aggression",
+        "E": "Acquired sociopathy in severe form (Damasio)"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Frontal disinhibition syndrome (ventral/medial PFC) features unproductive movement, manic affect, social-cue failure, and acquired sociopathy in severe cases. Apathy and initiation failure characterise the dysexecutive syndrome from lateral PFC damage instead."
+    },
+    {
+      "id": "m5_l2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which statements about PFC connectivity are correct? (Select all that apply)",
+      "options": {
+        "A": "PFC connects with secondary, not primary, sensory cortices as a general rule",
+        "B": "OFC is an exception — it receives input from primary taste, olfactory, and somatosensory cortices",
+        "C": "PFC has broad, diverse, bidirectional connections — more than any other cortical region",
+        "D": "Information returns from basal ganglia to PFC only indirectly via thalamus and substantia nigra",
+        "E": "V1 projects directly to lateral PFC"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "PFC connects with secondary cortices (e.g., inferior temporal cortex, not V1); OFC is the exception. PFC has the broadest connectivity of any cortical region. PFC projects directly to BG but receives only indirect feedback via thalamus and substantia nigra."
+    },
+    {
+      "id": "m5_l2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which are the three basal ganglia loops described in the lecture (Figure 13.7)? (Select all that apply)",
+      "options": {
+        "A": "Motor loop (primary, premotor, SMA cortex)",
+        "B": "Prefrontal loop (dlPFC)",
+        "C": "Affective loop (ACC, OFC)",
+        "D": "Visual loop (V1, V4)",
+        "E": "Auditory loop (A1, STG)"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The three basal ganglia loops are motor (primary/premotor/SMA → planning + execution), prefrontal (dlPFC → planning, decision making), and affective (ACC, OFC → emotion, mood, reward). There are no dedicated visual or auditory BG loops."
+    },
+    {
+      "id": "m5_l2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which features are characteristic of Lhermitte's environmental dependency syndrome? (Select all that apply)",
+      "options": {
+        "A": "Imitation behaviour (mimicking the interviewer)",
+        "B": "Utilization behaviour (uses any object presented)",
+        "C": "Anterior/medial frontal damage",
+        "D": "Behaviour driven by environment, not internal goals",
+        "E": "Severe spatial navigation deficits"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Lhermitte (1986) described environmental dependency syndrome from anterior/medial frontal damage: patients show imitation behaviour, utilization behaviour (pour water, hammer when seen), with action driven by environmental affordances rather than internal goals. Spatial deficits are not part of the syndrome."
+    },
+    {
+      "id": "m5_l2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which statements about the rostral-caudal gradient in lateral PFC are correct? (Select all that apply)",
+      "options": {
+        "A": "Posterior PFC handles concrete, motor-near rules",
+        "B": "Anterior PFC handles abstract, goal-distant rules",
+        "C": "Koechlin proposed a temporal abstraction cascade",
+        "D": "Badre & D'Esposito proposed a policy abstraction hierarchy",
+        "E": "Frontopolar cortex tracks goals/sub-goals and supports relational integration"
+      },
+      "correct_answers": ["A", "B", "C", "D", "E"],
+      "explanation": "All five are correct. The gradient runs concrete-posterior to abstract-anterior; Koechlin's cascade frames it as temporal abstraction; Badre & D'Esposito frame it as policy abstraction; FPC sits at the apex for goal tracking, relational integration, and exploratory information-seeking."
+    },
+    {
+      "id": "m5_l2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which are challenges to the conflict-monitoring model of ACC? (Select all that apply)",
+      "options": {
+        "A": "Specificity problem — ACC also responds to correct feedback and rewards",
+        "B": "ACC may track avoidance of mistakes, not just error detection",
+        "C": "Fellows & Farah (2005): dorsal-ACC lesion patients have a normal Stroop effect",
+        "D": "Monkey cingulate neurons did not increase activity under high response conflict",
+        "E": "ACC has no connections to lateral PFC"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "All except E are real challenges: ACC lacks specificity (responds to rewards/correct feedback), tracks mistake-avoidance, lesion patients show normal Stroop, and monkey cingulate units don't track response conflict. ACC clearly does connect with lateral PFC (e.g., Kerns et al. 2004)."
+    },
+    {
+      "id": "m5_l2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which statements about the Wallis, Anderson & Miller (2001) study are correct? (Select all that apply)",
+      "options": {
+        "A": "Monkeys followed either a matching or non-matching rule",
+        "B": "Cues included juice reward (matching) and high tone (non-matching)",
+        "C": "Single neurons fired selectively for the rule, not the cue or stimulus",
+        "D": "Rule-selective neurons cluster along the principal sulcus",
+        "E": "All rule coding was found in the orbitofrontal cortex"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The study used matching/non-matching rules signalled by juice or tone cues. Single-unit recordings in lateral PFC revealed rule-selective neurons (independent of cue and stimulus) clustered along the principal sulcus. Rule coding was lateral PFC, not OFC."
+    },
+    {
+      "id": "m5_l2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which statements about working memory are supported by the lecture's distributed network view? (Select all that apply)",
+      "options": {
+        "A": "WM content lives in the same sensory regions that originally processed it",
+        "B": "PFC orchestrates via top-down signals but does not store content",
+        "C": "Harrison & Tong (2009) decoded remembered orientation from V1-V4",
+        "D": "Posterior damage causes content-specific WM deficits",
+        "E": "PFC is the sole storage site for all working memory"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "WM emerges from a distributed network: content stays in original sensory regions (Harrison & Tong 2009), PFC orchestrates without storing. Posterior damage causes content-specific deficits (e.g., spatial but not face WM); PFC damage impairs control across the board. PFC is not the sole store."
+    },
+    {
+      "id": "m5_l2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which findings characterise the dmPFC posterior-to-anterior gradient (Venkatraman et al. 2009; Taren et al. 2011)? (Select all that apply)",
+      "options": {
+        "A": "Posterior dmPFC = response-related control (counting Stroop)",
+        "B": "Middle dmPFC = decision-related control (face attractiveness, Pochon & Cohen)",
+        "C": "Anterior dmPFC = strategy-related control (deviating from baseline strategy)",
+        "D": "Anterior dmPFC connects to anterior dlPFC; posterior dmPFC connects to posterior dlPFC",
+        "E": "The gradient runs anterior-concrete to posterior-abstract"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Venkatraman et al. (2009) mapped response/decision/strategy control onto a posterior-to-anterior gradient mirroring dlPFC; Taren et al. (2011) showed topographic medial-lateral connectivity (anterior-anterior, posterior-posterior) via fibre tracing, DTI, and resting-state fMRI. The gradient is least-abstract-posterior to most-abstract-anterior, not the reverse."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 2"]
+}

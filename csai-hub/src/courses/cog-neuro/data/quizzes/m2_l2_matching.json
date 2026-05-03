@@ -1,0 +1,151 @@
+{
+  "section_id": "m2_l2",
+  "quiz_type": "matching",
+  "title": "Motor Control Flipped - Matching",
+  "questions": [
+    {
+      "id": "m2_l2_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each type of apraxia to its description:",
+      "items": ["Ideomotor apraxia", "Ideational apraxia", "Verbal apraxia"],
+      "categories": ["Cannot voluntarily perform learned actions on command", "Cannot sequence multi-step actions correctly", "Cannot produce speech movements"],
+      "correct_mapping": {
+        "Ideomotor apraxia": "Cannot voluntarily perform learned actions on command",
+        "Ideational apraxia": "Cannot sequence multi-step actions correctly",
+        "Verbal apraxia": "Cannot produce speech movements"
+      },
+      "explanation": "Ideomotor apraxia = can't voluntarily pantomime actions (but may do them automatically), ideational apraxia = can't correctly sequence complex multi-step actions, verbal apraxia = can't coordinate speech motor movements."
+    },
+    {
+      "id": "m2_l2_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each visual stream to its characteristics:",
+      "items": ["Dorsal stream", "Ventral stream"],
+      "categories": ["Where/how pathway — guides action, runs to parietal cortex", "What pathway — object identification, runs to temporal cortex"],
+      "correct_mapping": {
+        "Dorsal stream": "Where/how pathway — guides action, runs to parietal cortex",
+        "Ventral stream": "What pathway — object identification, runs to temporal cortex"
+      },
+      "explanation": "The dorsal stream (occipital → parietal) is the 'where/how' action-guidance pathway, while the ventral stream (occipital → temporal) is the 'what' object-identification pathway. This was characterised by Goodale and Milner."
+    },
+    {
+      "id": "m2_l2_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each patient/lesion pattern to the resulting deficit:",
+      "items": ["Temporal lobe damage", "Parietal lobe damage", "Patient R.V. (parietal damage)"],
+      "categories": ["Can't describe object orientation but can use mail slot", "Can name objects but can't reach/grasp them", "Impaired precision grip for grasping"],
+      "correct_mapping": {
+        "Temporal lobe damage": "Can't describe object orientation but can use mail slot",
+        "Parietal lobe damage": "Can name objects but can't reach/grasp them",
+        "Patient R.V. (parietal damage)": "Impaired precision grip for grasping"
+      },
+      "explanation": "Temporal damage impairs conscious visual perception but spares action (mail slot task preserved). Parietal damage impairs action but spares identification. Patient R.V. specifically showed impaired precision grip due to parietal damage."
+    },
+    {
+      "id": "m2_l2_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each motor area to its specialisation:",
+      "items": ["SMA", "Premotor cortex", "Primary motor cortex (M1)", "Parietal cortex"],
+      "categories": ["Self-initiated movements and sequences", "Externally cued movements", "Direct motor execution", "Sensory-motor coordination"],
+      "correct_mapping": {
+        "SMA": "Self-initiated movements and sequences",
+        "Premotor cortex": "Externally cued movements",
+        "Primary motor cortex (M1)": "Direct motor execution",
+        "Parietal cortex": "Sensory-motor coordination"
+      },
+      "explanation": "Each area has a distinct specialisation: SMA for self-initiated sequences, premotor for externally guided movements, M1 for executing motor commands, and parietal cortex for integrating sensory information to coordinate movements."
+    },
+    {
+      "id": "m2_l2_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each cerebellar damage location to its effect:",
+      "items": ["Medial vermis damage", "Lateral cerebellar damage"],
+      "categories": ["General ataxia affecting posture and gait", "Intention tremor of ipsilateral voluntary movements"],
+      "correct_mapping": {
+        "Medial vermis damage": "General ataxia affecting posture and gait",
+        "Lateral cerebellar damage": "Intention tremor of ipsilateral voluntary movements"
+      },
+      "explanation": "Medial vermis damage causes general ataxia (balance, posture, gait problems), while lateral cerebellar damage causes intention tremor affecting ipsilateral voluntary movements — the tremor worsens as the limb approaches a target."
+    },
+    {
+      "id": "m2_l2_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each learning concept to its description:",
+      "items": ["Sequence learning (SRT task)", "Adaptation learning", "Preserved in amnesia", "Impaired in BG disorders"],
+      "categories": ["Learning repeating patterns of responses", "Adjusting movements to altered conditions", "Implicit motor memory is hippocampus-independent", "Striatum required for motor skill acquisition"],
+      "correct_mapping": {
+        "Sequence learning (SRT task)": "Learning repeating patterns of responses",
+        "Adaptation learning": "Adjusting movements to altered conditions",
+        "Preserved in amnesia": "Implicit motor memory is hippocampus-independent",
+        "Impaired in BG disorders": "Striatum required for motor skill acquisition"
+      },
+      "explanation": "Motor learning includes sequence learning (SRT) and adaptation. Being preserved in amnesia shows it doesn't need the hippocampus; being impaired in BG disorders confirms the striatum's critical role in acquiring motor skills."
+    },
+    {
+      "id": "m2_l2_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each mirror neuron property to its description:",
+      "items": ["Dual activation", "Context specificity", "Location in monkeys", "Human mirror system"],
+      "categories": ["Fires for both performing and observing", "Response depends on action context", "Ventral premotor (F5) and inferior parietal", "More widely distributed than in monkeys"],
+      "correct_mapping": {
+        "Dual activation": "Fires for both performing and observing",
+        "Context specificity": "Response depends on action context",
+        "Location in monkeys": "Ventral premotor (F5) and inferior parietal",
+        "Human mirror system": "More widely distributed than in monkeys"
+      },
+      "explanation": "Mirror neurons show dual activation (perform + observe), context specificity (different responses depending on the goal), are found in F5 and inferior parietal in monkeys, and form a more widely distributed network in humans."
+    },
+    {
+      "id": "m2_l2_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each hierarchy level to its role:",
+      "items": ["Upper motor neurons (M1, premotor)", "Basal ganglia", "Cerebellum", "Lower levels (spinal cord, reflexes)"],
+      "categories": ["Command specification", "Movement initiation gating", "Error correction and refinement", "Final motor output and reflexes"],
+      "correct_mapping": {
+        "Upper motor neurons (M1, premotor)": "Command specification",
+        "Basal ganglia": "Movement initiation gating",
+        "Cerebellum": "Error correction and refinement",
+        "Lower levels (spinal cord, reflexes)": "Final motor output and reflexes"
+      },
+      "explanation": "The motor hierarchy: upper motor neurons specify commands, basal ganglia gate initiation timing, cerebellum corrects errors during execution, and lower levels (spinal cord) provide the final output pathway and basic reflexes."
+    },
+    {
+      "id": "m2_l2_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each experiment to what it demonstrated:",
+      "items": ["Bernstein's signature experiment", "Tanji's SMA experiment", "Dot motion paradigm", "Joystick 90-degree offset task"],
+      "categories": ["Higher-level motor programs across effectors", "SMA neurons encode learned sequences", "Graded sensory-motor conversion", "Putamen most active during novel learning"],
+      "correct_mapping": {
+        "Bernstein's signature experiment": "Higher-level motor programs across effectors",
+        "Tanji's SMA experiment": "SMA neurons encode learned sequences",
+        "Dot motion paradigm": "Graded sensory-motor conversion",
+        "Joystick 90-degree offset task": "Putamen most active during novel learning"
+      },
+      "explanation": "Bernstein showed motor programs are abstract (signatures preserved across effectors), Tanji showed SMA encodes sequences, the dot motion paradigm showed graded sensory-motor conversion, and the joystick task showed BG are most active during novel learning."
+    },
+    {
+      "id": "m2_l2_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each motor learning phase to its characteristics:",
+      "items": ["Early phase", "Advanced phase"],
+      "categories": ["Broad activation, effortful, cerebellum most active", "Specific M1 activation, automatic, efficient"],
+      "correct_mapping": {
+        "Early phase": "Broad activation, effortful, cerebellum most active",
+        "Advanced phase": "Specific M1 activation, automatic, efficient"
+      },
+      "explanation": "Early motor learning involves broad cortical activation with heavy cerebellar involvement (error correction during learning). Advanced phase shows efficient, specific M1 activation as the skill becomes automatic."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 24-31"]
+}

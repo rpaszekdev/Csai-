@@ -32,7 +32,8 @@ export const PROGRAM = [
                 format: "Digital",
                 weight: "40%",
                 min: "None",
-                date: "28 May",
+                date: "26 May",
+                time: "17:30 - 19:30",
               },
               {
                 type: "Resit",
@@ -176,7 +177,16 @@ export const PROGRAM = [
             icon: "\u{1F52C}",
             color: "#F5C518",
             shape: "burst",
-            exams: [],
+            exams: [
+              {
+                type: "Final",
+                format: "Digital",
+                weight: "60%",
+                min: "None",
+                date: "2 Jun",
+                time: "23:59",
+              },
+            ],
             resources: [{ label: "Project", href: "#" }],
           },
           {
@@ -192,6 +202,7 @@ export const PROGRAM = [
                 weight: "70%",
                 min: "5.5",
                 date: "3 Jun",
+                time: "23:59",
               },
               {
                 type: "Resit",
@@ -234,6 +245,7 @@ export const PROGRAM = [
                 weight: "80%",
                 min: "5.5",
                 date: "28 May",
+                time: "13:00 - 15:00",
               },
               {
                 type: "Resit",

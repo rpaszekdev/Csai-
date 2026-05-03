@@ -1,0 +1,159 @@
+{
+  "section_id": "midterm",
+  "quiz_type": "multiple_response",
+  "title": "Midterm Review - Multiple Response",
+  "questions": [
+    {
+      "id": "midterm_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following methods can establish causal relationships between brain regions and behaviour? (Select all that apply)",
+      "options": {
+        "A": "fMRI",
+        "B": "TMS",
+        "C": "EEG",
+        "D": "Lesion studies",
+        "E": "Brain stimulation"
+      },
+      "correct_answers": ["B", "D", "E"],
+      "explanation": "TMS, lesion studies, and brain stimulation can establish causal relationships because they involve disrupting or manipulating brain activity and observing the effect on behaviour. fMRI and EEG are measurement techniques that only show correlations."
+    },
+    {
+      "id": "midterm_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are true about ERPs? (Select all that apply)",
+      "options": {
+        "A": "They are obtained by averaging EEG signals across multiple trials",
+        "B": "They are time-locked to specific events",
+        "C": "They represent EEG frequency spectra",
+        "D": "They are averaged across recording sites",
+        "E": "They cancel out random noise through averaging"
+      },
+      "correct_answers": ["A", "B", "E"],
+      "explanation": "ERPs are obtained by averaging raw EEG signals across multiple trials that are time-locked to a specific event. The averaging cancels out random noise. They are NOT EEG frequency spectra and NOT averaged across recording sites."
+    },
+    {
+      "id": "midterm_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which topics are covered on the midterm exam? (Select all that apply)",
+      "options": {
+        "A": "History and Methodology (Ch. 1)",
+        "B": "Motor Control (Ch. 5)",
+        "C": "Emotional Neuroscience",
+        "D": "Memory (Ch. 8-9)",
+        "E": "Language Processing"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "The midterm covers History/Methodology (Ch. 1, Module 1), Motor Control (Ch. 5), and Memory (Ch. 8-9). Emotional neuroscience is explicitly NOT covered on the midterm."
+    },
+    {
+      "id": "midterm_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are Bloom's taxonomy levels that appear on the exam? (Select all that apply)",
+      "options": {
+        "A": "Knowledge/Recall",
+        "B": "Comprehension",
+        "C": "Application",
+        "D": "Analysis",
+        "E": "Synthesis"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The exam covers four Bloom's taxonomy levels: Knowledge/Recall, Comprehension, Application, and Analysis. The mock exam is pitched at the analysis level, which requires breaking down information and examining relationships between concepts."
+    },
+    {
+      "id": "midterm_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are key brain areas discussed in the midterm material? (Select all that apply)",
+      "options": {
+        "A": "Lateral prefrontal cortex (self-control)",
+        "B": "Hippocampus (memory)",
+        "C": "Motor cortex (movement)",
+        "D": "Amygdala (emotion)",
+        "E": "Prefrontal cortex (higher cognition)"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Key brain areas for the midterm include: lateral prefrontal cortex (self-control), hippocampus (memory), motor cortex (movement), and prefrontal cortex (higher cognition). The amygdala and emotional neuroscience are NOT covered on this midterm."
+    },
+    {
+      "id": "midterm_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are important considerations when interpreting lesion studies? (Select all that apply)",
+      "options": {
+        "A": "Brain damage is rarely clean",
+        "B": "Findings need consistency across patients",
+        "C": "Lesion studies always provide causal evidence",
+        "D": "Single case studies are sufficient for strong conclusions",
+        "E": "Lesion studies are valuable despite their limitations"
+      },
+      "correct_answers": ["A", "B", "E"],
+      "explanation": "When interpreting lesion studies: brain damage is rarely clean (affecting multiple regions/tracts), findings need consistency across multiple patients, and the method remains valuable despite its limitations. Single case studies are not sufficient alone, and while lesion studies can suggest causation, they must be interpreted with care."
+    },
+    {
+      "id": "midterm_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about the causation vs. correlation distinction are correct? (Select all that apply)",
+      "options": {
+        "A": "It is THE core exam theme",
+        "B": "fMRI provides causal evidence",
+        "C": "TMS with sham control can demonstrate causation",
+        "D": "EEG provides correlational evidence only",
+        "E": "Lesion studies can suggest causal relationships"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "The causation vs. correlation distinction is the core exam theme. fMRI only provides correlational evidence (NOT causal). TMS with sham control can demonstrate causation. EEG provides correlational evidence only. Lesion studies can suggest causal relationships (if a region is damaged and a function is lost, it implies the region is necessary for that function)."
+    },
+    {
+      "id": "midterm_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following describe cognitive neuroscience correctly? (Select all that apply)",
+      "options": {
+        "A": "It applies neuroscience methods to cognitive functions",
+        "B": "It is the intersection of cognitive science and neuroscience",
+        "C": "It focuses only on observable behaviour",
+        "D": "It uses multimethodological synthesis",
+        "E": "It was preceded by the Cognitive Revolution"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Cognitive neuroscience applies neuroscience methods to understand cognitive functions, sits at the intersection of cognitive science and neuroscience, relies on multimethodological synthesis (convergence and complementarity), and emerged after the Cognitive Revolution. It does NOT focus only on observable behaviour — that was behaviourism."
+    },
+    {
+      "id": "midterm_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are practical exam tips mentioned in the midterm review? (Select all that apply)",
+      "options": {
+        "A": "2 hours total exam time",
+        "B": "About 4-5 minutes per question",
+        "C": "Digital notepad is allowed",
+        "D": "Need 5.50+ to pass",
+        "E": "Questions are in 'best answer' format"
+      },
+      "correct_answers": ["A", "B", "C", "D", "E"],
+      "explanation": "All of these are practical exam details: the exam is 2 hours long, with approximately 4-5 minutes per question. A digital notepad is the only allowed aid. A score of 5.50 or higher is needed to pass. Questions use a 'best answer' format where you must select the most correct option."
+    },
+    {
+      "id": "midterm_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which figures are associated with the historical progression of studying the mind? (Select all that apply)",
+      "options": {
+        "A": "Helmholtz — Natural Philosophy era",
+        "B": "Skinner — Behaviourism era",
+        "C": "Chomsky — transition to Cognitive Science",
+        "D": "Wundt — Natural Philosophy era",
+        "E": "Penfield — Cognitive Neuroscience era"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Helmholtz and Wundt are associated with the Natural Philosophy era. Skinner represents Behaviourism. Chomsky's critique catalysed the transition to Cognitive Science. Penfield's cortical stimulation work was groundbreaking but predates what is typically classified as the Cognitive Neuroscience era proper."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapters 1, 5, 8-9"]
+}

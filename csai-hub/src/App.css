@@ -561,3 +561,312 @@ body {
     text-align: left;
   }
 }
+
+/* ── Event Modal ──────────────────────────────── */
+
+.event-backdrop,
+.coffee-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.event-modal,
+.coffee-modal {
+  position: relative;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 12px;
+  padding: 48px 40px 40px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.event-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.event-close:hover {
+  color: #fff;
+}
+
+.event-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.event-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.event-details {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.event-note {
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  margin-bottom: 24px;
+}
+
+.event-cta {
+  display: inline-block;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.event-cta:hover {
+  background: #1ebe5a;
+}
+
+/* ── Event Side Banner ────────────────────────── */
+
+.event-side-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 7000;
+  width: 160px;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-side-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.4);
+}
+
+.banner-img-btn {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.banner-img-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.banner-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: var(--ink);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.banner-close:hover {
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .event-side-banner {
+    width: 120px;
+    bottom: 12px;
+    left: 12px;
+  }
+}
+
+/* ── Poster Lightbox ──────────────────────────── */
+
+.poster-lightbox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px;
+  max-width: 520px;
+  width: 90%;
+  animation: modalIn 0.3s ease;
+}
+
+.poster-lightbox-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Coffee Button ────────────────────────────── */
+
+.coffee-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 8000;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.coffee-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* ── Support Modal ────────────────────────────── */
+
+.support-modal {
+  position: relative;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 14px;
+  padding: 36px 36px 32px;
+  max-width: 720px;
+  width: 92%;
+  animation: modalIn 0.3s ease;
+}
+
+.support-columns {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.support-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.support-invite {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.support-poster {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.support-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.support-heading {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.support-sub {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.support-qr-label {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 2px;
+}
+
+.support-qr {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .support-modal {
+    padding: 32px 24px 28px;
+  }
+
+  .support-heading {
+    font-size: 20px;
+  }
+
+  .support-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .support-left {
+    max-width: 260px;
+  }
+
+  .support-qr {
+    width: 160px;
+    height: 160px;
+  }
+}

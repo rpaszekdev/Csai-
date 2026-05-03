@@ -1,0 +1,112 @@
+{
+  "section_id": "m1_l1",
+  "quiz_type": "fill_in_blank",
+  "title": "History & Approaches - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m1_l1_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Cognitive neuroscience is the intersection of cognitive science and ___.",
+      "blank_sentence": "Cognitive neuroscience is the intersection of cognitive science and ___.",
+      "correct_answer": "neuroscience",
+      "acceptable_answers": ["neuroscience"],
+      "explanation": "Cognitive neuroscience sits at the intersection of cognitive science (the study of mental processes) and neuroscience (the study of the nervous system)."
+    },
+    {
+      "id": "m1_l1_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Franz Joseph Gall is associated with the pseudoscience of ___.",
+      "blank_sentence": "Franz Joseph Gall is associated with the pseudoscience of ___.",
+      "correct_answer": "phrenology",
+      "acceptable_answers": ["phrenology"],
+      "explanation": "Gall founded phrenology, which incorrectly claimed that mental faculties could be determined by reading bumps on the skull. While the method was wrong, the idea of functional localisation proved prescient."
+    },
+    {
+      "id": "m1_l1_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The ___ doctrine established that neurons are discrete individual cells, not a continuous network.",
+      "blank_sentence": "The ___ doctrine established that neurons are discrete individual cells, not a continuous network.",
+      "correct_answer": "neuron",
+      "acceptable_answers": ["neuron", "Neuron"],
+      "explanation": "The Neuron Doctrine, championed by Cajal using Golgi staining, established that the nervous system is made up of discrete individual cells (neurons) rather than a continuous reticulum."
+    },
+    {
+      "id": "m1_l1_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Behaviourists like Skinner treated the mind as a '___ ___', focusing only on observable stimulus-response relationships.",
+      "blank_sentence": "Behaviourists like Skinner treated the mind as a '___ ___', focusing only on observable stimulus-response relationships.",
+      "correct_answer": "black box",
+      "acceptable_answers": ["black box"],
+      "explanation": "Behaviourism deliberately avoided studying internal mental processes, treating the mind as an unknowable 'black box' and focusing only on measurable inputs (stimuli) and outputs (responses)."
+    },
+    {
+      "id": "m1_l1_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Penfield mapped the somatosensory and motor cortex, creating the famous distorted figure known as the ___.",
+      "blank_sentence": "Penfield mapped the somatosensory and motor cortex, creating the famous distorted figure known as the ___.",
+      "correct_answer": "homunculus",
+      "acceptable_answers": ["homunculus", "cortical homunculus"],
+      "explanation": "Penfield's homunculus is a distorted representation of the human body mapped onto the cortical surface, showing that areas like the hands and lips have disproportionately large cortical representation."
+    },
+    {
+      "id": "m1_l1_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "The ___ is a brain structure critically involved in memory formation.",
+      "blank_sentence": "The ___ is a brain structure critically involved in memory formation.",
+      "correct_answer": "hippocampus",
+      "acceptable_answers": ["hippocampus"],
+      "brain_region_id": "hippocampus",
+      "explanation": "The hippocampus is a key medial temporal lobe structure essential for the formation of new declarative memories."
+    },
+    {
+      "id": "m1_l1_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Chemical messengers released at the synapse are called ___.",
+      "blank_sentence": "Chemical messengers released at the synapse are called ___.",
+      "correct_answer": "neurotransmitters",
+      "acceptable_answers": ["neurotransmitters"],
+      "explanation": "Neurotransmitters are chemical substances released from the presynaptic terminal into the synaptic cleft, where they bind to receptors on the postsynaptic neuron to transmit signals."
+    },
+    {
+      "id": "m1_l1_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The ___ is an almond-shaped structure involved in processing emotions, particularly fear.",
+      "blank_sentence": "The ___ is an almond-shaped structure involved in processing emotions, particularly fear.",
+      "correct_answer": "amygdala",
+      "acceptable_answers": ["amygdala"],
+      "brain_region_id": "amygdala",
+      "explanation": "The amygdala is a key structure in the limbic system that plays a central role in emotional processing, especially fear conditioning and threat detection."
+    },
+    {
+      "id": "m1_l1_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "The ___ acts as a relay station, routing sensory information to the appropriate areas of the cerebral cortex.",
+      "blank_sentence": "The ___ acts as a relay station, routing sensory information to the appropriate areas of the cerebral cortex.",
+      "correct_answer": "thalamus",
+      "acceptable_answers": ["thalamus"],
+      "brain_region_id": "thalamus",
+      "explanation": "The thalamus is a central hub that receives sensory input (except smell) and relays it to the relevant cortical areas for processing."
+    },
+    {
+      "id": "m1_l1_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Brodmann and Semendeferi contributed to understanding the comparative anatomy of the ___ cortex across species.",
+      "blank_sentence": "Brodmann and Semendeferi contributed to understanding the comparative anatomy of the ___ cortex across species.",
+      "correct_answer": "prefrontal",
+      "acceptable_answers": ["prefrontal", "pre-frontal"],
+      "explanation": "Brodmann's cytoarchitectonic maps and Semendeferi's comparative studies examined how the prefrontal cortex varies across primate species, informing our understanding of human cognitive specialisation."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 1 slides", "Chapter 1"]
+}

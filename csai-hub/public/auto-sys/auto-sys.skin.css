@@ -28,3 +28,163 @@
   display: block;
   object-fit: contain;
 }
+
+/* ─── Hero quick-copy buttons (transcript / slides PDF) ───────── */
+.hero-tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.hero-tool {
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper-2);
+  border: 1.5px solid var(--ink);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.hero-tool:hover {
+  background: var(--rust);
+  color: var(--paper);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.hero-tool:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+}
+.hero-tool.copied,
+.hero-tool.active {
+  background: var(--rust);
+  color: var(--paper);
+  border-color: var(--rust);
+  box-shadow: 0 0 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+a.hero-tool-pdf {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+a.hero-tool-pdf:hover {
+  background: var(--rust);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ─── Hero-toggle panels ──────────────────────────────────────── */
+.hero-panels {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  padding: 0 36px;
+}
+
+.hero-panel {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+  margin-top: 18px;
+}
+.hero-panel[hidden] { display: none; }
+
+.hero-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--ink-faint);
+}
+.hero-panel-title {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  flex: 1;
+}
+
+.hero-panel-copy {
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 4px 12px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: all 0.1s ease;
+}
+.hero-panel-copy:hover {
+  background: var(--rust);
+  color: var(--paper);
+  border-color: var(--rust);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.hero-panel-copy:active,
+.hero-panel-copy.copied {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+  background: var(--rust);
+  color: var(--paper);
+  border-color: var(--rust);
+}
+
+.hero-panel-close {
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid var(--ink-faint);
+  color: var(--ink-mute);
+  padding: 0 10px;
+  height: 26px;
+  cursor: pointer;
+}
+.hero-panel-close:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
+.hero-panel-text {
+  margin: 0;
+  padding: 18px 22px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.hero-panel-pdf {
+  width: 100%;
+  height: 78vh;
+  border: 0;
+  background: var(--paper);
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .hero-panels { padding: 0 22px; }
+  .hero-panel-text { font-size: 12px; padding: 14px 16px; max-height: 55vh; }
+  .hero-panel-pdf { height: 70vh; }
+}

@@ -347,6 +347,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
 <script src="/shared/clarity.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-annot-scope="deep-learning:vision">
 <div class="rust-bar"></div>
@@ -405,6 +406,10 @@
   <div class="text">
     <div class="eyebrow">Section 1 · slides 1–3 · Papert 1966</div>
     <h2>The summer that wasn't enough</h2>
+    <div class="key-moves">
+      <span class="key-move">vision is fragile</span>
+      <span class="key-move">still unsolved</span>
+    </div>
     <p>In <strong>July 1966</strong>, Seymour Papert at MIT wrote a now-famous internal memo: <em>The Summer Vision Project</em>. The goal was to assign undergraduates a few weeks each, divide the problem into "figure-ground" and "object recognition" pieces, and have a working visual system by September. The proposal still lives in MIT's archive (DSpace 1721.1/6125). It was wrong by about <strong>sixty years and counting</strong>.</p>
     <p>Why is it so hard? Because <strong>pixels are not meaning</strong>. A digital image is just a grid of brightness values. Between that grid and the answer "this is a cat" sits an enormous gap: <strong>lighting</strong> changes the numbers, <strong>viewpoint</strong> changes them again, <strong>occlusion</strong> hides parts, <strong>scale</strong> blows them up or down, <strong>deformation</strong> reshapes them, and <strong>intra-class variation</strong> means two different cats share almost no pixels.</p>
     <p class="muted">The pixels on the right are pulsing through a "feature extractor". Each pulse is a filter response — the network slowly building structure out of brightness alone.</p>
@@ -414,6 +419,7 @@
       <div class="cap">slide 2 — Papert 1966 — vision is harder than expected</div>
     </div>
 
+      <div class="takeaway">Seeing is harder than playing chess</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="why-canvas">
@@ -432,6 +438,12 @@
   <div class="text">
     <div class="eyebrow">Section 2 · slides 13–15</div>
     <h2>The task zoo</h2>
+    <div class="key-moves">
+      <span class="key-move">classify</span>
+      <span class="key-move">detect</span>
+      <span class="key-move">segment</span>
+      <span class="key-move">generate</span>
+    </div>
     <p>"Computer vision" is not one task. It is a family. Each task takes the same input — an image — and asks for a different shape of output. The shape of the output decides the shape of the network and, more importantly, the shape of the loss.</p>
     <p>The classic line-up:</p>
     <ul>
@@ -449,6 +461,7 @@
       <div class="cap">slide 13 — the modern computer-vision task zoo</div>
     </div>
 
+      <div class="takeaway">Same pixels, many tasks</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="zoo-canvas">
@@ -471,6 +484,10 @@
   <div class="text">
     <div class="eyebrow">Section 3 · the workhorse · ties to lesson 4</div>
     <h2>CNNs are still the baseline</h2>
+    <div class="key-moves">
+      <span class="key-move">conv → pool → …</span>
+      <span class="key-move">still a baseline</span>
+    </div>
     <p>Before we leave the safe ground of <strong>convolutional networks</strong>, remember why they work for images. Three properties: <strong>local connectivity</strong> (a pixel cares mostly about its neighbours), <strong>weight sharing</strong> (the same edge detector is useful in every patch of the image), and <strong>hierarchy</strong> (early layers find edges, middle layers find textures, late layers find object parts).</p>
     <p>A <strong>convolution</strong> is just a small matrix — a <strong>kernel</strong> — sliding across the image. At each location it computes a weighted sum of the pixels under it. The output is a <strong>feature map</strong>: a new image where each value says how strongly that kernel responded at that location.</p>
     <p class="muted">Drag the kernel slider on the right. Watch a 3×3 filter sweep across an 8×8 image and fill in the output map. Switch between an <strong>edge detector</strong>, a <strong>blur</strong>, and a <strong>sharpen</strong> kernel — each produces a wildly different feature map from identical pixels.</p>
@@ -481,6 +498,7 @@
       <div class="cap">slide 16 — the CNN backbone — ties to lesson 4</div>
     </div>
 
+      <div class="takeaway">CNNs were the start, still strong</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="conv-canvas">
@@ -501,6 +519,9 @@
   <div class="text">
     <div class="eyebrow">Section 4 · slide 18</div>
     <h2>Self-supervised learning</h2>
+    <div class="key-moves">
+      <span class="key-move">learn from unlabeled images</span>
+    </div>
     <p>Labels are expensive. Pixels are free. <strong>Self-supervised learning</strong> exploits that asymmetry: you make up a <strong>pretext task</strong> whose answer you already know from the image itself, train on millions of unlabelled photos, then fine-tune on the small labelled set you actually care about.</p>
     <p>Three families dominate:</p>
     <ul>
@@ -515,6 +536,7 @@
       <div class="cap">slide 18 — self-supervised pretraining</div>
     </div>
 
+      <div class="takeaway">Pretext tasks unlock free data</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="ssl-canvas">
@@ -536,6 +558,10 @@
   <div class="text">
     <div class="eyebrow">Section 5 · slides 19–20 · NeurIPS 2021</div>
     <h2>MLP-Mixer — back to linear layers</h2>
+    <div class="key-moves">
+      <span class="key-move">token-mix MLP</span>
+      <span class="key-move">channel-mix MLP</span>
+    </div>
     <p>After ConvNets and Transformers, a 2021 paper from Google asked an awkward question: <em>do we actually need convolutions or attention?</em> <strong>MLP-Mixer</strong> (Tolstikhin et al., NeurIPS 2021, arxiv 2105.01601) answered "no" — at least if you have enough data.</p>
     <p>The recipe is almost embarrassingly simple. Cut the image into a grid of <strong>patches</strong>. Flatten each patch into a token. Then alternate two kinds of MLP:</p>
     <ul>
@@ -551,6 +577,7 @@
       <div class="cap">slide 19 — MLP-Mixer (NeurIPS 2021)</div>
     </div>
 
+      <div class="takeaway">No conv, no attention — just MLPs</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="mixer-canvas">
@@ -571,6 +598,10 @@
   <div class="text">
     <div class="eyebrow">Section 6 · slides 21–23 · ICML 2024</div>
     <h2>Mamba — state-space models</h2>
+    <div class="key-moves">
+      <span class="key-move">state-space</span>
+      <span class="key-move">selective scan</span>
+    </div>
     <p>Transformers are quadratic in sequence length. For long contexts — long videos, high-resolution images, multi-page documents — that quadratic cost hurts. <strong>Mamba</strong> borrows from <strong>control theory</strong>: a system has a hidden state that evolves over time as new inputs arrive.</p>
     <div class="ssl-code"><span class="cm"># Discrete state-space model</span>
 h<span class="num">_t</span> = A<span class="num">_t</span> · h<span class="num">_{t-1}</span> + B<span class="num">_t</span> · x<span class="num">_t</span>
@@ -593,6 +624,7 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
       <div class="cap">slide 21 — Mamba — selective state-space models (ICML 2024)</div>
     </div>
 
+      <div class="takeaway">RNNs reborn, with new tricks</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="mamba-canvas">
@@ -613,6 +645,10 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
   <div class="text">
     <div class="eyebrow">Section 6b · slides 22–23</div>
     <h2>Vision Mamba — and its critics</h2>
+    <div class="key-moves">
+      <span class="key-move">scan images in 2D</span>
+      <span class="key-move">linear cost</span>
+    </div>
     <p>Mamba was originally <strong>1D</strong> — built for language and audio. <strong>Vision Mamba</strong> (L. Zhu et al., ICML 2024, arxiv 2401.09417) extends the scan to <strong>2D images</strong>: split the image into patches, then sweep the state-space model across them. Patch order matters, so they scan in multiple directions and merge.</p>
     <p>The pitch from the slide:</p>
     <ul>
@@ -627,6 +663,7 @@ y<span class="num">_t</span> = C<span class="num">_t</span> · h<span class="num
       <div class="cap">slide 22 — Vision Mamba on images</div>
     </div>
 
+      <div class="takeaway">Mamba meets vision (with caveats)</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="vmamba-canvas">
@@ -2041,24 +2078,7 @@ safeScene('next', function nextScene() {
   draw();
 });
 
-// ═══════════════════════════════════════════════════════════════════
-// Quiz + progress + TOC
-// ═══════════════════════════════════════════════════════════════════
-      }
-    };
-  });
-});
-document.getElementById('score').textContent = `Score: 0 / ${totalQs}`;
 
-// Progress + TOC
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  bar.style.width = Math.min(100, Math.max(0, window.scrollY / Math.max(1, h) * 100)) + '%';
-}, { passive: true });
-const toc = document.getElementById('toc');
-document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
-toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 
 // polyfill roundRect for older browsers
 if (!CanvasRenderingContext2D.prototype.roundRect) {

@@ -251,6 +251,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
 <script src="/shared/clarity.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-annot-scope="deep-learning:cnn">
 <div class="rust-bar"></div>
@@ -309,6 +310,10 @@
   <div class="text">
     <div class="eyebrow">Section 1 · motivation</div>
     <h2>Why not just use a fully-connected net?</h2>
+    <div class="key-moves">
+      <span class="key-move">FC blows up</span>
+      <span class="key-move">spatial structure wasted</span>
+    </div>
     <p>An MLP flattens an image into a long vector, then multiplies by a giant weight matrix. For a modest <code>200×200</code> RGB image, the first layer alone needs <strong>120,000 inputs</strong> — and if the next layer has 1,000 neurons, that's <strong>120 million weights</strong>. One layer.</p>
     <p>Worse: the MLP <strong>does not know</strong> two pixels are neighbours. If the cat shifts ten pixels to the right, every weight must be relearned.</p>
     <div class="callout navy">
@@ -322,6 +327,7 @@
       <div class="cap">slide 2 — why fully-connected fails on images</div>
     </div>
 
+      <div class="takeaway">MLPs are wrong shape for images</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="why-canvas">
@@ -339,6 +345,11 @@
   <div class="text">
     <div class="eyebrow">Section 2 · the core operation</div>
     <h2>What a convolution actually does</h2>
+    <div class="key-moves">
+      <span class="key-move">kernel</span>
+      <span class="key-move">slide</span>
+      <span class="key-move">sum</span>
+    </div>
     <p>A <strong>filter</strong> (also called a <strong>kernel</strong>) is a tiny grid of numbers — often 3×3. You slide it across the image. At each position: multiply element-wise, then sum. That single number becomes one pixel in the output.</p>
     <div class="formula">out[i, j] = Σ kernel[k, l] · image[i+k, j+l]</div>
     <p>The filter <em>looks for one pattern</em>. An <strong>edge-detector</strong> filter produces big numbers where the image has an edge and small numbers in flat regions. A <strong>blur</strong> filter averages neighbours.</p>
@@ -351,6 +362,7 @@
       <div class="cap">slide 6 — the convolution operation</div>
     </div>
 
+      <div class="takeaway">A filter looks for one local pattern</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="conv-canvas">
@@ -372,6 +384,11 @@
   <div class="text">
     <div class="eyebrow">Section 3 · knobs on the operation</div>
     <h2>Kernel size, stride, padding</h2>
+    <div class="key-moves">
+      <span class="key-move">step size</span>
+      <span class="key-move">output shape</span>
+      <span class="key-move">padding</span>
+    </div>
     <p>Three choices shape the output:</p>
     <ul style="margin-left: var(--ma-5); line-height: 1.9;">
       <li><strong>Kernel size</strong> — usually <strong>odd numbers</strong> (3, 5, 7) so the filter has a natural centre. Bigger kernels capture bigger patterns but cost more.</li>
@@ -388,6 +405,7 @@
       <div class="cap">slide 9 — stride and padding</div>
     </div>
 
+      <div class="takeaway">Stride = how fast you read the image</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="stride-canvas">
@@ -407,6 +425,9 @@
   <div class="text">
     <div class="eyebrow">Section 4 · downsampling</div>
     <h2>Pooling — summarise and shrink</h2>
+    <div class="key-moves">
+      <span class="key-move">max / avg over a window</span>
+    </div>
     <p>After a convolution, we often <strong>downsample</strong>. The idea: if a pattern appears <em>somewhere</em> in a small region, we don't need to know the exact pixel. Keep the summary, throw away the precise position.</p>
     <p>The two common flavours:</p>
     <ul style="margin-left: var(--ma-5); line-height: 1.9;">
@@ -422,6 +443,7 @@
       <div class="cap">slide 12 — pooling and downsampling</div>
     </div>
 
+      <div class="takeaway">Pooling is invariance and compression</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="pool-canvas">
@@ -441,6 +463,10 @@
   <div class="text">
     <div class="eyebrow">Section 5 · the whole pipeline</div>
     <h2>Stacking it all: a CNN</h2>
+    <div class="key-moves">
+      <span class="key-move">conv → ReLU → pool</span>
+      <span class="key-move">repeat</span>
+    </div>
     <p>A typical classification CNN is a repeating pattern:</p>
     <div class="formula">conv → ReLU → pool &nbsp; ⟶ &nbsp; conv → ReLU → pool &nbsp; ⟶ &nbsp; … &nbsp; ⟶ &nbsp; flatten → dense → softmax</div>
     <p>Two things happen as you go deeper:</p>
@@ -460,6 +486,7 @@
       <div class="cap">slide 15 — stacking conv layers into a pipeline</div>
     </div>
 
+      <div class="takeaway">Depth grows the receptive field</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="stack-canvas">
@@ -477,6 +504,11 @@
   <div class="text">
     <div class="eyebrow">Section 6 · slides 17–31 · variations</div>
     <h2>Dilated · 3D · Transposed</h2>
+    <div class="key-moves">
+      <span class="key-move">dilated</span>
+      <span class="key-move">3D</span>
+      <span class="key-move">transposed</span>
+    </div>
     <p>The basic recipe has a few useful variants:</p>
     <p><strong>Dilated (atrous) convolution</strong> — keep the 3×3 filter, but spread its samples out with gaps. A <em>2-dilated</em> 3×3 filter still has 9 weights, but now covers a 5×5 area. Stack a few of them and the <strong>receptive field</strong> grows exponentially without losing resolution.</p>
     <p><strong>3D convolution</strong> — slide the kernel in a third dimension too. Used for <strong>video</strong> (time is the third axis), <strong>medical volumes</strong> (CT, MRI), and <strong>point clouds</strong>.</p>
@@ -489,6 +521,7 @@
       <div class="cap">slide 22 — VGG / GoogLeNet / Inception</div>
     </div>
 
+      <div class="takeaway">Same recipe, more axes</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="var-canvas">
@@ -508,6 +541,10 @@
   <div class="text">
     <div class="eyebrow">Section 7 · depth and identity</div>
     <h2>1×1 convolutions &amp; residual connections</h2>
+    <div class="key-moves">
+      <span class="key-move">1×1 mixes channels</span>
+      <span class="key-move">ResNet skips</span>
+    </div>
     <p>A <strong>1×1 convolution</strong> only looks at one position — but it sees <em>every channel</em> at once. It mixes channels together without touching space. Two common uses:</p>
     <ul style="margin-left: var(--ma-5); line-height: 1.9;">
       <li><strong>Channel compression</strong> — go from 256 channels down to 64 with a few 1×1 filters. Cheap way to shrink.</li>
@@ -525,6 +562,7 @@
       <div class="cap">slide 31 — 1×1 conv and residual / identity blocks</div>
     </div>
 
+      <div class="takeaway">Skip connections rescue deep nets</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="res-canvas">
@@ -543,6 +581,11 @@
   <div class="text">
     <div class="eyebrow">Section 8 · where CNNs are used</div>
     <h2>Applications</h2>
+    <div class="key-moves">
+      <span class="key-move">classification</span>
+      <span class="key-move">detection</span>
+      <span class="key-move">segmentation</span>
+    </div>
     <p>The same backbone — stacked convs producing feature maps — powers a surprising range of tasks:</p>
     <ul style="margin-left: var(--ma-5); line-height: 1.9;">
       <li><strong>Image classification</strong> — one label per image. The classic CNN job.</li>
@@ -561,6 +604,7 @@
       <div class="cap">slide 41 — where CNNs ship in the real world</div>
     </div>
 
+      <div class="takeaway">CNNs are how machines first saw</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="apps-canvas">
@@ -1881,24 +1925,6 @@ safeScene('apps', function () {
   setTimeout(resize, 50);
 });
 
-// ═══════════════════════════════════════════════════════════════════
-// Quiz logic
-// ═══════════════════════════════════════════════════════════════════
-      }
-    };
-  });
-});
-document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
-
-// Progress + TOC
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  bar.style.width = Math.min(100, Math.max(0, window.scrollY / h * 100)) + '%';
-}, { passive: true });
-const toc = document.getElementById('toc');
-document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
-toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 </script>
 <script src="/deep-learning/dl-layout.js" defer></script>
 <script src="/deep-learning/lesson-mobile.js" defer></script>

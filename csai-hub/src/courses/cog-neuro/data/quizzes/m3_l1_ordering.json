@@ -1,0 +1,99 @@
+{
+  "section_id": "m3_l1",
+  "quiz_type": "ordering",
+  "title": "Memory - Ordering",
+  "questions": [
+    {
+      "id": "m3_l1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the three stages of memory in sequence:",
+      "items": ["Retrieval", "Storage", "Encoding"],
+      "correct_order": ["Encoding", "Storage", "Retrieval"],
+      "explanation": "Memory follows three sequential stages: encoding (creating traces via synaptic changes) → storage (retaining traces via consolidation) → retrieval (accessing stored traces via cues)."
+    },
+    {
+      "id": "m3_l1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the hippocampal memory retrieval process from cue to experience:",
+      "items": ["Simultaneous cortical reactivation produces conscious memory", "Retrieval cue presented", "Hippocampal index activated", "Distributed cortical traces reactivated"],
+      "correct_order": ["Retrieval cue presented", "Hippocampal index activated", "Distributed cortical traces reactivated", "Simultaneous cortical reactivation produces conscious memory"],
+      "explanation": "Retrieval process: a cue (external or internal) → activates the hippocampal index → which simultaneously reactivates the distributed cortical traces (visual, auditory, etc.) → the coordinated reactivation produces the conscious memory experience."
+    },
+    {
+      "id": "m3_l1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the encoding process from experience to stored memory:",
+      "items": ["Hippocampal index links the cortical traces", "Different aspects stored in respective cortical areas", "Experience occurs (visual, auditory, emotional components)", "Synaptic changes create memory traces"],
+      "correct_order": ["Experience occurs (visual, auditory, emotional components)", "Synaptic changes create memory traces", "Different aspects stored in respective cortical areas", "Hippocampal index links the cortical traces"],
+      "explanation": "Encoding: an experience with multiple components occurs → synaptic changes create traces → different aspects are stored in their respective cortical areas (visual cortex, auditory cortex, etc.) → the hippocampus creates an index linking all components."
+    },
+    {
+      "id": "m3_l1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the consolidation timeline from immediate to long-term:",
+      "items": ["System consolidation (MTL to cortex, weeks to years)", "Synaptic consolidation (at synapse, minutes to hours)", "Initial encoding creates fragile trace", "Memory potentially hippocampus-independent (Standard theory)"],
+      "correct_order": ["Initial encoding creates fragile trace", "Synaptic consolidation (at synapse, minutes to hours)", "System consolidation (MTL to cortex, weeks to years)", "Memory potentially hippocampus-independent (Standard theory)"],
+      "explanation": "Consolidation timeline: encoding creates a fragile initial trace → synaptic consolidation rapidly stabilises it at the synapse level → system consolidation gradually transfers dependence from MTL to cortex over weeks to years → eventually (according to Standard theory) the memory may become hippocampus-independent."
+    },
+    {
+      "id": "m3_l1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the Subsequent Memory Paradigm steps:",
+      "items": ["Calculate SMEs (differences in encoding activity for remembered vs forgotten)", "Participants study items while brain activity is recorded", "Later memory test identifies which items were remembered vs forgotten", "Sort encoding activity by subsequent memory outcome"],
+      "correct_order": ["Participants study items while brain activity is recorded", "Later memory test identifies which items were remembered vs forgotten", "Sort encoding activity by subsequent memory outcome", "Calculate SMEs (differences in encoding activity for remembered vs forgotten)"],
+      "explanation": "The paradigm: record brain activity during encoding → test memory later to classify items as remembered or forgotten → sort the encoding activity by outcome → calculate Subsequent Memory Effects (the difference between encoding activity for remembered vs forgotten items)."
+    },
+    {
+      "id": "m3_l1_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order memory types from most context-dependent to most context-free:",
+      "items": ["Semantic memory (general facts, no context needed)", "Episodic memory (specific event with full context)", "Autobiographical memory (personal events + general self-knowledge)"],
+      "correct_order": ["Episodic memory (specific event with full context)", "Autobiographical memory (personal events + general self-knowledge)", "Semantic memory (general facts, no context needed)"],
+      "explanation": "Episodic memory is most context-dependent (specific what/where/when), autobiographical memory combines contextual episodes with decontextualised self-knowledge, and semantic memory is most context-free (general facts without episodic context)."
+    },
+    {
+      "id": "m3_l1_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the severity of memory deficits from mildest to most severe:",
+      "items": ["Bilateral MTL lesion (severe amnesia)", "Small unilateral cortical lesion (mild deficit)", "Complete bilateral hippocampal destruction (devastating)", "Moderate unilateral MTL damage (moderate amnesia)"],
+      "correct_order": ["Small unilateral cortical lesion (mild deficit)", "Moderate unilateral MTL damage (moderate amnesia)", "Bilateral MTL lesion (severe amnesia)", "Complete bilateral hippocampal destruction (devastating)"],
+      "explanation": "Memory deficit severity increases with lesion extent: small cortical lesions cause mild deficits (distributed traces), moderate unilateral MTL damage causes moderate amnesia, bilateral MTL lesions cause severe amnesia, and complete bilateral hippocampal destruction is devastating."
+    },
+    {
+      "id": "m3_l1_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the H.M. case study events chronologically:",
+      "items": ["H.M. demonstrates preserved mirror drawing (nondeclarative)", "H.M. undergoes bilateral MTL removal for epilepsy", "Severe anterograde amnesia discovered", "Conclusion: declarative and nondeclarative memory are independent systems"],
+      "correct_order": ["H.M. undergoes bilateral MTL removal for epilepsy", "Severe anterograde amnesia discovered", "H.M. demonstrates preserved mirror drawing (nondeclarative)", "Conclusion: declarative and nondeclarative memory are independent systems"],
+      "explanation": "H.M.'s story: surgery for epilepsy → severe amnesia for new declarative memories discovered → testing reveals preserved nondeclarative learning (mirror drawing) → conclusion that declarative and nondeclarative memory rely on different brain systems."
+    },
+    {
+      "id": "m3_l1_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the working memory components from most specific to most integrative:",
+      "items": ["Central executive (coordinates everything)", "Episodic buffer (integrates information)", "Phonological loop (verbal only)", "Visuospatial sketchpad (spatial only)"],
+      "correct_order": ["Phonological loop (verbal only)", "Visuospatial sketchpad (spatial only)", "Episodic buffer (integrates information)", "Central executive (coordinates everything)"],
+      "explanation": "From specific to integrative: the phonological loop handles only verbal information, the visuospatial sketchpad handles only spatial/visual information, the episodic buffer integrates across domains, and the central executive coordinates all subsystems."
+    },
+    {
+      "id": "m3_l1_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the steps of cortical reactivation during memory retrieval:",
+      "items": ["Conscious memory experience reconstructed", "Visual cortex reactivates for visual aspects", "Retrieval cue triggers hippocampal index", "Multiple cortical regions simultaneously reactivate their stored components"],
+      "correct_order": ["Retrieval cue triggers hippocampal index", "Visual cortex reactivates for visual aspects", "Multiple cortical regions simultaneously reactivate their stored components", "Conscious memory experience reconstructed"],
+      "explanation": "Cortical reactivation: retrieval cue activates hippocampal index → encoding regions begin to reactivate (e.g., visual cortex for visual components) → multiple regions simultaneously reactivate their stored components → the coordinated reactivation reconstructs the conscious memory."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 32-39"]
+}

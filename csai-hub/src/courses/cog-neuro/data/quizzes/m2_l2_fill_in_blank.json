@@ -1,0 +1,109 @@
+{
+  "section_id": "m2_l2",
+  "quiz_type": "fill_in_blank",
+  "title": "Motor Control Flipped - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m2_l2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Bernstein's experiment showed that signatures preserve distinctive features across different muscle groups, providing evidence for higher-level ___ programs.",
+      "blank_sentence": "Bernstein's experiment showed that signatures preserve distinctive features across different muscle groups, providing evidence for higher-level ___ programs.",
+      "correct_answer": "motor",
+      "acceptable_answers": ["motor"],
+      "explanation": "Bernstein's signature experiment demonstrated the existence of abstract motor programs — movement plans that specify goals and features at a high level, independent of the specific muscles used."
+    },
+    {
+      "id": "m2_l2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "The dorsal visual stream is known as the '___' pathway and guides action.",
+      "blank_sentence": "The dorsal visual stream is known as the '___' pathway and guides action.",
+      "correct_answer": "where/how",
+      "acceptable_answers": ["where/how", "how/where", "where", "how"],
+      "explanation": "Goodale and Milner's model describes the dorsal stream as the 'where/how' pathway that guides visually directed action. The ventral stream is the 'what' pathway for object identification."
+    },
+    {
+      "id": "m2_l2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "___ is the loss of ability to execute learned voluntary movements despite intact muscles and comprehension.",
+      "blank_sentence": "___ is the loss of ability to execute learned voluntary movements despite intact muscles and comprehension.",
+      "correct_answer": "Apraxia",
+      "acceptable_answers": ["Apraxia", "apraxia"],
+      "explanation": "Apraxia is a disorder where patients cannot perform learned skilled movements despite having normal muscle strength, sensation, and comprehension. It is linked to damage in the parietal and premotor cortex, typically on the language-dominant side."
+    },
+    {
+      "id": "m2_l2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Mirror neurons were originally discovered in area ___ of the ventral premotor cortex in monkeys.",
+      "blank_sentence": "Mirror neurons were originally discovered in area ___ of the ventral premotor cortex in monkeys.",
+      "correct_answer": "F5",
+      "acceptable_answers": ["F5"],
+      "explanation": "Mirror neurons were first identified in area F5 of the macaque ventral premotor cortex. They fire both when the monkey performs an action and when it observes the same action performed by another."
+    },
+    {
+      "id": "m2_l2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "In the Tanji experiment, ___ neurons encoded learned movement sequences, and pharmacological inactivation disrupted these sequences.",
+      "blank_sentence": "In the Tanji experiment, ___ neurons encoded learned movement sequences, and pharmacological inactivation disrupted these sequences.",
+      "correct_answer": "SMA",
+      "acceptable_answers": ["SMA", "supplementary motor area"],
+      "explanation": "Tanji's experiment showed that neurons in the supplementary motor area (SMA) encode specific learned movement sequences. When the SMA was pharmacologically inactivated, the ability to perform learned sequences was disrupted."
+    },
+    {
+      "id": "m2_l2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "___ ataxia is a parietal cortex disorder involving failure of visually-guided hand-eye coordination.",
+      "blank_sentence": "___ ataxia is a parietal cortex disorder involving failure of visually-guided hand-eye coordination.",
+      "correct_answer": "Optic",
+      "acceptable_answers": ["Optic", "optic"],
+      "explanation": "Optic ataxia results from parietal cortex damage and involves impaired visually-guided reaching and grasping. Patients can see objects and identify them but cannot accurately coordinate hand movements to interact with them."
+    },
+    {
+      "id": "m2_l2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "The putamen shows strongest activation when learning ___ sensorimotor mappings, such as using a joystick with a 90-degree offset.",
+      "blank_sentence": "The putamen shows strongest activation when learning ___ sensorimotor mappings, such as using a joystick with a 90-degree offset.",
+      "correct_answer": "novel",
+      "acceptable_answers": ["novel", "new"],
+      "explanation": "The basal ganglia (particularly the putamen) are most active during the learning of novel sensorimotor associations. Once the mapping is learned and becomes automatic, putamen activation decreases."
+    },
+    {
+      "id": "m2_l2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The double dissociation between dorsal and ventral streams was demonstrated by patients with ___ damage (can't describe orientation but can use mail slot) versus parietal damage.",
+      "blank_sentence": "The double dissociation between dorsal and ventral streams was demonstrated by patients with ___ damage (can't describe orientation but can use mail slot) versus parietal damage.",
+      "correct_answer": "temporal",
+      "acceptable_answers": ["temporal", "ventral"],
+      "explanation": "Temporal (ventral stream) damage causes inability to consciously describe an object's orientation, yet patients can still use the object for action (posting through a mail slot). Parietal (dorsal stream) damage shows the opposite pattern."
+    },
+    {
+      "id": "m2_l2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Apraxia is typically linked to damage on the ___-dominant side of the brain.",
+      "blank_sentence": "Apraxia is typically linked to damage on the ___-dominant side of the brain.",
+      "correct_answer": "language",
+      "acceptable_answers": ["language", "left", "Language"],
+      "explanation": "Apraxia is typically associated with damage to the language-dominant hemisphere (usually left). This may reflect shared neural resources for the sequential planning required by both language production and skilled motor actions."
+    },
+    {
+      "id": "m2_l2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "The ___ reaction time task is used to study implicit motor sequence learning, which is preserved in amnesia.",
+      "blank_sentence": "The ___ reaction time task is used to study implicit motor sequence learning, which is preserved in amnesia.",
+      "correct_answer": "serial",
+      "acceptable_answers": ["serial", "Serial", "SRT"],
+      "explanation": "The serial reaction time (SRT) task measures implicit motor sequence learning. Participants respond to stimuli appearing in a hidden repeating sequence, and their reaction times decrease, showing learning without conscious awareness. This is preserved in amnesia."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 24-31"]
+}

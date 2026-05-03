@@ -1,0 +1,2042 @@
+{
+  "m1_l1": [
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide02_img001.jpg",
+      "type": "slide",
+      "slide": 2,
+      "caption": "Slide 2"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide02_img002.jpg",
+      "type": "slide",
+      "slide": 2,
+      "caption": "Slide 2"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide03_img003.png",
+      "type": "slide",
+      "slide": 3,
+      "caption": "Slide 3"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide03_img004.png",
+      "type": "slide",
+      "slide": 3,
+      "caption": "Slide 3"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide03_img005.png",
+      "type": "slide",
+      "slide": 3,
+      "caption": "Slide 3"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide04_img006.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide06_img007.png",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide07_img008.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide10_img009.png",
+      "type": "slide",
+      "slide": 10,
+      "caption": "Slide 10"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide11_img010.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide11_img011.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide11_img012.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide12_img013.png",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide12_img014.png",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide13_img015.jpg",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide13_img016.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide14_img017.png",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide14_img018.png",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide15_img019.jpg",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide15_img020.png",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide15_img021.png",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide16_img022.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide16_img023.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide16_img024.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide17_img025.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide17_img026.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide17_img027.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide17_img028.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide19_img029.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide20_img030.jpg",
+      "type": "slide",
+      "slide": 20,
+      "caption": "Slide 20"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide21_img031.png",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide22_img032.jpg",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide22_img033.png",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide23_img034.png",
+      "type": "slide",
+      "slide": 23,
+      "caption": "Slide 23"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide25_img035.jpg",
+      "type": "slide",
+      "slide": 25,
+      "caption": "Slide 25"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide26_img036.jpg",
+      "type": "slide",
+      "slide": 26,
+      "caption": "Slide 26"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide27_img037.jpg",
+      "type": "slide",
+      "slide": 27,
+      "caption": "Slide 27"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide28_img038.jpg",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide29_img039.jpg",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide30_img040.jpg",
+      "type": "slide",
+      "slide": 30,
+      "caption": "Slide 30"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide31_img041.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide32_img042.jpg",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide33_img043.jpg",
+      "type": "slide",
+      "slide": 33,
+      "caption": "Slide 33"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide34_img044.jpg",
+      "type": "slide",
+      "slide": 34,
+      "caption": "Slide 34"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide35_img045.jpg",
+      "type": "slide",
+      "slide": 35,
+      "caption": "Slide 35"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide36_img046.jpg",
+      "type": "slide",
+      "slide": 36,
+      "caption": "Slide 36"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide37_img047.jpg",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide38_img048.jpg",
+      "type": "slide",
+      "slide": 38,
+      "caption": "Slide 38"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide39_img049.jpg",
+      "type": "slide",
+      "slide": 39,
+      "caption": "Slide 39"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide40_img050.jpg",
+      "type": "slide",
+      "slide": 40,
+      "caption": "Slide 40"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide40_img051.jpg",
+      "type": "slide",
+      "slide": 40,
+      "caption": "Slide 40"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide41_img052.jpg",
+      "type": "slide",
+      "slide": 41,
+      "caption": "Slide 41"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide41_img053.jpg",
+      "type": "slide",
+      "slide": 41,
+      "caption": "Slide 41"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide42_img054.jpg",
+      "type": "slide",
+      "slide": 42,
+      "caption": "Slide 42"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide42_img055.jpg",
+      "type": "slide",
+      "slide": 42,
+      "caption": "Slide 42"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide44_img056.jpg",
+      "type": "slide",
+      "slide": 44,
+      "caption": "Slide 44"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide45_img057.jpg",
+      "type": "slide",
+      "slide": 45,
+      "caption": "Slide 45"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide46_img058.jpg",
+      "type": "slide",
+      "slide": 46,
+      "caption": "Slide 46"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide47_img059.jpg",
+      "type": "slide",
+      "slide": 47,
+      "caption": "Slide 47"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide47_img060.jpg",
+      "type": "slide",
+      "slide": 47,
+      "caption": "Slide 47"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide49_img061.jpg",
+      "type": "slide",
+      "slide": 49,
+      "caption": "Slide 49"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide50_img062.png",
+      "type": "slide",
+      "slide": 50,
+      "caption": "Slide 50"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide51_img063.png",
+      "type": "slide",
+      "slide": 51,
+      "caption": "Slide 51"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide52_img064.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide52_img065.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide52_img066.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide52_img067.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide52_img068.jpg",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L1_images/M01_L1_slide52_img069.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    }
+  ],
+  "m1_l2": [
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide02_img001.jpg",
+      "type": "slide",
+      "slide": 2,
+      "caption": "Slide 2"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide02_img002.jpg",
+      "type": "slide",
+      "slide": 2,
+      "caption": "Slide 2"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide03_img003.png",
+      "type": "slide",
+      "slide": 3,
+      "caption": "Slide 3"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide03_img004.png",
+      "type": "slide",
+      "slide": 3,
+      "caption": "Slide 3"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide03_img005.png",
+      "type": "slide",
+      "slide": 3,
+      "caption": "Slide 3"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide04_img006.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide06_img007.png",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide07_img008.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide10_img009.png",
+      "type": "slide",
+      "slide": 10,
+      "caption": "Slide 10"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide11_img010.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide11_img011.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide11_img012.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide12_img013.png",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide12_img014.png",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide13_img015.jpg",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide13_img016.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide14_img017.png",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide14_img018.png",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide15_img019.jpg",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide15_img020.png",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide15_img021.png",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide16_img022.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide16_img023.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide16_img024.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide17_img025.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide17_img026.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide17_img027.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide17_img028.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide19_img029.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide20_img030.jpg",
+      "type": "slide",
+      "slide": 20,
+      "caption": "Slide 20"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide21_img031.png",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide22_img032.jpg",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide22_img033.png",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide23_img034.png",
+      "type": "slide",
+      "slide": 23,
+      "caption": "Slide 23"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide25_img035.jpg",
+      "type": "slide",
+      "slide": 25,
+      "caption": "Slide 25"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide26_img036.jpg",
+      "type": "slide",
+      "slide": 26,
+      "caption": "Slide 26"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide27_img037.jpg",
+      "type": "slide",
+      "slide": 27,
+      "caption": "Slide 27"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide28_img038.jpg",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide29_img039.jpg",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide30_img040.jpg",
+      "type": "slide",
+      "slide": 30,
+      "caption": "Slide 30"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide31_img041.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide32_img042.jpg",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide33_img043.jpg",
+      "type": "slide",
+      "slide": 33,
+      "caption": "Slide 33"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide34_img044.jpg",
+      "type": "slide",
+      "slide": 34,
+      "caption": "Slide 34"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide35_img045.jpg",
+      "type": "slide",
+      "slide": 35,
+      "caption": "Slide 35"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide36_img046.jpg",
+      "type": "slide",
+      "slide": 36,
+      "caption": "Slide 36"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide37_img047.jpg",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide38_img048.jpg",
+      "type": "slide",
+      "slide": 38,
+      "caption": "Slide 38"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide39_img049.jpg",
+      "type": "slide",
+      "slide": 39,
+      "caption": "Slide 39"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide40_img050.jpg",
+      "type": "slide",
+      "slide": 40,
+      "caption": "Slide 40"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide40_img051.jpg",
+      "type": "slide",
+      "slide": 40,
+      "caption": "Slide 40"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide41_img052.jpg",
+      "type": "slide",
+      "slide": 41,
+      "caption": "Slide 41"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide41_img053.jpg",
+      "type": "slide",
+      "slide": 41,
+      "caption": "Slide 41"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide42_img054.jpg",
+      "type": "slide",
+      "slide": 42,
+      "caption": "Slide 42"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide42_img055.jpg",
+      "type": "slide",
+      "slide": 42,
+      "caption": "Slide 42"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide44_img056.jpg",
+      "type": "slide",
+      "slide": 44,
+      "caption": "Slide 44"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide45_img057.jpg",
+      "type": "slide",
+      "slide": 45,
+      "caption": "Slide 45"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide46_img058.jpg",
+      "type": "slide",
+      "slide": 46,
+      "caption": "Slide 46"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide47_img059.jpg",
+      "type": "slide",
+      "slide": 47,
+      "caption": "Slide 47"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide47_img060.jpg",
+      "type": "slide",
+      "slide": 47,
+      "caption": "Slide 47"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide49_img061.jpg",
+      "type": "slide",
+      "slide": 49,
+      "caption": "Slide 49"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide50_img062.png",
+      "type": "slide",
+      "slide": 50,
+      "caption": "Slide 50"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide51_img063.png",
+      "type": "slide",
+      "slide": 51,
+      "caption": "Slide 51"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide52_img064.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide52_img065.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide52_img066.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide52_img067.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide52_img068.jpg",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    },
+    {
+      "url": "/cog-neuro/study-images/M01_L2_images/M01_L2_slide52_img069.png",
+      "type": "slide",
+      "slide": 52,
+      "caption": "Slide 52"
+    }
+  ],
+  "m2_l1": [
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide02_img001.jpg",
+      "type": "slide",
+      "slide": 2,
+      "caption": "Slide 2"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide04_img002.jpg",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide05_img003.jpg",
+      "type": "slide",
+      "slide": 5,
+      "caption": "Slide 5"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide06_img004.jpg",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide06_img005.jpg",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide07_img006.jpg",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide08_img007.jpg",
+      "type": "slide",
+      "slide": 8,
+      "caption": "Slide 8"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide09_img008.jpg",
+      "type": "slide",
+      "slide": 9,
+      "caption": "Slide 9"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide09_img009.jpg",
+      "type": "slide",
+      "slide": 9,
+      "caption": "Slide 9"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide10_img010.jpg",
+      "type": "slide",
+      "slide": 10,
+      "caption": "Slide 10"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide10_img011.jpg",
+      "type": "slide",
+      "slide": 10,
+      "caption": "Slide 10"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide11_img012.jpg",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide11_img013.jpg",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide11_img014.jpg",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide12_img015.jpg",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide13_img016.jpg",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide13_img017.jpg",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide14_img018.jpg",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide14_img019.jpg",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide15_img020.jpg",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide15_img021.jpg",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide16_img022.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide16_img023.png",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide17_img024.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide18_img025.jpg",
+      "type": "slide",
+      "slide": 18,
+      "caption": "Slide 18"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide18_img026.jpg",
+      "type": "slide",
+      "slide": 18,
+      "caption": "Slide 18"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide18_img027.jpg",
+      "type": "slide",
+      "slide": 18,
+      "caption": "Slide 18"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide19_img028.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide19_img029.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide19_img030.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide20_img031.jpg",
+      "type": "slide",
+      "slide": 20,
+      "caption": "Slide 20"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide21_img032.jpg",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide21_img033.jpg",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide22_img034.jpg",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide22_img035.jpg",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide23_img036.jpg",
+      "type": "slide",
+      "slide": 23,
+      "caption": "Slide 23"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide23_img037.jpg",
+      "type": "slide",
+      "slide": 23,
+      "caption": "Slide 23"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide24_img038.jpg",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide24_img039.jpg",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide24_img040.jpg",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide25_img041.jpg",
+      "type": "slide",
+      "slide": 25,
+      "caption": "Slide 25"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide25_img042.jpg",
+      "type": "slide",
+      "slide": 25,
+      "caption": "Slide 25"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide26_img043.jpg",
+      "type": "slide",
+      "slide": 26,
+      "caption": "Slide 26"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide27_img044.jpg",
+      "type": "slide",
+      "slide": 27,
+      "caption": "Slide 27"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide28_img045.jpg",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide28_img046.png",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide29_img047.jpg",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide29_img048.jpg",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide30_img049.jpg",
+      "type": "slide",
+      "slide": 30,
+      "caption": "Slide 30"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide30_img050.jpg",
+      "type": "slide",
+      "slide": 30,
+      "caption": "Slide 30"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide31_img051.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide31_img052.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide32_img053.jpg",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide32_img054.jpg",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide33_img055.jpg",
+      "type": "slide",
+      "slide": 33,
+      "caption": "Slide 33"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide33_img056.jpg",
+      "type": "slide",
+      "slide": 33,
+      "caption": "Slide 33"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide35_img057.png",
+      "type": "slide",
+      "slide": 35,
+      "caption": "Slide 35"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide36_img058.png",
+      "type": "slide",
+      "slide": 36,
+      "caption": "Slide 36"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide37_img059.jpg",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide37_img060.jpg",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide37_img061.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide37_img062.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide37_img063.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L1_images/M02_L1_slide37_img064.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    }
+  ],
+  "m2_l2": [
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide02_img001.jpg",
+      "type": "slide",
+      "slide": 2,
+      "caption": "Slide 2"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide04_img002.jpg",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide05_img003.jpg",
+      "type": "slide",
+      "slide": 5,
+      "caption": "Slide 5"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img004.jpg",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide06_img005.jpg",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide07_img006.jpg",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide08_img007.jpg",
+      "type": "slide",
+      "slide": 8,
+      "caption": "Slide 8"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img008.jpg",
+      "type": "slide",
+      "slide": 9,
+      "caption": "Slide 9"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide09_img009.jpg",
+      "type": "slide",
+      "slide": 9,
+      "caption": "Slide 9"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img010.jpg",
+      "type": "slide",
+      "slide": 10,
+      "caption": "Slide 10"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide10_img011.jpg",
+      "type": "slide",
+      "slide": 10,
+      "caption": "Slide 10"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img012.jpg",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img013.jpg",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide11_img014.jpg",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide12_img015.jpg",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img016.jpg",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide13_img017.jpg",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img018.jpg",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide14_img019.jpg",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img020.jpg",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide15_img021.jpg",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img022.jpg",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide16_img023.png",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide17_img024.jpg",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img025.jpg",
+      "type": "slide",
+      "slide": 18,
+      "caption": "Slide 18"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img026.jpg",
+      "type": "slide",
+      "slide": 18,
+      "caption": "Slide 18"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide18_img027.jpg",
+      "type": "slide",
+      "slide": 18,
+      "caption": "Slide 18"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img028.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img029.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide19_img030.jpg",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide20_img031.jpg",
+      "type": "slide",
+      "slide": 20,
+      "caption": "Slide 20"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img032.jpg",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide21_img033.jpg",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img034.jpg",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide22_img035.jpg",
+      "type": "slide",
+      "slide": 22,
+      "caption": "Slide 22"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img036.jpg",
+      "type": "slide",
+      "slide": 23,
+      "caption": "Slide 23"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide23_img037.jpg",
+      "type": "slide",
+      "slide": 23,
+      "caption": "Slide 23"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img038.jpg",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img039.jpg",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide24_img040.jpg",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img041.jpg",
+      "type": "slide",
+      "slide": 25,
+      "caption": "Slide 25"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide25_img042.jpg",
+      "type": "slide",
+      "slide": 25,
+      "caption": "Slide 25"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide26_img043.jpg",
+      "type": "slide",
+      "slide": 26,
+      "caption": "Slide 26"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide27_img044.jpg",
+      "type": "slide",
+      "slide": 27,
+      "caption": "Slide 27"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img045.jpg",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide28_img046.png",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img047.jpg",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide29_img048.jpg",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img049.jpg",
+      "type": "slide",
+      "slide": 30,
+      "caption": "Slide 30"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide30_img050.jpg",
+      "type": "slide",
+      "slide": 30,
+      "caption": "Slide 30"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img051.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide31_img052.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img053.jpg",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide32_img054.jpg",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide33_img055.jpg",
+      "type": "slide",
+      "slide": 33,
+      "caption": "Slide 33"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide33_img056.jpg",
+      "type": "slide",
+      "slide": 33,
+      "caption": "Slide 33"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide35_img057.png",
+      "type": "slide",
+      "slide": 35,
+      "caption": "Slide 35"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide36_img058.png",
+      "type": "slide",
+      "slide": 36,
+      "caption": "Slide 36"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img059.jpg",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img060.jpg",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img061.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img062.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img063.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    },
+    {
+      "url": "/cog-neuro/study-images/M02_L2_images/M02_L2_slide37_img064.png",
+      "type": "slide",
+      "slide": 37,
+      "caption": "Slide 37"
+    }
+  ],
+  "m3_l1": [
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img001.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img002.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img003.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img004.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img005.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img006.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img007.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img008.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img009.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img010.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide01_img011.png",
+      "type": "slide",
+      "slide": 1,
+      "caption": "Slide 1"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img012.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img013.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img014.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img015.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img016.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img017.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img018.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img019.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img020.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img021.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img022.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img023.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide04_img024.png",
+      "type": "slide",
+      "slide": 4,
+      "caption": "Slide 4"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide06_img025.png",
+      "type": "slide",
+      "slide": 6,
+      "caption": "Slide 6"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img026.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img027.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img028.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img029.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img030.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img031.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide07_img032.png",
+      "type": "slide",
+      "slide": 7,
+      "caption": "Slide 7"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide09_img033.png",
+      "type": "slide",
+      "slide": 9,
+      "caption": "Slide 9"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide11_img034.png",
+      "type": "slide",
+      "slide": 11,
+      "caption": "Slide 11"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide12_img035.png",
+      "type": "slide",
+      "slide": 12,
+      "caption": "Slide 12"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img036.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img037.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img038.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img039.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img040.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img041.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img042.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img043.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img044.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img045.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img046.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img047.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img048.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img049.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img050.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide13_img051.png",
+      "type": "slide",
+      "slide": 13,
+      "caption": "Slide 13"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide14_img052.png",
+      "type": "slide",
+      "slide": 14,
+      "caption": "Slide 14"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide15_img053.png",
+      "type": "slide",
+      "slide": 15,
+      "caption": "Slide 15"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide16_img054.png",
+      "type": "slide",
+      "slide": 16,
+      "caption": "Slide 16"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide17_img055.png",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide17_img056.png",
+      "type": "slide",
+      "slide": 17,
+      "caption": "Slide 17"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide19_img057.png",
+      "type": "slide",
+      "slide": 19,
+      "caption": "Slide 19"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide21_img058.png",
+      "type": "slide",
+      "slide": 21,
+      "caption": "Slide 21"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide24_img059.png",
+      "type": "slide",
+      "slide": 24,
+      "caption": "Slide 24"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide26_img060.png",
+      "type": "slide",
+      "slide": 26,
+      "caption": "Slide 26"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide28_img061.png",
+      "type": "slide",
+      "slide": 28,
+      "caption": "Slide 28"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide29_img062.png",
+      "type": "slide",
+      "slide": 29,
+      "caption": "Slide 29"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide31_img063.jpg",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide31_img064.png",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide31_img065.png",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide31_img066.png",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide31_img067.png",
+      "type": "slide",
+      "slide": 31,
+      "caption": "Slide 31"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide32_img068.png",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide32_img069.png",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide32_img070.png",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide32_img071.png",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    },
+    {
+      "url": "/cog-neuro/study-images/M03_L1_images/M03_L1_slide32_img072.png",
+      "type": "slide",
+      "slide": 32,
+      "caption": "Slide 32"
+    }
+  ],
+  "m3_l2": [],
+  "midterm": []
+}

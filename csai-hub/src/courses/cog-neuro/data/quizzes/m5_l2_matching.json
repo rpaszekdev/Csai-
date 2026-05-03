@@ -1,0 +1,157 @@
+{
+  "section_id": "m5_l2",
+  "quiz_type": "matching",
+  "title": "Executive Function (in depth) - Matching",
+  "questions": [
+    {
+      "id": "m5_l2_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each PFC sub-region to its core function:",
+      "items": ["dlPFC", "vlPFC", "OFC", "vmPFC", "FPC"],
+      "categories": ["Top-down cognitive control, working memory manipulation", "Inhibiting responses, working memory maintenance", "Reward-based decisions, reversal learning", "Value-based / moral decisions, social behaviour", "Most anterior; relating rules, abstract reasoning"],
+      "correct_mapping": {
+        "dlPFC": "Top-down cognitive control, working memory manipulation",
+        "vlPFC": "Inhibiting responses, working memory maintenance",
+        "OFC": "Reward-based decisions, reversal learning",
+        "vmPFC": "Value-based / moral decisions, social behaviour",
+        "FPC": "Most anterior; relating rules, abstract reasoning"
+      },
+      "explanation": "The PFC sub-region map: dlPFC handles manipulation and abstract rule application, vlPFC handles maintenance and inhibition, OFC handles reward/reversal, vmPFC handles moral/social value, FPC sits most anterior for relating rules and goal hierarchies."
+    },
+    {
+      "id": "m5_l2_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each historical figure to their contribution:",
+      "items": ["Franz Gall", "Hitzig & Fritsch", "Ferrier & Bianchi", "Brodmann"],
+      "categories": ["Phrenology — wrong, but encouraged localisation research", "Posterior frontal stimulation drives contralateral movement (1860s)", "Bilateral PFC lesions in monkeys cause loss of initiative + disorganised behaviour", "Estimated PFC ~30% of human cortex (1912)"],
+      "correct_mapping": {
+        "Franz Gall": "Phrenology — wrong, but encouraged localisation research",
+        "Hitzig & Fritsch": "Posterior frontal stimulation drives contralateral movement (1860s)",
+        "Ferrier & Bianchi": "Bilateral PFC lesions in monkeys cause loss of initiative + disorganised behaviour",
+        "Brodmann": "Estimated PFC ~30% of human cortex (1912)"
+      },
+      "explanation": "These four anchor the historical lineage: Gall (phrenology), Hitzig & Fritsch (motor cortex stimulation), Ferrier & Bianchi (bilateral PFC lesion effects in monkeys), and Brodmann (early PFC scaling estimates later refined by Semendeferi)."
+    },
+    {
+      "id": "m5_l2_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each lesion syndrome to its hallmark:",
+      "items": ["Frontal dysexecutive syndrome", "Frontal disinhibition syndrome", "Acquired sociopathy", "Environmental dependency syndrome"],
+      "categories": ["Apathy, no planning, abulia (lateral PFC)", "Manic affect, social-cue failure, profanity (ventral/medial PFC)", "Knows the rules but acts impulsively (vmPFC, Damasio)", "Imitation + utilization behaviour (Lhermitte)"],
+      "correct_mapping": {
+        "Frontal dysexecutive syndrome": "Apathy, no planning, abulia (lateral PFC)",
+        "Frontal disinhibition syndrome": "Manic affect, social-cue failure, profanity (ventral/medial PFC)",
+        "Acquired sociopathy": "Knows the rules but acts impulsively (vmPFC, Damasio)",
+        "Environmental dependency syndrome": "Imitation + utilization behaviour (Lhermitte)"
+      },
+      "explanation": "Lateral PFC damage = dysexecutive (apathy/abulia); ventral/medial damage = disinhibition; severe vmPFC damage = Damasio's acquired sociopathy; anterior/medial damage = Lhermitte's environmental dependency with imitation and utilization behaviour."
+    },
+    {
+      "id": "m5_l2_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each task to its primary inhibition demand and key region:",
+      "items": ["Oddball task", "Go/No-Go task", "Stop-signal task"],
+      "categories": ["Detect rare stimulus → P300 ERP at ~300 ms", "Inhibit prepotent response on rare 'no-go' (impaired in schizophrenia)", "Cancel an already-initiated response → right vlPFC (impaired in ADHD, Parkinson's)"],
+      "correct_mapping": {
+        "Oddball task": "Detect rare stimulus → P300 ERP at ~300 ms",
+        "Go/No-Go task": "Inhibit prepotent response on rare 'no-go' (impaired in schizophrenia)",
+        "Stop-signal task": "Cancel an already-initiated response → right vlPFC (impaired in ADHD, Parkinson's)"
+      },
+      "explanation": "Three inhibition task families: oddball produces the P300 ERP for detecting rare stimuli, go/no-go indexes prepotent inhibition (impaired in schizophrenia on no-go trials), and stop-signal requires cancelling an in-flight response — selectively impaired by right vlPFC damage, in ADHD, and in Parkinson's."
+    },
+    {
+      "id": "m5_l2_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each basal ganglia loop to its cortical input and function:",
+      "items": ["Motor loop", "Prefrontal loop", "Affective loop"],
+      "categories": ["Primary, premotor, SMA cortex — planning + executing movement", "dlPFC — planning complex behaviour, decision making, social moderation", "ACC, OFC — emotion, mood, reward"],
+      "correct_mapping": {
+        "Motor loop": "Primary, premotor, SMA cortex — planning + executing movement",
+        "Prefrontal loop": "dlPFC — planning complex behaviour, decision making, social moderation",
+        "Affective loop": "ACC, OFC — emotion, mood, reward"
+      },
+      "explanation": "Three basal ganglia loops (Figure 13.7): motor (M1/premotor/SMA → movement), prefrontal (dlPFC → decision making), and affective (ACC/OFC → emotion and reward). Damage to BG loops can produce abulia, the loss of spontaneous action."
+    },
+    {
+      "id": "m5_l2_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each researcher/team to their key contribution:",
+      "items": ["Miller & Cohen (2001)", "Wallis, Anderson & Miller (2001)", "Milner (1963)", "Goldstein & Scheerer (1941)"],
+      "categories": ["PFC = railroad switch operator metaphor", "Rule-selective neurons in lateral PFC, independent of cue/stimulus", "PFC patients show perseveration on WCST", "Frontal damage destroys the abstract attitude"],
+      "correct_mapping": {
+        "Miller & Cohen (2001)": "PFC = railroad switch operator metaphor",
+        "Wallis, Anderson & Miller (2001)": "Rule-selective neurons in lateral PFC, independent of cue/stimulus",
+        "Milner (1963)": "PFC patients show perseveration on WCST",
+        "Goldstein & Scheerer (1941)": "Frontal damage destroys the abstract attitude"
+      },
+      "explanation": "Four foundational contributions: Miller & Cohen's switch-operator metaphor, Wallis et al.'s single-unit demonstration of distributed rule coding, Milner's perseveration finding, and Goldstein & Scheerer's abstract-attitude concept (e.g., refusing 'the snow is black' as untrue)."
+    },
+    {
+      "id": "m5_l2_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each rostral-caudal gradient theory and finding:",
+      "items": ["Koechlin", "Badre & D'Esposito", "Goel & Dolan (2004)", "Smith, Keramatian & Christoff (2007)"],
+      "categories": ["Cascade — premotor → mid-dlPFC → anterior PFC by temporal abstraction", "Policy abstraction hierarchy across lateral PFC", "Deductive reasoning = vlPFC; inductive reasoning = dlPFC", "FPC activates specifically for relational integration"],
+      "correct_mapping": {
+        "Koechlin": "Cascade — premotor → mid-dlPFC → anterior PFC by temporal abstraction",
+        "Badre & D'Esposito": "Policy abstraction hierarchy across lateral PFC",
+        "Goel & Dolan (2004)": "Deductive reasoning = vlPFC; inductive reasoning = dlPFC",
+        "Smith, Keramatian & Christoff (2007)": "FPC activates specifically for relational integration"
+      },
+      "explanation": "Two rostral-caudal frameworks (Koechlin's temporal cascade vs Badre & D'Esposito's policy hierarchy), plus key reasoning dissociations (Goel & Dolan: deduction vs induction) and the FPC-relational-integration finding (Smith et al. 2007)."
+    },
+    {
+      "id": "m5_l2_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each dmPFC region to its task type (Venkatraman et al. 2009):",
+      "items": ["Posterior dmPFC", "Middle dmPFC", "Anterior dmPFC"],
+      "categories": ["Response-related control (counting Stroop)", "Decision-related control (Pochon & Cohen face attractiveness)", "Strategy-related control (deviating from baseline strategy)"],
+      "correct_mapping": {
+        "Posterior dmPFC": "Response-related control (counting Stroop)",
+        "Middle dmPFC": "Decision-related control (Pochon & Cohen face attractiveness)",
+        "Anterior dmPFC": "Strategy-related control (deviating from baseline strategy)"
+      },
+      "explanation": "Venkatraman et al. (2009) used three conflict tasks in one fMRI/EEG session and mapped them onto a posterior-to-anterior dmPFC gradient (response → decision → strategy), mirroring the dlPFC gradient. Taren et al. (2011) later confirmed topographic medial-lateral connectivity."
+    },
+    {
+      "id": "m5_l2_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each working memory study/concept to its key claim:",
+      "items": ["Funahashi, Bruce & Goldman-Rakic (1989)", "Petrides", "Harrison & Tong (2009)", "Cowan (1998)"],
+      "categories": ["Sustained, content-specific delay-period firing in dlPFC; memory fields", "vlPFC = maintenance; dlPFC = manipulation", "MVPA decoded remembered orientation from V1-V4", "Single LTM store with activated reps; ~4-item focus of executive control"],
+      "correct_mapping": {
+        "Funahashi, Bruce & Goldman-Rakic (1989)": "Sustained, content-specific delay-period firing in dlPFC; memory fields",
+        "Petrides": "vlPFC = maintenance; dlPFC = manipulation",
+        "Harrison & Tong (2009)": "MVPA decoded remembered orientation from V1-V4",
+        "Cowan (1998)": "Single LTM store with activated reps; ~4-item focus of executive control"
+      },
+      "explanation": "The four pillars of WM neuroscience covered: Funahashi et al. (delay-period firing), Petrides (maintenance/manipulation dissociation), Harrison & Tong (sensory cortex stores content), and Cowan's model (favoured at neural level over Baddeley)."
+    },
+    {
+      "id": "m5_l2_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each ACC/conflict finding to its source:",
+      "items": ["Posner & Petersen (1990)", "Kerns et al. (2004)", "Fellows & Farah (2005)", "Behrens et al. (2007)"],
+      "categories": ["Three control systems: alertness, orienting, detection of events needing extra resources", "ACC trial N → dlPFC trial N+1 (conflict-then-control)", "Dorsal ACC lesion patients have a normal Stroop effect", "dmPFC tracks expectation mismatch / volatility — a learning signal"],
+      "correct_mapping": {
+        "Posner & Petersen (1990)": "Three control systems: alertness, orienting, detection of events needing extra resources",
+        "Kerns et al. (2004)": "ACC trial N → dlPFC trial N+1 (conflict-then-control)",
+        "Fellows & Farah (2005)": "Dorsal ACC lesion patients have a normal Stroop effect",
+        "Behrens et al. (2007)": "dmPFC tracks expectation mismatch / volatility — a learning signal"
+      },
+      "explanation": "The arc of ACC theory: Posner & Petersen set up the three control systems (with conflict monitoring tied to ACC), Kerns et al. provided supporting fMRI evidence for the conflict-then-control hand-off, Fellows & Farah challenged it via lesion data, and Behrens et al. reframed dmPFC as a volatility/learning signal."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 2"]
+}

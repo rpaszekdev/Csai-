@@ -1,0 +1,153 @@
+{
+  "section_id": "midterm",
+  "quiz_type": "matching",
+  "title": "Midterm Review - Matching",
+  "questions": [
+    {
+      "id": "midterm_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each research method with the type of evidence it provides.",
+      "items": ["fMRI", "TMS", "EEG", "Lesion studies"],
+      "categories": ["Correlation (spatial precision)", "Causation (stimulation/disruption)", "Correlation (temporal precision)", "Causation (natural disruption)"],
+      "correct_mapping": {
+        "fMRI": "Correlation (spatial precision)",
+        "TMS": "Causation (stimulation/disruption)",
+        "EEG": "Correlation (temporal precision)",
+        "Lesion studies": "Causation (natural disruption)"
+      },
+      "explanation": "fMRI provides correlational evidence with good spatial resolution. TMS provides causal evidence by stimulating/disrupting specific regions. EEG provides correlational evidence with excellent temporal resolution. Lesion studies provide causal evidence through natural brain damage (if region X is damaged and function Y is lost, X may be necessary for Y)."
+    },
+    {
+      "id": "midterm_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each historical era with its key characteristic.",
+      "items": ["Natural Philosophy", "Behaviourism", "Cognitive Science", "Cognitive Neuroscience"],
+      "categories": ["Philosophy + experimental methods", "Mind as black box, stimulus-response", "Internal mental representations", "Neuroscience methods for cognition"],
+      "correct_mapping": {
+        "Natural Philosophy": "Philosophy + experimental methods",
+        "Behaviourism": "Mind as black box, stimulus-response",
+        "Cognitive Science": "Internal mental representations",
+        "Cognitive Neuroscience": "Neuroscience methods for cognition"
+      },
+      "explanation": "Natural Philosophy combined philosophical inquiry with emerging experimental methods. Behaviourism treated the mind as a black box and focused on stimulus-response. Cognitive Science studied internal mental representations. Cognitive Neuroscience applies neuroscience methods to understand cognitive functions."
+    },
+    {
+      "id": "midterm_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each brain area with its primary associated function.",
+      "items": ["Lateral prefrontal cortex", "Hippocampus", "Motor cortex", "Prefrontal cortex"],
+      "categories": ["Self-control", "Memory formation", "Movement execution", "Higher cognition"],
+      "correct_mapping": {
+        "Lateral prefrontal cortex": "Self-control",
+        "Hippocampus": "Memory formation",
+        "Motor cortex": "Movement execution",
+        "Prefrontal cortex": "Higher cognition"
+      },
+      "explanation": "The lateral prefrontal cortex is associated with self-control and inhibition. The hippocampus is critical for memory formation (especially episodic). The motor cortex controls voluntary movement execution. The prefrontal cortex broadly supports higher cognition including planning and decision-making."
+    },
+    {
+      "id": "midterm_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each definition with the correct discipline.",
+      "items": ["Information processing in the mind", "Structure and function of the nervous system", "Applying neuroscience methods to cognitive functions"],
+      "categories": ["Cognitive science", "Neuroscience", "Cognitive neuroscience"],
+      "correct_mapping": {
+        "Information processing in the mind": "Cognitive science",
+        "Structure and function of the nervous system": "Neuroscience",
+        "Applying neuroscience methods to cognitive functions": "Cognitive neuroscience"
+      },
+      "explanation": "Cognitive science studies information processing in the mind. Neuroscience studies the structure and function of the nervous system. Cognitive neuroscience bridges both by applying neuroscience methods to understand cognitive functions."
+    },
+    {
+      "id": "midterm_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each methodological principle with its definition.",
+      "items": ["Convergence", "Complementarity"],
+      "categories": ["Multiple methods leading to the same conclusion strengthens evidence", "Different methods reveal different aspects of the same phenomenon"],
+      "correct_mapping": {
+        "Convergence": "Multiple methods leading to the same conclusion strengthens evidence",
+        "Complementarity": "Different methods reveal different aspects of the same phenomenon"
+      },
+      "explanation": "Convergence occurs when multiple different methods all point to the same conclusion, making the evidence much stronger. Complementarity recognises that different methods (e.g., fMRI for spatial, EEG for temporal resolution) reveal different but complementary aspects of brain function."
+    },
+    {
+      "id": "midterm_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each Bloom's taxonomy level with an example exam question type.",
+      "items": ["Knowledge/Recall", "Comprehension", "Application", "Analysis"],
+      "categories": ["Define what an ERP is", "Explain why averaging improves signal-to-noise ratio", "Predict what happens when hippocampus is damaged", "Compare why TMS is stronger evidence than fMRI for causation"],
+      "correct_mapping": {
+        "Knowledge/Recall": "Define what an ERP is",
+        "Comprehension": "Explain why averaging improves signal-to-noise ratio",
+        "Application": "Predict what happens when hippocampus is damaged",
+        "Analysis": "Compare why TMS is stronger evidence than fMRI for causation"
+      },
+      "explanation": "Knowledge/Recall involves remembering facts. Comprehension means understanding and explaining concepts. Application involves using knowledge in new situations. Analysis requires breaking down and comparing elements — this is the level of the mock exam."
+    },
+    {
+      "id": "midterm_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each key figure with their contribution.",
+      "items": ["Chomsky", "Skinner", "Helmholtz", "Penfield"],
+      "categories": ["Critique of behaviourism, language acquisition", "Stimulus-response behaviourism", "Nerve impulse speed measurement", "Cortical mapping via stimulation"],
+      "correct_mapping": {
+        "Chomsky": "Critique of behaviourism, language acquisition",
+        "Skinner": "Stimulus-response behaviourism",
+        "Helmholtz": "Nerve impulse speed measurement",
+        "Penfield": "Cortical mapping via stimulation"
+      },
+      "explanation": "Chomsky's 1959 critique of Skinner sparked the Cognitive Revolution. Skinner championed behaviourist stimulus-response psychology. Helmholtz measured the speed of nerve impulses experimentally. Penfield mapped the cortex through electrical stimulation during surgery."
+    },
+    {
+      "id": "midterm_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each memory type with its brain basis.",
+      "items": ["Episodic memory", "Semantic memory", "Nondeclarative memory"],
+      "categories": ["Hippocampus-dependent", "Distributed cortical storage", "Basal ganglia, cerebellum, sensory cortices"],
+      "correct_mapping": {
+        "Episodic memory": "Hippocampus-dependent",
+        "Semantic memory": "Distributed cortical storage",
+        "Nondeclarative memory": "Basal ganglia, cerebellum, sensory cortices"
+      },
+      "explanation": "Episodic memory formation depends on the hippocampus. Semantic memory is distributed across cortical areas (especially left anterior temporal cortex). Nondeclarative memory types (skill learning, priming, conditioning) depend on various structures including basal ganglia, cerebellum, and sensory cortices."
+    },
+    {
+      "id": "midterm_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each neuroimaging limitation with the affected method.",
+      "items": ["Inverse problem", "Low temporal resolution", "Cannot establish causation"],
+      "categories": ["EEG and MEG", "fMRI", "All measurement-only techniques"],
+      "correct_mapping": {
+        "Inverse problem": "EEG and MEG",
+        "Low temporal resolution": "fMRI",
+        "Cannot establish causation": "All measurement-only techniques"
+      },
+      "explanation": "The inverse problem (cannot uniquely determine neural sources from surface recordings) applies to both EEG and MEG. fMRI has low temporal resolution due to the sluggish hemodynamic response. The inability to establish causation is a limitation of all measurement-only techniques (fMRI, EEG, MEG)."
+    },
+    {
+      "id": "midterm_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each exam strategy concept with its description.",
+      "items": ["Best answer format", "Analysis level", "Causation vs correlation"],
+      "categories": ["Select the most correct option among plausible choices", "Breaking down and comparing concepts/methods", "The core distinguishing theme of the entire exam"],
+      "correct_mapping": {
+        "Best answer format": "Select the most correct option among plausible choices",
+        "Analysis level": "Breaking down and comparing concepts/methods",
+        "Causation vs correlation": "The core distinguishing theme of the entire exam"
+      },
+      "explanation": "The exam uses a 'best answer' format where multiple options may seem reasonable but one is the most correct. Questions are pitched at analysis level (Bloom's taxonomy), requiring you to break down and compare concepts. The causation vs. correlation distinction is THE core theme running throughout the entire exam."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapters 1, 5, 8-9"]
+}

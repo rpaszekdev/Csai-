@@ -1,0 +1,159 @@
+{
+  "section_id": "m5_l1",
+  "quiz_type": "multiple_response",
+  "title": "Executive Function - Multiple Response",
+  "questions": [
+    {
+      "id": "m5_l1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are PFC subdivisions discussed in the lecture? (Select all that apply)",
+      "options": {
+        "A": "Dorsolateral PFC (DLPFC)",
+        "B": "Ventrolateral PFC (VLPFC)",
+        "C": "Orbitofrontal cortex / vmPFC",
+        "D": "Frontopolar cortex (FPC)",
+        "E": "Primary visual cortex (V1)"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "DLPFC, VLPFC, vmPFC/OFC, dmPFC/ACC, and frontopolar cortex are all PFC subdivisions covered in the lecture. V1 is primary visual cortex in the occipital lobe and is not part of the PFC."
+    },
+    {
+      "id": "m5_l1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which regions form the wider executive function network beyond the PFC? (Select all that apply)",
+      "options": {
+        "A": "Posterior parietal cortex",
+        "B": "Basal ganglia",
+        "C": "Thalamus (mediodorsal nucleus)",
+        "D": "Anterior cingulate cortex",
+        "E": "Cerebellar tonsil"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Executive function arises from a distributed network: posterior parietal cortex (LIP encodes expected value), basal ganglia, mediodorsal thalamus (the relay), and ACC. There is no single homunculus — the network is the unit of analysis."
+    },
+    {
+      "id": "m5_l1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which are the four forms of inhibition listed in the book? (Select all that apply)",
+      "options": {
+        "A": "Halting behaviours that are well-trained or previously valid",
+        "B": "Preventing irrelevant information from interfering with ongoing processing",
+        "C": "Restraining socially inappropriate behaviour",
+        "D": "Removing irrelevant information from working memory",
+        "E": "Encoding new long-term semantic memories"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The four forms of inhibition are halting well-trained behaviours, preventing interference, restraining socially inappropriate behaviour, and clearing irrelevant items from working memory. Encoding semantic memories is not an inhibition function."
+    },
+    {
+      "id": "m5_l1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which statements about Phineas Gage are correct? (Select all that apply)",
+      "options": {
+        "A": "A tamping iron drove through his orbitofrontal and medial PFC",
+        "B": "He is the classic case of disinhibition syndrome",
+        "C": "The traditional 'reckless and profane' narrative is now considered exaggerated",
+        "D": "He stayed employed for years and travelled to South America",
+        "E": "He had bilateral medial temporal lobe removal"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Gage's tamping iron damaged orbitofrontal and medial PFC, making him the classic disinhibition case. The lecture noted the 'transformed personality' narrative is exaggerated — he stayed employed and travelled. He did not have MTL removal; that was patient H.M."
+    },
+    {
+      "id": "m5_l1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which findings come from Wallis et al. (2001)? (Select all that apply)",
+      "options": {
+        "A": "Single-unit recordings in lateral PFC of monkeys",
+        "B": "Neurons selective for the rule itself, independent of cue (juice vs tone)",
+        "C": "Neurons selective independent of the specific stimuli (Object A vs B)",
+        "D": "Used a matching / non-matching task with cues signalling the rule",
+        "E": "Demonstrated that the hippocampus encodes abstract rules"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Wallis et al. (2001) recorded single units in monkey lateral PFC during a matching/non-matching task and found rule-selective neurons whose firing was independent of the cue used and the specific stimuli. The hippocampus was not the focus — the PFC encodes abstract rules."
+    },
+    {
+      "id": "m5_l1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which features describe the frontal dysexecutive syndrome (lateral PFC damage)? (Select all that apply)",
+      "options": {
+        "A": "Don't start anything new; can't plan into the future",
+        "B": "Apathy, quietness, blunted affect",
+        "C": "Constant unproductive movement and abnormal humor",
+        "D": "Confabulate implausible explanations for life problems",
+        "E": "Impaired on response selection and working memory tasks"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Dysexecutive syndrome (lateral PFC) features failure to initiate, apathy, confabulation, and impaired response selection / working memory. Constant unproductive movement and abnormal humor characterise the disinhibition syndrome (ventromedial PFC)."
+    },
+    {
+      "id": "m5_l1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about the Stroop task are correct? (Select all that apply)",
+      "options": {
+        "A": "Congruent: word 'BLUE' printed in blue ink — no conflict",
+        "B": "Incongruent: word 'YELLOW' printed in green ink — strong conflict",
+        "C": "Neutral: a non-colour word like 'TRUCK' printed in red — partial control",
+        "D": "ACC activates more on incongruent trials",
+        "E": "High ACC activity on trial N predicts lower DLPFC activity on trial N+1"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The Stroop task contrasts congruent, incongruent, and neutral trials, with ACC showing greater activation on incongruent trials. High ACC activity on trial N actually predicts HIGHER (not lower) DLPFC activity on trial N+1, reflecting downstream control adjustment."
+    },
+    {
+      "id": "m5_l1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which statements correctly describe the ERN (error-related negativity)? (Select all that apply)",
+      "options": {
+        "A": "A negative-polarity scalp potential measured with EEG",
+        "B": "Originally localised to the ACC",
+        "C": "Has both response-ERN and feedback-ERN variants",
+        "D": "Amplitude correlates with slower response time on the next trial",
+        "E": "Is generated primarily in the cerebellum"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The ERN is a negative scalp potential, originally localised to ACC, with response and feedback variants. Larger ERN predicts slower next-trial RT, reflecting engagement of control. It is not generated in the cerebellum."
+    },
+    {
+      "id": "m5_l1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which are points of agreement OR disagreement between the Baddeley and Cowan working memory models? (Select all that apply)",
+      "options": {
+        "A": "Both posit a central executive",
+        "B": "Baddeley uses modality-specific buffers; Cowan does not",
+        "C": "Cowan treats working memory as activated long-term memory illuminated by an attentional spotlight",
+        "D": "Baddeley includes a phonological loop, visuospatial sketchpad, and episodic buffer",
+        "E": "Both deny that working memory is capacity-limited"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Both models include a central executive — that consensus is the takeaway. Baddeley uses modular buffers (phonological loop, sketchpad, episodic buffer); Cowan posits unitary activated LTM with an attentional spotlight. Both agree working memory IS capacity-limited."
+    },
+    {
+      "id": "m5_l1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which findings come from the cutting-edge 7T fMRI meditation paper? (Select all that apply)",
+      "options": {
+        "A": "Reduced DMN activity during meditation versus passive rest",
+        "B": "Posterior cingulate cortex and medial PFC are core DMN nodes that deactivate",
+        "C": "Thalamic nuclei and occipital cortex also deactivate, suggesting perceptual decoupling",
+        "D": "Effects survive after controlling for alertness and effort covariates",
+        "E": "Multiple regions showed strong increases in activity vs rest"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The 7T study found DMN deactivation (PCC + mPFC core nodes), thalamic and occipital deactivation suggesting perceptual decoupling, and effects robust to covariate control. Critically, NO brain region showed increased activity vs rest."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 1"]
+}

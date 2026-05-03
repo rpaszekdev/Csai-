@@ -1,0 +1,29 @@
+# RAG Dependencies
+chromadb>=0.4.0,<1.0.0
+sentence-transformers>=2.2.0,<4.0.0
+pypdf>=3.0.0,<5.0.0
+langchain>=0.1.0,<1.0.0
+langchain-community>=0.0.10,<1.0.0
+
+# PDF Image Extraction
+PyMuPDF>=1.23.0,<2.0.0
+
+# Data Visualization
+matplotlib>=3.5.0,<4.0.0
+seaborn>=0.12.0,<1.0.0
+scipy>=1.10.0,<2.0.0
+
+# Image Processing (for Tkinter display)
+pillow>=10.0.0,<12.0.0
+
+# Web Framework
+flask>=3.0.0,<4.0.0
+flask-cors>=4.0.0,<5.0.0
+flask-limiter>=3.0.0,<4.0.0
+
+# AI/Vision (for image relevance filtering)
+anthropic>=0.75.0,<1.0.0
+
+# Utilities
+rich>=13.0.0,<14.0.0
+python-dotenv>=1.0.0,<2.0.0

@@ -1,0 +1,149 @@
+{
+  "section_id": "m4_l2",
+  "quiz_type": "multiple_choice",
+  "title": "Emotion (in depth) - Multiple Choice",
+  "questions": [
+    {
+      "id": "m4_l2_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "Which set is the commonly agreed-upon list of basic emotions discussed in the lecture?",
+      "options": {
+        "A": "Anger, sadness, happiness, fear, disgust, surprise",
+        "B": "Pride, shame, guilt, envy, joy, contempt",
+        "C": "Love, hate, fear, joy, surprise, anticipation",
+        "D": "Fear, anger, sadness, jealousy, pride, hope"
+      },
+      "correct_answer": "A",
+      "explanation": "The lecture identifies the six basic emotions as anger, sadness, happiness, fear, disgust, and surprise — innate, pan-cultural, evolutionarily old, and shared with other animals. Notably most are negative in valence, reflecting evolutionary priority on threat detection."
+    },
+    {
+      "id": "m4_l2_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In LeDoux's two-pathway model of fear, what is the function of the rapid subcortical 'low road'?",
+      "options": {
+        "A": "Detailed perceptual analysis of the stimulus through cortex",
+        "B": "Crude, pre-conscious thalamus-to-amygdala signaling that triggers fight/flight/freeze/fawn",
+        "C": "Long-term consolidation of fear memories in the hippocampus",
+        "D": "Top-down cortical inhibition of the amygdala via vmPFC"
+      },
+      "correct_answer": "B",
+      "explanation": "The low road is a fast, pre-conscious thalamus-to-amygdala route bypassing cortex; it primes the amygdala for immediate defensive responses. The slower cortical 'high road' adds detailed analysis and conscious awareness."
+    },
+    {
+      "id": "m4_l2_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What does the double dissociation between patient S.M. and patient W.C. demonstrate?",
+      "options": {
+        "A": "The amygdala produces declarative knowledge while the hippocampus generates SCRs",
+        "B": "The amygdala underwrites the conditioned fear response while the hippocampus binds fear to context",
+        "C": "Both structures are equally necessary for cued and contextual fear",
+        "D": "The hippocampus is the seat of basic emotion, contradicting modern theories"
+      },
+      "correct_answer": "B",
+      "explanation": "S.M. (bilateral amygdala damage) had absent conditioned SCR but intact declarative knowledge of the CS-US link; W.C. (bilateral hippocampal damage) showed the opposite. This double dissociation proves the amygdala drives the fear response while the hippocampus binds it to its spatial/episodic context."
+    },
+    {
+      "id": "m4_l2_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Which statement best describes fear extinction?",
+      "options": {
+        "A": "The original CS-US association is erased and replaced by safety learning",
+        "B": "The amygdala loses its ability to fire forever after repeated unreinforced trials",
+        "C": "New competing associations form that override the original CS-US link, which can resurface",
+        "D": "The hippocampus rewrites the conditioning episode to remove fear"
+      },
+      "correct_answer": "C",
+      "explanation": "Extinction does NOT erase the original CS-US association — new competing connections are formed that override the old ones. Under stress or context change the original fear can resurface (relapse), which is why extinction-based therapies require ongoing maintenance."
+    },
+    {
+      "id": "m4_l2_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "In Damasio's somatic marker hypothesis, what is the 'as-if loop'?",
+      "options": {
+        "A": "The vmPFC triggers an actual visceral response via the amygdala",
+        "B": "The vmPFC simulates a somatosensory pattern in the insula and somatosensory cortex without the body responding",
+        "C": "The amygdala bypasses the vmPFC to send body signals directly to cortex",
+        "D": "Mirror neurons replay the body state of another person"
+      },
+      "correct_answer": "B",
+      "explanation": "The as-if loop is an indirect somatic marker route — the vmPFC simulates the somatosensory pattern in the insula and somatosensory cortex without needing the body to physically respond. This contrasts with the direct 'body loop' which produces a real visceral response."
+    },
+    {
+      "id": "m4_l2_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "In the Iowa Gambling Task, what distinguishes healthy controls from vmPFC patients after roughly 80 trials?",
+      "options": {
+        "A": "Controls show anticipatory SCR before risky picks and learn to prefer decks C/D, while vmPFC patients lack anticipatory SCR and keep choosing A/B",
+        "B": "Controls keep choosing A/B because the rewards are larger; vmPFC patients learn faster",
+        "C": "Both groups show identical anticipatory SCR but differ in verbal report",
+        "D": "vmPFC patients show stronger anticipatory SCR than controls"
+      },
+      "correct_answer": "A",
+      "explanation": "Healthy controls develop anticipatory SCRs before reaching for the disadvantageous A/B decks and shift to advantageous C/D decks. vmPFC patients show no anticipatory SCR and persist with the bad A/B decks — direct evidence that somatic markers flag risk before consequences are present."
+    },
+    {
+      "id": "m4_l2_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Why does the propranolol experiment confirm McGaugh's memory modulation hypothesis?",
+      "options": {
+        "A": "Propranolol enhances declarative memory for emotional events",
+        "B": "Propranolol blocks β-adrenergic receptors, eliminating the emotional memory enhancement and mimicking amygdala lesion effects",
+        "C": "Propranolol blocks cortisol production in the adrenal cortex",
+        "D": "Propranolol activates the HPA axis, boosting consolidation"
+      },
+      "correct_answer": "B",
+      "explanation": "Propranolol is a β-adrenergic blocker. In the audio-visual narrative study, propranolol participants and amygdala-lesion patients both lost the emotional memory boost while neutral memory was unaffected — confirming β-adrenergic action mediates the amygdala's memory-enhancing role."
+    },
+    {
+      "id": "m4_l2_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Where do mirror neurons most prominently fire in the macaque, and what do they encode?",
+      "options": {
+        "A": "Primary motor cortex; raw kinematic movement",
+        "B": "Premotor area F5; the goal of an action rather than the raw movement",
+        "C": "Superior temporal sulcus; biological motion perception only",
+        "D": "Primary somatosensory cortex; bodily sensations"
+      },
+      "correct_answer": "B",
+      "explanation": "Rizzolatti's mirror neurons are concentrated in premotor area F5 (with parietal area PFG) and encode the goal of an action — they fire most densely after the food is on the tray, not during the raw movement. STS feeds biological-motion info to the system but does NOT itself mirror."
+    },
+    {
+      "id": "m4_l2_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "At roughly what age do typically developing children pass false-belief tasks like Sally-Anne?",
+      "options": {
+        "A": "Age 2",
+        "B": "Age 3",
+        "C": "Age 4",
+        "D": "Age 7"
+      },
+      "correct_answer": "C",
+      "explanation": "Children reliably pass explicit false-belief tasks (Sally-Anne location-change and unexpected-content) around age 4. Before this age they typically have implicit ToM but lack the meta-representation needed for explicit reasoning about others' false beliefs."
+    },
+    {
+      "id": "m4_l2_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "In Ochsner et al.'s reappraisal study, which network was MORE active in the 'decrease' condition compared to the passive 'look' condition?",
+      "options": {
+        "A": "The amygdala and insula",
+        "B": "The dorsal frontoparietal attentional network plus dorsal ACC and vlPFC",
+        "C": "The ventral visual stream including fusiform gyrus",
+        "D": "The hippocampus and entorhinal cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "Reappraisal recruits the dorsal frontoparietal attentional network (frontal eye fields, intraparietal sulcus) along with dorsal ACC and vlPFC to apply control signals. These regions then dampen amygdala and insula activity, reducing self-reported negative affect."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 2"]
+}

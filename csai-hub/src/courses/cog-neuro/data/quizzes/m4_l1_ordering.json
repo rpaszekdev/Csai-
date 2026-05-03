@@ -1,0 +1,99 @@
+{
+  "section_id": "m4_l1",
+  "quiz_type": "ordering",
+  "title": "Emotion and Social Cognition - Ordering",
+  "questions": [
+    {
+      "id": "m4_l1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the James-Lange sequence from stimulus to emotion:",
+      "items": ["Feeling (the emotion)", "Bodily reaction (sweating, heart rate)", "Stimulus (e.g. bear)"],
+      "correct_order": ["Stimulus (e.g. bear)", "Bodily reaction (sweating, heart rate)", "Feeling (the emotion)"],
+      "explanation": "James-Lange theory: stimulus → bodily reaction → feeling. The perception of the bodily reaction causes the emotion ('we are afraid because we run from the bear')."
+    },
+    {
+      "id": "m4_l1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the fear-conditioning acquisition pathway from sensory input to fear output:",
+      "items": ["Hypothalamus / brainstem → autonomic + behavioural fear output", "Amygdala (lateral → basal → central)", "Thalamus (fast subcortical relay)", "Sensory input"],
+      "correct_order": ["Sensory input", "Thalamus (fast subcortical relay)", "Amygdala (lateral → basal → central)", "Hypothalamus / brainstem → autonomic + behavioural fear output"],
+      "explanation": "LeDoux's 'low road': sensory input → thalamus → amygdala (lateral → basal → central) → hypothalamus / brainstem → autonomic + behavioural fear output. Cortical inputs provide a slower 'high road.'"
+    },
+    {
+      "id": "m4_l1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the historical theories of emotion in roughly chronological order:",
+      "items": ["Schachter-Singer two-factor", "Papez circuit / MacLean limbic system", "James-Lange", "Cannon-Bard (diencephalic)"],
+      "correct_order": ["James-Lange", "Cannon-Bard (diencephalic)", "Papez circuit / MacLean limbic system", "Schachter-Singer two-factor"],
+      "explanation": "Roughly chronological progression: James-Lange (late 1800s, peripheral feedback) → Cannon-Bard (1920s, thalamic) → Papez/MacLean (1930s-40s, limbic system) → Schachter-Singer (1960s, two-factor / cognitive labelling)."
+    },
+    {
+      "id": "m4_l1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the Iowa Gambling Task experimental sequence:",
+      "items": ["Compare anticipatory SCRs and choice patterns across groups", "Participants make choices across ~100 trials with monetary rewards/losses", "Four decks set up: A & B disadvantageous, C & D advantageous", "Healthy controls develop anticipatory SCRs and shift to C & D"],
+      "correct_order": ["Four decks set up: A & B disadvantageous, C & D advantageous", "Participants make choices across ~100 trials with monetary rewards/losses", "Healthy controls develop anticipatory SCRs and shift to C & D", "Compare anticipatory SCRs and choice patterns across groups"],
+      "explanation": "Iowa Gambling Task: four decks (A & B disadvantageous, C & D advantageous) → trials with rewards/losses → controls shift to C & D and produce anticipatory SCRs → group comparison reveals vmPFC patients fail to develop anticipatory SCRs and keep choosing A & B."
+    },
+    {
+      "id": "m4_l1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the somatic marker mechanism from event to decision:",
+      "items": ["Somatic marker constrains decision options ('good' or 'bad')", "Body loop or 'as-if' loop reactivates somatic pattern", "Similar situation re-arises", "vmPFC indexes link between factual knowledge and bioregulatory state"],
+      "correct_order": ["vmPFC indexes link between factual knowledge and bioregulatory state", "Similar situation re-arises", "Body loop or 'as-if' loop reactivates somatic pattern", "Somatic marker constrains decision options ('good' or 'bad')"],
+      "explanation": "Damasio's somatic marker hypothesis: vmPFC binds factual knowledge to bodily states → similar situation arises → direct body loop or 'as-if' loop (insula, somatosensory cortex) reactivates the pattern → somatic marker acts as a heuristic constraining decision options."
+    },
+    {
+      "id": "m4_l1_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the McGaugh memory modulation pathway from emotional event to enhanced memory:",
+      "items": ["Direct amygdala projections (fast) + hormone release: (nor)epinephrine, cortisol (slow)", "Enhanced consolidation in MTL, dlPFC, vlPFC", "Emotionally arousing event occurs", "Amygdala activation"],
+      "correct_order": ["Emotionally arousing event occurs", "Amygdala activation", "Direct amygdala projections (fast) + hormone release: (nor)epinephrine, cortisol (slow)", "Enhanced consolidation in MTL, dlPFC, vlPFC"],
+      "explanation": "McGaugh's memory modulation hypothesis: emotional event → amygdala activation → fast direct projections + slow hormonal route (epinephrine, cortisol; β-adrenergic effects blocked by propranolol) → enhanced post-encoding consolidation in MTL and PFC."
+    },
+    {
+      "id": "m4_l1_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the cognitive reappraisal cascade across the three levels of emotion:",
+      "items": ["Reduced amygdala activity vs passive viewing", "Reduced subjective negative-affect rating", "Reappraisal goal: actively decrease negative affect from a picture", "Increased dlPFC / parietal frontoparietal activity"],
+      "correct_order": ["Reappraisal goal: actively decrease negative affect from a picture", "Increased dlPFC / parietal frontoparietal activity", "Reduced amygdala activity vs passive viewing", "Reduced subjective negative-affect rating"],
+      "explanation": "Cognitive reappraisal: set the goal → engage frontoparietal control (dlPFC, parietal) → downregulate amygdala → reduce subjective negative affect. The strategy operates at all three levels of emotion (neural, autonomic, subjective)."
+    },
+    {
+      "id": "m4_l1_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the typical developmental milestones for theory of mind:",
+      "items": ["Metarepresentation ('I know my friend thinks the food is at A when it's really at B')", "Pass false-belief tasks (~age 4–5)", "Newborn shows basic emotion expression", "Fail explicit false-belief tasks (younger children)"],
+      "correct_order": ["Newborn shows basic emotion expression", "Fail explicit false-belief tasks (younger children)", "Pass false-belief tasks (~age 4–5)", "Metarepresentation ('I know my friend thinks the food is at A when it's really at B')"],
+      "explanation": "ToM development: babies express basic emotions innately → younger children fail explicit false-belief tasks → around age 4-5 they pass them → metarepresentation (representing another's representations) is a higher-level skill that requires further cognitive maturation."
+    },
+    {
+      "id": "m4_l1_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the cutting-edge retroactive emotional memory paper paradigm:",
+      "items": ["Surprise associative memory test for original face-object pairs", "Initial learning: neutral face-object pair associations", "Emotional learning: faces paired with screaming or neutral voice (object no longer shown)", "Memory enhanced for faces paired with screaming voice; reactivation in hippocampus + neocortex"],
+      "correct_order": ["Initial learning: neutral face-object pair associations", "Emotional learning: faces paired with screaming or neutral voice (object no longer shown)", "Surprise associative memory test for original face-object pairs", "Memory enhanced for faces paired with screaming voice; reactivation in hippocampus + neocortex"],
+      "explanation": "Paradigm: initial neutral face-object learning → emotional learning pairing each face with screaming or neutral voice (no objects) → surprise memory test → memory is retroactively enhanced for screaming-paired faces via amygdala-modulated hippocampal-neocortical reactivation."
+    },
+    {
+      "id": "m4_l1_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the chimpanzee theory-of-mind paradigm steps:",
+      "items": ["If subordinate takes dominant's perspective: preferentially go for the cache the dominant cannot see", "Subordinate observes which cache is occluded from the dominant", "Two food caches placed; dominant can see one but not the other", "Result: chimps reliably prefer the occluded cache → evidence for rudimentary mentalizing"],
+      "correct_order": ["Two food caches placed; dominant can see one but not the other", "Subordinate observes which cache is occluded from the dominant", "If subordinate takes dominant's perspective: preferentially go for the cache the dominant cannot see", "Result: chimps reliably prefer the occluded cache → evidence for rudimentary mentalizing"],
+      "explanation": "Chimp ToM paradigm: two caches with one occluded from the dominant → subordinate observes the occlusion → if it can take the dominant's perspective, it goes for the hidden cache (exploiting dominant's ignorance) → chimps reliably do this, evidence for at least implicit mentalizing."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 1"]
+}

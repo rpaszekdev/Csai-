@@ -1,0 +1,99 @@
+{
+  "section_id": "midterm",
+  "quiz_type": "ordering",
+  "title": "Midterm Review - Ordering",
+  "questions": [
+    {
+      "id": "midterm_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Put the historical eras of studying the mind in chronological order.",
+      "items": ["Cognitive Neuroscience", "Behaviourism", "Natural Philosophy", "Cognitive Science"],
+      "correct_order": ["Natural Philosophy", "Behaviourism", "Cognitive Science", "Cognitive Neuroscience"],
+      "explanation": "The progression is: Natural Philosophy (Helmholtz, Wundt, James) → Behaviourism (Skinner, Watson — focus on stimulus-response) → Cognitive Science (triggered by Chomsky's 1959 critique) → Cognitive Neuroscience (combining neuroscience methods with cognitive questions)."
+    },
+    {
+      "id": "midterm_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the Bloom's taxonomy levels from simplest to most complex.",
+      "items": ["Analysis", "Application", "Knowledge/Recall", "Comprehension"],
+      "correct_order": ["Knowledge/Recall", "Comprehension", "Application", "Analysis"],
+      "explanation": "Bloom's taxonomy progresses from simple to complex: Knowledge/Recall (remembering facts) → Comprehension (understanding concepts) → Application (using knowledge in new contexts) → Analysis (breaking down and comparing elements). The exam targets the analysis level."
+    },
+    {
+      "id": "midterm_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the strength of causal evidence from weakest to strongest.",
+      "items": ["TMS with sham control", "fMRI activation", "Correlation between brain volume and behaviour", "Lesion study with consistent findings across patients"],
+      "correct_order": ["Correlation between brain volume and behaviour", "fMRI activation", "Lesion study with consistent findings across patients", "TMS with sham control"],
+      "explanation": "From weakest to strongest causal evidence: simple correlations (brain volume-behaviour) → fMRI activation (correlational but controlled) → consistent lesion findings (suggests necessity but not clean manipulation) → TMS with sham control (direct manipulation with proper control, strongest causal evidence)."
+    },
+    {
+      "id": "midterm_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of a well-designed TMS experiment.",
+      "items": ["Compare behaviour between real and sham conditions", "Select target brain region based on prior evidence", "Apply real TMS and sham TMS to participants", "Conclude whether the region is causally involved"],
+      "correct_order": ["Select target brain region based on prior evidence", "Apply real TMS and sham TMS to participants", "Compare behaviour between real and sham conditions", "Conclude whether the region is causally involved"],
+      "explanation": "A proper TMS experiment: (1) selects a target region based on prior correlational evidence, (2) applies both real TMS and sham TMS (placebo control), (3) compares behavioural performance between conditions, (4) draws causal conclusions about the region's involvement."
+    },
+    {
+      "id": "midterm_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the ERP process from raw data to interpretable signal.",
+      "items": ["Interpretable ERP waveform", "Record raw EEG during multiple trials", "Time-lock signals to stimulus onset", "Average across trials to cancel noise"],
+      "correct_order": ["Record raw EEG during multiple trials", "Time-lock signals to stimulus onset", "Average across trials to cancel noise", "Interpretable ERP waveform"],
+      "explanation": "The ERP process: (1) record raw EEG across many trials, (2) time-lock the signals to the event of interest (stimulus onset, response, etc.), (3) average across all trials to cancel out random noise, (4) the result is an interpretable ERP waveform showing the consistent neural response."
+    },
+    {
+      "id": "midterm_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the memory processes from initial experience to long-term storage.",
+      "items": ["System consolidation (MTL → cortex)", "Retrieval via hippocampal index", "Encoding (cortical traces + HC indices)", "Synaptic consolidation (~90 min)"],
+      "correct_order": ["Encoding (cortical traces + HC indices)", "Synaptic consolidation (~90 min)", "System consolidation (MTL → cortex)", "Retrieval via hippocampal index"],
+      "explanation": "From experience to long-term storage: encoding creates initial cortical traces with hippocampal indices, synaptic consolidation rapidly strengthens these connections (~90 min), system consolidation gradually transfers representations to cortex (~28 days), and retrieval uses hippocampal indices to reactivate cortical traces."
+    },
+    {
+      "id": "midterm_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the multimethodological approach from initial finding to strong conclusion.",
+      "items": ["Strong causal conclusion via convergence", "Correlational finding (e.g., fMRI)", "Confirm with manipulation (e.g., TMS)", "Replicate with complementary method (e.g., EEG)"],
+      "correct_order": ["Correlational finding (e.g., fMRI)", "Replicate with complementary method (e.g., EEG)", "Confirm with manipulation (e.g., TMS)", "Strong causal conclusion via convergence"],
+      "explanation": "Building strong evidence: (1) initial correlational finding (fMRI showing activation), (2) replicate with a complementary method (EEG for temporal precision), (3) confirm with a causal manipulation (TMS showing the region is necessary), (4) convergent evidence from multiple methods yields a strong conclusion."
+    },
+    {
+      "id": "midterm_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the key transitions in the history of cognitive neuroscience.",
+      "items": ["fMRI enables non-invasive brain imaging", "Wundt establishes first psychology lab", "Chomsky critiques Skinner (1959)", "Skinner promotes behaviourism"],
+      "correct_order": ["Wundt establishes first psychology lab", "Skinner promotes behaviourism", "Chomsky critiques Skinner (1959)", "fMRI enables non-invasive brain imaging"],
+      "explanation": "Key transitions: Wundt's lab (1879, Natural Philosophy era) → Skinner's behaviourism (early-mid 20th century) → Chomsky's critique (1959, sparking Cognitive Revolution) → fMRI development (1990s, enabling modern cognitive neuroscience)."
+    },
+    {
+      "id": "midterm_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the exam preparation priorities from most to least important based on the review.",
+      "items": ["Memorise specific dates and names", "Understand causation vs. correlation deeply", "Practice analysis-level reasoning", "Know key brain areas and their functions"],
+      "correct_order": ["Understand causation vs. correlation deeply", "Practice analysis-level reasoning", "Know key brain areas and their functions", "Memorise specific dates and names"],
+      "explanation": "The review emphasises: (1) causation vs. correlation is THE core theme, (2) questions are at analysis level requiring reasoning not just recall, (3) knowing brain area-function associations is important, (4) memorising specific dates/names is least important since the exam tests understanding over factual recall."
+    },
+    {
+      "id": "midterm_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order these claims about brain-behaviour relationships from weakest to strongest evidence.",
+      "items": ["TMS disruption of region X impairs task Y performance", "Region X is larger in people who are better at task Y", "Region X shows increased BOLD signal during task Y", "Patients with damage to region X cannot perform task Y"],
+      "correct_order": ["Region X is larger in people who are better at task Y", "Region X shows increased BOLD signal during task Y", "Patients with damage to region X cannot perform task Y", "TMS disruption of region X impairs task Y performance"],
+      "explanation": "From weakest to strongest: structural correlation (volume-ability) → functional correlation (fMRI activation during task) → lesion evidence (damage impairs function, suggests necessity) → TMS with controlled disruption (direct causal manipulation, strongest experimental evidence)."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapters 1, 5, 8-9"]
+}

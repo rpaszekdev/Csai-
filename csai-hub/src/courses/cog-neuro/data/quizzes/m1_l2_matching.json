@@ -1,0 +1,161 @@
+{
+  "section_id": "m1_l2",
+  "quiz_type": "matching",
+  "title": "Methodology - Matching",
+  "questions": [
+    {
+      "id": "m1_l2_match_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each neuroimaging method to its primary signal source.",
+      "items": ["EEG", "fMRI", "PET", "MEG", "fNIRS"],
+      "categories": ["Electrical field potentials at scalp", "Blood oxygenation (BOLD)", "Radioactive isotope decay", "Magnetic fields from neural currents", "Near-infrared light absorption by blood"],
+      "correct_mapping": {
+        "EEG": "Electrical field potentials at scalp",
+        "fMRI": "Blood oxygenation (BOLD)",
+        "PET": "Radioactive isotope decay",
+        "MEG": "Magnetic fields from neural currents",
+        "fNIRS": "Near-infrared light absorption by blood"
+      },
+      "explanation": "Each method detects a different physical signal: EEG measures electrical potentials; fMRI detects blood oxygenation changes; PET tracks radioactive tracers; MEG measures magnetic fields; fNIRS uses infrared light to detect blood changes."
+    },
+    {
+      "id": "m1_l2_match_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each method to its key strength.",
+      "items": ["EEG", "fMRI", "TMS", "Optogenetics", "DTI"],
+      "categories": ["Millisecond temporal resolution", "Millimetre spatial resolution", "Tests causal necessity non-invasively", "Cell-type specific control", "Maps white matter tracts"],
+      "correct_mapping": {
+        "EEG": "Millisecond temporal resolution",
+        "fMRI": "Millimetre spatial resolution",
+        "TMS": "Tests causal necessity non-invasively",
+        "Optogenetics": "Cell-type specific control",
+        "DTI": "Maps white matter tracts"
+      },
+      "explanation": "EEG excels in temporal resolution; fMRI in spatial resolution; TMS provides causal evidence non-invasively; optogenetics offers unparalleled cell-type specificity; DTI reveals structural connectivity via white matter tract mapping."
+    },
+    {
+      "id": "m1_l2_match_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each method to its main limitation.",
+      "items": ["EEG", "fMRI", "Brain lesions", "TMS", "PET"],
+      "categories": ["Poor spatial resolution (signal smearing)", "Slow hemodynamic response (seconds)", "Variable damage and diaschisis", "Limited to superficial cortex (~1.5 cm)", "Requires radioactive isotopes"],
+      "correct_mapping": {
+        "EEG": "Poor spatial resolution (signal smearing)",
+        "fMRI": "Slow hemodynamic response (seconds)",
+        "Brain lesions": "Variable damage and diaschisis",
+        "TMS": "Limited to superficial cortex (~1.5 cm)",
+        "PET": "Requires radioactive isotopes"
+      },
+      "explanation": "Every method has key limitations: EEG signals smear through tissue; fMRI is limited by the slow BOLD response; lesions are imprecise with remote effects; TMS only reaches shallow cortex; PET requires radiation exposure."
+    },
+    {
+      "id": "m1_l2_match_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each tDCS polarity to its effect.",
+      "items": ["Anodal tDCS", "Cathodal tDCS"],
+      "categories": ["Increases cortical excitability", "Decreases cortical excitability"],
+      "correct_mapping": {
+        "Anodal tDCS": "Increases cortical excitability",
+        "Cathodal tDCS": "Decreases cortical excitability"
+      },
+      "explanation": "Anodal (positive electrode) stimulation depolarises neurons, increasing excitability. Cathodal (negative electrode) stimulation hyperpolarises neurons, decreasing excitability. This bidirectional control is a key feature of tDCS."
+    },
+    {
+      "id": "m1_l2_match_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each fMRI design type to its description.",
+      "items": ["Block design", "Event-related design", "MVPA", "Functional connectivity"],
+      "categories": ["Compares sustained task periods", "Analyses responses to individual trials", "Pattern classification across voxels", "Correlations between brain regions over time"],
+      "correct_mapping": {
+        "Block design": "Compares sustained task periods",
+        "Event-related design": "Analyses responses to individual trials",
+        "MVPA": "Pattern classification across voxels",
+        "Functional connectivity": "Correlations between brain regions over time"
+      },
+      "explanation": "Block designs compare extended periods of different tasks; event-related designs isolate responses to individual events; MVPA decodes information from multi-voxel patterns; functional connectivity examines temporal correlations between regions."
+    },
+    {
+      "id": "m1_l2_match_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each BOLD response timing to its description.",
+      "items": ["1-2 seconds", "5-6 seconds", "12-15 seconds"],
+      "categories": ["Onset of BOLD response", "Peak of BOLD response", "Return to baseline"],
+      "correct_mapping": {
+        "1-2 seconds": "Onset of BOLD response",
+        "5-6 seconds": "Peak of BOLD response",
+        "12-15 seconds": "Return to baseline"
+      },
+      "explanation": "The hemodynamic response function follows a predictable time course: onset at 1-2 sec after neural activity, peak amplitude at 5-6 sec, and return to baseline at approximately 12-15 sec."
+    },
+    {
+      "id": "m1_l2_match_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each method category to its examples.",
+      "items": ["Perturbation methods", "Neuromonitoring methods", "Connectivity methods", "Structural imaging"],
+      "categories": ["Lesions, TMS, tDCS, optogenetics", "EEG, fMRI, PET, MEG", "PPI, DCM, SEM", "DTI"],
+      "correct_mapping": {
+        "Perturbation methods": "Lesions, TMS, tDCS, optogenetics",
+        "Neuromonitoring methods": "EEG, fMRI, PET, MEG",
+        "Connectivity methods": "PPI, DCM, SEM",
+        "Structural imaging": "DTI"
+      },
+      "explanation": "Perturbation methods disrupt function (lesions, TMS, tDCS, optogenetics); neuromonitoring observes activity (EEG, fMRI, PET, MEG); connectivity methods analyse relationships between regions (PPI, DCM, SEM); DTI maps structural white matter connections."
+    },
+    {
+      "id": "m1_l2_match_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each type of evidence to its strength of inference.",
+      "items": ["Simple association", "Single dissociation", "Double dissociation", "Convergence across methods"],
+      "categories": ["Region activates during task (weakest)", "Damage to A impairs X but not Y", "A impairs X not Y AND B impairs Y not X (strongest for independence)", "Multiple methods agree (strongest for overall conclusion)"],
+      "correct_mapping": {
+        "Simple association": "Region activates during task (weakest)",
+        "Single dissociation": "Damage to A impairs X but not Y",
+        "Double dissociation": "A impairs X not Y AND B impairs Y not X (strongest for independence)",
+        "Convergence across methods": "Multiple methods agree (strongest for overall conclusion)"
+      },
+      "explanation": "Inferential strength increases from simple associations (just activation) through single dissociations to double dissociations (strongest evidence for functional independence). Convergence across methods strengthens any individual finding."
+    },
+    {
+      "id": "m1_l2_match_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each method to whether it provides causal or correlational evidence.",
+      "items": ["Brain lesions", "fMRI", "TMS", "EEG", "Optogenetics", "MEG"],
+      "categories": ["Causal", "Correlational"],
+      "correct_mapping": {
+        "Brain lesions": "Causal",
+        "fMRI": "Correlational",
+        "TMS": "Causal",
+        "EEG": "Correlational",
+        "Optogenetics": "Causal",
+        "MEG": "Correlational"
+      },
+      "explanation": "Perturbation methods (lesions, TMS, optogenetics) provide causal evidence by disrupting function and observing consequences. Neuromonitoring methods (fMRI, EEG, MEG) observe activity during tasks and provide correlational evidence."
+    },
+    {
+      "id": "m1_l2_match_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each method to its approximate spatial and temporal resolution category.",
+      "items": ["EEG", "fMRI", "PET", "MEG"],
+      "categories": ["High temporal, low spatial", "Low temporal, high spatial", "Low temporal, low spatial", "High temporal, moderate spatial"],
+      "correct_mapping": {
+        "EEG": "High temporal, low spatial",
+        "fMRI": "Low temporal, high spatial",
+        "PET": "Low temporal, low spatial",
+        "MEG": "High temporal, moderate spatial"
+      },
+      "explanation": "EEG has millisecond temporal but poor spatial resolution; fMRI has millimetre spatial but seconds-level temporal resolution; PET has poor resolution on both dimensions; MEG has millisecond temporal and somewhat better spatial resolution than EEG (magnetic fields not distorted by tissue)."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 2 slides", "Chapter 2"]
+}

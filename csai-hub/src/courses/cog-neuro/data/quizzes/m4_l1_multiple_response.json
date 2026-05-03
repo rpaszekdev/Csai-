@@ -1,0 +1,159 @@
+{
+  "section_id": "m4_l1",
+  "quiz_type": "multiple_response",
+  "title": "Emotion and Social Cognition - Multiple Response",
+  "questions": [
+    {
+      "id": "m4_l1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are the six canonical basic emotions? (Select all that apply)",
+      "options": {
+        "A": "Anger",
+        "B": "Sadness",
+        "C": "Pride",
+        "D": "Disgust",
+        "E": "Surprise"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The six basic emotions are anger, sadness, happiness, fear, disgust, and surprise. Pride is a complex emotion — learned and culturally shaped — not part of the canonical basic set."
+    },
+    {
+      "id": "m4_l1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which are autonomic indices of fear used in fear-conditioning research? (Select all that apply)",
+      "options": {
+        "A": "Skin conductance response (SCR)",
+        "B": "Fear-potentiated startle",
+        "C": "Pupil dilation",
+        "D": "EEG alpha-wave power",
+        "E": "fMRI BOLD in V1"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Fear output is measured by autonomic indices: SCR (sympathetic sweating), fear-potentiated startle (exaggerated eyeblink during fear), and pupil dilation. EEG alpha and V1 BOLD are not autonomic indices and are not the standard outputs in this paradigm."
+    },
+    {
+      "id": "m4_l1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which subnuclei of the amygdala are involved in fear conditioning? (Select all that apply)",
+      "options": {
+        "A": "Lateral",
+        "B": "Basal",
+        "C": "Central",
+        "D": "Intercalated cells",
+        "E": "Dentate"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Amygdala subnuclei involved in fear conditioning include the lateral, basal, central, and intercalated cells. The intercalated cells are particularly important for vmPFC-driven inhibition during extinction. The dentate gyrus is part of the hippocampus, not the amygdala."
+    },
+    {
+      "id": "m4_l1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "According to the somatic marker hypothesis, which loops can re-evoke somatic patterns during decision making? (Select all that apply)",
+      "options": {
+        "A": "Direct body loop — actual visceral response is re-evoked",
+        "B": "'As-if' loop — pattern simulated in insula and somatosensory cortex without overt body changes",
+        "C": "Hippocampal-only loop with no cortical involvement",
+        "D": "Pure dopaminergic reward loop in the striatum",
+        "E": "Cerebellar motor loop"
+      },
+      "correct_answers": ["A", "B"],
+      "explanation": "The somatic marker hypothesis posits two routes: a direct body loop (actual visceral response re-evoked) and an 'as-if' loop (somatic pattern simulated in the insula and somatosensory cortex without overt body changes). Both act as heuristics constraining decision options."
+    },
+    {
+      "id": "m4_l1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which statements about cognitive reappraisal are correct? (Select all that apply)",
+      "options": {
+        "A": "It increases activity in the dorsal frontoparietal attentional network",
+        "B": "It reduces amygdala activity vs passive viewing",
+        "C": "It reduces subjective negative-affect ratings",
+        "D": "It works only at the subjective level, not on neural or autonomic activity",
+        "E": "It is an antecedent strategy that prevents the elicitor from appearing"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Cognitive reappraisal increases dlPFC and parietal activity, reduces amygdala activity, and reduces subjective negative affect — operating at all three levels of emotion. It is NOT antecedent (that's situation selection); it reinterprets the elicitor after it appears."
+    },
+    {
+      "id": "m4_l1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which regions are part of the human mentalizing network? (Select all that apply)",
+      "options": {
+        "A": "Medial PFC (especially paracingulate cortex)",
+        "B": "Temporoparietal junction (TPJ)",
+        "C": "Superior temporal sulcus (STS)",
+        "D": "Precuneus / posterior cingulate",
+        "E": "Primary motor cortex (M1)"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The mentalizing network includes mPFC (paracingulate, enduring traits), TPJ (transient context-based inferences), STS (biological motion, gaze), temporal pole, inferior parietal cortex, and precuneus/PCC. M1 is part of the mirror system, not the mentalizing network."
+    },
+    {
+      "id": "m4_l1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the amygdala's role in perception? (Select all that apply)",
+      "options": {
+        "A": "It receives input from late stages of the ventral visual stream",
+        "B": "It provides feedback to all stages including V1",
+        "C": "It biases perception toward emotional content even when stimuli are masked",
+        "D": "It has direct connections to dorsal frontoparietal attention regions",
+        "E": "Patient S.M. shows enhanced fusiform activity for fearful faces"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The amygdala receives ventral-stream input but feeds back to all stages including V1, biasing perception toward emotional content (e.g. masked fearful faces). It has NO direct connection to dorsal frontoparietal attention regions, and amygdala-damaged patient S.M. shows NO fear-specific enhancement of fusiform activity."
+    },
+    {
+      "id": "m4_l1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which statements about Decety's 4-component model of empathy are correct? (Select all that apply)",
+      "options": {
+        "A": "Emotion sharing involves somatosensory cortex, insula, ACC, and limbic system",
+        "B": "Self-awareness involves inferior parietal cortex, PFC, and insula",
+        "C": "Mental flexibility involves medial and dorsolateral PFC",
+        "D": "Emotion regulation involves ACC, lateral and ventromedial PFC",
+        "E": "Empathy maps onto a single brain region"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Decety's model has four components — emotion sharing, self-awareness, mental flexibility, and emotion regulation — each with distinct neural substrates. Empathy is NOT one region but a distributed network, and PFC appears in three of the four components."
+    },
+    {
+      "id": "m4_l1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which appraisal criteria are part of component-process theories of emotion? (Select all that apply)",
+      "options": {
+        "A": "Novelty",
+        "B": "Pleasantness",
+        "C": "Goal significance (urgency, conduciveness)",
+        "D": "Coping potential (agency, control, power)",
+        "E": "Sleep stage at encoding"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Component-process theories treat emotions as fluid combinations of appraisals across novelty, pleasantness, goal significance (urgency, conduciveness), and coping potential (agency, control). Sleep stage is unrelated. The prof noted this framework is not well-studied with neuroscience methods."
+    },
+    {
+      "id": "m4_l1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which findings emerged from the cutting-edge retroactive emotional memory paper? (Select all that apply)",
+      "options": {
+        "A": "Memory for initial face-object associations is enhanced when the face was later paired with a screaming voice",
+        "B": "Mechanism involves potentiated trial-specific reactivation in hippocampus and stimulus-relevant neocortex",
+        "C": "Hippocampal-neocortical coupling is modulated by the amygdala during emotional learning",
+        "D": "The mechanism is implicated in PTSD and phobias (maladaptive generalization)",
+        "E": "Emotional learning erases the original neutral memory traces"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The paper showed retroactive enhancement of memory for previously neutral face-object pairs when the face later became aversive, mediated by amygdala-modulated hippocampal-neocortical reactivation and reorganization. This same mechanism is implicated in maladaptive generalization in PTSD and phobias — it does not erase prior traces, it strengthens them."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 4 Lecture 1"]
+}

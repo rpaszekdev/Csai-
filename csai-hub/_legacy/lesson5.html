@@ -1,0 +1,1684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Regularization — Lesson 5</title>
+<style>
+  :root {
+    --washi-white: #F5F2EB;
+    --washi-cream: #EDE8DC;
+    --washi-warm:  #E5DFD0;
+    --sumi-deep:   #1A1A1A;
+    --sumi-medium: #3D3D3D;
+    --sumi-light:  #6B6B6B;
+    --ai:        #264E70;
+    --beni:      #9B4E4E;
+    --moegi:     #5B7553;
+    --kitsune:   #B87333;
+    --murasaki:  #4A3B5C;
+    --ma-1: 4px;  --ma-2: 8px;  --ma-3: 12px; --ma-4: 16px;
+    --ma-5: 24px; --ma-6: 32px; --ma-7: 48px; --ma-8: 64px; --ma-9: 96px;
+    --text-whisper: 11px; --text-body: 14px; --text-lead: 16px;
+    --text-subhead: 18px; --text-head: 24px; --text-display: 32px; --text-hero: 48px;
+    --radius-subtle: 2px; --radius-gentle: 4px; --radius-soft: 8px;
+    --shadow-whisper: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-breath:  0 2px 4px rgba(0,0,0,0.06);
+    --shadow-float:   0 4px 12px rgba(0,0,0,0.08);
+    --duration-swift: 200ms;
+    --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", "Iowan Old Style", "Palatino", Georgia, serif;
+    background: var(--washi-white); color: var(--sumi-deep); line-height: 1.75;
+  }
+  a { color: var(--ai); text-decoration: none; border-bottom: 1px solid rgba(38,78,112,0.25); transition: border-color var(--duration-swift) var(--ease-gentle); }
+  a:hover { border-bottom-color: var(--ai); }
+  code { font-family: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.88em; background: var(--washi-cream); color: var(--murasaki);
+    padding: 0.15em 0.4em; border-radius: var(--radius-subtle); }
+  h1, h2, h3, h4 { font-family: inherit; color: var(--sumi-deep); line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: var(--text-hero); font-weight: 300; margin-bottom: var(--ma-5); }
+  h2 { font-size: var(--text-display); font-weight: 400; margin-bottom: var(--ma-4); }
+  h3 { font-size: var(--text-head); font-weight: 500; margin-bottom: var(--ma-3); color: var(--sumi-medium); }
+  p  { font-size: var(--text-lead); line-height: 1.8; }
+  em { font-style: italic; }
+  strong { font-weight: 700; color: var(--ai); }
+
+  header.topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 242, 235, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: var(--ma-3) var(--ma-6);
+    display: flex; align-items: center; gap: var(--ma-5);
+  }
+  .brand { display: flex; align-items: baseline; gap: var(--ma-3); color: var(--sumi-deep); font-weight: 400; }
+  .brand .mark {
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 22px; color: var(--kitsune); opacity: 0.85;
+    line-height: 1;
+  }
+  .brand .title { font-size: var(--text-body); letter-spacing: 0.02em; color: var(--sumi-deep); }
+  .brand .sub   { font-size: var(--text-whisper); letter-spacing: 0.1em; color: var(--sumi-light); text-transform: uppercase; }
+  .lesson-nav {
+    display: flex; gap: var(--ma-3); font-size: var(--text-whisper); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .lesson-nav a { color: var(--sumi-light); border: none; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle); }
+  .lesson-nav a:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .lesson-nav a.active { color: var(--ai); font-weight: 700; }
+  .progress { flex: 1; height: 1px; background: var(--washi-warm); overflow: hidden; margin: 0 var(--ma-5); }
+  .progress > span { display: block; height: 100%; width: 0; background: var(--ai); opacity: 0.7; transition: width 0.1s linear; }
+  .toc-btn {
+    background: none; border: none; font-family: inherit;
+    font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; padding: var(--ma-1) var(--ma-3); border-radius: var(--radius-gentle);
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .toc-btn:hover { background: var(--washi-cream); color: var(--sumi-medium); }
+  .toc {
+    position: fixed; top: 54px; right: var(--ma-5);
+    background: var(--washi-white); border: 1px solid var(--washi-warm);
+    padding: var(--ma-4) var(--ma-5); border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-float);
+    z-index: 90; display: none; min-width: 280px;
+  }
+  .toc.open { display: block; }
+  .toc ol { list-style: none; }
+  .toc li { font-size: var(--text-body); padding: var(--ma-1) 0; }
+  .toc li::before { content: "—  "; color: var(--sumi-light); }
+  .toc a { color: var(--sumi-medium); border: none; }
+  .toc a:hover { color: var(--ai); }
+
+  .hero {
+    padding: var(--ma-9) 8vw var(--ma-8);
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--ma-8); align-items: center;
+    border-bottom: 1px solid var(--washi-warm);
+  }
+  .hero .kicker { font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: var(--ma-5); }
+  .hero h1 { max-width: 22ch; }
+  .hero p { color: var(--sumi-medium); font-size: var(--text-subhead); max-width: 50ch; line-height: 1.7; }
+  .hero .meta { margin-top: var(--ma-6); color: var(--sumi-light); font-size: var(--text-body); line-height: 1.75; }
+  .hero .meta strong { color: var(--sumi-medium); font-weight: 500; }
+  .hero .stage {
+    position: relative; height: 460px;
+    background: var(--washi-cream);
+    border-radius: var(--radius-soft); overflow: hidden;
+    border: 1px solid var(--washi-warm);
+    display: flex; flex-direction: column;
+  }
+
+  section.step {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-bottom: 1px solid var(--washi-warm);
+    min-height: 92vh; align-items: stretch;
+  }
+  section.step .text {
+    padding: var(--ma-9) 6vw var(--ma-9) 8vw;
+    display: flex; flex-direction: column; justify-content: center; gap: var(--ma-5);
+    max-width: 720px;
+  }
+  section.step .text .eyebrow {
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  section.step .text p { color: var(--sumi-deep); }
+  section.step .text p.muted { color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; }
+  section.step .stage-wrap {
+    position: relative; background: var(--washi-cream);
+    border-left: 1px solid var(--washi-warm);
+  }
+  section.step .stage {
+    position: sticky; top: 54px; height: calc(100vh - 54px);
+    display: flex; flex-direction: column;
+  }
+  .canvas-host {
+    flex: 1; position: relative; overflow: hidden;
+    background: var(--washi-cream);
+  }
+  .canvas-host canvas { display: block; width: 100%; height: 100%; }
+
+  .chip {
+    position: absolute;
+    background: rgba(245, 242, 235, 0.9);
+    padding: var(--ma-2) var(--ma-3);
+    border-radius: var(--radius-subtle);
+    font-size: var(--text-whisper); letter-spacing: 0.06em;
+    color: var(--sumi-medium);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(6px);
+  }
+  .chip.nw { top: var(--ma-4); left: var(--ma-4); }
+  .chip.ne { top: var(--ma-4); right: var(--ma-4); }
+  .chip.sw { bottom: var(--ma-4); left: var(--ma-4); }
+  .chip.se { bottom: var(--ma-4); right: var(--ma-4); }
+
+  .controls {
+    padding: var(--ma-3) var(--ma-5);
+    border-top: 1px solid var(--washi-warm);
+    background: var(--washi-white);
+    display: flex; gap: var(--ma-3); align-items: center; flex-wrap: wrap;
+  }
+  .btn {
+    background: none; border: 1px solid var(--washi-warm);
+    color: var(--sumi-medium); font-family: inherit;
+    padding: var(--ma-2) var(--ma-4); border-radius: var(--radius-gentle);
+    cursor: pointer; font-size: var(--text-body); letter-spacing: 0.03em;
+    transition: all var(--duration-swift) var(--ease-gentle);
+  }
+  .btn:hover { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.03); }
+  .btn.gold  { border-color: var(--kitsune); color: var(--kitsune); }
+  .btn.gold:hover { background: rgba(184,115,51,0.06); color: var(--kitsune); }
+  .btn.active { border-color: var(--ai); color: var(--ai); background: rgba(38,78,112,0.08); }
+  .slider-wrap {
+    display: flex; align-items: center; gap: var(--ma-2);
+    font-size: var(--text-whisper); color: var(--sumi-light);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  input[type=range] { accent-color: var(--ai); }
+
+  .callout {
+    background: var(--washi-cream);
+    border-left: 2px solid var(--kitsune);
+    padding: var(--ma-4) var(--ma-5);
+    border-radius: 0 var(--radius-gentle) var(--radius-gentle) 0;
+    font-size: var(--text-body); line-height: 1.7;
+    color: var(--sumi-medium);
+  }
+  .callout.navy { border-left-color: var(--ai); }
+  .callout.warn { border-left-color: var(--beni); }
+  .callout strong { color: var(--sumi-deep); }
+
+  .formula {
+    font-family: "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+    font-size: var(--text-subhead); text-align: center;
+    padding: var(--ma-5);
+    background: var(--washi-white);
+    border: 1px solid var(--washi-warm);
+    border-radius: var(--radius-soft);
+    color: var(--sumi-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .predict { background: var(--washi-white); border: 1px solid var(--washi-warm); padding: var(--ma-5); border-radius: var(--radius-soft); }
+  .predict h4 { margin-bottom: var(--ma-3); font-size: var(--text-whisper); color: var(--sumi-light); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+  .predict > p { font-size: var(--text-body); color: var(--sumi-deep); margin-bottom: var(--ma-3); }
+  .predict .opts { display: grid; gap: var(--ma-2); }
+  .opt { background: var(--washi-white); border: 1px solid var(--washi-warm); padding: var(--ma-3) var(--ma-4); border-radius: var(--radius-gentle); cursor: pointer; text-align: left; font-family: inherit; font-size: var(--text-body); color: var(--sumi-deep); transition: all var(--duration-swift) var(--ease-gentle); }
+  .opt:hover { border-color: var(--ai); background: rgba(38,78,112,0.02); }
+  .opt.correct { background: rgba(91,117,83,0.1); border-color: var(--moegi); color: var(--sumi-deep); }
+  .opt.wrong   { background: rgba(155,78,78,0.1); border-color: var(--beni);  color: var(--sumi-deep); }
+  .reveal { display: none; margin-top: var(--ma-3); color: var(--sumi-medium); font-size: var(--text-body); line-height: 1.7; padding-left: var(--ma-3); border-left: 1px solid var(--washi-warm); }
+  .reveal.show { display: block; }
+
+  .quiz {
+    padding: var(--ma-9) 8vw;
+    background: var(--washi-cream);
+    border-top: 1px solid var(--washi-warm);
+  }
+  .quiz h2 { margin-bottom: var(--ma-7); font-weight: 300; }
+  .q-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--ma-5); }
+  .q-card { background: var(--washi-white); padding: var(--ma-5); border-radius: var(--radius-soft); border: 1px solid var(--washi-warm); }
+
+  .score {
+    position: fixed; bottom: var(--ma-5); right: var(--ma-5);
+    background: var(--washi-white); color: var(--sumi-medium);
+    padding: var(--ma-2) var(--ma-4); border-radius: 20px;
+    font-size: var(--text-whisper); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--washi-warm); box-shadow: var(--shadow-float);
+    z-index: 30;
+  }
+
+  footer {
+    padding: var(--ma-8) 8vw;
+    color: var(--sumi-light); font-size: var(--text-whisper);
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--washi-warm);
+    text-align: center; line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: var(--ma-7) var(--ma-5); gap: var(--ma-6); }
+    .hero .stage { height: 320px; }
+    section.step { grid-template-columns: 1fr; }
+    section.step .stage-wrap { border-left: 0; border-top: 1px solid var(--washi-warm); }
+    section.step .stage { position: relative; top: 0; height: 60vh; }
+    section.step .text { padding: var(--ma-7) var(--ma-5); }
+    h1 { font-size: var(--text-display); }
+    h2 { font-size: var(--text-head); }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">学</span>
+    <span class="title">Regularization</span>
+    <span class="sub">Tilburg · Deep Learning · Lesson 5</span>
+  </div>
+  <nav class="lesson-nav">
+    <a href="lesson.html">一 Lesson 1</a>
+    <a href="lesson2.html">二 Lesson 2</a>
+    <a href="lesson3.html">三 Lesson 3</a>
+    <a href="lesson4.html">四 Lesson 4</a>
+    <a href="lesson5.html" class="active">五 Lesson 5</a>
+  </nav>
+  <div class="progress"><span id="progress-bar"></span></div>
+  <button class="toc-btn" id="toc-btn">目次 Contents</button>
+</header>
+
+<nav class="toc" id="toc">
+  <ol>
+    <li><a href="#hero">Overview</a></li>
+    <li><a href="#what">1 · What regularization is</a></li>
+    <li><a href="#biasvar">2 · Bias–variance tradeoff</a></li>
+    <li><a href="#lnorms">3 · L1 and L2 penalties</a></li>
+    <li><a href="#early">4 · Early stopping</a></li>
+    <li><a href="#augment">5 · Data augmentation</a></li>
+    <li><a href="#dropout">6 · Dropout</a></li>
+    <li><a href="#capacity">7 · Capacity &amp; double descent</a></li>
+    <li><a href="#batchnorm">8 · Batch normalization</a></li>
+    <li><a href="#quiz">Final quiz</a></li>
+  </ol>
+</nav>
+
+<div class="hero" id="hero">
+  <div>
+    <div class="kicker">第五課 · Lesson Five</div>
+    <h1>Teaching a network to forget the noise, remember the pattern.</h1>
+    <p>A network with enough neurons can <strong>memorize</strong> every training example. That is not learning. <strong>Regularization</strong> is the family of tricks that stops a model from gluing itself to the training data — so it still works on everything it has never seen.</p>
+    <div class="meta">Slides by <strong>Dr. Juan Sebastián Olier</strong><br/>
+    Department of Cognitive Sciences and AI · Tilburg University</div>
+  </div>
+  <div class="stage"><div class="canvas-host" id="hero-canvas">
+    <div class="chip nw">two descents on the same loss</div>
+    <div class="chip se">orange: overfit · blue: regularized</div>
+  </div></div>
+</div>
+
+<!-- 1 · WHAT REGULARIZATION IS -->
+<section class="step" id="what">
+  <div class="text">
+    <div class="eyebrow">Section 1 · slides 2, 5</div>
+    <h2>The model that knew too much</h2>
+    <p>Give a flexible model enough freedom, and it will fit your training data <strong>perfectly</strong>. Every point, every wiggle, every bit of noise.</p>
+    <p>Then you hand it a new example. It fails. Badly.</p>
+    <p>The network did not learn the <strong>underlying pattern</strong>. It learned the <strong>specific training set</strong>, quirks and all. This is <strong>overfitting</strong>.</p>
+    <div class="callout navy">
+      <strong>Regularization</strong> is any technique that closes the gap between <strong>training error</strong> and <strong>test error</strong>. It trades a small increase in bias for a larger drop in variance — and the result is a model that <strong>generalizes</strong>.
+    </div>
+    <p class="muted">Click <em>resample</em> on the right: watch a straight line stay nearly the same, a sensible curve wiggle a little, and the high-degree polynomial flail wildly — that flailing is <strong>variance</strong>.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="what-canvas">
+      <div class="chip nw">three fits on 12 noisy points</div>
+      <div class="chip se" id="what-status">underfit · just right · overfit</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="what-resample">✦ Resample noise</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 2 · BIAS-VARIANCE -->
+<section class="step" id="biasvar">
+  <div class="text">
+    <div class="eyebrow">Section 2 · slides 3–5</div>
+    <h2>The bias–variance tradeoff</h2>
+    <p>Two failure modes live at opposite ends of model complexity.</p>
+    <div class="callout warn">
+      <strong>High bias (underfitting)</strong> — the model is too simple. Even if you gave it more data, it could not fit the true pattern.<br/><br/>
+      <strong>High variance (overfitting)</strong> — the model is too flexible. Change the training set slightly and the learned function changes a lot.
+    </div>
+    <p>You want the sweet spot in the middle: a model <strong>flexible enough</strong> to capture the truth, <strong>constrained enough</strong> to ignore noise.</p>
+    <p class="muted">Each frame on the right trains a fresh model on a <strong>newly sampled</strong> training set. Watch how the three capacity regimes behave differently: simple models cluster around the wrong answer (bias); very flexible models scatter widely (variance).</p>
+    <div class="callout">
+      <strong>In practice:</strong> you detect this by splitting your data into <em>train</em>, <em>validation</em>, and <em>test</em>. High train accuracy plus low validation accuracy is the fingerprint of overfitting.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="bv-canvas">
+      <div class="chip nw">many models · many training sets</div>
+      <div class="chip se" id="bv-status">low capacity</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-bv="low">Low capacity</button>
+      <button class="btn active" data-bv="mid">Balanced</button>
+      <button class="btn" data-bv="high">High capacity</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 3 · L1 / L2 -->
+<section class="step" id="lnorms">
+  <div class="text">
+    <div class="eyebrow">Section 3 · slide 6</div>
+    <h2>Penalize the weights directly</h2>
+    <p>The simplest regularizer: add a term to the loss that <strong>punishes large weights</strong>.</p>
+    <div class="formula">L<sub>total</sub> = L<sub>data</sub> + λ · R(W)</div>
+    <p>Two common choices:</p>
+    <ul>
+      <li><strong>L2 penalty</strong> — R(W) = Σ w<sub>i</sub>². Also called <strong>weight decay</strong>. Shrinks every weight smoothly toward zero. In PyTorch: <code>optim.SGD(..., weight_decay=1e-4)</code>.</li>
+      <li><strong>L1 penalty</strong> — R(W) = Σ |w<sub>i</sub>|. Has a <strong>corner at the axes</strong>, so the optimum often snaps <em>exactly</em> to zero for some weights. Produces <strong>sparsity</strong> — automatic feature selection.</li>
+    </ul>
+    <div class="callout navy">
+      <strong>Why the difference?</strong> On the right: the blue contours are the data loss. The grey shape is the <em>budget</em> — how far the weights are allowed to roam. The solution sits where the contour first touches the budget. L1's diamond has sharp corners sitting on the axes, so the touch happens there. L2's round disk has no corners — it touches somewhere general.
+    </div>
+    <p class="muted">Slide the <strong>λ</strong> control to expand the budget. Larger λ = more regularization = smaller weights.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="ln-canvas">
+      <div class="chip nw">loss contours + weight budget</div>
+      <div class="chip se" id="ln-status">L2 · smooth shrinkage</div>
+    </div>
+    <div class="controls">
+      <button class="btn active" data-ln="l2">L2 (circle)</button>
+      <button class="btn" data-ln="l1">L1 (diamond)</button>
+      <div class="slider-wrap">λ <input type="range" id="ln-lambda" min="5" max="90" value="40"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 4 · EARLY STOPPING -->
+<section class="step" id="early">
+  <div class="text">
+    <div class="eyebrow">Section 4 · slides 7–8</div>
+    <h2>Early stopping</h2>
+    <p>Train a model for many epochs and you will see two curves:</p>
+    <ul>
+      <li><strong>Training loss</strong> keeps falling — the model keeps memorizing.</li>
+      <li><strong>Validation loss</strong> falls for a while, then starts <em>rising</em> — the model has begun to overfit.</li>
+    </ul>
+    <p>The fix is obvious once you see it: <strong>stop training</strong> at the moment validation loss bottoms out. Keep the weights from that epoch, throw away the rest.</p>
+    <div class="callout">
+      <strong>Patience.</strong> Real training curves are noisy. You cannot stop the first time validation nudges up — it might dip again. A <strong>patience</strong> of say 10 epochs means: stop only if validation has not improved for 10 straight epochs. That is the hyperparameter you tune.
+    </div>
+    <p class="muted">Press <em>Train</em> — the dashed vertical line shows the best-validation epoch. After that the gap opens up: pure memorization.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="es-canvas">
+      <div class="chip nw">train vs validation loss</div>
+      <div class="chip se" id="es-status">epoch 0 · best: —</div>
+    </div>
+    <div class="controls">
+      <button class="btn gold" id="es-play">▶ Train</button>
+      <button class="btn" id="es-reset">Reset</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 5 · DATA AUGMENTATION -->
+<section class="step" id="augment">
+  <div class="text">
+    <div class="eyebrow">Section 5 · slides 10–12</div>
+    <h2>Data augmentation</h2>
+    <p>The best regularizer is <strong>more data</strong>. When you cannot get more, you <strong>fabricate</strong> it — by applying label-preserving transformations.</p>
+    <p>For images: <strong>flip</strong>, <strong>crop</strong>, <strong>rotate</strong>, <strong>scale</strong>, <strong>shift colors</strong>, <strong>add noise</strong>. A flipped cat is still a cat. A slightly rotated cat is still a cat. The network sees <em>new</em> examples without you collecting any.</p>
+    <div class="callout warn">
+      <strong>Not every transform is safe.</strong> Flip a <code>6</code> and it becomes a <code>9</code>. Flip a medical scan horizontally and the left lung ends up on the right. The transformations must <strong>preserve the label</strong> — they depend on what you are classifying.
+    </div>
+    <p class="muted">Augmentation is usually done <strong>on the fly</strong>, not by making copies on disk. Each time a sample loads, a fresh random transform is applied — so the network sees <em>virtually infinite</em> variations.</p>
+    <div class="callout navy">
+      <strong>Adversarial training</strong> is a relative: deliberately add tiny, carefully chosen noise that fools the current model, then train on those examples. The result is a model robust to small perturbations.
+    </div>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="aug-canvas">
+      <div class="chip nw">one original · many augmented</div>
+      <div class="chip se" id="aug-status">transforms: rotate + flip + crop</div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-aug="rotate">Rotate</button>
+      <button class="btn" data-aug="flip">Flip</button>
+      <button class="btn" data-aug="crop">Crop</button>
+      <button class="btn" data-aug="bright">Brightness</button>
+      <button class="btn gold" id="aug-roll">✦ Roll random</button>
+    </div>
+  </div></div>
+</section>
+
+<!-- 6 · DROPOUT -->
+<section class="step" id="dropout">
+  <div class="text">
+    <div class="eyebrow">Section 6 · slides 14–18</div>
+    <h2>Dropout</h2>
+    <p>At each training step, <strong>randomly turn off</strong> a fraction of the neurons. Set their activation to zero. The rest of the network has to solve the task <em>without</em> them.</p>
+    <p>Next step: a <strong>different</strong> random set gets turned off. And again. And again.</p>
+    <div class="callout navy">
+      <strong>Why it works.</strong> The network cannot rely on any single neuron being present — so it learns <strong>redundant, distributed</strong> features. You can also read it as training an <strong>ensemble</strong> of exponentially many sub-networks, all sharing weights.
+    </div>
+    <p>Implementation is a one-liner: for each neuron, sample a Bernoulli variable with keep-probability <code>1 − p</code>. Multiply the activation by it.</p>
+    <div class="callout">
+      <strong>Train vs. test.</strong> At test time you want <em>all</em> neurons active. But then each neuron receives more signal than during training. To match, either <strong>scale down</strong> at test time by <code>(1 − p)</code>, or — more common — <strong>scale up</strong> during training by <code>1 / (1 − p)</code>. This is called <em>inverted dropout</em>, and it is why <code>model.eval()</code> just turns the dropout layer off.
+    </div>
+    <p class="muted">Dropout is typically used in the <strong>fully-connected</strong> part of a network, not directly on convolutional feature maps (their spatial correlations make random pixel drops less useful).</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="do-canvas">
+      <div class="chip nw">MLP · neurons drop each step</div>
+      <div class="chip se" id="do-status">p = 0.5 · training mode</div>
+    </div>
+    <div class="controls">
+      <button class="btn active" id="do-train">Training (drop)</button>
+      <button class="btn" id="do-eval">Eval (keep all)</button>
+      <div class="slider-wrap">p <input type="range" id="do-p" min="0" max="80" value="50"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 7 · CAPACITY + DOUBLE DESCENT -->
+<section class="step" id="capacity">
+  <div class="text">
+    <div class="eyebrow">Section 7 · slides 20–23</div>
+    <h2>Capacity and the double descent surprise</h2>
+    <p>A model's <strong>capacity</strong> is the range of functions it can represent. More neurons, more layers, more parameters → higher capacity.</p>
+    <p>Classical statistics says: too much capacity means overfitting, so test error should climb forever after the sweet spot.</p>
+    <div class="callout warn">
+      <strong>The surprise.</strong> Very large neural networks — the kind with <em>more parameters than training examples</em> — break the rule. After the classical overfitting spike, test error <strong>drops again</strong>. This is <strong>double descent</strong> (Belkin et al., 2019).
+    </div>
+    <p>The peak sits at the <strong>interpolation threshold</strong> — the capacity that just barely fits every training point. Go bigger, and the network finds simpler, smoother solutions among the many that interpolate the data.</p>
+    <div class="callout navy">
+      <strong>Takeaway.</strong> In deep learning, the safest move when overfitting is often <em>not</em> to shrink the model — it is to <strong>make the model larger and regularize it</strong>. This is how modern giant language models work.
+    </div>
+    <p class="muted">The right-hand plot shows the classic U, the interpolation spike, and the modern second descent.</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="dd-canvas">
+      <div class="chip nw">test error vs model capacity</div>
+      <div class="chip se" id="dd-status">classical regime · interpolation · modern regime</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">capacity <input type="range" id="dd-cap" min="0" max="100" value="30"></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 8 · BATCH NORM -->
+<section class="step" id="batchnorm">
+  <div class="text">
+    <div class="eyebrow">Section 8 · slides 26–35</div>
+    <h2>Batch normalization</h2>
+    <p>We already know it helps to <strong>normalize the input</strong> to a network — zero mean, unit variance. But as weights change during training, the <strong>activations of every hidden layer</strong> drift too. Each layer sees a distribution that keeps shifting under its feet.</p>
+    <p>This is <strong>internal covariate shift</strong>, and it slows learning down.</p>
+    <div class="callout">
+      <strong>The fix.</strong> For every mini-batch, at every layer, compute the <strong>mean</strong> μ and <strong>standard deviation</strong> σ of the pre-activations. Subtract μ, divide by σ. The distribution is now centered and scaled.
+    </div>
+    <div class="formula">ẑ = (z − μ) / σ &nbsp;&nbsp; → &nbsp;&nbsp; y = γ · ẑ + β</div>
+    <p>But forcing every layer to zero-mean unit-variance may be too rigid. So batch norm also learns <strong>two parameters per feature</strong>: γ (scale) and β (shift). The layer can choose any mean and variance it wants — but it must <em>learn</em> them, instead of drifting passively.</p>
+    <div class="callout navy">
+      <strong>At inference</strong> there is no batch. So during training the layer also tracks a <em>running average</em> of μ and σ, and uses that frozen pair when you run <code>model.eval()</code>.
+    </div>
+    <p class="muted">Other normalizers exist: <strong>LayerNorm</strong> (normalize across features within one sample — used in Transformers), <strong>InstanceNorm</strong> (style transfer), <strong>GroupNorm</strong> (small batches).</p>
+  </div>
+  <div class="stage-wrap"><div class="stage">
+    <div class="canvas-host" id="bn-canvas">
+      <div class="chip nw">pre-activation histogram</div>
+      <div class="chip se" id="bn-status">γ = 1.0 · β = 0.0</div>
+    </div>
+    <div class="controls">
+      <div class="slider-wrap">γ scale <input type="range" id="bn-gamma" min="20" max="200" value="100"></div>
+      <div class="slider-wrap">β shift <input type="range" id="bn-beta" min="-100" max="100" value="0"></div>
+      <button class="btn gold" id="bn-shuffle">✦ New batch</button>
+    </div>
+  </div></div>
+</section>
+
+<div class="quiz" id="quiz">
+  <h2>Check yourself</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p><strong>Q1.</strong> A model has 99% train accuracy and 62% test accuracy. The most likely cause is:</p>
+      <div class="opts" data-q="q1">
+        <button class="opt" data-correct="false">High bias (underfitting)</button>
+        <button class="opt" data-correct="true">High variance (overfitting)</button>
+        <button class="opt" data-correct="false">The learning rate is too low</button>
+      </div>
+      <div class="reveal">Near-perfect train but poor test is the textbook signature of <strong>overfitting</strong>. The model memorized the training set instead of learning the underlying pattern.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q2.</strong> The key difference between L1 and L2 regularization is:</p>
+      <div class="opts" data-q="q2">
+        <button class="opt" data-correct="false">L1 is faster to compute</button>
+        <button class="opt" data-correct="true">L1 drives some weights to exactly zero (sparsity); L2 shrinks all weights smoothly</button>
+        <button class="opt" data-correct="false">L2 works only for classification</button>
+      </div>
+      <div class="reveal">The L1 "budget" has corners on the axes, so the optimum often sits exactly at an axis — meaning one weight becomes zero. L2's round ball has no corners, so it just shrinks weights toward zero smoothly.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q3.</strong> In <strong>early stopping</strong>, we stop training when:</p>
+      <div class="opts" data-q="q3">
+        <button class="opt" data-correct="false">The training loss stops improving</button>
+        <button class="opt" data-correct="true">The validation loss has not improved for a set number of epochs (patience)</button>
+        <button class="opt" data-correct="false">The derivative of the loss is exactly zero</button>
+      </div>
+      <div class="reveal">Training loss basically always keeps dropping. It is the <strong>validation</strong> curve that tells you when you are starting to overfit. Patience protects you from stopping too early on a noisy dip.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q4.</strong> Why is flipping digit images horizontally a bad idea?</p>
+      <div class="opts" data-q="q4">
+        <button class="opt" data-correct="false">It wastes memory</button>
+        <button class="opt" data-correct="true">It does not preserve the label — a 6 becomes a 9</button>
+        <button class="opt" data-correct="false">Flipping is too slow</button>
+      </div>
+      <div class="reveal">Augmentations must be <strong>label-preserving</strong>. A flipped cat is still a cat, so it is safe. A flipped "6" is a "9", so the model would learn the wrong mapping.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q5.</strong> During training with dropout at rate p = 0.5, inverted dropout:</p>
+      <div class="opts" data-q="q5">
+        <button class="opt" data-correct="false">Multiplies kept activations by 0.5</button>
+        <button class="opt" data-correct="true">Divides kept activations by (1 − p) = 0.5, i.e. multiplies by 2</button>
+        <button class="opt" data-correct="false">Does nothing at training time</button>
+      </div>
+      <div class="reveal">Half the neurons are off, so the expected total input is halved. To compensate, kept activations are scaled up by <code>1/(1−p)</code> during training — then no scaling is needed at test time.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q6.</strong> <strong>Double descent</strong> means:</p>
+      <div class="opts" data-q="q6">
+        <button class="opt" data-correct="false">Gradient descent runs twice per epoch</button>
+        <button class="opt" data-correct="true">Test error drops again once model capacity grows far past the interpolation threshold</button>
+        <button class="opt" data-correct="false">Training uses two separate loss functions</button>
+      </div>
+      <div class="reveal">Classic theory predicts test error should keep rising with capacity. In deep networks it rises, peaks where the model just barely fits all training data, then <strong>falls again</strong>. Over-parameterization plus implicit regularization is the current best explanation.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q7.</strong> Batch norm's learnable γ and β exist because:</p>
+      <div class="opts" data-q="q7">
+        <button class="opt" data-correct="false">They replace the network's weights</button>
+        <button class="opt" data-correct="true">Forcing every layer to zero-mean unit-variance would limit expressiveness; γ, β let the layer pick any mean and variance</button>
+        <button class="opt" data-correct="false">They are only used at inference</button>
+      </div>
+      <div class="reveal">Pure standardization is too rigid. γ and β give the network the flexibility to rescale and shift back — while still keeping the activations under learned control.</div>
+    </div>
+    <div class="q-card">
+      <p><strong>Q8.</strong> Which normalizer is preferred in Transformers?</p>
+      <div class="opts" data-q="q8">
+        <button class="opt" data-correct="false">Batch normalization</button>
+        <button class="opt" data-correct="true">Layer normalization</button>
+        <button class="opt" data-correct="false">Instance normalization</button>
+      </div>
+      <div class="reveal">Transformers process sequences of varying length with often small effective batches, where BN's batch statistics are unreliable. LayerNorm normalizes across features within a single sample and is batch-size independent.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  終 · end of lesson five<br/>
+  built from <code>5Regularization.pptx</code> — Dr. Juan Sebastián Olier, Tilburg University<br/>
+  <a href="lesson2.html">← back to Lesson 2</a>
+</footer>
+
+<div class="score" id="score">Score: 0 / 8</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// safe wrapper so one broken scene never takes the page down
+function safeScene(name, fn) {
+  try { fn(); } catch (e) { console.warn('[scene:' + name + ']', e); }
+}
+
+const COLORS = {
+  washi:  0xF5F2EB,
+  cream:  0xEDE8DC,
+  warm:   0xE5DFD0,
+  sumi:   0x1A1A1A,
+  sumiMd: 0x3D3D3D,
+  sumiLt: 0x6B6B6B,
+  ai:     0x264E70,
+  aiLt:   0x3E6B8A,
+  beni:   0x9B4E4E,
+  moegi:  0x5B7553,
+  kitsune:0xB87333,
+  murasaki:0x4A3B5C,
+};
+
+function makeScene(host, opts = {}) {
+  const rect = host.getBoundingClientRect();
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, (rect.width||1) / (rect.height||1), 0.1, 100);
+  camera.position.set(opts.cam?.[0] ?? 3, opts.cam?.[1] ?? 3, opts.cam?.[2] ?? 4);
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+  renderer.setSize(rect.width, rect.height);
+  host.appendChild(renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  if (opts.noOrbit) { controls.enableRotate = false; controls.enableZoom = false; }
+  scene.add(new THREE.AmbientLight(0xffffff, 0.72));
+  const dir = new THREE.DirectionalLight(0xffffff, 0.55);
+  dir.position.set(3, 5, 2); scene.add(dir);
+  new ResizeObserver(() => {
+    const r = host.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+    renderer.setSize(r.width, r.height);
+  }).observe(host);
+  return { scene, camera, renderer, controls };
+}
+
+function makeLabel(text, color = '#1A1A1A', size = 64) {
+  const c = document.createElement('canvas'); c.width = 512; c.height = 128;
+  const ctx = c.getContext('2d');
+  ctx.font = `600 ${size}px -apple-system, Inter, sans-serif`;
+  ctx.fillStyle = color; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(text, c.width/2, c.height/2);
+  const tex = new THREE.CanvasTexture(c); tex.minFilter = THREE.LinearFilter;
+  return new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true }));
+}
+
+function makeSphere(radius, color) {
+  return new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 24, 24),
+    new THREE.MeshStandardMaterial({ color, metalness: 0.1, roughness: 0.55 })
+  );
+}
+
+// small util that nearly every 2D scene needs
+function make2D(host) {
+  const canvas = document.createElement('canvas');
+  canvas.style.width = '100%'; canvas.style.height = '100%';
+  host.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  function resize(draw) {
+    const r = host.getBoundingClientRect();
+    canvas.width  = Math.max(1, r.width) * devicePixelRatio;
+    canvas.height = Math.max(1, r.height) * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    if (draw) draw();
+  }
+  return { canvas, ctx, resize };
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// HERO — two descents on the same loss surface
+// ═══════════════════════════════════════════════════════════════════
+safeScene('hero', function () {
+  const host = document.getElementById('hero-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [4.5, 3.5, 5] });
+  controls.target.set(0, 0.3, 0);
+
+  // bumpy bowl with local wiggles
+  function loss(x, y) {
+    return 0.16 * (x*x + y*y) + 0.5 * Math.sin(x*1.3) * Math.cos(y*1.3);
+  }
+  function grad(x, y) {
+    const dx = 0.32 * x + 0.5 * 1.3 * Math.cos(x*1.3) * Math.cos(y*1.3);
+    const dy = 0.32 * y - 0.5 * 1.3 * Math.sin(x*1.3) * Math.sin(y*1.3);
+    return [dx, dy];
+  }
+
+  const geo = new THREE.PlaneGeometry(8, 8, 64, 64);
+  const pos = geo.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    pos.setZ(i, loss(pos.getX(i), pos.getY(i)));
+  }
+  geo.computeVertexNormals();
+  const surf = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({
+    color: 0xd8d2c0, flatShading: false, roughness: 0.8, metalness: 0.04, transparent: true, opacity: 0.95,
+  }));
+  surf.rotation.x = -Math.PI / 2;
+  scene.add(surf);
+  const wire = new THREE.Mesh(geo.clone(), new THREE.MeshBasicMaterial({
+    color: 0x8c867a, wireframe: true, transparent: true, opacity: 0.1,
+  }));
+  wire.rotation.x = -Math.PI / 2;
+  scene.add(wire);
+
+  // two balls: noisy (overfit) + smooth (regularized)
+  const orange = makeSphere(0.13, COLORS.kitsune); scene.add(orange);
+  const blue   = makeSphere(0.13, COLORS.ai);      scene.add(blue);
+
+  let wo = [-2.5, 2.2], wb = [-2.4, 2.3];
+  const trailA = []; const trailB = [];
+  let lineA = null, lineB = null;
+
+  function rebuildLine(trail, color, old) {
+    if (old) scene.remove(old);
+    if (trail.length < 2) return null;
+    const pts = trail.map(p => new THREE.Vector3(p[0], loss(p[0], p[1]) + 0.03, -p[1]));
+    const L = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.75 })
+    );
+    scene.add(L); return L;
+  }
+
+  function reset() {
+    wo = [-2.5 + (Math.random()-0.5)*0.3, 2.2 + (Math.random()-0.5)*0.3];
+    wb = [...wo];
+    trailA.length = 0; trailB.length = 0;
+  }
+  reset();
+
+  function loop() {
+    // overfit: high lr + noise kick
+    const [gxo, gyo] = grad(wo[0], wo[1]);
+    wo[0] -= 0.08 * gxo + (Math.random()-0.5)*0.06;
+    wo[1] -= 0.08 * gyo + (Math.random()-0.5)*0.06;
+    // regularized: small lr + mild pull toward origin (like L2)
+    const [gxb, gyb] = grad(wb[0], wb[1]);
+    wb[0] -= 0.05 * gxb + 0.01 * wb[0];
+    wb[1] -= 0.05 * gyb + 0.01 * wb[1];
+
+    orange.position.set(wo[0], loss(wo[0], wo[1]) + 0.12, -wo[1]);
+    blue.position.set(wb[0], loss(wb[0], wb[1]) + 0.12, -wb[1]);
+
+    trailA.push([...wo]); if (trailA.length > 160) trailA.shift();
+    trailB.push([...wb]); if (trailB.length > 160) trailB.shift();
+    lineA = rebuildLine(trailA, COLORS.kitsune, lineA);
+    lineB = rebuildLine(trailB, COLORS.ai,      lineB);
+
+    if (Math.hypot(gxo, gyo) < 0.01 && Math.hypot(gxb, gyb) < 0.01) reset();
+
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 1 · WHAT — underfit / just-right / overfit on noisy points
+// ═══════════════════════════════════════════════════════════════════
+safeScene('what', function () {
+  const host = document.getElementById('what-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('what-status');
+
+  const N = 12;
+  let pts = [];
+
+  function resample() {
+    pts = [];
+    for (let i = 0; i < N; i++) {
+      const x = -1 + (2 * i) / (N - 1);
+      const y = Math.sin(x * 2.2) + (Math.random() - 0.5) * 0.45;
+      pts.push([x, y]);
+    }
+    draw();
+  }
+
+  // least-squares polynomial fit
+  function polyFit(deg) {
+    const X = pts.map(p => {
+      const row = []; for (let k = 0; k <= deg; k++) row.push(Math.pow(p[0], k));
+      return row;
+    });
+    const y = pts.map(p => p[1]);
+    // normal equations: (XᵀX) w = Xᵀy
+    const m = deg + 1;
+    const XtX = Array.from({ length: m }, () => Array(m).fill(0));
+    const Xty = Array(m).fill(0);
+    for (let i = 0; i < X.length; i++) {
+      for (let a = 0; a < m; a++) {
+        Xty[a] += X[i][a] * y[i];
+        for (let b = 0; b < m; b++) XtX[a][b] += X[i][a] * X[i][b];
+      }
+    }
+    // tiny ridge for stability on high-degree fits
+    for (let a = 0; a < m; a++) XtX[a][a] += 1e-8;
+    // Gaussian elimination
+    for (let i = 0; i < m; i++) {
+      let piv = i;
+      for (let j = i + 1; j < m; j++) if (Math.abs(XtX[j][i]) > Math.abs(XtX[piv][i])) piv = j;
+      [XtX[i], XtX[piv]] = [XtX[piv], XtX[i]];
+      [Xty[i], Xty[piv]] = [Xty[piv], Xty[i]];
+      const d = XtX[i][i] || 1e-12;
+      for (let j = i + 1; j < m; j++) {
+        const f = XtX[j][i] / d;
+        for (let k = i; k < m; k++) XtX[j][k] -= f * XtX[i][k];
+        Xty[j] -= f * Xty[i];
+      }
+    }
+    const w = Array(m).fill(0);
+    for (let i = m - 1; i >= 0; i--) {
+      let s = Xty[i];
+      for (let j = i + 1; j < m; j++) s -= XtX[i][j] * w[j];
+      w[i] = s / (XtX[i][i] || 1e-12);
+    }
+    return w;
+  }
+
+  function evalPoly(w, x) {
+    let y = 0;
+    for (let k = 0; k < w.length; k++) y += w[k] * Math.pow(x, k);
+    return y;
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 40;
+    const W = r.width - pad * 2, H = r.height - pad * 2;
+    // frame
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 8; i++) {
+      const x = pad + i / 8 * W; ctx.beginPath(); ctx.moveTo(x, pad); ctx.lineTo(x, pad + H); ctx.stroke();
+      const y = pad + i / 8 * H; ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(pad + W, y); ctx.stroke();
+    }
+    ctx.strokeStyle = '#6B6B6B'; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(pad, pad + H / 2); ctx.lineTo(pad + W, pad + H / 2); ctx.stroke();
+
+    const x2px = x => pad + (x + 1.2) / 2.4 * W;
+    const y2px = y => pad + H / 2 - y * H / 5;
+
+    // truth
+    ctx.strokeStyle = 'rgba(91,117,83,0.45)'; ctx.lineWidth = 1.5; ctx.setLineDash([4,4]);
+    ctx.beginPath();
+    for (let i = 0; i <= 100; i++) {
+      const x = -1.2 + i / 100 * 2.4;
+      const y = Math.sin(x * 2.2);
+      if (i === 0) ctx.moveTo(x2px(x), y2px(y)); else ctx.lineTo(x2px(x), y2px(y));
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+
+    // three fits
+    const fits = [
+      { deg: 1,  color: '#9B4E4E', label: 'underfit (degree 1)' },
+      { deg: 3,  color: '#5B7553', label: 'just right (degree 3)' },
+      { deg: 11, color: '#B87333', label: 'overfit (degree 11)' },
+    ];
+    fits.forEach((f, idx) => {
+      const w = polyFit(f.deg);
+      ctx.strokeStyle = f.color; ctx.lineWidth = 2.3;
+      ctx.beginPath();
+      for (let i = 0; i <= 140; i++) {
+        const x = -1.2 + i / 140 * 2.4;
+        const y = Math.max(-3, Math.min(3, evalPoly(w, x)));
+        if (i === 0) ctx.moveTo(x2px(x), y2px(y)); else ctx.lineTo(x2px(x), y2px(y));
+      }
+      ctx.stroke();
+      ctx.fillStyle = f.color;
+      ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText('— ' + f.label, pad + 10, pad + 20 + idx * 18);
+    });
+
+    // points
+    pts.forEach(p => {
+      ctx.fillStyle = '#1A1A1A';
+      ctx.beginPath(); ctx.arc(x2px(p[0]), y2px(p[1]), 4, 0, Math.PI*2); ctx.fill();
+    });
+
+    status.textContent = 'dashed: truth · dots: noisy samples';
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  document.getElementById('what-resample').onclick = resample;
+  setTimeout(() => { resample(); resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 2 · BIAS-VARIANCE — many fits on many training sets
+// ═══════════════════════════════════════════════════════════════════
+safeScene('bv', function () {
+  const host = document.getElementById('bv-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('bv-status');
+  let regime = 'mid';
+  const degByRegime = { low: 1, mid: 3, high: 10 };
+  const labelByRegime = {
+    low:  'low capacity · high bias · predictions cluster offside',
+    mid:  'balanced · fits track the truth with mild scatter',
+    high: 'high capacity · low bias · but wild variance across datasets',
+  };
+
+  function samplePts(N) {
+    const arr = [];
+    for (let i = 0; i < N; i++) {
+      const x = -1 + (2 * i) / (N - 1);
+      arr.push([x, Math.sin(x * 2.2) + (Math.random() - 0.5) * 0.6]);
+    }
+    return arr;
+  }
+
+  function polyFit(pts, deg) {
+    const m = deg + 1;
+    const XtX = Array.from({ length: m }, () => Array(m).fill(0));
+    const Xty = Array(m).fill(0);
+    for (const [xi, yi] of pts) {
+      for (let a = 0; a < m; a++) {
+        Xty[a] += Math.pow(xi, a) * yi;
+        for (let b = 0; b < m; b++) XtX[a][b] += Math.pow(xi, a + b);
+      }
+    }
+    for (let a = 0; a < m; a++) XtX[a][a] += 1e-7;
+    for (let i = 0; i < m; i++) {
+      let piv = i;
+      for (let j = i + 1; j < m; j++) if (Math.abs(XtX[j][i]) > Math.abs(XtX[piv][i])) piv = j;
+      [XtX[i], XtX[piv]] = [XtX[piv], XtX[i]];
+      [Xty[i], Xty[piv]] = [Xty[piv], Xty[i]];
+      const d = XtX[i][i] || 1e-12;
+      for (let j = i + 1; j < m; j++) {
+        const f = XtX[j][i] / d;
+        for (let k = i; k < m; k++) XtX[j][k] -= f * XtX[i][k];
+        Xty[j] -= f * Xty[i];
+      }
+    }
+    const w = Array(m).fill(0);
+    for (let i = m - 1; i >= 0; i--) {
+      let s = Xty[i];
+      for (let j = i + 1; j < m; j++) s -= XtX[i][j] * w[j];
+      w[i] = s / (XtX[i][i] || 1e-12);
+    }
+    return w;
+  }
+  const evalPoly = (w, x) => { let y = 0; for (let k = 0; k < w.length; k++) y += w[k] * Math.pow(x, k); return y; };
+
+  const DATASETS = 18;
+  let fits = [];
+  function regen() {
+    fits = [];
+    for (let s = 0; s < DATASETS; s++) {
+      const pts = samplePts(12);
+      fits.push(polyFit(pts, degByRegime[regime]));
+    }
+    draw();
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 40;
+    const W = r.width - pad * 2, H = r.height - pad * 2;
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 8; i++) {
+      const x = pad + i / 8 * W; ctx.beginPath(); ctx.moveTo(x, pad); ctx.lineTo(x, pad + H); ctx.stroke();
+    }
+    ctx.strokeStyle = '#6B6B6B'; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(pad, pad + H / 2); ctx.lineTo(pad + W, pad + H / 2); ctx.stroke();
+    const x2px = x => pad + (x + 1.2) / 2.4 * W;
+    const y2px = y => pad + H / 2 - y * H / 5;
+    // light fan of fits
+    ctx.lineWidth = 1.2;
+    fits.forEach((w, idx) => {
+      ctx.strokeStyle = 'rgba(184,115,51,0.35)';
+      ctx.beginPath();
+      for (let i = 0; i <= 120; i++) {
+        const x = -1.2 + i / 120 * 2.4;
+        const y = Math.max(-3, Math.min(3, evalPoly(w, x)));
+        if (i === 0) ctx.moveTo(x2px(x), y2px(y)); else ctx.lineTo(x2px(x), y2px(y));
+      }
+      ctx.stroke();
+    });
+    // mean of fits
+    ctx.strokeStyle = '#264E70'; ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    for (let i = 0; i <= 120; i++) {
+      const x = -1.2 + i / 120 * 2.4;
+      let m = 0;
+      for (const w of fits) m += evalPoly(w, x);
+      m /= fits.length;
+      m = Math.max(-3, Math.min(3, m));
+      if (i === 0) ctx.moveTo(x2px(x), y2px(m)); else ctx.lineTo(x2px(x), y2px(m));
+    }
+    ctx.stroke();
+    // truth
+    ctx.strokeStyle = '#5B7553'; ctx.lineWidth = 1.8; ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    for (let i = 0; i <= 120; i++) {
+      const x = -1.2 + i / 120 * 2.4;
+      const y = Math.sin(x * 2.2);
+      if (i === 0) ctx.moveTo(x2px(x), y2px(y)); else ctx.lineTo(x2px(x), y2px(y));
+    }
+    ctx.stroke(); ctx.setLineDash([]);
+    // legend
+    ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#5B7553'; ctx.fillText('— truth', pad + 10, pad + 20);
+    ctx.fillStyle = '#264E70'; ctx.fillText('— mean fit',  pad + 10, pad + 38);
+    ctx.fillStyle = '#B87333'; ctx.fillText('— individual fits', pad + 10, pad + 56);
+
+    status.textContent = labelByRegime[regime];
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  document.querySelectorAll('[data-bv]').forEach(b => {
+    b.onclick = () => {
+      regime = b.dataset.bv;
+      document.querySelectorAll('[data-bv]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      regen();
+    };
+  });
+  let tick = 0;
+  setInterval(() => { tick++; regen(); }, 2200);
+  setTimeout(() => { regen(); resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 3 · L1 / L2 — contours of MSE + budget (circle or diamond)
+// ═══════════════════════════════════════════════════════════════════
+safeScene('ln', function () {
+  const host = document.getElementById('ln-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('ln-status');
+  const lamEl = document.getElementById('ln-lambda');
+  let mode = 'l2';
+
+  // data "truth" weight
+  const wStar = [1.6, 0.9];
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 30;
+    const size = Math.min(r.width, r.height) - pad * 2;
+    const cx = r.width / 2, cy = r.height / 2;
+    const scale = size / 5; // axes go -2.5..2.5
+
+    const x2px = x => cx + x * scale;
+    const y2px = y => cy - y * scale;
+
+    // axes
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = -2; i <= 2; i++) {
+      ctx.beginPath(); ctx.moveTo(x2px(i), y2px(-2.5)); ctx.lineTo(x2px(i), y2px(2.5)); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x2px(-2.5), y2px(i)); ctx.lineTo(x2px(2.5), y2px(i)); ctx.stroke();
+    }
+    ctx.strokeStyle = '#6B6B6B'; ctx.lineWidth = 1.3;
+    ctx.beginPath(); ctx.moveTo(x2px(-2.5), y2px(0)); ctx.lineTo(x2px(2.5), y2px(0)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x2px(0), y2px(-2.5)); ctx.lineTo(x2px(0), y2px(2.5)); ctx.stroke();
+
+    // MSE contours: concentric ellipses around wStar
+    const levels = [0.2, 0.6, 1.2, 2.0, 3.0, 4.4];
+    ctx.lineWidth = 1.3;
+    levels.forEach((lv, i) => {
+      ctx.strokeStyle = `rgba(38,78,112,${0.7 - i * 0.09})`;
+      ctx.beginPath();
+      for (let a = 0; a <= 120; a++) {
+        const th = a / 120 * Math.PI * 2;
+        const x = wStar[0] + Math.cos(th) * Math.sqrt(lv);
+        const y = wStar[1] + Math.sin(th) * Math.sqrt(lv) * 0.7;
+        if (a === 0) ctx.moveTo(x2px(x), y2px(y)); else ctx.lineTo(x2px(x), y2px(y));
+      }
+      ctx.closePath(); ctx.stroke();
+    });
+
+    // budget radius R from lambda
+    const lam = parseInt(lamEl.value);
+    const R = (lam / 100) * 1.9 + 0.3;
+
+    // budget shape
+    ctx.fillStyle = 'rgba(184,115,51,0.15)';
+    ctx.strokeStyle = '#B87333'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    if (mode === 'l2') {
+      ctx.arc(x2px(0), y2px(0), R * scale, 0, Math.PI * 2);
+    } else {
+      ctx.moveTo(x2px(R),  y2px(0));
+      ctx.lineTo(x2px(0),  y2px(R));
+      ctx.lineTo(x2px(-R), y2px(0));
+      ctx.lineTo(x2px(0),  y2px(-R));
+      ctx.closePath();
+    }
+    ctx.fill(); ctx.stroke();
+
+    // solution: project wStar onto the budget (approximation for viz)
+    let sol;
+    if (mode === 'l2') {
+      const n = Math.hypot(wStar[0], wStar[1]);
+      if (n <= R) sol = [...wStar];
+      else sol = [wStar[0] / n * R, wStar[1] / n * R];
+    } else {
+      // L1: if |wStar|_1 <= R, use wStar; else project onto diamond (simple approx)
+      const s = Math.abs(wStar[0]) + Math.abs(wStar[1]);
+      if (s <= R) sol = [...wStar];
+      else {
+        // the corner closest to wStar is the one aligned with its dominant coordinate
+        if (Math.abs(wStar[0]) >= Math.abs(wStar[1])) sol = [Math.sign(wStar[0]) * R, 0];
+        else sol = [0, Math.sign(wStar[1]) * R];
+      }
+    }
+
+    // stars
+    ctx.fillStyle = '#264E70';
+    ctx.beginPath(); ctx.arc(x2px(wStar[0]), y2px(wStar[1]), 5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#1A1A1A'; ctx.font = '11px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillText('unconstrained min', x2px(wStar[0]) + 10, y2px(wStar[1]) + 4);
+
+    ctx.fillStyle = '#9B4E4E';
+    ctx.beginPath(); ctx.arc(x2px(sol[0]), y2px(sol[1]), 7, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#1A1A1A';
+    ctx.fillText('regularized w*', x2px(sol[0]) + 10, y2px(sol[1]) + 4);
+
+    // labels
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('w₁', x2px(2.3), y2px(0) - 8);
+    ctx.fillText('w₂', x2px(0) + 14, y2px(2.3));
+
+    const sparse = mode === 'l1' && (Math.abs(sol[0]) < 1e-6 || Math.abs(sol[1]) < 1e-6);
+    status.textContent = mode === 'l2'
+      ? `L2 · weights shrunk to (${sol[0].toFixed(2)}, ${sol[1].toFixed(2)})`
+      : `L1 · solution (${sol[0].toFixed(2)}, ${sol[1].toFixed(2)})${sparse ? ' · one weight exactly 0' : ''}`;
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  document.querySelectorAll('[data-ln]').forEach(b => {
+    b.onclick = () => {
+      mode = b.dataset.ln;
+      document.querySelectorAll('[data-ln]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      draw();
+    };
+  });
+  lamEl.oninput = draw;
+  setTimeout(() => { resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 4 · EARLY STOPPING — train vs val curves with best-epoch marker
+// ═══════════════════════════════════════════════════════════════════
+safeScene('es', function () {
+  const host = document.getElementById('es-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('es-status');
+  const MAX = 120;
+  let train = [], val = [], epoch = 0, running = false, best = { ep: -1, v: Infinity };
+  let raf = null;
+
+  function synthStep(e) {
+    const t = 1.6 * Math.exp(-e / 28) + 0.05 + (Math.random() - 0.5) * 0.04;
+    // validation: drops then rebounds due to overfitting
+    const base = 1.6 * Math.exp(-e / 22) + 0.35;
+    const overfit = 0.0004 * Math.pow(Math.max(0, e - 32), 2);
+    const v = base + overfit + (Math.random() - 0.5) * 0.08;
+    return { t, v };
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 50;
+    const W = r.width - pad * 2, H = r.height - pad * 2;
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 6; i++) {
+      const x = pad + i / 6 * W; ctx.beginPath(); ctx.moveTo(x, pad); ctx.lineTo(x, pad + H); ctx.stroke();
+      const y = pad + i / 6 * H; ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(pad + W, y); ctx.stroke();
+    }
+    const x2px = e => pad + e / MAX * W;
+    const y2px = L => pad + H - Math.min(2.5, L) / 2.5 * H;
+
+    // training curve
+    if (train.length > 1) {
+      ctx.strokeStyle = '#5B7553'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      train.forEach((L, i) => { const px = x2px(i), py = y2px(L); if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); });
+      ctx.stroke();
+    }
+    // validation curve
+    if (val.length > 1) {
+      ctx.strokeStyle = '#9B4E4E'; ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      val.forEach((L, i) => { const px = x2px(i), py = y2px(L); if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); });
+      ctx.stroke();
+    }
+    // best epoch marker
+    if (best.ep >= 0) {
+      ctx.strokeStyle = 'rgba(38,78,112,0.8)'; ctx.lineWidth = 1.5; ctx.setLineDash([5, 5]);
+      ctx.beginPath(); ctx.moveTo(x2px(best.ep), pad); ctx.lineTo(x2px(best.ep), pad + H); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#264E70'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('stop here', x2px(best.ep), pad - 10);
+    }
+    // labels
+    ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#5B7553'; ctx.fillText('— train loss', pad + 10, pad + 18);
+    ctx.fillStyle = '#9B4E4E'; ctx.fillText('— validation loss', pad + 10, pad + 36);
+    ctx.fillStyle = '#6B6B6B';
+    ctx.fillText('epoch', pad + W - 40, pad + H + 28);
+    ctx.fillText('loss', pad - 30, pad + 6);
+  }
+
+  function tick() {
+    if (!running) return;
+    const { t, v } = synthStep(epoch);
+    train.push(t); val.push(v);
+    if (v < best.v) best = { ep: epoch, v };
+    epoch++;
+    status.textContent = `epoch ${epoch} · best val: ${best.v.toFixed(3)} @ epoch ${best.ep}`;
+    draw();
+    if (epoch < MAX) raf = requestAnimationFrame(tick); else running = false;
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  document.getElementById('es-play').onclick = () => {
+    if (running) return;
+    if (epoch >= MAX) { train = []; val = []; epoch = 0; best = { ep: -1, v: Infinity }; }
+    running = true; raf = requestAnimationFrame(tick);
+  };
+  document.getElementById('es-reset').onclick = () => {
+    running = false; if (raf) cancelAnimationFrame(raf);
+    train = []; val = []; epoch = 0; best = { ep: -1, v: Infinity };
+    status.textContent = 'epoch 0 · best: —';
+    draw();
+  };
+  setTimeout(() => { resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 5 · AUGMENTATION — show an original + random augmented versions
+// ═══════════════════════════════════════════════════════════════════
+safeScene('aug', function () {
+  const host = document.getElementById('aug-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('aug-status');
+
+  const transforms = { rotate: true, flip: true, crop: true, bright: false };
+
+  // a little "cat" drawing made of primitives so augmentation is visible
+  function drawCat(cx, cy, size, opts) {
+    const { rot = 0, flip = false, crop = 0, bright = 1 } = opts;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rot);
+    if (flip) ctx.scale(-1, 1);
+    const sc = size * (1 + crop);
+    ctx.scale(sc, sc);
+    // background tile
+    ctx.fillStyle = '#EDE8DC';
+    ctx.fillRect(-0.5, -0.5, 1, 1);
+    // body
+    const bodyC = `rgba(${Math.round(184 * bright)}, ${Math.round(115 * bright)}, ${Math.round(51 * bright)}, 1)`;
+    ctx.fillStyle = bodyC;
+    ctx.beginPath(); ctx.ellipse(0, 0.1, 0.28, 0.22, 0, 0, Math.PI * 2); ctx.fill();
+    // head
+    ctx.beginPath(); ctx.arc(0, -0.18, 0.2, 0, Math.PI * 2); ctx.fill();
+    // ears
+    ctx.beginPath();
+    ctx.moveTo(-0.18, -0.28); ctx.lineTo(-0.1, -0.42); ctx.lineTo(-0.04, -0.28); ctx.closePath(); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(0.18, -0.28); ctx.lineTo(0.1, -0.42); ctx.lineTo(0.04, -0.28); ctx.closePath(); ctx.fill();
+    // eyes
+    ctx.fillStyle = '#1A1A1A';
+    ctx.beginPath(); ctx.arc(-0.07, -0.2, 0.02, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(0.07, -0.2, 0.02, 0, Math.PI * 2); ctx.fill();
+    // tail
+    ctx.strokeStyle = bodyC; ctx.lineWidth = 0.05;
+    ctx.beginPath(); ctx.moveTo(0.25, 0.1); ctx.quadraticCurveTo(0.45, -0.05, 0.4, -0.25); ctx.stroke();
+    // frame
+    ctx.strokeStyle = '#6B6B6B'; ctx.lineWidth = 0.01;
+    ctx.strokeRect(-0.48, -0.48, 0.96, 0.96);
+    ctx.restore();
+  }
+
+  function randomAugment() {
+    return {
+      rot:    transforms.rotate ? (Math.random() - 0.5) * 0.6 : 0,
+      flip:   transforms.flip   ? Math.random() < 0.5 : false,
+      crop:   transforms.crop   ? (Math.random() - 0.5) * 0.3 : 0,
+      bright: transforms.bright ? 0.7 + Math.random() * 0.5 : 1,
+    };
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 32;
+    // grid: 1 original + 8 augmented
+    const cols = 3, rows = 3;
+    const cellW = (r.width - pad * 2) / cols;
+    const cellH = (r.height - pad * 2) / rows;
+    const cell = Math.min(cellW, cellH);
+    const gx = pad + (r.width - pad * 2 - cell * cols) / 2;
+    const gy = pad + (r.height - pad * 2 - cell * rows) / 2;
+
+    for (let j = 0; j < rows; j++) {
+      for (let i = 0; i < cols; i++) {
+        const idx = j * cols + i;
+        const cx = gx + i * cell + cell / 2;
+        const cy = gy + j * cell + cell / 2;
+        const isOrig = idx === 0;
+        const aug = isOrig ? { rot: 0, flip: false, crop: 0, bright: 1 } : randomAugment();
+        drawCat(cx, cy, cell * 0.95, aug);
+        if (isOrig) {
+          ctx.fillStyle = '#264E70'; ctx.font = '11px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+          ctx.fillText('original', cx - cell / 2 + 6, cy - cell / 2 + 14);
+        }
+      }
+    }
+
+    const active = Object.entries(transforms).filter(([, v]) => v).map(([k]) => k);
+    status.textContent = active.length ? 'transforms: ' + active.join(' + ') : 'no transforms active';
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  document.querySelectorAll('[data-aug]').forEach(b => {
+    const key = b.dataset.aug;
+    if (transforms[key]) b.classList.add('active');
+    b.onclick = () => {
+      transforms[key] = !transforms[key];
+      b.classList.toggle('active');
+      draw();
+    };
+  });
+  document.getElementById('aug-roll').onclick = draw;
+  setInterval(draw, 1800);
+  setTimeout(() => { resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 6 · DROPOUT — tiny MLP, neurons dim each frame (three.js)
+// ═══════════════════════════════════════════════════════════════════
+safeScene('dropout', function () {
+  const host = document.getElementById('do-canvas');
+  const { scene, camera, renderer, controls } = makeScene(host, { cam: [0, 0, 5], noOrbit: true });
+  const status = document.getElementById('do-status');
+  const pEl = document.getElementById('do-p');
+
+  const layers = [4, 6, 6, 3];
+  const nodes = [];
+  const nodeMats = [];
+  // create nodes
+  const dx = 2.4 / (layers.length - 1);
+  for (let li = 0; li < layers.length; li++) {
+    const col = [];
+    const matCol = [];
+    for (let i = 0; i < layers[li]; i++) {
+      const mat = new THREE.MeshStandardMaterial({
+        color: li === 0 ? COLORS.ai : li === layers.length - 1 ? COLORS.aiLt : COLORS.kitsune,
+        metalness: 0.1, roughness: 0.5, transparent: true, opacity: 1,
+      });
+      const m = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16, 16), mat);
+      const x = -1.2 + li * dx;
+      const y = (i - (layers[li] - 1) / 2) * 0.42;
+      m.position.set(x, y, 0);
+      scene.add(m);
+      col.push(m); matCol.push(mat);
+    }
+    nodes.push(col); nodeMats.push(matCol);
+  }
+
+  // edges as a single LineSegments for cheap rendering
+  const edgePts = [];
+  for (let li = 0; li < layers.length - 1; li++) {
+    for (const a of nodes[li]) for (const b of nodes[li + 1]) {
+      edgePts.push(a.position.x, a.position.y, 0);
+      edgePts.push(b.position.x, b.position.y, 0);
+    }
+  }
+  const edgeGeo = new THREE.BufferGeometry();
+  edgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(edgePts, 3));
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0xc7c0ad, transparent: true, opacity: 0.55 });
+  const edges = new THREE.LineSegments(edgeGeo, edgeMat);
+  scene.add(edges);
+
+  let mode = 'train';
+  let lastDropFrame = 0;
+
+  function applyDropout() {
+    const p = parseInt(pEl.value) / 100;
+    nodes.forEach((col, li) => {
+      col.forEach((m, i) => {
+        if (mode === 'eval' || li === 0 || li === layers.length - 1) {
+          nodeMats[li][i].opacity = 1;
+          m.scale.setScalar(1);
+        } else {
+          const drop = Math.random() < p;
+          nodeMats[li][i].opacity = drop ? 0.12 : 1;
+          m.scale.setScalar(drop ? 0.5 : 1);
+        }
+      });
+    });
+    status.textContent = mode === 'train'
+      ? `p = ${p.toFixed(2)} · training · hidden neurons drop each step`
+      : `eval · all neurons active · scale by (1 − p) = ${(1 - p).toFixed(2)}`;
+  }
+
+  document.getElementById('do-train').onclick = () => {
+    mode = 'train';
+    document.getElementById('do-train').classList.add('active');
+    document.getElementById('do-eval').classList.remove('active');
+    applyDropout();
+  };
+  document.getElementById('do-eval').onclick = () => {
+    mode = 'eval';
+    document.getElementById('do-eval').classList.add('active');
+    document.getElementById('do-train').classList.remove('active');
+    applyDropout();
+  };
+  pEl.oninput = applyDropout;
+
+  function loop(t) {
+    if (t - lastDropFrame > 650) { applyDropout(); lastDropFrame = t; }
+    controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  applyDropout();
+  requestAnimationFrame(loop);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 7 · DOUBLE DESCENT — classic U + spike + second descent
+// ═══════════════════════════════════════════════════════════════════
+safeScene('dd', function () {
+  const host = document.getElementById('dd-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('dd-status');
+  const capEl = document.getElementById('dd-cap');
+
+  // curve defined over x in [0,1]
+  function testError(x) {
+    // classic U up to threshold at 0.5
+    const classical = 0.9 * Math.exp(-x * 6) + 1.4 * Math.max(0, x - 0.18);
+    // interpolation spike near 0.5
+    const spike = 3.2 * Math.exp(-Math.pow((x - 0.5) / 0.04, 2));
+    // second descent after threshold
+    const modern = 0.9 * Math.exp(-(x - 0.55) * 8);
+    return Math.max(0.2, Math.min(4, classical - modern + spike * (x < 0.6 ? 1 : 0.3)));
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 55;
+    const W = r.width - pad * 2, H = r.height - pad * 2;
+    // grid
+    ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+    for (let i = 0; i <= 5; i++) {
+      const x = pad + i / 5 * W; ctx.beginPath(); ctx.moveTo(x, pad); ctx.lineTo(x, pad + H); ctx.stroke();
+      const y = pad + i / 5 * H; ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(pad + W, y); ctx.stroke();
+    }
+    // threshold marker
+    ctx.strokeStyle = 'rgba(155,78,78,0.5)'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(pad + 0.5 * W, pad); ctx.lineTo(pad + 0.5 * W, pad + H); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#9B4E4E'; ctx.font = '11px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('interpolation threshold', pad + 0.5 * W, pad - 8);
+
+    // curve
+    ctx.strokeStyle = '#264E70'; ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    for (let i = 0; i <= 200; i++) {
+      const x = i / 200;
+      const y = testError(x);
+      const px = pad + x * W;
+      const py = pad + H - (y - 0.2) / 3.5 * H;
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    // slider marker
+    const x0 = parseInt(capEl.value) / 100;
+    const y0 = testError(x0);
+    const bx = pad + x0 * W, by = pad + H - (y0 - 0.2) / 3.5 * H;
+    ctx.fillStyle = '#B87333';
+    ctx.beginPath(); ctx.arc(bx, by, 7, 0, Math.PI * 2); ctx.fill();
+
+    // regime tags
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('classical regime', pad + 0.18 * W, pad + H + 28);
+    ctx.fillText('modern regime', pad + 0.82 * W, pad + H + 28);
+    ctx.textAlign = 'left';
+    ctx.fillText('model capacity →', pad + W - 110, pad + H + 46);
+    ctx.fillText('test error', pad - 30, pad);
+
+    let regime = 'classical regime · bias-dominated';
+    if (x0 > 0.44 && x0 < 0.56) regime = 'at interpolation threshold · test error spikes';
+    else if (x0 >= 0.56) regime = 'modern regime · over-parameterized · error drops again';
+    else if (x0 > 0.2) regime = 'classical regime · overfitting zone';
+    status.textContent = regime;
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  capEl.oninput = draw;
+  setTimeout(() => { resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// 8 · BATCH NORM — histogram of pre-activations, γ and β applied
+// ═══════════════════════════════════════════════════════════════════
+safeScene('bn', function () {
+  const host = document.getElementById('bn-canvas');
+  const { canvas, ctx, resize } = make2D(host);
+  const status = document.getElementById('bn-status');
+  const gammaEl = document.getElementById('bn-gamma');
+  const betaEl  = document.getElementById('bn-beta');
+
+  // a batch of 200 pre-activations — shifted & stretched by some unknown mean/var
+  let raw = [];
+  function newBatch() {
+    raw = [];
+    const shift = 1.5 + (Math.random() - 0.5) * 2;
+    const scale = 1.6 + Math.random() * 1.2;
+    for (let i = 0; i < 220; i++) {
+      // gaussian via Box-Muller
+      const u1 = Math.random(), u2 = Math.random();
+      const z = Math.sqrt(-2 * Math.log(u1 + 1e-9)) * Math.cos(2 * Math.PI * u2);
+      raw.push(shift + scale * z);
+    }
+    draw();
+  }
+
+  function histogram(values, bins, lo, hi) {
+    const arr = Array(bins).fill(0);
+    for (const v of values) {
+      if (v < lo || v > hi) continue;
+      const b = Math.min(bins - 1, Math.max(0, Math.floor((v - lo) / (hi - lo) * bins)));
+      arr[b]++;
+    }
+    return arr;
+  }
+
+  function draw() {
+    const r = host.getBoundingClientRect();
+    ctx.clearRect(0, 0, r.width, r.height);
+    const pad = 40;
+    const gamma = parseInt(gammaEl.value) / 100;
+    const beta  = parseInt(betaEl.value) / 100;
+
+    // stats of raw
+    const mean = raw.reduce((s, v) => s + v, 0) / raw.length;
+    const variance = raw.reduce((s, v) => s + (v - mean) ** 2, 0) / raw.length;
+    const std = Math.sqrt(variance + 1e-6);
+    const norm = raw.map(v => (v - mean) / std);
+    const final = norm.map(v => gamma * v + beta);
+
+    // two panels: raw (top) + post-BN (bottom)
+    const cw = r.width - pad * 2, ch = (r.height - pad * 3) / 2;
+    const lo = -5, hi = 5;
+    const bins = 38;
+    const panels = [
+      { y: pad,               title: 'pre-normalization (raw z)', data: raw,   color: '#9B4E4E' },
+      { y: pad * 2 + ch,      title: `post-BN · γ=${gamma.toFixed(2)} · β=${beta.toFixed(2)}`, data: final, color: '#264E70' },
+    ];
+    panels.forEach(p => {
+      ctx.strokeStyle = '#E5DFD0'; ctx.lineWidth = 1;
+      ctx.strokeRect(pad, p.y, cw, ch);
+      // axis zero marker
+      const zx = pad + (0 - lo) / (hi - lo) * cw;
+      ctx.strokeStyle = '#6B6B6B'; ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(zx, p.y); ctx.lineTo(zx, p.y + ch); ctx.stroke();
+      ctx.setLineDash([]);
+      const hist = histogram(p.data, bins, lo, hi);
+      const maxH = Math.max(...hist, 1);
+      ctx.fillStyle = p.color;
+      for (let i = 0; i < bins; i++) {
+        const bw = cw / bins;
+        const bh = hist[i] / maxH * (ch - 10);
+        ctx.fillRect(pad + i * bw + 1, p.y + ch - bh, bw - 2, bh);
+      }
+      ctx.fillStyle = '#1A1A1A'; ctx.font = '12px -apple-system, Inter, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(p.title, pad + 6, p.y + 16);
+    });
+
+    // x axis labels
+    ctx.fillStyle = '#6B6B6B'; ctx.font = '11px -apple-system, Inter, sans-serif'; ctx.textAlign = 'center';
+    [-4, -2, 0, 2, 4].forEach(v => {
+      const xp = pad + (v - lo) / (hi - lo) * cw;
+      ctx.fillText(String(v), xp, r.height - 4);
+    });
+
+    status.textContent = `raw μ=${mean.toFixed(2)}, σ=${std.toFixed(2)}  →  normalized then γ·ẑ+β`;
+  }
+
+  new ResizeObserver(() => resize(draw)).observe(host);
+  gammaEl.oninput = draw;
+  betaEl.oninput  = draw;
+  document.getElementById('bn-shuffle').onclick = newBatch;
+  setTimeout(() => { newBatch(); resize(draw); }, 50);
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// Quiz + progress + TOC
+// ═══════════════════════════════════════════════════════════════════
+let score = 0; const seen = new Set();
+const totalQs = document.querySelectorAll('.opts').length;
+document.querySelectorAll('.opts').forEach(opts => {
+  opts.querySelectorAll('.opt').forEach(btn => {
+    btn.onclick = () => {
+      if (opts.dataset.answered) return;
+      const correct = btn.dataset.correct === 'true';
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct) opts.querySelectorAll('.opt').forEach(b => {
+        if (b.dataset.correct === 'true') b.classList.add('correct');
+      });
+      opts.dataset.answered = '1';
+      const reveal = opts.parentElement.querySelector('.reveal');
+      if (reveal) reveal.classList.add('show');
+      if (correct && !seen.has(opts.dataset.q)) {
+        seen.add(opts.dataset.q);
+        score++;
+        document.getElementById('score').textContent = `Score: ${score} / ${totalQs}`;
+      }
+    };
+  });
+});
+document.getElementById('score').textContent = `Score: 0 / ${totalQs}`;
+
+// Progress + TOC
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = Math.min(100, Math.max(0, window.scrollY / Math.max(1, h) * 100)) + '%';
+}, { passive: true });
+const toc = document.getElementById('toc');
+document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
+toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
+
+// polyfill roundRect for older browsers
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+    if (r === undefined) r = 4;
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y, x + w, y + h, r);
+    this.arcTo(x + w, y + h, x, y + h, r);
+    this.arcTo(x, y + h, x, y, r);
+    this.arcTo(x, y, x + w, y, r);
+    return this;
+  };
+}
+</script>
+</body>
+</html>

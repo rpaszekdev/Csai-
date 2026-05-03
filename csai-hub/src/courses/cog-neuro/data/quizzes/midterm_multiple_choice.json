@@ -1,0 +1,149 @@
+{
+  "section_id": "midterm",
+  "quiz_type": "multiple_choice",
+  "title": "Midterm Review - Multiple Choice",
+  "questions": [
+    {
+      "id": "midterm_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "A researcher wants to determine whether the lateral prefrontal cortex is necessary for self-control. Which method would provide the strongest causal evidence?",
+      "options": {
+        "A": "fMRI showing increased prefrontal activation during self-control tasks",
+        "B": "EEG recording of frontal theta oscillations during inhibition",
+        "C": "TMS with sham TMS control applied to lateral prefrontal cortex",
+        "D": "Correlation between prefrontal cortex volume and self-control questionnaire scores"
+      },
+      "correct_answer": "C",
+      "explanation": "TMS (transcranial magnetic stimulation) with a sham control is the correct answer because it allows causal inference — you can disrupt or stimulate a brain region and observe the behavioural consequence. fMRI and EEG only show correlations between brain activity and behaviour. This causation vs. correlation distinction is THE core exam theme."
+    },
+    {
+      "id": "midterm_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What are ERPs (Event-Related Potentials)?",
+      "options": {
+        "A": "EEG spectra averaged across multiple frequency bands",
+        "B": "Raw EEG signals averaged across multiple trials, time-locked to an event",
+        "C": "EEG signals averaged across recording sites",
+        "D": "Magnetic field recordings averaged over time"
+      },
+      "correct_answer": "B",
+      "explanation": "ERPs are raw EEG signals averaged across multiple trials that are time-locked to a specific event (stimulus onset, response, etc.). This averaging cancels out random noise and reveals the consistent neural response to the event. They are NOT EEG spectra and NOT averaged across sites."
+    },
+    {
+      "id": "midterm_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "The inverse problem applies to which neuroimaging methods?",
+      "options": {
+        "A": "EEG only",
+        "B": "MEG only",
+        "C": "Both EEG and MEG",
+        "D": "fMRI and PET"
+      },
+      "correct_answer": "C",
+      "explanation": "The inverse problem — the inability to uniquely determine the neural source from surface recordings — applies to BOTH EEG and MEG. Multiple different configurations of neural sources can produce the same pattern of surface recordings, making source localisation inherently ambiguous."
+    },
+    {
+      "id": "midterm_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What was the pivotal event that marked the transition from Behaviourism to Cognitive Science?",
+      "options": {
+        "A": "The invention of fMRI",
+        "B": "Penfield's cortical stimulation experiments",
+        "C": "Chomsky's 1959 critique of Skinner's behaviourism",
+        "D": "The discovery of mirror neurons"
+      },
+      "correct_answer": "C",
+      "explanation": "Chomsky's 1959 review of Skinner's 'Verbal Behavior' is considered the pivotal transition from Behaviourism to Cognitive Science. Chomsky argued that language acquisition could not be explained by stimulus-response associations alone and that internal mental representations must be studied."
+    },
+    {
+      "id": "midterm_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What is sham TMS used for in research?",
+      "options": {
+        "A": "To provide stronger stimulation than regular TMS",
+        "B": "To serve as a placebo control condition for TMS studies",
+        "C": "To stimulate deeper brain structures",
+        "D": "To record brain activity rather than stimulate it"
+      },
+      "correct_answer": "B",
+      "explanation": "Sham TMS serves as a placebo control for TMS experiments. It mimics the experience of real TMS (the clicking sound, scalp sensation) without actually disrupting neural activity, allowing researchers to distinguish genuine TMS effects from placebo effects."
+    },
+    {
+      "id": "midterm_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Which statement best describes the principle of convergence in cognitive neuroscience?",
+      "options": {
+        "A": "Using one highly reliable method is sufficient for strong conclusions",
+        "B": "When multiple different methods lead to the same conclusion, the evidence is stronger",
+        "C": "Different methods should be used to study different aspects of cognition",
+        "D": "All methods in cognitive neuroscience measure the same underlying signal"
+      },
+      "correct_answer": "B",
+      "explanation": "Convergence means that when multiple different methods (e.g., fMRI, lesion studies, TMS) all point to the same conclusion, the overall evidence is much stronger than any single method alone. Complementarity is the related principle that different methods reveal different aspects of the same phenomenon."
+    },
+    {
+      "id": "midterm_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Why must lesion studies be interpreted with caution?",
+      "options": {
+        "A": "Lesions always affect only one specific brain region",
+        "B": "Brain damage is rarely clean and findings need consistency across patients",
+        "C": "Lesion studies cannot tell us anything about brain function",
+        "D": "Modern imaging has completely replaced the need for lesion studies"
+      },
+      "correct_answer": "B",
+      "explanation": "Lesion studies are valuable but must be interpreted carefully because brain damage is rarely clean — it often affects multiple regions and white matter tracts. Findings need to be consistent across multiple patients with similar damage to draw reliable conclusions."
+    },
+    {
+      "id": "midterm_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What is the correct historical progression of approaches to studying the mind?",
+      "options": {
+        "A": "Behaviourism → Natural Philosophy → Cognitive Science → Cognitive Neuroscience",
+        "B": "Natural Philosophy → Cognitive Science → Behaviourism → Cognitive Neuroscience",
+        "C": "Natural Philosophy → Behaviourism → Cognitive Science → Cognitive Neuroscience",
+        "D": "Cognitive Science → Behaviourism → Natural Philosophy → Cognitive Neuroscience"
+      },
+      "correct_answer": "C",
+      "explanation": "The historical progression is: Natural Philosophy (Helmholtz, Wundt, James — combining philosophy with experimental methods) → Behaviourism (Skinner — focus on observable stimulus-response, mind as black box) → Cognitive Science (Chomsky's critique — studying internal representations) → Cognitive Neuroscience (applying neuroscience methods to cognitive questions)."
+    },
+    {
+      "id": "midterm_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Which definition best describes cognitive neuroscience?",
+      "options": {
+        "A": "The study of information processing in the mind",
+        "B": "The study of the structure and function of the nervous system",
+        "C": "Applying neuroscience methods to understand cognitive functions",
+        "D": "The study of behaviour through stimulus-response associations"
+      },
+      "correct_answer": "C",
+      "explanation": "Cognitive neuroscience applies neuroscience methods to understand cognitive functions. This distinguishes it from cognitive science (information processing in the mind) and neuroscience (structure/function of the nervous system). It bridges both disciplines."
+    },
+    {
+      "id": "midterm_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "The exam is at 'analysis' level on Bloom's taxonomy. Which of the following best represents an analysis-level question?",
+      "options": {
+        "A": "Define what an ERP is",
+        "B": "List the four historical eras of cognitive neuroscience",
+        "C": "Explain why a TMS study provides stronger evidence for causation than an fMRI study",
+        "D": "Name the brain region associated with memory"
+      },
+      "correct_answer": "C",
+      "explanation": "Analysis-level questions require breaking down information and examining relationships. Comparing TMS (causal) with fMRI (correlational) requires analysing the strengths and limitations of each method. Options A, B, and D are at the knowledge/recall level, which is simpler."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapters 1, 5, 8-9"]
+}

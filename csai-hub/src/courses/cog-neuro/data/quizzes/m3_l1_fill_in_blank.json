@@ -1,0 +1,109 @@
+{
+  "section_id": "m3_l1",
+  "quiz_type": "fill_in_blank",
+  "title": "Memory - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m3_l1_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "The three stages of memory are encoding, storage, and ___.",
+      "blank_sentence": "The three stages of memory are encoding, storage, and ___.",
+      "correct_answer": "retrieval",
+      "acceptable_answers": ["retrieval"],
+      "explanation": "Memory involves three stages: encoding (creating memory traces through synaptic changes), storage (retention over time via consolidation), and retrieval (accessing stored traces using retrieval cues)."
+    },
+    {
+      "id": "m3_l1_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Patient ___ had bilateral medial temporal lobe removal and demonstrated the distinction between declarative and nondeclarative memory.",
+      "blank_sentence": "Patient ___ had bilateral medial temporal lobe removal and demonstrated the distinction between declarative and nondeclarative memory.",
+      "correct_answer": "H.M.",
+      "acceptable_answers": ["H.M.", "HM", "Henry Molaison"],
+      "explanation": "Patient H.M. (Henry Molaison) had bilateral MTL removal for epilepsy treatment, resulting in severe declarative memory impairment but spared nondeclarative memory (e.g., mirror drawing), fundamentally shaping our understanding of memory systems."
+    },
+    {
+      "id": "m3_l1_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "___ memory refers to general knowledge and facts that do not require remembering the specific episode in which they were learned.",
+      "blank_sentence": "___ memory refers to general knowledge and facts that do not require remembering the specific episode in which they were learned.",
+      "correct_answer": "Semantic",
+      "acceptable_answers": ["Semantic", "semantic"],
+      "explanation": "Semantic memory stores general knowledge and facts (e.g., 'Paris is the capital of France') without requiring recollection of the specific context in which they were learned. It contrasts with episodic memory, which encodes specific events."
+    },
+    {
+      "id": "m3_l1_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "The hippocampal subregions include CA1, CA3, ___, and subiculum.",
+      "blank_sentence": "The hippocampal subregions include CA1, CA3, ___, and subiculum.",
+      "correct_answer": "dentate gyrus",
+      "acceptable_answers": ["dentate gyrus", "Dentate gyrus", "DG"],
+      "explanation": "The hippocampus contains several subregions: CA1, CA3, dentate gyrus, and subiculum. Each has distinct roles — the dentate gyrus is involved in pattern separation, CA3 in pattern completion, and CA1 in output to other brain regions."
+    },
+    {
+      "id": "m3_l1_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "The two types of consolidation are ___ consolidation (fast, at the synapse) and system consolidation (slow, MTL to cortex).",
+      "blank_sentence": "The two types of consolidation are ___ consolidation (fast, at the synapse) and system consolidation (slow, MTL to cortex).",
+      "correct_answer": "synaptic",
+      "acceptable_answers": ["synaptic", "Synaptic"],
+      "explanation": "Synaptic consolidation occurs rapidly at the synapse level (strengthening connections), while system consolidation is a slower process transferring memory representations from medial temporal lobe to distributed cortical regions."
+    },
+    {
+      "id": "m3_l1_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "___ memory creates a sense of self and overlaps with both episodic and semantic memory.",
+      "blank_sentence": "___ memory creates a sense of self and overlaps with both episodic and semantic memory.",
+      "correct_answer": "Autobiographical",
+      "acceptable_answers": ["Autobiographical", "autobiographical"],
+      "explanation": "Autobiographical memory combines episodic memories (specific personal events) with semantic knowledge (general facts about oneself) to create a coherent sense of personal identity and continuity over time."
+    },
+    {
+      "id": "m3_l1_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "The ___ is responsible for emotional memory and enhances consolidation of emotionally significant events.",
+      "blank_sentence": "The ___ is responsible for emotional memory and enhances consolidation of emotionally significant events.",
+      "correct_answer": "amygdala",
+      "acceptable_answers": ["amygdala", "Amygdala"],
+      "explanation": "The amygdala plays a critical role in emotional memory. It modulates hippocampal and cortical consolidation processes, enhancing the storage of emotionally arousing events, which is why emotional memories tend to be stronger and more vivid."
+    },
+    {
+      "id": "m3_l1_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Episodic memory encodes specific events along three dimensions: what, where, and ___.",
+      "blank_sentence": "Episodic memory encodes specific events along three dimensions: what, where, and ___.",
+      "correct_answer": "when",
+      "acceptable_answers": ["when"],
+      "explanation": "Episodic memory encodes specific events with their contextual details: what happened, where it happened, and when it happened. This distinguishes it from semantic memory, which stores decontextualised facts."
+    },
+    {
+      "id": "m3_l1_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "In Baddeley's working memory model, the ___ controls attention and coordinates the other working memory subsystems.",
+      "blank_sentence": "In Baddeley's working memory model, the ___ controls attention and coordinates the other working memory subsystems.",
+      "correct_answer": "central executive",
+      "acceptable_answers": ["central executive", "Central executive", "Central Executive"],
+      "explanation": "The central executive is the attentional control system of Baddeley's working memory model. It coordinates the phonological loop (verbal), visuospatial sketchpad (spatial), and episodic buffer (integration), directing attention and managing information flow."
+    },
+    {
+      "id": "m3_l1_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "During retrieval, the same ___ regions that were active during encoding are re-recruited, a phenomenon known as cortical reactivation.",
+      "blank_sentence": "During retrieval, the same ___ regions that were active during encoding are re-recruited, a phenomenon known as cortical reactivation.",
+      "correct_answer": "cortical",
+      "acceptable_answers": ["cortical", "encoding", "brain"],
+      "explanation": "Cortical reactivation means that the same cortical regions active during encoding are re-recruited during retrieval. Visual memories reactivate visual cortex, auditory memories reactivate auditory cortex, demonstrating that memory retrieval is a form of neural replay."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 32-39"]
+}

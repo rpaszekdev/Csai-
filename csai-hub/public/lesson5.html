@@ -255,6 +255,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
 <script src="/shared/clarity.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-annot-scope="deep-learning:regularization">
 <div class="rust-bar"></div>
@@ -312,6 +313,10 @@
   <div class="text">
     <div class="eyebrow">Section 1 · slides 2, 5</div>
     <h2>The model that knew too much</h2>
+    <div class="key-moves">
+      <span class="key-move">zero training loss</span>
+      <span class="key-move">awful test loss</span>
+    </div>
     <p>Give a flexible model enough freedom, and it will fit your training data <strong>perfectly</strong>. Every point, every wiggle, every bit of noise.</p>
     <p>Then you hand it a new example. It fails. Badly.</p>
     <p>The network did not learn the <strong>underlying pattern</strong>. It learned the <strong>specific training set</strong>, quirks and all. This is <strong>overfitting</strong>.</p>
@@ -324,6 +329,7 @@
       <div class="cap">slide 2 — overfitting vs. generalisation</div>
     </div>
 
+      <div class="takeaway">Overfitting is memorization in disguise</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="what-canvas">
@@ -341,6 +347,10 @@
   <div class="text">
     <div class="eyebrow">Section 2 · slides 3–5</div>
     <h2>The bias–variance tradeoff</h2>
+    <div class="key-moves">
+      <span class="key-move">under- vs over-fit</span>
+      <span class="key-move">sweet spot</span>
+    </div>
     <p>Two failure modes live at opposite ends of model complexity.</p>
     <div class="callout warn">
       <strong>High bias (underfitting)</strong> — the model is too simple. Even if you gave it more data, it could not fit the true pattern.<br/><br/>
@@ -356,6 +366,7 @@
       <div class="cap">slide 4 — bias / variance trade-off</div>
     </div>
 
+      <div class="takeaway">Bias and variance trade off</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bv-canvas">
@@ -375,6 +386,10 @@
   <div class="text">
     <div class="eyebrow">Section 3 · slide 6</div>
     <h2>Penalize the weights directly</h2>
+    <div class="key-moves">
+      <span class="key-move">L1 sparsity</span>
+      <span class="key-move">L2 weight shrink</span>
+    </div>
     <p>The simplest regularizer: add a term to the loss that <strong>punishes large weights</strong>.</p>
     <div class="formula">L<sub>total</sub> = L<sub>data</sub> + λ · R(W)</div>
     <p>Two common choices:</p>
@@ -391,6 +406,7 @@
       <div class="cap">slide 6 — L1 and L2 weight penalties</div>
     </div>
 
+      <div class="takeaway">Small weights = simpler functions</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="ln-canvas">
@@ -410,6 +426,10 @@
   <div class="text">
     <div class="eyebrow">Section 4 · slides 7–8</div>
     <h2>Early stopping</h2>
+    <div class="key-moves">
+      <span class="key-move">watch validation loss</span>
+      <span class="key-move">stop on rise</span>
+    </div>
     <p>Train a model for many epochs and you will see two curves:</p>
     <ul>
       <li><strong>Training loss</strong> keeps falling — the model keeps memorizing.</li>
@@ -425,6 +445,7 @@
       <div class="cap">slide 7 — early stopping on validation loss</div>
     </div>
 
+      <div class="takeaway">When val turns up, you stop</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="es-canvas">
@@ -443,6 +464,12 @@
   <div class="text">
     <div class="eyebrow">Section 5 · slides 10–12</div>
     <h2>Data augmentation</h2>
+    <div class="key-moves">
+      <span class="key-move">flip</span>
+      <span class="key-move">crop</span>
+      <span class="key-move">jitter</span>
+      <span class="key-move">learn invariance</span>
+    </div>
     <p>The best regularizer is <strong>more data</strong>. When you cannot get more, you <strong>fabricate</strong> it — by applying label-preserving transformations.</p>
     <p>For images: <strong>flip</strong>, <strong>crop</strong>, <strong>rotate</strong>, <strong>scale</strong>, <strong>shift colors</strong>, <strong>add noise</strong>. A flipped cat is still a cat. A slightly rotated cat is still a cat. The network sees <em>new</em> examples without you collecting any.</p>
     <div class="callout warn">
@@ -457,6 +484,7 @@
       <div class="cap">slide 11 — data augmentation expands the training set</div>
     </div>
 
+      <div class="takeaway">Free training data, more invariance</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="aug-canvas">
@@ -478,6 +506,10 @@
   <div class="text">
     <div class="eyebrow">Section 6 · slides 14–18</div>
     <h2>Dropout</h2>
+    <div class="key-moves">
+      <span class="key-move">randomly mute neurons</span>
+      <span class="key-move">ensemble trick</span>
+    </div>
     <p>At each training step, <strong>randomly turn off</strong> a fraction of the neurons. Set their activation to zero. The rest of the network has to solve the task <em>without</em> them.</p>
     <p>Next step: a <strong>different</strong> random set gets turned off. And again. And again.</p>
     <div class="callout navy">
@@ -493,6 +525,7 @@
       <div class="cap">slide 15 — dropout: zero random units while training</div>
     </div>
 
+      <div class="takeaway">Force the network to spread its bets</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="do-canvas">
@@ -512,6 +545,10 @@
   <div class="text">
     <div class="eyebrow">Section 7 · slides 20–23</div>
     <h2>Capacity and the double descent surprise</h2>
+    <div class="key-moves">
+      <span class="key-move">double descent</span>
+      <span class="key-move">big models help</span>
+    </div>
     <p>A model's <strong>capacity</strong> is the range of functions it can represent. More neurons, more layers, more parameters → higher capacity.</p>
     <p>Classical statistics says: too much capacity means overfitting, so test error should climb forever after the sweet spot.</p>
     <div class="callout warn">
@@ -527,6 +564,7 @@
       <div class="cap">slide 21 — controlling network capacity</div>
     </div>
 
+      <div class="takeaway">More capacity isn't always worse</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="dd-canvas">
@@ -544,6 +582,10 @@
   <div class="text">
     <div class="eyebrow">Section 8 · slides 26–35</div>
     <h2>Batch normalization</h2>
+    <div class="key-moves">
+      <span class="key-move">normalize activations</span>
+      <span class="key-move">per batch</span>
+    </div>
     <p>We already know it helps to <strong>normalize the input</strong> to a network — zero mean, unit variance. But as weights change during training, the <strong>activations of every hidden layer</strong> drift too. Each layer sees a distribution that keeps shifting under its feet.</p>
     <p>This is <strong>internal covariate shift</strong>, and it slows learning down.</p>
     <div class="callout">
@@ -560,6 +602,7 @@
       <div class="cap">slide 28 — batch normalisation stabilises training</div>
     </div>
 
+      <div class="takeaway">Stabilize the layer-to-layer scale</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bn-canvas">
@@ -1629,24 +1672,7 @@ safeScene('bn', function () {
   setTimeout(() => { newBatch(); resize(draw); }, 50);
 });
 
-// ═══════════════════════════════════════════════════════════════════
-// Quiz + progress + TOC
-// ═══════════════════════════════════════════════════════════════════
-      }
-    };
-  });
-});
-document.getElementById('score').textContent = `Score: 0 / ${totalQs}`;
 
-// Progress + TOC
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  bar.style.width = Math.min(100, Math.max(0, window.scrollY / Math.max(1, h) * 100)) + '%';
-}, { passive: true });
-const toc = document.getElementById('toc');
-document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
-toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 
 // polyfill roundRect for older browsers
 if (!CanvasRenderingContext2D.prototype.roundRect) {

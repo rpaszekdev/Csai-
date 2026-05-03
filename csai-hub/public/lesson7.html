@@ -347,6 +347,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
 <script src="/shared/clarity.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-annot-scope="deep-learning:transformers">
 <div class="rust-bar"></div>
@@ -405,6 +406,9 @@
   <div class="text">
     <div class="eyebrow">Section 1 · slides 3–4</div>
     <h2>Where we left off</h2>
+    <div class="key-moves">
+      <span class="key-move">seq2seq passes one fixed vector</span>
+    </div>
     <p>Recurrent networks process tokens <strong>one at a time</strong>. The hidden state at step <code>t</code> is computed from the input <code>x<sub>t</sub></code> and the previous hidden state <code>h<sub>t-1</sub></code>. To compute step 50 you must first compute steps 1 through 49. Sequential. Slow. Not parallelizable.</p>
     <p>The encoder-decoder pattern made things worse: the entire input sequence had to fit inside the <strong>final encoder hidden state</strong>, a single fixed-size vector. The decoder then had to reconstruct the output from that one bottleneck vector.</p>
     <div class="callout warn">
@@ -416,6 +420,7 @@
       <div class="cap">slide 3 — recurrence's fixed-size memory bottleneck</div>
     </div>
 
+      <div class="takeaway">RNNs choke long sequences</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="bottleneck-canvas">
@@ -434,6 +439,9 @@
   <div class="text">
     <div class="eyebrow">Section 2 · slides 5–8</div>
     <h2>Attention inside an RNN</h2>
+    <div class="key-moves">
+      <span class="key-move">look at every encoder state</span>
+    </div>
     <p>The first patch was to keep the recurrence but let each step <strong>peek at all the earlier ones</strong>. Instead of relying on a single hidden state, every step computes a weighted sum over <em>all</em> previous hidden states. The weights say <em>which past steps matter most for the current one</em>.</p>
     <p>This was a real improvement, but it kept two limits. <strong>All the information is still routed through hidden states</strong> built one after another. And <strong>intermediate steps cannot pay attention to future inputs</strong> — they have not been computed yet.</p>
     <div class="callout">
@@ -445,6 +453,7 @@
       <div class="cap">slide 6 — attention augments the recurrent decoder</div>
     </div>
 
+      <div class="takeaway">Attention rescues the decoder</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="rnn-attn-canvas">
@@ -463,6 +472,9 @@
   <div class="text">
     <div class="eyebrow">Section 3 · slides 14–18</div>
     <h2>Self-attention — the core idea</h2>
+    <div class="key-moves">
+      <span class="key-move">each token weighs the others</span>
+    </div>
     <p>Self-attention treats representation as a <strong>retrieval task</strong>. For each token, you ask: <em>given my current state, which other tokens should I read from, and how strongly?</em></p>
     <p>Every token plays three roles at once:</p>
     <ul>
@@ -480,6 +492,7 @@
       <div class="cap">slide 15 — self-attention: every token attends to every token</div>
     </div>
 
+      <div class="takeaway">No recurrence, no convolution, just attention</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="qk-canvas">
@@ -502,6 +515,12 @@
   <div class="text">
     <div class="eyebrow">Section 4 · slides 15, 19–20</div>
     <h2>Q, K, V are three learned projections</h2>
+    <div class="key-moves">
+      <span class="key-move">query</span>
+      <span class="key-move">key</span>
+      <span class="key-move">value</span>
+      <span class="key-move">learned</span>
+    </div>
     <p>Where do the queries, keys, and values come from? They are not three separate inputs. They are <strong>three different views of the same input</strong>, produced by three weight matrices.</p>
     <p>Take an input vector <code>x</code> (the token embedding). Multiply it by:</p>
     <ul>
@@ -522,6 +541,7 @@
       <div class="cap">slide 19 — Query, Key, Value projections</div>
     </div>
 
+      <div class="takeaway">Three projections, one mechanism</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="qkv-canvas">
@@ -541,6 +561,10 @@
   <div class="text">
     <div class="eyebrow">Section 5 · slides 21–24</div>
     <h2>The full attention formula</h2>
+    <div class="key-moves">
+      <span class="key-move">softmax(QKᵀ/√d)</span>
+      <span class="key-move">V</span>
+    </div>
     <p>Put the pieces together. For one whole sequence, scaled dot-product attention is:</p>
     <div class="ssl-code"><span class="cm">// scaled dot-product attention</span>
 Attention(Q, K, V) = softmax( Q · K<sup>T</sup> / √d<sub>k</sub> ) · V</div>
@@ -554,6 +578,7 @@ Attention(Q, K, V) = softmax( Q · K<sup>T</sup> / √d<sub>k</sub> ) · V</div>
       <div class="cap">slide 22 — softmax(QKᵀ / √d) · V</div>
     </div>
 
+      <div class="takeaway">Attention in one matrix product</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="softmax-canvas">
@@ -573,6 +598,10 @@ Attention(Q, K, V) = softmax( Q · K<sup>T</sup> / √d<sub>k</sub> ) · V</div>
   <div class="text">
     <div class="eyebrow">Section 6 · slides 25–27</div>
     <h2>Multi-head attention</h2>
+    <div class="key-moves">
+      <span class="key-move">split into heads</span>
+      <span class="key-move">attend in parallel</span>
+    </div>
     <p>One attention layer learns one notion of <em>relevance</em>. But language has many: subject–verb agreement, coreference, syntactic role, semantic similarity. <strong>Multi-head attention</strong> runs several attention computations in parallel, each with its own <code>W<sub>Q</sub></code>, <code>W<sub>K</sub></code>, <code>W<sub>V</sub></code>.</p>
     <p>Each <strong>head</strong> projects the input into a smaller subspace, computes attention there, and produces its own output. The outputs of all heads are <strong>concatenated</strong> and multiplied by one final matrix <strong>W<sub>O</sub></strong> to mix them back together.</p>
     <div class="ssl-code"><span class="cm">// h heads, each with its own Q, K, V projection</span>
@@ -587,6 +616,7 @@ MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub><
       <div class="cap">slide 25 — multi-head attention runs in parallel subspaces</div>
     </div>
 
+      <div class="takeaway">Many views of the same sequence</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="multihead-canvas">
@@ -604,6 +634,9 @@ MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub><
   <div class="text">
     <div class="eyebrow">Section 7 · slides 28–30</div>
     <h2>The Transformer block</h2>
+    <div class="key-moves">
+      <span class="key-move">attn + MLP + residual + LN</span>
+    </div>
     <p>One <strong>encoder block</strong> wraps multi-head self-attention in a small recipe that is the same in every Transformer:</p>
     <ol style="padding-left: 1.5em; line-height: 1.9; color: var(--sumi-deep);">
       <li>Take the embedded inputs (with position information added).</li>
@@ -625,6 +658,7 @@ MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub><
       <div class="cap">slide 28 — the full transformer block</div>
     </div>
 
+      <div class="takeaway">The Transformer block, repeated</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="block-canvas">
@@ -643,6 +677,9 @@ MultiHead(X) = Concat(head<sub>1</sub>, …, head<sub>h</sub>) · W<sub>O</sub><
   <div class="text">
     <div class="eyebrow">Section 8 · slides 35–43</div>
     <h2>Masked self-attention — the decoder's rule</h2>
+    <div class="key-moves">
+      <span class="key-move">can't peek at future tokens</span>
+    </div>
     <p>An encoder is allowed to look at the whole input. A <strong>decoder</strong> generates one token at a time and must predict the next word from the words it has already produced. If it could peek at future tokens during training, the task would be trivial — just copy the next position. So we forbid it.</p>
     <p>The fix is a <strong>causal mask</strong>. Compute the score matrix <code>Q · K<sup>T</sup></code> as usual. Before the softmax, <strong>add a mask</strong> that puts <code>−∞</code> on every entry above the diagonal — every position that points to the future. After <code>e<sup>−∞</sup> = 0</code>, those entries contribute nothing to the softmax sum.</p>
     <div class="ssl-code"><span class="cm">// causal mask: zeros below and on the diagonal, −∞ above</span>
@@ -659,6 +696,7 @@ output  = weights · V</div>
       <div class="cap">slide 38 — causal / masked attention for autoregression</div>
     </div>
 
+      <div class="takeaway">Causal masking makes generation possible</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="mask-canvas">
@@ -678,6 +716,10 @@ output  = weights · V</div>
   <div class="text">
     <div class="eyebrow">Section 9 · slides 30, 32</div>
     <h2>Positional encoding</h2>
+    <div class="key-moves">
+      <span class="key-move">inject order via sinusoids</span>
+      <span class="key-move">or learn it</span>
+    </div>
     <p>Self-attention is permutation-invariant. Shuffle the tokens of the input and the attention output simply shuffles the same way. That is wrong for language: <em>"the cat ate the fish"</em> is not <em>"the fish ate the cat"</em>.</p>
     <p>The fix is to <strong>add positional information directly to the embedding</strong>. Each position <code>p</code> gets its own vector <code>PE<sub>p</sub></code>, and the input to the first block becomes <code>x = embedding(token) + PE<sub>p</sub></code>.</p>
     <p>The original Transformer used a fixed sinusoidal encoding:</p>
@@ -693,6 +735,7 @@ PE(p, 2i+1) = cos( p / 10000<sup>2i/d</sup> )</div>
       <div class="cap">slide 32 — positional encodings replace recurrence's order</div>
     </div>
 
+      <div class="takeaway">Without position, tokens are a bag</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="pe-canvas">
@@ -1844,28 +1887,6 @@ safeScene('pe', function () {
   new ResizeObserver(draw).observe(host);
 });
 
-// ═══════════════════════════════════════════════════════════════════
-// Quiz / predict answering logic
-// ═══════════════════════════════════════════════════════════════════
-      }
-    };
-  });
-});
-document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
-
-// ═══════════════════════════════════════════════════════════════════
-// Progress bar + TOC
-// ═══════════════════════════════════════════════════════════════════
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const p = Math.min(100, Math.max(0, window.scrollY / h * 100));
-  bar.style.width = p + '%';
-}, { passive: true });
-
-const toc = document.getElementById('toc');
-document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
-toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 </script>
 <script src="/deep-learning/dl-layout.js" defer></script>
 <script src="/shared/annotations/annotations.js" defer></script>

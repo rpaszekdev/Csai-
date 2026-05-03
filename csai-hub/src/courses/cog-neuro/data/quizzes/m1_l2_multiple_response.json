@@ -1,0 +1,162 @@
+{
+  "section_id": "m1_l2",
+  "quiz_type": "multiple_response",
+  "title": "Methodology - Multiple Response",
+  "questions": [
+    {
+      "id": "m1_l2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are perturbation methods? (Select all that apply)",
+      "options": {
+        "A": "Brain lesions",
+        "B": "EEG",
+        "C": "TMS",
+        "D": "Optogenetics",
+        "E": "fMRI",
+        "F": "Pharmacology"
+      },
+      "correct_answers": ["A", "C", "D", "F"],
+      "explanation": "Perturbation methods disrupt brain function to test causality. These include brain lesions, TMS (virtual lesions), tDCS, optogenetics, and pharmacology. EEG and fMRI are neuromonitoring (observational) methods."
+    },
+    {
+      "id": "m1_l2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are true about TMS? (Select all that apply)",
+      "options": {
+        "A": "It creates virtual lesions",
+        "B": "Its effects are transient and reversible",
+        "C": "It can target deep brain structures",
+        "D": "It can only reach about 1.5 cm depth",
+        "E": "It carries some safety risks",
+        "F": "It provides only correlational evidence"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "TMS creates virtual lesions that are transient, can only reach superficial cortex (~1.5 cm), and carries safety risks (e.g., seizures in rare cases). It is a perturbation method that tests causality, not just correlational evidence, and cannot reach deep structures."
+    },
+    {
+      "id": "m1_l2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are limitations of brain lesion studies? (Select all that apply)",
+      "options": {
+        "A": "Lesions produce variable damage across patients",
+        "B": "Diaschisis can affect remote brain regions",
+        "C": "Lesions are too small to study",
+        "D": "The brain may reorganise after damage",
+        "E": "Overlapping lesion analysis can help localise function"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "Lesion studies are limited by variable damage patterns, diaschisis (remote effects), and neuroplastic reorganisation. Lesions are typically not too small — they are often imprecise and too large. Overlapping lesion analysis is a method to address some limitations, not itself a limitation."
+    },
+    {
+      "id": "m1_l2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which statements about fMRI are correct? (Select all that apply)",
+      "options": {
+        "A": "It measures the BOLD signal",
+        "B": "It has millimetre spatial resolution",
+        "C": "It has millisecond temporal resolution",
+        "D": "It can use block or event-related designs",
+        "E": "The BOLD response peaks at 5-6 seconds",
+        "F": "It directly measures neural electrical activity"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "fMRI measures the BOLD signal with millimetre spatial resolution, can use block or event-related designs, and the BOLD response peaks at 5-6 seconds. It does NOT have millisecond temporal resolution (that is EEG) and it does NOT directly measure neural activity — it measures blood oxygenation changes."
+    },
+    {
+      "id": "m1_l2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about optogenetics? (Select all that apply)",
+      "options": {
+        "A": "It combines genetics and light",
+        "B": "It offers very precise spatial and temporal control",
+        "C": "It is non-invasive and safe for humans",
+        "D": "It is currently limited to animal studies",
+        "E": "It can target specific neuron types"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Optogenetics combines genetic manipulation with light delivery to control specific neuron types with high precision. It is invasive (requires genetic modification and implanted light sources) and currently limited to animal research."
+    },
+    {
+      "id": "m1_l2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which methods are affected by the inverse problem? (Select all that apply)",
+      "options": {
+        "A": "EEG",
+        "B": "MEG",
+        "C": "fMRI",
+        "D": "PET",
+        "E": "TMS"
+      },
+      "correct_answers": ["A", "B"],
+      "explanation": "The inverse problem specifically applies to EEG and MEG because both record signals at the surface (scalp) and must infer the brain sources that generated those signals. Multiple source configurations can produce the same surface pattern. fMRI and PET directly localise activity; TMS is a stimulation method."
+    },
+    {
+      "id": "m1_l2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are connectivity analysis methods used with fMRI data? (Select all that apply)",
+      "options": {
+        "A": "Functional connectivity",
+        "B": "PPI (Psychophysiological Interaction)",
+        "C": "DCM (Dynamic Causal Modelling)",
+        "D": "SEM (Structural Equation Modelling)",
+        "E": "MVPA (Multi-Voxel Pattern Analysis)"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Functional connectivity, PPI, DCM, and SEM are all methods for analysing connectivity between brain regions using fMRI data. MVPA is a pattern classification approach, not a connectivity analysis method."
+    },
+    {
+      "id": "m1_l2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are advantages of MEG over EEG? (Select all that apply)",
+      "options": {
+        "A": "Magnetic fields are not distorted by skull and tissue",
+        "B": "MEG is much cheaper than EEG",
+        "C": "Better source localisation potential",
+        "D": "MEG completely solves the inverse problem",
+        "E": "Magnetic signals pass through tissue without smearing"
+      },
+      "correct_answers": ["A", "C", "E"],
+      "explanation": "MEG's key advantage is that magnetic fields pass through skull and tissue without distortion or smearing, unlike EEG's electrical signals. This gives MEG better source localisation potential. However, MEG is much more expensive than EEG and does NOT solve the inverse problem — it still applies."
+    },
+    {
+      "id": "m1_l2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe EEG? (Select all that apply)",
+      "options": {
+        "A": "It has millisecond temporal resolution",
+        "B": "It measures action potentials",
+        "C": "It has poor spatial resolution due to signal smearing",
+        "D": "ERPs are derived from EEG through time-locked averaging",
+        "E": "It measures post-synaptic potentials of pyramidal cells"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "EEG has excellent temporal resolution (milliseconds), poor spatial resolution (signal smearing through skull), and measures post-synaptic potentials of pyramidal cells (NOT action potentials — this is a classic exam trap). ERPs are indeed extracted from EEG via time-locked averaging."
+    },
+    {
+      "id": "m1_l2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which principles are essential for drawing strong conclusions in cognitive neuroscience? (Select all that apply)",
+      "options": {
+        "A": "Convergence across multiple methods",
+        "B": "Complementarity of methods with different strengths",
+        "C": "Double dissociations rather than single associations",
+        "D": "Relying on a single gold-standard method",
+        "E": "Combining perturbation and monitoring approaches"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Strong conclusions require convergence (multiple methods pointing to the same conclusion), complementarity (combining methods with different strengths/weaknesses), double dissociations (stronger than simple associations), and combining perturbation with monitoring. No single method is a 'gold standard'."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 2 slides", "Chapter 2"]
+}

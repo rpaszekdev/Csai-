@@ -1,0 +1,99 @@
+{
+  "section_id": "m2_l1",
+  "quiz_type": "ordering",
+  "title": "Motor Control - Ordering",
+  "questions": [
+    {
+      "id": "m2_l1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Arrange the motor hierarchy from highest (top) to lowest (bottom) level:",
+      "items": ["Spinal cord/brainstem (lower motor neurons)", "Cerebellum", "Motor cortex (upper motor neurons)", "Basal ganglia"],
+      "correct_order": ["Motor cortex (upper motor neurons)", "Basal ganglia", "Cerebellum", "Spinal cord/brainstem (lower motor neurons)"],
+      "explanation": "The motor hierarchy descends from: Motor Cortex (upper motor neurons, specifying what/how) → Basal Ganglia (gating initiation) → Cerebellum (error correction) → Spinal cord/brainstem (lower motor neurons, final output to muscles)."
+    },
+    {
+      "id": "m2_l1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Put the events of the readiness potential experiment in chronological order:",
+      "items": ["Person reports conscious urge to move", "Readiness potential detected in motor cortex", "Actual movement occurs", "Neural preparation begins unconsciously"],
+      "correct_order": ["Neural preparation begins unconsciously", "Readiness potential detected in motor cortex", "Person reports conscious urge to move", "Actual movement occurs"],
+      "explanation": "The sequence is: unconscious neural preparation → readiness potential appears (measurable by EEG) → conscious awareness of wanting to move (reported several seconds later) → actual movement execution."
+    },
+    {
+      "id": "m2_l1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the path of a cortical motor command from brain to muscle:",
+      "items": ["Muscle contraction", "Upper motor neurons in motor cortex fire", "Axons decussate at medullary pyramids", "Lower motor neurons in spinal cord activate"],
+      "correct_order": ["Upper motor neurons in motor cortex fire", "Axons decussate at medullary pyramids", "Lower motor neurons in spinal cord activate", "Muscle contraction"],
+      "explanation": "The motor pathway: upper motor neurons fire in cortex → axons descend and cross at the medullary pyramids → synapse on lower motor neurons in the contralateral spinal cord → lower motor neurons activate muscles."
+    },
+    {
+      "id": "m2_l1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Arrange the basal ganglia direct pathway in order from input to output:",
+      "items": ["Thalamus released (disinhibited)", "Cortex sends excitation to striatum", "Striatum inhibits globus pallidus", "Movement proceeds"],
+      "correct_order": ["Cortex sends excitation to striatum", "Striatum inhibits globus pallidus", "Thalamus released (disinhibited)", "Movement proceeds"],
+      "explanation": "In the direct pathway: cortex excites the striatum → striatum inhibits the globus pallidus (which normally inhibits thalamus) → thalamus is released from inhibition (disinhibited) → movement is allowed to proceed."
+    },
+    {
+      "id": "m2_l1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the stages of motor learning from beginner to expert:",
+      "items": ["Specific M1 and cerebellum activation", "Broad cortical activation", "Automatic performance with minimal conscious effort", "Conscious effortful practice"],
+      "correct_order": ["Conscious effortful practice", "Broad cortical activation", "Specific M1 and cerebellum activation", "Automatic performance with minimal conscious effort"],
+      "explanation": "Motor learning progresses: conscious effort (beginner) → broad cortical activation (early phase, recruiting many areas) → specific M1/cerebellum activation (advanced phase) → automatic performance (expert, minimal effort)."
+    },
+    {
+      "id": "m2_l1_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order these motor cortex regions from planning to execution:",
+      "items": ["Primary motor cortex (M1) executes movement", "Premotor cortex plans the movement", "SMA prepares movement sequences", "Lower motor neurons activate muscles"],
+      "correct_order": ["SMA prepares movement sequences", "Premotor cortex plans the movement", "Primary motor cortex (M1) executes movement", "Lower motor neurons activate muscles"],
+      "explanation": "Movement flows from planning to execution: SMA prepares sequences and intentions → premotor cortex plans specific movements → M1 sends execution commands → lower motor neurons translate commands into muscle activation."
+    },
+    {
+      "id": "m2_l1_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Put these cerebellar error correction steps in order:",
+      "items": ["Cerebellum sends corrective signals", "Motor command copy sent to cerebellum", "Mismatch detected between intended and actual movement", "Sensory feedback arrives at cerebellum"],
+      "correct_order": ["Motor command copy sent to cerebellum", "Sensory feedback arrives at cerebellum", "Mismatch detected between intended and actual movement", "Cerebellum sends corrective signals"],
+      "explanation": "Cerebellar error correction: a copy of the motor command is sent to the cerebellum → sensory feedback about actual movement arrives → the cerebellum compares intended vs actual (detects mismatch) → corrective signals are sent to adjust the movement."
+    },
+    {
+      "id": "m2_l1_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the Parkinson's disease mechanism from cause to symptom:",
+      "items": ["Tremor at rest and bradykinesia", "Dopaminergic neurons in substantia nigra die", "Reduced dopamine in striatum", "Direct pathway becomes underactive"],
+      "correct_order": ["Dopaminergic neurons in substantia nigra die", "Reduced dopamine in striatum", "Direct pathway becomes underactive", "Tremor at rest and bradykinesia"],
+      "explanation": "Parkinson's mechanism: substantia nigra neurons die → dopamine levels drop in the striatum → the direct pathway (which needs dopamine to function) becomes underactive → movements are excessively inhibited, leading to tremor at rest and bradykinesia."
+    },
+    {
+      "id": "m2_l1_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the cat spinal transection experiment steps:",
+      "items": ["Hindlimbs produce coordinated walking on treadmill", "Spinal cord is transected (cut)", "Cat is placed on a moving treadmill", "CPGs in spinal cord activate without brain input"],
+      "correct_order": ["Spinal cord is transected (cut)", "Cat is placed on a moving treadmill", "CPGs in spinal cord activate without brain input", "Hindlimbs produce coordinated walking on treadmill"],
+      "explanation": "The experiment: spinal cord is cut (severing higher brain connections) → cat is placed on a treadmill → CPGs in the isolated spinal cord activate in response to treadmill movement → hindlimbs produce coordinated walking without any brain input."
+    },
+    {
+      "id": "m2_l1_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order these population coding steps from stimulus to movement:",
+      "items": ["Vector sum computed across population", "Target location perceived", "Each neuron fires according to its preferred direction", "Arm moves in the population-determined direction"],
+      "correct_order": ["Target location perceived", "Each neuron fires according to its preferred direction", "Vector sum computed across population", "Arm moves in the population-determined direction"],
+      "explanation": "Population coding: a target is perceived → neurons in M1 fire at different rates based on their preferred directions → the vector sum ('majority vote') across the population determines the direction → the arm moves in that direction."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 17-23"]
+}

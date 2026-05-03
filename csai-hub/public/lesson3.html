@@ -252,6 +252,7 @@
 <link rel="stylesheet" href="/deep-learning/dl.skin.css" />
 <link rel="stylesheet" href="/shared/annotations/annotations.css" />
 <script src="/shared/clarity.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body data-annot-scope="deep-learning:optimizers">
 <div class="rust-bar"></div>
@@ -311,6 +312,11 @@
   <div class="text">
     <div class="eyebrow">Section 1 · slides 1–4</div>
     <h2>From gradients to optimizers</h2>
+    <div class="key-moves">
+      <span class="key-move">plain SGD</span>
+      <span class="key-move">η</span>
+      <span class="key-move">∇L</span>
+    </div>
     <p>Last lesson ended with <strong>backpropagation</strong> — a way to compute <code>∂L/∂W</code> for every weight. The actual update was a one-liner:</p>
     <div class="formula">W ← W − η · ∇L</div>
     <p>That simple rule is the <strong>plain gradient descent</strong> optimizer. It works. But it has sharp edges — <strong>noise</strong>, <strong>local minima</strong>, <strong>narrow valleys</strong>, a single learning rate for every parameter — and each of today's optimizers is a fix for one of them.</p>
@@ -323,6 +329,7 @@
       <div class="cap">slide 2 — gradient descent recap</div>
     </div>
 
+      <div class="takeaway">Every optimizer is a walking strategy</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="recap-canvas">
@@ -342,6 +349,9 @@
   <div class="text">
     <div class="eyebrow">Section 2 · slides 5–8</div>
     <h2>Batch, mini-batch, stochastic</h2>
+    <div class="key-moves">
+      <span class="key-move">full / mini / one-sample batches</span>
+    </div>
     <p>Before choosing <em>how</em> to step, we choose <strong>how much data</strong> we look at per step.</p>
     <ul>
       <li><strong>Batch gradient descent</strong> — use <em>all</em> training examples. The gradient is the true average direction. Smooth path — but impossibly slow on a modern dataset.</li>
@@ -357,6 +367,7 @@
       <div class="cap">slide 6 — full / mini / stochastic batch sizes</div>
     </div>
 
+      <div class="takeaway">Noise is a feature, not a bug</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="batch-canvas">
@@ -375,6 +386,10 @@
   <div class="text">
     <div class="eyebrow">Section 3 · slides 10–14</div>
     <h2>Momentum: remember where you came from</h2>
+    <div class="key-moves">
+      <span class="key-move">EMA of past gradients</span>
+      <span class="key-move">β ≈ 0.9</span>
+    </div>
     <p>SGD has a specific failure mode: in a <strong>narrow valley</strong>, the gradient points mostly <em>across</em> the walls, barely along the valley. Plain SGD oscillates wall-to-wall and barely progresses.</p>
     <p>The trick: don't use the raw gradient — use an <strong>exponentially weighted average</strong> of the past few gradients. Oscillations cancel. The consistent direction survives.</p>
     <div class="formula">v<sub>t</sub> = β · v<sub>t−1</sub> + (1 − β) · ∇L <br/> W ← W − α · v<sub>t</sub></div>
@@ -388,6 +403,7 @@
       <div class="cap">slide 11 — momentum carries velocity through ravines</div>
     </div>
 
+      <div class="takeaway">Carry velocity through narrow valleys</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="momentum-canvas">
@@ -407,6 +423,10 @@
   <div class="text">
     <div class="eyebrow">Section 4 · slides 15–17</div>
     <h2>Nesterov: a smarter ball</h2>
+    <div class="key-moves">
+      <span class="key-move">look ahead</span>
+      <span class="key-move">then correct</span>
+    </div>
     <p>Momentum has one weakness: it is <strong>blind</strong>. It accumulates velocity and keeps going — straight past the minimum, then has to come back.</p>
     <p>Nesterov's fix is almost comically simple: before computing the gradient, <strong>look ahead</strong> first. Use the momentum to peek at the position you'll <em>probably</em> be in next step, and take the gradient <em>there</em>.</p>
     <div class="formula">v<sub>t</sub> = β · v<sub>t−1</sub> + (1 − β) · ∇L(W − β·v<sub>t−1</sub>)</div>
@@ -420,6 +440,7 @@
       <div class="cap">slide 16 — Nesterov peeks ahead before correcting</div>
     </div>
 
+      <div class="takeaway">Peek where momentum is taking you</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="nesterov-canvas">
@@ -438,6 +459,9 @@
   <div class="text">
     <div class="eyebrow">Section 5 · slides 19–22</div>
     <h2>AdaGrad: a learning rate per parameter</h2>
+    <div class="key-moves">
+      <span class="key-move">per-parameter learning rate</span>
+    </div>
     <p>So far every parameter has used the <em>same</em> learning rate. But different weights behave differently — some see <strong>frequent, large gradients</strong> (a weight tied to a common feature), others rarely move (a weight for a rare feature).</p>
     <p><strong>AdaGrad</strong> (Adaptive Gradient) keeps a running <strong>sum of squared gradients</strong> <code>r</code> for each parameter, and uses it to shrink that parameter's learning rate.</p>
     <div class="formula">r<sub>t,i</sub> = r<sub>t−1,i</sub> + g<sub>t,i</sub>²<br/>W<sub>i</sub> ← W<sub>i</sub> − (α / (√r<sub>t,i</sub> + ε)) · g<sub>t,i</sub></div>
@@ -451,6 +475,7 @@
       <div class="cap">slide 20 — Adagrad adapts per-parameter learning rate</div>
     </div>
 
+      <div class="takeaway">Frequent params get smaller steps</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="adagrad-canvas">
@@ -469,6 +494,9 @@
   <div class="text">
     <div class="eyebrow">Section 6 · slides 23–26</div>
     <h2>RMSprop: forget the distant past</h2>
+    <div class="key-moves">
+      <span class="key-move">recent squared grads only</span>
+    </div>
     <p>Hinton's fix for AdaGrad is minimal: replace the <em>cumulative sum</em> of squared gradients with an <strong>exponentially weighted average</strong>.</p>
     <div class="formula">v<sub>t,i</sub> = β · v<sub>t−1,i</sub> + (1 − β) · g<sub>t,i</sub>²<br/>W<sub>i</sub> ← W<sub>i</sub> − (α / (√v<sub>t,i</sub> + ε)) · g<sub>t,i</sub></div>
     <p>Now <code>v</code> is a <em>moving average</em>, not a sum. It can go <strong>up or down</strong>. Old gradients are forgotten; only recent magnitude matters.</p>
@@ -481,6 +509,7 @@
       <div class="cap">slide 24 — RMSProp uses a running average of squares</div>
     </div>
 
+      <div class="takeaway">Forget the distant past, keep the recent</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="rmsprop-canvas">
@@ -499,6 +528,9 @@
   <div class="text">
     <div class="eyebrow">Section 7 · slides 27–32</div>
     <h2>Adam: momentum + RMSprop + bias fix</h2>
+    <div class="key-moves">
+      <span class="key-move">momentum + RMSprop + bias correction</span>
+    </div>
     <p><strong>Adam</strong> (Adaptive Moment Estimation) is the practical default. It combines the best ideas you have seen:</p>
     <ul>
       <li><strong>Momentum</strong> — a moving average of the gradients themselves <code>m<sub>t</sub></code>.</li>
@@ -518,6 +550,7 @@
       <div class="cap">slide 29 — Adam = momentum + RMSProp + bias correction</div>
     </div>
 
+      <div class="takeaway">The default optimizer for a reason</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="adam-canvas">
@@ -536,6 +569,10 @@
   <div class="text">
     <div class="eyebrow">Section 8 · slides 33–39</div>
     <h2>AdamW and Lion</h2>
+    <div class="key-moves">
+      <span class="key-move">decouple weight decay</span>
+      <span class="key-move">regularize cleanly</span>
+    </div>
     <p><strong>AdamW</strong> is a tiny fix to Adam. A common trick is <strong>weight decay</strong>: nudge every weight a little toward zero on each step (to prevent overfitting). The old way folded this into the gradient — but then Adam's per-parameter scaling <em>also</em> scaled the decay, inconsistently. AdamW <strong>decouples</strong> weight decay, subtracting it directly <em>after</em> the Adam step.</p>
     <div class="formula">W ← W − α · m̂ / (√v̂ + ε) − α · λ · W</div>
     <p>Small change; big effect in practice. AdamW is the standard optimizer for transformers today.</p>
@@ -550,6 +587,7 @@
       <div class="cap">slide 35 — AdamW decouples weight decay from gradient</div>
     </div>
 
+      <div class="takeaway">Modern Adam, properly regularized</div>
   </div>
   <div class="stage-wrap"><div class="stage">
     <div class="canvas-host" id="summary-canvas">
@@ -1690,25 +1728,6 @@ safeScene('summary', function () {
   }
   setTimeout(resize, 50);
 });
-
-// ═══════════════════════════════════════════════════════════════════
-// Quiz logic
-// ═══════════════════════════════════════════════════════════════════
-      }
-    };
-  });
-});
-document.getElementById('score').textContent = `Score: 0 / ${document.querySelectorAll('.opts').length}`;
-
-// Progress + TOC
-const bar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  bar.style.width = Math.min(100, Math.max(0, window.scrollY / h * 100)) + '%';
-}, { passive: true });
-const toc = document.getElementById('toc');
-document.getElementById('toc-btn').onclick = () => toc.classList.toggle('open');
-toc.querySelectorAll('a').forEach(a => a.onclick = () => toc.classList.remove('open'));
 
 // polyfill roundRect
 if (!CanvasRenderingContext2D.prototype.roundRect) {

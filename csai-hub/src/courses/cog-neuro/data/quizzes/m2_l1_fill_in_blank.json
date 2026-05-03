@@ -1,0 +1,109 @@
+{
+  "section_id": "m2_l1",
+  "quiz_type": "fill_in_blank",
+  "title": "Motor Control - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m2_l1_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "The caudate nucleus and putamen together form the ___.",
+      "blank_sentence": "The caudate nucleus and putamen together form the ___.",
+      "correct_answer": "striatum",
+      "acceptable_answers": ["striatum", "neostriatum"],
+      "explanation": "The caudate nucleus and putamen are collectively known as the striatum, which is the main input structure of the basal ganglia."
+    },
+    {
+      "id": "m2_l1_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Spinal circuits that generate rhythmic movements like walking and swimming without higher brain input are called ___.",
+      "blank_sentence": "Spinal circuits that generate rhythmic movements like walking and swimming without higher brain input are called ___.",
+      "correct_answer": "Central Pattern Generators",
+      "acceptable_answers": ["Central Pattern Generators", "CPGs", "central pattern generators"],
+      "explanation": "Central Pattern Generators (CPGs) are spinal cord circuits capable of producing rhythmic motor outputs independently, as demonstrated in the cat spinal transection experiment."
+    },
+    {
+      "id": "m2_l1_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The primary motor cortex has a ___ organisation, meaning different body parts are mapped to different cortical regions.",
+      "blank_sentence": "The primary motor cortex has a ___ organisation, meaning different body parts are mapped to different cortical regions.",
+      "correct_answer": "somatotopic",
+      "acceptable_answers": ["somatotopic", "topographic"],
+      "explanation": "The primary motor cortex (M1) has somatotopic organisation — a systematic mapping of body parts to cortical regions, creating a motor 'homunculus' where adjacent body parts are represented in adjacent cortical areas."
+    },
+    {
+      "id": "m2_l1_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "The crossing of motor axons from one side of the brain to control the opposite side of the body is called ___.",
+      "blank_sentence": "The crossing of motor axons from one side of the brain to control the opposite side of the body is called ___.",
+      "correct_answer": "decussation",
+      "acceptable_answers": ["decussation", "decussating"],
+      "explanation": "Decussation refers to the crossing of nerve fibres from one side to the other, which occurs at the medullary pyramids for cortical motor pathways, resulting in contralateral motor control."
+    },
+    {
+      "id": "m2_l1_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "The ___ potential is a brain signal that appears seconds before a person reports the conscious urge to move.",
+      "blank_sentence": "The ___ potential is a brain signal that appears seconds before a person reports the conscious urge to move.",
+      "correct_answer": "readiness",
+      "acceptable_answers": ["readiness", "Readiness", "Bereitschafts"],
+      "explanation": "The readiness potential (Bereitschaftspotential) appears seconds before conscious awareness of the intention to move, raising questions about free will and the timing of conscious decision-making."
+    },
+    {
+      "id": "m2_l1_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "In Parkinson's disease, patients are treated with ___, a dopamine precursor that crosses the blood-brain barrier.",
+      "blank_sentence": "In Parkinson's disease, patients are treated with ___, a dopamine precursor that crosses the blood-brain barrier.",
+      "correct_answer": "L-dopa",
+      "acceptable_answers": ["L-dopa", "L-DOPA", "levodopa", "Levodopa"],
+      "explanation": "L-dopa (levodopa) is the primary treatment for Parkinson's disease. It is a dopamine precursor that can cross the blood-brain barrier and be converted to dopamine, partially compensating for the loss of substantia nigra neurons."
+    },
+    {
+      "id": "m2_l1_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Huntington's disease is characterised by atrophy of the ___ nucleus and choreiform (dance-like) involuntary movements.",
+      "blank_sentence": "Huntington's disease is characterised by atrophy of the ___ nucleus and choreiform (dance-like) involuntary movements.",
+      "correct_answer": "caudate",
+      "acceptable_answers": ["caudate", "Caudate"],
+      "explanation": "Huntington's disease involves progressive atrophy of the caudate nucleus in the basal ganglia, leading to characteristic choreiform movements — involuntary, irregular, dance-like movements of the limbs and face."
+    },
+    {
+      "id": "m2_l1_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The cerebellum's primary role in motor control is ___ correction — comparing intended versus actual movement.",
+      "blank_sentence": "The cerebellum's primary role in motor control is ___ correction — comparing intended versus actual movement.",
+      "correct_answer": "error",
+      "acceptable_answers": ["error"],
+      "explanation": "The cerebellum acts as an error correction device. It receives copies of both motor commands and sensory feedback, compares intended movement with actual movement, and sends corrective signals to adjust ongoing movements."
+    },
+    {
+      "id": "m2_l1_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "The basal ganglia act as a ___ mechanism — inhibiting movements until the right time to release them.",
+      "blank_sentence": "The basal ganglia act as a ___ mechanism — inhibiting movements until the right time to release them.",
+      "correct_answer": "gating",
+      "acceptable_answers": ["gating", "gate"],
+      "explanation": "The basal ganglia function as a gating mechanism: they tonically inhibit the thalamus and thus motor output, only releasing (disinhibiting) specific movements at the appropriate time through the direct pathway."
+    },
+    {
+      "id": "m2_l1_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Damage to the cerebellum produces ___ tremor, which occurs during voluntary movement rather than at rest.",
+      "blank_sentence": "Damage to the cerebellum produces ___ tremor, which occurs during voluntary movement rather than at rest.",
+      "correct_answer": "intention",
+      "acceptable_answers": ["intention", "action", "kinetic"],
+      "explanation": "Intention tremor (also called action tremor) is characteristic of cerebellar damage and worsens as the limb approaches a target during voluntary movement. This contrasts with Parkinsonian tremor, which occurs at rest."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 17-23"]
+}

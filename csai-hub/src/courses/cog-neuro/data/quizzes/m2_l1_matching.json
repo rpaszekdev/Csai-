@@ -1,0 +1,154 @@
+{
+  "section_id": "m2_l1",
+  "quiz_type": "matching",
+  "title": "Motor Control - Matching",
+  "questions": [
+    {
+      "id": "m2_l1_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each motor structure to its primary function:",
+      "items": ["Motor cortex", "Basal ganglia", "Cerebellum", "Spinal cord"],
+      "categories": ["Specifies what and how to move", "Gates movement initiation", "Error correction during movement", "Contains lower motor neurons and CPGs"],
+      "correct_mapping": {
+        "Motor cortex": "Specifies what and how to move",
+        "Basal ganglia": "Gates movement initiation",
+        "Cerebellum": "Error correction during movement",
+        "Spinal cord": "Contains lower motor neurons and CPGs"
+      },
+      "explanation": "The motor hierarchy: motor cortex (upper motor neurons) specifies movements, basal ganglia gate when to release them, cerebellum corrects errors by comparing intended vs actual movement, and the spinal cord houses lower motor neurons and CPGs."
+    },
+    {
+      "id": "m2_l1_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each disorder to its underlying cause:",
+      "items": ["Parkinson's disease", "Huntington's disease", "Hemiballismus", "Cerebellar ataxia"],
+      "categories": ["Substantia nigra neuron death", "Caudate nucleus atrophy", "Subthalamic nucleus damage", "Cerebellar damage"],
+      "correct_mapping": {
+        "Parkinson's disease": "Substantia nigra neuron death",
+        "Huntington's disease": "Caudate nucleus atrophy",
+        "Hemiballismus": "Subthalamic nucleus damage",
+        "Cerebellar ataxia": "Cerebellar damage"
+      },
+      "explanation": "Each disorder maps to a specific site of damage: Parkinson's = substantia nigra (dopamine loss), Huntington's = caudate (striatal degeneration), hemiballismus = subthalamic nucleus (loss of indirect pathway excitation), cerebellar ataxia = cerebellum."
+    },
+    {
+      "id": "m2_l1_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each disorder to its characteristic movement symptom:",
+      "items": ["Parkinson's disease", "Huntington's disease", "Hemiballismus", "Intention tremor"],
+      "categories": ["Tremor at rest", "Choreiform (dance-like) movements", "Violent flinging movements", "Tremor during voluntary movement"],
+      "correct_mapping": {
+        "Parkinson's disease": "Tremor at rest",
+        "Huntington's disease": "Choreiform (dance-like) movements",
+        "Hemiballismus": "Violent flinging movements",
+        "Intention tremor": "Tremor during voluntary movement"
+      },
+      "explanation": "Each motor disorder has a distinctive movement pattern: Parkinson's features tremor at rest, Huntington's shows choreiform movements, hemiballismus involves violent involuntary flinging, and cerebellar damage causes intention tremor during goal-directed movements."
+    },
+    {
+      "id": "m2_l1_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each brain area to its role in motor planning vs execution:",
+      "items": ["Primary motor cortex (M1)", "Premotor cortex", "Supplementary motor area (SMA)", "Spinal cord lower motor neurons"],
+      "categories": ["Direct motor execution and population coding", "Planning movements to external cues", "Planning self-initiated movement sequences", "Final motor output to muscles"],
+      "correct_mapping": {
+        "Primary motor cortex (M1)": "Direct motor execution and population coding",
+        "Premotor cortex": "Planning movements to external cues",
+        "Supplementary motor area (SMA)": "Planning self-initiated movement sequences",
+        "Spinal cord lower motor neurons": "Final motor output to muscles"
+      },
+      "explanation": "M1 handles direct execution via population coding, premotor cortex plans externally-cued movements, SMA plans self-initiated sequences, and lower motor neurons are the final common pathway to muscles."
+    },
+    {
+      "id": "m2_l1_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each basal ganglia pathway to its effect:",
+      "items": ["Direct pathway", "Indirect pathway", "Three parallel BG networks", "Gating mechanism"],
+      "categories": ["Disinhibits desired movement", "Provides additional inhibition of unwanted movement", "Sensory-motor, limbic, and associative", "Inhibits until the right time to move"],
+      "correct_mapping": {
+        "Direct pathway": "Disinhibits desired movement",
+        "Indirect pathway": "Provides additional inhibition of unwanted movement",
+        "Three parallel BG networks": "Sensory-motor, limbic, and associative",
+        "Gating mechanism": "Inhibits until the right time to move"
+      },
+      "explanation": "The direct pathway releases movement by disinhibiting the thalamus, the indirect pathway further suppresses unwanted movements, the BG run three parallel circuits (motor, emotional, cognitive), and overall the BG gate movements via tonic inhibition."
+    },
+    {
+      "id": "m2_l1_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each cerebellar division to its function:",
+      "items": ["Spinocerebellum", "Cerebrocerebellum", "Vestibulocerebellum"],
+      "categories": ["Body and limb movement coordination", "Movement planning and cognitive functions", "Balance and eye movements"],
+      "correct_mapping": {
+        "Spinocerebellum": "Body and limb movement coordination",
+        "Cerebrocerebellum": "Movement planning and cognitive functions",
+        "Vestibulocerebellum": "Balance and eye movements"
+      },
+      "explanation": "The three cerebellar divisions serve distinct functions: spinocerebellum coordinates ongoing body movements using spinal input, cerebrocerebellum handles planning and cognition via cortical connections, and vestibulocerebellum maintains balance and controls eye movements."
+    },
+    {
+      "id": "m2_l1_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each concept to its correct description:",
+      "items": ["Population coding", "Somatotopic organisation", "Decussation", "Readiness potential"],
+      "categories": ["Movement direction by vector sum of neural activity", "Body parts mapped to cortical regions", "Axons crossing at medullary pyramids", "Brain signal preceding conscious urge to move"],
+      "correct_mapping": {
+        "Population coding": "Movement direction by vector sum of neural activity",
+        "Somatotopic organisation": "Body parts mapped to cortical regions",
+        "Decussation": "Axons crossing at medullary pyramids",
+        "Readiness potential": "Brain signal preceding conscious urge to move"
+      },
+      "explanation": "Population coding (Georgopoulos) uses vector sums, somatotopy maps body parts to cortex, decussation is the crossing at the pyramids for contralateral control, and the readiness potential precedes conscious movement intention."
+    },
+    {
+      "id": "m2_l1_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each motor learning phase to its brain activation pattern:",
+      "items": ["Early learning phase", "Advanced learning phase"],
+      "categories": ["Broad cortical activation across many areas", "Specific activation in M1 and cerebellum"],
+      "correct_mapping": {
+        "Early learning phase": "Broad cortical activation across many areas",
+        "Advanced learning phase": "Specific activation in M1 and cerebellum"
+      },
+      "explanation": "Motor learning transitions from broad cortical activation (early phase, many areas recruited) to specific, efficient activation focused on primary motor cortex and cerebellum (advanced phase, automatised skill)."
+    },
+    {
+      "id": "m2_l1_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each laterality principle to the correct structure:",
+      "items": ["Contralateral control", "Ipsilateral control"],
+      "categories": ["Motor cortex (via decussation)", "Cerebellum"],
+      "correct_mapping": {
+        "Contralateral control": "Motor cortex (via decussation)",
+        "Ipsilateral control": "Cerebellum"
+      },
+      "explanation": "The motor cortex controls the opposite (contralateral) side of the body because axons cross at the medullary pyramids. The cerebellum controls the same (ipsilateral) side — right cerebellar damage affects right-sided movements."
+    },
+    {
+      "id": "m2_l1_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each key finding to its implication:",
+      "items": ["Readiness potential precedes conscious will", "CPGs function after spinal transection", "Cerebellum involved in cognition", "Three parallel BG networks"],
+      "categories": ["Challenges the concept of free will", "Higher brain not required for rhythmic movement", "Motor structures have non-motor roles", "Basal ganglia process emotion and cognition too"],
+      "correct_mapping": {
+        "Readiness potential precedes conscious will": "Challenges the concept of free will",
+        "CPGs function after spinal transection": "Higher brain not required for rhythmic movement",
+        "Cerebellum involved in cognition": "Motor structures have non-motor roles",
+        "Three parallel BG networks": "Basal ganglia process emotion and cognition too"
+      },
+      "explanation": "Each finding broadens our understanding: readiness potential challenges free will, CPGs show spinal autonomy, cerebellar cognition shows motor structures serve broader roles, and parallel BG networks show the basal ganglia process beyond just movement."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 17-23"]
+}

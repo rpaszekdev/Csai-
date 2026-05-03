@@ -1,0 +1,144 @@
+{
+  "section_id": "m3_l2",
+  "quiz_type": "matching",
+  "title": "Declarative Memory (Flipped) - Matching",
+  "questions": [
+    {
+      "id": "m3_l2_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each patient case with their key memory deficit.",
+      "items": ["H.M.", "K.C.", "A.M.", "Beth/Jon/Kate"],
+      "categories": ["Anterograde amnesia with spared nondeclarative memory", "Anterograde + retrograde episodic amnesia with intact semantic", "Impaired semantic knowledge with normal episodic", "Impaired episodic with normal semantic development"],
+      "correct_mapping": {
+        "H.M.": "Anterograde amnesia with spared nondeclarative memory",
+        "K.C.": "Anterograde + retrograde episodic amnesia with intact semantic",
+        "A.M.": "Impaired semantic knowledge with normal episodic",
+        "Beth/Jon/Kate": "Impaired episodic with normal semantic development"
+      },
+      "explanation": "H.M. had bilateral MTL removal causing anterograde amnesia but spared nondeclarative memory. K.C. had hippocampal damage causing both anterograde and retrograde episodic amnesia with intact semantic. A.M. had semantic dementia with preserved episodic memory. Beth/Jon/Kate had developmental hippocampal damage impairing episodic but not semantic memory."
+    },
+    {
+      "id": "m3_l2_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each MTL subregion with its primary characteristic.",
+      "items": ["Hippocampus", "Perirhinal cortex"],
+      "categories": ["Slow, relational, spatial, recollection", "Fast, item-based, novelty, familiarity"],
+      "correct_mapping": {
+        "Hippocampus": "Slow, relational, spatial, recollection",
+        "Perirhinal cortex": "Fast, item-based, novelty, familiarity"
+      },
+      "explanation": "The hippocampus is characterised by slow processing, relational binding, spatial processing, and supporting recollection. The perirhinal cortex is characterised by fast processing, item-based representations, novelty detection, and supporting familiarity."
+    },
+    {
+      "id": "m3_l2_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each type of consolidation with its characteristics.",
+      "items": ["Synaptic consolidation", "System consolidation"],
+      "categories": ["Fast (~90 min), occurs at the synapse", "Slow (~28 days), MTL to cortex transfer"],
+      "correct_mapping": {
+        "Synaptic consolidation": "Fast (~90 min), occurs at the synapse",
+        "System consolidation": "Slow (~28 days), MTL to cortex transfer"
+      },
+      "explanation": "Synaptic consolidation is rapid (about 90 minutes) and strengthens connections at the synapse level. System consolidation is slow (about 28 days) and involves the gradual transfer of memory representations from the medial temporal lobe to distributed cortical networks."
+    },
+    {
+      "id": "m3_l2_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each memory type with its definition.",
+      "items": ["Episodic memory", "Semantic memory", "Recollection", "Familiarity"],
+      "categories": ["Events at specific place and time", "Facts and general knowledge", "Full contextual details of a memory", "Sense of knowing without specific details"],
+      "correct_mapping": {
+        "Episodic memory": "Events at specific place and time",
+        "Semantic memory": "Facts and general knowledge",
+        "Recollection": "Full contextual details of a memory",
+        "Familiarity": "Sense of knowing without specific details"
+      },
+      "explanation": "Episodic memory stores events tied to specific contexts. Semantic memory stores general facts and knowledge. Recollection involves rich contextual retrieval. Familiarity is a sense of having encountered something without remembering details."
+    },
+    {
+      "id": "m3_l2_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each PPC region (AToM model) with its associated function.",
+      "items": ["Dorsal PPC", "Ventral PPC"],
+      "categories": ["Familiarity, low-confidence, top-down attention", "Recollection, high-confidence, bottom-up attention"],
+      "correct_mapping": {
+        "Dorsal PPC": "Familiarity, low-confidence, top-down attention",
+        "Ventral PPC": "Recollection, high-confidence, bottom-up attention"
+      },
+      "explanation": "In the AToM (Attention to Memory) model, dorsal PPC is associated with familiarity-based recognition, low-confidence judgments, and top-down attentional search. Ventral PPC is associated with recollection, high-confidence recognition, and bottom-up attention captured by retrieved memories."
+    },
+    {
+      "id": "m3_l2_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each type of priming with its neural basis.",
+      "items": ["Perceptual priming", "Conceptual priming"],
+      "categories": ["Sensory cortices", "Prefrontal and lateral temporal cortices"],
+      "correct_mapping": {
+        "Perceptual priming": "Sensory cortices",
+        "Conceptual priming": "Prefrontal and lateral temporal cortices"
+      },
+      "explanation": "Perceptual priming depends on sensory cortices and is spared in amnesia. Conceptual priming depends on prefrontal and lateral temporal cortices, is spared in amnesia but impaired in Alzheimer's disease."
+    },
+    {
+      "id": "m3_l2_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each consolidation theory with its key claim about remote episodic memories.",
+      "items": ["Standard Consolidation Theory", "Multiple Trace Theory"],
+      "categories": ["Remote memories become hippocampus-independent", "Episodic memories always require the hippocampus"],
+      "correct_mapping": {
+        "Standard Consolidation Theory": "Remote memories become hippocampus-independent",
+        "Multiple Trace Theory": "Episodic memories always require the hippocampus"
+      },
+      "explanation": "Standard Consolidation Theory proposes that over time, memories are transferred from hippocampal to cortical storage and become hippocampus-independent. Multiple Trace Theory (Nadel & Moscovitch) argues that episodic memories always depend on the hippocampus, with older memories simply having more distributed traces."
+    },
+    {
+      "id": "m3_l2_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each hippocampal theory with its main claim.",
+      "items": ["Relational Memory theory", "Episodic Memory theory"],
+      "categories": ["Hippocampus forms new associations between items", "Hippocampus supports episodic but not semantic memory"],
+      "correct_mapping": {
+        "Relational Memory theory": "Hippocampus forms new associations between items",
+        "Episodic Memory theory": "Hippocampus supports episodic but not semantic memory"
+      },
+      "explanation": "The Relational Memory theory proposes the hippocampus is crucial for binding together new associations between items or elements. The Episodic Memory theory proposes the hippocampus specifically supports episodic memory (events) but is not required for semantic memory (facts)."
+    },
+    {
+      "id": "m3_l2_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each three-phase model stage with its description.",
+      "items": ["Encoding", "Storage", "Retrieval"],
+      "categories": ["Formation of cortical traces + hippocampal indices", "Consolidation of memory traces", "Cue activates HC index which reactivates cortical traces"],
+      "correct_mapping": {
+        "Encoding": "Formation of cortical traces + hippocampal indices",
+        "Storage": "Consolidation of memory traces",
+        "Retrieval": "Cue activates HC index which reactivates cortical traces"
+      },
+      "explanation": "In the three-phase model: encoding creates cortical traces with corresponding hippocampal indices; storage involves consolidation that strengthens these traces; retrieval uses a cue to activate the hippocampal index which then reactivates the distributed cortical representations."
+    },
+    {
+      "id": "m3_l2_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each memory taxonomy category with its examples.",
+      "items": ["Declarative (explicit)", "Nondeclarative (implicit)"],
+      "categories": ["Episodic + Semantic", "Priming + Skill learning + Conditioning"],
+      "correct_mapping": {
+        "Declarative (explicit)": "Episodic + Semantic",
+        "Nondeclarative (implicit)": "Priming + Skill learning + Conditioning"
+      },
+      "explanation": "Declarative (explicit) memory encompasses episodic memory (events) and semantic memory (facts), requiring conscious recollection. Nondeclarative (implicit) memory includes priming, skill learning (procedural), and conditioning, which operate without conscious awareness."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapter 9"]
+}

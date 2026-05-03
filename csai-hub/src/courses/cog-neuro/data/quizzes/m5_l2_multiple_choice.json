@@ -1,0 +1,149 @@
+{
+  "section_id": "m5_l2",
+  "quiz_type": "multiple_choice",
+  "title": "Executive Function (in depth) - Multiple Choice",
+  "questions": [
+    {
+      "id": "m5_l2_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "According to Semendeferi et al. (1997, 2002), what is the proportional size of the prefrontal cortex in humans relative to great apes?",
+      "options": {
+        "A": "Humans have a disproportionately larger PFC (~50%) than great apes",
+        "B": "Roughly equal at ~35% in both humans and great apes",
+        "C": "Humans have a smaller PFC than great apes when corrected for body size",
+        "D": "Humans have ~70% PFC vs ~20% in great apes"
+      },
+      "correct_answer": "B",
+      "explanation": "Semendeferi et al. revised Brodmann's older estimates using structural MRI and found the proportional frontal lobe size is roughly equal (~35%) in humans and great apes. Humans are not distinctive because of an oversized PFC but because of overall brain scaling."
+    },
+    {
+      "id": "m5_l2_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What is the canonical metaphor Miller & Cohen (2001) used to describe the role of the PFC?",
+      "options": {
+        "A": "A central processor that stores all rules",
+        "B": "A railroad switch operator that strengthens some pathways and inhibits others",
+        "C": "A library that retrieves stored memories on demand",
+        "D": "A passive filter that blocks irrelevant input"
+      },
+      "correct_answer": "B",
+      "explanation": "Miller & Cohen (2001) likened PFC to a railroad switch operator — it sets up patterns of information flow, strengthening context-appropriate pathways and inhibiting others. Their classic example: a phone rings, you answer at home but ignore at the neighbour's."
+    },
+    {
+      "id": "m5_l2_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "In Wallis, Anderson & Miller (2001), what was the key finding about rule-selective neurons in lateral PFC?",
+      "options": {
+        "A": "Each neuron fired only for a specific stimulus, regardless of rule",
+        "B": "Neurons fired selectively for a particular rule, independent of cue and stimulus",
+        "C": "Neurons only fired during the motor response phase",
+        "D": "Rule coding was found exclusively in the OFC, not lateral PFC"
+      },
+      "correct_answer": "B",
+      "explanation": "Wallis, Anderson & Miller (2001) recorded single units in lateral PFC and found neurons fired selectively for a particular rule (matching vs non-matching), independent of the cue (juice or tone) and the stimulus (Object A or B). Rule-selective neurons cluster along the principal sulcus."
+    },
+    {
+      "id": "m5_l2_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Brenda Milner's (1963) classic finding about Wisconsin Card Sorting Test (WCST) performance in PFC patients was that perseveration is:",
+      "options": {
+        "A": "A learning deficit — patients cannot learn new rules",
+        "B": "A failure to disengage from a previously valid rule, not a learning deficit",
+        "C": "Caused by basal ganglia damage, not PFC damage",
+        "D": "Only present when feedback is delayed"
+      },
+      "correct_answer": "B",
+      "explanation": "Milner (1963) reported PFC patients perseverate on the WCST, but the prof emphasised this is NOT a learning deficit. Patients learn new rules just fine when the old rule is unavailable; the deficit is specifically inability to disengage from the old, still-applicable rule."
+    },
+    {
+      "id": "m5_l2_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Damage to which region most reliably impairs the stop-signal task and is implicated in ADHD impulse-control deficits?",
+      "options": {
+        "A": "Left dorsolateral PFC",
+        "B": "Right ventrolateral PFC",
+        "C": "Anterior cingulate cortex",
+        "D": "Frontopolar cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "Right ventrolateral PFC (rVL-PFC) damage selectively impairs cancelling an already-initiated response on the stop-signal task. The same pattern appears in ADHD and Parkinson's, linking rVL-PFC to impulse control."
+    },
+    {
+      "id": "m5_l2_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Which finding most directly challenged the original conflict-monitoring model of the ACC?",
+      "options": {
+        "A": "Kerns et al. (2004) showed ACC activation predicts dlPFC adjustment",
+        "B": "Fellows & Farah (2005) found dorsal-ACC lesion patients have a normal Stroop effect",
+        "C": "Posner & Petersen (1990) identified three control systems",
+        "D": "Bush, Luu & Posner (2000) distinguished dorsal from rostral ACC"
+      },
+      "correct_answer": "B",
+      "explanation": "Fellows & Farah (2005) showed that patients with dorsal ACC lesions perform normally on the Stroop and go/no-go tasks (Stroop effect identical to controls). If ACC were the conflict detector, lesions should abolish the effect — this directly challenged the original model."
+    },
+    {
+      "id": "m5_l2_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "In the Funahashi, Bruce & Goldman-Rakic (1989) oculomotor delayed response task, what did they discover about dlPFC neurons?",
+      "options": {
+        "A": "Neurons fired only at stimulus onset and offset",
+        "B": "Neurons showed sustained, content-specific delay-period activity with memory fields",
+        "C": "Neurons inhibited each other to suppress motor responses",
+        "D": "Neurons coded reward magnitude rather than spatial location"
+      },
+      "correct_answer": "B",
+      "explanation": "Funahashi, Bruce & Goldman-Rakic (1989) showed dlPFC neurons fire continuously through the 3-second delay (delay-period activity), content-specific via memory fields (preferred location). When firing broke down, monkeys made errors — the canonical neural mechanism for working memory."
+    },
+    {
+      "id": "m5_l2_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "According to Petrides, what is the functional dissociation within lateral PFC for working memory?",
+      "options": {
+        "A": "vlPFC = manipulation; dlPFC = maintenance",
+        "B": "vlPFC = maintenance; dlPFC = manipulation",
+        "C": "Both regions handle maintenance equally; OFC handles manipulation",
+        "D": "dlPFC handles both, vlPFC is irrelevant for working memory"
+      },
+      "correct_answer": "B",
+      "explanation": "Petrides proposed vlPFC supports maintenance (simple 'hold this letter'), while dlPFC supports manipulation (alphabetise, reorder, n-back). dlPFC activation scales with cognitive demand (D'Esposito et al. 2000), while vlPFC stays roughly constant."
+    },
+    {
+      "id": "m5_l2_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Harrison & Tong (2009) used multivoxel pattern analysis (MVPA) to demonstrate that working memory content is stored in:",
+      "options": {
+        "A": "The dorsolateral PFC alone",
+        "B": "The hippocampus during the delay period",
+        "C": "Early visual cortex (V1-V4), the same regions that processed the stimulus",
+        "D": "The basal ganglia via the prefrontal loop"
+      },
+      "correct_answer": "C",
+      "explanation": "Harrison & Tong (2009) decoded the orientation of a remembered grating from V1-V4 activity using MVPA, supporting the distributed network view: WM content lives in the same sensory regions that processed it. PFC orchestrates via top-down signals but does not store the content."
+    },
+    {
+      "id": "m5_l2_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Cools, Clark & Robbins (2004) found that during task switching, the basal ganglia activate for:",
+      "options": {
+        "A": "All types of switches, including abstract rule switches",
+        "B": "Only abstract rule switches, not object switches",
+        "C": "Only object switches, while dlPFC activates for all switches",
+        "D": "Neither type of switch — only the OFC was involved"
+      },
+      "correct_answer": "C",
+      "explanation": "Cools, Clark & Robbins (2004) showed basal ganglia activate only for object switches (stimulus-response level), while dlPFC activates for all switches. The BG handles concrete S-R rules; PFC handles abstract rules — fitting the basal ganglia loops architecture."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 2"]
+}

@@ -1,0 +1,109 @@
+{
+  "section_id": "midterm",
+  "quiz_type": "fill_in_blank",
+  "title": "Midterm Review - Fill in the Blank",
+  "questions": [
+    {
+      "id": "midterm_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "ERPs are obtained by ___ raw EEG signals across multiple trials that are time-locked to an event.",
+      "blank_sentence": "ERPs are obtained by ___ raw EEG signals across multiple trials that are time-locked to an event.",
+      "correct_answer": "averaging",
+      "acceptable_answers": ["averaging", "time-locked averaging"],
+      "explanation": "Event-Related Potentials (ERPs) are produced by averaging raw EEG signals across multiple trials time-locked to a specific event. This averaging process cancels out random noise and isolates the consistent neural response."
+    },
+    {
+      "id": "midterm_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "In TMS research, ___ TMS serves as the placebo control condition.",
+      "blank_sentence": "In TMS research, ___ TMS serves as the placebo control condition.",
+      "correct_answer": "sham",
+      "acceptable_answers": ["sham"],
+      "explanation": "Sham TMS mimics the sensory experience of real TMS (sounds, mild scalp sensation) without actually disrupting neural activity, serving as a placebo control to ensure observed effects are due to brain stimulation rather than expectation."
+    },
+    {
+      "id": "midterm_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The ___ problem means that the neural source of EEG/MEG signals cannot be uniquely determined from surface recordings.",
+      "blank_sentence": "The ___ problem means that the neural source of EEG/MEG signals cannot be uniquely determined from surface recordings.",
+      "correct_answer": "inverse",
+      "acceptable_answers": ["inverse"],
+      "explanation": "The inverse problem applies to both EEG and MEG — multiple different neural source configurations can produce identical surface recordings, making it impossible to uniquely determine the underlying source from the recorded signal alone."
+    },
+    {
+      "id": "midterm_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Chomsky's 1959 critique of ___ was the pivotal event transitioning from Behaviourism to Cognitive Science.",
+      "blank_sentence": "Chomsky's 1959 critique of ___ was the pivotal event transitioning from Behaviourism to Cognitive Science.",
+      "correct_answer": "Skinner",
+      "acceptable_answers": ["Skinner", "Skinner's behaviourism", "B.F. Skinner"],
+      "explanation": "Chomsky's devastating 1959 review of Skinner's 'Verbal Behavior' argued that language acquisition could not be explained by behaviourist stimulus-response principles alone, helping to spark the Cognitive Revolution."
+    },
+    {
+      "id": "midterm_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "fMRI and EEG show ___ between brain activity and behaviour, while TMS can demonstrate causation.",
+      "blank_sentence": "fMRI and EEG show ___ between brain activity and behaviour, while TMS can demonstrate causation.",
+      "correct_answer": "correlation",
+      "acceptable_answers": ["correlation", "correlations"],
+      "explanation": "This is THE core exam theme: measurement techniques like fMRI and EEG can only show correlations (associations) between brain activity and cognitive processes. Stimulation/disruption techniques like TMS can establish causal relationships by manipulating brain activity and observing behavioural effects."
+    },
+    {
+      "id": "midterm_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "The ___ is the brain region most associated with memory formation, particularly episodic memory.",
+      "blank_sentence": "The ___ is the brain region most associated with memory formation, particularly episodic memory.",
+      "correct_answer": "hippocampus",
+      "acceptable_answers": ["hippocampus"],
+      "explanation": "The hippocampus is the brain structure most critically involved in the formation of new declarative memories, particularly episodic memories (events tied to specific times and places)."
+    },
+    {
+      "id": "midterm_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "When multiple methods lead to the same conclusion, this principle is called ___.",
+      "blank_sentence": "When multiple methods lead to the same conclusion, this principle is called ___.",
+      "correct_answer": "convergence",
+      "acceptable_answers": ["convergence"],
+      "explanation": "Convergence is the principle that when multiple different research methods (e.g., lesion studies, fMRI, TMS) all point to the same conclusion, the evidence becomes much stronger than any single method could provide."
+    },
+    {
+      "id": "midterm_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The lateral ___ cortex is the key brain area associated with self-control and higher cognition.",
+      "blank_sentence": "The lateral ___ cortex is the key brain area associated with self-control and higher cognition.",
+      "correct_answer": "prefrontal",
+      "acceptable_answers": ["prefrontal"],
+      "explanation": "The lateral prefrontal cortex is consistently associated with self-control and executive functions. This region has been studied using TMS to establish causal evidence for its role in inhibitory control."
+    },
+    {
+      "id": "midterm_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "The principle of ___ states that different methods reveal different aspects of the same phenomenon.",
+      "blank_sentence": "The principle of ___ states that different methods reveal different aspects of the same phenomenon.",
+      "correct_answer": "complementarity",
+      "acceptable_answers": ["complementarity"],
+      "explanation": "Complementarity means that different research methods (fMRI for spatial resolution, EEG for temporal resolution, TMS for causal evidence) each reveal different aspects of brain-cognition relationships, and together they provide a more complete picture."
+    },
+    {
+      "id": "midterm_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "The exam covers three main topics: History/Methodology (Ch. 1), Motor Control (Ch. 5), and ___ (Ch. 8-9).",
+      "blank_sentence": "The exam covers three main topics: History/Methodology (Ch. 1), Motor Control (Ch. 5), and ___ (Ch. 8-9).",
+      "correct_answer": "Memory",
+      "acceptable_answers": ["Memory", "memory"],
+      "explanation": "The midterm covers three main topic areas: History and Methodology (Chapter 1, Module 1), Motor Control (Chapter 5), and Memory (Chapters 8-9). Emotional neuroscience is explicitly NOT covered on the midterm."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapters 1, 5, 8-9"]
+}

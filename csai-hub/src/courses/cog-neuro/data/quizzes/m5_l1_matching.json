@@ -1,0 +1,153 @@
+{
+  "section_id": "m5_l1",
+  "quiz_type": "matching",
+  "title": "Executive Function - Matching",
+  "questions": [
+    {
+      "id": "m5_l1_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each PFC subdivision to its notable role:",
+      "items": ["Dorsolateral PFC (DLPFC)", "Ventrolateral PFC (VLPFC)", "Orbitofrontal cortex (OFC / vmPFC)", "Frontopolar cortex (FPC)"],
+      "categories": ["Rule-selective neurons; oddball/inhibition; shifting", "Stop-signal task (right hemisphere); deduction", "Social rules, reversal learning, affective input", "Relating rules, higher-order goals, exploration"],
+      "correct_mapping": {
+        "Dorsolateral PFC (DLPFC)": "Rule-selective neurons; oddball/inhibition; shifting",
+        "Ventrolateral PFC (VLPFC)": "Stop-signal task (right hemisphere); deduction",
+        "Orbitofrontal cortex (OFC / vmPFC)": "Social rules, reversal learning, affective input",
+        "Frontopolar cortex (FPC)": "Relating rules, higher-order goals, exploration"
+      },
+      "explanation": "Each PFC subregion has distinctive roles: DLPFC for rule-selective neurons and shifting, VLPFC for stop-signal inhibition, OFC/vmPFC for social rules and reversal, and FPC for relating rules and exploration."
+    },
+    {
+      "id": "m5_l1_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each basal-ganglia loop to its striatal entry and function:",
+      "items": ["Motor loop", "Prefrontal loop", "Affective loop"],
+      "categories": ["Putamen — motor control", "Anterior caudate — cognitive executive control", "Ventral striatum — reward and emotional regulation"],
+      "correct_mapping": {
+        "Motor loop": "Putamen — motor control",
+        "Prefrontal loop": "Anterior caudate — cognitive executive control",
+        "Affective loop": "Ventral striatum — reward and emotional regulation"
+      },
+      "explanation": "The three parallel basal-ganglia loops share the architecture Cortex → Striatum → Pallidum → Thalamus → Cortex, but enter different striatal subregions: putamen (motor), anterior caudate (prefrontal/cognitive), ventral striatum (affective)."
+    },
+    {
+      "id": "m5_l1_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each inhibition task to its key characteristic:",
+      "items": ["Oddball", "Go/No-Go", "Stop-signal"],
+      "categories": ["Reactive inhibition to a rare stimulus; generates the P300 (M5 practical)", "Pre-emptive inhibition; impaired in schizophrenia", "Inhibit a response already initiated; sensitive to ADHD and Parkinson's"],
+      "correct_mapping": {
+        "Oddball": "Reactive inhibition to a rare stimulus; generates the P300 (M5 practical)",
+        "Go/No-Go": "Pre-emptive inhibition; impaired in schizophrenia",
+        "Stop-signal": "Inhibit a response already initiated; sensitive to ADHD and Parkinson's"
+      },
+      "explanation": "Oddball tasks (reactive, P300-generating) are the M5 practical. Go/No-Go probes pre-emptive inhibition and is sensitive to schizophrenia. Stop-signal is the most demanding because the response is already underway, making it sensitive to ADHD and Parkinson's."
+    },
+    {
+      "id": "m5_l1_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each frontal damage syndrome to its hallmark profile:",
+      "items": ["Frontal dysexecutive syndrome", "Frontal disinhibition syndrome"],
+      "categories": ["Lateral PFC damage — apathy, inability to plan or initiate, impaired response selection", "Ventral and medial PFC damage — euphoric/manic, unproductive movement, failure to read social cues (e.g. Phineas Gage)"],
+      "correct_mapping": {
+        "Frontal dysexecutive syndrome": "Lateral PFC damage — apathy, inability to plan or initiate, impaired response selection",
+        "Frontal disinhibition syndrome": "Ventral and medial PFC damage — euphoric/manic, unproductive movement, failure to read social cues (e.g. Phineas Gage)"
+      },
+      "explanation": "Dysexecutive (lateral PFC): apathy, planning failures, lab-test impairments. Disinhibition (ventromedial PFC): euphoria, social-cue failures, often normal in lab but chaotic in real life — Phineas Gage is the classic case."
+    },
+    {
+      "id": "m5_l1_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each form of inhibition to a representative example:",
+      "items": ["Halting well-trained behaviour", "Preventing irrelevant interference", "Restraining socially inappropriate behaviour", "Removing irrelevant info from working memory"],
+      "categories": ["Suppressing a previously rewarded response", "Filtering out distracting flankers during a target task", "Withholding profanity in a formal setting", "Discarding the now-outdated phone number you just rehearsed"],
+      "correct_mapping": {
+        "Halting well-trained behaviour": "Suppressing a previously rewarded response",
+        "Preventing irrelevant interference": "Filtering out distracting flankers during a target task",
+        "Restraining socially inappropriate behaviour": "Withholding profanity in a formal setting",
+        "Removing irrelevant info from working memory": "Discarding the now-outdated phone number you just rehearsed"
+      },
+      "explanation": "The book's four forms of inhibition each have everyday analogues: stopping over-trained responses, filtering distractors, suppressing socially inappropriate impulses, and clearing outdated content from working memory."
+    },
+    {
+      "id": "m5_l1_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each rostro-caudal theory of PFC organisation to its champion and core claim:",
+      "items": ["Temporal abstraction", "Policy abstraction (hierarchy)"],
+      "categories": ["Etienne Koechlin — posterior = current-time rules, middle = changing-context, anterior = long-term goals", "Badre & D'Esposito — anterior implements higher-order policies that determine which posterior rule applies"],
+      "correct_mapping": {
+        "Temporal abstraction": "Etienne Koechlin — posterior = current-time rules, middle = changing-context, anterior = long-term goals",
+        "Policy abstraction (hierarchy)": "Badre & D'Esposito — anterior implements higher-order policies that determine which posterior rule applies"
+      },
+      "explanation": "Both theories agree the PFC is organised rostro-caudally by abstraction. Koechlin frames the gradient temporally; Badre & D'Esposito frame it as anterior policies shaping posterior rules. The professor flagged that neither has 'won' yet."
+    },
+    {
+      "id": "m5_l1_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each Baddeley working memory component to its content domain:",
+      "items": ["Phonological loop", "Visuospatial sketchpad", "Episodic buffer", "Central executive"],
+      "categories": ["Auditory / language information", "Visual & spatial information", "Multimodal information pulled from episodic memory", "Control system that allocates resources among the buffers"],
+      "correct_mapping": {
+        "Phonological loop": "Auditory / language information",
+        "Visuospatial sketchpad": "Visual & spatial information",
+        "Episodic buffer": "Multimodal information pulled from episodic memory",
+        "Central executive": "Control system that allocates resources among the buffers"
+      },
+      "explanation": "Baddeley's model has three capacity-limited buffers (phonological loop, visuospatial sketchpad, episodic buffer) and a central executive that allocates processing resources among them depending on task demands."
+    },
+    {
+      "id": "m5_l1_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each task to the executive process it primarily probes:",
+      "items": ["Wisconsin Card Sorting Test", "Progressive Matrices", "Stop-signal task", "Stroop task"],
+      "categories": ["Shifting among rules / perseveration", "Relating rules — frontopolar cortex", "Inhibiting a response already initiated", "Conflict monitoring (ACC) on incongruent trials"],
+      "correct_mapping": {
+        "Wisconsin Card Sorting Test": "Shifting among rules / perseveration",
+        "Progressive Matrices": "Relating rules — frontopolar cortex",
+        "Stop-signal task": "Inhibiting a response already initiated",
+        "Stroop task": "Conflict monitoring (ACC) on incongruent trials"
+      },
+      "explanation": "Each task isolates a different executive process: WCST tests shifting (perseveration), Progressive Matrices test rule-relating (FPC), stop-signal tests reactive inhibition, and Stroop probes ACC-mediated conflict monitoring."
+    },
+    {
+      "id": "m5_l1_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each ERP/region to the function it most clearly indexes:",
+      "items": ["P300", "Response ERN", "Feedback ERN", "DLPFC activation on incongruent Stroop"],
+      "categories": ["Detection of a rare/oddball target requiring inhibition", "Internal awareness that a motor response was wrong", "External signal that an action did not produce the desired outcome", "Implementation of cognitive control following ACC conflict signal"],
+      "correct_mapping": {
+        "P300": "Detection of a rare/oddball target requiring inhibition",
+        "Response ERN": "Internal awareness that a motor response was wrong",
+        "Feedback ERN": "External signal that an action did not produce the desired outcome",
+        "DLPFC activation on incongruent Stroop": "Implementation of cognitive control following ACC conflict signal"
+      },
+      "explanation": "The P300 indexes oddball detection. Response ERN follows internally-detected motor errors; feedback ERN follows external error feedback. ACC signals conflict and trial-N+1 DLPFC activity implements the resulting control adjustment."
+    },
+    {
+      "id": "m5_l1_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each working memory model feature to Baddeley vs Cowan:",
+      "items": ["Modality-specific buffers", "Unitary activated long-term memory", "Capacity limit lives in the attentional spotlight", "Central executive allocates resources to buffers"],
+      "categories": ["Baddeley", "Cowan", "Cowan", "Baddeley"],
+      "correct_mapping": {
+        "Modality-specific buffers": "Baddeley",
+        "Unitary activated long-term memory": "Cowan",
+        "Capacity limit lives in the attentional spotlight": "Cowan",
+        "Central executive allocates resources to buffers": "Baddeley"
+      },
+      "explanation": "Baddeley posits modular buffers and a resource-allocating central executive. Cowan rejects discrete buffers in favour of unitary activated LTM with capacity limited by the attentional spotlight. Both agree on a central executive — the disagreement is about storage architecture."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 1"]
+}

@@ -1,0 +1,109 @@
+{
+  "section_id": "m5_l2",
+  "quiz_type": "fill_in_blank",
+  "title": "Executive Function (in depth) - Fill in the Blank",
+  "questions": [
+    {
+      "id": "m5_l2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Franz Gall proposed ___, the (incorrect) idea that mental functions are localised and skull shape reflects them.",
+      "blank_sentence": "Franz Gall proposed ___, the (incorrect) idea that mental functions are localised and skull shape reflects them.",
+      "correct_answer": "phrenology",
+      "acceptable_answers": ["phrenology", "Phrenology"],
+      "explanation": "Gall's phrenology was wrong but historically important — it encouraged research into brain localisation, paving the way for later experimental neuroscience like Hitzig & Fritsch's stimulation studies."
+    },
+    {
+      "id": "m5_l2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Hitzig & Fritsch found that stimulating the ___ frontal lobe in dogs caused contralateral movement, while stimulating anterior frontal cortex produced no motor or sensory effect.",
+      "blank_sentence": "Hitzig & Fritsch found that stimulating the ___ frontal lobe in dogs caused contralateral movement, while stimulating anterior frontal cortex produced no motor or sensory effect.",
+      "correct_answer": "posterior",
+      "acceptable_answers": ["posterior", "Posterior"],
+      "explanation": "Hitzig & Fritsch (late 1860s) showed posterior frontal stimulation drives contralateral movement (motor cortex). The 'silent' anterior frontal cortex was therefore speculated to support higher cognitive functions — an early link between PFC and executive function."
+    },
+    {
+      "id": "m5_l2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The ___ syndrome (lateral PFC damage) features apathy, failure to plan or initiate, lack of insight, and can produce abulia.",
+      "blank_sentence": "The ___ syndrome (lateral PFC damage) features apathy, failure to plan or initiate, lack of insight, and can produce abulia.",
+      "correct_answer": "dysexecutive",
+      "acceptable_answers": ["dysexecutive", "Dysexecutive", "frontal dysexecutive"],
+      "explanation": "The frontal dysexecutive syndrome arises from lateral PFC damage. Patients show apathy, planning failure, attention deficits, and abulia (lethargy, slow, distractible) — contrasting with the disinhibition syndrome from ventral/medial PFC."
+    },
+    {
+      "id": "m5_l2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Antonio Damasio's term ___ sociopathy describes vmPFC-damage patients who can verbalise moral rules but act impulsively, with blunted affect and emotional outbursts.",
+      "blank_sentence": "Antonio Damasio's term ___ sociopathy describes vmPFC-damage patients who can verbalise moral rules but act impulsively, with blunted affect and emotional outbursts.",
+      "correct_answer": "acquired",
+      "acceptable_answers": ["acquired", "Acquired"],
+      "explanation": "Acquired sociopathy follows adult-onset vmPFC damage: patients know the rules but cannot act on them. Early-life vmPFC damage instead produces congenital sociopathy, where patients cannot even articulate the moral rules."
+    },
+    {
+      "id": "m5_l2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "On the Wisconsin Card Sorting Test, PFC patients show ___ — continuing to apply a previously valid rule despite repeated negative feedback.",
+      "blank_sentence": "On the Wisconsin Card Sorting Test, PFC patients show ___ — continuing to apply a previously valid rule despite repeated negative feedback.",
+      "correct_answer": "perseveration",
+      "acceptable_answers": ["perseveration", "Perseveration"],
+      "explanation": "Milner (1963) first reported perseveration as the hallmark of PFC dysfunction on the WCST. Crucially, this is NOT a learning deficit — patients learn new rules normally; the problem is failure to disengage from the old rule."
+    },
+    {
+      "id": "m5_l2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Damage to the ___ cortex (FPC) selectively impairs performance on complex Raven's Progressive Matrices and other tasks requiring relational integration.",
+      "blank_sentence": "Damage to the ___ cortex (FPC) selectively impairs performance on complex Raven's Progressive Matrices and other tasks requiring relational integration.",
+      "correct_answer": "frontopolar",
+      "acceptable_answers": ["frontopolar", "Frontopolar", "fronto-polar"],
+      "explanation": "Frontopolar cortex (FPC / aPFC) is the most anterior PFC region and supports relating multiple rules simultaneously. Smith, Keramatian & Christoff (2007) showed FPC activation specific to relational integration trials."
+    },
+    {
+      "id": "m5_l2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Kerns et al. (2004) showed that high ACC activation on trial N predicts higher ___ activation on trial N+1, supporting a conflict-then-control hand-off.",
+      "blank_sentence": "Kerns et al. (2004) showed that high ACC activation on trial N predicts higher ___ activation on trial N+1, supporting a conflict-then-control hand-off.",
+      "correct_answer": "dlPFC",
+      "acceptable_answers": ["dlPFC", "DLPFC", "dorsolateral PFC", "dorsolateral prefrontal cortex"],
+      "explanation": "The Kerns et al. (2004) finding is that ACC signals conflict but does not resolve it — instead it cues lateral PFC (dlPFC) to adjust behaviour on the next trial. This was a foundational result for the original conflict-monitoring model."
+    },
+    {
+      "id": "m5_l2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Behrens et al. (2007) recast dmPFC activity as tracking environmental ___ — how unstable reward contingencies are over time — rather than purely conflict.",
+      "blank_sentence": "Behrens et al. (2007) recast dmPFC activity as tracking environmental ___ — how unstable reward contingencies are over time — rather than purely conflict.",
+      "correct_answer": "volatility",
+      "acceptable_answers": ["volatility", "Volatility"],
+      "explanation": "Behrens et al. (2007) reframed dmPFC as encoding the mismatch between expectations and outcomes — a learning signal that tracks environmental volatility. This account fits both the lesion data (Fellows & Farah) and the reward-related activations that broke the original conflict model."
+    },
+    {
+      "id": "m5_l2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "In the Funahashi, Bruce & Goldman-Rakic (1989) oculomotor delayed response task, dlPFC neurons showed ___-period activity, a sustained discharge across the 3-second delay that was content-specific.",
+      "blank_sentence": "In the Funahashi, Bruce & Goldman-Rakic (1989) oculomotor delayed response task, dlPFC neurons showed ___-period activity, a sustained discharge across the 3-second delay that was content-specific.",
+      "correct_answer": "delay",
+      "acceptable_answers": ["delay", "Delay"],
+      "explanation": "Delay-period activity is the sustained firing of dlPFC neurons across the memory delay, with each neuron tuned to a preferred location (memory field). When delay-period firing broke down, monkeys made errors — establishing the canonical neural signature of working memory."
+    },
+    {
+      "id": "m5_l2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "The ___ model of working memory (favoured at the neural level over Baddeley) holds that activated representations decay unless rehearsed, and only ~4 items fall within the focus of executive control.",
+      "blank_sentence": "The ___ model of working memory (favoured at the neural level over Baddeley) holds that activated representations decay unless rehearsed, and only ~4 items fall within the focus of executive control.",
+      "correct_answer": "Cowan",
+      "acceptable_answers": ["Cowan", "cowan", "Cowan's"],
+      "explanation": "Cowan's (1998) model proposes a single long-term store with activated representations that decay without rehearsal, plus a ~4-item focus of executive control. It is better supported by current neuroscience than Baddeley's multi-store model because it predicts WM content stays in sensory cortex — confirmed by Harrison & Tong (2009)."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Module 5 Lecture 2"]
+}

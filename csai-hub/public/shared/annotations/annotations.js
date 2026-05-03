@@ -564,7 +564,7 @@
 
     migrateLegacyOnce();
 
-    panelOpen = listAnnotations().length > 0;
+    panelOpen = false;
     rerenderMarks();
     renderPanel();
 

@@ -1,0 +1,159 @@
+{
+  "section_id": "m1_l1",
+  "quiz_type": "multiple_response",
+  "title": "History & Approaches - Multiple Response",
+  "questions": [
+    {
+      "id": "m1_l1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are key structures of the brain discussed in cognitive neuroscience? (Select all that apply)",
+      "options": {
+        "A": "Cerebral cortex",
+        "B": "Hippocampus",
+        "C": "Spinal cord",
+        "D": "Amygdala",
+        "E": "Cerebellum"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The cerebral cortex, hippocampus, amygdala, and cerebellum are all key brain structures discussed in the lecture. While the spinal cord is part of the nervous system, it was not listed as one of the key brain structures in this context."
+    },
+    {
+      "id": "m1_l1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following figures are associated with the Natural Philosophy era of cognitive neuroscience? (Select all that apply)",
+      "options": {
+        "A": "Helmholtz",
+        "B": "Skinner",
+        "C": "Wundt",
+        "D": "William James",
+        "E": "Chomsky"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Helmholtz, Wundt, and William James are all associated with the Natural Philosophy era, which focused on combining philosophical inquiry with emerging experimental methods. Skinner was a behaviourist and Chomsky helped spark the cognitive revolution."
+    },
+    {
+      "id": "m1_l1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are parts of a neuron? (Select all that apply)",
+      "options": {
+        "A": "Cell body (soma)",
+        "B": "Axon",
+        "C": "Dendrites",
+        "D": "Ventricles",
+        "E": "Synapse"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The three main parts of a neuron are the cell body (soma), axon, and dendrites. Ventricles are fluid-filled cavities in the brain, not parts of a neuron. The synapse is the junction between neurons but is not a 'part' of a single neuron."
+    },
+    {
+      "id": "m1_l1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which statements about cognitive neuroscience are correct? (Select all that apply)",
+      "options": {
+        "A": "It aims to create neurobiologically grounded models of cognition",
+        "B": "It is simply about mapping brain regions to functions",
+        "C": "It is the intersection of cognitive science and neuroscience",
+        "D": "It relies on multimethodological synthesis",
+        "E": "It was founded during the behaviourist era"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Cognitive neuroscience aims to create neurobiologically grounded models (not just map regions), sits at the intersection of cognitive science and neuroscience, and relies on combining multiple methods. It emerged after behaviourism, during and after the cognitive revolution."
+    },
+    {
+      "id": "m1_l1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about phrenology? (Select all that apply)",
+      "options": {
+        "A": "It was developed by Franz Joseph Gall",
+        "B": "Its methods were scientifically valid",
+        "C": "It correctly proposed that different brain regions have different functions",
+        "D": "It claimed personality could be read from skull bumps",
+        "E": "It is still used in modern neuroscience"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Phrenology was developed by Gall, proposed (correctly) that brain regions are functionally specialised, and (incorrectly) claimed this could be assessed by reading skull bumps. The methods were pseudoscientific and it is not used in modern neuroscience."
+    },
+    {
+      "id": "m1_l1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following contributed to the Cognitive Revolution of the 1950s-60s? (Select all that apply)",
+      "options": {
+        "A": "Chomsky's critique of behaviourism",
+        "B": "The Dartmouth conference",
+        "C": "The invention of fMRI",
+        "D": "Growing interest in internal mental representations",
+        "E": "Penfield's cortical stimulation studies"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "The Cognitive Revolution was driven by Chomsky's critique of behaviourism, the Dartmouth conference (1956), and a renewed interest in studying internal mental representations. fMRI was not invented until the 1990s. Penfield's work predated the revolution."
+    },
+    {
+      "id": "m1_l1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are functions of the cerebellum? (Select all that apply)",
+      "options": {
+        "A": "Motor coordination",
+        "B": "Language production",
+        "C": "Balance",
+        "D": "Timing of movements",
+        "E": "Visual processing"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "The cerebellum is primarily involved in motor coordination, balance, and the precise timing of movements. While recent research suggests broader roles, language production and visual processing are primarily associated with other brain regions."
+    },
+    {
+      "id": "m1_l1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are related to the field of neuroimaging genomics? (Select all that apply)",
+      "options": {
+        "A": "Polymorphisms",
+        "B": "APOE4 allele",
+        "C": "Alzheimer's disease risk",
+        "D": "Combining genetic and brain imaging data",
+        "E": "Golgi staining technique"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Neuroimaging genomics combines genetic data (including polymorphisms like APOE4) with brain imaging to study how genetic variation relates to brain structure and function, including disease risk like Alzheimer's. Golgi staining is a histological technique, not related to genomics."
+    },
+    {
+      "id": "m1_l1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe action potentials? (Select all that apply)",
+      "options": {
+        "A": "They travel along the axon",
+        "B": "They are chemical signals at the synapse",
+        "C": "They are electrical impulses",
+        "D": "They are received by dendrites",
+        "E": "They are all-or-nothing events"
+      },
+      "correct_answers": ["A", "C", "E"],
+      "explanation": "Action potentials are electrical, all-or-nothing impulses that travel along the axon. Chemical signals (neurotransmitters) are released at the synapse. Dendrites receive input but do not generate action potentials in the same way."
+    },
+    {
+      "id": "m1_l1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which historical eras or movements are correctly ordered from earliest to latest? (Select all correct pairings)",
+      "options": {
+        "A": "Phrenology came before the Neuron Doctrine",
+        "B": "Behaviourism came before the Cognitive Revolution",
+        "C": "The Cognitive Revolution came before Penfield's mapping",
+        "D": "Natural Philosophy came before Phrenology",
+        "E": "Modern cognitive neuroscience emerged after the Cognitive Revolution"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The correct chronological order is: Natural Philosophy, Phrenology, Neuron Doctrine, Behaviourism, Penfield's Mapping, Cognitive Revolution, Modern Cognitive Neuroscience. Penfield's work actually predated or overlapped with the Cognitive Revolution, but the revolution came after his work, not before."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 1 slides", "Chapter 1"]
+}

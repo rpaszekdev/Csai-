@@ -1,0 +1,156 @@
+{
+  "section_id": "m2_l1",
+  "quiz_type": "multiple_response",
+  "title": "Motor Control - Multiple Response",
+  "questions": [
+    {
+      "id": "m2_l1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are components of the basal ganglia? (Select all that apply)",
+      "options": {
+        "A": "Caudate nucleus",
+        "B": "Putamen",
+        "C": "Globus pallidus",
+        "D": "Hippocampus",
+        "E": "Cerebellum"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The basal ganglia consist of the caudate nucleus, putamen (together forming the striatum), and globus pallidus. The hippocampus is part of the medial temporal lobe memory system, and the cerebellum is a separate structure."
+    },
+    {
+      "id": "m2_l1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which are symptoms of Parkinson's disease? (Select all that apply)",
+      "options": {
+        "A": "Tremor at rest",
+        "B": "Choreiform movements",
+        "C": "Rigidity",
+        "D": "Bradykinesia (slowness of movement)",
+        "E": "Intention tremor"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Parkinson's disease is characterised by tremor at rest, rigidity, and bradykinesia. Choreiform movements are characteristic of Huntington's disease, and intention tremor is characteristic of cerebellar damage."
+    },
+    {
+      "id": "m2_l1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are the three parallel networks that run through the basal ganglia? (Select all that apply)",
+      "options": {
+        "A": "Sensory-motor network",
+        "B": "Limbic (emotional) network",
+        "C": "Associative (cognitive) network",
+        "D": "Visual processing network",
+        "E": "Auditory network"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The basal ganglia process information through three parallel networks: sensory-motor (movement), limbic (emotion and motivation), and associative (cognition and planning). This reflects the BG's role beyond just motor control."
+    },
+    {
+      "id": "m2_l1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are divisions of the cerebellum? (Select all that apply)",
+      "options": {
+        "A": "Spinocerebellum",
+        "B": "Cerebrocerebellum",
+        "C": "Vestibulocerebellum",
+        "D": "Neocerebellum",
+        "E": "Limbic cerebellum"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The cerebellum has three main functional divisions: the spinocerebellum (body movement coordination), cerebrocerebellum (planning and cognitive aspects), and vestibulocerebellum (balance and eye movements)."
+    },
+    {
+      "id": "m2_l1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "The cerebellum is now known to be involved in which of the following cognitive functions? (Select all that apply)",
+      "options": {
+        "A": "Attention",
+        "B": "Timing",
+        "C": "Working memory",
+        "D": "Language production",
+        "E": "Fear conditioning"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Beyond its classical motor role, the cerebellum is involved in cognitive functions including attention, timing, and working memory. This expanded understanding reflects the cerebrocerebellum's connections with prefrontal cortex."
+    },
+    {
+      "id": "m2_l1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which areas are involved in planning movements and movement intentions (NOT direct motor execution)? (Select all that apply)",
+      "options": {
+        "A": "Premotor cortex",
+        "B": "Supplementary motor area (SMA)",
+        "C": "Primary motor cortex (M1)",
+        "D": "Spinal cord lower motor neurons"
+      },
+      "correct_answers": ["A", "B"],
+      "explanation": "The premotor cortex and supplementary motor area (SMA) are involved in planning movements and movement intentions. M1 is primarily involved in direct motor execution, and spinal cord lower motor neurons are the final output of the motor system."
+    },
+    {
+      "id": "m2_l1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about Central Pattern Generators (CPGs) are correct? (Select all that apply)",
+      "options": {
+        "A": "They are located in the spinal cord",
+        "B": "They generate rhythmic movements",
+        "C": "They require continuous input from the motor cortex",
+        "D": "They underlie movements like walking and swimming",
+        "E": "They were demonstrated using cat spinal transection experiments"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "CPGs are spinal cord circuits that generate rhythmic motor patterns for walking, swimming, etc. They do NOT require continuous cortical input — the cat spinal transection experiment proved they can function independently."
+    },
+    {
+      "id": "m2_l1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are characteristics of the primary motor cortex (M1)? (Select all that apply)",
+      "options": {
+        "A": "Functional topography",
+        "B": "Somatotopic organisation",
+        "C": "Contains upper motor neurons",
+        "D": "Exclusively plans movements but does not execute them",
+        "E": "Sends axons that decussate at the medullary pyramids"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "M1 has functional topography and somatotopic organisation (body map), contains upper motor neurons, and sends axons that cross at the medullary pyramids. It is involved in movement execution, not exclusively planning."
+    },
+    {
+      "id": "m2_l1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which basal ganglia disorders involve abnormal involuntary movements? (Select all that apply)",
+      "options": {
+        "A": "Parkinson's disease (tremor at rest)",
+        "B": "Huntington's disease (choreiform movements)",
+        "C": "Hemiballismus (violent flinging movements)",
+        "D": "Cerebellar ataxia"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Parkinson's (rest tremor from substantia nigra death), Huntington's (choreiform movements from caudate atrophy), and hemiballismus (violent flinging from subthalamic damage) are all basal ganglia disorders. Cerebellar ataxia is a cerebellar disorder."
+    },
+    {
+      "id": "m2_l1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which statements about population coding in M1 are correct? (Select all that apply)",
+      "options": {
+        "A": "Individual neurons have a preferred movement direction",
+        "B": "Each neuron only fires for one specific direction",
+        "C": "Movement direction is determined by the vector sum of neural activity",
+        "D": "Georgopoulos (1986) demonstrated this principle"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "In population coding, each neuron has a preferred direction but fires broadly for a range of directions (not just one). The actual movement direction emerges from the vector sum ('majority vote') across the population, as demonstrated by Georgopoulos (1986)."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Pages 17-23"]
+}

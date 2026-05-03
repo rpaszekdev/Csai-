@@ -1,0 +1,149 @@
+{
+  "section_id": "m3_l2",
+  "quiz_type": "multiple_choice",
+  "title": "Declarative Memory (Flipped) - Multiple Choice",
+  "questions": [
+    {
+      "id": "m3_l2_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "According to the two-process theory, which brain region is most associated with familiarity-based recognition?",
+      "options": {
+        "A": "Hippocampus",
+        "B": "Perirhinal cortex",
+        "C": "Prefrontal cortex",
+        "D": "Posterior parietal cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "The two-process theory proposes that the hippocampus supports recollection while the perirhinal cortex supports familiarity. This is supported by fMRI studies showing perirhinal cortex responds more to item-based recognition and novelty detection."
+    },
+    {
+      "id": "m3_l2_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What does patient K.C.'s case demonstrate about the relationship between episodic and semantic memory?",
+      "options": {
+        "A": "Both episodic and semantic memory require the hippocampus",
+        "B": "Episodic memory can be selectively impaired while semantic memory remains intact",
+        "C": "Semantic memory always degrades before episodic memory",
+        "D": "The hippocampus is not involved in any form of declarative memory"
+      },
+      "correct_answer": "B",
+      "explanation": "Patient K.C. had hippocampal damage resulting in both anterograde and retrograde episodic amnesia, yet his semantic memory remained intact. This demonstrates a dissociation between episodic and semantic memory systems."
+    },
+    {
+      "id": "m3_l2_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What distinguishes the Multiple Trace Theory from the Standard Consolidation Theory regarding remote memories?",
+      "options": {
+        "A": "Multiple Trace Theory says all memories eventually become hippocampus-independent",
+        "B": "Standard Consolidation Theory says episodic memories always need the hippocampus",
+        "C": "Multiple Trace Theory proposes that episodic memories always require the hippocampus, with older memories having more traces",
+        "D": "Multiple Trace Theory only applies to semantic memories"
+      },
+      "correct_answer": "C",
+      "explanation": "Nadel & Moscovitch's Multiple Trace Theory (1997) proposes that episodic memories always require the hippocampus — older memories create more hippocampal traces making them more resistant to partial damage, but complete hippocampal loss would cause total retrograde amnesia for episodic memories."
+    },
+    {
+      "id": "m3_l2_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "In the AToM (Attention to Memory) model, what role does the ventral posterior parietal cortex play?",
+      "options": {
+        "A": "Top-down attentional search for memories",
+        "B": "Familiarity-based recognition and low-confidence judgments",
+        "C": "Bottom-up attention to recollected information and high-confidence recognition",
+        "D": "Encoding of new episodic memories"
+      },
+      "correct_answer": "C",
+      "explanation": "The AToM model proposes that ventral PPC is involved in bottom-up attention captured by recollected information, associated with high-confidence recognition. The dorsal PPC, by contrast, is associated with top-down attentional search, familiarity, and low-confidence recognition."
+    },
+    {
+      "id": "m3_l2_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What happens to patients with ventral parietal lesions regarding episodic memory retrieval?",
+      "options": {
+        "A": "They completely lose all episodic memories",
+        "B": "They cannot generate episodic details even when prompted",
+        "C": "They produce fewer spontaneous episodic details but can generate them when prompted",
+        "D": "They have enhanced episodic recall"
+      },
+      "correct_answer": "C",
+      "explanation": "Patients with ventral parietal lesions produce fewer episodic details spontaneously, but they CAN generate details when specifically prompted. This suggests the memories are available but not spontaneously attended to, consistent with the AToM model's bottom-up attention account."
+    },
+    {
+      "id": "m3_l2_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is semanticisation?",
+      "options": {
+        "A": "The process by which semantic memories become episodic over time",
+        "B": "The process by which episodic memories gradually transform into semantic knowledge",
+        "C": "The encoding of semantic information into the hippocampus",
+        "D": "The retrieval of semantic memories from the perirhinal cortex"
+      },
+      "correct_answer": "B",
+      "explanation": "Semanticisation refers to the gradual transformation of episodic memories (tied to specific time and place) into semantic knowledge (general facts), as the contextual details of the original experience fade over time."
+    },
+    {
+      "id": "m3_l2_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What did fMRI studies comparing 'Remember' vs 'Know' judgments reveal about hippocampal activity?",
+      "options": {
+        "A": "Know judgments produced greater hippocampal activity than Remember judgments",
+        "B": "Both judgments produced equal hippocampal activity",
+        "C": "Remember judgments produced greater hippocampal activity than Know judgments",
+        "D": "Neither judgment activated the hippocampus"
+      },
+      "correct_answer": "C",
+      "explanation": "fMRI studies show that 'Remember' judgments (recollection with full contextual details) produce greater hippocampal activity than 'Know' judgments (familiarity without context). This supports the association between the hippocampus and recollection specifically."
+    },
+    {
+      "id": "m3_l2_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Which patient case provides evidence for a double dissociation between episodic and semantic memory?",
+      "options": {
+        "A": "H.M. alone",
+        "B": "K.C. alone",
+        "C": "Comparing hippocampal amnesia patients with semantic dementia patient A.M.",
+        "D": "Beth, Jon, and Kate alone"
+      },
+      "correct_answer": "C",
+      "explanation": "Patient A.M. (semantic dementia, left anterior temporal atrophy) had impaired nonverbal semantic knowledge but normal nonverbal episodic memory — the opposite pattern of hippocampal amnesia patients. Together they demonstrate a double dissociation between episodic and semantic memory."
+    },
+    {
+      "id": "m3_l2_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In the three-phase model of declarative memory, what role does the hippocampus play during retrieval?",
+      "options": {
+        "A": "It stores the memory trace permanently",
+        "B": "It acts as an index — a cue triggers the hippocampal index which reactivates cortical traces",
+        "C": "It only retrieves semantic memories",
+        "D": "It has no role once memories are encoded"
+      },
+      "correct_answer": "B",
+      "explanation": "In the three-phase model, the hippocampus serves as an index during retrieval: a cue activates the hippocampal index, which then reactivates the distributed cortical traces that constitute the memory. Remote memories may bypass the hippocampus via direct cortical connections."
+    },
+    {
+      "id": "m3_l2_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What do the developmental cases of Beth, Jon, and Kate (selective hippocampal damage from hypoxia) suggest about the relationship between episodic and semantic memory?",
+      "options": {
+        "A": "Episodic and semantic memory develop at the same time",
+        "B": "Semantic memory cannot develop without episodic memory",
+        "C": "Episodic memory develops after semantic memory and depends on hippocampal integrity",
+        "D": "Both types of memory are equally impaired by early hippocampal damage"
+      },
+      "correct_answer": "C",
+      "explanation": "Beth, Jon, and Kate had developmental hypoxia causing selective hippocampal damage. They showed impaired episodic memory but normal semantic memory development, suggesting that semantic memory can develop independently and that episodic memory develops after semantic memory, requiring intact hippocampal function."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture slides", "Chapter 9"]
+}

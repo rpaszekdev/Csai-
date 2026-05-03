@@ -1,0 +1,161 @@
+{
+  "section_id": "m1_l1",
+  "quiz_type": "matching",
+  "title": "History & Approaches - Matching",
+  "questions": [
+    {
+      "id": "m1_l1_match_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each historical figure to their contribution.",
+      "items": ["Gall", "Cajal", "Skinner", "Penfield", "Chomsky"],
+      "categories": ["Phrenology", "Neuron Doctrine", "Behaviourism", "Cortical mapping / Homunculus", "Cognitive Revolution"],
+      "correct_mapping": {
+        "Gall": "Phrenology",
+        "Cajal": "Neuron Doctrine",
+        "Skinner": "Behaviourism",
+        "Penfield": "Cortical mapping / Homunculus",
+        "Chomsky": "Cognitive Revolution"
+      },
+      "explanation": "Gall founded phrenology; Cajal established the neuron doctrine; Skinner was a leading behaviourist; Penfield mapped the somatosensory/motor cortex creating the homunculus; Chomsky's critique of behaviourism helped trigger the cognitive revolution."
+    },
+    {
+      "id": "m1_l1_match_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each brain structure to its primary function.",
+      "items": ["Hippocampus", "Amygdala", "Thalamus", "Cerebellum", "Cerebral cortex"],
+      "categories": ["Memory formation", "Emotion processing", "Sensory relay", "Motor coordination", "Higher cognition"],
+      "correct_mapping": {
+        "Hippocampus": "Memory formation",
+        "Amygdala": "Emotion processing",
+        "Thalamus": "Sensory relay",
+        "Cerebellum": "Motor coordination",
+        "Cerebral cortex": "Higher cognition"
+      },
+      "explanation": "The hippocampus is essential for forming new memories; the amygdala processes emotions (especially fear); the thalamus relays sensory information; the cerebellum coordinates movement; the cerebral cortex supports higher cognitive functions."
+    },
+    {
+      "id": "m1_l1_match_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each neuron part to its function.",
+      "items": ["Dendrites", "Cell body (soma)", "Axon", "Synapse"],
+      "categories": ["Receive incoming signals", "Integration and processing", "Transmit action potentials", "Chemical signal transmission between neurons"],
+      "correct_mapping": {
+        "Dendrites": "Receive incoming signals",
+        "Cell body (soma)": "Integration and processing",
+        "Axon": "Transmit action potentials",
+        "Synapse": "Chemical signal transmission between neurons"
+      },
+      "explanation": "Dendrites receive input from other neurons; the soma integrates these signals; the axon carries action potentials to the terminal; and the synapse is where chemical neurotransmitters cross to the next neuron."
+    },
+    {
+      "id": "m1_l1_match_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each historical era to its defining characteristic.",
+      "items": ["Natural Philosophy", "Behaviourism", "Cognitive Revolution", "Modern Cognitive Neuroscience"],
+      "categories": ["Combining philosophy with early experiments", "Stimulus-response focus, mind as black box", "Return to studying internal mental processes", "Neuroimaging-based study of cognition"],
+      "correct_mapping": {
+        "Natural Philosophy": "Combining philosophy with early experiments",
+        "Behaviourism": "Stimulus-response focus, mind as black box",
+        "Cognitive Revolution": "Return to studying internal mental processes",
+        "Modern Cognitive Neuroscience": "Neuroimaging-based study of cognition"
+      },
+      "explanation": "Natural Philosophy combined philosophical inquiry with emerging experimental methods; Behaviourism rejected internal states in favour of stimulus-response; the Cognitive Revolution brought back mental representations; Modern Cognitive Neuroscience uses neuroimaging to ground cognitive theories in biology."
+    },
+    {
+      "id": "m1_l1_match_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each concept to the correct description.",
+      "items": ["Polymorphisms", "APOE4", "Neuroimaging genomics", "Multimethodological synthesis"],
+      "categories": ["Genetic variations in DNA sequence", "Risk allele for Alzheimer's disease", "Combining genetic and brain imaging data", "Using multiple research methods together"],
+      "correct_mapping": {
+        "Polymorphisms": "Genetic variations in DNA sequence",
+        "APOE4": "Risk allele for Alzheimer's disease",
+        "Neuroimaging genomics": "Combining genetic and brain imaging data",
+        "Multimethodological synthesis": "Using multiple research methods together"
+      },
+      "explanation": "Polymorphisms are naturally occurring genetic variations; APOE4 is a specific allele associated with increased Alzheimer's risk; neuroimaging genomics combines genetics with brain imaging; multimethodological synthesis is the approach of combining multiple methods."
+    },
+    {
+      "id": "m1_l1_match_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each staining/mapping technique to the correct person.",
+      "items": ["Golgi staining method", "Used Golgi stain to prove neuron doctrine", "Cortical stimulation mapping", "Comparative prefrontal anatomy"],
+      "categories": ["Golgi", "Cajal", "Penfield", "Brodmann / Semendeferi"],
+      "correct_mapping": {
+        "Golgi staining method": "Golgi",
+        "Used Golgi stain to prove neuron doctrine": "Cajal",
+        "Cortical stimulation mapping": "Penfield",
+        "Comparative prefrontal anatomy": "Brodmann / Semendeferi"
+      },
+      "explanation": "Golgi developed the staining method; Cajal used it to prove neurons are discrete cells; Penfield used electrical stimulation to map the cortex; Brodmann and Semendeferi studied prefrontal cortex comparative anatomy."
+    },
+    {
+      "id": "m1_l1_match_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each approach to what it studies or emphasises.",
+      "items": ["Cognitive science", "Neuroscience", "Cognitive neuroscience", "Phrenology"],
+      "categories": ["Mental processes and representations", "Nervous system structure and function", "Neurobiologically grounded models of cognition", "Skull shape and mental faculties"],
+      "correct_mapping": {
+        "Cognitive science": "Mental processes and representations",
+        "Neuroscience": "Nervous system structure and function",
+        "Cognitive neuroscience": "Neurobiologically grounded models of cognition",
+        "Phrenology": "Skull shape and mental faculties"
+      },
+      "explanation": "Cognitive science studies mental processes; neuroscience studies the nervous system; cognitive neuroscience bridges both to create neurobiologically grounded models; phrenology (now discredited) tried to link skull shape to mental faculties."
+    },
+    {
+      "id": "m1_l1_match_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each signal type to its location in neural communication.",
+      "items": ["Action potentials", "Neurotransmitters", "Postsynaptic potentials", "Dendritic input"],
+      "categories": ["Along the axon", "In the synaptic cleft", "At the receiving neuron's membrane", "At the dendrites"],
+      "correct_mapping": {
+        "Action potentials": "Along the axon",
+        "Neurotransmitters": "In the synaptic cleft",
+        "Postsynaptic potentials": "At the receiving neuron's membrane",
+        "Dendritic input": "At the dendrites"
+      },
+      "explanation": "Action potentials propagate along the axon; neurotransmitters are released into the synaptic cleft; postsynaptic potentials occur at the receiving neuron's membrane; dendritic input arrives at the dendrites of the postsynaptic neuron."
+    },
+    {
+      "id": "m1_l1_match_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match the criticism to the correct historical approach.",
+      "items": ["Skull bumps don't reflect brain function", "Ignores internal mental processes", "Too reductionist — just finding correlates", "Difficult to replicate introspective reports"],
+      "categories": ["Phrenology", "Behaviourism", "Simple brain mapping", "Natural Philosophy / Introspection"],
+      "correct_mapping": {
+        "Skull bumps don't reflect brain function": "Phrenology",
+        "Ignores internal mental processes": "Behaviourism",
+        "Too reductionist — just finding correlates": "Simple brain mapping",
+        "Difficult to replicate introspective reports": "Natural Philosophy / Introspection"
+      },
+      "explanation": "Phrenology's skull-reading had no validity; behaviourism deliberately ignored the mind; simple brain mapping just finds correlates without explanatory models; early introspection methods lacked replicability."
+    },
+    {
+      "id": "m1_l1_match_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each imaging-related concept to its description.",
+      "items": ["fMRI", "Energy consumption", "Blood flow", "BOLD signal"],
+      "categories": ["Non-invasive brain imaging technique", "Basis for detecting neural activity", "Increases to active brain regions", "Blood oxygenation level dependent contrast"],
+      "correct_mapping": {
+        "fMRI": "Non-invasive brain imaging technique",
+        "Energy consumption": "Basis for detecting neural activity",
+        "Blood flow": "Increases to active brain regions",
+        "BOLD signal": "Blood oxygenation level dependent contrast"
+      },
+      "explanation": "fMRI is a non-invasive imaging technique; active neurons consume more energy; increased blood flow delivers oxygen to active regions; and the BOLD signal detects changes in blood oxygenation to infer neural activity."
+    }
+  ],
+  "question_count": 10,
+  "sources": ["Lecture 1 slides", "Chapter 1"]
+}
