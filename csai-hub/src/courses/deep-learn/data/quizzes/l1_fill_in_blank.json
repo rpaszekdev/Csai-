@@ -1,0 +1,107 @@
+{
+  "section_id": "l1",
+  "quiz_type": "fill_in_blank",
+  "title": "MLPs - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l1_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the simplest neural network unit.",
+      "blank_sentence": "A ___ computes a weighted sum of inputs plus a bias, then passes it through a step activation function.",
+      "correct_answer": "perceptron",
+      "acceptable_answers": ["perceptron", "Perceptron"],
+      "explanation": "The perceptron is the simplest neural network model. It takes multiple inputs, multiplies each by a weight, sums them up, adds a bias, and applies a step function to produce a binary 0 or 1 output."
+    },
+    {
+      "id": "l1_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the layers between input and output.",
+      "blank_sentence": "The layers between the input layer and the output layer in an MLP are called ___ layers.",
+      "correct_answer": "hidden",
+      "acceptable_answers": ["hidden", "Hidden"],
+      "explanation": "Hidden layers are the internal layers of an MLP that are not directly visible as input or output. They learn intermediate representations of the data that help the network solve complex problems."
+    },
+    {
+      "id": "l1_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the phase where data flows through the network.",
+      "blank_sentence": "During the ___ pass, input data is fed through the network layer by layer to produce a prediction.",
+      "correct_answer": "forward",
+      "acceptable_answers": ["forward", "Forward"],
+      "explanation": "The forward pass is when data moves from the input layer, through each hidden layer, to the output layer. At each layer, the weighted sum plus bias is computed and an activation function is applied."
+    },
+    {
+      "id": "l1_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "What measures how far off the network's predictions are?",
+      "blank_sentence": "A ___ function measures the difference between the network's output and the expected output.",
+      "correct_answer": "cost",
+      "acceptable_answers": ["cost", "loss", "error", "Cost", "Loss", "Error"],
+      "explanation": "The cost function (also called loss function) quantifies how wrong the network's predictions are compared to the expected outputs. During training, the goal is to minimize this function by adjusting the weights."
+    },
+    {
+      "id": "l1_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "What calculus rule is central to backpropagation?",
+      "blank_sentence": "During the backward pass, gradients are computed using the ___ rule from calculus.",
+      "correct_answer": "chain",
+      "acceptable_answers": ["chain", "Chain"],
+      "explanation": "The chain rule allows us to compute how a change in any weight affects the final error, even when that weight is deep inside the network. It works by multiplying together the local gradients from each layer along the path from output to that weight."
+    },
+    {
+      "id": "l1_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "What controls the step size of weight updates?",
+      "blank_sentence": "The ___ rate controls how large each weight adjustment step is during training.",
+      "correct_answer": "learning",
+      "acceptable_answers": ["learning", "Learning"],
+      "explanation": "The learning rate is a hyperparameter that scales the gradient before it is subtracted from the weights. If it is too large, training may overshoot the minimum; if too small, training will be very slow."
+    },
+    {
+      "id": "l1_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "What classic problem proves a single perceptron is limited?",
+      "blank_sentence": "The ___ problem is a classic example that a single perceptron cannot solve because it is not linearly separable.",
+      "correct_answer": "XOR",
+      "acceptable_answers": ["XOR", "xor", "Xor"],
+      "explanation": "XOR (exclusive or) outputs 1 when exactly one of two inputs is 1, and 0 otherwise. No single straight line can separate the 1-outputs from the 0-outputs in 2D space, so a single perceptron fails. Adding a hidden layer solves this."
+    },
+    {
+      "id": "l1_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "What is added to the weighted sum before the activation?",
+      "blank_sentence": "In a neuron's computation, the ___ term is added to the weighted sum of inputs to shift the activation threshold.",
+      "correct_answer": "bias",
+      "acceptable_answers": ["bias", "Bias"],
+      "explanation": "The bias is a learnable parameter that allows the neuron to activate even when all inputs are zero. Without it, the decision boundary would always have to pass through the origin, severely limiting what the neuron can learn."
+    },
+    {
+      "id": "l1_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "In which direction are weights adjusted relative to the gradient?",
+      "blank_sentence": "Weights are updated in the ___ direction of the gradient to reduce the error.",
+      "correct_answer": "opposite",
+      "acceptable_answers": ["opposite", "Opposite", "negative", "Negative"],
+      "explanation": "The gradient points in the direction of steepest increase of the error. To reduce the error, we move the weights in the opposite direction. This is why the update rule subtracts the gradient (scaled by the learning rate) from the current weights."
+    },
+    {
+      "id": "l1_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "What can MLPs approximate, according to the Universal Approximation Theorem?",
+      "blank_sentence": "The Universal Approximation Theorem states that MLPs can approximate complex ___  functions.",
+      "correct_answer": "non-linear",
+      "acceptable_answers": ["non-linear", "nonlinear", "Non-linear", "Nonlinear", "non linear"],
+      "explanation": "The Universal Approximation Theorem guarantees that an MLP with enough neurons in a hidden layer can approximate any continuous non-linear function. This is what makes MLPs powerful general-purpose function approximators."
+    }
+  ]
+}

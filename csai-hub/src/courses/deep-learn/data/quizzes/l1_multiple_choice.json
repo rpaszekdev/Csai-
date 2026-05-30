@@ -1,0 +1,147 @@
+{
+  "section_id": "l1",
+  "quiz_type": "multiple_choice",
+  "title": "MLPs - Multiple Choice",
+  "questions": [
+    {
+      "id": "l1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What does a perceptron do with its inputs before applying the activation function?",
+      "options": {
+        "A": "It selects the largest input value",
+        "B": "It computes a weighted sum of inputs and adds a bias",
+        "C": "It averages all the input values",
+        "D": "It sorts the inputs from smallest to largest"
+      },
+      "correct_answer": "B",
+      "explanation": "A perceptron multiplies each input by a corresponding weight, sums those products together, and then adds a bias term. This weighted sum plus bias is the value that gets passed into the activation function."
+    },
+    {
+      "id": "l1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What type of output does a perceptron with a step activation function produce?",
+      "options": {
+        "A": "Any real number",
+        "B": "A probability between 0 and 1",
+        "C": "A binary output: either 0 or 1",
+        "D": "A vector of multiple values"
+      },
+      "correct_answer": "C",
+      "explanation": "A step activation function outputs 1 if the weighted sum is above a threshold and 0 otherwise. This makes the perceptron a binary classifier that assigns inputs to one of two categories."
+    },
+    {
+      "id": "l1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Why can a single perceptron NOT solve the XOR problem?",
+      "options": {
+        "A": "It does not have enough inputs",
+        "B": "The XOR pattern is not linearly separable",
+        "C": "It cannot handle binary inputs",
+        "D": "Its activation function is too complex"
+      },
+      "correct_answer": "B",
+      "explanation": "A single perceptron can only draw one straight line to separate two classes. The XOR pattern has its positive and negative examples arranged so that no single straight line can separate them. This is what 'not linearly separable' means."
+    },
+    {
+      "id": "l1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What are the three types of layers in a multi-layer perceptron (MLP)?",
+      "options": {
+        "A": "Input layer, processing layer, decision layer",
+        "B": "Input layer, hidden layer(s), output layer",
+        "C": "Feature layer, weight layer, activation layer",
+        "D": "Encoding layer, transformation layer, decoding layer"
+      },
+      "correct_answer": "B",
+      "explanation": "An MLP is organized into an input layer that receives the data, one or more hidden layers that learn internal representations, and an output layer that produces the final prediction. The hidden layers are called 'hidden' because their values are not directly observed."
+    },
+    {
+      "id": "l1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What happens during the forward pass of a neural network?",
+      "options": {
+        "A": "Weights are updated based on the error",
+        "B": "The network's error is calculated and sent backward",
+        "C": "Input is fed through the network layer by layer to produce an output",
+        "D": "The learning rate is adjusted automatically"
+      },
+      "correct_answer": "C",
+      "explanation": "During the forward pass, data flows from the input layer through each hidden layer to the output layer. At each layer, the weighted sum plus bias is computed and an activation function is applied. The result is the network's prediction."
+    },
+    {
+      "id": "l1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is the purpose of the backward pass (backpropagation)?",
+      "options": {
+        "A": "To feed new data into the network",
+        "B": "To compute gradients of the error with respect to each weight using the chain rule",
+        "C": "To remove unnecessary neurons from the network",
+        "D": "To reset all weights to their initial values"
+      },
+      "correct_answer": "B",
+      "explanation": "The backward pass calculates how much each weight contributed to the overall error. It does this by applying the chain rule of calculus, working backward from the output layer to the input layer. These gradients tell us how to adjust each weight to reduce the error."
+    },
+    {
+      "id": "l1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What role does the learning rate play in weight updates?",
+      "options": {
+        "A": "It determines how many hidden layers the network has",
+        "B": "It controls the size of each weight adjustment step",
+        "C": "It sets the initial values of the weights",
+        "D": "It decides which activation function to use"
+      },
+      "correct_answer": "B",
+      "explanation": "The learning rate scales how much the weights change during each update. A large learning rate means bigger steps (faster but may overshoot), while a small learning rate means smaller steps (more precise but slower training)."
+    },
+    {
+      "id": "l1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "In the perceptron update rule, what does 'error' refer to?",
+      "options": {
+        "A": "The number of training examples",
+        "B": "The difference between the expected output and the actual output",
+        "C": "The total number of weights in the network",
+        "D": "The activation function's output range"
+      },
+      "correct_answer": "B",
+      "explanation": "In the perceptron update rule (delta_w = learning_rate * error * input), the error is calculated as the expected output minus the actual output. This tells the perceptron the direction and magnitude of its mistake."
+    },
+    {
+      "id": "l1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "What does the Universal Approximation Theorem tell us about MLPs?",
+      "options": {
+        "A": "They always train quickly and efficiently",
+        "B": "They can approximate any complex non-linear function given enough neurons",
+        "C": "They only work for linear problems",
+        "D": "They require exactly three hidden layers to work"
+      },
+      "correct_answer": "B",
+      "explanation": "The Universal Approximation Theorem states that an MLP with at least one hidden layer and enough neurons can approximate any continuous function to any desired accuracy. However, it does not say how many neurons are needed or whether training will find the right weights."
+    },
+    {
+      "id": "l1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "In an MLP, weights are stored as matrices and biases as vectors. What operation combines them during the forward pass?",
+      "options": {
+        "A": "Element-wise subtraction followed by squaring",
+        "B": "Matrix multiplication of weights and inputs, then adding the bias vector",
+        "C": "Concatenation of weights and biases into a single list",
+        "D": "Averaging the weight matrix values with the bias"
+      },
+      "correct_answer": "B",
+      "explanation": "Each layer computes output = activation(W * x + b), where W is the weight matrix, x is the input vector, and b is the bias vector. The matrix multiplication captures all the weighted sums at once, and the bias vector shifts each neuron's result."
+    }
+  ]
+}

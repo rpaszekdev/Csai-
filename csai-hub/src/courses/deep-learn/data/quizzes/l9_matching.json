@@ -1,0 +1,147 @@
+{
+  "section_id": "l9",
+  "quiz_type": "matching",
+  "title": "Positional Encoding & Transformers - Matching",
+  "questions": [
+    {
+      "id": "l9_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each Transformer architecture to its training objective.",
+      "items": ["Encoder-only (BERT)", "Decoder-only (GPT)", "Encoder-decoder (T5/BART)"],
+      "categories": ["Masked-language modeling", "Causal language modeling", "Bidirectional encoding combined with autoregressive decoding"],
+      "correct_mapping": {
+        "Encoder-only (BERT)": "Masked-language modeling",
+        "Decoder-only (GPT)": "Causal language modeling",
+        "Encoder-decoder (T5/BART)": "Bidirectional encoding combined with autoregressive decoding"
+      },
+      "explanation": "BERT uses masked-language modeling, predicting hidden tokens from both sides. GPT uses causal language modeling, predicting the next token from past context only. T5/BART combine both: the encoder reads the full input bidirectionally, and the decoder generates output autoregressively."
+    },
+    {
+      "id": "l9_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each Transformer architecture to the task it is best suited for.",
+      "items": ["Encoder-only (BERT)", "Decoder-only (GPT)", "Encoder-decoder (T5/BART)"],
+      "categories": ["Text classification", "Text generation", "Translation and summarization"],
+      "correct_mapping": {
+        "Encoder-only (BERT)": "Text classification",
+        "Decoder-only (GPT)": "Text generation",
+        "Encoder-decoder (T5/BART)": "Translation and summarization"
+      },
+      "explanation": "Encoder-only models excel at classification because bidirectional attention builds rich representations for predicting a single label. Decoder-only models naturally generate text one token at a time. Encoder-decoder models are ideal for sequence-to-sequence tasks like translation and summarization, where full input understanding and structured output generation are both needed."
+    },
+    {
+      "id": "l9_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each positional encoding dimension characteristic to its behavior.",
+      "items": ["Lower dimensions (small index)", "Higher dimensions (large index)", "Even dimension indices", "Odd dimension indices"],
+      "categories": ["Change rapidly, capturing local patterns", "Change slowly, capturing global patterns", "Use the sine function", "Use the cosine function"],
+      "correct_mapping": {
+        "Lower dimensions (small index)": "Change rapidly, capturing local patterns",
+        "Higher dimensions (large index)": "Change slowly, capturing global patterns",
+        "Even dimension indices": "Use the sine function",
+        "Odd dimension indices": "Use the cosine function"
+      },
+      "explanation": "Lower dimensions have higher frequencies, so their values change rapidly across positions, helping the model detect fine-grained local differences. Higher dimensions have lower frequencies that change slowly, capturing broader global patterns. Even indices use sine and odd indices use cosine, creating paired periodic signals at each frequency."
+    },
+    {
+      "id": "l9_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each cross-attention component to where it comes from in an encoder-decoder model.",
+      "items": ["Queries", "Keys", "Values"],
+      "categories": ["From the decoder's hidden states", "From the encoder's hidden states", "From the encoder's hidden states"],
+      "correct_mapping": {
+        "Queries": "From the decoder's hidden states",
+        "Keys": "From the encoder's hidden states",
+        "Values": "From the encoder's hidden states"
+      },
+      "explanation": "In cross-attention, the decoder generates queries (asking 'what should I focus on?') from its own hidden states, while the encoder provides keys and values (the information to attend to) from its hidden states. This lets the decoder access relevant parts of the encoded input at each generation step."
+    },
+    {
+      "id": "l9_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each property to the correct type of positional encoding.",
+      "items": ["Sinusoidal (fixed)", "Learned positional embeddings"],
+      "categories": ["Can generalize to sequence lengths not seen during training", "Trainable parameters optimized during training, potentially more expressive"],
+      "correct_mapping": {
+        "Sinusoidal (fixed)": "Can generalize to sequence lengths not seen during training",
+        "Learned positional embeddings": "Trainable parameters optimized during training, potentially more expressive"
+      },
+      "explanation": "Sinusoidal encodings use mathematical functions defined for any position, enabling extrapolation to unseen lengths. Learned positional embeddings are trainable vectors that can adapt to the data, potentially capturing more nuanced position patterns, but they cannot extrapolate beyond the maximum training length."
+    },
+    {
+      "id": "l9_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each limitation to the correct Transformer architecture.",
+      "items": ["Cannot generate text or assign sentence probabilities", "Representations are one-directional (past tokens only)", "Requires more parameters than single-component models"],
+      "categories": ["Encoder-only (BERT)", "Decoder-only (GPT)", "Encoder-decoder (T5)"],
+      "correct_mapping": {
+        "Cannot generate text or assign sentence probabilities": "Encoder-only (BERT)",
+        "Representations are one-directional (past tokens only)": "Decoder-only (GPT)",
+        "Requires more parameters than single-component models": "Encoder-decoder (T5)"
+      },
+      "explanation": "BERT's bidirectional training means it never learns sequential generation, so it cannot produce text or compute sentence probabilities. GPT's causal masking restricts it to left-to-right context only. Encoder-decoder models have roughly double the components of single-stack models, requiring more parameters and compute."
+    },
+    {
+      "id": "l9_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each Transformer architecture to how it handles context.",
+      "items": ["BERT", "GPT", "T5 encoder", "T5 decoder"],
+      "categories": ["Sees all tokens in both directions", "Sees only past tokens (left-to-right)", "Reads the full input bidirectionally", "Generates output attending to both its own past tokens and the encoder output"],
+      "correct_mapping": {
+        "BERT": "Sees all tokens in both directions",
+        "GPT": "Sees only past tokens (left-to-right)",
+        "T5 encoder": "Reads the full input bidirectionally",
+        "T5 decoder": "Generates output attending to both its own past tokens and the encoder output"
+      },
+      "explanation": "BERT and the T5 encoder both use bidirectional attention to see the full input. GPT uses causal masking so each token only attends to previous tokens. The T5 decoder combines causal self-attention (for its own generated tokens) with cross-attention to the encoder output, giving it access to both."
+    },
+    {
+      "id": "l9_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each concept to what it addresses in the Transformer.",
+      "items": ["Positional encoding", "Cross-attention", "Causal masking", "The [CLS] token"],
+      "categories": ["Injects token order information", "Lets the decoder attend to encoder output", "Prevents attending to future tokens", "Aggregates sequence meaning for classification"],
+      "correct_mapping": {
+        "Positional encoding": "Injects token order information",
+        "Cross-attention": "Lets the decoder attend to encoder output",
+        "Causal masking": "Prevents attending to future tokens",
+        "The [CLS] token": "Aggregates sequence meaning for classification"
+      },
+      "explanation": "Positional encoding solves the ordering problem since self-attention is order-agnostic. Cross-attention bridges the encoder and decoder in seq2seq models. Causal masking enforces left-to-right generation in decoder models. The [CLS] token in BERT serves as a pooled representation of the entire sequence for classification."
+    },
+    {
+      "id": "l9_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each model to the type of representations it produces.",
+      "items": ["BERT", "GPT"],
+      "categories": ["Bidirectional representations (richer context for understanding)", "One-directional representations (suited for generation)"],
+      "correct_mapping": {
+        "BERT": "Bidirectional representations (richer context for understanding)",
+        "GPT": "One-directional representations (suited for generation)"
+      },
+      "explanation": "BERT builds bidirectional representations because each token attends to all others, making it strong for understanding tasks. GPT builds one-directional representations since each token only sees past context, making it naturally suited for text generation but weaker for tasks requiring full-context understanding."
+    },
+    {
+      "id": "l9_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each positional encoding shape dimension to what it represents.",
+      "items": ["Rows of the PE matrix", "Columns of the PE matrix"],
+      "categories": ["Each position in the sequence (sequence_length)", "Each dimension of the embedding (embedding_dimension)"],
+      "correct_mapping": {
+        "Rows of the PE matrix": "Each position in the sequence (sequence_length)",
+        "Columns of the PE matrix": "Each dimension of the embedding (embedding_dimension)"
+      },
+      "explanation": "The positional encoding matrix has shape (sequence_length, embedding_dimension). Each row corresponds to one token position and contains a vector of sine and cosine values. Each column corresponds to one embedding dimension with its own frequency. This matrix is added to the input embeddings so each token's representation includes position information."
+    }
+  ]
+}

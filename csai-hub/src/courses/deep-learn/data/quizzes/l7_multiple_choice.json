@@ -1,0 +1,147 @@
+{
+  "section_id": "l7",
+  "quiz_type": "multiple_choice",
+  "title": "Transformers - Multiple Choice",
+  "questions": [
+    {
+      "id": "l7_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "In self-attention, what does it mean that each token 'attends to' all other tokens?",
+      "options": {
+        "A": "Each token is replaced by the average of all other tokens",
+        "B": "Each token computes a relevance score with every other token to understand contextual relationships",
+        "C": "Each token is only compared to the token directly before it",
+        "D": "Each token is duplicated for every other token in the sequence"
+      },
+      "correct_answer": "B",
+      "explanation": "Self-attention allows each token to look at every other token in the sequence and compute a relevance score. This lets the model capture contextual relationships -- for example, understanding that 'it' in a sentence refers to a specific noun mentioned earlier."
+    },
+    {
+      "id": "l7_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In the Query-Key-Value framework, what role does the Query play?",
+      "options": {
+        "A": "It provides the actual information to be retrieved",
+        "B": "It asks 'what am I looking for?' from the current token's perspective",
+        "C": "It stores the final output of the attention layer",
+        "D": "It describes 'what do I contain?' about each token"
+      },
+      "correct_answer": "B",
+      "explanation": "The Query represents the question a token is asking: 'what am I looking for?' It is matched against Keys from all other tokens to determine which tokens are most relevant. The Key says 'what do I contain?' and the Value provides the actual information to be retrieved."
+    },
+    {
+      "id": "l7_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Why do we divide by the square root of d_k in scaled dot-product attention?",
+      "options": {
+        "A": "To make the attention weights negative",
+        "B": "To reduce the number of parameters in the model",
+        "C": "To prevent dot products from becoming very large, which would push softmax to extreme values",
+        "D": "To speed up the computation by reducing the matrix size"
+      },
+      "correct_answer": "C",
+      "explanation": "Without the scaling factor, the dot products between Queries and Keys can grow very large as the dimension d_k increases. Large dot products push the softmax function into regions where it outputs values very close to 0 or 1, which causes tiny gradients and makes learning difficult."
+    },
+    {
+      "id": "l7_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What is the main purpose of multi-head attention?",
+      "options": {
+        "A": "To reduce memory usage by splitting the computation",
+        "B": "To run attention multiple times in parallel with different learned projections, capturing different types of relationships",
+        "C": "To process tokens one at a time instead of all at once",
+        "D": "To eliminate the need for Queries and Keys"
+      },
+      "correct_answer": "B",
+      "explanation": "Multi-head attention runs the attention mechanism multiple times in parallel, each with different learned projections. This allows different heads to capture different types of relationships -- for example, one head might focus on syntactic relationships while another captures semantic similarity."
+    },
+    {
+      "id": "l7_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What is a key advantage of Transformers over LSTMs for processing sequences?",
+      "options": {
+        "A": "Transformers use less memory for all sequence lengths",
+        "B": "Transformers always produce more accurate results",
+        "C": "Transformers process all tokens in parallel rather than sequentially, making them faster",
+        "D": "Transformers do not require any training data"
+      },
+      "correct_answer": "C",
+      "explanation": "LSTMs must process tokens one at a time in order, which is inherently sequential and slow. Transformers use self-attention to process all tokens simultaneously in parallel, making much better use of modern GPU hardware and significantly speeding up training."
+    },
+    {
+      "id": "l7_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "How does Word2Vec differ from Transformer-based word embeddings?",
+      "options": {
+        "A": "Word2Vec produces contextualized embeddings while Transformers produce fixed embeddings",
+        "B": "Word2Vec gives the same vector for a word regardless of context, while Transformers give different vectors depending on the surrounding words",
+        "C": "Word2Vec is more accurate than Transformer embeddings",
+        "D": "There is no difference; they produce identical embeddings"
+      },
+      "correct_answer": "B",
+      "explanation": "Word2Vec assigns a single fixed vector to each word -- the word 'bank' always gets the same embedding whether it means a river bank or a financial bank. Transformers produce contextualized embeddings, so 'bank' gets a different vector depending on the surrounding sentence, allowing the model to capture its actual meaning in context."
+    },
+    {
+      "id": "l7_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What does the softmax function do in the attention mechanism?",
+      "options": {
+        "A": "It selects exactly one token and ignores all others",
+        "B": "It converts raw attention scores into probabilities that sum to 1",
+        "C": "It removes tokens with low relevance from the sequence",
+        "D": "It multiplies all scores by a fixed constant"
+      },
+      "correct_answer": "B",
+      "explanation": "Softmax takes the raw dot-product scores between Queries and Keys and converts them into a probability distribution -- all values become non-negative and they sum to 1. This creates attention weights that represent how much each token should contribute to the output."
+    },
+    {
+      "id": "l7_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "In the Transformer encoder, what two main sublayers does each layer contain?",
+      "options": {
+        "A": "A convolutional layer and a pooling layer",
+        "B": "A self-attention sublayer and a feed-forward sublayer",
+        "C": "A recurrent layer and an attention layer",
+        "D": "A normalization layer and an embedding layer"
+      },
+      "correct_answer": "B",
+      "explanation": "Each Transformer encoder layer consists of two main sublayers: a self-attention sublayer that captures relationships between all tokens, and a position-wise feed-forward sublayer that applies a small neural network independently to each token's representation."
+    },
+    {
+      "id": "l7_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In the attention mechanism used with RNNs (e.g., Bahdanau attention), what is the context vector?",
+      "options": {
+        "A": "A fixed-size summary of the entire input sequence",
+        "B": "A weighted sum of the encoder hidden states, where weights reflect relevance to the current decoding step",
+        "C": "The final hidden state of the encoder",
+        "D": "A random sample of encoder hidden states"
+      },
+      "correct_answer": "B",
+      "explanation": "In RNN-based attention, the context vector is computed as a weighted sum of all encoder hidden states. The weights are determined by how relevant each encoder state is to the current decoder step, allowing the decoder to focus on different parts of the input at each time step."
+    },
+    {
+      "id": "l7_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What does the Transformer decoder use masked self-attention for?",
+      "options": {
+        "A": "To prevent the decoder from seeing future tokens during generation",
+        "B": "To hide the encoder's output from the decoder",
+        "C": "To randomly drop tokens for regularization",
+        "D": "To reduce the size of the attention matrix"
+      },
+      "correct_answer": "A",
+      "explanation": "Masked self-attention prevents each position from attending to later positions in the sequence. This is essential for autoregressive generation -- when predicting the next word, the model should only see the words that came before it, not the words that come after."
+    }
+  ]
+}

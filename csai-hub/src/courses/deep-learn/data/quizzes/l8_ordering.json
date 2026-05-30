@@ -1,0 +1,97 @@
+{
+  "section_id": "l8",
+  "quiz_type": "ordering",
+  "title": "Computer Vision - Ordering",
+  "questions": [
+    {
+      "id": "l8_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of the Faster R-CNN detection pipeline from first to last.",
+      "items": ["Apply non-maximum suppression to remove duplicate detections", "Generate region proposals using the RPN", "Classify each proposal and refine its bounding box", "Extract fixed-size features for each proposal with ROI Pooling", "Pass the image through the backbone CNN to get feature maps"],
+      "correct_order": ["Pass the image through the backbone CNN to get feature maps", "Generate region proposals using the RPN", "Extract fixed-size features for each proposal with ROI Pooling", "Classify each proposal and refine its bounding box", "Apply non-maximum suppression to remove duplicate detections"],
+      "explanation": "Faster R-CNN works in stages: the backbone extracts features, the RPN proposes candidate regions, ROI Pooling standardizes each proposal's features, classification and regression heads make predictions, and NMS removes duplicate detections at the end."
+    },
+    {
+      "id": "l8_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of non-maximum suppression (NMS) from first to last.",
+      "items": ["Repeat until no detections remain", "Remove all detections that overlap too much with the selected one", "Pick the detection with the highest confidence", "Add the selected detection to the final output", "Sort all detections by confidence score"],
+      "correct_order": ["Sort all detections by confidence score", "Pick the detection with the highest confidence", "Add the selected detection to the final output", "Remove all detections that overlap too much with the selected one", "Repeat until no detections remain"],
+      "explanation": "NMS works greedily: sort by confidence, take the top detection, add it to the output, suppress all overlapping boxes (those with IoU above the threshold), and repeat until all detections have been processed or removed."
+    },
+    {
+      "id": "l8_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order how a Vision Transformer (ViT) processes an image from input to output.",
+      "items": ["Process the sequence through Transformer encoder layers", "Use the [CLS] token output for classification", "Split the image into fixed-size patches", "Embed each patch as a vector and add position embeddings", "Prepend a learnable [CLS] token to the sequence"],
+      "correct_order": ["Split the image into fixed-size patches", "Embed each patch as a vector and add position embeddings", "Prepend a learnable [CLS] token to the sequence", "Process the sequence through Transformer encoder layers", "Use the [CLS] token output for classification"],
+      "explanation": "ViT first divides the image into patches, embeds each patch into a vector and adds position information, prepends a special [CLS] token, processes everything through Transformer layers with self-attention, and finally uses the [CLS] token's output for classification."
+    },
+    {
+      "id": "l8_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of transfer learning for a new image classification task.",
+      "items": ["Evaluate the model on the test set", "Load a pretrained model (e.g., ResNet trained on ImageNet)", "Fine-tune the model on the target dataset", "Prepare and augment the target dataset", "Replace the classification head to match the new number of classes"],
+      "correct_order": ["Load a pretrained model (e.g., ResNet trained on ImageNet)", "Replace the classification head to match the new number of classes", "Prepare and augment the target dataset", "Fine-tune the model on the target dataset", "Evaluate the model on the test set"],
+      "explanation": "Transfer learning starts by loading a pretrained model, then replacing the final layer to match the target classes. Next, you prepare your data with augmentation, fine-tune (with some or all layers frozen), and finally evaluate on a held-out test set."
+    },
+    {
+      "id": "l8_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order data flow through a U-Net from input to output.",
+      "items": ["Apply a final 1x1 convolution for per-pixel class prediction", "Encoder downsamples and extracts features", "Decoder upsamples to restore resolution", "Feed the image into the network", "Skip connections pass encoder features to the decoder"],
+      "correct_order": ["Feed the image into the network", "Encoder downsamples and extracts features", "Decoder upsamples to restore resolution", "Skip connections pass encoder features to the decoder", "Apply a final 1x1 convolution for per-pixel class prediction"],
+      "explanation": "U-Net takes an image, passes it through the encoder (which captures context by downsampling), then the decoder (which restores resolution by upsampling). Skip connections bridge encoder and decoder at each level to preserve spatial detail. A final 1x1 convolution maps features to class predictions per pixel."
+    },
+    {
+      "id": "l8_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order these computer vision tasks from least to most detailed output.",
+      "items": ["Instance segmentation", "Object detection", "Semantic segmentation", "Image classification"],
+      "correct_order": ["Image classification", "Object detection", "Semantic segmentation", "Instance segmentation"],
+      "explanation": "Classification gives one label per image (least detail). Detection adds bounding boxes to localize objects. Semantic segmentation labels every pixel by class. Instance segmentation provides the most detail by labeling every pixel and distinguishing individual objects of the same class."
+    },
+    {
+      "id": "l8_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the steps for building a Feature Pyramid Network (FPN).",
+      "items": ["Smooth merged features with a convolution", "Upsample top-level features and merge with lateral outputs", "Use lateral connections to match channel dimensions", "Start the top-down pathway from the deepest feature map", "Build bottom-up features using the backbone CNN"],
+      "correct_order": ["Build bottom-up features using the backbone CNN", "Start the top-down pathway from the deepest feature map", "Use lateral connections to match channel dimensions", "Upsample top-level features and merge with lateral outputs", "Smooth merged features with a convolution"],
+      "explanation": "FPN first extracts features at multiple scales through the backbone (bottom-up). Then it starts from the deepest, most semantic features and works back up. Lateral connections adjust channel dimensions, upsampled features are merged with corresponding bottom-up features, and a final convolution smooths out the result."
+    },
+    {
+      "id": "l8_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the gradual unfreezing fine-tuning strategy from first step to last.",
+      "items": ["Unfreeze middle layers and continue training with a lower learning rate", "Unfreeze early layers and train with the lowest learning rate", "Train only the new classification head with all other layers frozen", "Load the pretrained model and replace the classification head", "Evaluate the final model on the test set"],
+      "correct_order": ["Load the pretrained model and replace the classification head", "Train only the new classification head with all other layers frozen", "Unfreeze middle layers and continue training with a lower learning rate", "Unfreeze early layers and train with the lowest learning rate", "Evaluate the final model on the test set"],
+      "explanation": "Gradual unfreezing starts by training only the new head, then progressively unfreezes deeper layers with smaller learning rates. This prevents catastrophic forgetting by letting each layer adapt slowly while preserving pretrained knowledge in the earlier layers."
+    },
+    {
+      "id": "l8_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the steps of generating a Class Activation Map (CAM) visualization.",
+      "items": ["Overlay the heatmap on the original image", "Use the weights to create a weighted combination of feature maps", "Run a forward pass to get the model's prediction and final feature maps", "Upsample the result to match the input image size", "Get the weights connecting the final feature maps to the predicted class"],
+      "correct_order": ["Run a forward pass to get the model's prediction and final feature maps", "Get the weights connecting the final feature maps to the predicted class", "Use the weights to create a weighted combination of feature maps", "Upsample the result to match the input image size", "Overlay the heatmap on the original image"],
+      "explanation": "CAM generation starts with a forward pass to obtain features and a prediction. The weights linking final features to the predicted class indicate each feature map's importance. These weights produce a weighted sum of feature maps, which is then upsampled and overlaid on the original image as a heatmap."
+    },
+    {
+      "id": "l8_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the object detection process from raw image to final detections.",
+      "items": ["Apply non-maximum suppression to remove duplicates", "Output final bounding boxes with class labels and confidence scores", "Extract features from the image using a CNN backbone", "Generate candidate bounding boxes (via anchors or grid)", "Score and refine each candidate box"],
+      "correct_order": ["Extract features from the image using a CNN backbone", "Generate candidate bounding boxes (via anchors or grid)", "Score and refine each candidate box", "Apply non-maximum suppression to remove duplicates", "Output final bounding boxes with class labels and confidence scores"],
+      "explanation": "Object detection starts by extracting image features, then generating candidate boxes (through anchors in Faster R-CNN or a grid in YOLO). Each candidate is scored and refined. NMS removes redundant overlapping detections. The surviving boxes with their class labels and confidence scores are the final output."
+    }
+  ]
+}

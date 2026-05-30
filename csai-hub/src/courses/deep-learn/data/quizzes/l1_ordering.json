@@ -1,0 +1,195 @@
+{
+  "section_id": "l1",
+  "quiz_type": "ordering",
+  "title": "MLPs - Ordering",
+  "questions": [
+    {
+      "id": "l1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of how a single perceptron processes an input.",
+      "items": [
+        "Apply the step activation function",
+        "Add the bias term",
+        "Multiply each input by its weight",
+        "Receive input values",
+        "Output 0 or 1"
+      ],
+      "correct_order": [
+        "Receive input values",
+        "Multiply each input by its weight",
+        "Add the bias term",
+        "Apply the step activation function",
+        "Output 0 or 1"
+      ],
+      "explanation": "A perceptron first receives its inputs, then multiplies each by a weight. The products are summed (implicit in the multiplication step) and the bias is added. The step function then decides: if the total is above the threshold, output 1; otherwise, output 0."
+    },
+    {
+      "id": "l1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the layers that data passes through during the forward pass of an MLP.",
+      "items": [
+        "Output layer",
+        "Hidden layer(s)",
+        "Input layer"
+      ],
+      "correct_order": [
+        "Input layer",
+        "Hidden layer(s)",
+        "Output layer"
+      ],
+      "explanation": "During the forward pass, data enters through the input layer, flows through one or more hidden layers where it is transformed, and finally reaches the output layer which produces the prediction."
+    },
+    {
+      "id": "l1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the four main phases of one training cycle in an MLP.",
+      "items": [
+        "Weight update",
+        "Forward pass",
+        "Backward pass",
+        "Error calculation"
+      ],
+      "correct_order": [
+        "Forward pass",
+        "Error calculation",
+        "Backward pass",
+        "Weight update"
+      ],
+      "explanation": "Training follows a cycle: first the forward pass produces a prediction, then the error is calculated by comparing it to the expected output, then the backward pass computes gradients, and finally the weights are updated to reduce the error."
+    },
+    {
+      "id": "l1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the operations within a single layer of an MLP during the forward pass.",
+      "items": [
+        "Apply the activation function",
+        "Add the bias vector",
+        "Pass the result to the next layer",
+        "Multiply the input by the weight matrix"
+      ],
+      "correct_order": [
+        "Multiply the input by the weight matrix",
+        "Add the bias vector",
+        "Apply the activation function",
+        "Pass the result to the next layer"
+      ],
+      "explanation": "Within one layer, the computation is: output = activation(W * input + b). First the weight matrix multiplies the input vector, then the bias vector is added, then the activation function is applied, and the result becomes the input for the next layer."
+    },
+    {
+      "id": "l1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the steps of the perceptron weight update process.",
+      "items": [
+        "Adjust the weight: delta_w = learning_rate * error * input",
+        "Compute the error: expected output minus actual output",
+        "Make a prediction using the current weights",
+        "Apply the weight change to the current weight"
+      ],
+      "correct_order": [
+        "Make a prediction using the current weights",
+        "Compute the error: expected output minus actual output",
+        "Adjust the weight: delta_w = learning_rate * error * input",
+        "Apply the weight change to the current weight"
+      ],
+      "explanation": "First the perceptron makes a prediction with its current weights. Then the error is computed by comparing the prediction to the expected output. The update amount is calculated using the perceptron update rule, and finally the weight is adjusted."
+    },
+    {
+      "id": "l1_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order these network architectures from simplest to most complex.",
+      "items": [
+        "MLP with multiple hidden layers",
+        "MLP with one hidden layer",
+        "Single perceptron (no hidden layers)"
+      ],
+      "correct_order": [
+        "Single perceptron (no hidden layers)",
+        "MLP with one hidden layer",
+        "MLP with multiple hidden layers"
+      ],
+      "explanation": "A single perceptron is the simplest model with just one neuron and no hidden layers. Adding one hidden layer creates a basic MLP. Adding multiple hidden layers creates a deeper, more complex network that can learn more sophisticated patterns."
+    },
+    {
+      "id": "l1_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order what happens when the backward pass computes gradients.",
+      "items": [
+        "Compute how much each hidden layer weight contributed to the error",
+        "Compute the gradient of the error at the output layer",
+        "Use the chain rule to propagate gradients backward through each layer",
+        "All gradients are now available for weight updates"
+      ],
+      "correct_order": [
+        "Compute the gradient of the error at the output layer",
+        "Use the chain rule to propagate gradients backward through each layer",
+        "Compute how much each hidden layer weight contributed to the error",
+        "All gradients are now available for weight updates"
+      ],
+      "explanation": "Backpropagation starts at the output layer where the error gradient is directly computable. The chain rule then propagates these gradients backward through each layer, determining each weight's contribution to the overall error. Once all gradients are computed, weights can be updated."
+    },
+    {
+      "id": "l1_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order these concepts from what you need to understand first to what builds on earlier concepts.",
+      "items": [
+        "Backpropagation and weight updates",
+        "The perceptron (single neuron)",
+        "The XOR problem and why hidden layers are needed",
+        "MLP structure (input, hidden, output layers)"
+      ],
+      "correct_order": [
+        "The perceptron (single neuron)",
+        "The XOR problem and why hidden layers are needed",
+        "MLP structure (input, hidden, output layers)",
+        "Backpropagation and weight updates"
+      ],
+      "explanation": "Understanding builds in layers: first learn how a single perceptron works, then see its limitations through XOR, then understand how MLPs add hidden layers to overcome those limitations, and finally learn how backpropagation trains the full network."
+    },
+    {
+      "id": "l1_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the steps of gradient descent for updating one weight.",
+      "items": [
+        "Subtract the scaled gradient from the current weight",
+        "Multiply the gradient by the learning rate",
+        "Compute the gradient of the cost function with respect to the weight",
+        "The weight now has a new value closer to the minimum"
+      ],
+      "correct_order": [
+        "Compute the gradient of the cost function with respect to the weight",
+        "Multiply the gradient by the learning rate",
+        "Subtract the scaled gradient from the current weight",
+        "The weight now has a new value closer to the minimum"
+      ],
+      "explanation": "Gradient descent first computes the gradient (direction of steepest increase of the cost). The gradient is scaled by the learning rate to control the step size. This scaled gradient is subtracted from the weight (moving opposite to the gradient), producing an updated weight that should give a lower cost."
+    },
+    {
+      "id": "l1_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order these capabilities from what simpler networks can do to what requires more complex ones.",
+      "items": [
+        "Approximate any continuous non-linear function",
+        "Solve non-linearly separable problems like XOR",
+        "Draw a single straight decision boundary",
+        "Learn hierarchical features from data"
+      ],
+      "correct_order": [
+        "Draw a single straight decision boundary",
+        "Solve non-linearly separable problems like XOR",
+        "Learn hierarchical features from data",
+        "Approximate any continuous non-linear function"
+      ],
+      "explanation": "A single perceptron can only draw a straight boundary. Adding a hidden layer lets the network solve XOR and other non-linear problems. Deeper networks learn hierarchical features at multiple levels of abstraction. With enough neurons, MLPs can approximate any continuous function (Universal Approximation Theorem)."
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "section_id": "l2",
+  "quiz_type": "multiple_choice",
+  "title": "Backpropagation - Multiple Choice",
+  "questions": [
+    {
+      "id": "l2_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What does the ReLU activation function output when its input is negative?",
+      "options": {
+        "A": "-1",
+        "B": "0",
+        "C": "The input value unchanged",
+        "D": "A value between 0 and 1"
+      },
+      "correct_answer": "B",
+      "explanation": "ReLU is defined as max(0, x). For any negative input, it outputs 0. For positive inputs, it passes the value through unchanged. This simple behavior is what makes it computationally efficient and helps avoid the vanishing gradient problem."
+    },
+    {
+      "id": "l2_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Why is ReLU preferred over sigmoid in hidden layers of deep networks?",
+      "options": {
+        "A": "ReLU outputs values between 0 and 1, which is easier to interpret",
+        "B": "ReLU has a constant gradient for positive inputs, which avoids the vanishing gradient problem",
+        "C": "ReLU forces outputs to sum to 1, making them probabilities",
+        "D": "ReLU is the only activation function that is differentiable"
+      },
+      "correct_answer": "B",
+      "explanation": "ReLU has a gradient of 1 for all positive inputs, so gradients do not shrink as they flow backward through many layers. Sigmoid squashes gradients to at most 0.25, causing them to vanish in deep networks."
+    },
+    {
+      "id": "l2_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Which activation function is best suited for the output layer of a multi-class classification network?",
+      "options": {
+        "A": "ReLU",
+        "B": "Sigmoid",
+        "C": "Softmax",
+        "D": "Tanh"
+      },
+      "correct_answer": "C",
+      "explanation": "Softmax converts raw output values into a probability distribution where all values are between 0 and 1 and sum to 1. This makes it ideal for multi-class classification, where you want to know the probability of each class."
+    },
+    {
+      "id": "l2_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Why is softmax NOT used in hidden layers?",
+      "options": {
+        "A": "Softmax is too slow to compute in hidden layers",
+        "B": "Softmax forces outputs to sum to 1, creating competition between neurons and limiting what each neuron can represent",
+        "C": "Softmax only works with exactly two classes",
+        "D": "Softmax produces negative values that break the next layer"
+      },
+      "correct_answer": "B",
+      "explanation": "Softmax normalizes outputs so they sum to 1, which means increasing one neuron's activation forces others to decrease. In hidden layers, you want neurons to activate independently to learn diverse features, not compete with each other."
+    },
+    {
+      "id": "l2_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Which loss function should you pair with a sigmoid output for binary classification?",
+      "options": {
+        "A": "Mean Squared Error",
+        "B": "Cross-Entropy",
+        "C": "Binary Cross-Entropy",
+        "D": "Hinge Loss"
+      },
+      "correct_answer": "C",
+      "explanation": "Binary Cross-Entropy is designed for two-class problems where the output layer uses sigmoid. It measures how well a single probability value (between 0 and 1) matches the true binary label."
+    },
+    {
+      "id": "l2_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is the vanishing gradient problem?",
+      "options": {
+        "A": "The network has too many parameters to train",
+        "B": "Gradients become extremely small as they flow backward through many layers, so early layers stop learning",
+        "C": "The learning rate is set too low for the network to converge",
+        "D": "The loss function reaches zero and training stops"
+      },
+      "correct_answer": "B",
+      "explanation": "When activation functions like sigmoid or tanh squash their inputs, their gradients are always less than 1. Multiplying many small gradient values together during backpropagation causes the gradient to shrink toward zero, preventing early layers from updating."
+    },
+    {
+      "id": "l2_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What does it mean when a ReLU neuron is 'dead'?",
+      "options": {
+        "A": "The neuron has been removed from the network by pruning",
+        "B": "The neuron outputs 0 for every possible input and can never recover",
+        "C": "The neuron has reached its maximum activation value",
+        "D": "The neuron is only active during the backward pass"
+      },
+      "correct_answer": "B",
+      "explanation": "A dying ReLU occurs when a neuron's weights shift so that its input is always negative. Since ReLU outputs 0 for all negative inputs and has a gradient of 0 there, the neuron stops learning entirely. Leaky ReLU was designed to address this."
+    },
+    {
+      "id": "l2_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What mathematical rule does backpropagation use to compute gradients across multiple layers?",
+      "options": {
+        "A": "Product rule",
+        "B": "Quotient rule",
+        "C": "Chain rule",
+        "D": "Power rule"
+      },
+      "correct_answer": "C",
+      "explanation": "The chain rule allows us to decompose the gradient of a composed function into a product of local gradients at each layer. This is what makes backpropagation efficient: it computes how the loss changes with respect to every weight by chaining local derivatives together."
+    },
+    {
+      "id": "l2_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Which weight initialization method is recommended when using ReLU activation functions?",
+      "options": {
+        "A": "Setting all weights to zero",
+        "B": "Xavier/Glorot initialization",
+        "C": "He/Kaiming initialization",
+        "D": "Setting all weights to 1"
+      },
+      "correct_answer": "C",
+      "explanation": "He/Kaiming initialization is designed specifically for ReLU networks. It accounts for the fact that ReLU zeros out half of its inputs by scaling the initial weights appropriately. Xavier/Glorot is better suited for sigmoid and tanh activations."
+    },
+    {
+      "id": "l2_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What is the output range of the tanh activation function?",
+      "options": {
+        "A": "0 to 1",
+        "B": "-1 to 1",
+        "C": "0 to infinity",
+        "D": "-infinity to infinity"
+      },
+      "correct_answer": "B",
+      "explanation": "Tanh squashes its input to the range -1 to 1. Unlike sigmoid (which outputs 0 to 1), tanh is zero-centered, which can help with learning. However, like sigmoid, it still suffers from the vanishing gradient problem for very large or very small inputs."
+    }
+  ]
+}

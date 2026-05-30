@@ -1,6 +1,6 @@
 # CSAI Hub
 
-A study companion for the Cognitive Science & AI programme at VU Amsterdam. Built with React + Vite, deployed on Vercel.
+A study companion for the Cognitive Science & AI programme at Tilburg University. Built with React + Vite, deployed on Vercel.
 
 Courses covered: Cognitive Neuroscience, Autonomous Systems, Deep Learning, and more.
 

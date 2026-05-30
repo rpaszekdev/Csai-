@@ -1,0 +1,157 @@
+{
+  "section_id": "l4",
+  "quiz_type": "multiple_response",
+  "title": "CNNs - Multiple Response",
+  "questions": [
+    {
+      "id": "l4_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are features that convolutional kernels can learn to detect? (Select all that apply)",
+      "options": {
+        "A": "Horizontal edges",
+        "B": "Vertical edges",
+        "C": "Textures and repeating patterns",
+        "D": "The exact pixel coordinates of an object",
+        "E": "Diagonal lines"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Convolutional kernels learn to detect visual patterns such as horizontal edges, vertical edges, diagonal lines, and textures. They do not detect exact pixel coordinates; rather, they respond to the presence of a pattern regardless of its precise location in the image due to parameter sharing."
+    },
+    {
+      "id": "l4_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are true about feature maps? (Select all that apply)",
+      "options": {
+        "A": "Each kernel produces exactly one feature map",
+        "B": "A feature map shows where a learned pattern is detected in the input",
+        "C": "Feature maps always have the same size as the original input",
+        "D": "Multiple feature maps from different kernels can be stacked together",
+        "E": "Feature maps are 2D grids of activation values"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Each kernel slides over the input and produces one feature map that highlights where its pattern appears. Multiple kernels produce multiple feature maps that stack into a volume. Feature maps are 2D grids. However, they do not always match the input size; padding, stride, and kernel size all affect the output dimensions."
+    },
+    {
+      "id": "l4_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are true about max pooling? (Select all that apply)",
+      "options": {
+        "A": "It reduces the spatial size of feature maps",
+        "B": "It has learnable parameters that are trained",
+        "C": "It keeps only the largest value in each pooling window",
+        "D": "It helps provide some tolerance to small shifts in the input",
+        "E": "It increases the number of channels"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Max pooling reduces spatial dimensions by keeping only the maximum value in each window. It has no learnable parameters; it simply selects the largest value. Because the max may stay the same under small shifts, it provides approximate local translation invariance. It does not change the number of channels."
+    },
+    {
+      "id": "l4_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following factors affect the output size of a convolution? (Select all that apply)",
+      "options": {
+        "A": "The input size",
+        "B": "The kernel size",
+        "C": "The amount of padding",
+        "D": "The stride",
+        "E": "The activation function used after the convolution"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The output size is determined by the formula (input - kernel + 2*padding) / stride + 1. All four of input size, kernel size, padding, and stride directly affect the output dimensions. The activation function is applied element-wise after the convolution and does not change the spatial size."
+    },
+    {
+      "id": "l4_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are advantages of parameter sharing in CNNs? (Select all that apply)",
+      "options": {
+        "A": "Dramatically fewer parameters compared to fully connected layers",
+        "B": "The same feature detector works at every spatial position",
+        "C": "It guarantees the network will never overfit",
+        "D": "It enables translation equivariance",
+        "E": "The network can scale to large input images without a parameter explosion"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Parameter sharing means the same kernel weights are reused everywhere, which drastically reduces parameter count, enables translation equivariance, and allows CNNs to handle large images. However, it does not guarantee the network will never overfit; overfitting can still occur, just less easily than with fully connected layers."
+    },
+    {
+      "id": "l4_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are true about stride in convolution? (Select all that apply)",
+      "options": {
+        "A": "Stride 1 means the kernel moves one pixel at a time",
+        "B": "Increasing stride increases the output size",
+        "C": "Stride 2 roughly halves the output dimensions",
+        "D": "Stride can be used as an alternative to pooling for downsampling",
+        "E": "Stride determines how many pixels the kernel skips between positions"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "Stride controls the step size of the kernel. Stride 1 moves one pixel at a time, while stride 2 skips every other position, roughly halving the output. Increasing stride makes the output smaller, not larger. Strided convolutions can replace pooling layers for downsampling, with the advantage that the downsampling is learned."
+    },
+    {
+      "id": "l4_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are true about how kernels handle multi-channel inputs? (Select all that apply)",
+      "options": {
+        "A": "A kernel applied to an RGB image spans all 3 channels",
+        "B": "Each channel of the input is processed by a completely separate kernel with no interaction",
+        "C": "The kernel computes a single weighted sum across all channels at each position",
+        "D": "The depth of the kernel must match the number of input channels",
+        "E": "The number of output channels equals the number of kernels in the layer"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "When processing multi-channel inputs like RGB images, each kernel extends through all input channels. The kernel computes a single weighted sum across all channels at each spatial position, producing one value per position. The kernel depth matches the input channel count. The number of output channels equals the number of kernels."
+    },
+    {
+      "id": "l4_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are parts of a typical CNN architecture for image classification? (Select all that apply)",
+      "options": {
+        "A": "Convolutional layers that extract features",
+        "B": "Pooling layers that reduce spatial size",
+        "C": "A flatten operation to convert 3D maps to 1D",
+        "D": "Fully connected layers for final classification",
+        "E": "A sorting layer that arranges pixels by brightness"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "A typical CNN for classification consists of convolutional layers (feature extraction), pooling layers (spatial reduction), a flatten step (reshaping 3D feature maps into a 1D vector), and fully connected layers (classification). There is no such thing as a sorting layer in standard CNNs."
+    },
+    {
+      "id": "l4_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are true about padding in convolution? (Select all that apply)",
+      "options": {
+        "A": "Padding adds extra values (usually zeros) around the border of the input",
+        "B": "Without padding, the output spatial dimensions shrink after convolution",
+        "C": "Padding always makes the output larger than the input",
+        "D": "Same padding keeps the output size equal to the input size (with stride 1)",
+        "E": "Padding helps preserve information at the edges of the input"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Padding adds zeros around the input border. Without it, convolution shrinks the output because the kernel cannot be fully applied at the edges. Same padding adds just enough zeros so the output matches the input size when stride is 1. Padding also helps retain edge information that would otherwise be underrepresented. It does not always make the output larger than the input."
+    },
+    {
+      "id": "l4_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are true about 1x1 convolutions? (Select all that apply)",
+      "options": {
+        "A": "They can reduce the number of channels",
+        "B": "They can increase the number of channels",
+        "C": "They change the spatial dimensions of the feature map",
+        "D": "They combine information across channels at each spatial position",
+        "E": "They operate independently at each spatial position"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "A 1x1 convolution operates at each spatial position independently, mixing information only across channels. It can reduce channels (using fewer kernels than input channels) or increase them (using more kernels). It does not change the height or width of the feature map, only the depth (number of channels)."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "section_id": "l4",
+  "quiz_type": "fill_in_blank",
+  "title": "CNNs - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l4_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "The small matrix of learnable weights that slides over the input in a CNN",
+      "blank_sentence": "In a CNN, the ___ (also called a filter) slides across the input to detect features like edges and textures.",
+      "correct_answer": "kernel",
+      "acceptable_answers": ["kernel", "Kernel", "filter", "Filter"],
+      "explanation": "A kernel (or filter) is a small grid of learnable weights (e.g., 3x3 or 5x5) that slides across the input image. At each position, it computes a weighted sum with the overlapping input patch to produce one value in the output feature map."
+    },
+    {
+      "id": "l4_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "The output of applying one kernel to the input",
+      "blank_sentence": "Each kernel produces one ___ map, which shows where and how strongly a particular pattern is detected in the input.",
+      "correct_answer": "feature",
+      "acceptable_answers": ["feature", "Feature", "activation", "Activation"],
+      "explanation": "A feature map is the 2D output produced by convolving one kernel with the input. If a convolutional layer has 32 kernels, it produces 32 feature maps, each one highlighting a different learned pattern such as a specific edge direction or texture."
+    },
+    {
+      "id": "l4_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The type of pooling that takes the largest value in each window",
+      "blank_sentence": "___ pooling reduces spatial dimensions by selecting the largest value within each window of the feature map.",
+      "correct_answer": "Max",
+      "acceptable_answers": ["Max", "max", "Maximum", "maximum"],
+      "explanation": "Max pooling divides the feature map into small windows (e.g., 2x2) and keeps only the maximum value from each. This reduces spatial size while preserving the strongest feature activations, and provides some tolerance to small shifts in the input."
+    },
+    {
+      "id": "l4_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "How many pixels the kernel moves at each step",
+      "blank_sentence": "The ___ determines how many pixels the kernel moves between each position; a larger value produces a smaller output.",
+      "correct_answer": "stride",
+      "acceptable_answers": ["stride", "Stride", "step size"],
+      "explanation": "Stride is the number of pixels the kernel advances at each step as it slides across the input. Stride 1 moves one pixel at a time, while stride 2 skips every other position, roughly halving the output dimensions."
+    },
+    {
+      "id": "l4_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Adding zeros around the input border",
+      "blank_sentence": "___ adds zeros around the border of the input to control the output spatial dimensions of a convolution.",
+      "correct_answer": "Padding",
+      "acceptable_answers": ["Padding", "padding", "Zero padding", "zero padding"],
+      "explanation": "Padding surrounds the input with extra values (typically zeros) before the convolution is applied. Without padding, the output shrinks with each layer. With the right amount of padding, the output can be kept the same size as the input."
+    },
+    {
+      "id": "l4_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "The property that arises from using the same kernel weights everywhere",
+      "blank_sentence": "Because the same weights are reused at every spatial position, CNNs have far fewer ___ than an equivalent fully connected layer.",
+      "correct_answer": "parameters",
+      "acceptable_answers": ["parameters", "Parameters", "weights", "Weights"],
+      "explanation": "Parameter sharing means a convolutional kernel uses the same weights regardless of where it is applied in the input. A 3x3 kernel has only 9 weights no matter how large the input is, whereas a fully connected layer would need a separate weight for every connection."
+    },
+    {
+      "id": "l4_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "What happens to the feature map when the input shifts",
+      "blank_sentence": "Translation ___ means that if the input image shifts, the feature map shifts in the same way.",
+      "correct_answer": "equivariance",
+      "acceptable_answers": ["equivariance", "Equivariance"],
+      "explanation": "Translation equivariance is a natural property of convolution that comes from parameter sharing. Because the same kernel is applied everywhere, moving an object in the input causes its detection to move the same amount in the feature map."
+    },
+    {
+      "id": "l4_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "The number of channels in a color image",
+      "blank_sentence": "A standard color image has ___ channels: Red, Green, and Blue.",
+      "correct_answer": "3",
+      "acceptable_answers": ["3", "three", "Three"],
+      "explanation": "Color images are represented with 3 channels (RGB). When a kernel is applied to a color image, it spans all 3 channels, computing a single weighted sum across the full depth of the input at each spatial position."
+    },
+    {
+      "id": "l4_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "The typical final steps in a CNN classification architecture",
+      "blank_sentence": "In a typical CNN for classification, the feature maps are ___ into a 1D vector before being passed to fully connected layers.",
+      "correct_answer": "flattened",
+      "acceptable_answers": ["flattened", "Flattened", "flatten", "Flatten"],
+      "explanation": "After the convolutional and pooling layers extract spatial features, the resulting 3D feature maps are flattened into a 1D vector. This vector is then fed into one or more fully connected layers that perform the final classification."
+    },
+    {
+      "id": "l4_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Convolutions that change depth without changing width or height",
+      "blank_sentence": "A ___x___ convolution can change the number of channels without changing the spatial dimensions of the feature map.",
+      "correct_answer": "1",
+      "acceptable_answers": ["1", "1x1"],
+      "explanation": "A 1x1 convolution applies a learned linear combination across channels at each spatial position independently. It can increase or decrease the number of channels (depth) while keeping the height and width the same, making it useful for efficient channel dimension adjustments."
+    }
+  ]
+}

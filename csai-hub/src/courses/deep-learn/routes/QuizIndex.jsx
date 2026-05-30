@@ -4,7 +4,7 @@ import { listSections, QUIZ_TYPES } from "../lib/pregeneratedQuizzes";
 export default function QuizIndex() {
   return (
     <SharedQuizIndex
-      courseId="cog-neuro"
+      courseId="deep-learn"
       listSections={listSections}
       QUIZ_TYPES={QUIZ_TYPES}
     />

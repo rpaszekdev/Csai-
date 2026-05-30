@@ -1,0 +1,153 @@
+{
+  "section_id": "l2",
+  "quiz_type": "matching",
+  "title": "Backpropagation - Matching",
+  "questions": [
+    {
+      "id": "l2_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each activation function to its output range.",
+      "items": ["ReLU", "Sigmoid", "Tanh", "Softmax"],
+      "categories": ["0 to infinity", "0 to 1", "-1 to 1", "0 to 1 (all outputs sum to 1)"],
+      "correct_mapping": {
+        "ReLU": "0 to infinity",
+        "Sigmoid": "0 to 1",
+        "Tanh": "-1 to 1",
+        "Softmax": "0 to 1 (all outputs sum to 1)"
+      },
+      "explanation": "ReLU outputs 0 for negatives and passes positives unchanged (0 to infinity). Sigmoid squashes to (0, 1). Tanh squashes to (-1, 1). Softmax also outputs values in (0, 1) but with the constraint that all outputs sum to 1, making them a probability distribution."
+    },
+    {
+      "id": "l2_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each loss function to the task it is designed for.",
+      "items": ["Binary Cross-Entropy", "Cross-Entropy", "Mean Squared Error"],
+      "categories": ["Binary classification with sigmoid", "Multi-class classification with softmax", "Regression"],
+      "correct_mapping": {
+        "Binary Cross-Entropy": "Binary classification with sigmoid",
+        "Cross-Entropy": "Multi-class classification with softmax",
+        "Mean Squared Error": "Regression"
+      },
+      "explanation": "Binary Cross-Entropy pairs with sigmoid for two-class problems. Cross-Entropy pairs with softmax for multi-class problems. MSE measures squared differences between predicted and actual values, making it the standard choice for regression."
+    },
+    {
+      "id": "l2_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each activation function to its primary use in a neural network.",
+      "items": ["ReLU", "Sigmoid", "Softmax", "Leaky ReLU"],
+      "categories": ["Hidden layers (most common)", "Binary output layer", "Multi-class output layer", "Hidden layers (avoids dying neurons)"],
+      "correct_mapping": {
+        "ReLU": "Hidden layers (most common)",
+        "Sigmoid": "Binary output layer",
+        "Softmax": "Multi-class output layer",
+        "Leaky ReLU": "Hidden layers (avoids dying neurons)"
+      },
+      "explanation": "ReLU is the default for hidden layers due to its constant gradient. Sigmoid is used at the output for binary classification. Softmax is used at the output for multi-class classification. Leaky ReLU is a hidden-layer alternative that prevents the dying ReLU problem."
+    },
+    {
+      "id": "l2_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each weight initialization method to the activation function it is designed for.",
+      "items": ["He/Kaiming initialization", "Xavier/Glorot initialization"],
+      "categories": ["ReLU", "Sigmoid and Tanh"],
+      "correct_mapping": {
+        "He/Kaiming initialization": "ReLU",
+        "Xavier/Glorot initialization": "Sigmoid and Tanh"
+      },
+      "explanation": "He initialization accounts for ReLU zeroing out negative inputs by using a larger variance. Xavier initialization is designed for symmetric activations like sigmoid and tanh, where both positive and negative values pass through."
+    },
+    {
+      "id": "l2_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each problem to its cause.",
+      "items": ["Vanishing gradients", "Dying ReLU", "Exploding gradients"],
+      "categories": ["Sigmoid/tanh squash gradients to small values across many layers", "A neuron's input is always negative so ReLU always outputs 0", "Gradients grow exponentially large through many layers"],
+      "correct_mapping": {
+        "Vanishing gradients": "Sigmoid/tanh squash gradients to small values across many layers",
+        "Dying ReLU": "A neuron's input is always negative so ReLU always outputs 0",
+        "Exploding gradients": "Gradients grow exponentially large through many layers"
+      },
+      "explanation": "Vanishing gradients happen because sigmoid/tanh derivatives are always less than 1, so repeated multiplication shrinks gradients. Dying ReLU occurs when weights shift so the neuron never receives positive input. Exploding gradients arise when gradients multiply by values greater than 1 across many layers."
+    },
+    {
+      "id": "l2_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each training phase to what happens during it.",
+      "items": ["Forward pass", "Loss computation", "Backward pass", "Weight update"],
+      "categories": ["Input flows through the network to produce a prediction", "A single number measuring how wrong the prediction is", "Gradients flow from the loss back through each layer", "Weights are adjusted using the computed gradients"],
+      "correct_mapping": {
+        "Forward pass": "Input flows through the network to produce a prediction",
+        "Loss computation": "A single number measuring how wrong the prediction is",
+        "Backward pass": "Gradients flow from the loss back through each layer",
+        "Weight update": "Weights are adjusted using the computed gradients"
+      },
+      "explanation": "Training has four steps: the forward pass produces a prediction, the loss function scores how far off it is, backpropagation computes the gradient for every weight, and then the optimizer updates the weights in the direction that reduces the loss."
+    },
+    {
+      "id": "l2_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each activation function to a key weakness.",
+      "items": ["Sigmoid", "Tanh", "ReLU", "Softmax (in hidden layers)"],
+      "categories": ["Causes vanishing gradients; not zero-centered", "Causes vanishing gradients despite being zero-centered", "Neurons can die and stop learning entirely", "Creates competition between neurons, limiting representation"],
+      "correct_mapping": {
+        "Sigmoid": "Causes vanishing gradients; not zero-centered",
+        "Tanh": "Causes vanishing gradients despite being zero-centered",
+        "ReLU": "Neurons can die and stop learning entirely",
+        "Softmax (in hidden layers)": "Creates competition between neurons, limiting representation"
+      },
+      "explanation": "Sigmoid has vanishing gradients and outputs only positive values. Tanh is zero-centered but still saturates. ReLU can produce permanent zero outputs (dying neurons). Softmax forces outputs to sum to 1, so neurons cannot activate independently in hidden layers."
+    },
+    {
+      "id": "l2_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each concept to what it enables in backpropagation.",
+      "items": ["Chain rule", "Forward pass caching", "Loss function", "Gradient descent"],
+      "categories": ["Breaking gradients into local pieces across layers", "Storing intermediate values needed for gradient computation", "Providing a single number to measure prediction error", "Using gradients to move weights toward lower loss"],
+      "correct_mapping": {
+        "Chain rule": "Breaking gradients into local pieces across layers",
+        "Forward pass caching": "Storing intermediate values needed for gradient computation",
+        "Loss function": "Providing a single number to measure prediction error",
+        "Gradient descent": "Using gradients to move weights toward lower loss"
+      },
+      "explanation": "The chain rule decomposes the overall gradient into a product of local gradients. Caching forward-pass values is essential because the backward pass needs them. The loss function tells us how wrong we are. Gradient descent uses the gradient direction to update weights toward better performance."
+    },
+    {
+      "id": "l2_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each solution to the problem it addresses.",
+      "items": ["Use ReLU instead of sigmoid", "Use Leaky ReLU instead of ReLU", "Use He initialization", "Use Xavier initialization"],
+      "categories": ["Vanishing gradient problem", "Dying ReLU problem", "Proper weight scaling for ReLU networks", "Proper weight scaling for sigmoid/tanh networks"],
+      "correct_mapping": {
+        "Use ReLU instead of sigmoid": "Vanishing gradient problem",
+        "Use Leaky ReLU instead of ReLU": "Dying ReLU problem",
+        "Use He initialization": "Proper weight scaling for ReLU networks",
+        "Use Xavier initialization": "Proper weight scaling for sigmoid/tanh networks"
+      },
+      "explanation": "ReLU solves vanishing gradients by having a constant gradient of 1 for positive inputs. Leaky ReLU solves dying neurons by allowing a small gradient for negative inputs. He initialization is tailored to ReLU's behavior, while Xavier is tailored to sigmoid and tanh."
+    },
+    {
+      "id": "l2_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each activation function to its definition.",
+      "items": ["ReLU", "Sigmoid", "Tanh", "Leaky ReLU"],
+      "categories": ["max(0, x)", "1 / (1 + e^(-x))", "(e^x - e^(-x)) / (e^x + e^(-x))", "max(0.01x, x)"],
+      "correct_mapping": {
+        "ReLU": "max(0, x)",
+        "Sigmoid": "1 / (1 + e^(-x))",
+        "Tanh": "(e^x - e^(-x)) / (e^x + e^(-x))",
+        "Leaky ReLU": "max(0.01x, x)"
+      },
+      "explanation": "ReLU simply returns the positive part of the input. Sigmoid uses an exponential to map values to (0, 1). Tanh is the hyperbolic tangent mapping to (-1, 1). Leaky ReLU is like ReLU but allows a small slope (typically 0.01) for negative inputs instead of zero."
+    }
+  ]
+}

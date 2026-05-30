@@ -1,0 +1,147 @@
+{
+  "section_id": "l8",
+  "quiz_type": "multiple_choice",
+  "title": "Computer Vision - Multiple Choice",
+  "questions": [
+    {
+      "id": "l8_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What makes YOLO different from two-stage detectors like Faster R-CNN?",
+      "options": {
+        "A": "YOLO uses a deeper network with more layers",
+        "B": "YOLO predicts bounding boxes and classes in a single pass through the network",
+        "C": "YOLO generates region proposals before classifying them",
+        "D": "YOLO only works on high-resolution images"
+      },
+      "correct_answer": "B",
+      "explanation": "YOLO (You Only Look Once) treats object detection as a single regression problem, predicting bounding boxes and class probabilities in one forward pass. This makes it much faster than two-stage detectors like Faster R-CNN, which first propose regions and then classify them separately."
+    },
+    {
+      "id": "l8_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What does IoU (Intersection over Union) measure?",
+      "options": {
+        "A": "How many objects were correctly classified in an image",
+        "B": "The overlap between a predicted bounding box and the ground truth box",
+        "C": "The total number of pixels in a segmentation mask",
+        "D": "The confidence score of a detection"
+      },
+      "correct_answer": "B",
+      "explanation": "IoU measures how well a predicted bounding box aligns with the ground truth by dividing the area of overlap (intersection) by the total area covered by both boxes (union). An IoU of 1.0 means perfect overlap, while 0.0 means no overlap at all."
+    },
+    {
+      "id": "l8_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What is the main difference between semantic segmentation and instance segmentation?",
+      "options": {
+        "A": "Semantic segmentation is faster than instance segmentation",
+        "B": "Instance segmentation uses bounding boxes while semantic segmentation does not",
+        "C": "Semantic segmentation labels every pixel by class but cannot tell apart individual objects of the same class",
+        "D": "Instance segmentation only works on images with a single object"
+      },
+      "correct_answer": "C",
+      "explanation": "Semantic segmentation assigns a class label to every pixel (e.g., all car pixels get the same label), but it cannot distinguish between two separate cars side by side. Instance segmentation goes further by assigning both a class label and a unique identity to each individual object."
+    },
+    {
+      "id": "l8_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Why is non-maximum suppression (NMS) needed in object detection?",
+      "options": {
+        "A": "To increase the number of detections so no object is missed",
+        "B": "To resize bounding boxes to a standard size",
+        "C": "To remove duplicate detections for the same object, keeping only the most confident one",
+        "D": "To convert bounding boxes into segmentation masks"
+      },
+      "correct_answer": "C",
+      "explanation": "Object detectors often produce multiple overlapping bounding boxes for the same object. NMS solves this by keeping the highest-confidence detection and removing all other detections that overlap significantly with it. This ensures each object is detected only once."
+    },
+    {
+      "id": "l8_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What are anchor boxes in object detection?",
+      "options": {
+        "A": "The final output bounding boxes after detection",
+        "B": "Predefined boxes of various sizes and shapes that the model uses as starting references to predict object locations",
+        "C": "Boxes drawn manually by humans to label training data",
+        "D": "Boxes used to crop the image into smaller pieces"
+      },
+      "correct_answer": "B",
+      "explanation": "Anchor boxes are predefined reference boxes with different scales and aspect ratios placed across the image. Instead of predicting bounding box coordinates from scratch, the model predicts small adjustments (offsets) relative to these anchors, making the detection task easier to learn."
+    },
+    {
+      "id": "l8_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is special about U-Net's architecture for segmentation?",
+      "options": {
+        "A": "It uses only fully connected layers for pixel classification",
+        "B": "It has a symmetric encoder-decoder structure with skip connections that preserve spatial detail",
+        "C": "It processes images one pixel at a time",
+        "D": "It requires millions of training images to work"
+      },
+      "correct_answer": "B",
+      "explanation": "U-Net has a U-shaped architecture with an encoder that captures context through downsampling and a decoder that restores spatial resolution. Skip connections concatenate feature maps from the encoder to the decoder at each level, helping the network combine deep semantic understanding with fine spatial detail. This design works well even with small datasets."
+    },
+    {
+      "id": "l8_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "How does a Vision Transformer (ViT) process an image?",
+      "options": {
+        "A": "It applies convolutions to extract features at multiple scales",
+        "B": "It splits the image into patches and processes them as a sequence using self-attention",
+        "C": "It applies attention directly to every individual pixel",
+        "D": "It generates the image one pixel at a time like a language model generates words"
+      },
+      "correct_answer": "B",
+      "explanation": "ViT divides an image into fixed-size patches (e.g., 16x16 pixels), treats each patch like a token in a sentence, and processes the sequence of patches through a Transformer encoder using self-attention. Position embeddings are added so the model knows where each patch came from in the original image."
+    },
+    {
+      "id": "l8_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What is the main benefit of a Feature Pyramid Network (FPN)?",
+      "options": {
+        "A": "It reduces the model size by removing unnecessary layers",
+        "B": "It creates feature maps at multiple scales so the model can detect both small and large objects effectively",
+        "C": "It eliminates the need for anchor boxes",
+        "D": "It replaces the backbone CNN entirely"
+      },
+      "correct_answer": "B",
+      "explanation": "FPN builds a pyramid of feature maps by combining high-resolution features (good for small objects) with semantically rich low-resolution features (good for understanding what objects are). This multi-scale representation helps the detector find objects of all sizes in an image."
+    },
+    {
+      "id": "l8_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "What is the purpose of transfer learning in computer vision?",
+      "options": {
+        "A": "To train a model from scratch on each new task",
+        "B": "To use a model pretrained on a large dataset and adapt it to a new, often smaller, dataset",
+        "C": "To transfer images from one format to another",
+        "D": "To combine multiple models into a single ensemble"
+      },
+      "correct_answer": "B",
+      "explanation": "Transfer learning takes a model that was already trained on a large dataset like ImageNet and adapts it to a new task. Since the pretrained model has already learned useful visual features (edges, textures, shapes), it can achieve good performance on the new task even with limited training data."
+    },
+    {
+      "id": "l8_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What do Class Activation Maps (CAMs) show?",
+      "options": {
+        "A": "The exact probability score for each class",
+        "B": "Which regions of the input image influenced the model's prediction the most",
+        "C": "The optimal learning rate for training",
+        "D": "How the model's weights change during training"
+      },
+      "correct_answer": "B",
+      "explanation": "Class Activation Maps produce heatmaps highlighting which parts of an image were most important for a particular prediction. For example, if a model classifies an image as 'dog,' the CAM would show high activation over the dog region. This helps us interpret and trust the model's decisions."
+    }
+  ]
+}

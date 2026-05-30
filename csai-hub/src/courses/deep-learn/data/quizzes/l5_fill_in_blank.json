@@ -1,0 +1,107 @@
+{
+  "section_id": "l5",
+  "quiz_type": "fill_in_blank",
+  "title": "Regularization - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l5_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "When a model memorizes training data but fails on new data",
+      "blank_sentence": "When a model memorizes training data and performs poorly on new data, it is called ___.",
+      "correct_answer": "overfitting",
+      "acceptable_answers": ["overfitting", "over-fitting", "over fitting"],
+      "explanation": "Overfitting occurs when a model learns the training data too well, including its noise and quirks, instead of learning general patterns. The result is high training accuracy but low test/validation accuracy."
+    },
+    {
+      "id": "l5_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "A model with high bias that cannot capture data patterns",
+      "blank_sentence": "A model that is too simple and performs poorly on both training and test data is ___.",
+      "correct_answer": "underfitting",
+      "acceptable_answers": ["underfitting", "under-fitting", "under fitting"],
+      "explanation": "Underfitting happens when a model is too simple to capture the underlying patterns in the data. It has high bias and performs poorly on both training and test sets because it cannot represent the complexity of the data."
+    },
+    {
+      "id": "l5_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Regularization technique that randomly sets neurons to zero during training",
+      "blank_sentence": "___ randomly sets neurons to zero during training to prevent co-adaptation.",
+      "correct_answer": "dropout",
+      "acceptable_answers": ["dropout", "Dropout", "drop-out"],
+      "explanation": "Dropout is a regularization technique that randomly deactivates neurons during training. This prevents neurons from relying too heavily on specific other neurons (co-adaptation) and forces the network to learn more robust features."
+    },
+    {
+      "id": "l5_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Regularization that penalizes large weights by adding squared weight values to the loss",
+      "blank_sentence": "___ regularization penalizes large weights and is also known as weight decay.",
+      "correct_answer": "L2",
+      "acceptable_answers": ["L2", "l2", "Ridge"],
+      "explanation": "L2 regularization adds a penalty based on the squared values of the weights to the loss function. This discourages large weight values and effectively shrinks all weights toward zero, which reduces model capacity and helps prevent overfitting."
+    },
+    {
+      "id": "l5_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Stopping training when validation performance starts getting worse",
+      "blank_sentence": "___ is the technique of stopping training when validation loss begins to increase.",
+      "correct_answer": "early stopping",
+      "acceptable_answers": ["early stopping", "Early stopping", "Early Stopping"],
+      "explanation": "Early stopping monitors validation loss during training and halts the process when it starts increasing. This prevents the model from continuing to learn noise in the training data, which would lead to overfitting."
+    },
+    {
+      "id": "l5_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "L1 regularization produces weights with this property",
+      "blank_sentence": "L1 regularization encourages ___ weights, meaning some weights become exactly zero.",
+      "correct_answer": "sparse",
+      "acceptable_answers": ["sparse", "Sparse"],
+      "explanation": "L1 regularization tends to push some weights all the way to exactly zero, creating sparse weight vectors. This effectively removes some features or connections from the model, performing a kind of automatic feature selection."
+    },
+    {
+      "id": "l5_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "A model that is too complex and sensitive to training data fluctuations",
+      "blank_sentence": "A model with high ___ is too sensitive to the specific training data and overfits.",
+      "correct_answer": "variance",
+      "acceptable_answers": ["variance", "Variance"],
+      "explanation": "High variance means the model's predictions change a lot depending on which training data it sees. This is associated with overfitting: the model is too complex and captures noise specific to each training set rather than the true underlying patterns."
+    },
+    {
+      "id": "l5_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Technique that creates new training examples by flipping, rotating, or changing colors of images",
+      "blank_sentence": "Data ___ increases training set diversity by applying transformations like flipping and rotation.",
+      "correct_answer": "augmentation",
+      "acceptable_answers": ["augmentation", "Augmentation"],
+      "explanation": "Data augmentation artificially increases the size and diversity of the training set by applying label-preserving transformations such as flipping, rotation, cropping, and color jittering. This helps the model learn more generalizable features."
+    },
+    {
+      "id": "l5_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Layer technique that normalizes inputs to improve training stability",
+      "blank_sentence": "Batch ___ normalizes the inputs to each layer, improving training stability and speed.",
+      "correct_answer": "normalization",
+      "acceptable_answers": ["normalization", "Normalization", "normalisation"],
+      "explanation": "Batch normalization normalizes the activations within each mini-batch so they have zero mean and unit variance. This stabilizes the distribution of layer inputs during training, allowing faster convergence and often enabling higher learning rates."
+    },
+    {
+      "id": "l5_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "The ability of a model to perform well on new, unseen data",
+      "blank_sentence": "The goal of regularization is to improve a model's ___ to new, unseen data.",
+      "correct_answer": "generalization",
+      "acceptable_answers": ["generalization", "Generalization", "generalisation"],
+      "explanation": "Generalization refers to how well a model performs on data it has never seen during training. Regularization techniques aim to improve generalization by preventing the model from memorizing the training data and instead learning patterns that transfer to new examples."
+    }
+  ]
+}

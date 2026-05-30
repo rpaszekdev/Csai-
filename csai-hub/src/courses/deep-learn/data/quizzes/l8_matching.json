@@ -1,0 +1,157 @@
+{
+  "section_id": "l8",
+  "quiz_type": "matching",
+  "title": "Computer Vision - Matching",
+  "questions": [
+    {
+      "id": "l8_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each object detector to its key characteristic.",
+      "items": ["YOLO", "Faster R-CNN", "SSD", "U-Net"],
+      "categories": ["Single-pass detection treating it as a regression problem", "Two-stage detection with a Region Proposal Network", "Multi-scale predictions from different layers of a single network", "Symmetric encoder-decoder for pixel-level segmentation"],
+      "correct_mapping": {
+        "YOLO": "Single-pass detection treating it as a regression problem",
+        "Faster R-CNN": "Two-stage detection with a Region Proposal Network",
+        "SSD": "Multi-scale predictions from different layers of a single network",
+        "U-Net": "Symmetric encoder-decoder for pixel-level segmentation"
+      },
+      "explanation": "YOLO predicts everything in one pass, making it fast. Faster R-CNN first proposes regions with an RPN, then classifies them, making it more accurate but slower. SSD makes predictions at multiple scales within a single network. U-Net is a segmentation model, not a detector, with an encoder-decoder structure and skip connections."
+    },
+    {
+      "id": "l8_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each computer vision task to what it outputs.",
+      "items": ["Object detection", "Semantic segmentation", "Instance segmentation", "Image classification"],
+      "categories": ["Bounding boxes with class labels around objects", "A class label for every pixel, no instance distinction", "A class label and unique ID for every pixel of each object", "A single class label for the entire image"],
+      "correct_mapping": {
+        "Object detection": "Bounding boxes with class labels around objects",
+        "Semantic segmentation": "A class label for every pixel, no instance distinction",
+        "Instance segmentation": "A class label and unique ID for every pixel of each object",
+        "Image classification": "A single class label for the entire image"
+      },
+      "explanation": "These tasks form a hierarchy of increasing detail. Classification gives one label per image. Detection localizes objects with boxes. Semantic segmentation labels every pixel by class. Instance segmentation goes furthest by separating individual objects at the pixel level."
+    },
+    {
+      "id": "l8_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each data augmentation technique to what it does.",
+      "items": ["CutMix", "Mixup", "Color jitter", "Random flipping"],
+      "categories": ["Pastes a patch from one image onto another, mixing labels by area", "Blends two images together with a weighted average of pixels and labels", "Randomly changes brightness, contrast, and saturation", "Mirrors the image horizontally or vertically"],
+      "correct_mapping": {
+        "CutMix": "Pastes a patch from one image onto another, mixing labels by area",
+        "Mixup": "Blends two images together with a weighted average of pixels and labels",
+        "Color jitter": "Randomly changes brightness, contrast, and saturation",
+        "Random flipping": "Mirrors the image horizontally or vertically"
+      },
+      "explanation": "CutMix cuts a rectangular region from one image and pastes it onto another, mixing labels proportionally to the area. Mixup blends entire images by averaging their pixels. Color jitter varies photometric properties to build robustness to lighting changes. Flipping creates mirror images to teach the model that objects can face either direction."
+    },
+    {
+      "id": "l8_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each transfer learning strategy to the scenario where it works best.",
+      "items": ["Freeze backbone, train new head only", "Fine-tune all layers", "Gradual unfreezing", "Train from scratch"],
+      "categories": ["Small target dataset, similar to the pretraining domain", "Large target dataset, different domain from pretraining", "Medium dataset, unfreeze layers one at a time to avoid forgetting", "Massive unique dataset with no suitable pretrained model"],
+      "correct_mapping": {
+        "Freeze backbone, train new head only": "Small target dataset, similar to the pretraining domain",
+        "Fine-tune all layers": "Large target dataset, different domain from pretraining",
+        "Gradual unfreezing": "Medium dataset, unfreeze layers one at a time to avoid forgetting",
+        "Train from scratch": "Massive unique dataset with no suitable pretrained model"
+      },
+      "explanation": "With little data and a similar domain, freezing the backbone avoids overfitting. With lots of data and a different domain, fine-tuning everything lets the model fully adapt. Gradual unfreezing balances adaptation and knowledge preservation. Training from scratch only makes sense with massive amounts of unique data."
+    },
+    {
+      "id": "l8_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each Faster R-CNN component to its role.",
+      "items": ["Backbone CNN", "Region Proposal Network", "ROI Pooling", "Classification head"],
+      "categories": ["Extracts feature maps from the input image", "Proposes candidate regions likely containing objects", "Converts variable-size regions to fixed-size features", "Predicts the object class and refines the bounding box"],
+      "correct_mapping": {
+        "Backbone CNN": "Extracts feature maps from the input image",
+        "Region Proposal Network": "Proposes candidate regions likely containing objects",
+        "ROI Pooling": "Converts variable-size regions to fixed-size features",
+        "Classification head": "Predicts the object class and refines the bounding box"
+      },
+      "explanation": "Faster R-CNN is a pipeline: the backbone extracts features, the RPN suggests where objects might be, ROI Pooling standardizes the feature size for each proposal, and the classification head makes the final prediction for each proposed region."
+    },
+    {
+      "id": "l8_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each ViT component to its purpose.",
+      "items": ["Patch embedding", "Position embeddings", "[CLS] token", "Transformer encoder"],
+      "categories": ["Converts each image patch into a vector", "Tells the model where each patch is located in the image", "Collects global information for the final classification", "Applies self-attention across all patches"],
+      "correct_mapping": {
+        "Patch embedding": "Converts each image patch into a vector",
+        "Position embeddings": "Tells the model where each patch is located in the image",
+        "[CLS] token": "Collects global information for the final classification",
+        "Transformer encoder": "Applies self-attention across all patches"
+      },
+      "explanation": "ViT first embeds each image patch into a vector. Position embeddings are added because self-attention has no built-in sense of spatial order. The [CLS] token aggregates information from all patches and is used for the final class prediction. The Transformer encoder captures relationships between patches via self-attention."
+    },
+    {
+      "id": "l8_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each detection concept to its description.",
+      "items": ["IoU", "NMS", "Anchor boxes", "Bounding box regression"],
+      "categories": ["Measures overlap between predicted and ground truth boxes", "Removes duplicate detections, keeping the most confident", "Predefined reference boxes the model adjusts", "Predicting offsets to refine box coordinates"],
+      "correct_mapping": {
+        "IoU": "Measures overlap between predicted and ground truth boxes",
+        "NMS": "Removes duplicate detections, keeping the most confident",
+        "Anchor boxes": "Predefined reference boxes the model adjusts",
+        "Bounding box regression": "Predicting offsets to refine box coordinates"
+      },
+      "explanation": "IoU quantifies localization accuracy by measuring box overlap. NMS is a post-processing step that eliminates redundant detections. Anchor boxes provide starting references for predictions. Bounding box regression is the process of predicting adjustments to make boxes fit objects more precisely."
+    },
+    {
+      "id": "l8_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each architecture to why it is notable.",
+      "items": ["ViT", "FPN", "YOLO", "Mask R-CNN"],
+      "categories": ["First successful pure-Transformer model for image classification", "Multi-scale features for detecting objects of different sizes", "Real-time object detection in a single forward pass", "Extends Faster R-CNN to perform instance segmentation"],
+      "correct_mapping": {
+        "ViT": "First successful pure-Transformer model for image classification",
+        "FPN": "Multi-scale features for detecting objects of different sizes",
+        "YOLO": "Real-time object detection in a single forward pass",
+        "Mask R-CNN": "Extends Faster R-CNN to perform instance segmentation"
+      },
+      "explanation": "ViT showed that Transformers can match CNNs for image tasks. FPN creates rich multi-scale features useful for detecting objects of varying sizes. YOLO pioneered fast, single-pass detection. Mask R-CNN added a mask prediction branch to Faster R-CNN, enabling pixel-level instance segmentation."
+    },
+    {
+      "id": "l8_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each U-Net component to its function.",
+      "items": ["Encoder (contracting path)", "Decoder (expanding path)", "Skip connections", "Final 1x1 convolution"],
+      "categories": ["Downsamples the image to capture context and semantic meaning", "Upsamples features to restore the original resolution", "Passes fine spatial details from encoder to decoder", "Maps features to class predictions for each pixel"],
+      "correct_mapping": {
+        "Encoder (contracting path)": "Downsamples the image to capture context and semantic meaning",
+        "Decoder (expanding path)": "Upsamples features to restore the original resolution",
+        "Skip connections": "Passes fine spatial details from encoder to decoder",
+        "Final 1x1 convolution": "Maps features to class predictions for each pixel"
+      },
+      "explanation": "The encoder progressively reduces spatial dimensions while building richer feature representations. The decoder upsamples back to the original resolution. Skip connections bridge corresponding encoder and decoder levels, preserving fine details that would otherwise be lost during downsampling. The final 1x1 convolution produces per-pixel class predictions."
+    },
+    {
+      "id": "l8_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each speed-vs-accuracy tradeoff to the correct detector.",
+      "items": ["YOLO", "Faster R-CNN", "SSD", "Two-stage with FPN"],
+      "categories": ["Fastest, single-pass, may miss small objects", "Slower, two-stage, generally more accurate", "Fast single-pass with multi-scale predictions", "Accurate multi-scale detection using feature pyramids"],
+      "correct_mapping": {
+        "YOLO": "Fastest, single-pass, may miss small objects",
+        "Faster R-CNN": "Slower, two-stage, generally more accurate",
+        "SSD": "Fast single-pass with multi-scale predictions",
+        "Two-stage with FPN": "Accurate multi-scale detection using feature pyramids"
+      },
+      "explanation": "YOLO prioritizes speed with a single-pass approach but can struggle with small or closely packed objects. Faster R-CNN is more accurate due to its two-stage design but slower. SSD balances speed and scale handling by predicting from multiple feature map levels. Adding FPN to a two-stage detector combines multi-scale features with the accuracy of region-based classification."
+    }
+  ]
+}

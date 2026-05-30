@@ -1,0 +1,157 @@
+{
+  "section_id": "l6",
+  "quiz_type": "multiple_response",
+  "title": "Recurrence - Multiple Response",
+  "questions": [
+    {
+      "id": "l6_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the hidden state in an RNN? (Select all that apply)",
+      "options": {
+        "A": "It carries information from previous time steps",
+        "B": "It is updated using the current input and the previous hidden state",
+        "C": "It stays the same throughout the entire sequence",
+        "D": "It gives the RNN a form of memory",
+        "E": "It is only computed at the final time step"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "The hidden state carries forward information from earlier in the sequence (A), is updated at every time step using both the current input and the previous hidden state (B), and gives the RNN memory of what it has seen (D). It changes at every time step (C is wrong) and is computed at every step, not just the last one (E is wrong)."
+    },
+    {
+      "id": "l6_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the vanishing gradient problem? (Select all that apply)",
+      "options": {
+        "A": "It makes it hard for RNNs to learn long-range dependencies",
+        "B": "Gradients shrink as they propagate back through many time steps",
+        "C": "It can be fixed by simply using a larger learning rate",
+        "D": "LSTMs were designed to address this problem",
+        "E": "It occurs because gradients are repeatedly multiplied by small values"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The vanishing gradient problem prevents learning connections between distant events in a sequence (A) because gradients shrink exponentially during backpropagation through time (B, E). LSTMs address this with gated memory cells (D). Using a larger learning rate (C) does not solve the underlying issue and may cause other problems."
+    },
+    {
+      "id": "l6_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are gates found in an LSTM? (Select all that apply)",
+      "options": {
+        "A": "Forget gate",
+        "B": "Input gate",
+        "C": "Reset gate",
+        "D": "Output gate",
+        "E": "Update gate"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "An LSTM has three gates: the forget gate (decides what to discard from the cell state), the input gate (decides what new information to store), and the output gate (decides what to output). The reset gate and update gate (C, E) belong to the GRU, not the LSTM."
+    },
+    {
+      "id": "l6_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are true about GRUs compared to LSTMs? (Select all that apply)",
+      "options": {
+        "A": "GRUs have fewer parameters",
+        "B": "GRUs do not have a separate cell state",
+        "C": "GRUs always outperform LSTMs on every task",
+        "D": "GRUs use a reset gate and an update gate",
+        "E": "GRUs are generally faster to train"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "GRUs are simpler than LSTMs: they have fewer parameters (A), merge the cell state into the hidden state (B), use reset and update gates instead of three gates (D), and train faster due to fewer computations (E). However, neither architecture consistently outperforms the other across all tasks (C is wrong)."
+    },
+    {
+      "id": "l6_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are components of the LSTM cell state mechanism? (Select all that apply)",
+      "options": {
+        "A": "The cell state carries long-term information across time steps",
+        "B": "The forget gate controls what is removed from the cell state",
+        "C": "The input gate controls what new information is added to the cell state",
+        "D": "The cell state is reset to zero at each time step",
+        "E": "The output gate controls what part of the cell state is exposed as output"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The LSTM cell state is a long-term memory mechanism (A) managed by three gates. The forget gate removes old information (B), the input gate adds new information (C), and the output gate determines what becomes the hidden state output (E). The cell state is not reset each step (D is wrong) -- that would defeat its purpose as long-term memory."
+    },
+    {
+      "id": "l6_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are valid applications of RNNs? (Select all that apply)",
+      "options": {
+        "A": "Text generation",
+        "B": "Machine translation",
+        "C": "Classifying individual images with no sequential context",
+        "D": "Sentiment analysis",
+        "E": "Speech recognition"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "RNNs excel at tasks involving sequential data. Text generation (A), machine translation (B), sentiment analysis (D), and speech recognition (E) all involve processing sequences. Classifying a single static image (C) has no sequential structure and is better suited for CNNs or feedforward networks."
+    },
+    {
+      "id": "l6_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are true about teacher forcing? (Select all that apply)",
+      "options": {
+        "A": "It feeds the correct previous token to the decoder during training",
+        "B": "It helps the model converge faster during training",
+        "C": "It is used during inference (test time) as well",
+        "D": "It can cause exposure bias",
+        "E": "Scheduled sampling is used to reduce its drawbacks"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Teacher forcing provides ground-truth tokens during training (A), which speeds convergence (B). However, it creates exposure bias (D) because the model never learns to recover from its own mistakes during training. Scheduled sampling gradually reduces reliance on teacher forcing (E). At inference time, ground-truth tokens are not available, so teacher forcing cannot be used (C is wrong)."
+    },
+    {
+      "id": "l6_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the Seq2Seq architecture? (Select all that apply)",
+      "options": {
+        "A": "It uses an encoder to read the input sequence",
+        "B": "It uses a decoder to generate the output sequence",
+        "C": "Input and output sequences must be the same length",
+        "D": "The encoder produces a context vector that summarizes the input",
+        "E": "It is commonly used for machine translation"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Seq2Seq uses an encoder to process input (A) and a decoder to generate output (B), connected by a context vector (D). A key advantage is that input and output can have different lengths (C is wrong), which is essential for tasks like machine translation (E) where a sentence in one language may be longer or shorter in another."
+    },
+    {
+      "id": "l6_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following describe how the LSTM cell state helps with the vanishing gradient problem? (Select all that apply)",
+      "options": {
+        "A": "It provides an additive path for information to flow across time steps",
+        "B": "Gradients can flow through the cell state without being repeatedly multiplied by weight matrices",
+        "C": "It completely eliminates all gradient problems",
+        "D": "The forget gate can learn to keep the cell state unchanged, preserving gradients",
+        "E": "It acts as a gradient highway through the network"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The cell state is updated additively rather than multiplicatively (A), allowing gradients to flow with minimal transformation (B, E). When the forget gate outputs values close to 1, information (and gradients) pass through nearly unchanged (D). However, it does not completely eliminate all gradient issues (C is wrong) -- it significantly mitigates them but does not guarantee perfect gradient flow."
+    },
+    {
+      "id": "l6_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are shared properties of vanilla RNNs, LSTMs, and GRUs? (Select all that apply)",
+      "options": {
+        "A": "They all process inputs sequentially, one time step at a time",
+        "B": "They all share weights across time steps",
+        "C": "They all have a separate cell state",
+        "D": "They can all handle variable-length sequences",
+        "E": "They are all trained using backpropagation through time"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "All three architectures process sequences step by step (A), reuse the same weights at every time step (B), can handle sequences of any length (D), and use BPTT for training (E). Only LSTMs have a separate cell state distinct from the hidden state (C is wrong) -- vanilla RNNs have only a hidden state, and GRUs merge the cell state into the hidden state."
+    }
+  ]
+}

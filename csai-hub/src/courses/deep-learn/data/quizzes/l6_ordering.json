@@ -1,0 +1,97 @@
+{
+  "section_id": "l6",
+  "quiz_type": "ordering",
+  "title": "Recurrence - Ordering",
+  "questions": [
+    {
+      "id": "l6_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of how an RNN processes a single time step.",
+      "items": ["Update the hidden state using both inputs", "Store the new hidden state for the next time step", "Receive the current input and previous hidden state", "Optionally produce an output from the new hidden state"],
+      "correct_order": ["Receive the current input and previous hidden state", "Update the hidden state using both inputs", "Store the new hidden state for the next time step", "Optionally produce an output from the new hidden state"],
+      "explanation": "At each time step, the RNN first receives the current input along with the hidden state from the previous step. It combines them to compute a new hidden state, stores it for use at the next time step, and optionally generates an output."
+    },
+    {
+      "id": "l6_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of Backpropagation Through Time (BPTT).",
+      "items": ["Update the shared weights using accumulated gradients", "Propagate gradients backward through each time step", "Unroll the RNN across all time steps", "Compute the loss", "Run the forward pass through the entire sequence"],
+      "correct_order": ["Unroll the RNN across all time steps", "Run the forward pass through the entire sequence", "Compute the loss", "Propagate gradients backward through each time step", "Update the shared weights using accumulated gradients"],
+      "explanation": "BPTT first unrolls the RNN into a deep network, then runs a forward pass to compute outputs and hidden states. After computing the loss, gradients are propagated backward through all time steps. Since the same weights are shared across steps, their gradients are accumulated and used for a single weight update."
+    },
+    {
+      "id": "l6_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the LSTM gate operations at a single time step.",
+      "items": ["Compute the hidden state from the output gate and updated cell state", "Decide what to forget from the cell state (forget gate)", "Update the cell state by removing old info and adding new info", "Decide what new information to store (input gate)"],
+      "correct_order": ["Decide what to forget from the cell state (forget gate)", "Decide what new information to store (input gate)", "Update the cell state by removing old info and adding new info", "Compute the hidden state from the output gate and updated cell state"],
+      "explanation": "The LSTM first determines what to discard via the forget gate, then what to add via the input gate. The cell state is updated by combining forgetting and adding. Finally, the output gate determines which parts of the updated cell state become the hidden state output."
+    },
+    {
+      "id": "l6_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of Seq2Seq translation (translating 'I love cats' to 'J'aime les chats').",
+      "items": ["Decoder generates 'les' using previous output and context", "Encoder processes the words 'I', 'love', 'cats'", "Decoder generates end-of-sequence token to stop", "Decoder receives the context vector and generates 'J'aime'", "Encoder produces a context vector after reading the full input", "Decoder generates 'chats' using previous output and context"],
+      "correct_order": ["Encoder processes the words 'I', 'love', 'cats'", "Encoder produces a context vector after reading the full input", "Decoder receives the context vector and generates 'J'aime'", "Decoder generates 'les' using previous output and context", "Decoder generates 'chats' using previous output and context", "Decoder generates end-of-sequence token to stop"],
+      "explanation": "The encoder first reads the entire input sentence and produces a context vector. The decoder is then initialized with this vector and generates the translation one word at a time, using each previous output to inform the next, until it produces an end-of-sequence token."
+    },
+    {
+      "id": "l6_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order these recurrent architectures from fewest to most parameters.",
+      "items": ["LSTM", "GRU", "Vanilla RNN"],
+      "correct_order": ["Vanilla RNN", "GRU", "LSTM"],
+      "explanation": "Vanilla RNNs have the fewest parameters with just a single weight matrix for the recurrent connection. GRUs add two gates (reset and update), increasing the parameter count. LSTMs have the most parameters with three gates (forget, input, output) plus a separate cell state mechanism."
+    },
+    {
+      "id": "l6_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the GRU computation steps at a single time step.",
+      "items": ["Compute the final hidden state by blending old and candidate states using the update gate", "Compute the candidate hidden state using the reset-gated previous state", "Compute the reset gate and update gate from the input and previous hidden state"],
+      "correct_order": ["Compute the reset gate and update gate from the input and previous hidden state", "Compute the candidate hidden state using the reset-gated previous state", "Compute the final hidden state by blending old and candidate states using the update gate"],
+      "explanation": "The GRU first computes both gates based on the current input and previous hidden state. The reset gate is then applied to the previous state before computing a candidate hidden state. Finally, the update gate interpolates between the old hidden state and the candidate to produce the new hidden state."
+    },
+    {
+      "id": "l6_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the steps of how the vanishing gradient problem develops during BPTT.",
+      "items": ["The network cannot learn long-range dependencies", "The gradient at early time steps becomes negligibly small", "Gradients are computed at the final time step", "Gradients are repeatedly multiplied by small values at each time step as they flow backward"],
+      "correct_order": ["Gradients are computed at the final time step", "Gradients are repeatedly multiplied by small values at each time step as they flow backward", "The gradient at early time steps becomes negligibly small", "The network cannot learn long-range dependencies"],
+      "explanation": "The vanishing gradient problem starts with normal gradient computation at the output. As gradients flow backward through time, they are multiplied by small values at each step, causing exponential decay. By the time they reach early time steps, the gradient signal is too weak to drive meaningful weight updates, preventing the network from learning relationships between distant events."
+    },
+    {
+      "id": "l6_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the steps of how information flows through the LSTM cell state across time.",
+      "items": ["Output gate selects what part of the cell state to expose as the hidden state", "Input gate adds new relevant information to the cell state", "Cell state carries forward the updated information to the next time step", "Forget gate removes outdated information from the cell state"],
+      "correct_order": ["Forget gate removes outdated information from the cell state", "Input gate adds new relevant information to the cell state", "Cell state carries forward the updated information to the next time step", "Output gate selects what part of the cell state to expose as the hidden state"],
+      "explanation": "At each time step, the cell state is first pruned by the forget gate, then augmented by the input gate. The updated cell state flows forward to the next time step. The output gate then determines which parts of the cell state become the visible hidden state, which is used for predictions and passed to the next step."
+    },
+    {
+      "id": "l6_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the progression of training a Seq2Seq model with scheduled sampling.",
+      "items": ["Model is trained with a mix of ground-truth and self-generated tokens", "Training begins with full teacher forcing (100% ground-truth tokens)", "At inference, the model generates entirely from its own predictions", "The probability of using the model's own predictions gradually increases"],
+      "correct_order": ["Training begins with full teacher forcing (100% ground-truth tokens)", "The probability of using the model's own predictions gradually increases", "Model is trained with a mix of ground-truth and self-generated tokens", "At inference, the model generates entirely from its own predictions"],
+      "explanation": "Scheduled sampling starts training with teacher forcing for stability. Over time, the model increasingly uses its own predictions instead of ground-truth tokens. This creates a gradual transition so the model learns to handle its own errors. At inference, no ground-truth is available, so the model must rely entirely on its own predictions."
+    },
+    {
+      "id": "l6_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order these steps to perform sentiment analysis on a movie review using a many-to-one RNN.",
+      "items": ["Use the final hidden state to predict positive or negative sentiment", "Process each word through the RNN, updating the hidden state at each step", "Initialize the hidden state", "Tokenize the review into a sequence of words", "Compute the loss and update weights during training"],
+      "correct_order": ["Tokenize the review into a sequence of words", "Initialize the hidden state", "Process each word through the RNN, updating the hidden state at each step", "Use the final hidden state to predict positive or negative sentiment", "Compute the loss and update weights during training"],
+      "explanation": "First the review text is tokenized into words. The hidden state is initialized (often to zeros). Each word is fed through the RNN sequentially, with the hidden state accumulating information about the review. After the last word, the final hidden state summarizes the entire review and is used to predict the sentiment label. During training, the prediction is compared to the true label to compute a loss and update weights."
+    }
+  ]
+}

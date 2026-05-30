@@ -1,0 +1,97 @@
+{
+  "section_id": "l7",
+  "quiz_type": "ordering",
+  "title": "Transformers - Ordering",
+  "questions": [
+    {
+      "id": "l7_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of scaled dot-product attention from first to last.",
+      "items": ["Apply softmax to get attention weights", "Multiply Q by K transpose to get raw scores", "Multiply attention weights by V to get the output", "Divide scores by square root of d_k"],
+      "correct_order": ["Multiply Q by K transpose to get raw scores", "Divide scores by square root of d_k", "Apply softmax to get attention weights", "Multiply attention weights by V to get the output"],
+      "explanation": "The attention formula follows this order: first compute raw relevance scores by multiplying Q and K transpose, then scale by dividing by sqrt(d_k) to prevent extreme values, then apply softmax to convert scores into probabilities, and finally multiply by V to produce the weighted output."
+    },
+    {
+      "id": "l7_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the evolution of sequence models from earliest to most recent.",
+      "items": ["Transformer (Attention Is All You Need)", "LSTM with attention for translation", "Simple RNN", "LSTM / GRU"],
+      "correct_order": ["Simple RNN", "LSTM / GRU", "LSTM with attention for translation", "Transformer (Attention Is All You Need)"],
+      "explanation": "Sequence modeling progressed from simple RNNs (which struggled with long sequences), to LSTMs and GRUs (which added gating to handle longer dependencies), to attention-augmented LSTMs (Bahdanau 2014, which let decoders focus on relevant encoder states), to the Transformer (Vaswani 2017, which replaced recurrence entirely with self-attention)."
+    },
+    {
+      "id": "l7_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the data flow through a Transformer encoder layer.",
+      "items": ["Feed-forward sublayer processes each token independently", "Input tokens enter the layer", "Self-attention captures relationships between all tokens", "Output contextualized representations"],
+      "correct_order": ["Input tokens enter the layer", "Self-attention captures relationships between all tokens", "Feed-forward sublayer processes each token independently", "Output contextualized representations"],
+      "explanation": "In each encoder layer, the input first passes through the self-attention sublayer, where each token attends to all other tokens to capture contextual relationships. Then the output goes through the feed-forward sublayer, which applies a small neural network independently to each token's representation. The result is a set of updated contextualized representations."
+    },
+    {
+      "id": "l7_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of multi-head attention from first to last.",
+      "items": ["Concatenate outputs from all heads", "Compute attention independently in each head", "Project input into separate Q, K, V for each head", "Apply a final linear projection"],
+      "correct_order": ["Project input into separate Q, K, V for each head", "Compute attention independently in each head", "Concatenate outputs from all heads", "Apply a final linear projection"],
+      "explanation": "Multi-head attention works by first projecting the input into separate Q, K, and V vectors for each head using different learned weight matrices. Then each head independently computes scaled dot-product attention. The outputs from all heads are concatenated back together, and a final linear projection produces the output."
+    },
+    {
+      "id": "l7_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the components of the Transformer decoder layer from first to last.",
+      "items": ["Feed-forward sublayer", "Cross-attention over encoder outputs", "Masked self-attention over decoder inputs"],
+      "correct_order": ["Masked self-attention over decoder inputs", "Cross-attention over encoder outputs", "Feed-forward sublayer"],
+      "explanation": "The decoder layer has three sublayers in order: first, masked self-attention processes the decoder's own tokens (preventing access to future positions); second, cross-attention allows the decoder to attend to the encoder's output; third, the feed-forward sublayer applies a neural network independently to each position."
+    },
+    {
+      "id": "l7_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order what happens when computing an attention score between two tokens.",
+      "items": ["Softmax converts the scaled score into a probability weight", "The Query of token A is matched with the Key of token B", "The resulting weight is multiplied by token B's Value", "The raw dot product is divided by sqrt(d_k)"],
+      "correct_order": ["The Query of token A is matched with the Key of token B", "The raw dot product is divided by sqrt(d_k)", "Softmax converts the scaled score into a probability weight", "The resulting weight is multiplied by token B's Value"],
+      "explanation": "To compute how much token A should attend to token B: first the Query of A is dot-producted with the Key of B to get a raw score, then this score is scaled by sqrt(d_k), then softmax converts it into a probability, and finally this weight is used to determine how much of token B's Value contributes to token A's output."
+    },
+    {
+      "id": "l7_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the progression from no context to full contextualized understanding of word meaning.",
+      "items": ["Transformer embeddings: different vector for 'bank' in every unique context", "One-hot encoding: 'bank' is just an index, no meaning captured", "Word2Vec: 'bank' has one fixed meaningful vector regardless of context"],
+      "correct_order": ["One-hot encoding: 'bank' is just an index, no meaning captured", "Word2Vec: 'bank' has one fixed meaningful vector regardless of context", "Transformer embeddings: different vector for 'bank' in every unique context"],
+      "explanation": "Word representations evolved from one-hot encoding (sparse, no semantic information), to Word2Vec (dense fixed embeddings capturing general word meaning), to Transformer contextualized embeddings (where the same word gets different representations depending on the surrounding words, capturing its specific meaning in each context)."
+    },
+    {
+      "id": "l7_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the steps of autoregressive text generation with a Transformer decoder.",
+      "items": ["Append the selected token and repeat the process", "Select the next token from the probability distribution", "Process the current sequence through masked self-attention", "Apply softmax to get probabilities over the vocabulary"],
+      "correct_order": ["Process the current sequence through masked self-attention", "Apply softmax to get probabilities over the vocabulary", "Select the next token from the probability distribution", "Append the selected token and repeat the process"],
+      "explanation": "Autoregressive generation works step by step: the current sequence passes through the decoder's masked self-attention (so only previous tokens are visible), softmax produces a probability distribution over all possible next tokens, a token is selected from this distribution, and then it is appended to the sequence for the next round of generation."
+    },
+    {
+      "id": "l7_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order these from simplest attention mechanism to most complex.",
+      "items": ["Multi-head attention (multiple parallel attention operations)", "Single-head self-attention (one set of Q, K, V)", "RNN attention (weighted sum of encoder states)", "Full Transformer layer (multi-head attention + feed-forward + residuals)"],
+      "correct_order": ["RNN attention (weighted sum of encoder states)", "Single-head self-attention (one set of Q, K, V)", "Multi-head attention (multiple parallel attention operations)", "Full Transformer layer (multi-head attention + feed-forward + residuals)"],
+      "explanation": "RNN attention is the simplest -- just a weighted sum of encoder states. Single-head self-attention adds the Q-K-V framework with scaling and softmax. Multi-head attention runs multiple single-head operations in parallel for richer representations. A full Transformer layer wraps multi-head attention with a feed-forward network, residual connections, and layer normalization."
+    },
+    {
+      "id": "l7_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the full Transformer encoder-decoder pipeline for translating a sentence.",
+      "items": ["Decoder generates output tokens one at a time using masked self-attention and cross-attention", "Encoder processes the entire input sentence through self-attention layers", "Input sentence is converted into token embeddings", "Output tokens are converted into the translated sentence"],
+      "correct_order": ["Input sentence is converted into token embeddings", "Encoder processes the entire input sentence through self-attention layers", "Decoder generates output tokens one at a time using masked self-attention and cross-attention", "Output tokens are converted into the translated sentence"],
+      "explanation": "In a full encoder-decoder Transformer for translation: the input sentence is first tokenized and embedded, then the encoder processes all input tokens in parallel through self-attention layers to produce contextualized representations. The decoder then generates output tokens one at a time, using masked self-attention and cross-attention to the encoder output. Finally, the output tokens are assembled into the translated sentence."
+    }
+  ]
+}

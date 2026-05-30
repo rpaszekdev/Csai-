@@ -1,0 +1,107 @@
+{
+  "section_id": "l2",
+  "quiz_type": "fill_in_blank",
+  "title": "Backpropagation - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the activation function defined as max(0, x).",
+      "blank_sentence": "The ___ activation function outputs the input if it is positive and 0 otherwise.",
+      "correct_answer": "ReLU",
+      "acceptable_answers": ["ReLU", "relu", "RELU", "Relu"],
+      "explanation": "ReLU (Rectified Linear Unit) is defined as max(0, x). It is the most widely used activation in hidden layers because its constant gradient of 1 for positive inputs helps avoid the vanishing gradient problem."
+    },
+    {
+      "id": "l2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the activation function that outputs values between 0 and 1.",
+      "blank_sentence": "The ___ activation function squashes any input into the range (0, 1) and is commonly used for binary classification outputs.",
+      "correct_answer": "sigmoid",
+      "acceptable_answers": ["sigmoid", "Sigmoid"],
+      "explanation": "The sigmoid function maps any real number to a value between 0 and 1, making it ideal for producing a probability in binary classification. However, it causes vanishing gradients in hidden layers because its maximum gradient is only 0.25."
+    },
+    {
+      "id": "l2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the activation function whose outputs always sum to 1.",
+      "blank_sentence": "The ___ activation function converts raw scores into a probability distribution where all outputs sum to 1.",
+      "correct_answer": "softmax",
+      "acceptable_answers": ["softmax", "Softmax"],
+      "explanation": "Softmax takes a vector of raw scores (logits) and normalizes them into probabilities that sum to 1. It is the standard choice for the output layer in multi-class classification, paired with cross-entropy loss."
+    },
+    {
+      "id": "l2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the mathematical rule that backpropagation relies on.",
+      "blank_sentence": "Backpropagation uses the ___ rule to decompose the gradient of the loss through multiple layers of the network.",
+      "correct_answer": "chain",
+      "acceptable_answers": ["chain", "Chain"],
+      "explanation": "The chain rule from calculus allows us to compute the derivative of a composition of functions by multiplying local derivatives together. This is what enables backpropagation to efficiently calculate how each weight in every layer affects the final loss."
+    },
+    {
+      "id": "l2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the gradient problem caused by sigmoid and tanh in deep networks.",
+      "blank_sentence": "When gradients shrink toward zero as they pass through many layers, this is called the ___ gradient problem.",
+      "correct_answer": "vanishing",
+      "acceptable_answers": ["vanishing", "Vanishing"],
+      "explanation": "Sigmoid and tanh activations squash their gradients to small values (at most 0.25 for sigmoid). When these small values are multiplied together across many layers during backpropagation, the gradient effectively disappears, preventing early layers from learning."
+    },
+    {
+      "id": "l2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name the loss function used for regression tasks.",
+      "blank_sentence": "Mean ___ Error (MSE) calculates the average of the squared differences between predictions and true values.",
+      "correct_answer": "Squared",
+      "acceptable_answers": ["Squared", "squared", "Square", "square"],
+      "explanation": "MSE is the standard loss function for regression. By squaring the errors, it penalizes large mistakes more heavily than small ones. It is not suitable for classification tasks, where cross-entropy is preferred."
+    },
+    {
+      "id": "l2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the weight initialization method designed for ReLU networks.",
+      "blank_sentence": "___ initialization (also called Kaiming initialization) is specifically designed for networks using ReLU activation functions.",
+      "correct_answer": "He",
+      "acceptable_answers": ["He", "he", "HE", "Kaiming", "kaiming"],
+      "explanation": "He/Kaiming initialization scales the initial random weights to account for the fact that ReLU sets half of its inputs to zero. Without this adjustment, activations can either vanish or explode as they pass through many layers."
+    },
+    {
+      "id": "l2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Complete the sentence about the two phases of training.",
+      "blank_sentence": "During one training step, data first moves through the network in the ___ pass, then gradients flow backward to update weights.",
+      "correct_answer": "forward",
+      "acceptable_answers": ["forward", "Forward"],
+      "explanation": "The forward pass pushes input data through the network to produce a prediction and compute the loss. Then the backward pass (backpropagation) calculates gradients by flowing from the loss back toward the input, layer by layer."
+    },
+    {
+      "id": "l2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the variant of ReLU that allows a small gradient for negative inputs.",
+      "blank_sentence": "___ ReLU allows a small, non-zero output for negative inputs, which helps prevent neurons from dying.",
+      "correct_answer": "Leaky",
+      "acceptable_answers": ["Leaky", "leaky"],
+      "explanation": "Leaky ReLU modifies the standard ReLU by outputting a small fraction of the input (e.g., 0.01x) when the input is negative, instead of zero. This ensures a non-zero gradient always flows, preventing the dying ReLU problem."
+    },
+    {
+      "id": "l2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name the weight initialization method designed for sigmoid and tanh.",
+      "blank_sentence": "___ initialization (also called Glorot initialization) is recommended for networks using sigmoid or tanh activation functions.",
+      "correct_answer": "Xavier",
+      "acceptable_answers": ["Xavier", "xavier", "Glorot", "glorot"],
+      "explanation": "Xavier/Glorot initialization sets initial weights so that the variance of activations stays roughly the same across layers. It was designed for symmetric activations like sigmoid and tanh, while He initialization is preferred for ReLU."
+    }
+  ]
+}

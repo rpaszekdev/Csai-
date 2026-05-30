@@ -1,0 +1,107 @@
+{
+  "section_id": "l6",
+  "quiz_type": "fill_in_blank",
+  "title": "Recurrence - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l6_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "RNNs carry information across time steps using this internal representation.",
+      "blank_sentence": "RNNs process sequences by maintaining a ___ state that gets updated at each time step.",
+      "correct_answer": "hidden",
+      "acceptable_answers": ["hidden"],
+      "explanation": "The hidden state is the RNN's internal memory. At each time step, it is updated based on the current input and the previous hidden state, allowing the network to carry information forward through the sequence."
+    },
+    {
+      "id": "l6_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "This training algorithm unrolls the RNN and applies backpropagation across time steps.",
+      "blank_sentence": "The training algorithm for RNNs that unrolls the network across time steps is called Backpropagation Through ___.",
+      "correct_answer": "Time",
+      "acceptable_answers": ["Time", "time", "BPTT"],
+      "explanation": "Backpropagation Through Time (BPTT) treats the unrolled RNN as a deep feedforward network and applies standard backpropagation. Gradients are computed at each time step and accumulated to update the shared weight matrices."
+    },
+    {
+      "id": "l6_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "This problem occurs when gradients shrink exponentially during training on long sequences.",
+      "blank_sentence": "When gradients shrink as they propagate back through many time steps, this is called the ___ gradient problem.",
+      "correct_answer": "vanishing",
+      "acceptable_answers": ["vanishing"],
+      "explanation": "The vanishing gradient problem makes it difficult for vanilla RNNs to learn long-range dependencies. As gradients are multiplied by small values at each time step during backpropagation, they decay exponentially and provide almost no learning signal for early time steps."
+    },
+    {
+      "id": "l6_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "An LSTM has three gates: the input gate, the output gate, and this gate.",
+      "blank_sentence": "The LSTM gate that decides what information to discard from the cell state is called the ___ gate.",
+      "correct_answer": "forget",
+      "acceptable_answers": ["forget"],
+      "explanation": "The forget gate examines the current input and previous hidden state, then outputs values between 0 and 1 for each element in the cell state. Values close to 0 cause that information to be discarded, while values close to 1 retain it."
+    },
+    {
+      "id": "l6_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "This LSTM component acts as a long-term memory highway through the network.",
+      "blank_sentence": "In an LSTM, the ___ state provides a pathway for information to flow across many time steps with minimal change.",
+      "correct_answer": "cell",
+      "acceptable_answers": ["cell"],
+      "explanation": "The cell state is the key innovation of the LSTM. It runs through the entire sequence like a conveyor belt, with gates controlling what information is added or removed. This additive update mechanism helps gradients flow over long distances, addressing the vanishing gradient problem."
+    },
+    {
+      "id": "l6_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "A GRU uses two gates: the update gate and this gate.",
+      "blank_sentence": "The GRU gate that controls how much of the previous hidden state to consider when computing new candidate values is called the ___ gate.",
+      "correct_answer": "reset",
+      "acceptable_answers": ["reset"],
+      "explanation": "The reset gate determines how much of the previous hidden state should influence the candidate hidden state. When the reset gate outputs values close to 0, the GRU effectively ignores the previous state and computes the candidate based mostly on the current input."
+    },
+    {
+      "id": "l6_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "This architecture uses an encoder and a decoder to map one sequence to another.",
+      "blank_sentence": "The ___ architecture uses an encoder to process the input sequence and a decoder to generate the output sequence.",
+      "correct_answer": "Seq2Seq",
+      "acceptable_answers": ["Seq2Seq", "seq2seq", "sequence-to-sequence", "Sequence-to-Sequence", "sequence to sequence"],
+      "explanation": "Sequence-to-sequence (Seq2Seq) models consist of an encoder RNN that reads the input and produces a context vector, and a decoder RNN that generates the output sequence from that context vector. This design allows input and output sequences to have different lengths."
+    },
+    {
+      "id": "l6_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "This training technique feeds the correct previous token to the decoder instead of its own prediction.",
+      "blank_sentence": "During training, ___ forcing provides the ground-truth previous token as input to the decoder at each step.",
+      "correct_answer": "teacher",
+      "acceptable_answers": ["teacher", "Teacher"],
+      "explanation": "Teacher forcing speeds up training by preventing error accumulation in the decoder. Instead of using the decoder's potentially incorrect predictions as the next input, the actual correct token from the training data is provided. This creates faster convergence but can cause exposure bias."
+    },
+    {
+      "id": "l6_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "This RNN architecture type takes a sequence as input and produces a single output.",
+      "blank_sentence": "A ___-to-one RNN architecture reads an entire sequence and produces a single output, such as a sentiment label.",
+      "correct_answer": "many",
+      "acceptable_answers": ["many", "Many"],
+      "explanation": "Many-to-one is the RNN architecture where the network processes a variable-length input sequence and produces one output at the end. Common applications include sentiment analysis (reading a review, outputting positive/negative) and document classification."
+    },
+    {
+      "id": "l6_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "GRUs are often described this way relative to LSTMs because they have fewer parameters.",
+      "blank_sentence": "A GRU is a ___ version of the LSTM, using two gates instead of three and merging the cell state with the hidden state.",
+      "correct_answer": "simplified",
+      "acceptable_answers": ["simplified", "simpler", "simple"],
+      "explanation": "GRUs achieve a similar effect to LSTMs but with a more streamlined design. By combining the forget and input gates into a single update gate and eliminating the separate cell state, GRUs have fewer parameters and are faster to train, while often matching LSTM performance."
+    }
+  ]
+}

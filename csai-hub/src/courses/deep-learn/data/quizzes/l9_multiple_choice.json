@@ -1,0 +1,147 @@
+{
+  "section_id": "l9",
+  "quiz_type": "multiple_choice",
+  "title": "Positional Encoding & Transformers - Multiple Choice",
+  "questions": [
+    {
+      "id": "l9_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "How does an encoder model like BERT see its input during training?",
+      "options": {
+        "A": "It reads tokens left-to-right only, like reading a sentence one word at a time",
+        "B": "It sees both left and right context around each token (bidirectional)",
+        "C": "It processes tokens in random order each time",
+        "D": "It only looks at the first and last tokens of the sequence"
+      },
+      "correct_answer": "B",
+      "explanation": "BERT uses bidirectional attention, meaning every token can attend to all other tokens in both directions. This is a key advantage for understanding tasks like classification, since the model builds representations informed by the full surrounding context."
+    },
+    {
+      "id": "l9_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Why is BERT not considered a true language model?",
+      "options": {
+        "A": "Because it has too few parameters",
+        "B": "Because it cannot generate text or assign a probability to a sentence",
+        "C": "Because it does not use attention mechanisms",
+        "D": "Because it was trained on too little data"
+      },
+      "correct_answer": "B",
+      "explanation": "A true language model can assign probabilities to sequences by predicting each next token. BERT is trained with masked-language modeling, not autoregressive prediction, so it never learns to generate text sequentially or compute the probability of a complete sentence."
+    },
+    {
+      "id": "l9_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What training objective do decoder models like GPT use?",
+      "options": {
+        "A": "Masked-language modeling, predicting hidden tokens from both sides",
+        "B": "Contrastive learning between similar and dissimilar sentences",
+        "C": "Causal language modeling, predicting the next token from past context only",
+        "D": "Image-text matching across modalities"
+      },
+      "correct_answer": "C",
+      "explanation": "GPT-style decoder models are trained with causal language modeling: they predict the next token given only the tokens that came before it. This one-directional approach makes them natural text generators but limits the richness of their representations compared to bidirectional models."
+    },
+    {
+      "id": "l9_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Which Transformer architecture is best suited for text classification tasks?",
+      "options": {
+        "A": "Decoder-only (GPT), because it generates fluent text",
+        "B": "Encoder-only (BERT), because bidirectional attention captures the full input context",
+        "C": "Encoder-decoder (T5), because it can translate between languages",
+        "D": "Any architecture works equally well for classification"
+      },
+      "correct_answer": "B",
+      "explanation": "Encoder-only models like BERT are ideal for classification because they process the entire input bidirectionally and produce a rich [CLS] token representation that captures the full context. This single vector can then be fed to a simple classifier to predict a label."
+    },
+    {
+      "id": "l9_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Which architecture is best suited for summarization?",
+      "options": {
+        "A": "Encoder-only, because it understands the full input",
+        "B": "Decoder-only, because it generates text well",
+        "C": "Encoder-decoder, because it needs both full understanding and generation ability",
+        "D": "A simple bag-of-words model"
+      },
+      "correct_answer": "C",
+      "explanation": "Summarization requires both understanding the full source document and generating a coherent shorter version. Encoder-decoder models like T5 or BART are designed for exactly this: the encoder reads the full input bidirectionally, and the decoder generates the summary token by token using cross-attention to the encoder output."
+    },
+    {
+      "id": "l9_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Why do Transformers need positional encoding?",
+      "options": {
+        "A": "To reduce the number of parameters in the model",
+        "B": "To speed up training by parallelizing attention",
+        "C": "Because self-attention has no built-in notion of token order",
+        "D": "To convert words into numerical representations"
+      },
+      "correct_answer": "C",
+      "explanation": "Self-attention treats its input as a set and produces the same output regardless of token order. Without positional encoding, the model could not distinguish 'the dog bit the man' from 'the man bit the dog.' Positional encoding injects information about where each token sits in the sequence."
+    },
+    {
+      "id": "l9_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "In sinusoidal positional encoding, which function is used for even embedding dimensions?",
+      "options": {
+        "A": "Cosine",
+        "B": "Tangent",
+        "C": "Sine",
+        "D": "Logarithm"
+      },
+      "correct_answer": "C",
+      "explanation": "The sinusoidal positional encoding formula assigns the sine function to even dimensions (indices 0, 2, 4, ...) and the cosine function to odd dimensions (indices 1, 3, 5, ...). Using both functions at each frequency gives each position a unique fingerprint."
+    },
+    {
+      "id": "l9_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What is the main advantage of fixed sinusoidal positional encodings over learned positional embeddings?",
+      "options": {
+        "A": "They always produce higher accuracy on benchmarks",
+        "B": "They can generalize to longer sequences than those seen during training",
+        "C": "They require more memory, which improves performance",
+        "D": "They eliminate the need for self-attention"
+      },
+      "correct_answer": "B",
+      "explanation": "Sinusoidal encodings are defined by a mathematical formula that works for any position, so the model can handle sequences longer than anything it saw during training. Learned embeddings, by contrast, have a fixed maximum length and cannot extrapolate beyond it."
+    },
+    {
+      "id": "l9_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In cross-attention within an encoder-decoder model, where do the queries come from?",
+      "options": {
+        "A": "From the encoder's hidden states",
+        "B": "From the decoder's hidden states",
+        "C": "From the input embeddings directly",
+        "D": "From a separate learned matrix unrelated to encoder or decoder"
+      },
+      "correct_answer": "B",
+      "explanation": "In cross-attention, the decoder generates queries from its own hidden states, essentially asking 'which parts of the input should I focus on?' The keys and values come from the encoder's hidden states, providing the information to attend to. This lets the decoder focus on relevant input parts while generating each output token."
+    },
+    {
+      "id": "l9_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What is the purpose of applying dropout after adding positional encoding to token embeddings?",
+      "options": {
+        "A": "To increase the model's parameter count",
+        "B": "To prevent the model from over-relying on position information",
+        "C": "To remove positional information entirely",
+        "D": "To convert continuous values to discrete tokens"
+      },
+      "correct_answer": "B",
+      "explanation": "Dropout randomly zeroes out some elements of the combined embedding during training. Applied after adding positional encoding, it prevents the model from becoming overly dependent on exact position signals, encouraging it to learn more robust representations that generalize better."
+    }
+  ]
+}

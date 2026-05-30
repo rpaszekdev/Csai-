@@ -1,0 +1,157 @@
+{
+  "section_id": "l9",
+  "quiz_type": "multiple_response",
+  "title": "Positional Encoding & Transformers - Multiple Response",
+  "questions": [
+    {
+      "id": "l9_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are true about encoder models like BERT? (Select all that apply)",
+      "options": {
+        "A": "They are trained using masked-language modeling",
+        "B": "They see both left and right context (bidirectional)",
+        "C": "They can generate text like GPT",
+        "D": "They are well-suited for classification tasks",
+        "E": "They are not true language models because they cannot assign sentence probabilities"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "BERT uses masked-language modeling (A) with bidirectional attention (B), making it excellent for classification (D). Because it never learns to predict the next token sequentially, it cannot generate text or compute sentence probabilities, so it is not a true language model (E). C is false -- BERT cannot generate text."
+    },
+    {
+      "id": "l9_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are true about decoder models like GPT? (Select all that apply)",
+      "options": {
+        "A": "They are trained with causal language modeling",
+        "B": "They can only attend to past tokens due to causal masking",
+        "C": "They produce bidirectional representations",
+        "D": "They are well-suited for text generation",
+        "E": "Their representations are one-directional"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "GPT uses causal language modeling (A) with causal masking that prevents attending to future tokens (B), making it excellent for generation (D). Its representations are one-directional since they only incorporate past context (E). C is false -- decoder models produce one-directional, not bidirectional, representations."
+    },
+    {
+      "id": "l9_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are true about sinusoidal positional encodings? (Select all that apply)",
+      "options": {
+        "A": "They use sine for even dimensions and cosine for odd dimensions",
+        "B": "They are learned during training via backpropagation",
+        "C": "They can generalize to sequence lengths longer than those seen during training",
+        "D": "Lower dimensions change rapidly, capturing local patterns",
+        "E": "Higher dimensions change slowly, capturing global patterns"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "Sinusoidal encodings use sine for even and cosine for odd dimensions (A), can generalize to arbitrary lengths (C), have rapid variation at lower dimensions for local patterns (D), and slow variation at higher dimensions for global patterns (E). B is false -- they are fixed, computed from a formula, and add no trainable parameters."
+    },
+    {
+      "id": "l9_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are true about cross-attention in encoder-decoder models? (Select all that apply)",
+      "options": {
+        "A": "Queries come from the decoder's hidden states",
+        "B": "Keys and values come from the encoder's hidden states",
+        "C": "It allows the decoder to attend to relevant parts of the input",
+        "D": "Queries, keys, and values all come from the same source",
+        "E": "It is used in models like T5 and the original Transformer"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "In cross-attention, queries come from the decoder (A), keys and values from the encoder (B), enabling the decoder to focus on relevant input parts (C). This mechanism is used in T5, BART, and the original Transformer (E). D is false -- that describes self-attention, not cross-attention."
+    },
+    {
+      "id": "l9_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are reasons why Transformers need positional encoding? (Select all that apply)",
+      "options": {
+        "A": "Self-attention has no built-in notion of token order",
+        "B": "Without it, different word orderings produce identical representations",
+        "C": "Transformers use recurrence, which loses position information",
+        "D": "The model needs position information to understand syntax and meaning",
+        "E": "Positional encoding helps the model learn word meanings"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "Self-attention is permutation-equivariant and treats input as a set (A), so without position info, 'the dog bit the man' and 'the man bit the dog' look identical (B). Position is essential for understanding syntax and semantics (D). C is false -- Transformers do not use recurrence. E is false -- word embeddings handle word meanings; positional encoding handles order."
+    },
+    {
+      "id": "l9_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which tasks are best suited for encoder-decoder architectures like T5 or BART? (Select all that apply)",
+      "options": {
+        "A": "Machine translation",
+        "B": "Text summarization",
+        "C": "Single-label sentiment classification",
+        "D": "Named entity recognition",
+        "E": "Question answering with generated responses"
+      },
+      "correct_answers": ["A", "B", "E"],
+      "explanation": "Translation (A), summarization (B), and generative question answering (E) are sequence-to-sequence tasks that require understanding the full input and generating structured output. Sentiment classification (C) and named entity recognition (D) are understanding tasks better suited to encoder-only models, since they need labels or tags rather than generated text."
+    },
+    {
+      "id": "l9_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe encoder-decoder models like T5 or BART? (Select all that apply)",
+      "options": {
+        "A": "The encoder reads the full input sequence bidirectionally",
+        "B": "The decoder generates output token by token",
+        "C": "They are ideal for translation and summarization",
+        "D": "They use only causal masking throughout the entire model",
+        "E": "The decoder uses cross-attention to consult the encoder's representations"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The encoder uses full bidirectional attention (A), the decoder generates autoregressively (B) while consulting the encoder via cross-attention (E), making them ideal for seq2seq tasks (C). D is false -- only the decoder uses causal masking; the encoder uses bidirectional attention."
+    },
+    {
+      "id": "l9_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are properties of the positional encoding matrix shape? (Select all that apply)",
+      "options": {
+        "A": "Rows correspond to positions in the sequence",
+        "B": "Columns correspond to embedding dimensions",
+        "C": "Its shape is (sequence_length, embedding_dimension)",
+        "D": "It is a single scalar value per token",
+        "E": "It is added element-wise to the input embeddings"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The PE matrix has shape (sequence_length, embedding_dimension) (C), where rows represent positions (A) and columns represent dimensions (B). It is added element-wise to token embeddings (E) so each token gains position information. D is false -- each position gets a full vector, not a single scalar."
+    },
+    {
+      "id": "l9_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are advantages of fixed sinusoidal positional encodings? (Select all that apply)",
+      "options": {
+        "A": "They can handle sequences longer than those seen during training",
+        "B": "They add no trainable parameters to the model",
+        "C": "They always outperform learned embeddings on every task",
+        "D": "Each position gets a unique combination of sine and cosine values",
+        "E": "Different frequencies capture patterns at different scales (local and global)"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Sinusoidal encodings generalize to arbitrary lengths (A), are parameter-free (B), give each position a unique fingerprint (D), and capture multi-scale patterns through different frequencies (E). C is false -- learned embeddings can sometimes be more expressive for specific tasks; sinusoidal encodings are not universally superior."
+    },
+    {
+      "id": "l9_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the [CLS] token in BERT? (Select all that apply)",
+      "options": {
+        "A": "It is prepended to the beginning of the input sequence",
+        "B": "Its final representation serves as a summary of the entire input",
+        "C": "It is used as input to a classifier for classification tasks",
+        "D": "It is only used during pre-training, not fine-tuning",
+        "E": "It aggregates information from all tokens through bidirectional attention"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The [CLS] token is placed at the start of the input (A) and, after passing through bidirectional attention layers, its representation aggregates information from all tokens (E), serving as a sequence-level summary (B) that feeds a classification head (C). D is false -- [CLS] is used in both pre-training and fine-tuning for classification."
+    }
+  ]
+}

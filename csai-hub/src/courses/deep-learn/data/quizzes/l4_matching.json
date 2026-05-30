@@ -1,0 +1,157 @@
+{
+  "section_id": "l4",
+  "quiz_type": "matching",
+  "title": "CNNs - Matching",
+  "questions": [
+    {
+      "id": "l4_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each CNN component to what it does.",
+      "items": ["Kernel/Filter", "Feature map", "Pooling layer", "Fully connected layer"],
+      "categories": ["Slides over the input and computes weighted sums to detect patterns", "The output produced by applying one kernel to the input", "Reduces spatial dimensions by summarizing local regions", "Takes the flattened features and produces final class predictions"],
+      "correct_mapping": {
+        "Kernel/Filter": "Slides over the input and computes weighted sums to detect patterns",
+        "Feature map": "The output produced by applying one kernel to the input",
+        "Pooling layer": "Reduces spatial dimensions by summarizing local regions",
+        "Fully connected layer": "Takes the flattened features and produces final class predictions"
+      },
+      "explanation": "A kernel is a small set of learnable weights that detects patterns like edges. Each kernel produces a feature map showing where the pattern appears. Pooling shrinks the spatial size by keeping only summary statistics (e.g., the max). Finally, fully connected layers use the flattened features for classification."
+    },
+    {
+      "id": "l4_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each convolution parameter to its effect on the output.",
+      "items": ["Larger stride", "Adding padding", "More kernels", "Larger kernel size"],
+      "categories": ["Produces a smaller output by skipping positions", "Helps control output size by adding zeros around the input", "Increases the number of output feature maps (channels)", "Each kernel covers a larger area of the input at each position"],
+      "correct_mapping": {
+        "Larger stride": "Produces a smaller output by skipping positions",
+        "Adding padding": "Helps control output size by adding zeros around the input",
+        "More kernels": "Increases the number of output feature maps (channels)",
+        "Larger kernel size": "Each kernel covers a larger area of the input at each position"
+      },
+      "explanation": "Stride determines how far the kernel moves between positions; larger stride means fewer positions and smaller output. Padding adds zeros around the border to prevent shrinking. The number of kernels determines how many feature maps (channels) the layer outputs. A larger kernel covers more of the input at once."
+    },
+    {
+      "id": "l4_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each type of feature to where it is typically detected in a CNN.",
+      "items": ["Edges and simple lines", "Textures and corners", "Object parts", "Whole objects"],
+      "categories": ["Early/first convolutional layers", "Second and third layers", "Middle layers", "Deepest layers"],
+      "correct_mapping": {
+        "Edges and simple lines": "Early/first convolutional layers",
+        "Textures and corners": "Second and third layers",
+        "Object parts": "Middle layers",
+        "Whole objects": "Deepest layers"
+      },
+      "explanation": "CNNs learn a hierarchy of features. The first layers detect simple edges and lines. The next layers combine edges into textures and corners. Middle layers compose textures into recognizable parts like eyes or wheels. The deepest layers represent entire objects by combining parts together."
+    },
+    {
+      "id": "l4_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each CNN property to its description.",
+      "items": ["Parameter sharing", "Translation equivariance", "Local connectivity", "Hierarchical features"],
+      "categories": ["The same kernel weights are used at every spatial position", "Shifting the input shifts the feature map the same way", "Each output value depends only on a small local region of the input", "Simple features combine into increasingly complex ones through layers"],
+      "correct_mapping": {
+        "Parameter sharing": "The same kernel weights are used at every spatial position",
+        "Translation equivariance": "Shifting the input shifts the feature map the same way",
+        "Local connectivity": "Each output value depends only on a small local region of the input",
+        "Hierarchical features": "Simple features combine into increasingly complex ones through layers"
+      },
+      "explanation": "Parameter sharing reuses the same weights everywhere, drastically reducing the number of parameters. This sharing causes translation equivariance, so patterns are detected regardless of position. Local connectivity means each output only looks at a small patch. Stacking layers builds a hierarchy from simple edges to complex objects."
+    },
+    {
+      "id": "l4_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each kernel type to what it detects.",
+      "items": ["Horizontal edge kernel", "Vertical edge kernel", "Diagonal edge kernel", "Texture kernel"],
+      "categories": ["Responds to changes between top and bottom rows", "Responds to changes between left and right columns", "Responds to changes along a diagonal direction", "Responds to repeating small-scale patterns"],
+      "correct_mapping": {
+        "Horizontal edge kernel": "Responds to changes between top and bottom rows",
+        "Vertical edge kernel": "Responds to changes between left and right columns",
+        "Diagonal edge kernel": "Responds to changes along a diagonal direction",
+        "Texture kernel": "Responds to repeating small-scale patterns"
+      },
+      "explanation": "Different kernels are sensitive to different patterns. A horizontal edge kernel has contrasting values in its top and bottom rows, so it fires at horizontal boundaries. A vertical edge kernel has contrasting left and right columns. Diagonal kernels detect edges at angles. Texture kernels respond to repetitive local patterns."
+    },
+    {
+      "id": "l4_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each pooling concept to its description.",
+      "items": ["Max pooling", "Average pooling", "Pooling window size", "Pooling stride"],
+      "categories": ["Keeps only the largest value in each region", "Computes the mean of all values in each region", "Determines how large each pooling region is", "Controls how far the pooling window moves between regions"],
+      "correct_mapping": {
+        "Max pooling": "Keeps only the largest value in each region",
+        "Average pooling": "Computes the mean of all values in each region",
+        "Pooling window size": "Determines how large each pooling region is",
+        "Pooling stride": "Controls how far the pooling window moves between regions"
+      },
+      "explanation": "Max pooling retains the strongest activation in each window, emphasizing the presence of features. Average pooling takes the mean, preserving overall activation levels. The window size (e.g., 2x2) sets the area being summarized, and the stride (e.g., 2) determines how much the window moves, controlling how much the output shrinks."
+    },
+    {
+      "id": "l4_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each stage of a typical CNN architecture to its role.",
+      "items": ["Convolutional layers", "Pooling layers", "Flatten operation", "Fully connected layers"],
+      "categories": ["Extract spatial features using learned kernels", "Reduce spatial dimensions while retaining important information", "Convert 3D feature maps into a 1D vector", "Combine all features to make a final prediction"],
+      "correct_mapping": {
+        "Convolutional layers": "Extract spatial features using learned kernels",
+        "Pooling layers": "Reduce spatial dimensions while retaining important information",
+        "Flatten operation": "Convert 3D feature maps into a 1D vector",
+        "Fully connected layers": "Combine all features to make a final prediction"
+      },
+      "explanation": "A CNN pipeline starts with convolutional layers that detect features at various levels of complexity. Pooling layers reduce the spatial size, making computation manageable. The flatten step reshapes the 3D feature maps into a 1D vector. Fully connected layers then use all the extracted features to produce class predictions."
+    },
+    {
+      "id": "l4_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each term related to channels to its meaning.",
+      "items": ["Input channels (RGB image)", "Output channels", "Kernel depth", "1x1 convolution"],
+      "categories": ["3 channels representing Red, Green, and Blue", "Number of feature maps produced by a convolutional layer", "The kernel spans all input channels", "Changes the number of channels without changing spatial size"],
+      "correct_mapping": {
+        "Input channels (RGB image)": "3 channels representing Red, Green, and Blue",
+        "Output channels": "Number of feature maps produced by a convolutional layer",
+        "Kernel depth": "The kernel spans all input channels",
+        "1x1 convolution": "Changes the number of channels without changing spatial size"
+      },
+      "explanation": "An RGB image has 3 input channels. Each kernel in a conv layer spans all input channels (its depth matches the input depth) and produces one output feature map. The number of kernels determines the number of output channels. A 1x1 convolution mixes across channels at each position to adjust the channel count."
+    },
+    {
+      "id": "l4_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each output size factor to how it affects the convolution output.",
+      "items": ["Input size", "Kernel size", "Padding", "Stride"],
+      "categories": ["Larger input produces larger output", "Larger kernel causes the output to shrink more", "Adding more padding increases the output size", "Larger stride decreases the output size"],
+      "correct_mapping": {
+        "Input size": "Larger input produces larger output",
+        "Kernel size": "Larger kernel causes the output to shrink more",
+        "Padding": "Adding more padding increases the output size",
+        "Stride": "Larger stride decreases the output size"
+      },
+      "explanation": "The output size formula is (input - kernel + 2*padding) / stride + 1. A larger input gives more positions for the kernel. A larger kernel means fewer valid positions (output shrinks). More padding expands the effective input, counteracting shrinkage. A larger stride means the kernel skips more positions, reducing the output."
+    },
+    {
+      "id": "l4_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each advantage of CNNs over fully connected networks for images to its explanation.",
+      "items": ["Fewer parameters", "Spatial awareness", "Translation equivariance", "Scalability"],
+      "categories": ["Parameter sharing means the same kernel weights are reused everywhere", "Kernels preserve the 2D structure of the input instead of flattening it", "A pattern detected in one location is detected the same way elsewhere", "Can handle large images without an explosion in the number of weights"],
+      "correct_mapping": {
+        "Fewer parameters": "Parameter sharing means the same kernel weights are reused everywhere",
+        "Spatial awareness": "Kernels preserve the 2D structure of the input instead of flattening it",
+        "Translation equivariance": "A pattern detected in one location is detected the same way elsewhere",
+        "Scalability": "Can handle large images without an explosion in the number of weights"
+      },
+      "explanation": "CNNs use parameter sharing so a small kernel is reused across the entire input, keeping the parameter count low. Unlike fully connected layers that flatten the image, convolutions operate on the 2D spatial structure. Because the same kernel applies everywhere, features are detected regardless of position. This all means CNNs scale well to large images."
+    }
+  ]
+}

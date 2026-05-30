@@ -11,6 +11,9 @@ import RoadmapView from "./courses/cog-neuro/routes/RoadmapView";
 import QuizIndex from "./courses/cog-neuro/routes/QuizIndex";
 import QuizSession from "./courses/cog-neuro/routes/QuizSession";
 import BrainQuizView from "./courses/cog-neuro/routes/BrainQuizView";
+import DeepLearnDashboard from "./courses/deep-learn/routes/DeepLearnDashboard";
+import DLQuizIndex from "./courses/deep-learn/routes/QuizIndex";
+import DLQuizSession from "./courses/deep-learn/routes/QuizSession";
 import NotesPage from "./routes/NotesPage";
 import EventModal from "./components/EventModal";
 import CoffeeButton from "./components/CoffeeButton";
@@ -61,6 +64,11 @@ function App() {
           <Route path="quiz" element={<QuizIndex />} />
           <Route path="quiz/:sectionId/:quizType" element={<QuizSession />} />
           <Route path="brain-quiz" element={<BrainQuizView />} />
+        </Route>
+        <Route path="/courses/deep-learn" element={<DeepLearnDashboard />}>
+          <Route index element={<DLQuizIndex />} />
+          <Route path="quiz" element={<DLQuizIndex />} />
+          <Route path="quiz/:sectionId/:quizType" element={<DLQuizSession />} />
         </Route>
       </Routes>
       <Analytics />

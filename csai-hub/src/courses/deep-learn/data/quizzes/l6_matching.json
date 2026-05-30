@@ -1,0 +1,151 @@
+{
+  "section_id": "l6",
+  "quiz_type": "matching",
+  "title": "Recurrence - Matching",
+  "questions": [
+    {
+      "id": "l6_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each LSTM gate to its function.",
+      "items": ["Forget gate", "Input gate", "Output gate"],
+      "categories": ["Decides what to discard from the cell state", "Decides what new information to store in the cell state", "Decides what to output from the cell state"],
+      "correct_mapping": {
+        "Forget gate": "Decides what to discard from the cell state",
+        "Input gate": "Decides what new information to store in the cell state",
+        "Output gate": "Decides what to output from the cell state"
+      },
+      "explanation": "The three LSTM gates each control a different aspect of the cell state. The forget gate removes irrelevant information, the input gate adds new relevant information, and the output gate determines which parts of the cell state become visible as the hidden state."
+    },
+    {
+      "id": "l6_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each RNN architecture type to an example application.",
+      "items": ["Many-to-one", "One-to-many", "Many-to-many (same length)", "Many-to-many (different length)"],
+      "categories": ["Sentiment analysis", "Music generation from a seed note", "Part-of-speech tagging", "Machine translation"],
+      "correct_mapping": {
+        "Many-to-one": "Sentiment analysis",
+        "One-to-many": "Music generation from a seed note",
+        "Many-to-many (same length)": "Part-of-speech tagging",
+        "Many-to-many (different length)": "Machine translation"
+      },
+      "explanation": "Sentiment analysis reads a full review and outputs one label (many-to-one). Music generation takes a starting note and produces a sequence (one-to-many). POS tagging assigns one tag per word (same-length many-to-many). Translation produces a different-length output in another language (different-length many-to-many via encoder-decoder)."
+    },
+    {
+      "id": "l6_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each GRU gate to its purpose.",
+      "items": ["Reset gate", "Update gate"],
+      "categories": ["Controls how much of the past hidden state to forget when computing the candidate", "Balances how much of the old hidden state to keep vs. replace with new information"],
+      "correct_mapping": {
+        "Reset gate": "Controls how much of the past hidden state to forget when computing the candidate",
+        "Update gate": "Balances how much of the old hidden state to keep vs. replace with new information"
+      },
+      "explanation": "The reset gate determines how much previous context to use when forming a new candidate hidden state. The update gate then decides the final mix between keeping the old hidden state and adopting the new candidate. Together they provide similar functionality to the LSTM's three gates."
+    },
+    {
+      "id": "l6_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each RNN problem to its solution.",
+      "items": ["Vanishing gradients", "Exploding gradients", "Exposure bias from teacher forcing"],
+      "categories": ["LSTM/GRU gated architectures", "Gradient clipping", "Scheduled sampling"],
+      "correct_mapping": {
+        "Vanishing gradients": "LSTM/GRU gated architectures",
+        "Exploding gradients": "Gradient clipping",
+        "Exposure bias from teacher forcing": "Scheduled sampling"
+      },
+      "explanation": "LSTMs and GRUs address vanishing gradients through their gating mechanisms and additive cell state updates. Gradient clipping caps the gradient magnitude to prevent parameter explosions. Scheduled sampling gradually transitions from teacher forcing to the model's own predictions during training, reducing the mismatch with inference."
+    },
+    {
+      "id": "l6_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each Seq2Seq component to its role.",
+      "items": ["Encoder", "Decoder", "Context vector"],
+      "categories": ["Processes the input sequence", "Generates the output sequence", "Fixed-length summary passed from encoder to decoder"],
+      "correct_mapping": {
+        "Encoder": "Processes the input sequence",
+        "Decoder": "Generates the output sequence",
+        "Context vector": "Fixed-length summary passed from encoder to decoder"
+      },
+      "explanation": "The encoder reads the entire input and compresses it into a context vector (its final hidden state). The decoder is initialized with this context vector and generates the output one token at a time. The context vector is the bridge between the two, carrying all the information about the input."
+    },
+    {
+      "id": "l6_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each recurrent architecture to its number of gates.",
+      "items": ["Vanilla RNN", "GRU", "LSTM"],
+      "categories": ["No gates", "Two gates (reset and update)", "Three gates (forget, input, and output)"],
+      "correct_mapping": {
+        "Vanilla RNN": "No gates",
+        "GRU": "Two gates (reset and update)",
+        "LSTM": "Three gates (forget, input, and output)"
+      },
+      "explanation": "Vanilla RNNs have no gating mechanism, relying on a simple hidden state update. GRUs introduce two gates to control information flow. LSTMs use three gates plus a separate cell state for the most fine-grained control over memory."
+    },
+    {
+      "id": "l6_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each concept to whether it describes the hidden state or the cell state in an LSTM.",
+      "items": ["Acts as long-term memory", "Produced by the output gate", "Updated additively by forget and input gates", "Directly used as the LSTM's output"],
+      "categories": ["Cell state", "Hidden state", "Cell state", "Hidden state"],
+      "correct_mapping": {
+        "Acts as long-term memory": "Cell state",
+        "Produced by the output gate": "Hidden state",
+        "Updated additively by forget and input gates": "Cell state",
+        "Directly used as the LSTM's output": "Hidden state"
+      },
+      "explanation": "The cell state is the LSTM's long-term memory, updated additively through the forget gate (what to remove) and input gate (what to add). The hidden state is the LSTM's output at each time step, produced by applying the output gate to the cell state. The cell state preserves information; the hidden state exposes selected information."
+    },
+    {
+      "id": "l6_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each RNN application to its description.",
+      "items": ["Text generation", "Machine translation", "Speech recognition", "Sentiment analysis"],
+      "categories": ["Producing new text one character or word at a time", "Converting a sentence in one language to another", "Converting audio signals into text", "Classifying whether a review is positive or negative"],
+      "correct_mapping": {
+        "Text generation": "Producing new text one character or word at a time",
+        "Machine translation": "Converting a sentence in one language to another",
+        "Speech recognition": "Converting audio signals into text",
+        "Sentiment analysis": "Classifying whether a review is positive or negative"
+      },
+      "explanation": "These are all common RNN applications. Text generation is one-to-many or many-to-many. Machine translation and speech recognition are many-to-many with different-length inputs and outputs. Sentiment analysis is many-to-one, producing a single label from an input sequence."
+    },
+    {
+      "id": "l6_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each training concept to its description.",
+      "items": ["Teacher forcing", "BPTT", "Gradient clipping", "Scheduled sampling"],
+      "categories": ["Feed ground-truth tokens to the decoder during training", "Unroll the RNN and backpropagate through all time steps", "Cap gradient magnitude to prevent instability", "Gradually shift from ground-truth to model predictions during training"],
+      "correct_mapping": {
+        "Teacher forcing": "Feed ground-truth tokens to the decoder during training",
+        "BPTT": "Unroll the RNN and backpropagate through all time steps",
+        "Gradient clipping": "Cap gradient magnitude to prevent instability",
+        "Scheduled sampling": "Gradually shift from ground-truth to model predictions during training"
+      },
+      "explanation": "Teacher forcing speeds up decoder training by providing correct inputs. BPTT is the standard method for computing gradients in RNNs. Gradient clipping prevents exploding gradients by capping the gradient norm. Scheduled sampling bridges the gap between teacher forcing during training and self-generated predictions during inference."
+    },
+    {
+      "id": "l6_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each feature to the architecture it describes: GRU or LSTM.",
+      "items": ["Has a separate cell state", "Merges cell state and hidden state", "Uses three gates", "Uses two gates"],
+      "categories": ["LSTM", "GRU", "LSTM", "GRU"],
+      "correct_mapping": {
+        "Has a separate cell state": "LSTM",
+        "Merges cell state and hidden state": "GRU",
+        "Uses three gates": "LSTM",
+        "Uses two gates": "GRU"
+      },
+      "explanation": "LSTMs maintain a separate cell state for long-term memory and use three gates (forget, input, output) to manage it. GRUs simplify this by merging the cell state into the hidden state and using only two gates (reset and update). Despite the simpler design, GRUs often achieve comparable performance to LSTMs."
+    }
+  ]
+}

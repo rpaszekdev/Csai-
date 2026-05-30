@@ -27,13 +27,8 @@ export default function Introduction() {
         <Link className="resource-link" to="/notes">
           Notes
         </Link>
-        <a
-          className="resource-link"
-          href="https://wa.me/48725850750"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Contact · WhatsApp +48 725 850 750
+        <a className="resource-link" href="mailto:robert.f.developer@gmail.com">
+          Contact · robert.f.developer@gmail.com
         </a>
         <a
           className="resource-link"

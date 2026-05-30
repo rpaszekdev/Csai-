@@ -1,0 +1,157 @@
+{
+  "section_id": "l8",
+  "quiz_type": "multiple_response",
+  "title": "Computer Vision - Multiple Response",
+  "questions": [
+    {
+      "id": "l8_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are single-stage (one-pass) object detectors? (Select all that apply)",
+      "options": {
+        "A": "YOLO",
+        "B": "Faster R-CNN",
+        "C": "SSD",
+        "D": "R-CNN",
+        "E": "U-Net"
+      },
+      "correct_answers": ["A", "C"],
+      "explanation": "YOLO and SSD are both single-stage detectors that predict bounding boxes and class labels in one forward pass without a separate region proposal step. Faster R-CNN and R-CNN are two-stage detectors. U-Net is a segmentation architecture, not an object detector."
+    },
+    {
+      "id": "l8_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are common image data augmentation techniques? (Select all that apply)",
+      "options": {
+        "A": "Random horizontal flipping",
+        "B": "CutMix",
+        "C": "Dropout",
+        "D": "Color jitter",
+        "E": "Random rotation"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Flipping, CutMix, color jitter, and rotation are all data augmentation techniques that modify input images to increase training diversity. Dropout is a regularization technique applied to neurons inside the network, not a transformation of the input images."
+    },
+    {
+      "id": "l8_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are true about transfer learning? (Select all that apply)",
+      "options": {
+        "A": "Early layers of a pretrained model learn general features like edges that transfer well",
+        "B": "The pretrained classification head is usually replaced for the new task",
+        "C": "Transfer learning only works when the source and target tasks are identical",
+        "D": "Fine-tuning typically uses a smaller learning rate than training from scratch",
+        "E": "ImageNet is a common source of pretrained models"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Early layers learn transferable features (A), the head must be replaced for new classes (B), smaller learning rates preserve pretrained knowledge (D), and ImageNet is the most common pretraining dataset (E). C is false -- transfer learning is valuable precisely because it works across different tasks and domains."
+    },
+    {
+      "id": "l8_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are components of Faster R-CNN? (Select all that apply)",
+      "options": {
+        "A": "Region Proposal Network (RPN)",
+        "B": "ROI Pooling",
+        "C": "Single-shot grid predictions like YOLO",
+        "D": "Backbone CNN for feature extraction",
+        "E": "Classification and bounding box regression heads"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Faster R-CNN consists of a backbone CNN (D) for features, an RPN (A) for proposals, ROI Pooling (B) to standardize features per proposal, and classification/regression heads (E) for final predictions. Single-shot grid prediction (C) belongs to YOLO, not Faster R-CNN."
+    },
+    {
+      "id": "l8_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the Vision Transformer (ViT)? (Select all that apply)",
+      "options": {
+        "A": "It splits images into fixed-size patches",
+        "B": "It uses convolutions as its main mechanism",
+        "C": "It adds position embeddings to encode spatial information",
+        "D": "It needs large amounts of pretraining data to match CNN performance",
+        "E": "It uses a [CLS] token for classification"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "ViT splits images into patches (A), adds position embeddings (C), needs large-scale pretraining (D), and uses a [CLS] token (E). It does not rely on convolutions (B) -- it uses a linear projection for patch embedding and self-attention for feature extraction, which is what makes it different from CNNs."
+    },
+    {
+      "id": "l8_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which tasks require pixel-level predictions? (Select all that apply)",
+      "options": {
+        "A": "Image classification",
+        "B": "Semantic segmentation",
+        "C": "Object detection",
+        "D": "Instance segmentation",
+        "E": "Generating Class Activation Maps"
+      },
+      "correct_answers": ["B", "D"],
+      "explanation": "Semantic segmentation assigns a class to every pixel, and instance segmentation assigns both a class and an instance ID to every pixel. Image classification outputs a single label per image. Object detection outputs bounding boxes, not pixel masks. CAMs produce heatmaps for visualization but are not a prediction task requiring pixel-level output."
+    },
+    {
+      "id": "l8_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are true about anchor boxes? (Select all that apply)",
+      "options": {
+        "A": "They come in multiple scales and aspect ratios",
+        "B": "The model predicts offsets relative to anchors, not absolute coordinates",
+        "C": "Each anchor is matched to a ground-truth object or marked as background during training",
+        "D": "Anchor boxes have completely replaced all other detection approaches",
+        "E": "Clustering ground-truth boxes can help choose good anchor dimensions"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Anchors cover multiple scales and ratios (A), the model predicts offsets from them (B), and they are matched to ground truth during training (C). K-means clustering on training boxes can determine optimal anchor sizes (E). D is false -- anchor-free detectors like CenterNet and FCOS are competitive alternatives."
+    },
+    {
+      "id": "l8_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are advantages of Feature Pyramid Networks (FPN)? (Select all that apply)",
+      "options": {
+        "A": "Strong semantic features at all resolution levels",
+        "B": "Better detection of small objects using high-resolution feature maps",
+        "C": "Eliminates the need for a backbone network",
+        "D": "Combines top-down and bottom-up information via lateral connections",
+        "E": "Adds minimal extra computation on top of the backbone"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "FPN provides rich features at every scale (A), which helps with small objects (B), by merging top-down semantics with bottom-up spatial detail through lateral connections (D), with low overhead (E). C is false -- FPN requires a backbone network like ResNet to produce the initial features."
+    },
+    {
+      "id": "l8_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are valid fine-tuning strategies for adapting a pretrained model? (Select all that apply)",
+      "options": {
+        "A": "Freeze all layers and only train a new classification head",
+        "B": "Unfreeze and train all layers end-to-end",
+        "C": "Gradually unfreeze layers from top to bottom during training",
+        "D": "Delete the pretrained backbone and replace with a random one",
+        "E": "Use a lower learning rate for pretrained layers than for new layers"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Freezing the backbone (A), full fine-tuning (B), gradual unfreezing (C), and discriminative learning rates (E) are all established strategies. Deleting the backbone (D) throws away all pretrained knowledge, defeating the purpose of transfer learning."
+    },
+    {
+      "id": "l8_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are true about U-Net? (Select all that apply)",
+      "options": {
+        "A": "It has a symmetric encoder-decoder structure",
+        "B": "Skip connections concatenate encoder features to decoder features",
+        "C": "It was originally designed for biomedical image segmentation",
+        "D": "It requires very large datasets to work",
+        "E": "The decoder uses upsampling to restore spatial resolution"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "U-Net has a symmetric U-shape (A), skip connections via concatenation (B), was built for biomedical segmentation (C), and uses upsampling in the decoder (E). D is false -- one of U-Net's key strengths is performing well with very limited training data, thanks to skip connections and data augmentation."
+    }
+  ]
+}

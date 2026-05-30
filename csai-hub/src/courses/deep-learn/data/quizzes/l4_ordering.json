@@ -1,0 +1,97 @@
+{
+  "section_id": "l4",
+  "quiz_type": "ordering",
+  "title": "CNNs - Ordering",
+  "questions": [
+    {
+      "id": "l4_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the stages of a typical CNN classification pipeline from input to output.",
+      "items": ["Fully connected layers for classification", "Convolutional layers extract features", "Input image (e.g., RGB)", "Flatten feature maps into a 1D vector", "Pooling layers reduce spatial size"],
+      "correct_order": ["Input image (e.g., RGB)", "Convolutional layers extract features", "Pooling layers reduce spatial size", "Flatten feature maps into a 1D vector", "Fully connected layers for classification"],
+      "explanation": "A CNN takes a raw image as input, applies convolutional layers to extract features like edges and textures, uses pooling to reduce spatial dimensions, flattens the resulting 3D feature maps into a 1D vector, and finally passes that vector through fully connected layers to produce class predictions."
+    },
+    {
+      "id": "l4_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order these feature types from simplest (detected in early layers) to most complex (detected in deep layers).",
+      "items": ["Whole objects (faces, cars)", "Textures and corners", "Object parts (eyes, wheels)", "Simple edges and lines"],
+      "correct_order": ["Simple edges and lines", "Textures and corners", "Object parts (eyes, wheels)", "Whole objects (faces, cars)"],
+      "explanation": "CNNs build a hierarchy of features. Early layers detect simple edges and lines. The next layers combine these into textures and corners. Middle layers compose textures into recognizable object parts. The deepest layers represent complete objects by combining parts together."
+    },
+    {
+      "id": "l4_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the steps of how a single convolution operation works at one position.",
+      "items": ["Produce one value in the output feature map", "Sum up all the products to get a single number", "Place the kernel over a local patch of the input", "Multiply each kernel weight by the corresponding input value"],
+      "correct_order": ["Place the kernel over a local patch of the input", "Multiply each kernel weight by the corresponding input value", "Sum up all the products to get a single number", "Produce one value in the output feature map"],
+      "explanation": "At each position, the kernel is placed over a local region of the input. Each kernel weight is multiplied by the corresponding input value (element-wise multiplication). These products are summed together to produce a single number, which becomes one value in the output feature map."
+    },
+    {
+      "id": "l4_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order these steps for computing the output size of a convolution.",
+      "items": ["Divide the result by the stride", "Add 1 to get the final output dimension", "Start with the input size plus 2 times the padding", "Subtract the kernel size"],
+      "correct_order": ["Start with the input size plus 2 times the padding", "Subtract the kernel size", "Divide the result by the stride", "Add 1 to get the final output dimension"],
+      "explanation": "The output size formula is (input + 2*padding - kernel) / stride + 1. First, add padding to both sides of the input. Then subtract the kernel size. Then divide by the stride to count how many positions the kernel fits. Finally, add 1 because we count from the first position."
+    },
+    {
+      "id": "l4_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order these from smallest to largest stride value effect on output size (same input).",
+      "items": ["Stride 3: smallest output", "Stride 1: largest output", "Stride 2: medium output"],
+      "correct_order": ["Stride 1: largest output", "Stride 2: medium output", "Stride 3: smallest output"],
+      "explanation": "With stride 1, the kernel moves one pixel at a time, producing the most output positions and the largest output. Stride 2 skips every other position, roughly halving the output. Stride 3 skips even more, producing an even smaller output. Larger stride always means fewer kernel positions and smaller spatial output."
+    },
+    {
+      "id": "l4_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order how spatial dimensions and channel count typically change as data flows deeper through a CNN.",
+      "items": ["Small spatial size, many channels (e.g., 7x7x512)", "Medium spatial size, moderate channels (e.g., 28x28x128)", "Large spatial size, few channels (e.g., 224x224x3)", "1D vector after flattening"],
+      "correct_order": ["Large spatial size, few channels (e.g., 224x224x3)", "Medium spatial size, moderate channels (e.g., 28x28x128)", "Small spatial size, many channels (e.g., 7x7x512)", "1D vector after flattening"],
+      "explanation": "As data flows through a CNN, spatial dimensions progressively shrink (via pooling and stride) while the number of channels increases (more kernels in deeper layers). The input starts large and shallow (224x224x3), becomes smaller and deeper through the network, and is finally flattened into a 1D vector for classification."
+    },
+    {
+      "id": "l4_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the steps of how max pooling works on a 2x2 window.",
+      "items": ["Output the maximum value as the result for that region", "Move the window to the next non-overlapping region", "Place a 2x2 window over a region of the feature map", "Compare all 4 values and find the largest one"],
+      "correct_order": ["Place a 2x2 window over a region of the feature map", "Compare all 4 values and find the largest one", "Output the maximum value as the result for that region", "Move the window to the next non-overlapping region"],
+      "explanation": "Max pooling places a window (e.g., 2x2) over the feature map, examines the values within it, selects the maximum, and outputs that value. The window then slides to the next non-overlapping region and repeats. This reduces the feature map from, say, 4x4 to 2x2."
+    },
+    {
+      "id": "l4_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order these concepts from most fundamental to most derived in CNN design.",
+      "items": ["Translation equivariance (a consequence of parameter sharing)", "Feature maps (the output of convolution)", "Parameter sharing (same weights everywhere)", "Convolution operation (weighted sum over local patch)"],
+      "correct_order": ["Convolution operation (weighted sum over local patch)", "Parameter sharing (same weights everywhere)", "Translation equivariance (a consequence of parameter sharing)", "Feature maps (the output of convolution)"],
+      "explanation": "The convolution operation (sliding weighted sum) is the most basic building block. Parameter sharing (reusing the same kernel everywhere) is a design choice applied to convolution. Translation equivariance is a mathematical consequence of parameter sharing. Feature maps are the concrete outputs that result from applying convolution with shared parameters."
+    },
+    {
+      "id": "l4_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order these padding amounts from least to most padding for a 5x5 kernel.",
+      "items": ["Same padding: output matches input size", "No padding (valid): output shrinks the most", "Partial padding: output shrinks less than valid"],
+      "correct_order": ["No padding (valid): output shrinks the most", "Partial padding: output shrinks less than valid", "Same padding: output matches input size"],
+      "explanation": "With no padding (valid convolution), the output shrinks the most because the kernel cannot extend beyond the input edges. Adding some partial padding reduces the shrinkage. Same padding adds exactly enough zeros so the output spatial dimensions match the input (with stride 1), preventing any size reduction."
+    },
+    {
+      "id": "l4_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the processing of an RGB image through the first convolutional layer.",
+      "items": ["Stack all kernel outputs to form a multi-channel feature volume", "Each kernel slides across the image, spanning all 3 RGB channels", "Start with a 3-channel (RGB) input image", "Each kernel produces one 2D feature map", "At each position, compute a weighted sum across all 3 channels"],
+      "correct_order": ["Start with a 3-channel (RGB) input image", "Each kernel slides across the image, spanning all 3 RGB channels", "At each position, compute a weighted sum across all 3 channels", "Each kernel produces one 2D feature map", "Stack all kernel outputs to form a multi-channel feature volume"],
+      "explanation": "An RGB image has 3 channels. Each kernel in the first conv layer has depth 3 to match. As the kernel slides across the image, it computes a weighted sum across all 3 channels at each position, producing one 2D feature map per kernel. All the feature maps are stacked to create the output volume."
+    }
+  ]
+}

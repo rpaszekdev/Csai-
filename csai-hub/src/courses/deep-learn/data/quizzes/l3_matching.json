@@ -1,0 +1,153 @@
+{
+  "section_id": "l3",
+  "quiz_type": "matching",
+  "title": "Optimizers - Matching",
+  "questions": [
+    {
+      "id": "l3_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each optimizer to its key characteristic.",
+      "items": ["Vanilla SGD", "SGD with Momentum", "AdaGrad", "Adam"],
+      "categories": ["Uses a static learning rate and only the current gradient", "Accumulates past gradients into a velocity to smooth updates", "Adapts learning rate per parameter but it keeps shrinking", "Combines momentum with adaptive per-parameter learning rates"],
+      "correct_mapping": {
+        "Vanilla SGD": "Uses a static learning rate and only the current gradient",
+        "SGD with Momentum": "Accumulates past gradients into a velocity to smooth updates",
+        "AdaGrad": "Adapts learning rate per parameter but it keeps shrinking",
+        "Adam": "Combines momentum with adaptive per-parameter learning rates"
+      },
+      "explanation": "Vanilla SGD applies a fixed learning rate to the current gradient each step. Momentum adds a velocity term from past gradients to smooth the path. AdaGrad adapts per-parameter rates but suffers from ever-decreasing learning rates. Adam combines the best of both worlds: momentum-like direction smoothing and RMSprop-like adaptive rates."
+    },
+    {
+      "id": "l3_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each learning rate problem to its consequence.",
+      "items": ["Learning rate too high", "Learning rate too low", "Good learning rate", "No learning rate decay"],
+      "categories": ["Updates overshoot the minimum and loss may diverge", "Convergence is extremely slow", "Smooth convergence to a good solution", "May oscillate around the minimum without settling in"],
+      "correct_mapping": {
+        "Learning rate too high": "Updates overshoot the minimum and loss may diverge",
+        "Learning rate too low": "Convergence is extremely slow",
+        "Good learning rate": "Smooth convergence to a good solution",
+        "No learning rate decay": "May oscillate around the minimum without settling in"
+      },
+      "explanation": "A learning rate that is too high causes overshooting and instability. Too low means painfully slow progress. A well-chosen learning rate allows smooth, steady convergence. Without decaying the learning rate over time, the optimizer may keep bouncing around the minimum instead of settling precisely into it."
+    },
+    {
+      "id": "l3_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each optimizer to what it uses to make update decisions.",
+      "items": ["Vanilla SGD", "Momentum", "RMSprop", "Adam"],
+      "categories": ["Current gradient only", "Current gradient plus accumulated velocity from past gradients", "Current gradient scaled by exponential moving average of squared gradients", "First moment (gradient mean) and second moment (gradient variance) with bias correction"],
+      "correct_mapping": {
+        "Vanilla SGD": "Current gradient only",
+        "Momentum": "Current gradient plus accumulated velocity from past gradients",
+        "RMSprop": "Current gradient scaled by exponential moving average of squared gradients",
+        "Adam": "First moment (gradient mean) and second moment (gradient variance) with bias correction"
+      },
+      "explanation": "Each optimizer builds on the last. SGD uses just the raw gradient. Momentum adds a velocity from past gradients. RMSprop scales by recent squared gradients for per-parameter adaptation. Adam combines both the velocity (first moment) and the scaling (second moment), plus bias correction for accurate early estimates."
+    },
+    {
+      "id": "l3_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each concept to its definition in the context of optimization.",
+      "items": ["Gradient", "Learning rate", "Loss function", "Parameter update"],
+      "categories": ["The direction and steepness of the loss surface at the current point", "A hyperparameter that controls the step size", "A measure of how wrong the model's predictions are", "The change applied to weights after computing the gradient"],
+      "correct_mapping": {
+        "Gradient": "The direction and steepness of the loss surface at the current point",
+        "Learning rate": "A hyperparameter that controls the step size",
+        "Loss function": "A measure of how wrong the model's predictions are",
+        "Parameter update": "The change applied to weights after computing the gradient"
+      },
+      "explanation": "The gradient tells us the slope of the loss surface, indicating which direction to move. The learning rate scales how far we move in that direction. The loss function is what we are trying to minimize. The parameter update is the actual adjustment made to the model weights each step."
+    },
+    {
+      "id": "l3_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each momentum variant to its approach.",
+      "items": ["Standard momentum", "Nesterov momentum"],
+      "categories": ["Computes gradient at current position, then adds velocity", "Takes a momentum step first, then computes gradient at the lookahead position"],
+      "correct_mapping": {
+        "Standard momentum": "Computes gradient at current position, then adds velocity",
+        "Nesterov momentum": "Takes a momentum step first, then computes gradient at the lookahead position"
+      },
+      "explanation": "Standard momentum computes the gradient where the parameters currently are, then combines it with the accumulated velocity. Nesterov momentum does the opposite order: it first moves in the velocity direction to get a lookahead position, then computes the gradient there. This look-ahead gives a more informed gradient."
+    },
+    {
+      "id": "l3_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each optimizer's weakness to the correct optimizer.",
+      "items": ["Vanilla SGD", "AdaGrad", "Momentum"],
+      "categories": ["Noisy updates because it only uses the current gradient", "Learning rate monotonically decreases and can become too small", "Can overshoot and oscillate around minima if momentum coefficient is too high"],
+      "correct_mapping": {
+        "Vanilla SGD": "Noisy updates because it only uses the current gradient",
+        "AdaGrad": "Learning rate monotonically decreases and can become too small",
+        "Momentum": "Can overshoot and oscillate around minima if momentum coefficient is too high"
+      },
+      "explanation": "SGD is noisy because each step depends on just the current mini-batch gradient. AdaGrad's accumulated squared gradients only grow, eventually choking the learning rate to near zero. Momentum's accumulated velocity can carry the optimizer past the minimum if the momentum coefficient is set too aggressively."
+    },
+    {
+      "id": "l3_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each Adam component to what it tracks.",
+      "items": ["First moment estimate", "Second moment estimate", "Bias correction"],
+      "categories": ["Mean of recent gradients (direction of updates)", "Mean of recent squared gradients (magnitude scaling)", "Compensates for zero-initialization in early training steps"],
+      "correct_mapping": {
+        "First moment estimate": "Mean of recent gradients (direction of updates)",
+        "Second moment estimate": "Mean of recent squared gradients (magnitude scaling)",
+        "Bias correction": "Compensates for zero-initialization in early training steps"
+      },
+      "explanation": "Adam's first moment is an exponential moving average of the gradients, tracking the overall update direction like momentum. The second moment is an exponential moving average of squared gradients, used to scale each parameter's learning rate like RMSprop. Bias correction adjusts both estimates to be accurate despite starting from zero."
+    },
+    {
+      "id": "l3_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match the relationship between AdaGrad and RMSprop.",
+      "items": ["AdaGrad's squared gradient tracking", "RMSprop's squared gradient tracking", "AdaGrad over long training", "RMSprop over long training"],
+      "categories": ["Sums all past squared gradients (grows forever)", "Uses exponential moving average of squared gradients (forgets old ones)", "Learning rate shrinks to near zero", "Learning rate stays in a useful range"],
+      "correct_mapping": {
+        "AdaGrad's squared gradient tracking": "Sums all past squared gradients (grows forever)",
+        "RMSprop's squared gradient tracking": "Uses exponential moving average of squared gradients (forgets old ones)",
+        "AdaGrad over long training": "Learning rate shrinks to near zero",
+        "RMSprop over long training": "Learning rate stays in a useful range"
+      },
+      "explanation": "AdaGrad keeps a running total of squared gradients that can only increase, causing the effective learning rate to shrink continuously. RMSprop solves this by using an exponential moving average that gradually forgets older gradient information. This simple change keeps the learning rate from collapsing, making RMSprop viable for longer training runs."
+    },
+    {
+      "id": "l3_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each benefit to the optimizer that provides it.",
+      "items": ["Helps escape local minima via accumulated velocity", "Adapts step size per parameter based on gradient history", "Provides both direction smoothing and per-parameter adaptation", "Simple and computationally cheap"],
+      "categories": ["Momentum", "RMSprop / AdaGrad", "Adam", "Vanilla SGD"],
+      "correct_mapping": {
+        "Helps escape local minima via accumulated velocity": "Momentum",
+        "Adapts step size per parameter based on gradient history": "RMSprop / AdaGrad",
+        "Provides both direction smoothing and per-parameter adaptation": "Adam",
+        "Simple and computationally cheap": "Vanilla SGD"
+      },
+      "explanation": "Momentum's velocity can carry the optimizer through shallow local minima. Adaptive methods like RMSprop and AdaGrad tailor the learning rate to each parameter. Adam combines both advantages. Vanilla SGD is the simplest and cheapest, requiring no extra memory for moment estimates."
+    },
+    {
+      "id": "l3_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each optimizer property to whether it applies to SGD or Adam.",
+      "items": ["Uses a single global learning rate for all parameters", "Adapts the learning rate independently for each parameter", "Updates are often noisy and can zig-zag", "Includes bias correction for moment estimates"],
+      "categories": ["SGD", "Adam", "SGD", "Adam"],
+      "correct_mapping": {
+        "Uses a single global learning rate for all parameters": "SGD",
+        "Adapts the learning rate independently for each parameter": "Adam",
+        "Updates are often noisy and can zig-zag": "SGD",
+        "Includes bias correction for moment estimates": "Adam"
+      },
+      "explanation": "SGD uses one learning rate for all parameters and its updates rely solely on the current gradient, making them noisy. Adam gives each parameter its own effective learning rate via the second moment estimate and includes bias correction to handle the zero-initialization of its moment estimates."
+    }
+  ]
+}

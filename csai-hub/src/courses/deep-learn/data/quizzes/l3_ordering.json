@@ -1,0 +1,97 @@
+{
+  "section_id": "l3",
+  "quiz_type": "ordering",
+  "title": "Optimizers - Ordering",
+  "questions": [
+    {
+      "id": "l3_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the basic steps of gradient descent from first to last.",
+      "items": ["Update parameters by subtracting the scaled gradient", "Compute the loss on the current batch", "Compute the gradient of the loss with respect to the parameters", "Make a prediction with the current parameters"],
+      "correct_order": ["Make a prediction with the current parameters", "Compute the loss on the current batch", "Compute the gradient of the loss with respect to the parameters", "Update parameters by subtracting the scaled gradient"],
+      "explanation": "Gradient descent starts with a forward pass to make predictions, then computes how wrong those predictions are (the loss). Next, backpropagation computes the gradient of the loss. Finally, the parameters are updated by moving in the opposite direction of the gradient, scaled by the learning rate."
+    },
+    {
+      "id": "l3_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order these optimizers from simplest to most sophisticated.",
+      "items": ["Adam", "Vanilla SGD", "SGD with Momentum", "RMSprop"],
+      "correct_order": ["Vanilla SGD", "SGD with Momentum", "RMSprop", "Adam"],
+      "explanation": "Vanilla SGD is the simplest, using only the current gradient and a fixed learning rate. Momentum adds a velocity term from past gradients. RMSprop adds per-parameter learning rate adaptation using squared gradient history. Adam combines both momentum and RMSprop-style adaptation with bias correction, making it the most sophisticated of the four."
+    },
+    {
+      "id": "l3_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the historical development of these optimizers from earliest to most recent.",
+      "items": ["Adam", "SGD", "RMSprop", "AdaGrad", "SGD with Momentum"],
+      "correct_order": ["SGD", "SGD with Momentum", "AdaGrad", "RMSprop", "Adam"],
+      "explanation": "SGD is the foundational optimizer. Momentum was added to smooth updates. AdaGrad introduced per-parameter adaptive rates. RMSprop fixed AdaGrad's shrinking learning rate with an exponential moving average. Adam combined momentum with RMSprop and added bias correction, becoming the culmination of these ideas."
+    },
+    {
+      "id": "l3_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of an SGD with momentum update from first to last.",
+      "items": ["Update the parameters using the velocity", "Compute the gradient on the current mini-batch", "Update the velocity by combining past velocity with the current gradient"],
+      "correct_order": ["Compute the gradient on the current mini-batch", "Update the velocity by combining past velocity with the current gradient", "Update the parameters using the velocity"],
+      "explanation": "First, the gradient is computed on the current mini-batch. Then the velocity is updated by blending the previous velocity (scaled by the momentum coefficient) with the new gradient. Finally, the parameters are updated by subtracting the velocity, which now reflects both current and past gradient information."
+    },
+    {
+      "id": "l3_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the steps of a Nesterov momentum update from first to last.",
+      "items": ["Compute the gradient at the lookahead position", "Update the parameters with the corrected velocity", "Take a preliminary step in the direction of the current velocity (lookahead)"],
+      "correct_order": ["Take a preliminary step in the direction of the current velocity (lookahead)", "Compute the gradient at the lookahead position", "Update the parameters with the corrected velocity"],
+      "explanation": "Nesterov momentum first 'looks ahead' by stepping in the momentum direction. Then it computes the gradient at this anticipated position, which gives a more informed slope. Finally, the parameters are updated using this corrected information. This look-ahead approach helps the optimizer make better-informed corrections."
+    },
+    {
+      "id": "l3_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the steps of an Adam update from first to last.",
+      "items": ["Apply bias correction to both moment estimates", "Update parameters using the corrected moments", "Update the second moment estimate (squared gradients)", "Compute the gradient on the current mini-batch", "Update the first moment estimate (gradient mean)"],
+      "correct_order": ["Compute the gradient on the current mini-batch", "Update the first moment estimate (gradient mean)", "Update the second moment estimate (squared gradients)", "Apply bias correction to both moment estimates", "Update parameters using the corrected moments"],
+      "explanation": "Adam first computes the gradient, then updates the first moment (running mean of gradients) and second moment (running mean of squared gradients). Bias correction is applied to both estimates to compensate for their zero initialization. Finally, the parameters are updated using the corrected moments."
+    },
+    {
+      "id": "l3_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order these optimizers from least to most adaptive in terms of per-parameter learning rate adjustment.",
+      "items": ["Adam", "Vanilla SGD", "AdaGrad", "SGD with Momentum"],
+      "correct_order": ["Vanilla SGD", "SGD with Momentum", "AdaGrad", "Adam"],
+      "explanation": "Vanilla SGD uses one fixed learning rate for all parameters. Momentum smooths the update direction but still uses a single global learning rate. AdaGrad introduces per-parameter rates based on accumulated squared gradients. Adam has the most adaptation, combining per-parameter rates (like RMSprop) with directional smoothing (like momentum) and bias correction."
+    },
+    {
+      "id": "l3_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order what happens as the learning rate increases from too low to too high.",
+      "items": ["Loss oscillates wildly or diverges (overshooting)", "Convergence is extremely slow but stable", "Loss decreases steadily at a good pace", "Loss decreases but with some oscillation"],
+      "correct_order": ["Convergence is extremely slow but stable", "Loss decreases steadily at a good pace", "Loss decreases but with some oscillation", "Loss oscillates wildly or diverges (overshooting)"],
+      "explanation": "At very low learning rates, training is slow but stable. As the rate increases, we hit a sweet spot where the loss decreases efficiently. Slightly higher causes some oscillation around the minimum but still makes progress. Too high, and the optimizer overshoots the minimum, causing wild oscillations or divergence."
+    },
+    {
+      "id": "l3_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order the progression of ideas that led from AdaGrad to Adam.",
+      "items": ["Adam: combine adaptive rates with momentum and add bias correction", "AdaGrad: adapt learning rate per parameter using squared gradient history", "RMSprop: use exponential moving average to prevent learning rate from shrinking to zero"],
+      "correct_order": ["AdaGrad: adapt learning rate per parameter using squared gradient history", "RMSprop: use exponential moving average to prevent learning rate from shrinking to zero", "Adam: combine adaptive rates with momentum and add bias correction"],
+      "explanation": "AdaGrad first introduced per-parameter adaptive learning rates by tracking squared gradient history. RMSprop improved on this by using an exponential moving average so old gradients are forgotten, preventing the learning rate from collapsing. Adam then combined RMSprop's adaptive rates with momentum's direction smoothing and added bias correction for accurate early estimates."
+    },
+    {
+      "id": "l3_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order what momentum does over multiple training steps when the gradient consistently points in the same direction.",
+      "items": ["Velocity is large, updates are fast and smooth in that direction", "First gradient is added to the initially zero velocity", "Velocity grows as more consistent gradients accumulate", "Updates accelerate, building up speed like a ball rolling downhill"],
+      "correct_order": ["First gradient is added to the initially zero velocity", "Velocity grows as more consistent gradients accumulate", "Updates accelerate, building up speed like a ball rolling downhill", "Velocity is large, updates are fast and smooth in that direction"],
+      "explanation": "Momentum starts with zero velocity. As consistent gradients accumulate, the velocity grows in that direction. The updates accelerate as velocity builds, like a ball gaining speed rolling downhill. Eventually the velocity becomes large, producing fast, smooth updates in the consistent gradient direction. This is the key advantage of momentum over vanilla SGD."
+    }
+  ]
+}

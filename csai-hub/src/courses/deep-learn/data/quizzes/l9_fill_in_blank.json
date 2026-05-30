@@ -1,0 +1,107 @@
+{
+  "section_id": "l9",
+  "quiz_type": "fill_in_blank",
+  "title": "Positional Encoding & Transformers - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l9_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the training objective used by BERT.",
+      "blank_sentence": "Encoder models like BERT are trained using ___-language modeling, where random tokens are hidden and predicted from surrounding context.",
+      "correct_answer": "masked",
+      "acceptable_answers": ["masked", "Masked"],
+      "explanation": "Masked-language modeling (MLM) hides some input tokens and trains the model to predict them using both left and right context. This forces the encoder to build rich bidirectional representations, unlike causal models that only see past tokens."
+    },
+    {
+      "id": "l9_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the training objective used by GPT.",
+      "blank_sentence": "Decoder models like GPT are trained with ___ language modeling, predicting the next token from past context only.",
+      "correct_answer": "causal",
+      "acceptable_answers": ["causal", "Causal", "autoregressive", "Autoregressive"],
+      "explanation": "Causal (autoregressive) language modeling trains the model to predict each token given only previous tokens. This makes decoder models natural text generators but limits their representations to one-directional context."
+    },
+    {
+      "id": "l9_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the type of context BERT uses.",
+      "blank_sentence": "BERT processes input with ___ attention, meaning it sees both left and right context around each token.",
+      "correct_answer": "bidirectional",
+      "acceptable_answers": ["bidirectional", "Bidirectional"],
+      "explanation": "Bidirectional attention allows every token to attend to all other tokens in both directions. This is what makes encoder models like BERT excellent at understanding tasks such as classification, since each token's representation is informed by the full surrounding context."
+    },
+    {
+      "id": "l9_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the attention mechanism in encoder-decoder models.",
+      "blank_sentence": "In encoder-decoder models, ___-attention allows the decoder to attend to the encoder's output while generating each token.",
+      "correct_answer": "cross",
+      "acceptable_answers": ["cross", "Cross"],
+      "explanation": "Cross-attention (also called encoder-decoder attention) is the mechanism by which the decoder queries the encoder's hidden states. The decoder generates queries from its own representations, while keys and values come from the encoder, letting each generated token focus on relevant parts of the input."
+    },
+    {
+      "id": "l9_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the type of positional encoding in the original Transformer.",
+      "blank_sentence": "The original Transformer uses ___ positional encodings based on sine and cosine functions, which are fixed and not learned during training.",
+      "correct_answer": "sinusoidal",
+      "acceptable_answers": ["sinusoidal", "Sinusoidal"],
+      "explanation": "Sinusoidal positional encodings use mathematical sine and cosine functions at different frequencies to represent each position. Because they are computed from a formula rather than learned, they add no trainable parameters and can generalize to sequence lengths not seen during training."
+    },
+    {
+      "id": "l9_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name what positional encoding injects into the model.",
+      "blank_sentence": "Transformers have no built-in notion of token order, so positional encoding injects ___ information into the model.",
+      "correct_answer": "position",
+      "acceptable_answers": ["position", "Position", "positional", "Positional", "order", "Order"],
+      "explanation": "Self-attention is permutation-equivariant, meaning it produces the same output regardless of token order. Without positional encoding, the model cannot distinguish between different orderings of the same words. Positional encoding adds position-dependent signals so the model knows where each token sits in the sequence."
+    },
+    {
+      "id": "l9_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the special token BERT uses for classification.",
+      "blank_sentence": "For classification tasks, BERT uses the [___] token's representation as a summary of the entire input sequence.",
+      "correct_answer": "CLS",
+      "acceptable_answers": ["CLS", "cls"],
+      "explanation": "The [CLS] (classification) token is prepended to every BERT input. After passing through the bidirectional encoder, its final representation aggregates information from the entire sequence, making it a convenient single-vector summary that can be fed to a classifier."
+    },
+    {
+      "id": "l9_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Complete the architecture name.",
+      "blank_sentence": "___-decoder models like T5 and BART combine bidirectional encoding of the input with autoregressive generation of the output.",
+      "correct_answer": "Encoder",
+      "acceptable_answers": ["Encoder", "encoder"],
+      "explanation": "Encoder-decoder models have two components: an encoder that reads the full input bidirectionally and a decoder that generates output tokens one at a time. The decoder uses cross-attention to consult the encoder's representations at each step, making this architecture ideal for tasks like translation and summarization."
+    },
+    {
+      "id": "l9_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the regularization technique applied after positional encoding.",
+      "blank_sentence": "___ is applied after adding positional encodings to the token embeddings, preventing the model from over-relying on position information.",
+      "correct_answer": "dropout",
+      "acceptable_answers": ["dropout", "Dropout"],
+      "explanation": "Dropout randomly zeroes out elements of the combined embedding (token embedding + positional encoding) during training. This prevents the model from becoming overly dependent on exact position signals, encouraging more robust representations that generalize better."
+    },
+    {
+      "id": "l9_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Describe the direction of GPT's representations.",
+      "blank_sentence": "Because GPT can only attend to past tokens, its representations are ___-directional, which limits its understanding compared to bidirectional models.",
+      "correct_answer": "one",
+      "acceptable_answers": ["one", "One", "uni", "Uni"],
+      "explanation": "GPT uses causal masking that prevents each token from attending to future positions. This means its representations are built from left-to-right context only (one-directional), which is great for generation but less rich than BERT's bidirectional representations for understanding tasks."
+    }
+  ]
+}

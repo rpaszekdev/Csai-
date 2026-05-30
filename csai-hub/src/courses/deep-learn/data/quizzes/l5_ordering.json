@@ -1,0 +1,97 @@
+{
+  "section_id": "l5",
+  "quiz_type": "ordering",
+  "title": "Regularization - Ordering",
+  "questions": [
+    {
+      "id": "l5_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the typical training progression from start to overfitting.",
+      "items": ["Large gap between training and validation performance", "Both training and validation loss are high", "Validation loss starts increasing", "Both training and validation loss decrease together", "Training loss keeps dropping but validation loss plateaus"],
+      "correct_order": ["Both training and validation loss are high", "Both training and validation loss decrease together", "Training loss keeps dropping but validation loss plateaus", "Validation loss starts increasing", "Large gap between training and validation performance"],
+      "explanation": "Training starts with high loss on both sets (underfitting). Then both improve together as the model learns useful patterns. Eventually training loss keeps improving but validation stalls. Then validation loss starts rising, and finally there is a large gap indicating clear overfitting."
+    },
+    {
+      "id": "l5_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps for applying early stopping.",
+      "items": ["Restore the model weights from the best checkpoint", "Stop when validation loss has not improved for several epochs", "Monitor validation loss after each epoch", "Split data into training and validation sets", "Train the model"],
+      "correct_order": ["Split data into training and validation sets", "Train the model", "Monitor validation loss after each epoch", "Stop when validation loss has not improved for several epochs", "Restore the model weights from the best checkpoint"],
+      "explanation": "First you need a validation set to monitor. Then you train the model while checking validation loss each epoch. When validation loss stops improving for a set number of epochs (patience), you stop training and restore the model to the point where validation loss was lowest."
+    },
+    {
+      "id": "l5_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order these from underfitting (most) to overfitting (most).",
+      "items": ["A model with strong regularization that cannot learn patterns", "A model with no regularization trained for many epochs", "A well-tuned model with moderate regularization", "A very simple model on complex data"],
+      "correct_order": ["A very simple model on complex data", "A model with strong regularization that cannot learn patterns", "A well-tuned model with moderate regularization", "A model with no regularization trained for many epochs"],
+      "explanation": "A very simple model on complex data underfits the most. Strong regularization also constrains the model toward underfitting. Moderate regularization achieves a good balance. No regularization with long training leads to the most overfitting."
+    },
+    {
+      "id": "l5_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the effect of increasing regularization strength from low to high.",
+      "items": ["Model underfits, both training and validation accuracy are low", "Training accuracy drops slightly, validation accuracy improves", "Barely any effect, model may still overfit", "Good balance between training fit and generalization"],
+      "correct_order": ["Barely any effect, model may still overfit", "Training accuracy drops slightly, validation accuracy improves", "Good balance between training fit and generalization", "Model underfits, both training and validation accuracy are low"],
+      "explanation": "With very low regularization, the effect is minimal. As it increases, training accuracy drops slightly but validation improves. At the right level, there is a good balance. Too much regularization over-constrains the model, causing underfitting with poor performance on both sets."
+    },
+    {
+      "id": "l5_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the steps of how dropout works during a training forward pass.",
+      "items": ["Pass the result to the next layer", "Randomly select which neurons to turn off", "Compute the layer's activations normally", "Set the selected neurons to zero"],
+      "correct_order": ["Compute the layer's activations normally", "Randomly select which neurons to turn off", "Set the selected neurons to zero", "Pass the result to the next layer"],
+      "explanation": "During a forward pass with dropout, the layer first computes its activations as normal. Then a random subset of neurons is selected to be dropped. Those neurons are set to zero. Finally, the remaining activations are passed to the next layer."
+    },
+    {
+      "id": "l5_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order these data augmentation techniques from simplest to most complex.",
+      "items": ["Combining multiple augmentations randomly", "Random rotation by small angles", "Horizontal flipping", "Color jittering with brightness and contrast changes"],
+      "correct_order": ["Horizontal flipping", "Random rotation by small angles", "Color jittering with brightness and contrast changes", "Combining multiple augmentations randomly"],
+      "explanation": "Horizontal flipping is the simplest -- just mirror the image. Random rotation requires choosing an angle and interpolating pixels. Color jittering involves adjusting multiple color properties. Combining multiple augmentations randomly is the most complex as it layers several transformations together."
+    },
+    {
+      "id": "l5_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order these models from highest bias (simplest) to lowest bias (most complex).",
+      "items": ["Deep neural network with many layers", "Shallow network with heavy dropout", "Linear model", "Medium network with moderate regularization"],
+      "correct_order": ["Linear model", "Shallow network with heavy dropout", "Medium network with moderate regularization", "Deep neural network with many layers"],
+      "explanation": "A linear model has the highest bias because it can only learn linear relationships. A shallow network with heavy dropout is also quite constrained. A medium network with moderate regularization has more capacity. A deep network with many layers has the lowest bias and highest capacity to learn complex patterns."
+    },
+    {
+      "id": "l5_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the batch normalization steps.",
+      "items": ["Use the result as input to the next layer", "Normalize using the mean and variance", "Compute the mean of the mini-batch", "Apply learnable scale and shift parameters", "Compute the variance of the mini-batch"],
+      "correct_order": ["Compute the mean of the mini-batch", "Compute the variance of the mini-batch", "Normalize using the mean and variance", "Apply learnable scale and shift parameters", "Use the result as input to the next layer"],
+      "explanation": "Batch normalization first computes the mini-batch mean, then the variance. It normalizes the activations to have zero mean and unit variance. Learnable scale and shift parameters are applied so the network can adjust the distribution if needed. The result is then passed forward."
+    },
+    {
+      "id": "l5_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order these strategies for fixing overfitting, from first to try to last resort.",
+      "items": ["Collect more real training data", "Apply data augmentation", "Add L2 regularization or dropout", "Diagnose the problem using learning curves"],
+      "correct_order": ["Diagnose the problem using learning curves", "Add L2 regularization or dropout", "Apply data augmentation", "Collect more real training data"],
+      "explanation": "First, always diagnose the problem by looking at learning curves to confirm overfitting. Then try simple regularization like L2 or dropout since they are easy to add. Next, try data augmentation to increase training diversity. Collecting more real data is effective but typically the most time-consuming and expensive approach."
+    },
+    {
+      "id": "l5_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order the relationship between model complexity and performance.",
+      "items": ["Optimal complexity: best generalization to new data", "Very high complexity: overfitting, poor test performance", "Very low complexity: underfitting, poor on all data", "Moderate complexity: improving test performance"],
+      "correct_order": ["Very low complexity: underfitting, poor on all data", "Moderate complexity: improving test performance", "Optimal complexity: best generalization to new data", "Very high complexity: overfitting, poor test performance"],
+      "explanation": "As model complexity increases from very low, the model moves from underfitting through improving performance to an optimal point with the best generalization. Beyond that optimal point, adding more complexity leads to overfitting where test performance degrades even though training performance continues to improve."
+    }
+  ]
+}

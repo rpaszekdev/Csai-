@@ -1,0 +1,157 @@
+{
+  "section_id": "l2",
+  "quiz_type": "multiple_response",
+  "title": "Backpropagation - Multiple Response",
+  "questions": [
+    {
+      "id": "l2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are reasons ReLU is preferred over sigmoid in hidden layers? (Select all that apply)",
+      "options": {
+        "A": "ReLU has a constant gradient of 1 for positive inputs",
+        "B": "ReLU avoids the vanishing gradient problem",
+        "C": "ReLU outputs probabilities that sum to 1",
+        "D": "ReLU is computationally simple (just a max operation)",
+        "E": "ReLU outputs values between -1 and 1"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "ReLU's gradient is exactly 1 for positive inputs (A), which prevents vanishing gradients (B). It is also very cheap to compute since it just checks if the input is positive (D). ReLU does not produce probabilities (C is softmax) and its range is 0 to infinity, not -1 to 1 (E is tanh)."
+    },
+    {
+      "id": "l2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following activation functions can cause the vanishing gradient problem? (Select all that apply)",
+      "options": {
+        "A": "Sigmoid",
+        "B": "ReLU",
+        "C": "Tanh",
+        "D": "Leaky ReLU",
+        "E": "Softmax (when used in hidden layers)"
+      },
+      "correct_answers": ["A", "C"],
+      "explanation": "Sigmoid and tanh both squash their inputs into a bounded range, which means their gradients are always less than 1. When these small gradients are multiplied across many layers, they shrink toward zero. ReLU and Leaky ReLU maintain a gradient of 1 for positive inputs, avoiding this problem."
+    },
+    {
+      "id": "l2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which statements about the softmax activation function are true? (Select all that apply)",
+      "options": {
+        "A": "All outputs are between 0 and 1",
+        "B": "All outputs sum to 1",
+        "C": "It is ideal for hidden layers",
+        "D": "It is used for multi-class classification",
+        "E": "It creates competition between neurons"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Softmax produces values between 0 and 1 (A) that sum to 1 (B), making it a probability distribution for multi-class classification (D). Because outputs must sum to 1, increasing one output forces others to decrease, creating competition (E). This competition is why softmax is not used in hidden layers (C is false)."
+    },
+    {
+      "id": "l2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe backpropagation? (Select all that apply)",
+      "options": {
+        "A": "It requires a forward pass before the backward pass",
+        "B": "It uses the chain rule to compute gradients",
+        "C": "Gradients flow from the output layer back toward the input layer",
+        "D": "It updates weights during the forward pass",
+        "E": "It decomposes the overall gradient into local gradients at each layer"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Backpropagation first needs a forward pass to compute predictions and cache values (A). It then uses the chain rule (B) to propagate gradients backward from output to input (C), breaking the computation into local pieces at each layer (E). Weights are updated after backpropagation, not during the forward pass (D)."
+    },
+    {
+      "id": "l2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about binary cross-entropy loss? (Select all that apply)",
+      "options": {
+        "A": "It is used for binary classification",
+        "B": "It is paired with sigmoid at the output layer",
+        "C": "It is the best choice for regression tasks",
+        "D": "It penalizes confident wrong predictions heavily",
+        "E": "It measures the difference between predicted probability and the true label"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Binary cross-entropy is designed for two-class problems (A) and pairs naturally with sigmoid (B). It uses a logarithm, which means a confident wrong prediction (e.g., predicting 0.99 when the true label is 0) produces a very large loss (D). MSE, not cross-entropy, is used for regression (C is false)."
+    },
+    {
+      "id": "l2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following help address the vanishing gradient problem? (Select all that apply)",
+      "options": {
+        "A": "Replacing sigmoid with ReLU in hidden layers",
+        "B": "Using proper weight initialization (e.g., He initialization)",
+        "C": "Adding more sigmoid layers to the network",
+        "D": "Using batch normalization",
+        "E": "Using residual/skip connections"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "ReLU maintains a gradient of 1 for positive inputs (A). Proper initialization prevents gradients from starting too small (B). Batch normalization keeps activations in a well-behaved range (D). Residual connections provide shortcut paths for gradients to flow through (E). Adding more sigmoid layers makes the problem worse, not better (C)."
+    },
+    {
+      "id": "l2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about the dying ReLU problem are true? (Select all that apply)",
+      "options": {
+        "A": "A dead ReLU neuron outputs 0 for every input",
+        "B": "The gradient of a dead ReLU neuron is 0, so it cannot learn",
+        "C": "Leaky ReLU was designed to solve this problem",
+        "D": "The dying ReLU problem is caused by vanishing gradients",
+        "E": "It occurs when weights shift so the neuron's input is always negative"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "When weights cause a neuron's input to be permanently negative (E), ReLU always outputs 0 (A) and its gradient is 0 (B), so the neuron never updates. Leaky ReLU fixes this by allowing a small gradient for negative inputs (C). This is a separate issue from vanishing gradients (D is false) — it is specific to ReLU's hard zero for negatives."
+    },
+    {
+      "id": "l2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the chain rule in backpropagation? (Select all that apply)",
+      "options": {
+        "A": "It enables computing how each weight affects the loss, even across many layers",
+        "B": "It multiplies local gradients together from output back to input",
+        "C": "It only works for linear functions",
+        "D": "It allows all weight gradients to be computed in a single backward pass",
+        "E": "It is the reason backpropagation is efficient"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "The chain rule decomposes the end-to-end gradient into local pieces (A, B), computes them all in one backward traversal (D), and this reuse is what makes backpropagation efficient (E). The chain rule works for any differentiable function, not just linear ones (C is false)."
+    },
+    {
+      "id": "l2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following correctly match an activation function to its output range? (Select all that apply)",
+      "options": {
+        "A": "Sigmoid: 0 to 1",
+        "B": "Tanh: 0 to 1",
+        "C": "ReLU: 0 to infinity",
+        "D": "Tanh: -1 to 1",
+        "E": "Sigmoid: -1 to 1"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Sigmoid outputs (0, 1) (A). ReLU outputs 0 for negatives and passes positives through, so its range is [0, infinity) (C). Tanh outputs (-1, 1) (D). Tanh does not output 0 to 1 (B is false, that is sigmoid). Sigmoid does not output -1 to 1 (E is false, that is tanh)."
+    },
+    {
+      "id": "l2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are true about weight initialization? (Select all that apply)",
+      "options": {
+        "A": "Initializing all weights to zero prevents the network from learning",
+        "B": "Xavier/Glorot initialization is designed for sigmoid and tanh",
+        "C": "He/Kaiming initialization is designed for ReLU",
+        "D": "The choice of initialization does not affect training",
+        "E": "Good initialization helps prevent vanishing and exploding gradients"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Zero initialization causes all neurons to learn the same thing, breaking symmetry (A). Xavier is for sigmoid/tanh (B), He is for ReLU (C). Proper initialization sets gradient magnitudes in a healthy range from the start (E). The choice of initialization significantly affects training stability (D is false)."
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "section_id": "l5",
+  "quiz_type": "multiple_choice",
+  "title": "Regularization - Multiple Choice",
+  "questions": [
+    {
+      "id": "l5_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "A model gets 98% accuracy on training data but only 55% on new test data. What problem is this?",
+      "options": {
+        "A": "Underfitting",
+        "B": "Overfitting",
+        "C": "Good generalization",
+        "D": "Data leakage"
+      },
+      "correct_answer": "B",
+      "explanation": "This is overfitting. The large gap between training accuracy (98%) and test accuracy (55%) shows the model has memorized the training data instead of learning general patterns. An overfitting model performs great on data it has seen but poorly on new, unseen data."
+    },
+    {
+      "id": "l5_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "A model performs poorly on both training data and test data. What is this called?",
+      "options": {
+        "A": "Overfitting",
+        "B": "Underfitting",
+        "C": "High variance",
+        "D": "Optimal performance"
+      },
+      "correct_answer": "B",
+      "explanation": "Underfitting occurs when a model is too simple to capture the patterns in the data. It performs poorly on both training and test data because it cannot learn the underlying relationships. This is associated with high bias."
+    },
+    {
+      "id": "l5_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What is the main purpose of regularization?",
+      "options": {
+        "A": "To make the model train faster",
+        "B": "To increase training accuracy as high as possible",
+        "C": "To prevent overfitting and improve generalization to new data",
+        "D": "To increase the number of parameters in the model"
+      },
+      "correct_answer": "C",
+      "explanation": "Regularization techniques are designed to prevent overfitting by constraining the model in various ways. The goal is to improve generalization, meaning the model performs well not just on training data but also on new, unseen data."
+    },
+    {
+      "id": "l5_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What happens to dropout during testing (inference)?",
+      "options": {
+        "A": "Neurons are still randomly dropped",
+        "B": "Dropout is turned off and all neurons are active",
+        "C": "Only half the neurons are used",
+        "D": "Dropout rate is doubled"
+      },
+      "correct_answer": "B",
+      "explanation": "During testing, dropout is disabled and all neurons are active. Dropout is only applied during training to prevent co-adaptation of neurons. At test time, the full network is used to make predictions."
+    },
+    {
+      "id": "l5_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Which regularization technique encourages some weights to become exactly zero?",
+      "options": {
+        "A": "L2 regularization",
+        "B": "L1 regularization",
+        "C": "Dropout",
+        "D": "Batch normalization"
+      },
+      "correct_answer": "B",
+      "explanation": "L1 regularization encourages sparsity, meaning it can push some weights to become exactly zero. This effectively removes those connections from the network. L2 regularization shrinks weights toward zero but rarely makes them exactly zero."
+    },
+    {
+      "id": "l5_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What does early stopping monitor to decide when to stop training?",
+      "options": {
+        "A": "Training loss only",
+        "B": "The number of epochs completed",
+        "C": "Validation loss",
+        "D": "The learning rate"
+      },
+      "correct_answer": "C",
+      "explanation": "Early stopping monitors validation loss during training. When the validation loss stops improving and starts increasing, it signals that the model is beginning to overfit. Training is stopped at the point where validation performance was best."
+    },
+    {
+      "id": "l5_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "A model that is too simple to capture patterns in the data has:",
+      "options": {
+        "A": "High variance, low bias",
+        "B": "High bias, low variance",
+        "C": "Low bias, low variance",
+        "D": "High bias, high variance"
+      },
+      "correct_answer": "B",
+      "explanation": "A model that is too simple (underfitting) has high bias because it makes strong simplifying assumptions that miss the true patterns. It has low variance because its predictions are consistent across different training sets, even though those predictions are consistently wrong."
+    },
+    {
+      "id": "l5_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "How does data augmentation help prevent overfitting?",
+      "options": {
+        "A": "By removing difficult examples from the training set",
+        "B": "By making the model architecture simpler",
+        "C": "By artificially increasing the diversity of training data through transformations",
+        "D": "By reducing the learning rate during training"
+      },
+      "correct_answer": "C",
+      "explanation": "Data augmentation creates new training examples by applying transformations like flipping, rotation, and color changes to existing images. This increases the diversity of the training set, making it harder for the model to memorize specific examples and forcing it to learn more general features."
+    },
+    {
+      "id": "l5_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "What happens when you increase regularization strength too much?",
+      "options": {
+        "A": "The model overfits more",
+        "B": "The model underfits because it becomes too constrained",
+        "C": "Training becomes faster",
+        "D": "Nothing changes"
+      },
+      "correct_answer": "B",
+      "explanation": "If regularization strength is too high, the model becomes overly constrained and cannot learn the important patterns in the data. This leads to underfitting, where the model performs poorly on both training and test data. The key is finding the right balance."
+    },
+    {
+      "id": "l5_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What does batch normalization do?",
+      "options": {
+        "A": "Randomly removes neurons during training",
+        "B": "Normalizes the inputs to each layer, improving training stability and speed",
+        "C": "Adds a penalty to the loss function",
+        "D": "Stops training when validation loss increases"
+      },
+      "correct_answer": "B",
+      "explanation": "Batch normalization normalizes the inputs to each layer by adjusting them to have zero mean and unit variance within each mini-batch. This stabilizes the training process and often allows the use of higher learning rates, leading to faster convergence."
+    }
+  ]
+}

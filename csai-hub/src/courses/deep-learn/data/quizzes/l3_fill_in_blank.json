@@ -1,0 +1,107 @@
+{
+  "section_id": "l3",
+  "quiz_type": "fill_in_blank",
+  "title": "Optimizers - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l3_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "What function does an optimizer try to minimize?",
+      "blank_sentence": "The goal of optimization in deep learning is to minimize the ___ function.",
+      "correct_answer": "loss",
+      "acceptable_answers": ["loss", "cost", "Loss", "Cost", "loss/cost", "cost/loss"],
+      "explanation": "The loss function (also called the cost function) measures how far off the model's predictions are from the true values. The optimizer adjusts the model's parameters to make this value as small as possible."
+    },
+    {
+      "id": "l3_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Which direction does gradient descent move parameters?",
+      "blank_sentence": "Gradient descent updates parameters by moving them in the ___ direction of the gradient.",
+      "correct_answer": "opposite",
+      "acceptable_answers": ["opposite", "Opposite", "negative"],
+      "explanation": "The gradient points toward the steepest increase in the loss. To decrease the loss, we move in the opposite (negative) direction of the gradient. This is the core principle of gradient descent."
+    },
+    {
+      "id": "l3_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "What controls the step size in gradient descent?",
+      "blank_sentence": "The ___ controls the step size of each parameter update in gradient descent.",
+      "correct_answer": "learning rate",
+      "acceptable_answers": ["learning rate", "Learning rate", "learning-rate", "lr"],
+      "explanation": "The learning rate is a hyperparameter that determines how large each update step is. A higher learning rate means bigger steps (faster but riskier), while a lower learning rate means smaller steps (slower but more stable)."
+    },
+    {
+      "id": "l3_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "What does momentum accumulate?",
+      "blank_sentence": "SGD with momentum accumulates past gradients into a ___ term that smooths the updates.",
+      "correct_answer": "velocity",
+      "acceptable_answers": ["velocity", "Velocity", "momentum"],
+      "explanation": "Momentum maintains a velocity term that is a running average of past gradients. This velocity smooths out noisy updates and helps the optimizer build speed in consistent directions, similar to how a ball rolling downhill gains momentum."
+    },
+    {
+      "id": "l3_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "What does Nesterov momentum do before computing the gradient?",
+      "blank_sentence": "Nesterov momentum first takes a step in the momentum direction (a ___), then computes the gradient at that new position.",
+      "correct_answer": "lookahead",
+      "acceptable_answers": ["lookahead", "look-ahead", "look ahead", "Lookahead"],
+      "explanation": "Nesterov momentum 'looks ahead' by first applying the momentum step to get an anticipated future position, then computing the gradient there. This gives a more informed gradient that helps the optimizer correct its course more effectively than standard momentum."
+    },
+    {
+      "id": "l3_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "What type of learning rate does AdaGrad provide?",
+      "blank_sentence": "AdaGrad adapts the learning rate ___ for each parameter based on its gradient history.",
+      "correct_answer": "individually",
+      "acceptable_answers": ["individually", "independently", "separately", "per parameter", "per-parameter"],
+      "explanation": "AdaGrad gives each parameter its own effective learning rate. Parameters that have received large gradients get a smaller learning rate, while those with small gradients get a larger one. This per-parameter adaptation is useful when different features update at very different frequencies."
+    },
+    {
+      "id": "l3_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "How does RMSprop improve on AdaGrad?",
+      "blank_sentence": "RMSprop fixes AdaGrad's shrinking learning rate problem by using an ___ moving average of squared gradients instead of the full sum.",
+      "correct_answer": "exponential",
+      "acceptable_answers": ["exponential", "Exponential", "exponentially weighted", "exponentially decaying"],
+      "explanation": "Instead of summing all past squared gradients (which only grows), RMSprop uses an exponential moving average that gradually forgets older gradients. This prevents the denominator from growing without bound, keeping the effective learning rate in a useful range throughout training."
+    },
+    {
+      "id": "l3_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "What two quantities does Adam track?",
+      "blank_sentence": "Adam tracks two exponential moving averages: the first moment (mean of gradients) and the ___ moment (variance of gradients).",
+      "correct_answer": "second",
+      "acceptable_answers": ["second", "Second", "2nd"],
+      "explanation": "The first moment estimate tracks the mean direction of the gradients (like momentum), while the second moment estimate tracks the mean of squared gradients (like RMSprop). Together, they give Adam both directional smoothing and per-parameter learning rate adaptation."
+    },
+    {
+      "id": "l3_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Why does Adam include a correction step?",
+      "blank_sentence": "Adam applies ___ correction to its moment estimates because they are initialized at zero and would otherwise be too small in early training.",
+      "correct_answer": "bias",
+      "acceptable_answers": ["bias", "Bias"],
+      "explanation": "Since both moment estimates start at zero, they are biased toward zero during the first few steps of training. Bias correction divides by a factor that compensates for this initialization, ensuring that the estimates are accurate even at the beginning of training."
+    },
+    {
+      "id": "l3_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "What happens with a learning rate that is too low?",
+      "blank_sentence": "If the learning rate is too low, training will have very slow ___ because the parameter updates are too small.",
+      "correct_answer": "convergence",
+      "acceptable_answers": ["convergence", "Convergence", "progress"],
+      "explanation": "A learning rate that is too low means each update barely changes the parameters. While the updates are stable and unlikely to overshoot, the model takes an impractically long time to reach a good solution. The ideal learning rate balances speed and stability."
+    }
+  ]
+}

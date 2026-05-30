@@ -1,0 +1,107 @@
+{
+  "section_id": "l7",
+  "quiz_type": "fill_in_blank",
+  "title": "Transformers - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l7_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "The attention mechanism where each token looks at every other token in the same sequence.",
+      "blank_sentence": "In ___ attention, each token attends to all other tokens in the sequence to capture contextual relationships.",
+      "correct_answer": "self",
+      "acceptable_answers": ["self", "Self", "self-attention"],
+      "explanation": "Self-attention means the Queries, Keys, and Values all come from the same sequence. Each token computes relevance scores with every other token, allowing the model to understand relationships and dependencies within a single sequence."
+    },
+    {
+      "id": "l7_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "The Q-K-V framework: what the Key represents.",
+      "blank_sentence": "In the Query-Key-Value framework, the Key answers the question 'what do I ___?'",
+      "correct_answer": "contain",
+      "acceptable_answers": ["contain", "Contain", "have", "offer"],
+      "explanation": "The Key represents what information a token contains or offers for matching. The Query from another token asks 'what am I looking for?' and the dot product between Query and Key determines how relevant two tokens are to each other."
+    },
+    {
+      "id": "l7_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "The component that provides the actual information in attention.",
+      "blank_sentence": "After computing attention weights from Queries and Keys, the output is a weighted sum of the ___ vectors.",
+      "correct_answer": "Value",
+      "acceptable_answers": ["Value", "value", "V"],
+      "explanation": "The Value vectors carry the actual information to be retrieved. Once the attention weights are computed (from the Query-Key dot products followed by softmax), these weights are used to create a weighted sum of the Value vectors, producing the attention output."
+    },
+    {
+      "id": "l7_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "The scaling factor in scaled dot-product attention.",
+      "blank_sentence": "In scaled dot-product attention, the dot product of Q and K is divided by the square root of ___ to prevent extreme softmax values.",
+      "correct_answer": "d_k",
+      "acceptable_answers": ["d_k", "dk", "the key dimension", "key dimension", "d_key"],
+      "explanation": "The scaling factor is the square root of d_k, the dimensionality of the Key vectors. Without this scaling, large dot products push softmax into regions with very small gradients, making learning difficult. The scaling keeps the values in a reasonable range."
+    },
+    {
+      "id": "l7_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "How Transformers process tokens compared to LSTMs.",
+      "blank_sentence": "Unlike LSTMs which process tokens sequentially, Transformers process all tokens in ___.",
+      "correct_answer": "parallel",
+      "acceptable_answers": ["parallel", "Parallel"],
+      "explanation": "Transformers use self-attention to process all tokens simultaneously in parallel, rather than one at a time like LSTMs. This parallelism is a major advantage because it allows much faster training on modern GPU hardware."
+    },
+    {
+      "id": "l7_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "What multi-head attention captures by using multiple parallel attention operations.",
+      "blank_sentence": "Multi-head attention runs attention multiple times with different learned projections to capture different ___ types between tokens.",
+      "correct_answer": "relationship",
+      "acceptable_answers": ["relationship", "Relationship", "relation", "dependency"],
+      "explanation": "Each attention head learns different projections of the input, allowing it to focus on different types of relationships. For example, one head might capture syntactic dependencies while another captures semantic similarity, giving the model a richer understanding of the sequence."
+    },
+    {
+      "id": "l7_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "The function that converts raw attention scores into probabilities.",
+      "blank_sentence": "The ___ function converts raw attention scores into a probability distribution where all weights are non-negative and sum to 1.",
+      "correct_answer": "softmax",
+      "acceptable_answers": ["softmax", "Softmax"],
+      "explanation": "Softmax takes the raw dot-product scores (which can be any real number) and transforms them into a valid probability distribution. This ensures that the attention weights are non-negative and sum to 1, so the output is a proper weighted average of the Value vectors."
+    },
+    {
+      "id": "l7_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "How Word2Vec embeddings differ from Transformer embeddings.",
+      "blank_sentence": "Word2Vec gives ___ embeddings where the same word always has the same vector, while Transformers give contextualized embeddings that change based on surrounding words.",
+      "correct_answer": "fixed",
+      "acceptable_answers": ["fixed", "Fixed", "static", "Static"],
+      "explanation": "Word2Vec produces a single fixed vector for each word regardless of context. The word 'bank' always gets the same embedding whether it refers to a river bank or a financial institution. Transformers, by contrast, produce different embeddings for the same word depending on the surrounding context."
+    },
+    {
+      "id": "l7_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Where attention originated before Transformers.",
+      "blank_sentence": "In RNN-based attention, the context vector is computed as a weighted sum of the encoder ___ states.",
+      "correct_answer": "hidden",
+      "acceptable_answers": ["hidden", "Hidden"],
+      "explanation": "Before Transformers, attention was introduced in RNN encoder-decoder models. The context vector at each decoding step is a weighted sum of all encoder hidden states, where the weights reflect how relevant each encoder position is to the current token being generated."
+    },
+    {
+      "id": "l7_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "What the Transformer decoder uses to prevent seeing future tokens.",
+      "blank_sentence": "The Transformer decoder uses ___ self-attention to prevent each position from attending to subsequent positions during generation.",
+      "correct_answer": "masked",
+      "acceptable_answers": ["masked", "Masked", "causal"],
+      "explanation": "Masked (or causal) self-attention blocks attention to future positions by setting those scores to negative infinity before softmax. This ensures that when generating text, the model can only use information from tokens that have already been produced, maintaining the autoregressive property."
+    }
+  ]
+}

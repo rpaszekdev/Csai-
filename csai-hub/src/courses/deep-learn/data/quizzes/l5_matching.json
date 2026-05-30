@@ -1,0 +1,157 @@
+{
+  "section_id": "l5",
+  "quiz_type": "matching",
+  "title": "Regularization - Matching",
+  "questions": [
+    {
+      "id": "l5_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each regularization technique to what it does.",
+      "items": ["L1 regularization", "L2 regularization", "Dropout", "Early stopping"],
+      "categories": ["Drives some weights to exactly zero", "Shrinks all weights toward zero", "Randomly disables neurons during training", "Stops training when validation loss increases"],
+      "correct_mapping": {
+        "L1 regularization": "Drives some weights to exactly zero",
+        "L2 regularization": "Shrinks all weights toward zero",
+        "Dropout": "Randomly disables neurons during training",
+        "Early stopping": "Stops training when validation loss increases"
+      },
+      "explanation": "Each technique prevents overfitting differently: L1 creates sparse models by zeroing out weights. L2 penalizes large weights by shrinking them. Dropout randomly masks neurons to prevent co-adaptation. Early stopping limits how long the model trains."
+    },
+    {
+      "id": "l5_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each problem to the correct description.",
+      "items": ["Overfitting", "Underfitting", "High bias", "High variance"],
+      "categories": ["Model memorizes training data, fails on new data", "Model too simple, poor on all data", "Model makes overly simplistic assumptions", "Model is too sensitive to training data"],
+      "correct_mapping": {
+        "Overfitting": "Model memorizes training data, fails on new data",
+        "Underfitting": "Model too simple, poor on all data",
+        "High bias": "Model makes overly simplistic assumptions",
+        "High variance": "Model is too sensitive to training data"
+      },
+      "explanation": "Overfitting means the model has learned the training data too well, including noise. Underfitting means the model is too simple. High bias is the cause of underfitting (overly simple assumptions). High variance is the cause of overfitting (too sensitive to specific training examples)."
+    },
+    {
+      "id": "l5_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each data augmentation technique to its transformation.",
+      "items": ["Horizontal flipping", "Random rotation", "Color jitter", "Random cropping"],
+      "categories": ["Mirrors the image left to right", "Turns the image by a random angle", "Changes brightness, contrast, or saturation", "Takes a random portion of the image"],
+      "correct_mapping": {
+        "Horizontal flipping": "Mirrors the image left to right",
+        "Random rotation": "Turns the image by a random angle",
+        "Color jitter": "Changes brightness, contrast, or saturation",
+        "Random cropping": "Takes a random portion of the image"
+      },
+      "explanation": "Each augmentation technique creates a different variation of the original image while keeping the same label. Flipping creates mirror images, rotation changes orientation, color jitter varies lighting conditions, and cropping changes what portion of the scene is visible."
+    },
+    {
+      "id": "l5_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each scenario to the most likely diagnosis.",
+      "items": ["High train accuracy, low test accuracy", "Low train accuracy, low test accuracy", "High train accuracy, high test accuracy", "Train accuracy improves but test accuracy drops"],
+      "categories": ["Overfitting", "Underfitting", "Good generalization", "Model is starting to overfit"],
+      "correct_mapping": {
+        "High train accuracy, low test accuracy": "Overfitting",
+        "Low train accuracy, low test accuracy": "Underfitting",
+        "High train accuracy, high test accuracy": "Good generalization",
+        "Train accuracy improves but test accuracy drops": "Model is starting to overfit"
+      },
+      "explanation": "The gap between training and test performance reveals the problem. A large gap (high train, low test) means overfitting. Both being low means underfitting. Both being high means good generalization. When test starts dropping while training improves, overfitting is beginning."
+    },
+    {
+      "id": "l5_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each term to its role in the bias-variance tradeoff.",
+      "items": ["Bias", "Variance", "Regularization", "Model complexity"],
+      "categories": ["Error from a model being too simple", "Error from a model being too sensitive to data", "Technique to reduce variance at the cost of slight bias increase", "Increasing it reduces bias but increases variance"],
+      "correct_mapping": {
+        "Bias": "Error from a model being too simple",
+        "Variance": "Error from a model being too sensitive to data",
+        "Regularization": "Technique to reduce variance at the cost of slight bias increase",
+        "Model complexity": "Increasing it reduces bias but increases variance"
+      },
+      "explanation": "Bias is the error from overly simple assumptions. Variance is the error from being too sensitive to training data. Regularization trades a small increase in bias for a larger decrease in variance. Increasing model complexity reduces bias but increases variance, which is the core tradeoff."
+    },
+    {
+      "id": "l5_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each regularization technique to where it operates.",
+      "items": ["Data augmentation", "L2 weight penalty", "Dropout", "Early stopping"],
+      "categories": ["Transforms input data", "Adds a term to the loss function", "Modifies hidden layer activations", "Controls the training loop"],
+      "correct_mapping": {
+        "Data augmentation": "Transforms input data",
+        "L2 weight penalty": "Adds a term to the loss function",
+        "Dropout": "Modifies hidden layer activations",
+        "Early stopping": "Controls the training loop"
+      },
+      "explanation": "Data augmentation works at the input level by transforming images. L2 adds a penalty to the loss function to discourage large weights. Dropout operates on hidden layers by zeroing out neurons. Early stopping controls when training ends by monitoring validation performance."
+    },
+    {
+      "id": "l5_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each regularization strength setting to its effect.",
+      "items": ["Very low regularization", "Moderate regularization", "Very high regularization", "No regularization"],
+      "categories": ["Minimal effect, model may still overfit", "Good balance between fitting and generalization", "Model becomes too constrained, underfits", "Model has full capacity, highest overfitting risk"],
+      "correct_mapping": {
+        "Very low regularization": "Minimal effect, model may still overfit",
+        "Moderate regularization": "Good balance between fitting and generalization",
+        "Very high regularization": "Model becomes too constrained, underfits",
+        "No regularization": "Model has full capacity, highest overfitting risk"
+      },
+      "explanation": "Regularization strength controls how much the model is constrained. No regularization allows full capacity and maximum overfitting risk. Very low has minimal effect. Moderate achieves the best balance. Very high over-constrains the model, leading to underfitting."
+    },
+    {
+      "id": "l5_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each concept to its correct definition.",
+      "items": ["Training accuracy", "Validation accuracy", "Generalization", "Regularization"],
+      "categories": ["How well the model fits the data it learned from", "How well the model performs on held-out data during training", "The ability to perform well on new, unseen data", "Techniques to prevent overfitting"],
+      "correct_mapping": {
+        "Training accuracy": "How well the model fits the data it learned from",
+        "Validation accuracy": "How well the model performs on held-out data during training",
+        "Generalization": "The ability to perform well on new, unseen data",
+        "Regularization": "Techniques to prevent overfitting"
+      },
+      "explanation": "Training accuracy measures performance on data the model trained on. Validation accuracy measures performance on data set aside during training to monitor progress. Generalization is the overall goal of performing well on any new data. Regularization is the set of techniques used to improve generalization."
+    },
+    {
+      "id": "l5_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each dropout concept to its description.",
+      "items": ["Dropout during training", "Dropout during testing", "Co-adaptation", "Dropout rate"],
+      "categories": ["Neurons are randomly set to zero", "All neurons are active, dropout is off", "Neurons relying too heavily on specific other neurons", "The probability that a neuron is turned off"],
+      "correct_mapping": {
+        "Dropout during training": "Neurons are randomly set to zero",
+        "Dropout during testing": "All neurons are active, dropout is off",
+        "Co-adaptation": "Neurons relying too heavily on specific other neurons",
+        "Dropout rate": "The probability that a neuron is turned off"
+      },
+      "explanation": "During training, dropout randomly zeroes out neurons. During testing, dropout is turned off so all neurons contribute. Co-adaptation is the problem dropout solves, where neurons become dependent on each other. The dropout rate is the hyperparameter controlling what fraction of neurons are dropped."
+    },
+    {
+      "id": "l5_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each technique to the problem it best addresses.",
+      "items": ["Data augmentation", "L2 regularization", "Dropout", "Batch normalization"],
+      "categories": ["Small training dataset", "Weights growing too large", "Neurons co-adapting during training", "Unstable or slow training"],
+      "correct_mapping": {
+        "Data augmentation": "Small training dataset",
+        "L2 regularization": "Weights growing too large",
+        "Dropout": "Neurons co-adapting during training",
+        "Batch normalization": "Unstable or slow training"
+      },
+      "explanation": "Data augmentation helps when the dataset is small by creating more diverse examples. L2 regularization directly penalizes large weights. Dropout breaks co-adaptation by randomly removing neurons. Batch normalization stabilizes and speeds up training by normalizing layer inputs."
+    }
+  ]
+}

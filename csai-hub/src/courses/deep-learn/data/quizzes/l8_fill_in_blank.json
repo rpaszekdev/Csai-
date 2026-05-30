@@ -1,0 +1,107 @@
+{
+  "section_id": "l8",
+  "quiz_type": "fill_in_blank",
+  "title": "Computer Vision - Fill in the Blank",
+  "questions": [
+    {
+      "id": "l8_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the detection metric that measures bounding box overlap.",
+      "blank_sentence": "___ over Union (IoU) measures how much a predicted bounding box overlaps with the ground truth box.",
+      "correct_answer": "Intersection",
+      "acceptable_answers": ["Intersection", "intersection"],
+      "explanation": "Intersection over Union (IoU) divides the overlapping area between two bounding boxes by the total area they cover together. A higher IoU means the predicted box is closer to the actual object location."
+    },
+    {
+      "id": "l8_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the post-processing step that removes duplicate detections.",
+      "blank_sentence": "Non-maximum ___ removes redundant overlapping bounding boxes by keeping only the one with the highest confidence score.",
+      "correct_answer": "suppression",
+      "acceptable_answers": ["suppression", "Suppression"],
+      "explanation": "Non-maximum suppression (NMS) is applied after detection to eliminate duplicate boxes for the same object. It keeps the most confident detection and discards all others that overlap significantly with it."
+    },
+    {
+      "id": "l8_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Complete the name of this popular one-stage detector.",
+      "blank_sentence": "YOLO stands for You Only Look ___, meaning it detects all objects in a single forward pass through the network.",
+      "correct_answer": "Once",
+      "acceptable_answers": ["Once", "once"],
+      "explanation": "YOLO (You Only Look Once) processes the entire image in one pass, predicting bounding boxes and class labels simultaneously. This single-pass approach makes YOLO significantly faster than two-stage detectors."
+    },
+    {
+      "id": "l8_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the predefined reference boxes used in object detection.",
+      "blank_sentence": "___ boxes are predefined bounding boxes of various sizes and aspect ratios that the model refines by predicting small offsets.",
+      "correct_answer": "Anchor",
+      "acceptable_answers": ["Anchor", "anchor"],
+      "explanation": "Anchor boxes serve as starting templates for the detector. Instead of predicting absolute coordinates from scratch, the model predicts adjustments relative to these anchors, making the detection task easier to learn."
+    },
+    {
+      "id": "l8_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the segmentation architecture shaped like a letter.",
+      "blank_sentence": "___-Net is a symmetric encoder-decoder architecture with skip connections, originally designed for biomedical image segmentation with limited training data.",
+      "correct_answer": "U",
+      "acceptable_answers": ["U", "u"],
+      "explanation": "U-Net gets its name from its U-shaped architecture. The encoder captures context through downsampling, the decoder restores resolution through upsampling, and skip connections bridge corresponding levels to preserve spatial detail."
+    },
+    {
+      "id": "l8_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name the technique for reusing pretrained models.",
+      "blank_sentence": "___ learning involves taking a model pretrained on a large dataset like ImageNet and adapting it to a new, smaller target dataset.",
+      "correct_answer": "Transfer",
+      "acceptable_answers": ["Transfer", "transfer"],
+      "explanation": "Transfer learning reuses knowledge from a model trained on a large dataset. Since early layers learn general visual features like edges and textures, these features transfer well to new tasks, even with limited data."
+    },
+    {
+      "id": "l8_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the architecture that applies Transformers to images.",
+      "blank_sentence": "The Vision ___ (ViT) splits an image into patches and processes them as a sequence using self-attention, similar to how Transformers process words in a sentence.",
+      "correct_answer": "Transformer",
+      "acceptable_answers": ["Transformer", "transformer"],
+      "explanation": "The Vision Transformer adapts the Transformer architecture from NLP to computer vision. It treats image patches like tokens in a sentence, using self-attention to capture relationships between different parts of the image."
+    },
+    {
+      "id": "l8_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the multi-scale feature architecture.",
+      "blank_sentence": "A Feature ___ Network (FPN) builds a hierarchy of feature maps at multiple scales, enabling detection of both small and large objects.",
+      "correct_answer": "Pyramid",
+      "acceptable_answers": ["Pyramid", "pyramid"],
+      "explanation": "Feature Pyramid Networks combine low-resolution features rich in semantic meaning with high-resolution features rich in spatial detail. This multi-scale representation lets detectors find objects of all sizes effectively."
+    },
+    {
+      "id": "l8_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the segmentation type that labels every pixel.",
+      "blank_sentence": "___ segmentation assigns a class label to every pixel in the image, but does not distinguish between different instances of the same class.",
+      "correct_answer": "Semantic",
+      "acceptable_answers": ["Semantic", "semantic"],
+      "explanation": "Semantic segmentation classifies each pixel into a category (e.g., road, car, sky) but treats all pixels of the same class identically. It cannot tell apart two separate cars -- for that, you need instance segmentation."
+    },
+    {
+      "id": "l8_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name the visualization technique that shows model focus areas.",
+      "blank_sentence": "Class ___ Maps (CAMs) produce heatmaps showing which regions of an image most influenced the model's prediction for a given class.",
+      "correct_answer": "Activation",
+      "acceptable_answers": ["Activation", "activation"],
+      "explanation": "Class Activation Maps highlight the image regions the model focused on when making a prediction. This interpretability tool helps verify that the model is looking at the right parts of the image rather than relying on spurious cues."
+    }
+  ]
+}

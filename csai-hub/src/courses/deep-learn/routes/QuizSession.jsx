@@ -6,7 +6,7 @@ export default function QuizSession() {
   const { sectionId, quizType } = useParams();
   return (
     <SharedQuizSession
-      courseId="cog-neuro"
+      courseId="deep-learn"
       sectionId={sectionId}
       quizType={quizType}
       getQuiz={getQuiz}

@@ -1,0 +1,147 @@
+{
+  "section_id": "l6",
+  "quiz_type": "multiple_choice",
+  "title": "Recurrence - Multiple Choice",
+  "questions": [
+    {
+      "id": "l6_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What makes RNNs different from standard feedforward neural networks?",
+      "options": {
+        "A": "RNNs use more layers than feedforward networks",
+        "B": "RNNs maintain a hidden state that carries information across time steps",
+        "C": "RNNs can only process fixed-length inputs",
+        "D": "RNNs do not use activation functions"
+      },
+      "correct_answer": "B",
+      "explanation": "The key difference is that RNNs have a hidden state that gets updated at each time step, allowing information from previous inputs to influence the processing of current inputs. This gives RNNs a form of memory that feedforward networks lack."
+    },
+    {
+      "id": "l6_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "How is the hidden state in an RNN updated at each time step?",
+      "options": {
+        "A": "It is replaced entirely by the new input",
+        "B": "It is computed using only the previous hidden state",
+        "C": "It is computed using a combination of the current input and the previous hidden state",
+        "D": "It stays the same throughout the entire sequence"
+      },
+      "correct_answer": "C",
+      "explanation": "At each time step, the RNN combines the current input with the previous hidden state to produce a new hidden state. This combination is what allows the network to integrate new information while retaining relevant context from earlier in the sequence."
+    },
+    {
+      "id": "l6_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What is the vanishing gradient problem in RNNs?",
+      "options": {
+        "A": "Gradients become too large and cause the model to diverge",
+        "B": "Gradients shrink as they propagate back through many time steps, making it hard to learn long-range dependencies",
+        "C": "The model runs out of memory when processing long sequences",
+        "D": "The learning rate decreases automatically over time"
+      },
+      "correct_answer": "B",
+      "explanation": "When training an RNN on long sequences, gradients must travel back through many time steps. At each step they get multiplied by small values, causing them to shrink exponentially. This means the network struggles to learn relationships between events that are far apart in the sequence."
+    },
+    {
+      "id": "l6_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What does BPTT (Backpropagation Through Time) involve?",
+      "options": {
+        "A": "Training the RNN on multiple sequences simultaneously",
+        "B": "Unrolling the RNN across time steps and applying standard backpropagation",
+        "C": "Using a separate optimizer for each time step",
+        "D": "Freezing the weights during the backward pass"
+      },
+      "correct_answer": "B",
+      "explanation": "BPTT works by conceptually unrolling the RNN so each time step becomes a layer in a deep network. Standard backpropagation is then applied to this unrolled graph, allowing gradients to flow from the loss back through all the time steps to update the shared weights."
+    },
+    {
+      "id": "l6_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What is the role of the forget gate in an LSTM?",
+      "options": {
+        "A": "It decides what new information to add to the cell state",
+        "B": "It controls what part of the cell state to output as the hidden state",
+        "C": "It decides what information to discard from the cell state",
+        "D": "It resets the entire network at each time step"
+      },
+      "correct_answer": "C",
+      "explanation": "The forget gate looks at the current input and previous hidden state and outputs values between 0 and 1 for each element in the cell state. A value close to 0 means 'forget this information' while a value close to 1 means 'keep this information.' This selective forgetting allows the LSTM to manage its long-term memory."
+    },
+    {
+      "id": "l6_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is the LSTM cell state?",
+      "options": {
+        "A": "A short-term buffer that resets every time step",
+        "B": "A long-term memory that flows through the network, with gates controlling what is added or removed",
+        "C": "The final output of the LSTM at each time step",
+        "D": "A copy of the input sequence stored for later use"
+      },
+      "correct_answer": "B",
+      "explanation": "The cell state acts as a conveyor belt of information flowing through the LSTM. Unlike the hidden state, the cell state can carry information across many time steps with minimal change. The forget gate, input gate, and output gate together control what gets removed from, added to, and read from the cell state."
+    },
+    {
+      "id": "l6_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "How does a GRU simplify the LSTM design?",
+      "options": {
+        "A": "It removes all gates entirely",
+        "B": "It uses two gates (reset and update) instead of three, and has no separate cell state",
+        "C": "It adds a fourth gate for extra control",
+        "D": "It replaces the hidden state with an attention mechanism"
+      },
+      "correct_answer": "B",
+      "explanation": "The GRU merges the LSTM's forget and input gates into a single update gate, and combines the cell state and hidden state into one. The reset gate controls how much of the previous hidden state to consider when computing new candidate values. This gives GRUs fewer parameters while often achieving comparable performance."
+    },
+    {
+      "id": "l6_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Which RNN architecture type would you use for sentiment analysis of a movie review?",
+      "options": {
+        "A": "One-to-one",
+        "B": "One-to-many",
+        "C": "Many-to-one",
+        "D": "Many-to-many"
+      },
+      "correct_answer": "C",
+      "explanation": "Sentiment analysis takes a sequence of words (many inputs) and produces a single classification label such as positive or negative (one output). This makes it a many-to-one task. The RNN reads the entire review and then outputs a sentiment prediction based on the final hidden state."
+    },
+    {
+      "id": "l6_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In a Seq2Seq model, what does the encoder do?",
+      "options": {
+        "A": "It generates the output sequence one token at a time",
+        "B": "It processes the input sequence and compresses it into a context vector",
+        "C": "It computes the loss function for training",
+        "D": "It translates words one at a time without considering context"
+      },
+      "correct_answer": "B",
+      "explanation": "The encoder reads the entire input sequence and produces a fixed-length context vector (typically its final hidden state) that summarizes the input. This context vector is then passed to the decoder, which uses it to generate the output sequence. This allows the model to handle input and output sequences of different lengths."
+    },
+    {
+      "id": "l6_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What is teacher forcing?",
+      "options": {
+        "A": "Using a larger model to train a smaller one",
+        "B": "Feeding the correct previous token to the decoder during training instead of its own prediction",
+        "C": "Forcing the model to memorize the training data exactly",
+        "D": "Increasing the learning rate to speed up training"
+      },
+      "correct_answer": "B",
+      "explanation": "During training, teacher forcing provides the ground-truth previous token as input to the decoder at each step, rather than the token the decoder predicted. This prevents errors from compounding during training and helps the model converge faster, though it can cause a mismatch between training and inference conditions."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "section_id": "l7",
+  "quiz_type": "multiple_response",
+  "title": "Transformers - Multiple Response",
+  "questions": [
+    {
+      "id": "l7_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are true about self-attention? (Select all that apply)",
+      "options": {
+        "A": "Each token computes a relevance score with every other token",
+        "B": "It processes tokens one at a time from left to right",
+        "C": "It captures contextual relationships between tokens",
+        "D": "Queries, Keys, and Values all come from the same sequence",
+        "E": "It can only look at neighboring tokens"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Self-attention lets each token attend to all other tokens (A), capturing contextual relationships (C). The name 'self' means Q, K, and V all come from the same sequence (D). It does NOT process tokens sequentially (B) -- it processes them in parallel. And it is NOT limited to neighbors (E) -- every token can attend to every other token regardless of distance."
+    },
+    {
+      "id": "l7_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe the Query-Key-Value framework? (Select all that apply)",
+      "options": {
+        "A": "The Query asks 'what am I looking for?'",
+        "B": "The Key says 'what do I contain?'",
+        "C": "The Value provides the actual information to be retrieved",
+        "D": "The Query and Key must be identical vectors",
+        "E": "The dot product of Query and Key determines relevance"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The Query represents what a token is searching for (A), the Key represents what a token contains or offers (B), and the Value carries the actual information (C). Relevance is computed via the dot product of Q and K (E). Q and K are NOT identical (D) -- they are separate learned projections of the input that serve different roles."
+    },
+    {
+      "id": "l7_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are advantages of Transformers over LSTMs? (Select all that apply)",
+      "options": {
+        "A": "Transformers process all tokens in parallel, enabling faster training",
+        "B": "Transformers can directly attend to any token regardless of distance",
+        "C": "Transformers always use less memory than LSTMs",
+        "D": "Both are designed for sequential data and long-range dependencies",
+        "E": "Transformers are easier to parallelize on GPU hardware"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Transformers process tokens in parallel (A), can directly connect any two tokens via attention (B), and are highly parallelizable on GPUs (E). Both architectures handle sequential data and long-range dependencies (D). However, C is false -- Transformers actually use MORE memory for long sequences because the attention matrix grows quadratically with sequence length."
+    },
+    {
+      "id": "l7_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the scaling factor in scaled dot-product attention? (Select all that apply)",
+      "options": {
+        "A": "The scaling factor is the square root of the key dimension (sqrt of d_k)",
+        "B": "Without scaling, dot products can become very large",
+        "C": "Large dot products push softmax toward extreme values (near 0 or 1)",
+        "D": "Scaling increases the number of model parameters",
+        "E": "Scaling helps maintain stable gradients during training"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The scaling factor is sqrt(d_k) (A). Without it, dot products grow large as the dimension increases (B), which causes softmax to produce very peaked distributions near 0 and 1 (C), leading to vanishing gradients. Scaling keeps gradients stable for effective learning (E). Scaling does NOT add parameters (D) -- it is a simple division operation."
+    },
+    {
+      "id": "l7_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about multi-head attention? (Select all that apply)",
+      "options": {
+        "A": "It runs attention multiple times in parallel with different learned projections",
+        "B": "Each head can capture a different type of relationship",
+        "C": "All heads must learn the same attention pattern",
+        "D": "The outputs from all heads are concatenated together",
+        "E": "It replaces single-head attention to get richer representations"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Multi-head attention runs multiple parallel attention operations (A), each with its own learned projections that can capture different relationship types (B). The head outputs are concatenated (D) and projected to produce the final result, giving richer representations than a single head (E). C is false -- the whole point is that different heads learn DIFFERENT patterns."
+    },
+    {
+      "id": "l7_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the softmax function in attention? (Select all that apply)",
+      "options": {
+        "A": "It converts raw scores into probabilities",
+        "B": "The output weights sum to 1",
+        "C": "All output values are non-negative",
+        "D": "It selects exactly one token and ignores the rest",
+        "E": "It is applied after scaling by sqrt(d_k)"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Softmax converts raw attention scores into a proper probability distribution (A) where values are non-negative (C) and sum to 1 (B). It is applied after the scaling step (E). D is false -- softmax produces a 'soft' distribution that assigns some weight to every token, not a hard selection of just one token."
+    },
+    {
+      "id": "l7_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe contextualized word embeddings from Transformers? (Select all that apply)",
+      "options": {
+        "A": "The same word gets different vectors depending on surrounding context",
+        "B": "The word 'bank' would have different embeddings in 'river bank' vs 'bank account'",
+        "C": "They are identical to Word2Vec embeddings",
+        "D": "They capture the meaning of a word in its specific context",
+        "E": "They are produced by the self-attention mechanism"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Transformer embeddings are contextualized -- the same word gets different vectors based on context (A, B), capturing its specific meaning in each sentence (D). Self-attention is the mechanism that enables this by allowing each token to incorporate information from surrounding tokens (E). C is false -- Word2Vec gives fixed embeddings regardless of context, which is fundamentally different."
+    },
+    {
+      "id": "l7_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are components of the Transformer encoder? (Select all that apply)",
+      "options": {
+        "A": "Self-attention sublayer",
+        "B": "Feed-forward sublayer",
+        "C": "Masked self-attention sublayer",
+        "D": "Cross-attention sublayer",
+        "E": "Residual connections"
+      },
+      "correct_answers": ["A", "B", "E"],
+      "explanation": "The Transformer encoder contains self-attention (A), a position-wise feed-forward network (B), and residual connections (E) around each sublayer. Masked self-attention (C) and cross-attention (D) are components of the decoder, not the encoder. The decoder needs masking to prevent seeing future tokens and cross-attention to connect with the encoder."
+    },
+    {
+      "id": "l7_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are true about attention in RNNs (e.g., Bahdanau attention)? (Select all that apply)",
+      "options": {
+        "A": "The context vector is a weighted sum of encoder hidden states",
+        "B": "Attention weights reflect how relevant each encoder state is to the current decoding step",
+        "C": "It was introduced before the Transformer architecture",
+        "D": "It completely eliminates the need for recurrent connections",
+        "E": "It allows the decoder to focus on different parts of the input at each step"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "In RNN-based attention, the context vector is a weighted sum of encoder hidden states (A), with weights indicating relevance to the current decoding step (B, E). This mechanism was introduced by Bahdanau in 2014, before the Transformer (C). However, D is false -- RNN attention still uses recurrent connections; it is the Transformer that eliminates them entirely."
+    },
+    {
+      "id": "l7_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the Transformer decoder? (Select all that apply)",
+      "options": {
+        "A": "It uses masked self-attention to prevent seeing future tokens",
+        "B": "It includes cross-attention to attend to encoder outputs",
+        "C": "It has a feed-forward sublayer",
+        "D": "It processes all tokens bidirectionally like the encoder",
+        "E": "It is used for generating output sequences"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The Transformer decoder uses masked self-attention (A), cross-attention over encoder outputs (B), and a feed-forward network (C) in each layer. It generates output sequences autoregressively (E). D is false -- the decoder does NOT process bidirectionally; the mask ensures each position can only attend to earlier positions, making it unidirectional."
+    }
+  ]
+}

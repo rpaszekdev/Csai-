@@ -1,0 +1,157 @@
+{
+  "section_id": "l3",
+  "quiz_type": "multiple_response",
+  "title": "Optimizers - Multiple Response",
+  "questions": [
+    {
+      "id": "l3_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the learning rate in gradient descent? (Select all that apply)",
+      "options": {
+        "A": "It controls the step size of each parameter update",
+        "B": "If it is too high, the optimizer may overshoot the minimum",
+        "C": "If it is too low, convergence will be very slow",
+        "D": "It is automatically determined by the gradient",
+        "E": "It must be set as a hyperparameter before training"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The learning rate is a hyperparameter (E) that controls step size (A). Too high causes overshooting (B), too low causes slow convergence (C). It is not automatically determined by the gradient (D is wrong) -- it must be chosen by the practitioner before training begins."
+    },
+    {
+      "id": "l3_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are benefits of SGD with momentum compared to vanilla SGD? (Select all that apply)",
+      "options": {
+        "A": "Smoother updates because past gradients are accumulated",
+        "B": "Can help escape shallow local minima",
+        "C": "Adapts the learning rate differently for each parameter",
+        "D": "Builds up speed in directions where the gradient is consistently pointing",
+        "E": "Reduces the noise from mini-batch gradient estimates"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Momentum smooths updates by averaging past gradients (A), helps escape local minima through accumulated velocity (B), builds speed in consistent gradient directions (D), and reduces effective noise by averaging (E). Momentum does NOT adapt the learning rate per parameter (C) -- that is a feature of adaptive methods like AdaGrad, RMSprop, and Adam."
+    },
+    {
+      "id": "l3_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are adaptive learning rate optimizers? (Select all that apply)",
+      "options": {
+        "A": "Vanilla SGD",
+        "B": "AdaGrad",
+        "C": "RMSprop",
+        "D": "Adam",
+        "E": "SGD with Momentum"
+      },
+      "correct_answers": ["B", "C", "D"],
+      "explanation": "AdaGrad, RMSprop, and Adam all adapt the learning rate individually for each parameter based on gradient history. Vanilla SGD and SGD with Momentum both use a single fixed global learning rate. Momentum smooths the direction of updates but does not adjust the step size per parameter."
+    },
+    {
+      "id": "l3_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following correctly describe how Adam works? (Select all that apply)",
+      "options": {
+        "A": "It tracks an exponential moving average of the gradients (first moment)",
+        "B": "It tracks an exponential moving average of the squared gradients (second moment)",
+        "C": "It applies bias correction to compensate for zero initialization",
+        "D": "It uses a static learning rate like vanilla SGD",
+        "E": "It combines ideas from momentum and RMSprop"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Adam maintains a first moment (mean of gradients, like momentum) (A) and a second moment (mean of squared gradients, like RMSprop) (B). It applies bias correction (C) because both moments are initialized at zero. It combines momentum and RMSprop (E). It does NOT use a static learning rate like SGD (D) -- it adapts the rate per parameter."
+    },
+    {
+      "id": "l3_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about AdaGrad? (Select all that apply)",
+      "options": {
+        "A": "It adapts the learning rate independently for each parameter",
+        "B": "Parameters with large past gradients get a smaller effective learning rate",
+        "C": "Its learning rate can only decrease over time, never increase",
+        "D": "It uses an exponential moving average to forget old gradients",
+        "E": "It works well for sparse features where some parameters update rarely"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "AdaGrad adapts per parameter (A), giving smaller rates to frequently updated parameters (B). Because it sums all squared gradients, the rate can only shrink (C). It is effective for sparse data (E). It does NOT use an exponential moving average (D) -- that is RMSprop's improvement. AdaGrad keeps the full history, which is why the rate keeps decreasing."
+    },
+    {
+      "id": "l3_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are true about gradient descent? (Select all that apply)",
+      "options": {
+        "A": "The gradient points in the direction of steepest increase of the loss",
+        "B": "Parameters are moved in the opposite direction of the gradient to decrease the loss",
+        "C": "The gradient always points directly toward the global minimum",
+        "D": "The magnitude of the gradient indicates how steep the loss surface is",
+        "E": "Gradient descent is guaranteed to find the global minimum for any loss function"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "The gradient indicates the direction and steepness of the loss surface's uphill slope (A, D). We move opposite to it to go downhill and reduce the loss (B). The gradient only gives local information about the slope, not a direct path to the global minimum (C is wrong). For non-convex loss functions like those in deep learning, gradient descent is not guaranteed to find the global minimum (E is wrong)."
+    },
+    {
+      "id": "l3_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are characteristics of vanilla SGD? (Select all that apply)",
+      "options": {
+        "A": "It uses a fixed, static learning rate throughout training",
+        "B": "Each update is based only on the current mini-batch gradient",
+        "C": "Updates can be noisy because of the random mini-batch sampling",
+        "D": "It maintains a velocity term from past gradients",
+        "E": "It is the simplest form of gradient-based optimization"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Vanilla SGD uses a static learning rate (A), relies only on the current gradient (B), has noisy updates due to mini-batch sampling (C), and is the simplest optimizer (E). It does NOT maintain a velocity term (D) -- that is the addition that momentum brings to SGD."
+    },
+    {
+      "id": "l3_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are reasons why RMSprop was developed as an improvement over AdaGrad? (Select all that apply)",
+      "options": {
+        "A": "AdaGrad's effective learning rate can shrink to near zero over time",
+        "B": "AdaGrad accumulates all past squared gradients without forgetting any",
+        "C": "RMSprop uses an exponential moving average to forget old gradient information",
+        "D": "RMSprop adds momentum to the updates",
+        "E": "RMSprop keeps the learning rate in a useful range for longer training"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "RMSprop was created to fix AdaGrad's main flaw: the learning rate shrinking to zero (A) because AdaGrad never forgets old squared gradients (B). RMSprop uses an exponential moving average that gradually forgets old information (C), keeping the learning rate useful throughout training (E). RMSprop by itself does not add momentum (D) -- that combination is what Adam does."
+    },
+    {
+      "id": "l3_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are true about Nesterov momentum? (Select all that apply)",
+      "options": {
+        "A": "It computes the gradient at a lookahead position instead of the current position",
+        "B": "It first applies the momentum step, then computes the gradient",
+        "C": "It adapts the learning rate per parameter",
+        "D": "It provides a 'look before you leap' correction that can improve convergence",
+        "E": "It builds on the idea of standard momentum"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Nesterov momentum first takes a momentum step, then computes the gradient at that lookahead position (A, B). This look-ahead approach provides a corrective mechanism (D) and is an extension of standard momentum (E). It does NOT adapt the learning rate per parameter (C) -- it still uses a single global learning rate."
+    },
+    {
+      "id": "l3_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following problems can momentum help address? (Select all that apply)",
+      "options": {
+        "A": "Noisy gradients from mini-batch sampling",
+        "B": "Getting stuck in shallow local minima",
+        "C": "Slow progress when the gradient is consistently pointing in one direction",
+        "D": "The need for per-parameter learning rate adaptation",
+        "E": "Zig-zagging updates in narrow valleys of the loss surface"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Momentum smooths out noisy gradients by averaging (A), helps escape shallow local minima through accumulated velocity (B), builds up speed in consistent gradient directions (C), and reduces zig-zagging by canceling out oscillations across narrow valleys (E). Momentum does NOT provide per-parameter learning rate adaptation (D) -- that requires adaptive methods like Adam or RMSprop."
+    }
+  ]
+}

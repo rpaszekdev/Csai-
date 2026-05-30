@@ -1,0 +1,157 @@
+{
+  "section_id": "l7",
+  "quiz_type": "matching",
+  "title": "Transformers - Matching",
+  "questions": [
+    {
+      "id": "l7_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each attention component to its role.",
+      "items": ["Query (Q)", "Key (K)", "Value (V)", "Attention weight"],
+      "categories": ["Asks 'what am I looking for?'", "Says 'what do I contain?'", "Provides the actual information to be retrieved", "The probability score indicating how much to focus on each token"],
+      "correct_mapping": {
+        "Query (Q)": "Asks 'what am I looking for?'",
+        "Key (K)": "Says 'what do I contain?'",
+        "Value (V)": "Provides the actual information to be retrieved",
+        "Attention weight": "The probability score indicating how much to focus on each token"
+      },
+      "explanation": "In the attention mechanism, the Query represents what a token is searching for, the Key represents what each token offers for matching, and the Value carries the actual information. The attention weight is the softmax-normalized score from the Query-Key dot product, indicating how much each Value should contribute to the output."
+    },
+    {
+      "id": "l7_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each concept to how it handles word meaning.",
+      "items": ["Word2Vec", "Transformer embeddings", "One-hot encoding", "Bag of words"],
+      "categories": ["Fixed vector per word, same regardless of context", "Different vector for the same word depending on surrounding context", "Sparse binary vector with a 1 in one position, no semantic information", "Counts word frequencies, ignores word order entirely"],
+      "correct_mapping": {
+        "Word2Vec": "Fixed vector per word, same regardless of context",
+        "Transformer embeddings": "Different vector for the same word depending on surrounding context",
+        "One-hot encoding": "Sparse binary vector with a 1 in one position, no semantic information",
+        "Bag of words": "Counts word frequencies, ignores word order entirely"
+      },
+      "explanation": "Word2Vec learns dense fixed embeddings -- 'bank' always gets the same vector. Transformers produce contextualized embeddings where 'bank' gets different vectors in 'river bank' vs 'bank account.' One-hot encoding uses a sparse vector with no semantic meaning. Bag of words counts word occurrences without considering order."
+    },
+    {
+      "id": "l7_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each architecture to how it processes sequential data.",
+      "items": ["Transformer", "LSTM", "Simple RNN", "Convolutional layer"],
+      "categories": ["All tokens processed in parallel via self-attention", "Tokens processed sequentially with gating mechanisms for long-range dependencies", "Tokens processed sequentially but struggles with long-range dependencies", "Processes local windows of tokens with shared filters"],
+      "correct_mapping": {
+        "Transformer": "All tokens processed in parallel via self-attention",
+        "LSTM": "Tokens processed sequentially with gating mechanisms for long-range dependencies",
+        "Simple RNN": "Tokens processed sequentially but struggles with long-range dependencies",
+        "Convolutional layer": "Processes local windows of tokens with shared filters"
+      },
+      "explanation": "Transformers process all tokens simultaneously through self-attention, enabling parallelism. LSTMs process sequentially but use gates (forget, input, output) to better handle long-range dependencies. Simple RNNs process sequentially but suffer from vanishing gradients over long sequences. Convolutional layers look at local windows of tokens."
+    },
+    {
+      "id": "l7_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each step of scaled dot-product attention to what it does.",
+      "items": ["Q * K^T", "Divide by sqrt(d_k)", "Softmax", "Multiply by V"],
+      "categories": ["Compute raw relevance scores between all token pairs", "Prevent scores from becoming too large for stable learning", "Convert raw scores into probabilities that sum to 1", "Produce the final output as a weighted combination of information"],
+      "correct_mapping": {
+        "Q * K^T": "Compute raw relevance scores between all token pairs",
+        "Divide by sqrt(d_k)": "Prevent scores from becoming too large for stable learning",
+        "Softmax": "Convert raw scores into probabilities that sum to 1",
+        "Multiply by V": "Produce the final output as a weighted combination of information"
+      },
+      "explanation": "The attention formula works in four steps: first compute dot products between Queries and Keys to get raw scores, then scale by sqrt(d_k) to keep values manageable, then apply softmax to get proper probability weights, and finally multiply by Values to produce the output."
+    },
+    {
+      "id": "l7_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each Transformer block to its components.",
+      "items": ["Encoder layer", "Decoder layer", "Cross-attention", "Feed-forward sublayer"],
+      "categories": ["Self-attention + feed-forward network", "Masked self-attention + cross-attention + feed-forward network", "Queries from decoder, Keys and Values from encoder", "A small neural network applied independently to each token"],
+      "correct_mapping": {
+        "Encoder layer": "Self-attention + feed-forward network",
+        "Decoder layer": "Masked self-attention + cross-attention + feed-forward network",
+        "Cross-attention": "Queries from decoder, Keys and Values from encoder",
+        "Feed-forward sublayer": "A small neural network applied independently to each token"
+      },
+      "explanation": "The encoder has two sublayers: self-attention and a feed-forward network. The decoder has three: masked self-attention, cross-attention (connecting to the encoder), and a feed-forward network. Cross-attention uses decoder states as Queries and encoder outputs as Keys and Values. The feed-forward network processes each token position independently."
+    },
+    {
+      "id": "l7_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each property to whether it belongs to Transformers or LSTMs.",
+      "items": ["Parallel processing of all tokens", "Sequential processing of tokens", "Self-attention mechanism", "Hidden state passed from step to step"],
+      "categories": ["Transformer", "LSTM", "Transformer", "LSTM"],
+      "correct_mapping": {
+        "Parallel processing of all tokens": "Transformer",
+        "Sequential processing of tokens": "LSTM",
+        "Self-attention mechanism": "Transformer",
+        "Hidden state passed from step to step": "LSTM"
+      },
+      "explanation": "Transformers process all tokens in parallel using self-attention, where each token directly attends to every other token. LSTMs process tokens one at a time sequentially, passing a hidden state from one time step to the next. Both architectures are designed for sequential data and can capture long-range dependencies, but they do so in fundamentally different ways."
+    },
+    {
+      "id": "l7_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each attention type to its description.",
+      "items": ["Self-attention", "Cross-attention", "Masked self-attention", "Multi-head attention"],
+      "categories": ["Each token attends to all tokens in the same sequence", "Decoder tokens attend to encoder output tokens", "Tokens can only attend to earlier positions, not future ones", "Multiple parallel attention operations capturing different relationship types"],
+      "correct_mapping": {
+        "Self-attention": "Each token attends to all tokens in the same sequence",
+        "Cross-attention": "Decoder tokens attend to encoder output tokens",
+        "Masked self-attention": "Tokens can only attend to earlier positions, not future ones",
+        "Multi-head attention": "Multiple parallel attention operations capturing different relationship types"
+      },
+      "explanation": "Self-attention operates within a single sequence. Cross-attention connects two sequences, typically letting the decoder attend to encoder outputs. Masked self-attention blocks future positions for autoregressive generation. Multi-head attention runs several attention operations in parallel with different learned projections to capture diverse relationships."
+    },
+    {
+      "id": "l7_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each problem to the solution the Transformer provides.",
+      "items": ["Sequential processing is slow", "Hard to capture long-range dependencies", "Same word has different meanings in different contexts", "Need to focus on different relationship types simultaneously"],
+      "categories": ["Self-attention processes all tokens in parallel", "Direct attention between any two tokens regardless of distance", "Contextualized embeddings change based on surrounding words", "Multi-head attention with different learned projections"],
+      "correct_mapping": {
+        "Sequential processing is slow": "Self-attention processes all tokens in parallel",
+        "Hard to capture long-range dependencies": "Direct attention between any two tokens regardless of distance",
+        "Same word has different meanings in different contexts": "Contextualized embeddings change based on surrounding words",
+        "Need to focus on different relationship types simultaneously": "Multi-head attention with different learned projections"
+      },
+      "explanation": "Transformers solve several key problems: parallel processing replaces slow sequential computation; self-attention creates direct connections between any two tokens (no matter how far apart); contextualized embeddings capture different word meanings; and multi-head attention captures multiple relationship types at once."
+    },
+    {
+      "id": "l7_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each concept to what happens without it.",
+      "items": ["Scaling by sqrt(d_k)", "Softmax in attention", "Multi-head attention", "Masked self-attention in decoder"],
+      "categories": ["Dot products become very large, softmax produces extreme values", "Raw scores are not proper probabilities and don't sum to 1", "Only one type of relationship is captured per layer", "Decoder can cheat by looking at future tokens during training"],
+      "correct_mapping": {
+        "Scaling by sqrt(d_k)": "Dot products become very large, softmax produces extreme values",
+        "Softmax in attention": "Raw scores are not proper probabilities and don't sum to 1",
+        "Multi-head attention": "Only one type of relationship is captured per layer",
+        "Masked self-attention in decoder": "Decoder can cheat by looking at future tokens during training"
+      },
+      "explanation": "Each component addresses a specific need: scaling prevents numerical instability from large dot products; softmax converts raw scores into proper probability weights; multi-head attention enables capturing diverse relationship types; and masking ensures the decoder cannot peek at future tokens, which would break autoregressive generation."
+    },
+    {
+      "id": "l7_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each attention context to where the Queries, Keys, and Values come from.",
+      "items": ["Encoder self-attention", "Decoder masked self-attention", "Decoder cross-attention", "RNN attention (Bahdanau)"],
+      "categories": ["Q, K, V all from encoder input", "Q, K, V all from decoder input (future positions blocked)", "Q from decoder, K and V from encoder output", "Query from decoder hidden state, K and V from encoder hidden states"],
+      "correct_mapping": {
+        "Encoder self-attention": "Q, K, V all from encoder input",
+        "Decoder masked self-attention": "Q, K, V all from decoder input (future positions blocked)",
+        "Decoder cross-attention": "Q from decoder, K and V from encoder output",
+        "RNN attention (Bahdanau)": "Query from decoder hidden state, K and V from encoder hidden states"
+      },
+      "explanation": "In encoder self-attention, all three vectors come from the same encoder input. In decoder masked self-attention, all three come from decoder input but future positions are masked. In cross-attention, Queries come from the decoder while Keys and Values come from the encoder. In classic RNN attention, the decoder hidden state acts as the query against encoder hidden states."
+    }
+  ]
+}

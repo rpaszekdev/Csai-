@@ -21,13 +21,6 @@ export const PROGRAM = [
             shape: "brain",
             exams: [
               {
-                type: "Midterm",
-                format: "Digital",
-                weight: "40%",
-                min: "None",
-                date: "31 Mar",
-              },
-              {
                 type: "Final",
                 format: "Digital",
                 weight: "40%",
@@ -222,6 +215,7 @@ export const PROGRAM = [
               },
             ],
             resources: [
+              { label: "Dashboard & Quizzes", href: "/courses/deep-learn" },
               { label: "Lesson 1: MLPs", href: "/lesson.html" },
               { label: "Lesson 2: Backprop", href: "/lesson2.html" },
               { label: "Lesson 3: Optimizers", href: "/lesson3.html" },

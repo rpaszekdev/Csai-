@@ -1,0 +1,157 @@
+{
+  "section_id": "l1",
+  "quiz_type": "multiple_response",
+  "title": "MLPs - Multiple Response",
+  "questions": [
+    {
+      "id": "l1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are part of a perceptron's computation? (Select all that apply)",
+      "options": {
+        "A": "Multiplying each input by a weight",
+        "B": "Summing the weighted inputs",
+        "C": "Adding a bias term",
+        "D": "Sorting the inputs by size",
+        "E": "Applying an activation function"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "A perceptron multiplies each input by its weight, sums those products, adds a bias, and applies an activation function (such as a step function). There is no sorting step involved in a perceptron's computation."
+    },
+    {
+      "id": "l1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the XOR problem? (Select all that apply)",
+      "options": {
+        "A": "A single perceptron cannot solve it",
+        "B": "It is not linearly separable",
+        "C": "It requires at least one hidden layer",
+        "D": "It can be solved by any single neuron with the right weights",
+        "E": "It outputs 1 when exactly one input is 1"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "XOR outputs 1 when exactly one of two inputs is 1. The pattern is not linearly separable, meaning no single straight line can divide the outputs. A single perceptron cannot solve it, but adding a hidden layer provides the non-linearity needed."
+    },
+    {
+      "id": "l1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following happen during the forward pass? (Select all that apply)",
+      "options": {
+        "A": "Data flows from input layer to output layer",
+        "B": "Each layer computes weighted sums and applies activations",
+        "C": "Weights are updated based on the gradient",
+        "D": "The network produces a prediction",
+        "E": "Gradients are propagated backward through the network"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "During the forward pass, data moves through the network layer by layer, with each layer computing its weighted sum plus bias and applying an activation function. This produces the network's prediction. Weight updates and gradient propagation happen during the backward pass, not the forward pass."
+    },
+    {
+      "id": "l1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the backward pass (backpropagation)? (Select all that apply)",
+      "options": {
+        "A": "It uses the chain rule to compute gradients",
+        "B": "It works from the output layer back toward the input layer",
+        "C": "It calculates how much each weight contributed to the error",
+        "D": "It feeds new training data into the network",
+        "E": "It happens before the forward pass"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Backpropagation uses the chain rule to compute gradients, working backward from the output to the input. It determines each weight's contribution to the error. The forward pass always happens first to produce a prediction, and new data is fed during the forward pass, not the backward pass."
+    },
+    {
+      "id": "l1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the learning rate? (Select all that apply)",
+      "options": {
+        "A": "It scales the size of weight updates",
+        "B": "If too large, training may overshoot the minimum",
+        "C": "If too small, training will be very slow",
+        "D": "It is always set to exactly 1",
+        "E": "It determines the number of hidden layers"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The learning rate controls the step size of weight updates. Too large causes overshooting, too small causes slow progress. It is a hyperparameter chosen by the designer (not fixed at 1) and has nothing to do with the number of hidden layers."
+    },
+    {
+      "id": "l1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are true about biases in a neural network? (Select all that apply)",
+      "options": {
+        "A": "They are stored as vectors (one value per neuron)",
+        "B": "They allow the neuron to activate even when all inputs are zero",
+        "C": "They shift the decision boundary",
+        "D": "They are the same as weights",
+        "E": "They are added to the weighted sum before the activation function"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Biases are learnable parameters stored as vectors. They shift the decision boundary and allow neurons to have non-zero output even with zero inputs. They are added to the weighted sum before activation. Biases are distinct from weights, as weights multiply inputs while biases are additive constants."
+    },
+    {
+      "id": "l1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following are components of the perceptron update rule (delta_w = learning_rate * error * input)? (Select all that apply)",
+      "options": {
+        "A": "The learning rate",
+        "B": "The error (expected minus actual output)",
+        "C": "The input value",
+        "D": "The number of training epochs",
+        "E": "The number of hidden layers"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The perceptron update rule multiplies three things: the learning rate (step size), the error (how wrong the output was), and the input value. The number of epochs and hidden layers are not part of this formula."
+    },
+    {
+      "id": "l1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are true about weights in an MLP? (Select all that apply)",
+      "options": {
+        "A": "They are stored as matrices",
+        "B": "They connect neurons between layers",
+        "C": "They are updated during training to reduce error",
+        "D": "They are always positive numbers",
+        "E": "They are adjusted in the opposite direction of the gradient"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Weights form matrices connecting layers and are adjusted during training to minimize error. Updates go in the opposite direction of the gradient (gradient descent). Weights can be positive, negative, or zero, so they are not restricted to positive values."
+    },
+    {
+      "id": "l1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following are true about the Universal Approximation Theorem? (Select all that apply)",
+      "options": {
+        "A": "MLPs can approximate complex non-linear functions",
+        "B": "At least one hidden layer is needed",
+        "C": "It guarantees training will always succeed",
+        "D": "It requires a non-linear activation function",
+        "E": "It tells us exactly how many neurons are needed"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "The theorem says MLPs with at least one hidden layer and a non-linear activation can approximate any continuous function. However, it does not guarantee that training (gradient descent) will find the right weights, and it does not specify how many neurons are needed."
+    },
+    {
+      "id": "l1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which Boolean functions can a single perceptron solve? (Select all that apply)",
+      "options": {
+        "A": "AND",
+        "B": "OR",
+        "C": "NOT",
+        "D": "XOR",
+        "E": "XNOR"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "AND, OR, and NOT are linearly separable, meaning a single straight line can divide their outputs into the correct classes. XOR and XNOR are not linearly separable and require at least one hidden layer to solve."
+    }
+  ]
+}

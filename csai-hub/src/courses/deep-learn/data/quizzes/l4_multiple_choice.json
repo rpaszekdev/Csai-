@@ -1,0 +1,147 @@
+{
+  "section_id": "l4",
+  "quiz_type": "multiple_choice",
+  "title": "CNNs - Multiple Choice",
+  "questions": [
+    {
+      "id": "l4_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What does a convolutional kernel (filter) do as it moves across an input image?",
+      "options": {
+        "A": "It randomly samples pixels from the image",
+        "B": "It computes a weighted sum of the local input patch at each position",
+        "C": "It removes noise from the image",
+        "D": "It resizes the image to a smaller dimension"
+      },
+      "correct_answer": "B",
+      "explanation": "A convolutional kernel slides across the input and at each position computes a weighted sum (dot product) between its weights and the overlapping input patch. This operation detects specific patterns like edges or textures depending on what the kernel weights have learned."
+    },
+    {
+      "id": "l4_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What kind of features do convolutional kernels typically detect in the early layers of a CNN?",
+      "options": {
+        "A": "Entire objects like cars or faces",
+        "B": "Edges, lines, and simple textures",
+        "C": "Colors only",
+        "D": "Background scenery"
+      },
+      "correct_answer": "B",
+      "explanation": "In the early layers of a CNN, kernels learn to detect simple low-level features such as horizontal edges, vertical edges, and basic textures. Deeper layers combine these simple features into more complex patterns like object parts and eventually whole objects."
+    },
+    {
+      "id": "l4_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What is a feature map in the context of CNNs?",
+      "options": {
+        "A": "A list of all the parameters in the network",
+        "B": "The output produced by applying one kernel to the input",
+        "C": "A visualization of the original image",
+        "D": "The loss function used during training"
+      },
+      "correct_answer": "B",
+      "explanation": "A feature map is the 2D output that results from sliding a single kernel across the input. Each kernel produces its own feature map, which highlights where and how strongly the kernel's pattern (such as a particular edge orientation) appears in the input."
+    },
+    {
+      "id": "l4_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What does max pooling do?",
+      "options": {
+        "A": "It averages all values in a window",
+        "B": "It adds padding around the input",
+        "C": "It selects the largest value within each pooling window",
+        "D": "It increases the spatial dimensions of the feature map"
+      },
+      "correct_answer": "C",
+      "explanation": "Max pooling divides the feature map into non-overlapping windows (e.g., 2x2) and keeps only the maximum value from each window. This reduces the spatial dimensions while retaining the strongest activations, making the representation more compact and somewhat invariant to small shifts."
+    },
+    {
+      "id": "l4_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What happens to the output size when you increase the stride of a convolution?",
+      "options": {
+        "A": "The output gets larger",
+        "B": "The output stays the same",
+        "C": "The output gets smaller",
+        "D": "The number of channels increases"
+      },
+      "correct_answer": "C",
+      "explanation": "Stride controls how many pixels the kernel moves at each step. A larger stride means the kernel skips more positions, so it produces fewer output values and the output spatial dimensions shrink. For example, stride 2 roughly halves the output size compared to stride 1."
+    },
+    {
+      "id": "l4_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is the purpose of padding in a convolution?",
+      "options": {
+        "A": "To increase the number of kernels",
+        "B": "To add zeros around the input so the output size can be controlled",
+        "C": "To speed up training",
+        "D": "To remove edge pixels from the image"
+      },
+      "correct_answer": "B",
+      "explanation": "Padding adds extra values (usually zeros) around the border of the input before convolution. This allows control over the output spatial dimensions. Without padding, the output shrinks after each convolution; with appropriate padding, the output can remain the same size as the input."
+    },
+    {
+      "id": "l4_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Why does parameter sharing in CNNs result in far fewer parameters than a fully connected layer?",
+      "options": {
+        "A": "Because CNNs use smaller images as input",
+        "B": "Because the same kernel weights are reused across all spatial positions of the input",
+        "C": "Because CNNs do not use bias terms",
+        "D": "Because CNNs only process grayscale images"
+      },
+      "correct_answer": "B",
+      "explanation": "In a convolutional layer, the same small set of kernel weights is applied at every position across the input. This means a 3x3 kernel only has 9 weights regardless of the input size. A fully connected layer would need separate weights for every input-output connection, leading to vastly more parameters."
+    },
+    {
+      "id": "l4_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What does translation equivariance mean in a CNN?",
+      "options": {
+        "A": "The CNN can process images in any language",
+        "B": "If the input image shifts, the feature map shifts in the same way",
+        "C": "The CNN always produces the same output regardless of input position",
+        "D": "The kernels change size depending on the input"
+      },
+      "correct_answer": "B",
+      "explanation": "Translation equivariance means that when an object moves (shifts) in the input image, the corresponding activations in the feature map shift by the same amount. This property arises naturally from parameter sharing: because the same kernel is used everywhere, it detects the same pattern regardless of where it appears."
+    },
+    {
+      "id": "l4_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "How many channels does a standard color (RGB) image have?",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "A standard color image has 3 channels: Red, Green, and Blue (RGB). When a convolutional kernel is applied to an RGB image, the kernel spans all 3 channels, computing a weighted sum across the full depth of the input to produce a single value in the output feature map."
+    },
+    {
+      "id": "l4_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What is the purpose of a 1x1 convolution?",
+      "options": {
+        "A": "To detect edges in the image",
+        "B": "To change the number of channels without changing the spatial size",
+        "C": "To double the resolution of the feature map",
+        "D": "To apply max pooling"
+      },
+      "correct_answer": "B",
+      "explanation": "A 1x1 convolution operates at each spatial position independently, combining information across channels. It can increase or decrease the number of channels (depth) while leaving the height and width unchanged. This is useful for adjusting the channel dimension efficiently."
+    }
+  ]
+}

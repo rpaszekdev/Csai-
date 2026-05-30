@@ -1,0 +1,97 @@
+{
+  "section_id": "l9",
+  "quiz_type": "ordering",
+  "title": "Positional Encoding & Transformers - Ordering",
+  "questions": [
+    {
+      "id": "l9_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of how positional encoding is applied to input tokens.",
+      "items": ["Apply dropout to the combined representation", "Convert input tokens into embedding vectors", "Add the positional encoding matrix to the token embeddings", "Compute or look up a positional encoding for each position", "Pass the result into the Transformer layers"],
+      "correct_order": ["Convert input tokens into embedding vectors", "Compute or look up a positional encoding for each position", "Add the positional encoding matrix to the token embeddings", "Apply dropout to the combined representation", "Pass the result into the Transformer layers"],
+      "explanation": "First, tokens are converted to embeddings. Then, a positional encoding vector is computed for each position. These encodings are added to the embeddings so each token gains position information. Dropout is applied to prevent over-reliance on positions. Finally, the combined representation enters the Transformer layers."
+    },
+    {
+      "id": "l9_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the data flow through an encoder-decoder Transformer from input to output.",
+      "items": ["Decoder generates output tokens one at a time using causal masking", "Add positional encodings to input token embeddings", "Encoder processes the full input with bidirectional attention", "Output probability distribution over the vocabulary for the next token", "Decoder uses cross-attention to attend to encoder hidden states"],
+      "correct_order": ["Add positional encodings to input token embeddings", "Encoder processes the full input with bidirectional attention", "Decoder generates output tokens one at a time using causal masking", "Decoder uses cross-attention to attend to encoder hidden states", "Output probability distribution over the vocabulary for the next token"],
+      "explanation": "The flow begins with adding positional encodings to input embeddings. The encoder processes the full input bidirectionally. The decoder then generates tokens one at a time with causal self-attention, using cross-attention to consult the encoder output. Finally, a probability distribution is produced for the next token."
+    },
+    {
+      "id": "l9_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the steps of using BERT for a classification task.",
+      "items": ["Output the predicted class label", "Process the full input through bidirectional self-attention layers", "Feed the [CLS] token representation into a classification layer", "Tokenize the input text and prepend [CLS]", "Add positional encodings to the token embeddings"],
+      "correct_order": ["Tokenize the input text and prepend [CLS]", "Add positional encodings to the token embeddings", "Process the full input through bidirectional self-attention layers", "Feed the [CLS] token representation into a classification layer", "Output the predicted class label"],
+      "explanation": "BERT classification works by first tokenizing and adding [CLS], then adding positional encodings, then processing everything through bidirectional attention so [CLS] aggregates the full sequence meaning, then passing [CLS] through a classifier, and finally outputting the predicted label."
+    },
+    {
+      "id": "l9_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of BERT's masked-language modeling training.",
+      "items": ["Predict the original tokens at the masked positions", "Process the modified sequence through the bidirectional encoder", "Randomly select tokens to mask", "Replace selected tokens with [MASK] or other tokens", "Compute the loss between predictions and original tokens"],
+      "correct_order": ["Randomly select tokens to mask", "Replace selected tokens with [MASK] or other tokens", "Process the modified sequence through the bidirectional encoder", "Predict the original tokens at the masked positions", "Compute the loss between predictions and original tokens"],
+      "explanation": "MLM training starts by selecting tokens to mask, then replacing them (mostly with [MASK]). The corrupted sequence is processed through the encoder with bidirectional attention. The model predicts what the original tokens were at the masked positions, and the loss is computed to update the weights."
+    },
+    {
+      "id": "l9_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the steps of GPT generating a response.",
+      "items": ["Select the most likely next token from the distribution", "Apply softmax to get a probability distribution over the vocabulary", "Append the selected token and repeat the process", "Feed the current tokens through the decoder layers with causal masking", "Start with the input prompt tokens"],
+      "correct_order": ["Start with the input prompt tokens", "Feed the current tokens through the decoder layers with causal masking", "Apply softmax to get a probability distribution over the vocabulary", "Select the most likely next token from the distribution", "Append the selected token and repeat the process"],
+      "explanation": "GPT generates text by starting with prompt tokens, processing them through decoder layers where each token only attends to past tokens (causal masking), computing a probability distribution over the vocabulary, selecting the next token, and repeating until done."
+    },
+    {
+      "id": "l9_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "Order the frequency behavior of positional encoding from lowest embedding dimensions to highest.",
+      "items": ["Slow changes capturing sentence-level patterns", "Very slow changes capturing document-level patterns", "Rapid changes capturing local token differences", "Moderate changes capturing phrase-level patterns"],
+      "correct_order": ["Rapid changes capturing local token differences", "Moderate changes capturing phrase-level patterns", "Slow changes capturing sentence-level patterns", "Very slow changes capturing document-level patterns"],
+      "explanation": "As the dimension index increases, the frequency decreases. Lower dimensions change rapidly (high frequency) to capture fine-grained local differences between nearby tokens. Higher dimensions change more slowly (low frequency), capturing broader patterns at the phrase, sentence, and document level."
+    },
+    {
+      "id": "l9_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the steps of cross-attention in an encoder-decoder model.",
+      "items": ["Compute a weighted sum of the values using the attention weights", "The decoder creates queries from its hidden states", "Apply softmax to get attention weights", "The encoder provides keys and values from its hidden states", "Compute attention scores between decoder queries and encoder keys"],
+      "correct_order": ["The encoder provides keys and values from its hidden states", "The decoder creates queries from its hidden states", "Compute attention scores between decoder queries and encoder keys", "Apply softmax to get attention weights", "Compute a weighted sum of the values using the attention weights"],
+      "explanation": "Cross-attention starts with the encoder providing keys and values (its stored representations). The decoder generates queries (what it needs). Attention scores are computed between queries and keys, softmax normalizes them into weights, and a weighted sum of values produces the context that informs the decoder's next output."
+    },
+    {
+      "id": "l9_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the sub-layers within a single Transformer decoder block.",
+      "items": ["Feed-forward network", "Cross-attention to encoder output", "Masked self-attention over previously generated tokens"],
+      "correct_order": ["Masked self-attention over previously generated tokens", "Cross-attention to encoder output", "Feed-forward network"],
+      "explanation": "Each decoder block first performs masked self-attention over previously generated tokens (ensuring the model only sees past outputs). Then cross-attention lets it consult the encoder's representations. Finally, a feed-forward network processes each position independently. Residual connections and layer normalization are applied after each sub-layer."
+    },
+    {
+      "id": "l9_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order these Transformer architecture types from most to least suited for text classification.",
+      "items": ["Decoder-only (GPT)", "Encoder-decoder (T5)", "Encoder-only (BERT)"],
+      "correct_order": ["Encoder-only (BERT)", "Encoder-decoder (T5)", "Decoder-only (GPT)"],
+      "explanation": "Encoder-only models like BERT are best for classification because bidirectional attention builds the richest representations, and the [CLS] token provides a ready-made sequence summary. Encoder-decoder models can classify but are over-engineered for it. Decoder-only models are least suited because their one-directional representations miss right-side context."
+    },
+    {
+      "id": "l9_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order these steps in how an encoder-decoder model performs summarization.",
+      "items": ["The decoder generates a summary token by token", "The encoder reads the full article with bidirectional attention", "The decoder uses cross-attention to focus on relevant parts of the article", "The input article is tokenized and given positional encodings", "The final summary is produced when the model outputs a stop token"],
+      "correct_order": ["The input article is tokenized and given positional encodings", "The encoder reads the full article with bidirectional attention", "The decoder uses cross-attention to focus on relevant parts of the article", "The decoder generates a summary token by token", "The final summary is produced when the model outputs a stop token"],
+      "explanation": "Summarization starts with tokenizing and adding positional encodings to the article. The encoder processes it bidirectionally to build a rich understanding. The decoder then uses cross-attention to focus on relevant parts while generating the summary one token at a time, stopping when it produces a stop/end token."
+    }
+  ]
+}

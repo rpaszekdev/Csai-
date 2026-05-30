@@ -1,0 +1,157 @@
+{
+  "section_id": "l5",
+  "quiz_type": "multiple_response",
+  "title": "Regularization - Multiple Response",
+  "questions": [
+    {
+      "id": "l5_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are signs of overfitting? (Select all that apply)",
+      "options": {
+        "A": "Training accuracy is much higher than validation accuracy",
+        "B": "Both training and validation accuracy are low",
+        "C": "Validation loss starts increasing while training loss keeps decreasing",
+        "D": "The model performs well on new, unseen data",
+        "E": "The model has memorized noise in the training data"
+      },
+      "correct_answers": ["A", "C", "E"],
+      "explanation": "Overfitting shows a large gap between training and validation performance (A), with validation loss rising while training loss drops (C). The root cause is that the model memorizes noise instead of learning general patterns (E). Low accuracy on both sets (B) is underfitting. Performing well on new data (D) means good generalization, not overfitting."
+    },
+    {
+      "id": "l5_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are regularization techniques? (Select all that apply)",
+      "options": {
+        "A": "Dropout",
+        "B": "Increasing the number of layers",
+        "C": "L2 weight penalty",
+        "D": "Early stopping",
+        "E": "Data augmentation"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "Dropout (A), L2 penalty (C), early stopping (D), and data augmentation (E) are all regularization techniques that help prevent overfitting. Increasing the number of layers (B) adds model capacity and would make overfitting more likely, not less."
+    },
+    {
+      "id": "l5_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which of the following are true about L2 regularization? (Select all that apply)",
+      "options": {
+        "A": "It penalizes large weights",
+        "B": "It drives some weights to exactly zero",
+        "C": "It is also called weight decay",
+        "D": "It shrinks weights toward zero",
+        "E": "It reduces model capacity"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "L2 regularization penalizes large weights (A), is also known as weight decay (C), shrinks all weights toward zero (D), and reduces the effective model capacity (E). Driving weights to exactly zero (B) is a property of L1 regularization, not L2."
+    },
+    {
+      "id": "l5_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are true about dropout? (Select all that apply)",
+      "options": {
+        "A": "It randomly sets neurons to zero during training",
+        "B": "It is used during both training and testing",
+        "C": "It prevents co-adaptation of neurons",
+        "D": "It forces the network to learn redundant features",
+        "E": "It is disabled during testing"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "Dropout randomly zeroes neurons during training (A), prevents co-adaptation where neurons depend on specific other neurons (C), forces the network to learn redundant representations since any neuron might be missing (D), and is turned off during testing so all neurons are active (E). It is NOT used during testing (B is wrong)."
+    },
+    {
+      "id": "l5_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which of the following are valid data augmentation techniques for images? (Select all that apply)",
+      "options": {
+        "A": "Horizontal flipping",
+        "B": "Changing the label to a different class",
+        "C": "Random rotation",
+        "D": "Color jittering",
+        "E": "Random cropping"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "Flipping (A), rotation (C), color jittering (D), and cropping (E) are all valid augmentations because they change the image while keeping the correct label. Changing the label (B) would corrupt the training signal and is not a valid augmentation technique."
+    },
+    {
+      "id": "l5_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following could make overfitting worse? (Select all that apply)",
+      "options": {
+        "A": "Reducing the size of the training dataset",
+        "B": "Adding dropout layers",
+        "C": "Adding more layers to the network",
+        "D": "Training for many more epochs without early stopping",
+        "E": "Increasing the number of neurons per layer"
+      },
+      "correct_answers": ["A", "C", "D", "E"],
+      "explanation": "Less training data (A) gives the model less to generalize from. More layers (C) and more neurons (E) increase model capacity, making memorization easier. Training longer without early stopping (D) lets the model overfit further. Adding dropout (B) would reduce overfitting, not make it worse."
+    },
+    {
+      "id": "l5_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about the bias-variance tradeoff are correct? (Select all that apply)",
+      "options": {
+        "A": "High bias means the model is too simple",
+        "B": "High variance means the model is too complex",
+        "C": "Regularization reduces variance at the cost of slightly increasing bias",
+        "D": "A model can have both low bias and low variance easily",
+        "E": "Overfitting is associated with high variance"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "High bias means oversimplification, leading to underfitting (A). High variance means oversensitivity to training data, leading to overfitting (B, E). Regularization constrains the model, reducing variance but slightly increasing bias (C). Achieving both low bias and low variance is the fundamental challenge, not easily done (D is wrong)."
+    },
+    {
+      "id": "l5_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are benefits of batch normalization? (Select all that apply)",
+      "options": {
+        "A": "Improves training stability",
+        "B": "Allows the use of higher learning rates",
+        "C": "Completely eliminates the need for all other regularization",
+        "D": "Speeds up training convergence",
+        "E": "Has a mild regularization effect"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Batch normalization stabilizes training (A), enables higher learning rates (B), speeds up convergence (D), and provides mild regularization through noisy mini-batch statistics (E). However, it does not eliminate the need for all other regularization (C) -- it is often used alongside dropout or L2."
+    },
+    {
+      "id": "l5_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which of the following describe underfitting? (Select all that apply)",
+      "options": {
+        "A": "The model is too simple to capture data patterns",
+        "B": "Both training and validation accuracy are low",
+        "C": "The model has high bias",
+        "D": "Training accuracy is high but test accuracy is low",
+        "E": "Adding more model capacity could help"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Underfitting means the model is too simple (A), resulting in poor performance on both training and validation data (B), caused by high bias (C). Adding more capacity like layers or neurons could help the model learn better (E). High training with low test accuracy (D) describes overfitting, not underfitting."
+    },
+    {
+      "id": "l5_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which of the following are true about early stopping? (Select all that apply)",
+      "options": {
+        "A": "It requires a validation set",
+        "B": "It stops training when validation loss starts increasing",
+        "C": "It modifies the loss function",
+        "D": "It can be combined with other regularization techniques",
+        "E": "It prevents the model from training too long and overfitting"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Early stopping needs a validation set to monitor (A), stops when validation loss increases indicating overfitting (B), works alongside other techniques like L2 or dropout (D), and prevents overfitting by limiting training duration (E). It does NOT modify the loss function (C) -- it only controls when training stops."
+    }
+  ]
+}

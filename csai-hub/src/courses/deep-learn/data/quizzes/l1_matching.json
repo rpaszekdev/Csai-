@@ -1,0 +1,200 @@
+{
+  "section_id": "l1",
+  "quiz_type": "matching",
+  "title": "MLPs - Matching",
+  "questions": [
+    {
+      "id": "l1_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each MLP layer to its role.",
+      "items": ["Input layer", "Hidden layer", "Output layer"],
+      "categories": [
+        "Receives the raw data and passes it forward",
+        "Learns internal representations through transformations",
+        "Produces the final prediction or classification"
+      ],
+      "correct_mapping": {
+        "Input layer": "Receives the raw data and passes it forward",
+        "Hidden layer": "Learns internal representations through transformations",
+        "Output layer": "Produces the final prediction or classification"
+      },
+      "explanation": "The input layer simply accepts the features. Hidden layers do the heavy lifting by transforming the data into useful representations. The output layer formats the result for the task at hand."
+    },
+    {
+      "id": "l1_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each training phase to what happens during it.",
+      "items": ["Forward pass", "Error calculation", "Backward pass", "Weight update"],
+      "categories": [
+        "Output is compared to expected result using a cost function",
+        "Input flows through the network layer by layer to produce output",
+        "Gradients are computed using the chain rule",
+        "Weights are adjusted in the opposite direction of the gradient"
+      ],
+      "correct_mapping": {
+        "Forward pass": "Input flows through the network layer by layer to produce output",
+        "Error calculation": "Output is compared to expected result using a cost function",
+        "Backward pass": "Gradients are computed using the chain rule",
+        "Weight update": "Weights are adjusted in the opposite direction of the gradient"
+      },
+      "explanation": "Training is a cycle: the forward pass produces a prediction, the error calculation measures how wrong it is, the backward pass figures out which weights caused the error, and the weight update corrects them."
+    },
+    {
+      "id": "l1_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each component to what it is stored as in an MLP.",
+      "items": ["Weights", "Biases", "Inputs", "Layer output"],
+      "categories": [
+        "Matrices",
+        "Vectors",
+        "A vector of feature values",
+        "Result of matrix multiplication + bias + activation"
+      ],
+      "correct_mapping": {
+        "Weights": "Matrices",
+        "Biases": "Vectors",
+        "Inputs": "A vector of feature values",
+        "Layer output": "Result of matrix multiplication + bias + activation"
+      },
+      "explanation": "Weights connect every neuron in one layer to every neuron in the next, so they form matrices. Biases are one value per neuron, forming vectors. Inputs are feature vectors, and each layer's output comes from matrix multiplication with weights, adding the bias, and applying the activation."
+    },
+    {
+      "id": "l1_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each Boolean function to whether a single perceptron can solve it.",
+      "items": ["AND", "OR", "NOT", "XOR"],
+      "categories": ["Solvable by a single perceptron", "Requires hidden layers"],
+      "correct_mapping": {
+        "AND": "Solvable by a single perceptron",
+        "OR": "Solvable by a single perceptron",
+        "NOT": "Solvable by a single perceptron",
+        "XOR": "Requires hidden layers"
+      },
+      "explanation": "AND, OR, and NOT are linearly separable, meaning a single straight line can divide the outputs into their correct classes. XOR is not linearly separable, so a single perceptron cannot solve it and at least one hidden layer is needed."
+    },
+    {
+      "id": "l1_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each concept to its definition.",
+      "items": ["Perceptron", "Bias", "Activation function", "Learning rate"],
+      "categories": [
+        "Simplest neural network that computes a weighted sum and applies a step function",
+        "An extra term added to the weighted sum to shift the decision boundary",
+        "A function applied after the weighted sum to introduce non-linearity",
+        "A value that controls how much weights change during each update"
+      ],
+      "correct_mapping": {
+        "Perceptron": "Simplest neural network that computes a weighted sum and applies a step function",
+        "Bias": "An extra term added to the weighted sum to shift the decision boundary",
+        "Activation function": "A function applied after the weighted sum to introduce non-linearity",
+        "Learning rate": "A value that controls how much weights change during each update"
+      },
+      "explanation": "These are the fundamental building blocks of neural networks. The perceptron is the basic unit. The bias lets the neuron shift its threshold. The activation function adds non-linearity. The learning rate governs training speed."
+    },
+    {
+      "id": "l1_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each part of the perceptron update rule (delta_w = learning_rate * error * input) to what it represents.",
+      "items": ["delta_w", "learning_rate", "error", "input"],
+      "categories": [
+        "The change to be applied to the weight",
+        "Controls the step size of the adjustment",
+        "Difference between expected and actual output",
+        "The feature value that was multiplied by this weight"
+      ],
+      "correct_mapping": {
+        "delta_w": "The change to be applied to the weight",
+        "learning_rate": "Controls the step size of the adjustment",
+        "error": "Difference between expected and actual output",
+        "input": "The feature value that was multiplied by this weight"
+      },
+      "explanation": "The perceptron update rule adjusts each weight proportionally to the error and the corresponding input. The learning rate scales this adjustment to prevent steps that are too large or too small."
+    },
+    {
+      "id": "l1_mat_7",
+      "number": 7,
+      "type": "matching",
+      "question": "Match each problem to the type of network needed to solve it.",
+      "items": ["Classifying points above or below a line", "Solving XOR", "Approximating any continuous function", "Simple binary threshold decision"],
+      "categories": [
+        "A single perceptron is sufficient",
+        "Requires at least one hidden layer",
+        "An MLP with enough neurons (Universal Approximation)",
+        "A single perceptron with a step function"
+      ],
+      "correct_mapping": {
+        "Classifying points above or below a line": "A single perceptron is sufficient",
+        "Solving XOR": "Requires at least one hidden layer",
+        "Approximating any continuous function": "An MLP with enough neurons (Universal Approximation)",
+        "Simple binary threshold decision": "A single perceptron with a step function"
+      },
+      "explanation": "Simple linearly separable problems only need a single perceptron. XOR and other non-linear problems require hidden layers. The Universal Approximation Theorem guarantees MLPs can tackle any continuous function with enough neurons."
+    },
+    {
+      "id": "l1_mat_8",
+      "number": 8,
+      "type": "matching",
+      "question": "Match each term to where it appears in the neuron computation.",
+      "items": ["Weighted sum", "Bias addition", "Activation", "Final output"],
+      "categories": [
+        "Multiply each input by its weight and add them up",
+        "Add an extra learnable constant to the sum",
+        "Apply a non-linear function to the result",
+        "The value passed to the next layer"
+      ],
+      "correct_mapping": {
+        "Weighted sum": "Multiply each input by its weight and add them up",
+        "Bias addition": "Add an extra learnable constant to the sum",
+        "Activation": "Apply a non-linear function to the result",
+        "Final output": "The value passed to the next layer"
+      },
+      "explanation": "A neuron computes in sequence: first the weighted sum of inputs, then adds the bias, then applies the activation function. The result of the activation is the neuron's output, which becomes the input for the next layer."
+    },
+    {
+      "id": "l1_mat_9",
+      "number": 9,
+      "type": "matching",
+      "question": "Match each gradient-related concept to its meaning.",
+      "items": ["Gradient", "Chain rule", "Gradient descent", "Cost function"],
+      "categories": [
+        "Tells the direction of steepest increase of the error",
+        "Allows computing derivatives through multiple composed functions",
+        "Updates weights by moving opposite to the gradient",
+        "Measures how far the network's output is from the target"
+      ],
+      "correct_mapping": {
+        "Gradient": "Tells the direction of steepest increase of the error",
+        "Chain rule": "Allows computing derivatives through multiple composed functions",
+        "Gradient descent": "Updates weights by moving opposite to the gradient",
+        "Cost function": "Measures how far the network's output is from the target"
+      },
+      "explanation": "The cost function quantifies the error. The gradient points toward increasing error. Gradient descent moves weights in the opposite direction to reduce error. The chain rule makes it possible to compute gradients through all the layers of a deep network."
+    },
+    {
+      "id": "l1_mat_10",
+      "number": 10,
+      "type": "matching",
+      "question": "Match each statement about MLPs to whether it is true or false.",
+      "items": [
+        "A single perceptron can only create linear decision boundaries",
+        "Adding hidden layers allows solving non-linear problems",
+        "A single perceptron can solve the XOR problem",
+        "Weights are updated during the forward pass"
+      ],
+      "categories": ["True", "False"],
+      "correct_mapping": {
+        "A single perceptron can only create linear decision boundaries": "True",
+        "Adding hidden layers allows solving non-linear problems": "True",
+        "A single perceptron can solve the XOR problem": "False",
+        "Weights are updated during the forward pass": "False"
+      },
+      "explanation": "A single perceptron is limited to linear boundaries. Hidden layers break this limitation by adding non-linearity. XOR is not linearly separable, so a single perceptron fails. Weights are updated after the backward pass, not during the forward pass."
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "section_id": "l2",
+  "quiz_type": "ordering",
+  "title": "Backpropagation - Ordering",
+  "questions": [
+    {
+      "id": "l2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of one training iteration from first to last.",
+      "items": [
+        "Update weights using the gradients",
+        "Compute the loss (how wrong the prediction is)",
+        "Forward pass: push input through the network to get a prediction",
+        "Backward pass: compute gradients for all weights"
+      ],
+      "correct_order": [
+        "Forward pass: push input through the network to get a prediction",
+        "Compute the loss (how wrong the prediction is)",
+        "Backward pass: compute gradients for all weights",
+        "Update weights using the gradients"
+      ],
+      "explanation": "Training follows a fixed sequence: first the forward pass produces a prediction, then the loss function measures the error, then backpropagation computes gradients for every weight, and finally the optimizer updates the weights to reduce the loss."
+    },
+    {
+      "id": "l2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the activation functions from narrowest to widest output range.",
+      "items": [
+        "ReLU (0 to infinity)",
+        "Sigmoid (0 to 1)",
+        "Tanh (-1 to 1)"
+      ],
+      "correct_order": [
+        "Sigmoid (0 to 1)",
+        "Tanh (-1 to 1)",
+        "ReLU (0 to infinity)"
+      ],
+      "explanation": "Sigmoid has the narrowest range at (0, 1) — a width of 1. Tanh spans (-1, 1) — a width of 2. ReLU has no upper bound, going from 0 to infinity, giving it the widest range."
+    },
+    {
+      "id": "l2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the historical development of solutions to the vanishing gradient problem.",
+      "items": [
+        "He/Kaiming initialization for ReLU networks",
+        "Sigmoid and tanh used as default activations (vanishing gradient was a problem)",
+        "ReLU proposed as a hidden-layer activation",
+        "Leaky ReLU proposed to fix dying neurons"
+      ],
+      "correct_order": [
+        "Sigmoid and tanh used as default activations (vanishing gradient was a problem)",
+        "ReLU proposed as a hidden-layer activation",
+        "He/Kaiming initialization for ReLU networks",
+        "Leaky ReLU proposed to fix dying neurons"
+      ],
+      "explanation": "Originally sigmoid/tanh were standard, but they caused vanishing gradients. ReLU solved this with a constant gradient for positive inputs. He initialization was then developed specifically for ReLU networks. Leaky ReLU addressed the dying neuron side effect of standard ReLU."
+    },
+    {
+      "id": "l2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "When building a multi-class classifier, order the components from input to output.",
+      "items": [
+        "Softmax activation (final layer)",
+        "Cross-entropy loss function",
+        "Hidden layers with ReLU activation",
+        "Input data"
+      ],
+      "correct_order": [
+        "Input data",
+        "Hidden layers with ReLU activation",
+        "Softmax activation (final layer)",
+        "Cross-entropy loss function"
+      ],
+      "explanation": "Data enters the network, passes through hidden layers using ReLU, then the final layer uses softmax to produce class probabilities. Cross-entropy loss then measures how far these probabilities are from the true labels."
+    },
+    {
+      "id": "l2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order what happens to the gradient as it flows backward through 4 sigmoid layers, from strongest to weakest.",
+      "items": [
+        "Gradient at layer 1 (farthest from output)",
+        "Gradient at layer 3",
+        "Gradient at layer 4 (closest to output)",
+        "Gradient at layer 2"
+      ],
+      "correct_order": [
+        "Gradient at layer 4 (closest to output)",
+        "Gradient at layer 3",
+        "Gradient at layer 2",
+        "Gradient at layer 1 (farthest from output)"
+      ],
+      "explanation": "Each sigmoid layer multiplies the gradient by a value less than 1 (at most 0.25). So the gradient is strongest at the layer closest to the output and gets progressively weaker as it flows backward. This is exactly the vanishing gradient problem."
+    },
+    {
+      "id": "l2_ord_6",
+      "number": 6,
+      "type": "ordering",
+      "question": "When building a binary classifier, order the components from input to output.",
+      "items": [
+        "Binary cross-entropy loss function",
+        "Sigmoid activation (final layer)",
+        "Input data",
+        "Hidden layers with ReLU activation"
+      ],
+      "correct_order": [
+        "Input data",
+        "Hidden layers with ReLU activation",
+        "Sigmoid activation (final layer)",
+        "Binary cross-entropy loss function"
+      ],
+      "explanation": "Data enters the network, passes through ReLU hidden layers, then the output layer uses sigmoid to produce a single probability (0 to 1). Binary cross-entropy loss then measures how well this probability matches the true binary label."
+    },
+    {
+      "id": "l2_ord_7",
+      "number": 7,
+      "type": "ordering",
+      "question": "Order the steps for how the chain rule decomposes the gradient through a single layer, starting from the loss.",
+      "items": [
+        "Multiply by the derivative of the activation function",
+        "Multiply by the derivative of the linear transformation with respect to the weight",
+        "Start with the gradient of the loss from the layer above"
+      ],
+      "correct_order": [
+        "Start with the gradient of the loss from the layer above",
+        "Multiply by the derivative of the activation function",
+        "Multiply by the derivative of the linear transformation with respect to the weight"
+      ],
+      "explanation": "The chain rule works backward: first take the upstream gradient from the layer above, then multiply by the activation function's local derivative, then multiply by how the linear computation depends on the weight. The product gives the gradient of the loss with respect to that weight."
+    },
+    {
+      "id": "l2_ord_8",
+      "number": 8,
+      "type": "ordering",
+      "question": "Order the decisions you make when designing a neural network, from earliest to latest.",
+      "items": [
+        "Choose a loss function based on the task type",
+        "Choose activation functions for hidden and output layers",
+        "Choose a weight initialization method matching your activation",
+        "Determine whether this is a regression, binary, or multi-class problem"
+      ],
+      "correct_order": [
+        "Determine whether this is a regression, binary, or multi-class problem",
+        "Choose a loss function based on the task type",
+        "Choose activation functions for hidden and output layers",
+        "Choose a weight initialization method matching your activation"
+      ],
+      "explanation": "First identify the task type (regression, binary, multi-class). This dictates the loss function (MSE, binary cross-entropy, or cross-entropy). Then choose activations (ReLU for hidden layers, sigmoid/softmax for output). Finally, pick initialization to match your activation (He for ReLU, Xavier for sigmoid/tanh)."
+    },
+    {
+      "id": "l2_ord_9",
+      "number": 9,
+      "type": "ordering",
+      "question": "Order these activation function issues from least to most severe for training.",
+      "items": [
+        "A few neurons occasionally output 0 (normal ReLU behavior)",
+        "All neurons in a layer are permanently dead (severe dying ReLU)",
+        "Gradients in early layers are slightly smaller than in later layers",
+        "Gradients have completely vanished in all early layers"
+      ],
+      "correct_order": [
+        "A few neurons occasionally output 0 (normal ReLU behavior)",
+        "Gradients in early layers are slightly smaller than in later layers",
+        "Gradients have completely vanished in all early layers",
+        "All neurons in a layer are permanently dead (severe dying ReLU)"
+      ],
+      "explanation": "Some ReLU zeros are normal and healthy. Slightly smaller gradients in early layers are common and usually acceptable. Completely vanished gradients mean early layers cannot learn at all. An entire dead layer is the most severe because that part of the network is permanently broken."
+    },
+    {
+      "id": "l2_ord_10",
+      "number": 10,
+      "type": "ordering",
+      "question": "Order these steps for choosing the correct output activation and loss function.",
+      "items": [
+        "Use softmax + cross-entropy for multi-class; sigmoid + binary cross-entropy for binary; no activation + MSE for regression",
+        "Check: is the task regression, binary classification, or multi-class classification?",
+        "If classification, determine how many classes there are"
+      ],
+      "correct_order": [
+        "Check: is the task regression, binary classification, or multi-class classification?",
+        "If classification, determine how many classes there are",
+        "Use softmax + cross-entropy for multi-class; sigmoid + binary cross-entropy for binary; no activation + MSE for regression"
+      ],
+      "explanation": "The task type is the first thing to determine. If it is classification, the number of classes tells you whether to use sigmoid (binary) or softmax (multi-class). Then the loss function follows directly: binary cross-entropy, cross-entropy, or MSE for regression."
+    }
+  ]
+}

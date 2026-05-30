@@ -1,0 +1,147 @@
+{
+  "section_id": "l3",
+  "quiz_type": "multiple_choice",
+  "title": "Optimizers - Multiple Choice",
+  "questions": [
+    {
+      "id": "l3_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What is the primary goal of an optimizer in deep learning?",
+      "options": {
+        "A": "To increase the number of parameters in the model",
+        "B": "To minimize the cost (loss) function",
+        "C": "To maximize the training data size",
+        "D": "To select the best activation function"
+      },
+      "correct_answer": "B",
+      "explanation": "The optimizer's job is to adjust the model's parameters so that the cost (loss) function is minimized. A lower loss means the model's predictions are closer to the true values. Every optimizer is a different strategy for finding those parameter values that produce the lowest loss."
+    },
+    {
+      "id": "l3_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In gradient descent, parameters are updated by moving in which direction relative to the gradient?",
+      "options": {
+        "A": "The same direction as the gradient",
+        "B": "The opposite direction of the gradient",
+        "C": "A random direction",
+        "D": "Perpendicular to the gradient"
+      },
+      "correct_answer": "B",
+      "explanation": "The gradient points in the direction of steepest increase of the loss. To minimize the loss, we move in the opposite direction of the gradient. This is the fundamental idea behind gradient descent: go downhill by going against the slope."
+    },
+    {
+      "id": "l3_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "What happens if the learning rate is set too high?",
+      "options": {
+        "A": "Training will be very slow but accurate",
+        "B": "The model will converge to the optimal solution faster",
+        "C": "The updates may overshoot the minimum and the loss could diverge",
+        "D": "The gradients will vanish"
+      },
+      "correct_answer": "C",
+      "explanation": "A learning rate that is too high causes the optimizer to take steps that are too large, jumping over the minimum instead of settling into it. This overshooting can cause the loss to increase or oscillate wildly instead of converging. Finding the right learning rate is a balance between speed and stability."
+    },
+    {
+      "id": "l3_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What is a key limitation of vanilla SGD (stochastic gradient descent without momentum)?",
+      "options": {
+        "A": "It adapts the learning rate for each parameter individually",
+        "B": "It uses a static learning rate and only considers the current gradient, making updates noisy",
+        "C": "It accumulates past gradients to smooth the update direction",
+        "D": "It requires computing the gradient over the entire dataset"
+      },
+      "correct_answer": "B",
+      "explanation": "Vanilla SGD uses a fixed learning rate and bases each update solely on the current mini-batch gradient. Because each mini-batch is a small, random sample of the data, the gradient estimates are noisy and can point in slightly different directions from step to step. This makes the optimization path jagged rather than smooth."
+    },
+    {
+      "id": "l3_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "How does momentum help improve upon vanilla SGD?",
+      "options": {
+        "A": "It uses a different learning rate for every parameter",
+        "B": "It accumulates past gradients into a velocity term, smoothing the updates and helping escape local minima",
+        "C": "It removes the need for a learning rate entirely",
+        "D": "It computes the exact gradient using the full dataset"
+      },
+      "correct_answer": "B",
+      "explanation": "Momentum keeps a running average of past gradients, called velocity. This smooths out the noisy updates from individual mini-batches and builds up speed in directions where the gradient is consistently pointing. The accumulated velocity also gives the optimizer enough 'inertia' to push through shallow local minima."
+    },
+    {
+      "id": "l3_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is the key idea behind Nesterov momentum that distinguishes it from standard momentum?",
+      "options": {
+        "A": "It uses a larger momentum coefficient",
+        "B": "It first takes a step in the momentum direction, then computes the gradient at that lookahead position",
+        "C": "It does not use any past gradient information",
+        "D": "It adapts the learning rate per parameter"
+      },
+      "correct_answer": "B",
+      "explanation": "Nesterov momentum applies the momentum step first to get an approximate future position, then computes the gradient at that lookahead point. This 'look before you leap' approach gives a more informed gradient that accounts for where the parameters are heading, leading to more responsive corrections and often faster convergence."
+    },
+    {
+      "id": "l3_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What is the main drawback of AdaGrad?",
+      "options": {
+        "A": "It cannot handle sparse gradients",
+        "B": "Its per-parameter learning rate keeps decreasing over time and can become too small to make progress",
+        "C": "It does not adapt the learning rate at all",
+        "D": "It requires too much memory"
+      },
+      "correct_answer": "B",
+      "explanation": "AdaGrad accumulates the sum of all past squared gradients for each parameter. Since this sum only grows, the effective learning rate for each parameter keeps shrinking. Over many training steps, the learning rate can become so small that the model essentially stops learning, even if it has not yet converged."
+    },
+    {
+      "id": "l3_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "How does RMSprop fix the problem that AdaGrad has?",
+      "options": {
+        "A": "It adds momentum to the updates",
+        "B": "It uses an exponential moving average of squared gradients instead of accumulating the full history",
+        "C": "It removes per-parameter learning rate adaptation entirely",
+        "D": "It increases the learning rate over time"
+      },
+      "correct_answer": "B",
+      "explanation": "RMSprop replaces AdaGrad's ever-growing sum of squared gradients with an exponential moving average. This means that older gradient information is gradually forgotten, preventing the denominator from growing without bound. The effective learning rate stays in a useful range throughout training instead of decaying to near zero."
+    },
+    {
+      "id": "l3_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Adam combines ideas from which two optimization techniques?",
+      "options": {
+        "A": "AdaGrad and Nesterov momentum",
+        "B": "SGD and AdaGrad",
+        "C": "Momentum (first moment) and RMSprop (second moment)",
+        "D": "Nesterov momentum and RMSprop"
+      },
+      "correct_answer": "C",
+      "explanation": "Adam maintains two exponential moving averages: the first moment (mean of gradients, like momentum) which tracks the direction, and the second moment (mean of squared gradients, like RMSprop) which adapts the learning rate per parameter. It also includes bias correction to account for the fact that both estimates start at zero."
+    },
+    {
+      "id": "l3_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "What does it mean for an optimizer like Adam or RMSprop to use 'adaptive learning rates'?",
+      "options": {
+        "A": "The global learning rate is automatically increased every epoch",
+        "B": "Each parameter gets its own effective learning rate based on the history of its gradients",
+        "C": "The learning rate is chosen randomly at each step",
+        "D": "The learning rate only changes when the loss stops decreasing"
+      },
+      "correct_answer": "B",
+      "explanation": "Adaptive learning rate methods adjust the step size independently for each parameter. Parameters that have received large gradients historically get a smaller effective learning rate, while parameters with small gradients get a larger one. This means each parameter is updated at a pace appropriate to its own gradient landscape."
+    }
+  ]
+}
