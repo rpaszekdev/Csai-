@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "During training, teacher forcing provides the ground-truth previous token as input to the decoder at each step, rather than the token the decoder predicted. This prevents errors from compounding during training and helps the model converge faster, though it can cause a mismatch between training and inference conditions."
+    },
+    {
+      "id": "l6_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "During backpropagation through time, an RNN's gradients sometimes grow extremely large, producing unstable, huge weight updates. Which technique is specifically used to address this exploding-gradient problem?",
+      "options": {
+        "A": "Gradient clipping, which caps the gradient magnitude before the update",
+        "B": "Adding more time steps so the gradient is spread out",
+        "C": "Using the forget gate to delete the gradient",
+        "D": "Switching the optimizer to plain stochastic gradient descent"
+      },
+      "correct_answer": "A",
+      "explanation": "Exploding gradients are handled by gradient clipping, which caps the gradient's magnitude (or norm) so a single huge update cannot destabilize training. This is the counterpart to vanishing gradients, which are instead mitigated by gated architectures like LSTMs and GRUs."
+    },
+    {
+      "id": "l6_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "Generating a melody from a single seed note, where one input produces a whole sequence of outputs, is an example of which RNN architecture type?",
+      "options": {
+        "A": "Many-to-one",
+        "B": "One-to-many",
+        "C": "One-to-one",
+        "D": "Many-to-many (same length)"
+      },
+      "correct_answer": "B",
+      "explanation": "A single input expanding into a sequence of outputs is the one-to-many pattern, used for tasks like music or text generation from a starting seed. This contrasts with many-to-one (e.g. sentiment analysis), where a whole sequence collapses into a single output."
+    },
+    {
+      "id": "l6_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "In an LSTM, after the cell state has been updated, which gate decides what part of that cell state becomes the hidden state (the output passed forward at that time step)?",
+      "options": {
+        "A": "Forget gate",
+        "B": "Input gate",
+        "C": "Output gate",
+        "D": "Reset gate"
+      },
+      "correct_answer": "C",
+      "explanation": "The output gate filters the updated cell state to produce the hidden state, which is the LSTM's visible output and is also passed to the next time step. The forget and input gates manage what stays in the cell state, while the reset gate belongs to the GRU, not the LSTM."
+    },
+    {
+      "id": "l6_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "In a basic Seq2Seq model, the encoder must compress the entire input sequence into a single fixed-length context vector before the decoder begins. Why can this become a limitation for very long inputs?",
+      "options": {
+        "A": "The decoder is unable to read any input directly",
+        "B": "The encoder and decoder are forced to share the same weights",
+        "C": "The output sequence must always be shorter than the input",
+        "D": "A single fixed-length vector may struggle to capture all the information in a long input"
+      },
+      "correct_answer": "D",
+      "explanation": "Because the context vector has a fixed size, it acts as an information bottleneck: a long input can carry more detail than one vector can hold, so early information may be lost. This limitation is exactly what attention mechanisms were later introduced to relieve."
+    },
+    {
+      "id": "l6_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "Teacher forcing trains the decoder using ground-truth tokens, but at inference the model must feed its own (sometimes wrong) predictions back in, creating a mismatch called exposure bias. Which technique gradually shifts training from ground-truth tokens toward the model's own predictions to reduce this mismatch?",
+      "options": {
+        "A": "Scheduled sampling",
+        "B": "Gradient clipping",
+        "C": "Backpropagation through time",
+        "D": "Dropout"
+      },
+      "correct_answer": "A",
+      "explanation": "Scheduled sampling starts with full teacher forcing and progressively increases the chance of feeding the model its own predictions during training. This narrows the gap between training and inference conditions, helping the model learn to recover from its own mistakes."
     }
   ]
 }

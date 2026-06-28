@@ -8,9 +8,21 @@ const QUIZ_TYPES = [
   "ordering",
 ];
 
-const SECTION_ORDER = ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9"];
+const SECTION_ORDER = [
+  "exam",
+  "l1",
+  "l2",
+  "l3",
+  "l4",
+  "l5",
+  "l6",
+  "l7",
+  "l8",
+  "l9",
+];
 
 const SECTION_TITLES = {
+  exam: "Exam: Real-Style MCQ",
   l1: "L1: MLPs",
   l2: "L2: Backpropagation",
   l3: "L3: Optimizers",

@@ -142,6 +142,76 @@
       },
       "correct_answer": "A",
       "explanation": "Masked self-attention prevents each position from attending to later positions in the sequence. This is essential for autoregressive generation -- when predicting the next word, the model should only see the words that came before it, not the words that come after."
+    },
+    {
+      "id": "l7_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "In the decoder's cross-attention sublayer, where do the Queries, Keys, and Values come from?",
+      "options": {
+        "A": "All three come from the decoder's own input",
+        "B": "All three come from the encoder output",
+        "C": "The Queries come from the decoder, while the Keys and Values come from the encoder output",
+        "D": "The Queries and Keys come from the encoder, while the Values come from the decoder"
+      },
+      "correct_answer": "C",
+      "explanation": "Cross-attention is what links the decoder to the encoder: the decoder forms Queries from its own state to ask what it needs, while the Keys and Values come from the encoder output, letting each decoder position pull relevant information from the input sequence."
+    },
+    {
+      "id": "l7_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "After the attention weights have been computed with softmax, how is the output of an attention layer produced?",
+      "options": {
+        "A": "As a weighted sum of the Value vectors, using the attention weights",
+        "B": "As a weighted sum of the Key vectors, using the attention weights",
+        "C": "By concatenating the Query and Key vectors of every token",
+        "D": "By taking only the single highest-scoring Value vector and discarding the rest"
+      },
+      "correct_answer": "A",
+      "explanation": "The attention weights say how much each token should contribute, and they are applied to the Value vectors. The output is the weighted sum of the Values, so every token contributes information in proportion to its attention weight."
+    },
+    {
+      "id": "l7_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "In multi-head attention, what happens to the outputs of the individual heads after each head computes its own attention?",
+      "options": {
+        "A": "They are averaged together into a single vector",
+        "B": "Only the head with the highest attention score is kept",
+        "C": "They are added element-wise back onto the original input",
+        "D": "They are concatenated and then passed through a final linear projection"
+      },
+      "correct_answer": "D",
+      "explanation": "Each head produces its own attention output, and these outputs are concatenated back together. A final learned linear projection then combines them into one representation, blending the different relationship types the heads captured."
+    },
+    {
+      "id": "l7_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "Why can Transformers require more memory than LSTMs when processing very long sequences?",
+      "options": {
+        "A": "They store a separate full copy of the input embedding for each layer",
+        "B": "The self-attention matrix grows quadratically with the sequence length",
+        "C": "They must keep a distinct hidden state for every previous time step",
+        "D": "They always use far more parameters per layer than LSTMs do"
+      },
+      "correct_answer": "B",
+      "explanation": "Self-attention compares every token with every other token, so the attention matrix has a size proportional to the sequence length squared. This quadratic growth makes attention memory-hungry for long sequences, unlike an LSTM whose per-step state stays a fixed size."
+    },
+    {
+      "id": "l7_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "Which statement correctly describes the historical relationship between attention and the Transformer?",
+      "options": {
+        "A": "Attention was first introduced in RNN-based encoder-decoder models, and the Transformer later removed recurrence entirely while keeping attention",
+        "B": "The Transformer invented attention, which was only afterward added to RNNs",
+        "C": "Attention and recurrence were introduced together for the first time in the original Transformer paper",
+        "D": "Attention has always depended on convolutional layers to function"
+      },
+      "correct_answer": "A",
+      "explanation": "Attention first appeared in RNN encoder-decoder models (Bahdanau, 2014) to let the decoder focus on relevant encoder states. The Transformer (2017) then kept attention but discarded recurrence, relying on self-attention alone."
     }
   ]
 }

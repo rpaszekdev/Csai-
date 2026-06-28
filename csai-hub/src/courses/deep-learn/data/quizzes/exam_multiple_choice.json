@@ -1,0 +1,1153 @@
+{
+  "section_id": "exam",
+  "quiz_type": "multiple_choice",
+  "title": "Exam: Real-Style MCQ",
+  "questions": [
+    {
+      "id": "exam_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "A student claims that all the attention layers inside a translation Transformer's decoder do the same job. Focusing specifically on the decoder's MASKED self-attention sublayer, which statement describes it correctly?",
+      "options": {
+        "A": "The queries come from the decoder while the keys and values come from the encoder outputs, so each step conditions on the source sentence.",
+        "B": "It is the only mechanism that lets the decoder represent target-side word order, since attention alone encodes position.",
+        "C": "The queries, keys, and values are all drawn from the decoder, and each position is allowed to attend only to earlier target positions.",
+        "D": "It exists so the decoder can look ahead at future target tokens during training and learn long-range dependencies more efficiently."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): Masked self-attention draws Q, K and V all from the decoder and applies a causal mask, so a position sees only earlier target tokens; reading the encoder is cross-attention's job, and target word order comes from positional encoding, not from this sublayer. STYLE TELL: HEURISTIC-BREAKER warning — the correct option's 'all' and 'only' are DESCRIPTIVE absolutes (Q,K,V are 'all' from the decoder; attend 'only' to earlier tokens), so the §5 Q8-killer applies and the naive 'reject any absolute' shortcut FAILS here, discarding the right answer. Portable rule (§6 step 2): instead kill the option that gives cross-attention's exact wording (Q from decoder, K/V from encoder) inside a masked-self-attention question.",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "all drawn from the decoder",
+          "kind": "likes",
+          "rule": "absolute used descriptively -> NOT a safe reject (style §5)"
+        },
+        {
+          "option": "A",
+          "phrase": "keys and values come from the encoder outputs",
+          "kind": "avoids",
+          "rule": "cross-attention wording planted in a masked-self-attention item"
+        },
+        {
+          "option": "B",
+          "phrase": "the only mechanism",
+          "kind": "avoids",
+          "rule": "overclaim absolute; word order comes from positional encoding"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In a lecture on how convolutional networks process images, which single statement is conceptually correct?",
+      "options": {
+        "A": "Convolution is translation-equivariant - shifting the input shifts the feature-map response correspondingly - which makes CNNs well suited to inputs with meaningful spatial structure.",
+        "B": "Convolution guarantees that the network will recognize an object correctly regardless of its exact orientation, because sweeping one shared filter across the whole image makes the learned response identical at every position and rotation angle.",
+        "C": "The main purpose of convolution is to convert a 2D image into a 1D vector before classification.",
+        "D": "A feature map cuts the parameter count by reusing one detector across positions, whereas weight sharing records that detector's response at each spatial location."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): Convolution is translation-equivariant, not rotation-invariant; weight sharing is what reduces parameters, a feature map records a detector's response at each position, and flattening 2D to 1D is an MLP step, not the purpose of convolution. STYLE TELL: HEURISTIC-BREAKER warning — the LONGEST option here is the orientation-invariance overclaim (a WRONG distractor), so 'pick the longest' (§3) FAILS; and that same option is the impossible-absolute orphan ('guarantees...regardless of orientation', §2.2 / §4 no-match), so this time 'reject absolutes' correctly kills it (opposite polarity to Q1). The other distractors fail on mechanism: conv-equals-flatten is a category swap, and feature-map vs weight-sharing are reversed (§6 step 2). Decide by naming the exact property ('translation-equivariant'), not by length.",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "translation-equivariant",
+          "kind": "likes",
+          "rule": "names the exact property; decide by mechanism, not length"
+        },
+        {
+          "option": "B",
+          "phrase": "guarantees",
+          "kind": "avoids",
+          "rule": "impossible absolute (guarantees...regardless of orientation); longest = wrong"
+        },
+        {
+          "option": "C",
+          "phrase": "convert a 2D image into a 1D vector",
+          "kind": "avoids",
+          "rule": "category swap: flatten is an MLP step, not conv"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "A researcher trains an RNN and a Transformer on the same sequence task. The Transformer processes short-sequence batches faster, but once the sequence length grows large enough the RNN becomes the more efficient model. Which explanation best accounts for this?",
+      "options": {
+        "A": "The RNN becomes faster on long sequences because recurrent connections let all time steps be processed in parallel, while the Transformer must process tokens one at a time.",
+        "B": "The Transformer parallelizes across positions, so it is fast on short sequences, but its self-attention cost grows quadratically with sequence length, unlike the more gradual linear scaling of recurrent updates.",
+        "C": "The RNN wins on long sequences because backpropagation through time is cheaper than backprop through self-attention, regardless of architecture size.",
+        "D": "The Transformer is efficient only for short sequences because it emphasizes local context, whereas the RNN takes over once longer dependencies dominate."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): Self-attention compares every token with every other (~O(n^2)) but runs in parallel across positions, so it is fast for short n; recurrence is ~O(n) but sequential, scaling more gently and overtaking the Transformer once sequences become very long. STYLE TELL: Correct option NAMES both mechanisms and scopes the comparison with 'unlike the more gradual...' (§1, §4 MCQ-single). Portable kills: reject the option that reverses RNN/Transformer parallelism (§2.1, §6 step 2) and the 'regardless of architecture size' wrong-axis line (§2.3). The right answer happens to be the longest here, but §3 warns NOT to rely on that as a signal — it goes the other way in Q2/Q5/Q11.",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "grows quadratically with sequence length",
+          "kind": "likes",
+          "rule": "names mechanism and scopes with 'unlike the more gradual'"
+        },
+        {
+          "option": "A",
+          "phrase": "all time steps be processed in parallel",
+          "kind": "avoids",
+          "rule": "RNN/Transformer parallelism reversed"
+        },
+        {
+          "option": "C",
+          "phrase": "regardless of architecture size",
+          "kind": "avoids",
+          "rule": "true-ish fact on the wrong axis"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "A paper proposes a convolutional encoder-decoder for semantic image segmentation. A reviewer makes several comments. Which one is conceptually CORRECT?",
+      "options": {
+        "A": "The plan to preserve spatial structure is mistaken, because the main purpose of convolution is to remove the need for spatial information and let each pixel be treated independently.",
+        "B": "Pooling or any other downsampling operation is always incompatible with segmentation, because any reduction in spatial resolution permanently prevents pixel-level prediction.",
+        "C": "The final feature map should be flattened into a one-dimensional vector before classification, since flattening is the standard way to preserve pixel-level correspondences.",
+        "D": "Segmentation is per-pixel classification, so the output has one channel per class at each spatial location."
+      },
+      "correct_answer": "D",
+      "explanation": "Correct (D): Segmentation assigns a class to every pixel, so the output tensor carries one channel per class at each location; the encoder may downsample precisely because the decoder upsamples and skip connections recover detail, and flattening to 1D would destroy the spatial correspondence the task needs. STYLE TELL: HEURISTIC-BREAKER warning — the CORRECT option is the SHORT, plain one while every wrong option is longer and more elaborate, so the 'pick the longest / most-elaborate' shortcut (§3) FAILS here. The distractors are category errors (conv does NOT discard space; flatten does NOT preserve it) and an 'always/any/permanently' overclaim (§2.2, §4 no-match orphan).",
+      "tells": [
+        {
+          "option": "D",
+          "phrase": "per-pixel classification",
+          "kind": "likes",
+          "rule": "correct is the SHORT plain option -> 'pick longest' fails (§3)"
+        },
+        {
+          "option": "B",
+          "phrase": "always incompatible",
+          "kind": "avoids",
+          "rule": "always/any/permanently overclaim"
+        },
+        {
+          "option": "A",
+          "phrase": "remove the need for spatial information",
+          "kind": "avoids",
+          "rule": "category error: conv does not discard space"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Trace one update of a GRU on input x_t and previous hidden state h_{t-1}. Which statement correctly captures the roles and the ordering of its two gates?",
+      "options": {
+        "A": "The update gate filters the previous hidden state before the candidate is computed, while the reset gate is the one that blends the previous state together with the candidate at the very end to form the new hidden state.",
+        "B": "The reset gate filters the previous hidden state before the candidate is computed, and the update gate blends the previous state with the candidate last to form the new hidden state.",
+        "C": "The candidate hidden state is computed first, and the reset and update gate values are then derived from that candidate.",
+        "D": "The reset gate is the only gate that affects the new hidden state, so the update gate never changes h_t."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): A GRU first computes both gates from x_t and h_{t-1}; the reset gate then element-wise filters h_{t-1} into the candidate, and finally the update gate interpolates between h_{t-1} and the candidate to give h_t - so reset acts before the candidate and update acts last. STYLE TELL: HEURISTIC-BREAKER warning — the LONGEST option is the role-swapped distractor (A puts the update gate in the reset gate's slot and vice versa), so 'pick the longest' (§3) FAILS; decide purely on mechanism. Portable kills: reject the option that REVERSES the two gates' roles (§2.1, §6 step 2) and the 'only/never' overclaim (§2.2).",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "reset gate filters the previous hidden state before the candidate",
+          "kind": "likes",
+          "rule": "names correct gate order: reset first, update last"
+        },
+        {
+          "option": "A",
+          "phrase": "update gate filters the previous hidden state",
+          "kind": "avoids",
+          "rule": "gate roles swapped; longest = wrong (§3)"
+        },
+        {
+          "option": "D",
+          "phrase": "never changes h_t",
+          "kind": "avoids",
+          "rule": "only/never overclaim"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "A team trains a Transformer in which each token is processed as its own example, so they need a normalization scheme whose statistics do not depend on the other examples in the mini-batch. They also notice that their CNN baseline, trained with very small mini-batches, normalized poorly. Which statement characterizes these two normalization methods correctly?",
+      "options": {
+        "A": "Layer normalization pools the mean and variance across all features of a single example, so it is batch-independent, whereas batch normalization pools across the examples in the mini-batch, so with very small batches its statistics become noisy and unreliable.",
+        "B": "Batch normalization pools across the features of a single example while layer normalization pools across the examples in the mini-batch, which is why layer norm is the batch-independent choice for Transformers.",
+        "C": "Layer normalization is the only normalization method that is ever batch-independent, so it must always be used whenever the mini-batch size is small.",
+        "D": "Batch normalization pools across the examples in the mini-batch, so with very small batches its statistics become slow to compute and the training step itself takes longer."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): Each method is defined by the set it pools statistics over: layer norm uses all features of one example (independent of batch size), while batch norm estimates stats from the examples in the batch, so a tiny batch yields a noisy, unreliable estimate. STYLE TELL: Correct option names the exact pooling set for BOTH methods and scopes with 'whereas/so' (§1). The swapped-mechanism distractor reverses the two definitions (§2.1), the 'only...must always' line is the §2.2 overclaim, and the trap word 'slow' is the §2.3 plausible-but-irrelevant tell — small batches make stats NOISY, not slow. Portable rule: kill any option that swaps the two pooling sets, then reject the wrong-axis word.",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "across all features of a single example",
+          "kind": "likes",
+          "rule": "names both pooling sets, scopes with whereas"
+        },
+        {
+          "option": "B",
+          "phrase": "Batch normalization pools across the features of a single example",
+          "kind": "avoids",
+          "rule": "swapped definitions of layer vs batch norm"
+        },
+        {
+          "option": "C",
+          "phrase": "must always be used",
+          "kind": "avoids",
+          "rule": "only/always overclaim"
+        },
+        {
+          "option": "D",
+          "phrase": "slow to compute",
+          "kind": "avoids",
+          "rule": "wrong axis: small batches make stats noisy, not slow"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Apply layer normalization to the single example x = [2, 2, 6, 6], computing the variance as the average squared deviation (divide by N), with epsilon = 0, gamma = 1.5, and beta = -0.5. After the scale and shift, what is the final output value of the third feature?",
+      "options": {
+        "A": "2.0",
+        "B": "1.5",
+        "C": "0.25",
+        "D": "1.0"
+      },
+      "correct_answer": "D",
+      "explanation": "Correct (D): For [2,2,6,6] the mean is 4 and the average squared deviation is (4+4+4+4)/4 = 4, so std = 2; the third feature normalizes to (6-4)/2 = 1, and scale/shift gives 1.5(1) - 0.5 = 1.0. STYLE TELL: HEURISTIC-BREAKER warning — this is a numeric item, so per §5 (~40% of the exam has ZERO phrasing signal) the options are bare numbers and word-tricks (length, hedging) give NOTHING; the wording heuristics fail. Portable rule: drop the word heuristics and run the pipeline mean -> variance -> divide by STD (not variance) -> gamma*z + beta. The trap answers come from forgetting beta (1.5), a beta sign flip (2.0), or dividing by variance instead of std (0.25).",
+      "tells": [
+        {
+          "option": "D",
+          "phrase": "1.0",
+          "kind": "likes",
+          "rule": "numeric: no phrasing signal, divide by std then gamma*z+beta"
+        },
+        {
+          "option": "B",
+          "phrase": "1.5",
+          "kind": "avoids",
+          "rule": "trap: forgot to add beta"
+        },
+        {
+          "option": "C",
+          "phrase": "0.25",
+          "kind": "avoids",
+          "rule": "trap: divided by variance instead of std"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "A researcher argues that attention and gated recurrence fix different, complementary weaknesses of a basic encoder-decoder RNN on long sequences. Which statement describes their roles correctly?",
+      "options": {
+        "A": "Gated units mainly solve the fixed-context bottleneck by storing the entire source-sequence history, whereas attention mainly solves vanishing gradients by regulating how recurrent information flows across time steps.",
+        "B": "Attention and gated recurrence are conceptually equivalent because both assign dynamic importance to past information, so a vanilla RNN with attention should always match an LSTM without attention on long sequences.",
+        "C": "Gated recurrence controls how information is updated, retained, and forgotten inside the recurrent state across time, whereas attention lets the decoder selectively access relevant encoder states instead of relying only on a single final summary vector.",
+        "D": "Attention removes the need for temporal recurrence entirely by connecting the encoder and decoder at every step, while gated units serve only as a form of regularization."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): Gating regulates the recurrent state over time (the path to long-term memory / vanishing-gradient relief), while attention gives the decoder direct, selective access to all encoder states rather than a single compressed summary; they address different limitations and are not interchangeable. STYLE TELL: HEURISTIC-BREAKER warning — this is the §5 Q8 KILLER: the CORRECT answer contains 'only' ('relying only on a single final summary'), used to SCOPE a true mechanism, so a blind 'reject any absolute' FAILS and would delete the right answer while leaving the swapped-mechanism distractor (which carries no absolute) standing. Portable rule: keep absolutes that scope a correctly-named mechanism; reject absolutes that OVERCLAIM (equivalent / always / removes the need / 'only a regularizer'); and always kill the option that swaps the attention<->gating roles.",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "relying only on a single final summary",
+          "kind": "likes",
+          "rule": "scoping 'only' in correct answer -> keep (§5 Q8-killer)"
+        },
+        {
+          "option": "A",
+          "phrase": "attention mainly solves vanishing gradients",
+          "kind": "avoids",
+          "rule": "attention<->gating roles swapped"
+        },
+        {
+          "option": "B",
+          "phrase": "conceptually equivalent",
+          "kind": "avoids",
+          "rule": "equivalent/always overclaim"
+        },
+        {
+          "option": "D",
+          "phrase": "removes the need for temporal recurrence entirely",
+          "kind": "avoids",
+          "rule": "removes-the-need overclaim"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In an MLP with z^(l) = W^(l) a^(l-1) + b^(l) and a^(l) = sigma(z^(l)) using the sigmoid, which expression equals the derivative component d z^(l+1) / d a^(l)?",
+      "options": {
+        "A": "sigma(z^(l)) * (1 - sigma(z^(l))), which is the elementwise local derivative of the sigmoid activation applied in this hidden layer.",
+        "B": "W^(l+1) (the next layer's weight matrix).",
+        "C": "delta^(l+1), the backpropagated error signal arriving from the next layer.",
+        "D": "W^(l), the current layer's own weight matrix."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): Differentiating z^(l+1) = W^(l+1) a^(l) + b^(l+1) with respect to a^(l) leaves exactly W^(l+1); the sigmoid term sigma(1-sigma) is d a^(l)/d z^(l) and delta^(l+1) is d L/d z^(l+1), so both belong to different components. STYLE TELL: HEURISTIC-BREAKER warning — the CORRECT option is the SHORTEST and plainest, while the longest option (the sigmoid-derivative clause) is a swapped-mechanism distractor for a different component, so 'longer = more likely right' FAILS (§3); §4 says true matching terms are terse/operational. Portable rule: read the term off the defining equation, ignore length, and watch for distractors that give the right-looking term for the WRONG component or shift the layer index (W^(l) vs W^(l+1)).",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "W^(l+1)",
+          "kind": "likes",
+          "rule": "correct is SHORTEST; read term off the equation (§3)"
+        },
+        {
+          "option": "A",
+          "phrase": "elementwise local derivative of the sigmoid",
+          "kind": "avoids",
+          "rule": "right term, wrong component; longest = wrong"
+        },
+        {
+          "option": "D",
+          "phrase": "the current layer's own weight matrix",
+          "kind": "avoids",
+          "rule": "shifted layer index: W^(l) vs W^(l+1)"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "A student trains a 10-class CNN with nn.CrossEntropyLoss, and the training line reads loss = criterion(outputs, labels.float()). At runtime PyTorch raises RuntimeError: expected scalar type Long but found Float. What is the cause, and how should it be fixed?",
+      "options": {
+        "A": "nn.CrossEntropyLoss expects the targets to be integer (Long) class indices, but .float() casts them to floats; remove .float() and pass the labels unchanged.",
+        "B": "The outputs were never passed through softmax before the loss, so the fix is to apply torch.softmax to outputs before calling criterion.",
+        "C": "nn.CrossEntropyLoss can never accept class-index labels and always requires one-hot float targets, so the labels must be one-hot encoded.",
+        "D": "The error comes from calling optimizer.zero_grad() before the forward pass, which clears the labels' dtype; move zero_grad() to after loss.backward() to fix it."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): The runtime message itself names the dtype mismatch: CrossEntropyLoss requires Long class indices, and .float() supplies Float; dropping .float() restores the integer targets, and the loop order (zero_grad, forward, loss, backward, step) was never the problem. STYLE TELL: This is a code/error item, so per §5 the words carry no phrasing signal and §4 says read the actual content: the error message pins the cause to the dtype (Long vs Float), not softmax, one-hot, or loop order. Portable rule: trace the literal error to its line; reject the real-but-irrelevant PyTorch facts (softmax is applied internally) and the 'never/always' overclaim, and don't blame the (correct) zero_grad->step ordering.",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "integer (Long) class indices",
+          "kind": "likes",
+          "rule": "trace the literal error to its line (§4/§5)"
+        },
+        {
+          "option": "B",
+          "phrase": "apply torch.softmax to outputs",
+          "kind": "avoids",
+          "rule": "true PyTorch fact, wrong cause (softmax is internal)"
+        },
+        {
+          "option": "C",
+          "phrase": "can never accept class-index labels",
+          "kind": "avoids",
+          "rule": "never/always overclaim"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "A fully connected MLP has layer sizes input 8 -> hidden 5 -> hidden 3 -> output 2, with a bias term on every non-input layer. During training you store, per iteration, only the trainable parameters, their gradients, and any optimizer state (ignore activations and mini-batch buffers). Using the Adam optimizer, how many scalar values are stored per training iteration?",
+      "options": {
+        "A": "213 - the network has 71 parameters once the per-layer biases are counted, and because Adam augments each parameter and its gradient with only a single running average of past gradients rather than two separate moment estimates, it keeps three scalars per parameter, giving 3 x 71 = 213.",
+        "B": "244 - with 61 parameters (8x5 + 5x3 + 3x2) and four scalars each, 4 x 61 = 244.",
+        "C": "142 - Adam stores only the parameters and their gradients, so 2 x 71 = 142.",
+        "D": "284 - the network has 71 parameters ((8x5+5)+(5x3+3)+(3x2+2)=45+18+8), and Adam stores four scalars per parameter (the value, its gradient, and the first- and second-moment estimates), so 4 x 71 = 284."
+      },
+      "correct_answer": "D",
+      "explanation": "Correct (D): The parameter count is 71 (weights plus one bias per non-input layer), and Adam maintains two extra buffers (first and second moments) on top of each parameter and its gradient, so the per-iteration storage is 4 x 71 = 284. STYLE TELL: HEURISTIC-BREAKER warning — pure compute item (§5/§6): ~40% of the exam carries ZERO phrasing signal, and here the LONGEST option is a WRONG one (the 'single running average / 3x' slip), so 'pick the longest' actively backfires. Drop the word-tricks and just count params-with-biases x the optimizer multiplier (SGD 2, momentum/Nesterov 3, Adam 4). The distractors encode the three classic slips (wrong multiplier, dropped biases, no optimizer state), not phrasing tells.",
+      "tells": [
+        {
+          "option": "D",
+          "phrase": "four scalars per parameter",
+          "kind": "likes",
+          "rule": "count params-with-biases x optimizer multiplier (Adam=4)"
+        },
+        {
+          "option": "A",
+          "phrase": "only a single running average",
+          "kind": "avoids",
+          "rule": "wrong Adam multiplier; longest backfires (§3)"
+        },
+        {
+          "option": "B",
+          "phrase": "61 parameters",
+          "kind": "avoids",
+          "rule": "trap: dropped the per-layer biases"
+        },
+        {
+          "option": "C",
+          "phrase": "only the parameters and their gradients",
+          "kind": "avoids",
+          "rule": "trap: omitted optimizer moment buffers"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "An attentive GRU classifier receives input of shape (batch_size, 5, 8) — 5 time steps, 8 features each — runs a recurrent cell with hidden size 6, then applies attention with attn = nn.Linear(6, 1) over all hidden states before a softmax. For one input sequence, how many scalar alignment scores does the attention mechanism compute before the softmax?",
+      "options": {
+        "A": "6 — one alignment score per hidden-state dimension, matching the recurrent hidden size of 6.",
+        "B": "1 — the attention layer maps to a single output unit (nn.Linear(6, 1)), so it produces one score for the whole sequence.",
+        "C": "5 — one alignment score per time step, i.e. one for each of the 5 hidden states the GRU produces along the sequence.",
+        "D": "14 — the score count equals the combined width fed through the cell, 8 features + 6 hidden = 14."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): Attention assigns one alignment score to each hidden state; the GRU emits one hidden state per time step and there are 5 time steps, so there are 5 scores (the (batch, 5) tensor) that the softmax then normalizes over the time dimension. STYLE TELL: Code/numeric item with no phrasing signal (§5): read the tensor shapes, not the words. The score count is fixed by the loop length / sequence axis (5), not the hidden size (6) or the concatenated width (14); each distractor swaps in a different but plausible dimension. Length is meaningless here — B and C are nearly identical in length yet only C is right.",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "one alignment score per time step",
+          "kind": "likes",
+          "rule": "score count = sequence length / loop axis (5)"
+        },
+        {
+          "option": "A",
+          "phrase": "per hidden-state dimension",
+          "kind": "avoids",
+          "rule": "swapped axis: hidden size (6), not seq len"
+        },
+        {
+          "option": "B",
+          "phrase": "one score for the whole sequence",
+          "kind": "avoids",
+          "rule": "misreads Linear(6,1) output dim"
+        },
+        {
+          "option": "D",
+          "phrase": "8 features + 6 hidden = 14",
+          "kind": "avoids",
+          "rule": "wrong combined-width dimension"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "In a multi-task CustomerNet the forward pass contains purchase = torch.sigmoid(self.class_head), where the layer is defined as self.class_head = nn.Linear(hidden_dim, 1). Which statement correctly identifies a genuine bug in this code?",
+      "options": {
+        "A": "torch.sigmoid(self.class_head) sigmoids the Linear layer object instead of its output self.class_head(h), so the classification head is never applied to the hidden representation.",
+        "B": "self.shared = nn.Linear(in_features, hidden_dim) is a bug because a shared layer can never be used in a multi-task network — each task must own all of its own layers.",
+        "C": "The real bug is that the regression head applies a sigmoid while the classification head is left linear, so the two heads' output activations are reversed.",
+        "D": "The model is buggy because nn.Dropout(0.3) is applied to the shared features at a rate that is far too high for 30-dimensional tabular customer data, which will make the network underfit both the classification and the regression objective during training."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): self.class_head is a layer module, not a tensor; it must be called as self.class_head(h) to produce logits. Passing the module straight to torch.sigmoid means the hidden representation h never reaches the classifier — a real bug, unlike the absolute non-bug and the generic tuning worry. STYLE TELL: HEURISTIC-BREAKER warning — §4 warns 'find the bug' items do NOT simply invert: the genuine bug is the precise, mechanism-naming statement, while the absolute claims (never/must) are non-bugs you must reject. Per §3 the correct option is short and the longest option here (the dropout tuning worry) is WRONG, so 'pick the longest / most-elaborate' backfires.",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "sigmoids the Linear layer object instead of its output",
+          "kind": "likes",
+          "rule": "genuine bug = precise mechanism; 'find bug' doesn't invert (§4)"
+        },
+        {
+          "option": "A",
+          "phrase": "is never applied",
+          "kind": "likes",
+          "rule": "descriptive 'never' in correct answer -> keep (§5)"
+        },
+        {
+          "option": "B",
+          "phrase": "can never be used in a multi-task network",
+          "kind": "avoids",
+          "rule": "never/must overclaim = non-bug"
+        },
+        {
+          "option": "D",
+          "phrase": "far too high for 30-dimensional tabular",
+          "kind": "avoids",
+          "rule": "vague tuning worry; longest = not a real bug"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "You are reading single-head encoder self-attention where q, k, v each have shape (batch, seq_len, 4). Four students each change exactly one line. Which change actually raises a runtime shape error, rather than running and quietly computing the wrong thing?",
+      "options": {
+        "A": "scores = torch.matmul(k, q.transpose(-2, -1)) — putting keys before queries throws a shape error because the queries must always be the first operand of the score matmul.",
+        "B": "scores = torch.matmul(q, k) — with q and k both (batch, seq_len, 4) the inner dimensions do not line up, so this is the only one of the four that crashes with a shape-mismatch RuntimeError; it is missing the .transpose(-2, -1) on k.",
+        "C": "scores = scores / 4 instead of / (4 ** 0.5) — using 4 rather than sqrt(4) changes the tensor's shape and triggers a runtime error in the scaling step.",
+        "D": "attn_weights = torch.softmax(scores, dim=1) — applying softmax over dimension 1 instead of -1 always raises a runtime error in PyTorch."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): matmul requires the last dim of the first operand to equal the second-to-last dim of the second; q @ k with both (b, s, 4) compares 4 against s and errors. The Q/K swap, the wrong scale, and the wrong softmax axis all execute successfully and only corrupt the result, so none of them is a runtime error. STYLE TELL: HEURISTIC-BREAKER warning — this is the §5 'Q8 KILLER' in reverse: the correct option carries 'only', an absolute used DESCRIPTIVELY, so the 'reject any absolute' shortcut throws away the right answer. Two distractors fake their error-claims with 'always/must' (overclaims, §2.2); treat absolutes as weak signals and decide by tracing shapes (§4: matching items are won on operational content).",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "inner dimensions do not line up",
+          "kind": "likes",
+          "rule": "names the matmul shape rule; decide by tracing shapes"
+        },
+        {
+          "option": "B",
+          "phrase": "the only one of the four that crashes",
+          "kind": "likes",
+          "rule": "descriptive 'only' marks correct -> keep (§5 reverse Q8-killer)"
+        },
+        {
+          "option": "A",
+          "phrase": "queries must always be the first operand",
+          "kind": "avoids",
+          "rule": "'always' overclaim; Q/K swap runs, not crash"
+        },
+        {
+          "option": "D",
+          "phrase": "always raises a runtime error",
+          "kind": "avoids",
+          "rule": "'always' overclaim; wrong axis runs, wrong result"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "A single layer of three step-perceptrons computes y = H(Wx + b) on binary inputs x = (x1, x2), where H(z)=1 for z>=0 and 0 otherwise, the rows of W are (1,0), (1,0), (-1,0) and b = (-0.5, -1.5, 2.5). Which output codes (y1, y2, y3) actually occur for at least one input?",
+      "options": {
+        "A": "(0,1,0) and (1,1,0): as x1 goes from 0 to 1 the first two perceptrons fire together while the third one turns off.",
+        "B": "All four codes (0,0,1), (1,0,1), (0,1,0) and (1,1,0) occur, because with two binary inputs there are four input combinations and each one always maps to its own distinct output code.",
+        "C": "(0,0,1) and (1,0,1): the second column of W is all zeros, so x2 has no effect; y1 equals x1 while y2 stays 0 and y3 stays 1, leaving just these two reachable codes.",
+        "D": "(0,0,0) and (0,1,1): here y2 tracks x2 and y3 tracks x1, so the second perceptron toggles with the second input feature."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): With the second column of W zero, x2 is irrelevant and only x1 matters: y1 = H(x1 - 0.5) = x1; y2 = H(x1 - 1.5) = 0 for both x1; y3 = H(-x1 + 2.5) = 1 for both x1. So x1=0 gives (0,0,1) and x1=1 gives (1,0,1), the only reachable codes. STYLE TELL: Numeric/binary item: §5 says these carry zero phrasing signal, so just evaluate the thresholds. Here the absolute distractor ('always... its own distinct code') is the wrong one, so the 'reject absolutes' instinct happens to work — which is exactly why this one is NOT an avoid-absolutes breaker; absolutes are usually-but-not-always the tell (contrast Q14, where 'only' marks the correct answer).",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "second column of W is all zeros",
+          "kind": "likes",
+          "rule": "names mechanism: x2 irrelevant; evaluate the thresholds"
+        },
+        {
+          "option": "B",
+          "phrase": "always maps to its own distinct output code",
+          "kind": "avoids",
+          "rule": "'always' overclaim (here rejecting absolutes works, §5)"
+        },
+        {
+          "option": "A",
+          "phrase": "the first two perceptrons fire together",
+          "kind": "avoids",
+          "rule": "wrong threshold eval: y2 never fires"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "A student insists that 'all of the decoder's attention layers do the same thing.' Focus now specifically on the decoder's CROSS-attention sublayer in an encoder-decoder translation Transformer. Which statement describes it correctly?",
+      "options": {
+        "A": "Its queries come from the decoder, but its keys and values come from the encoder, so each step conditions its next prediction on the source sentence.",
+        "B": "Its queries, keys, and values are all taken from the decoder, so each position attends only to previously generated target tokens and never reads the encoder at all.",
+        "C": "It is the only mechanism that lets the decoder represent target-side word order, because the attention scores themselves encode each token's position in the output sequence.",
+        "D": "Its purpose is to compress the entire encoder output into a single fixed-length summary vector that the decoder then unrolls one token at a time."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): Cross-attention draws queries from the decoder and keys/values from the encoder, letting each decoding step attend selectively to the source sentence. Masked self-attention is the sublayer with Q, K and V all from the decoder; target word order is supplied by positional encoding, not by any attention sublayer; and the fixed-summary bottleneck is exactly what attention removes.  STYLE TELL: HEURISTIC-BREAKER — do not 'pick the longest': per style_heuristics.md §3 the CORRECT option here is the SHORT, plain one while the wrong options are longer, so that shortcut fails. §6 step 2: kill the option that plants masked-self-attention's wording (Q,K,V all from the decoder) inside a cross-attention item, and the 'only...word order' line is the §2.2 overclaim/red herring (positional encoding does that job).",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "queries come from the decoder",
+          "kind": "likes",
+          "rule": "names exact cross-attention Q source (decoder)"
+        },
+        {
+          "option": "B",
+          "phrase": "all taken from the decoder",
+          "kind": "avoids",
+          "rule": "plants masked-self-attention wording in cross-attention item"
+        },
+        {
+          "option": "C",
+          "phrase": "the only mechanism",
+          "kind": "avoids",
+          "rule": "overclaim; positional encoding handles word order"
+        },
+        {
+          "option": "D",
+          "phrase": "single fixed-length summary vector",
+          "kind": "avoids",
+          "rule": "the bottleneck attention removes, not its purpose"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "A lecturer is explaining the building blocks of a CNN - filters, feature maps, and weight sharing. Which single statement is conceptually correct?",
+      "options": {
+        "A": "A feature map is the component that reduces the number of parameters by reusing a single learned detector across every spatial position, whereas weight sharing merely records that detector's response at each location.",
+        "B": "Weight sharing reuses one filter across all positions, cutting the parameter count while still detecting the same local pattern anywhere in the image.",
+        "C": "Because one shared filter is swept across the whole image, the CNN is guaranteed to recognize an object correctly regardless of how it is rotated.",
+        "D": "Weight sharing operates by flattening the 2D feature map into a 1D vector so the same weights apply everywhere, which is the core purpose of convolution."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): Weight sharing means the same filter weights are applied at every location - which is what reduces parameters and gives translation equivariance. The feature map instead stores that filter's response per position (the two are reversed in the swapped distractor); convolution is translation-equivariant, not rotation-invariant; and flattening 2D->1D is an MLP step, not convolution's purpose.  STYLE TELL: Per style_heuristics.md §6 step 2, decide by which option NAMES the right mechanism: the swapped option reverses 'feature map' and 'weight sharing' (§2.1), 'guaranteed...regardless of rotation' is the §2.2 impossible absolute, and 'flatten 2D->1D = purpose of convolution' is the §4 category-swap orphan. Here the LONGEST option is wrong, so §3 'pick longest' fails.",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "reuses one filter across all positions",
+          "kind": "likes",
+          "rule": "names weight-sharing mechanism correctly"
+        },
+        {
+          "option": "A",
+          "phrase": "feature map is the component that reduces",
+          "kind": "avoids",
+          "rule": "swaps feature-map and weight-sharing definitions"
+        },
+        {
+          "option": "C",
+          "phrase": "regardless of how it is rotated",
+          "kind": "avoids",
+          "rule": "impossible absolute; conv not rotation-invariant"
+        },
+        {
+          "option": "D",
+          "phrase": "flattening the 2D feature map into a 1D vector",
+          "kind": "avoids",
+          "rule": "flattening is MLP step, not convolution"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "On the same sequence task, a Transformer finishes short-sequence batches faster than an RNN, yet loses to it on very long sequences. Which single explanation is correct?",
+      "options": {
+        "A": "The RNN updates all of its time steps in parallel while the Transformer must process tokens one at a time, so the Transformer's short-sequence lead disappears as length grows.",
+        "B": "Because it parallelizes across positions, the Transformer is guaranteed to be faster than any RNN whenever a GPU is used, independent of sequence length.",
+        "C": "Self-attention processes all positions in parallel, so the Transformer is fast when n is small; it only falls behind on long sequences because that all-pairs computation grows quadratically with n, whereas recurrence scales more gradually.",
+        "D": "The crossover happens because self-attention cost grows only linearly with sequence length while recurrent updates grow quadratically, so the RNN's per-step cost eventually dominates."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): Self-attention is ~O(n^2) but runs in parallel across positions, so it is fast for short n; recurrence is ~O(n) but sequential, so it scales more gently and overtakes the Transformer once n is large. The complexities are not reversed, the RNN is the sequential one (not the parallel one), and no architecture is faster 'regardless of length.'  STYLE TELL: HEURISTIC-BREAKER — a naive 'reject every absolute' fails here: per style_heuristics.md §5 (Q8-killer) the correct option's 'only falls behind on long' is a DESCRIPTIVE 'only' that SCOPES a correctly-named mechanism, so blindly deleting absolutes removes the right answer. Instead kill the reversed-parallelism option (§2.1) and the 'guaranteed...regardless of length' overclaim (§2.2).",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "it only falls behind on long sequences",
+          "kind": "likes",
+          "rule": "descriptive 'only' scopes correct mechanism; keep it"
+        },
+        {
+          "option": "A",
+          "phrase": "all of its time steps in parallel",
+          "kind": "avoids",
+          "rule": "reverses parallelism; RNN is sequential"
+        },
+        {
+          "option": "B",
+          "phrase": "independent of sequence length",
+          "kind": "avoids",
+          "rule": "overclaims faster regardless of length"
+        },
+        {
+          "option": "D",
+          "phrase": "grows only linearly with sequence length",
+          "kind": "avoids",
+          "rule": "reverses complexity; attention is quadratic"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "A semantic-segmentation paper uses an encoder that downsamples spatial resolution. A reviewer worries this is incompatible with per-pixel prediction. Which response is conceptually correct?",
+      "options": {
+        "A": "It is perfectly compatible because in this design the encoder is actually the component that upsamples the image to restore its resolution, while the decoder is what compresses it down for the final per-pixel classification step.",
+        "B": "The reviewer is right: any reduction in spatial resolution permanently prevents pixel-level prediction, so downsampling must always be avoided in segmentation.",
+        "C": "It works only if the final feature map is flattened into a 1D vector before the output layer, since flattening is the standard way to keep pixel-level correspondences.",
+        "D": "Downsampling is fine: the decoder upsamples back to full resolution and skip connections recover the lost detail, so every pixel still gets a class label."
+      },
+      "correct_answer": "D",
+      "explanation": "Correct (D): Encoder downsampling is compatible with segmentation precisely because the decoder upsamples and skip connections reinject fine high-resolution detail, yielding a dense per-pixel output (one channel per class). Downsampling is not 'always incompatible,' flattening to 1D would destroy the spatial correspondence the task needs, and it is the decoder - not the encoder - that upsamples.  STYLE TELL: Per style_heuristics.md §2.2/§4 the 'any reduction...permanently prevents...must always be avoided' option is the impossible-absolute orphan; §2.1 kill the option that REVERSES encoder/decoder roles; 'flatten to 1D to preserve pixels' is the §4 category error. §3 - the LONGEST option (reversed roles) is wrong, so 'pick longest' fails.",
+      "tells": [
+        {
+          "option": "D",
+          "phrase": "skip connections recover the lost detail",
+          "kind": "likes",
+          "rule": "names decoder upsampling and skip connections"
+        },
+        {
+          "option": "A",
+          "phrase": "encoder is actually the component that upsamples",
+          "kind": "avoids",
+          "rule": "reverses encoder/decoder roles"
+        },
+        {
+          "option": "B",
+          "phrase": "must always be avoided",
+          "kind": "avoids",
+          "rule": "impossible absolute; downsampling not always incompatible"
+        },
+        {
+          "option": "C",
+          "phrase": "flattened into a 1D vector",
+          "kind": "avoids",
+          "rule": "flattening destroys spatial correspondence needed"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "During one GRU update on input x_t and previous hidden state h_{t-1}, what is the specific job of the RESET gate, and when does it act?",
+      "options": {
+        "A": "It element-wise filters h_{t-1} before that filtered state enters the candidate hidden state, controlling how much past information is used when proposing the new representation.",
+        "B": "It interpolates between h_{t-1} and the candidate at the very end of the step to produce the new hidden state h_t.",
+        "C": "It is the only gate that influences h_t, so the update gate has no effect at all on the new hidden state.",
+        "D": "It is computed from the already-formed candidate hidden state, which means it can only be applied after the candidate has been produced, late in the update."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): In a GRU both gates are computed first from x_t and h_{t-1}; the reset gate then element-wise filters h_{t-1} BEFORE the candidate is formed (the candidate uses r * h_{t-1}); the update gate is the one that blends h_{t-1} with the candidate LAST. So the reset gate does not do the final blend, the update gate clearly affects h_t, and the gates are derived from the inputs, not from the candidate.  STYLE TELL: Per style_heuristics.md §2.1 kill the option that SWAPS the reset gate into the update gate's final-blend slot; §2.2 reject the 'only gate...no effect at all' overclaim; the 'computed from the candidate' option reverses the dependency (gates come from x_t and h_{t-1}), a category error. Decide by mechanism order, not by option length.",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "element-wise filters h_{t-1}",
+          "kind": "likes",
+          "rule": "names reset-gate job: filter before candidate"
+        },
+        {
+          "option": "B",
+          "phrase": "interpolates between h_{t-1} and the candidate",
+          "kind": "avoids",
+          "rule": "swaps reset gate into update gate's blend"
+        },
+        {
+          "option": "C",
+          "phrase": "the only gate that influences h_t",
+          "kind": "avoids",
+          "rule": "overclaim; update gate also affects h_t"
+        },
+        {
+          "option": "D",
+          "phrase": "computed from the already-formed candidate hidden state",
+          "kind": "avoids",
+          "rule": "reverses dependency; gates come from inputs"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "A team building an image style-transfer model wants a normalization whose statistics are computed independently for each channel of each individual image, so the contrast of one image never leaks into another's. They compare it against a variant that instead pools statistics over fixed subsets of channels within the same image. Which statement characterizes these two methods correctly?",
+      "options": {
+        "A": "Instance normalization pools its statistics over subsets of channels within an example, whereas group normalization computes a separate mean and variance for each individual channel of that example.",
+        "B": "Instance normalization computes the mean and variance per channel within a single example, whereas group normalization pools statistics over each channel-group of the same example; neither depends on the other examples in the mini-batch.",
+        "C": "Instance normalization is the only normalization that never depends on batch size, so it must always replace batch normalization whenever the mini-batch is small, regardless of the task or input type.",
+        "D": "Group normalization computes its statistics across the examples in the mini-batch within each channel-group, which makes its behaviour just as dependent on batch size as batch normalization."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): Each method is fixed by the set it pools over: instance norm normalizes each channel of one example on its own (used in style transfer precisely so per-image contrast is removed independently), and group norm pools over a subset of channels within the same example. Both are computed without any other example, so neither is batch-dependent the way batch norm is.  STYLE TELL: The correct option names the exact pooling set for BOTH methods and scopes with 'whereas' while keeping them batch-independent (style_heuristics.md §1). The swap distractor reverses the two definitions (§2.1); the 'only...must always...regardless' line is the §2.2 overclaim; the category-error makes a per-example method depend on the batch. Portable rule: kill any option that swaps the two pooling sets or that makes a per-example method batch-dependent.",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "per channel within a single example",
+          "kind": "likes",
+          "rule": "names exact pooling set for instance-norm"
+        },
+        {
+          "option": "A",
+          "phrase": "pools its statistics over subsets of channels",
+          "kind": "avoids",
+          "rule": "swaps instance-norm and group-norm definitions"
+        },
+        {
+          "option": "C",
+          "phrase": "must always replace batch normalization",
+          "kind": "avoids",
+          "rule": "overclaim; only/must always/regardless"
+        },
+        {
+          "option": "D",
+          "phrase": "across the examples in the mini-batch",
+          "kind": "avoids",
+          "rule": "makes per-example method batch-dependent (category error)"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "Apply layer normalization to the single example x = [1, 1, 5, 5]. Compute the variance as the average squared deviation (divide by N), use epsilon = 0, gamma = 3, and beta = -1. After the scale and shift, what is the final output value of the third feature?",
+      "options": {
+        "A": "3.0",
+        "B": "0.5",
+        "C": "2.0",
+        "D": "4.0"
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): For [1,1,5,5] the mean is 3 and the average squared deviation is 16/4 = 4, so the std is sqrt(4) = 2; the third feature normalizes to (5-3)/2 = 1, and the affine step gives 3*1 - 1 = 2.0. The load-bearing steps are dividing by the standard deviation (not the variance) and remembering to add beta.  STYLE TELL: Numeric item - per style_heuristics.md §5 (~40% of the exam carries ZERO phrasing signal) the options are bare numbers, so length and hedging give nothing; just run mean -> variance -> divide by STD (not variance) -> gamma*z + beta. The three traps encode classic slips: forgetting beta (3.0), dividing by the variance 4 instead of the std 2 (0.5), and flipping beta's sign (4.0). Drop the word-tricks and compute.",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "2.0",
+          "kind": "likes",
+          "rule": "divide by std then apply gamma, beta"
+        },
+        {
+          "option": "A",
+          "phrase": "3.0",
+          "kind": "avoids",
+          "rule": "forgot to add beta"
+        },
+        {
+          "option": "B",
+          "phrase": "0.5",
+          "kind": "avoids",
+          "rule": "divided by variance not std"
+        },
+        {
+          "option": "D",
+          "phrase": "4.0",
+          "kind": "avoids",
+          "rule": "flipped beta's sign"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "A vanilla encoder-decoder RNN struggles on long inputs. A student proposes two independent changes: (1) add an attention mechanism between encoder and decoder, and (2) replace the plain recurrent cells with LSTM or GRU cells. Which statement correctly describes what each change is fixing?",
+      "options": {
+        "A": "Adding attention is what fixes the vanishing-gradient problem by regulating how recurrent information flows across time steps, whereas switching to gated cells is what removes the single-summary bottleneck by storing the whole source sequence in the state.",
+        "B": "The two changes are interchangeable, since both simply reweight past information, so a vanilla RNN with attention is guaranteed to match an LSTM without attention on any long-sequence task.",
+        "C": "Attention removes the need for recurrence entirely, so once attention is added the choice of recurrent cell can never affect long-range performance.",
+        "D": "Switching to gated cells controls how the recurrent state is updated, retained, and forgotten across time, which eases the vanishing-gradient problem, whereas adding attention lets the decoder selectively read from all encoder states directly instead of relying only on a single fixed-length summary vector."
+      },
+      "correct_answer": "D",
+      "explanation": "Correct (D): Gating (LSTM/GRU) regulates the recurrent state over time, which is the path that relieves vanishing gradients and gives longer memory, while attention attacks a different limitation, the fixed-length bottleneck, by letting the decoder draw selectively on every encoder state rather than one compressed summary. The mechanisms are complementary, not interchangeable, so neither change substitutes for the other.  STYLE TELL: HEURISTIC-BREAKER (style_heuristics.md §5 'Q8 KILLER') — a naive 'reject any absolute' fails: the CORRECT option contains 'only' ('relying only on a single fixed-length summary'), an absolute used to SCOPE a correctly-named mechanism, so blind rejection deletes the right answer and leaves the swapped-mechanism distractor standing. Keep absolutes that scope a correctly-named mechanism; reject those that OVERCLAIM (interchangeable / guaranteed / removes the need / 'can never affect'); and kill the option that swaps the attention<->gating roles (§2.1).",
+      "tells": [
+        {
+          "option": "D",
+          "phrase": "relying only on a single fixed-length summary",
+          "kind": "likes",
+          "rule": "descriptive 'only' scopes correct mechanism; keep it"
+        },
+        {
+          "option": "A",
+          "phrase": "attention is what fixes the vanishing-gradient problem",
+          "kind": "avoids",
+          "rule": "swaps attention and gating roles"
+        },
+        {
+          "option": "B",
+          "phrase": "guaranteed to match an LSTM",
+          "kind": "avoids",
+          "rule": "overclaim; changes not interchangeable"
+        },
+        {
+          "option": "C",
+          "phrase": "can never affect long-range performance",
+          "kind": "avoids",
+          "rule": "overclaim; removes-the-need / never"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_24",
+      "number": 24,
+      "type": "multiple_choice",
+      "question": "In an MLP with z^(l) = W^(l) a^(l-1) + b^(l) and a^(l) = sigma(z^(l)) (sigmoid), the hidden-layer error is written delta^(l) = (dL/dz^(l+1)) * (dz^(l+1)/da^(l)) * (da^(l)/dz^(l)). Which expression equals the first factor, dL/dz^(l+1)?",
+      "options": {
+        "A": "delta^(l+1), the error signal already backpropagated to the pre-activation of the next layer.",
+        "B": "sigma(z^(l)) * (1 - sigma(z^(l))), the elementwise local derivative of the sigmoid activation applied in this hidden layer.",
+        "C": "W^(l+1), the weight matrix of the next layer that the pre-activation passes through.",
+        "D": "delta^(l), the error signal at the current layer l rather than at layer l+1."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): By the definition given, delta at any layer is exactly dL/dz at that layer's pre-activation, so dL/dz^(l+1) is delta^(l+1) by construction. The sigmoid term sigma(1-sigma) is the other factor da^(l)/dz^(l), and W^(l+1) is dz^(l+1)/da^(l); delta^(l) would be the error one layer too early.  STYLE TELL: HEURISTIC-BREAKER — 'longer = more likely right' backfires: per style_heuristics.md §3 the CORRECT option is the SHORTEST/plainest, while the longest option (the sigmoid-derivative clause) is a right-term-wrong-component swap. §4: true matching terms are terse and operational. Read the term straight off its defining equation (delta^(l+1) == dL/dz^(l+1)), ignore length, and watch for a shifted layer index (delta^(l) vs delta^(l+1)).",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "error signal already backpropagated",
+          "kind": "likes",
+          "rule": "reads term straight off defining equation; short"
+        },
+        {
+          "option": "B",
+          "phrase": "local derivative of the sigmoid",
+          "kind": "avoids",
+          "rule": "sigmoid derivative is a different factor; longest-wrong"
+        },
+        {
+          "option": "C",
+          "phrase": "the weight matrix of the next layer",
+          "kind": "avoids",
+          "rule": "weight matrix is dz/da factor, not this"
+        },
+        {
+          "option": "D",
+          "phrase": "the error signal at the current layer l",
+          "kind": "avoids",
+          "rule": "shifted layer index; off by one"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_25",
+      "number": 25,
+      "type": "multiple_choice",
+      "question": "A student trains a CNN for 5-class image classification with criterion = nn.CrossEntropyLoss(). The inner loop is: optimizer.zero_grad(); outputs = model(images); loss = criterion(outputs, labels.float()); loss.backward(); optimizer.step(). It throws RuntimeError: expected scalar type Long but found Float. Which diagnosis and fix is correct?",
+      "options": {
+        "A": "The targets are fine; the real problem is that optimizer.zero_grad() runs before the forward pass, so the gradients are wiped before the update - move zero_grad() to just after loss.backward() to fix the error.",
+        "B": "CrossEntropyLoss expects integer (Long) class indices as targets, but labels.float() casts them to Float; remove the .float() and the existing zero_grad -> forward -> loss -> backward -> step ordering is already correct.",
+        "C": "The raw logits were never passed through torch.softmax before the loss, and the dtype message is just how that surfaces; applying torch.softmax to outputs before criterion fixes it.",
+        "D": "CrossEntropyLoss can never accept class-index targets and always requires one-hot float labels, so the targets must be one-hot encoded and kept as Float."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): The runtime message itself pins the cause to the target dtype: CrossEntropyLoss takes Long class indices, and .float() supplies Float, so dropping .float() restores integer targets. Softmax is applied internally by CrossEntropyLoss (so adding it is wrong), the loss does accept index targets (so one-hot is not required), and zero_grad before the forward pass is the standard correct loop order - moving it after backward would actually erase the gradients before step.  STYLE TELL: Code/error item - per style_heuristics.md §5 the words carry no phrasing signal and §4 says read the actual content: trace the literal error to its line (dtype Long vs Float). Reject the loop-order red herring (zero_grad -> forward -> loss -> backward -> step is already correct), the real-but-irrelevant softmax fact, and the 'never/always' one-hot overclaim. Let the error message name the cause; the correct option is NOT the longest, so 'pick the longest' (§3) backfires.",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "expects integer (Long) class indices",
+          "kind": "likes",
+          "rule": "traces error message to target dtype"
+        },
+        {
+          "option": "A",
+          "phrase": "runs before the forward pass",
+          "kind": "avoids",
+          "rule": "loop-order red herring; ordering already correct"
+        },
+        {
+          "option": "C",
+          "phrase": "passed through torch.softmax before the loss",
+          "kind": "avoids",
+          "rule": "softmax internal to CrossEntropyLoss; irrelevant"
+        },
+        {
+          "option": "D",
+          "phrase": "can never accept class-index targets",
+          "kind": "avoids",
+          "rule": "never/always overclaim; index targets accepted"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_26",
+      "number": 26,
+      "type": "multiple_choice",
+      "question": "A fully connected MLP has layer sizes input 5 -> hidden 4 -> output 3, with a bias term on every non-input layer. During each training iteration you store only the trainable parameters, their gradients, and any optimizer state (ignore activations and mini-batch buffers). Trained with plain stochastic gradient descent (no momentum), how many scalar values are stored per iteration?",
+      "options": {
+        "A": "117 - the 39 parameters are each kept alongside a gradient and a momentum/velocity buffer, three scalars per parameter, giving 3 x 39 = 117.",
+        "B": "64 - counting the weight matrices 5x4 + 4x3 = 32 parameters and storing each with its gradient gives 2 x 32 = 64.",
+        "C": "78 - with biases the network has (5x4+4)+(4x3+3) = 39 parameters, and plain SGD stores each parameter plus its gradient (2 scalars each), so 2 x 39 = 78.",
+        "D": "39 - SGD stores only the parameters themselves, since the gradients are recomputed on the fly rather than held in memory."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): Per-layer parameter count is in*out + out (the +out is the bias), so 5->4->3 gives 24+15 = 39. Plain SGD keeps no optimizer state, so per-iteration storage = params + gradients = 2 x 39 = 78. Momentum/Nesterov would be x3, Adam x4.  STYLE TELL: Numeric item - style_heuristics.md §5 says ~40% of the exam carries zero phrasing signal, so length and hedging tell you nothing; here the longest option (the x3 momentum slip, 117) is wrong, 64 drops the bias terms, and 39 forgets the gradient copy. Portable rule: count params-with-biases, then multiply by the optimizer factor (SGD 2, momentum/Nesterov 3, Adam 4).",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "each parameter plus its gradient",
+          "kind": "likes",
+          "rule": "params-with-bias times optimizer factor 2"
+        },
+        {
+          "option": "A",
+          "phrase": "three scalars per parameter",
+          "kind": "avoids",
+          "rule": "adds momentum buffer; plain SGD has none"
+        },
+        {
+          "option": "B",
+          "phrase": "counting the weight matrices",
+          "kind": "avoids",
+          "rule": "drops bias terms from count"
+        },
+        {
+          "option": "D",
+          "phrase": "stores only the parameters themselves",
+          "kind": "avoids",
+          "rule": "forgets gradient copy held each iteration"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_27",
+      "number": 27,
+      "type": "multiple_choice",
+      "question": "An attentive GRU classifier receives input of shape (batch_size, 7, 10) - 7 time steps, 10 features each - runs a recurrent cell with hidden size 4, then applies attention with attn = nn.Linear(4, 1) over all hidden states before a softmax. For one input sequence, through how many recurrent time steps does backpropagation through time propagate the loss gradient?",
+      "options": {
+        "A": "4 - the gradient is propagated through one step per hidden-state dimension, matching the recurrent hidden size of 4.",
+        "B": "10 - one step per input feature, since each of the 10 features per time step contributes its own backward pass.",
+        "C": "14 - the depth equals the combined width fed through the cell, 10 features + 4 hidden = 14.",
+        "D": "7 - one BPTT step per time step in the sequence; the recurrent loop runs over the 7 time steps, so the gradient is propagated back through all 7."
+      },
+      "correct_answer": "D",
+      "explanation": "Correct (D): BPTT unrolls the recurrence once per time step, so its depth equals the sequence length. With 7 time steps the gradient flows back through 7 steps - the same number as the alignment scores attention produces (one per hidden state per step). Hidden size (4) and feature count (10) are different axes.  STYLE TELL: Code/shape item - style_heuristics.md §5 says read the tensor shapes and the loop length, not the wording. The number is fixed by the sequence axis (7); each distractor swaps in a plausible-but-wrong dimension (hidden 4, features 10, combined 14), and length is meaningless on numeric items.",
+      "tells": [
+        {
+          "option": "D",
+          "phrase": "one BPTT step per time step",
+          "kind": "likes",
+          "rule": "BPTT depth equals sequence-length axis"
+        },
+        {
+          "option": "A",
+          "phrase": "one step per hidden-state dimension",
+          "kind": "avoids",
+          "rule": "wrong axis; hidden size not length"
+        },
+        {
+          "option": "B",
+          "phrase": "one step per input feature",
+          "kind": "avoids",
+          "rule": "wrong axis; feature count not length"
+        },
+        {
+          "option": "C",
+          "phrase": "the combined width fed through the cell",
+          "kind": "avoids",
+          "rule": "combines wrong axes; not sequence length"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_28",
+      "number": 28,
+      "type": "multiple_choice",
+      "question": "A multi-task CustomerNet shares one feature extractor and has two heads. In __init__ the regression head is written as `reg_head = nn.Linear(hidden_dim, 1)` (note: no `self.`), while the classification head is `self.class_head = nn.Linear(hidden_dim, 1)`. Which statement correctly identifies a genuine bug?",
+      "options": {
+        "A": "`reg_head` is assigned to a local variable instead of `self.reg_head`, so it is never registered as a submodule - its parameters will not appear in model.parameters() and will not be optimized.",
+        "B": "`self.shared = nn.Linear(in_features, hidden_dim)` is a bug, because a shared feature extractor can never be used in a multi-task network - each task must own every one of its own layers.",
+        "C": "Applying `torch.sigmoid` to the classification logit is always wrong for binary classification and must be removed before training.",
+        "D": "`nn.Dropout(0.3)` can only be placed inside convolutional networks, so using it on the shared fully-connected features is invalid."
+      },
+      "correct_answer": "A",
+      "explanation": "Correct (A): Only modules assigned to a self. attribute are registered in the module's parameter list. A bare local `reg_head = nn.Linear(...)` is discarded after __init__, so its weights are never tracked, never handed to the optimizer, and never updated. The other three statements are non-bugs dressed up as rules.  STYLE TELL: HEURISTIC-BREAKER (style_heuristics.md §4) - 'find the bug' items do NOT simply invert, and 'pick the longest / most-elaborate' (§3) backfires: the genuine bug is the precise, mechanism-naming statement, while the never/always/only/must lines (including the longest, the shared-layer 'rule') are the non-bugs.",
+      "tells": [
+        {
+          "option": "A",
+          "phrase": "never registered as a submodule",
+          "kind": "likes",
+          "rule": "names precise bug: unregistered local module"
+        },
+        {
+          "option": "B",
+          "phrase": "can never be used in a multi-task network",
+          "kind": "avoids",
+          "rule": "never/must overclaim; sharing is valid"
+        },
+        {
+          "option": "C",
+          "phrase": "is always wrong for binary classification",
+          "kind": "avoids",
+          "rule": "always overclaim; sigmoid not always wrong"
+        },
+        {
+          "option": "D",
+          "phrase": "can only be placed inside convolutional networks",
+          "kind": "avoids",
+          "rule": "only overclaim; dropout works on FC"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_29",
+      "number": 29,
+      "type": "multiple_choice",
+      "question": "You are reading single-head encoder self-attention: x has shape (batch, seq_len, 8); W_q, W_k, W_v map 8 -> 4; W_o maps 4 -> 8; the final line is `output = self.W_o(context)`. Four students each change exactly one line. Which statement is correct?",
+      "options": {
+        "A": "Replacing `scores = torch.matmul(q, k.transpose(-2,-1))` with `scores = torch.matmul(k, q.transpose(-2,-1))` swaps queries and keys, which is what reduces the output width to 4.",
+        "B": "Replacing `output = self.W_o(context)` with `output = context` drops the output projection, so the block returns a dimension-4 tensor instead of projecting back to 8 - it runs without error, and it is the only one of these edits that changes the block's output width.",
+        "C": "Changing `torch.softmax(scores, dim=-1)` to `torch.softmax(scores, dim=1)` always raises a runtime error, because PyTorch forbids softmax over dimension 1.",
+        "D": "Using `scores = scores / 4` instead of `scores / (4 ** 0.5)` changes the shape of the score tensor and therefore the final output dimension."
+      },
+      "correct_answer": "B",
+      "explanation": "Correct (B): W_o is the projection from the head dimension (4) back to the model dimension (8). Removing it returns context at width 4 - a silent dimensional bug, not a crash. Swapping Q/K, mis-scaling by 4 instead of sqrt(4), or softmaxing the wrong axis all run and corrupt the result but never alter the output width.  STYLE TELL: HEURISTIC-BREAKER (style_heuristics.md §5 reverse Q8-killer) - a blind 'reject any absolute' would delete the right answer, because the correct option carries 'only' as a DESCRIPTIVE absolute. Reject instead the absolutes that OVERCLAIM (always/forbids) and decide by tracing what each edit does to shapes (W_o maps 4->8).",
+      "tells": [
+        {
+          "option": "B",
+          "phrase": "it is the only one of these edits",
+          "kind": "likes",
+          "rule": "descriptive 'only' here; keep, don't reject"
+        },
+        {
+          "option": "A",
+          "phrase": "reduces the output width to 4",
+          "kind": "avoids",
+          "rule": "Q/K swap doesn't change output width"
+        },
+        {
+          "option": "C",
+          "phrase": "PyTorch forbids softmax over dimension 1",
+          "kind": "avoids",
+          "rule": "overclaim; softmax dim=1 is allowed"
+        },
+        {
+          "option": "D",
+          "phrase": "changes the shape of the score tensor",
+          "kind": "avoids",
+          "rule": "mis-scaling doesn't change tensor shape"
+        }
+      ]
+    },
+    {
+      "id": "exam_mc_30",
+      "number": 30,
+      "type": "multiple_choice",
+      "question": "A single layer of three step-perceptrons computes y = H(Wx + b) on binary inputs x = (x1, x2), where H(z) = 1 if z >= 0 and 0 otherwise. The rows of W are (0,1), (0,-1), (0,1) and b = (-1, 0, -0.5). Which output codes (y1, y2, y3) occur for at least one input?",
+      "options": {
+        "A": "All four codes (0,1,0), (1,0,1), (0,0,1) and (1,1,0) occur, because two binary inputs give four input combinations and each combination always maps to its own distinct output code.",
+        "B": "(0,0,1) and (1,0,1): the zero column is the second one, so x2 is ignored and x1 drives the outputs.",
+        "C": "(0,1,0) and (1,0,1): the first column of W is all zeros, so x1 is ignored and only x2 matters; x2=0 gives (0,1,0) and x2=1 gives (1,0,1) (note that z=0 counts as 1).",
+        "D": "(0,1,0) and (0,0,1): the same as the correct pair except y1 stays 0, because at x2=1 the first unit's pre-activation is exactly 0 and a step activation outputs 0 at z=0."
+      },
+      "correct_answer": "C",
+      "explanation": "Correct (C): A column of zeros in W kills that input's contribution, so x1 is irrelevant and the four inputs collapse to two cases. Evaluating x2 with the >=0 step gives y1=x2, y2=NOT x2, y3=x2, i.e. (0,1,0) at x2=0 and (1,0,1) at x2=1. The boundary z=0 maps to 1, which is exactly what makes y1 fire at x2=1.  STYLE TELL: Binary/numeric item - style_heuristics.md §5 says there is no phrasing signal, just evaluate the thresholds. This is deliberately NOT an avoid-absolutes breaker: rejecting the 'each input its own distinct code' overclaim happens to land on the right answer, but absolutes are only usually-the-tell, so the call must come from the arithmetic (zero column + z>=0 rule), not from a shortcut.",
+      "tells": [
+        {
+          "option": "C",
+          "phrase": "the first column of W is all zeros",
+          "kind": "likes",
+          "rule": "names zero-column logic; decide by arithmetic"
+        },
+        {
+          "option": "A",
+          "phrase": "always maps to its own distinct output code",
+          "kind": "avoids",
+          "rule": "overclaim; but decide by arithmetic not shortcut"
+        },
+        {
+          "option": "B",
+          "phrase": "the zero column is the second one",
+          "kind": "avoids",
+          "rule": "wrong: zero column is first not second"
+        },
+        {
+          "option": "D",
+          "phrase": "a step activation outputs 0 at z=0",
+          "kind": "avoids",
+          "rule": "wrong boundary; H(0)=1 not 0"
+        }
+      ]
+    }
+  ]
+}

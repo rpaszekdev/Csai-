@@ -15,6 +15,30 @@ const TYPE_LABELS = {
 // (one-click answer). The rest require a "Check" button.
 const AUTO_REVEAL_TYPES = new Set(["multiple_choice"]);
 
+// Highlight the teacher's "style tells" inside an option label on reveal.
+// `tells` are exact-substring phrases tagged likes/avoids (see exam quiz JSON).
+function highlightTells(label, tells) {
+  if (!tells || tells.length === 0) return label;
+  const phrases = tells.map((t) => t.phrase).filter(Boolean);
+  if (phrases.length === 0) return label;
+  const kindOf = {};
+  for (const t of tells) kindOf[t.phrase] = t.kind;
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp("(" + phrases.map(esc).join("|") + ")", "g");
+  return label.split(re).map((part, i) =>
+    kindOf[part] ? (
+      <mark
+        key={i}
+        className={`quiz-tell-mark quiz-tell-mark--${kindOf[part]}`}
+      >
+        {part}
+      </mark>
+    ) : (
+      part
+    ),
+  );
+}
+
 function MultipleChoice({ question, value, onChange, revealed }) {
   return (
     <ul className="quiz-options">
@@ -26,6 +50,9 @@ function MultipleChoice({ question, value, onChange, revealed }) {
         } else if (value === key) {
           cls += " selected";
         }
+        const tells = revealed
+          ? (question.tells || []).filter((t) => t.option === key)
+          : [];
         return (
           <li key={key}>
             <button
@@ -35,7 +62,9 @@ function MultipleChoice({ question, value, onChange, revealed }) {
               disabled={revealed}
             >
               <span className="quiz-option-key">{key}</span>
-              <span className="quiz-option-label">{label}</span>
+              <span className="quiz-option-label">
+                {tells.length ? highlightTells(label, tells) : label}
+              </span>
             </button>
           </li>
         );
@@ -428,6 +457,30 @@ export default function QuizSession({
             </div>
           )}
 
+          {isRevealed && current.tells && current.tells.length > 0 && (
+            <div className="quiz-tells">
+              <span className="quiz-tells-label">
+                {"\ud83e\udded"} Teacher&apos;s tell
+              </span>
+              <ul>
+                {current.tells.map((t, i) => (
+                  <li key={i} className={`quiz-tell quiz-tell--${t.kind}`}>
+                    <span className="quiz-tell-badge">
+                      {t.kind === "likes" ? "\u2713 likes" : "\u2717 avoids"}
+                    </span>
+                    <span className="quiz-tell-opt">{t.option}</span>
+                    <span className="quiz-tell-phrase">
+                      {"\u201c"}
+                      {t.phrase}
+                      {"\u201d"}
+                    </span>
+                    <span className="quiz-tell-rule">{t.rule}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {isRevealed && current.explanation && (
             <div
               className={`quiz-explanation ${result?.correct ? "correct" : "wrong"}`}
@@ -467,7 +520,10 @@ export default function QuizSession({
                 Try again
               </button>
             )}
-            <Link to={backPath} className="quiz-btn quiz-btn--ghost quiz-btn--right">
+            <Link
+              to={backPath}
+              className="quiz-btn quiz-btn--ghost quiz-btn--right"
+            >
               All quizzes
             </Link>
           </div>

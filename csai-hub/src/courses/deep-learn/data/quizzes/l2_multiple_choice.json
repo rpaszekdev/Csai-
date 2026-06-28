@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "Tanh squashes its input to the range -1 to 1. Unlike sigmoid (which outputs 0 to 1), tanh is zero-centered, which can help with learning. However, like sigmoid, it still suffers from the vanishing gradient problem for very large or very small inputs."
+    },
+    {
+      "id": "l2_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "Which loss function is the standard choice for a regression task (predicting a continuous value)?",
+      "options": {
+        "A": "Mean Squared Error",
+        "B": "Binary Cross-Entropy",
+        "C": "Cross-Entropy",
+        "D": "Hinge Loss"
+      },
+      "correct_answer": "A",
+      "explanation": "Mean Squared Error averages the squared differences between predictions and true values, which is the standard way to measure error for continuous outputs. The cross-entropy losses are for classification, not regression."
+    },
+    {
+      "id": "l2_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "What causes the exploding gradient problem in a deep network?",
+      "options": {
+        "A": "Sigmoid and tanh squash gradients to values below 1 across many layers",
+        "B": "Gradients are repeatedly multiplied by values greater than 1, growing exponentially as they flow through many layers",
+        "C": "A neuron's input is always negative, so ReLU outputs 0",
+        "D": "The loss function reaches zero and stops the training"
+      },
+      "correct_answer": "B",
+      "explanation": "Exploding gradients occur when the local derivatives being multiplied during backpropagation are larger than 1, so chaining them across many layers makes the gradient blow up exponentially. This is the mirror image of vanishing gradients, where the multiplied values are less than 1."
+    },
+    {
+      "id": "l2_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "How does Leaky ReLU differ from standard ReLU, and what problem does it address?",
+      "options": {
+        "A": "It outputs probabilities that sum to 1, solving multi-class classification",
+        "B": "It squashes its output to the range (0, 1), solving exploding gradients",
+        "C": "It allows a small non-zero output (and gradient) for negative inputs, preventing neurons from dying",
+        "D": "It caps its output at 1, eliminating the vanishing gradient problem"
+      },
+      "correct_answer": "C",
+      "explanation": "Leaky ReLU replaces ReLU's hard zero for negative inputs with a small slope (e.g., 0.01x), so a non-zero gradient always flows. This keeps neurons from getting permanently stuck at zero, which is the dying ReLU problem."
+    },
+    {
+      "id": "l2_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "Why must the intermediate values computed during the forward pass be stored (cached) during training?",
+      "options": {
+        "A": "So they can be displayed to the user while the model trains",
+        "B": "Because the optimizer randomly samples from them to pick a learning rate",
+        "C": "To speed up the next forward pass when different input data arrives",
+        "D": "Because the backward pass needs them to compute the local gradients via the chain rule"
+      },
+      "correct_answer": "D",
+      "explanation": "The chain rule multiplies local derivatives at each layer, and those derivatives depend on the activations and inputs seen during the forward pass. Caching those values means the backward pass can reuse them instead of recomputing everything."
+    },
+    {
+      "id": "l2_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "In a deep network built from sigmoid layers, where is the gradient strongest as it flows backward during backpropagation?",
+      "options": {
+        "A": "At the layer closest to the output",
+        "B": "At the layer closest to the input",
+        "C": "It is exactly equal at every layer",
+        "D": "At the single middle layer of the network"
+      },
+      "correct_answer": "A",
+      "explanation": "Each sigmoid layer multiplies the gradient by a value of at most 0.25, so the gradient shrinks a little more at every step backward. That makes it strongest near the output and progressively weaker toward the input, which is exactly the vanishing gradient problem."
     }
   ]
 }

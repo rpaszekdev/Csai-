@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "A 1x1 convolution operates at each spatial position independently, combining information across channels. It can increase or decrease the number of channels (depth) while leaving the height and width unchanged. This is useful for adjusting the channel dimension efficiently."
+    },
+    {
+      "id": "l4_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "A 32x32 grayscale image is convolved with a 5x5 kernel using stride 1 and no padding. What is the spatial size of the output feature map?",
+      "options": {
+        "A": "28x28",
+        "B": "32x32",
+        "C": "27x27",
+        "D": "30x30"
+      },
+      "correct_answer": "A",
+      "explanation": "The output size formula is (input - kernel + 2*padding) / stride + 1, which here gives (32 - 5 + 0) / 1 + 1 = 28, so the output is 28x28. With no padding the kernel cannot reach beyond the edges, so the output shrinks by (kernel - 1) = 4 pixels in each dimension."
+    },
+    {
+      "id": "l4_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "What does average pooling do to each window of a feature map?",
+      "options": {
+        "A": "It keeps only the largest value in the window",
+        "B": "It pads the window with zeros around its border",
+        "C": "It computes the mean of all values in the window",
+        "D": "It multiplies all the values in the window together"
+      },
+      "correct_answer": "C",
+      "explanation": "Average pooling replaces each window with the mean of the values inside it, which preserves the overall activation level of the region rather than just its strongest response. This contrasts with max pooling, which keeps only the single largest value in each window."
+    },
+    {
+      "id": "l4_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "What does the property of 'local connectivity' mean in a convolutional layer?",
+      "options": {
+        "A": "Every output value is connected to every pixel in the input",
+        "B": "Each output value depends only on a small local region of the input",
+        "C": "A layer can only pass information to the layer immediately next to it",
+        "D": "The network can only be trained on small input images"
+      },
+      "correct_answer": "B",
+      "explanation": "Local connectivity means that each value in a feature map is computed from only a small patch of the input (the size of the kernel), not the whole image. This lets the layer focus on local patterns like edges and keeps the number of connections small compared to a fully connected layer."
+    },
+    {
+      "id": "l4_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "As data flows deeper through a typical CNN, how do the spatial dimensions and the number of channels usually change?",
+      "options": {
+        "A": "Both the spatial size and the number of channels increase",
+        "B": "Both the spatial size and the number of channels decrease",
+        "C": "The spatial size increases while the number of channels decreases",
+        "D": "The spatial size decreases while the number of channels increases"
+      },
+      "correct_answer": "D",
+      "explanation": "Pooling and strided convolutions progressively shrink the height and width, while deeper layers use more kernels and therefore produce more channels. So a feature volume typically goes from large-and-shallow (e.g., 224x224x3) to small-and-deep (e.g., 7x7x512) before being flattened."
+    },
+    {
+      "id": "l4_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "In a convolutional layer, what determines the number of output channels (feature maps)?",
+      "options": {
+        "A": "The number of input channels",
+        "B": "The height and width of each kernel",
+        "C": "The number of kernels (filters) in the layer",
+        "D": "The stride used during the convolution"
+      },
+      "correct_answer": "C",
+      "explanation": "Each kernel produces exactly one feature map, so the number of output channels equals the number of kernels in the layer. The input channel count instead sets each kernel's depth, while kernel size and stride affect the spatial dimensions, not the channel count."
     }
   ]
 }

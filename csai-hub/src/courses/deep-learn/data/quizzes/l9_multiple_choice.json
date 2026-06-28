@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "Dropout randomly zeroes out some elements of the combined embedding during training. Applied after adding positional encoding, it prevents the model from becoming overly dependent on exact position signals, encouraging it to learn more robust representations that generalize better."
+    },
+    {
+      "id": "l9_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "In BERT, what is the primary role of the [CLS] token?",
+      "options": {
+        "A": "Its final representation serves as a summary of the entire sequence and is fed to a classifier",
+        "B": "It marks the boundary between two sentences in the input",
+        "C": "It hides a random token so the model can learn to predict it",
+        "D": "It signals the decoder to stop generating output tokens"
+      },
+      "correct_answer": "A",
+      "explanation": "The [CLS] token is prepended to the input, and after bidirectional attention its final representation aggregates information from the whole sequence, giving a single summary vector that a classification head can use. Marking sentence boundaries is the [SEP] token's job, and hiding tokens is what [MASK] does."
+    },
+    {
+      "id": "l9_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "What is the purpose of causal masking in a decoder model like GPT?",
+      "options": {
+        "A": "To randomly hide input tokens so the model learns to reconstruct them",
+        "B": "To prevent each token from attending to future (later) tokens",
+        "C": "To let the decoder attend to the encoder's hidden states",
+        "D": "To inject position information into the token embeddings"
+      },
+      "correct_answer": "B",
+      "explanation": "Causal masking blocks each position from seeing tokens that come after it, enforcing left-to-right generation where a token is predicted using only past context. Hiding random tokens describes masked-language modeling, attending to the encoder is cross-attention, and adding position information is the job of positional encoding."
+    },
+    {
+      "id": "l9_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "In cross-attention within an encoder-decoder model, where do the keys and values come from?",
+      "options": {
+        "A": "From the decoder's own hidden states",
+        "B": "From the raw input token embeddings before any processing",
+        "C": "From the encoder's hidden states",
+        "D": "From a separate randomly initialized lookup table"
+      },
+      "correct_answer": "C",
+      "explanation": "In cross-attention the decoder supplies the queries while the keys and values come from the encoder's hidden states, letting each generated token attend to relevant parts of the encoded input. If queries, keys, and values all came from one source it would be self-attention, not cross-attention."
+    },
+    {
+      "id": "l9_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "What is the shape of the positional encoding matrix that gets added to the token embeddings?",
+      "options": {
+        "A": "(batch_size, 1) — a single scalar per example",
+        "B": "(vocabulary_size, embedding_dimension)",
+        "C": "(embedding_dimension, embedding_dimension)",
+        "D": "(sequence_length, embedding_dimension)"
+      },
+      "correct_answer": "D",
+      "explanation": "The positional encoding matrix has shape (sequence_length, embedding_dimension): each row is one position and each column is one embedding dimension, so it can be added element-wise to the token embeddings. (vocabulary_size, embedding_dimension) is the shape of the token embedding table, not the positional encoding."
+    },
+    {
+      "id": "l9_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "In sinusoidal positional encoding, how do the lower (small-index) embedding dimensions behave across positions?",
+      "options": {
+        "A": "They change rapidly (high frequency), capturing fine-grained local differences between nearby positions",
+        "B": "They change very slowly (low frequency), capturing only global document-level patterns",
+        "C": "They stay constant regardless of position",
+        "D": "They use the tangent function to oscillate between positions"
+      },
+      "correct_answer": "A",
+      "explanation": "Lower dimensions use higher frequencies, so their sine and cosine values change quickly from one position to the next, encoding fine local differences; the slow, global low-frequency behavior belongs to the higher dimensions. Sinusoidal encodings use only sine and cosine, never tangent, and they always vary with position."
     }
   ]
 }

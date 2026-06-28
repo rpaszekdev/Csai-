@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "Class Activation Maps produce heatmaps highlighting which parts of an image were most important for a particular prediction. For example, if a model classifies an image as 'dog,' the CAM would show high activation over the dog region. This helps us interpret and trust the model's decisions."
+    },
+    {
+      "id": "l8_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "How does the CutMix data augmentation technique differ from Mixup?",
+      "options": {
+        "A": "CutMix pastes a rectangular patch from one image onto another and mixes the labels in proportion to the patch area, while Mixup blends two whole images with a weighted average of their pixels and labels",
+        "B": "CutMix randomly changes brightness and contrast, while Mixup mirrors the image horizontally",
+        "C": "CutMix and Mixup both only flip the image, but in different directions",
+        "D": "CutMix is a regularization technique applied to neurons inside the network, while Mixup transforms the input image"
+      },
+      "correct_answer": "A",
+      "explanation": "CutMix cuts a rectangular region out of one image and pastes it onto another, mixing the labels by the area each image contributes, whereas Mixup overlays two entire images using a weighted pixel average. Both combine two images into one training example, but CutMix does it spatially and Mixup does it by blending."
+    },
+    {
+      "id": "l8_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "What does Mask R-CNN add to the Faster R-CNN architecture?",
+      "options": {
+        "A": "A region proposal network so it can generate candidate boxes",
+        "B": "A single-pass grid prediction that makes it as fast as YOLO",
+        "C": "A parallel branch that predicts a pixel-level mask for each detected object, enabling instance segmentation",
+        "D": "Position embeddings so it can apply self-attention to image patches"
+      },
+      "correct_answer": "C",
+      "explanation": "Mask R-CNN extends Faster R-CNN by adding a mask-prediction branch that outputs a binary mask for each region of interest, on top of the existing class and box outputs. This lets it perform instance segmentation by labeling the individual pixels of each detected object."
+    },
+    {
+      "id": "l8_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "You have a small target dataset that is very similar to ImageNet. Which transfer learning strategy fits best?",
+      "options": {
+        "A": "Train the entire network from scratch with randomly initialized weights",
+        "B": "Delete the pretrained backbone and replace it with a new untrained one",
+        "C": "Fine-tune every layer end-to-end using a high learning rate",
+        "D": "Freeze the pretrained backbone and train only a new classification head"
+      },
+      "correct_answer": "D",
+      "explanation": "With little data in a domain similar to the pretraining set, the pretrained features already transfer well, so freezing the backbone and training only the new head avoids overfitting. Fine-tuning all layers on such a small dataset would risk overfitting and erasing useful pretrained knowledge."
+    },
+    {
+      "id": "l8_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "Why does a Vision Transformer (ViT) add position embeddings to its patch embeddings?",
+      "options": {
+        "A": "To reduce the number of patches the model has to process",
+        "B": "Because self-attention is order-agnostic and would otherwise have no information about where each patch came from in the image",
+        "C": "To convert each raw patch into a vector for the first time",
+        "D": "To normalize the pixel values before the patches enter the encoder"
+      },
+      "correct_answer": "B",
+      "explanation": "Self-attention treats its inputs as an unordered set, so without position embeddings the model could not tell which patch came from which location. Adding position embeddings injects the spatial position of each patch so the Transformer can reason about layout."
+    },
+    {
+      "id": "l8_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "What is the role of ROI Pooling in the Faster R-CNN pipeline?",
+      "options": {
+        "A": "It converts variable-sized region proposals into fixed-size feature maps so they can be fed to the classification head",
+        "B": "It removes duplicate overlapping detections after classification",
+        "C": "It generates the initial set of region proposals from the feature map",
+        "D": "It measures the overlap between a predicted box and the ground-truth box"
+      },
+      "correct_answer": "A",
+      "explanation": "Region proposals come in many different sizes, but the classification head requires fixed-size inputs, so ROI Pooling crops each proposal's region from the feature map and resizes it to a uniform dimension. (Removing duplicates is NMS, generating proposals is the RPN, and measuring overlap is IoU.)"
     }
   ]
 }

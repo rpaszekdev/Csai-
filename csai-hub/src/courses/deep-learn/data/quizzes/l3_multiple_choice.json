@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "Adaptive learning rate methods adjust the step size independently for each parameter. Parameters that have received large gradients historically get a smaller effective learning rate, while parameters with small gradients get a larger one. This means each parameter is updated at a pace appropriate to its own gradient landscape."
+    },
+    {
+      "id": "l3_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "What is the main consequence of setting the learning rate too low?",
+      "options": {
+        "A": "Training converges very slowly because each update changes the parameters only slightly",
+        "B": "The loss diverges because the updates overshoot the minimum",
+        "C": "Each parameter automatically receives its own adaptive learning rate",
+        "D": "The gradients vanish during backpropagation"
+      },
+      "correct_answer": "A",
+      "explanation": "A learning rate that is too low makes every step tiny, so the parameters barely move and the model takes an impractically long time to reach a good solution. The updates are stable, but progress is painfully slow."
+    },
+    {
+      "id": "l3_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "For the non-convex loss surfaces typical of deep learning, what is true about plain gradient descent?",
+      "options": {
+        "A": "It is mathematically guaranteed to reach the global minimum",
+        "B": "It ignores the slope of the loss surface entirely",
+        "C": "It moves parameters in the same direction as the gradient",
+        "D": "It is not guaranteed to find the global minimum and can settle in a local minimum or saddle point"
+      },
+      "correct_answer": "D",
+      "explanation": "The gradient only gives local slope information, so on a bumpy non-convex surface gradient descent can get trapped in a local minimum or saddle point instead of the global minimum. There is no guarantee of finding the best possible solution."
+    },
+    {
+      "id": "l3_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "Why is AdaGrad's per-parameter adaptation especially helpful for sparse features (parameters that update only rarely)?",
+      "options": {
+        "A": "It computes each gradient over the entire dataset",
+        "B": "It removes the learning rate completely for rare features",
+        "C": "Rarely-updated parameters accumulate small squared-gradient sums, so they keep a larger effective learning rate",
+        "D": "It applies the same large step to every parameter regardless of its history"
+      },
+      "correct_answer": "C",
+      "explanation": "AdaGrad divides the step by the accumulated squared gradients, so a parameter tied to a rarely-seen feature has a small accumulated sum and therefore a larger effective learning rate. This lets those infrequently-updated parameters still take meaningful steps when their feature finally appears."
+    },
+    {
+      "id": "l3_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "Why does Adam apply bias correction to its moment estimates?",
+      "options": {
+        "A": "Because the gradients are always negative at the start of training",
+        "B": "Because both moment estimates are initialized at zero, making them biased toward zero early in training",
+        "C": "Because the global learning rate must increase every epoch",
+        "D": "Because the second moment estimate would otherwise become negative"
+      },
+      "correct_answer": "B",
+      "explanation": "Adam's first and second moment estimates both start at zero, so during the first few steps they are pulled toward zero and underestimate the true values. Bias correction rescales them to compensate for this zero initialization, keeping the estimates accurate even at the very beginning of training."
+    },
+    {
+      "id": "l3_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "In a narrow ravine of the loss surface where vanilla SGD zig-zags back and forth across the steep walls, how does momentum help?",
+      "options": {
+        "A": "It gives each parameter its own adaptive learning rate",
+        "B": "It flattens the steep walls of the loss surface",
+        "C": "It accumulates velocity so the side-to-side oscillations cancel out while progress along the valley builds up",
+        "D": "It computes the exact gradient over the whole dataset to remove noise"
+      },
+      "correct_answer": "C",
+      "explanation": "In a ravine the side-to-side gradient components flip direction on successive steps and cancel in the accumulated velocity, while the consistent component pointing along the valley adds up. Momentum therefore dampens the zig-zag and accelerates real progress toward the minimum."
     }
   ]
 }

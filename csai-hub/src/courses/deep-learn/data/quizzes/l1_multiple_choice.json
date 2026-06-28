@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "Each layer computes output = activation(W * x + b), where W is the weight matrix, x is the input vector, and b is the bias vector. The matrix multiplication captures all the weighted sums at once, and the bias vector shifts each neuron's result."
+    },
+    {
+      "id": "l1_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "What is the main reason a neuron includes a bias term?",
+      "options": {
+        "A": "It speeds up the matrix multiplication in the layer",
+        "B": "It guarantees the neuron's output is always positive",
+        "C": "It lets the neuron shift its activation threshold so the decision boundary need not pass through the origin",
+        "D": "It removes the need for an activation function"
+      },
+      "correct_answer": "C",
+      "explanation": "The bias is added to the weighted sum before the activation, which shifts where the neuron fires. Without it, the decision boundary would be forced to pass through the origin, severely limiting what the neuron can represent."
+    },
+    {
+      "id": "l1_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "Why do MLPs use non-linear activation functions between their layers?",
+      "options": {
+        "A": "To make the network train in fewer epochs",
+        "B": "To keep every neuron's output strictly between 0 and 1",
+        "C": "To reduce the total number of weights the network needs",
+        "D": "Without them, stacking layers would collapse into a single linear transformation, so the network could not model non-linear patterns"
+      },
+      "correct_answer": "D",
+      "explanation": "A stack of purely linear layers is mathematically equivalent to one linear layer. The non-linear activation is what lets an MLP bend its decision boundaries and approximate complex, non-linear functions."
+    },
+    {
+      "id": "l1_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "What does a cost (loss) function measure during training?",
+      "options": {
+        "A": "How far the network's output is from the expected output",
+        "B": "How many neurons are in each hidden layer",
+        "C": "How quickly the weights are updated each step",
+        "D": "Which activation function each layer should use"
+      },
+      "correct_answer": "A",
+      "explanation": "The cost function quantifies the gap between the network's prediction and the target value. Training works by adjusting the weights to make this value as small as possible."
+    },
+    {
+      "id": "l1_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "The gradient of the cost function points in the direction of steepest increase of the error. In which direction are the weights moved during gradient descent?",
+      "options": {
+        "A": "In the same direction as the gradient",
+        "B": "In the opposite direction of the gradient",
+        "C": "Perpendicular to the gradient",
+        "D": "In a random direction, keeping whichever result is best"
+      },
+      "correct_answer": "B",
+      "explanation": "Because the gradient points uphill toward more error, we subtract it from the weights to move downhill toward less error. This is why the update rule moves weights opposite to the gradient, scaled by the learning rate."
+    },
+    {
+      "id": "l1_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "Using the perceptron update rule delta_w = learning_rate * error * input, what happens to a weight when the perceptron's prediction is already correct?",
+      "options": {
+        "A": "The error is zero, so delta_w is zero and the weight stays the same",
+        "B": "The weight is reset to its original initial value",
+        "C": "The weight is doubled to reinforce the correct answer",
+        "D": "The learning rate is permanently reduced to zero"
+      },
+      "correct_answer": "A",
+      "explanation": "When the prediction matches the expected output, the error (expected minus actual) is zero. Multiplying by zero makes delta_w zero, so a correctly classified example produces no weight change."
     }
   ]
 }

@@ -2636,6 +2636,95 @@
   color: var(--ink-soft);
 }
 
+/* Style "tells" — phrase highlights + the teacher's-tell box (exam quiz) */
+
+.quiz-tell-mark {
+  border-radius: 3px;
+  padding: 0 2px;
+  color: inherit;
+}
+
+.quiz-tell-mark--likes {
+  background: rgba(80, 130, 80, 0.22);
+  box-shadow: inset 0 -1px 0 rgba(70, 110, 70, 0.55);
+}
+
+.quiz-tell-mark--avoids {
+  background: rgba(184, 71, 71, 0.18);
+  box-shadow: inset 0 -1px 0 rgba(160, 60, 60, 0.55);
+}
+
+.quiz-tells {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.quiz-tells-label {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-faint-2);
+  margin-bottom: 8px;
+}
+
+.quiz-tells ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.quiz-tell {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.quiz-tell-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.quiz-tell--likes .quiz-tell-badge {
+  color: rgb(70, 110, 70);
+  background: rgba(80, 130, 80, 0.14);
+}
+
+.quiz-tell--avoids .quiz-tell-badge {
+  color: rgb(160, 60, 60);
+  background: rgba(184, 71, 71, 0.12);
+}
+
+.quiz-tell-opt {
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--ink-faint-2);
+}
+
+.quiz-tell-phrase {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.quiz-tell-rule {
+  color: var(--ink-soft);
+}
+
 /* Action row — editorial buttons */
 
 .quiz-actions {

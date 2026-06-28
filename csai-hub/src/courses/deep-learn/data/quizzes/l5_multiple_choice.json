@@ -142,6 +142,76 @@
       },
       "correct_answer": "B",
       "explanation": "Batch normalization normalizes the inputs to each layer by adjusting them to have zero mean and unit variance within each mini-batch. This stabilizes the training process and often allows the use of higher learning rates, leading to faster convergence."
+    },
+    {
+      "id": "l5_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "How does adding regularization typically affect a model's bias and variance?",
+      "options": {
+        "A": "It reduces both bias and variance at the same time with no tradeoff",
+        "B": "It increases variance in order to reduce bias",
+        "C": "It reduces variance while slightly increasing bias",
+        "D": "It reduces bias while increasing variance"
+      },
+      "correct_answer": "C",
+      "explanation": "Regularization constrains the model so its predictions are less sensitive to the specific training data, which lowers variance. The price is a small increase in bias, because the model is now slightly more restricted in what it can fit."
+    },
+    {
+      "id": "l5_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "Co-adaptation, the problem dropout is designed to prevent, refers to which of the following?",
+      "options": {
+        "A": "Neurons relying too heavily on the presence of specific other neurons",
+        "B": "Weights growing larger and larger during training",
+        "C": "Training loss decreasing while validation loss increases",
+        "D": "The input distribution shifting from one layer to the next"
+      },
+      "correct_answer": "A",
+      "explanation": "Co-adaptation is when neurons become dependent on particular other neurons being active, so they only work well together. Dropout randomly removes neurons during training, forcing each one to be useful on its own and learn more robust, redundant features."
+    },
+    {
+      "id": "l5_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "You suspect a model is overfitting. According to the recommended troubleshooting order, what should you do FIRST?",
+      "options": {
+        "A": "Immediately collect a large amount of new real training data",
+        "B": "Stack on as many regularization techniques as possible at once",
+        "C": "Replace the network with a much larger architecture",
+        "D": "Diagnose the problem by inspecting the learning curves"
+      },
+      "correct_answer": "D",
+      "explanation": "Before changing anything, you confirm what is actually happening by looking at the training and validation learning curves. Only once overfitting is diagnosed do you move on to cheaper fixes like dropout or L2, then augmentation, and finally the costly step of collecting more data."
+    },
+    {
+      "id": "l5_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "Which regularization technique works by adding an extra penalty term directly to the loss function?",
+      "options": {
+        "A": "Dropout",
+        "B": "L2 weight penalty",
+        "C": "Early stopping",
+        "D": "Data augmentation"
+      },
+      "correct_answer": "B",
+      "explanation": "The L2 weight penalty (weight decay) adds a term based on the squared weights to the loss, so the optimizer is pushed to keep weights small. Dropout acts on hidden activations, early stopping controls the training loop, and data augmentation transforms the input data, none of which modify the loss function."
+    },
+    {
+      "id": "l5_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "Which of the following is NOT a valid data augmentation technique for images?",
+      "options": {
+        "A": "Changing an image's label to a different class",
+        "B": "Flipping the image horizontally",
+        "C": "Rotating the image by a small random angle",
+        "D": "Jittering the brightness and contrast"
+      },
+      "correct_answer": "A",
+      "explanation": "Valid augmentations transform the image while keeping its correct label, like flipping, rotating, or adjusting color. Changing the label corrupts the training signal, teaching the model the wrong answer, so it is not a valid augmentation."
     }
   ]
 }
