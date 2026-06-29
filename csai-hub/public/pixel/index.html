@@ -47,7 +47,18 @@
 .as-note a { color:var(--accent, var(--ink)); }
 .as-note strong { font-weight:700; }
 .as-note h2, .as-note h3 { font-family:'Press Start 2P',monospace; font-size:12px; line-height:1.6; margin:28px 0 14px; }
+.as-note h4 { font-weight:700; font-size:13px; margin:20px 0 10px; }
+.as-note blockquote { border-left:3px solid var(--ink); margin:18px 0; padding:6px 0 6px 16px; color:var(--mute); font-style:italic; }
+.as-note code { font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--sel); padding:1px 5px; border:1px solid var(--line); }
+.as-note hr { border:none; border-top:1px dashed var(--line); margin:30px 0; }
 </style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+  "three/addons/": "https://unpkg.com/three@0.184.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="brain-quiz.mjs"></script>
 </helmet>
 <div ref="{{ rootRef }}" style="height:100vh; display:flex; font-family:'JetBrains Mono',ui-monospace,monospace; color:#141414; background:#fff; overflow:hidden; image-rendering:pixelated;">
 
@@ -55,7 +66,7 @@
   <div ref="{{ sideRef }}" style="flex:none; width:274px; min-width:274px; display:flex; flex-direction:column; background:var(--bg); border-right:1px dashed var(--line); overflow:hidden; transition:width .22s ease, min-width .22s ease;">
 
     <div style="display:flex; align-items:center; gap:13px; padding:24px 18px 20px;">
-      <span onClick="{{ goLanding }}" title="Home" style="font-family:'Press Start 2P',monospace; font-size:13px; letter-spacing:1px; white-space:nowrap; display:inline-flex; align-items:center; cursor:pointer;">CSAI<span style="font-size:13px; margin:0 2px; color:var(--accent);">@</span>LIVE</span>
+      <span onClick="{{ goLanding }}" title="Home" style="font-family:'Press Start 2P',monospace; font-size:13px; letter-spacing:1px; white-space:nowrap; display:inline-flex; align-items:center; cursor:pointer;">CSAI<span style="color:#22863A;"><span style="font-size:13px; margin:0 2px;">@</span>LIVE</span></span>
       <span style="flex:1;"></span>
       <i onClick="{{ toggleSidebar }}" class="hn hn-side-nav-collapse" style="font-size:21px; color:var(--ink); cursor:pointer;" data-comment-anchor="4930e4997c-i"></i>
     </div>
@@ -115,6 +126,7 @@
     <div ref="{{ scrollRef }}" style="flex:1; min-height:0; overflow:auto;">
       <div data-sumhole="1">{{ summaryEl }}</div>
       <div data-notehole="1">{{ noteEl }}</div>
+      <div data-brainhole="1">{{ brainEl }}</div>
 
       <!-- ============ LANDING (course navigator) ============ -->
       <sc-if value="{{ isLanding }}" hint-placeholder-val="{{ false }}">
@@ -455,7 +467,7 @@
         </div>
       </sc-if>
 
-
+      <!-- BRAIN QUIZ (3D) renders via the {{ brainEl }} hole above (sc-if bindings added post-export don't resolve; element holes do). -->
 
     </div>
   </sc-if></div>
@@ -510,7 +522,7 @@ class Component extends DCLogic {
     lightSrc: null,
     podPlaying: false,
     progress: this.loadProgress(),
-    expanded: { 'c-deeplearn': true, 'c-deeplearn-quizzes': true, 'c-deeplearn-summaries': true, 'c-autosys': true, 'c-autosys-quizzes': true, 'c-autosys-notes': false, 'c-autosys-exams': false },
+    expanded: { 'c-deeplearn': true, 'c-deeplearn-quizzes': true, 'c-deeplearn-summaries': true, 'c-autosys': true, 'c-autosys-quizzes': true, 'c-autosys-notes': false, 'c-autosys-exams': false, 'c-cogneuro': true, 'c-cogneuro-quizzes': true, 'c-cogneuro-notes': false },
     tabs: ['quiz', 'dllecture'],
     qIndex: 0,
     selected: [],
@@ -527,6 +539,7 @@ class Component extends DCLogic {
     dllecture: { label: 'lecture.dl', icon: 'hn-book' },
     dashboard: { label: 'overview.md', icon: 'hn-chart-network' },
     quiz: { label: 'quizzes.mc', icon: 'hn-check-list' },
+    brain: { label: 'brain-quiz.3d', icon: 'hn-globe' },
     'sum-mlps': { label: 'MLPs.sum', icon: 'hn-newspaper' },
     'sum-backpropagation': { label: 'Backprop.sum', icon: 'hn-newspaper' },
     'sum-optimizers': { label: 'Optimizers.sum', icon: 'hn-newspaper' },
@@ -764,6 +777,8 @@ class Component extends DCLogic {
   curCourse() { const a = this.allCourses(); return a[this.state.course] || a.deeplearn; }
   curLessons() { const c = this.curCourse(); return [...(c.lessons || []), ...(c.exams || [])]; }
   openNote(courseId, noteId) { const id = 'note-' + courseId + '-' + noteId; this.setState(s => ({ open: id, course: courseId, docId: id, tabs: s.tabs.includes(id) ? s.tabs : [...s.tabs, id] }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  openBrain() { this.setState(s => ({ open: 'brain', course: 'cogneuro', tabs: s.tabs.includes('brain') ? s.tabs : [...s.tabs, 'brain'] }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  buildBrain(open) { return { brainEl: open === 'brain' ? React.createElement('div', { id: 'brain-quiz-host', 'data-screen-label': 'Brain Quiz', style: { minHeight: '100%' } }) : null }; }
   buildNote(open) {
     if (!(open || '').startsWith('note-')) return { noteEl: null };
     const co = this.curCourse();
@@ -826,7 +841,7 @@ class Component extends DCLogic {
       ['Linear Algebra', 'linalg', false, null],
       ['Statistics', 'stats', false, null],
       ['Statistics 2', 'stats', false, null],
-      ['Cognitive Neuroscience', 'cogneuro', false, null],
+      ['Cognitive Neuroscience', 'cogneuro', true, () => this.openQuizLesson('cogneuro', 0)],
       ['Autonomous Systems', 'autonomous', true, () => this.openQuizLesson('autosys', 0)],
       ['Research Workshop', 'research', false, null],
       ['Introduction to Deep Learning', 'deeplearning', true, () => this.openQuizLesson('deeplearn', 0)],
@@ -875,6 +890,13 @@ class Component extends DCLogic {
       const co = COURSES[cid];
       const lessons = co.lessons || [], exams = co.exams || [];
       if (!folder('c-' + cid, co.name, 0)) return;
+      if (cid === 'cogneuro') {
+        const bact = open === 'brain';
+        rows.push({ key: 'brain-quiz', label: 'brain-quiz.3d', pad: (12 + 1 * 18) + 'px', chev: 'hn-blank', chevOp: '0',
+          icon: 'hn-globe', iconColor: bact ? 'var(--ink)' : 'var(--mute)', fg: 'var(--ink)', weight: bact ? '700' : '400',
+          bg: bact ? 'var(--sel)' : 'transparent', mark: bact ? 'var(--ink)' : 'transparent',
+          prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openBrain() });
+      }
       if (lessons.length && folder('c-' + cid + '-quizzes', 'quizzes', 1)) {
         lessons.forEach((l, i) => {
           const act = open === 'quiz' && S.course === cid && S.dlLesson === i;
@@ -1152,12 +1174,14 @@ class Component extends DCLogic {
       navCourses, navLive, navSoon,
       isQuiz: open === 'quiz' && !S.resultOpen, isResult: open === 'quiz' && S.resultOpen, isDashboard: open === 'dashboard',
       isDl: open === 'dllecture',
-      isLecture: open !== 'quiz' && open !== 'dashboard' && open !== 'dllecture' && open !== 'landing' && !(open || '').startsWith('sum-') && !(open || '').startsWith('note-'),
+      isLecture: open !== 'quiz' && open !== 'dashboard' && open !== 'dllecture' && open !== 'landing' && open !== 'brain' && !(open || '').startsWith('sum-') && !(open || '').startsWith('note-'),
+      isBrain: open === 'brain',
       isSummary: (open || '').startsWith('sum-'),
       isNote: (open || '').startsWith('note-'),
       lightOn: !!S.lightSrc, lightSrc: S.lightSrc || '', closeLight: () => this.setState({ lightSrc: null }),
       ...this.buildSummary(open),
       ...this.buildNote(open),
+      ...this.buildBrain(open),
       ...dl,
       quizReal: !!(lessonData && lessonData.real),
       quizSource: lessonData ? (lessonData.source || '') : '',

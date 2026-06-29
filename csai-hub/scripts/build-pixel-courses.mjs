@@ -102,6 +102,118 @@ function buildNote(file, n) {
   return { id: "as-note" + n, title: firstTitle(html, "Lecture " + n), html: inner.trim() };
 }
 
+// ===================== cog-neuro (structured JSON + markdown notes) =====================
+const COG = join(ROOT, "src/courses/cog-neuro/data");
+function readJSON(p) { return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : null; }
+function clean(s) { return String(s == null ? "" : s).trim(); }  // cog-neuro text is already plain (may contain '<'), so don't strip tags
+
+// one cog-neuro quiz question -> pixel question
+function cogQuestion(rawQ, type, n) {
+  if (type === "review") { // fill_in_blank: no option pool -> self-graded reveal
+    return { n, type: "review", q: clean(rawQ.question || rawQ.blank_sentence), code: false, options: {},
+      correct: "", explain: "Answer: " + clean(rawQ.correct_answer) + (rawQ.explanation ? " — " + clean(rawQ.explanation) : "") };
+  }
+  const options = {};
+  Object.keys(rawQ.options || {}).forEach((k) => { options[k] = clean(rawQ.options[k]); });
+  return { n, type, q: clean(rawQ.question), code: false, options,
+    correct: type === "multi" ? [...(rawQ.correct_answers || [])] : clean(rawQ.correct_answer),
+    explain: clean(rawQ.explanation) };
+}
+
+// --- tiny markdown -> html for the study notes (only the subset the notes use) ---
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function mdInline(s) {
+  return esc(s)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\[EXAM\]/g, '<span class="badge">EXAM</span>')
+    .replace(/\[PROF EMPHASIS\]/g, '<span class="badge prof">PROF</span>')
+    .replace(/ -- /g, " — ");
+}
+function mdToHtml(md) {
+  const lines = md.replace(/\r/g, "").split("\n");
+  const out = [];
+  let i = 0, sawTitle = false;
+  const isBullet = (l) => /^\s*[-*] +/.test(l);
+  const isOrdered = (l) => /^\s*\d+\. +/.test(l);
+  const isRow = (l) => /^\s*\|.*\|\s*$/.test(l);
+  const isSep = (l) => /^\s*\|?[\s:|-]+\|?\s*$/.test(l) && l.includes("-");
+  const isBlock = (l) => /^#{1,6} /.test(l) || isBullet(l) || isOrdered(l) || isRow(l) || /^\s*> ?/.test(l) || /^\s*---+\s*$/.test(l);
+  while (i < lines.length) {
+    const l = lines[i];
+    if (!l.trim()) { i++; continue; }
+    const h = /^(#{1,6}) +(.*)$/.exec(l);
+    if (h) {
+      const lvl = h[1].length;
+      if (lvl === 1 && !sawTitle) { sawTitle = true; i++; continue; } // title rendered by buildNote
+      sawTitle = true;
+      const tag = lvl <= 2 ? "h2" : lvl === 3 ? "h3" : "h4";
+      out.push(`<${tag}>${mdInline(h[2])}</${tag}>`); i++; continue;
+    }
+    sawTitle = true;
+    if (/^\s*---+\s*$/.test(l)) { out.push("<hr>"); i++; continue; }
+    if (isRow(l) && i + 1 < lines.length && isSep(lines[i + 1])) {
+      const cells = (r) => r.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+      const head = cells(l); i += 2; const body = [];
+      while (i < lines.length && isRow(lines[i])) { body.push(cells(lines[i])); i++; }
+      out.push("<table><thead><tr>" + head.map((c) => `<th>${mdInline(c)}</th>`).join("") + "</tr></thead><tbody>" +
+        body.map((r) => "<tr>" + r.map((c) => `<td>${mdInline(c)}</td>`).join("") + "</tr>").join("") + "</tbody></table>");
+      continue;
+    }
+    if (/^\s*> ?/.test(l)) {
+      const buf = [];
+      while (i < lines.length && /^\s*> ?/.test(lines[i])) { buf.push(lines[i].replace(/^\s*> ?/, "")); i++; }
+      out.push(`<blockquote>${mdInline(buf.join(" "))}</blockquote>`); continue;
+    }
+    if (isBullet(l) || isOrdered(l)) {
+      const tag = isOrdered(l) ? "ol" : "ul";
+      out.push(`<${tag}>`); let nested = false;
+      while (i < lines.length && (isBullet(lines[i]) || isOrdered(lines[i]))) {
+        const indent = (/^(\s*)/.exec(lines[i])[1] || "").length;
+        const text = lines[i].replace(/^\s*(?:[-*]|\d+\.) +/, "");
+        // ponytail: one nesting level via indent; a bare <ul> sibling renders indented in browsers (upgrade to proper <li>-nesting only if notes go deeper)
+        if (indent >= 2 && !nested) { out.push("<ul>"); nested = true; }
+        else if (indent < 2 && nested) { out.push("</ul>"); nested = false; }
+        out.push(`<li>${mdInline(text)}</li>`); i++;
+      }
+      if (nested) out.push("</ul>");
+      out.push(`</${tag}>`); continue;
+    }
+    const buf = [];
+    while (i < lines.length && lines[i].trim() && !isBlock(lines[i])) { buf.push(lines[i]); i++; }
+    out.push(`<p>${mdInline(buf.join(" "))}</p>`);
+  }
+  return out.join("\n");
+}
+
+function cogTopic(id) {
+  const meta = readJSON(join(COG, "notes", id + ".meta.json"));
+  if (meta && meta.title) { const t = meta.title.split(":").pop().trim(); return t || meta.title; }
+  return id;
+}
+function buildCogNeuro() {
+  const ids = ["m1_l1", "m1_l2", "m2_l1", "m2_l2", "m3_l1", "m3_l2", "m4_l1", "m4_l2", "m5_l1", "m5_l2", "midterm"];
+  const lessons = ids.map((id, idx) => {
+    const mc = readJSON(join(COG, "quizzes", id + "_multiple_choice.json"));
+    const mr = readJSON(join(COG, "quizzes", id + "_multiple_response.json"));
+    const fib = readJSON(join(COG, "quizzes", id + "_fill_in_blank.json"));
+    const qs = [];
+    if (mc) mc.questions.forEach((q) => qs.push(cogQuestion(q, "single", qs.length + 1)));
+    if (mr) mr.questions.forEach((q) => qs.push(cogQuestion(q, "multi", qs.length + 1)));
+    if (fib) fib.questions.forEach((q) => qs.push(cogQuestion(q, "review", qs.length + 1)));
+    const topic = cogTopic(id);
+    return { code: id === "midterm" ? "MID" : "L" + (idx + 1), id: "cog-" + id, topic, title: topic,
+      count: qs.length, real: true, source: "Tilburg · Cognitive Neuroscience", questions: qs };
+  });
+  const notes = ids.map((id) => {
+    const mdPath = join(COG, "notes", id + ".md");
+    if (!existsSync(mdPath)) return null;
+    const meta = readJSON(join(COG, "notes", id + ".meta.json"));
+    return { id: "cog-" + id, title: (meta && meta.title) || cogTopic(id), html: mdToHtml(readFileSync(mdPath, "utf8")) };
+  }).filter(Boolean);
+  return { id: "cogneuro", name: "cognitive-neuroscience", navIcon: "cogneuro", live: true, lessons, notes, exams: [] };
+}
+
 // ---- build auto-sys ----
 const N = 11;
 const lessons = [], notes = [];
@@ -134,13 +246,25 @@ const autosys = {
   lessons, notes, exams,
 };
 
+const cogneuro = buildCogNeuro();
+
+// self-test: the markdown renderer must survive every block the notes use
+(function selftest() {
+  const html = mdToHtml("# Title\n## Head\nA **bold** word [EXAM]\n\n- one\n  - nested\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\n> quote");
+  const need = ["<h2>Head</h2>", "<strong>bold</strong>", 'class="badge">EXAM', "<ul>", "<table>", "<th>A</th>", "<blockquote>"];
+  for (const s of need) if (!html.includes(s)) throw new Error("mdToHtml self-test failed, missing: " + s);
+  if (html.includes("<h1>") || html.includes("Title")) throw new Error("mdToHtml should drop the leading H1 title");
+})();
+
 const out =
   "// AUTO-GENERATED by scripts/build-pixel-courses.mjs — do not edit by hand.\n" +
   "window.COURSES = window.COURSES || {};\n" +
-  "window.COURSES.autosys = " + JSON.stringify(autosys) + ";\n";
+  "window.COURSES.autosys = " + JSON.stringify(autosys) + ";\n" +
+  "window.COURSES.cogneuro = " + JSON.stringify(cogneuro) + ";\n";
 writeFileSync(join(ROOT, "public/pixel/courses-data.js"), out);
 
 console.log(`auto-sys → ${lessons.length} quizzes (${lessons.reduce((a, l) => a + l.count, 0)} Q), ` +
   `${exams.length} exams (${exams.reduce((a, l) => a + l.count, 0)} Q), ${notes.length} notes`);
-console.log("quiz titles:", lessons.map(l => l.topic).join(" | "));
+console.log(`cog-neuro → ${cogneuro.lessons.length} quizzes (${cogneuro.lessons.reduce((a, l) => a + l.count, 0)} Q), ${cogneuro.notes.length} notes`);
+console.log("cog-neuro titles:", cogneuro.lessons.map(l => l.topic).join(" | "));
 console.log("wrote public/pixel/courses-data.js (" + (out.length / 1024).toFixed(1) + " KB)");
