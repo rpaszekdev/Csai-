@@ -15,12 +15,38 @@
 <script src="image-slot.js"></script>
 <script src="dl-data.js"></script>
 <script src="dl-summaries.js"></script>
+<script src="courses-data.js"></script>
 <style>
 @keyframes vaderwalk { from { background-position-x: 0; } to { background-position-x: -330px; } }
 @keyframes tickpop { 0% { transform: scale(0); } 45% { transform: scale(1.6); } 70% { transform: scale(.9); } 100% { transform: scale(1); } }
 @keyframes btnpop { 0% { transform: scale(1); } 25% { transform: scale(1.07); } 60% { transform: scale(.98); } 100% { transform: scale(1); } }
 @keyframes heartbreak { 0% { transform: scale(1) rotate(0); } 18% { transform: scale(1.4) rotate(-10deg); } 42% { transform: scale(.7) rotate(10deg); } 70% { transform: scale(1.12) rotate(-4deg); } 100% { transform: scale(1) rotate(0); } }
 @keyframes fbpop { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+</style>
+<style>
+.as-note { font-size:14px; line-height:1.85; color:var(--ink); }
+.as-note .note-eyebrow { font-size:10px; letter-spacing:2.5px; color:var(--mute); }
+.as-note .note-title { font-family:'Press Start 2P',monospace; font-size:20px; line-height:1.6; margin:14px 0 36px; }
+.as-note section { border-top:1px dashed var(--line); padding-top:30px; margin-top:36px; overflow:hidden; }
+.as-note section:first-of-type { border-top:none; padding-top:0; margin-top:0; }
+.as-note .section-eyebrow { font-family:'Press Start 2P',monospace; font-size:11px; letter-spacing:1px; margin-bottom:16px; display:block; color:var(--ink); }
+.as-note .col-slides { float:right; width:300px; max-width:42%; margin:4px 0 18px 28px; }
+.as-note .slide-embed { margin:0 0 14px; }
+.as-note .slide-embed img { width:100%; display:block; border:1px solid var(--line); filter:grayscale(1) contrast(1.05); cursor:zoom-in; image-rendering:auto; }
+.as-note .slide-embed figcaption { font-size:10px; color:var(--mute); margin-top:6px; letter-spacing:.5px; }
+.as-note .slide-embed .num { font-weight:700; color:var(--ink); margin-right:6px; }
+.as-note p { margin:14px 0; }
+.as-note .callout { border:2px solid var(--ink); padding:16px 18px; margin:22px 0; box-shadow:5px 5px 0 var(--line); }
+.as-note .callout-label { font-family:'Press Start 2P',monospace; font-size:8px; letter-spacing:1px; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.as-note .badge, .as-note .badge.prof { display:inline-block; border:1.5px solid var(--ink); font-family:'Press Start 2P',monospace; font-size:7px; letter-spacing:1px; padding:3px 6px; color:var(--ink); }
+.as-note table { border-collapse:collapse; width:100%; margin:22px 0; font-size:13px; }
+.as-note th { border-bottom:2px solid var(--ink); text-align:left; padding:10px 8px; font-weight:700; }
+.as-note td { border-bottom:1px dashed var(--line); padding:10px 8px; vertical-align:top; }
+.as-note ul, .as-note ol { padding-left:22px; margin:14px 0; }
+.as-note li { margin:7px 0; }
+.as-note a { color:var(--accent, var(--ink)); }
+.as-note strong { font-weight:700; }
+.as-note h2, .as-note h3 { font-family:'Press Start 2P',monospace; font-size:12px; line-height:1.6; margin:28px 0 14px; }
 </style>
 </helmet>
 <div ref="{{ rootRef }}" style="height:100vh; display:flex; font-family:'JetBrains Mono',ui-monospace,monospace; color:#141414; background:#fff; overflow:hidden; image-rendering:pixelated;">
@@ -88,6 +114,7 @@
     <!-- content -->
     <div ref="{{ scrollRef }}" style="flex:1; min-height:0; overflow:auto;">
       <div data-sumhole="1">{{ summaryEl }}</div>
+      <div data-notehole="1">{{ noteEl }}</div>
 
       <!-- ============ LANDING (course navigator) ============ -->
       <sc-if value="{{ isLanding }}" hint-placeholder-val="{{ false }}">
@@ -445,6 +472,11 @@
       <i onClick="{{ closePodcast }}" class="hn hn-times" style="flex:none; font-size:15px; color:var(--mute); cursor:pointer;"></i>
     </div>
   </sc-if>
+  <sc-if value="{{ lightOn }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLight }}" style="position:fixed; inset:0; background:rgba(0,0,0,.86); z-index:200; display:flex; align-items:center; justify-content:center; cursor:zoom-out; padding:40px;">
+      <img src="{{ lightSrc }}" alt="" style="max-width:92vw; max-height:90vh; object-fit:contain; border:3px solid #fff; background:#fff; image-rendering:auto;" />
+    </div>
+  </sc-if>
 </div></x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:820},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;light&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
 class Component extends DCLogic {
@@ -471,13 +503,14 @@ class Component extends DCLogic {
     collapsed: false,
     material: 'pptx',
     dlLesson: 0,
+    course: 'deeplearn',
     podcast: null,
     podCur: 0,
     podDur: 0,
     lightSrc: null,
     podPlaying: false,
     progress: this.loadProgress(),
-    expanded: { deeplearn: true, dlquizzes: true, dlsummaries: true, dllectures: false, cogneuro: false, m3: true, m4: false },
+    expanded: { 'c-deeplearn': true, 'c-deeplearn-quizzes': true, 'c-deeplearn-summaries': true, 'c-autosys': true, 'c-autosys-quizzes': true, 'c-autosys-notes': false, 'c-autosys-exams': false },
     tabs: ['quiz', 'dllecture'],
     qIndex: 0,
     selected: [],
@@ -671,8 +704,7 @@ class Component extends DCLogic {
       h('p', { key: 'sb', style: { color: 'var(--mute)', margin: 0, lineHeight: 1.7, maxWidth: '58ch' } }, d.sub || ''),
       h('div', { key: 'pod', onClick: () => this.playPodcast('/dl/summaries/audio/' + key + '.mp3', podLabel), style: { display: 'inline-block', cursor: 'pointer', margin: '28px 0 0', background: 'var(--ink)', color: 'var(--bg)', fontFamily: "'Press Start 2P',monospace", fontSize: '9px', letterSpacing: '1px', padding: '14px 18px' } }, podLabel),
       ...sectionEls,
-      h('div', { key: 'src', style: { marginTop: '90px', borderTop: '1px dashed var(--line)', paddingTop: '20px', color: 'var(--mute)', fontSize: '11px', letterSpacing: '1px' } }, d.source || ''),
-      this.state.lightSrc ? h('div', { key: 'lb', onClick: () => this.setState({ lightSrc: null }), style: { position: 'fixed', inset: 0, background: 'rgba(0,0,0,.86)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'zoom-out', padding: '40px' } }, h('img', { src: this.state.lightSrc, alt: '', onClick: (e) => e.stopPropagation(), style: { maxWidth: '92vw', maxHeight: '90vh', objectFit: 'contain', border: '3px solid #fff', background: '#fff', imageRendering: 'auto' } })) : null
+      h('div', { key: 'src', style: { marginTop: '90px', borderTop: '1px dashed var(--line)', paddingTop: '20px', color: 'var(--mute)', fontSize: '11px', letterSpacing: '1px' } }, d.source || '')
     ]);
     return { summaryEl };
   }
@@ -688,7 +720,7 @@ class Component extends DCLogic {
   onPodEnd() { this.setState({ podPlaying: false, podCur: 0 }); }
   showResult() { clearTimeout(this._got); this.setState({ resultOpen: true, gameOver: false }, () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
   retryQuiz() {
-    const li = this.state.dlLesson;
+    const li = this.state.course + ':' + this.state.dlLesson;
     clearTimeout(this._wt); clearTimeout(this._got); this._resetScroll = true;
     this.setState(s => { const progress = { ...s.progress }; delete progress[li]; this.saveProgress(progress);
       return { progress, attempt: {}, gameOver: false, qIndex: 0, selected: [], dropSel: {}, revealed: false, walking: false, explOpen: false, resultOpen: false }; });
@@ -702,8 +734,8 @@ class Component extends DCLogic {
       return { tabs, open };
     });
   }
-  openDlLesson(i) {
-    this.setState(s => ({ open: 'dllecture', dlLesson: i,
+  openDlLesson(courseId, i) {
+    this.setState(s => ({ open: 'dllecture', course: courseId || s.course, dlLesson: i,
       tabs: s.tabs.includes('dllecture') ? s.tabs : [...s.tabs, 'dllecture'] }),
       () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; });
   }
@@ -721,14 +753,33 @@ class Component extends DCLogic {
   selectBlank(bi, val) { if (this.state.revealed) return; this.setState(s => ({ dropSel: { ...s.dropSel, [bi]: val } })); }
   loadProgress() { try { return JSON.parse(localStorage.getItem('dlquiz-progress') || '{}'); } catch (e) { return {}; } }
   saveProgress(p) { try { localStorage.setItem('dlquiz-progress', JSON.stringify(p)); } catch (e) {} }
-  openQuizLesson(i) { clearTimeout(this._wt); clearTimeout(this._got); this._resetScroll = true; this.setState(s => ({ open: 'quiz', dlLesson: i, attempt: {}, gameOver: false, qIndex: 0, selected: [], dropSel: {}, revealed: false, walking: false, explOpen: false, resultOpen: false, tabs: s.tabs.includes('quiz') ? s.tabs : ['quiz', ...s.tabs] }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
-  nextQuiz() { const DL = window.DL_LESSONS || []; const ni = this.state.dlLesson + 1; if (ni < DL.length) this.setDlLesson(ni); }
+  openQuizLesson(courseId, i) { clearTimeout(this._wt); clearTimeout(this._got); this._resetScroll = true; this.setState(s => ({ open: 'quiz', course: courseId || s.course, dlLesson: i, attempt: {}, gameOver: false, qIndex: 0, selected: [], dropSel: {}, revealed: false, walking: false, explOpen: false, resultOpen: false, tabs: s.tabs.includes('quiz') ? s.tabs : ['quiz', ...s.tabs] }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  nextQuiz() { const DL = this.curLessons(); const ni = this.state.dlLesson + 1; if (ni < DL.length) this.setDlLesson(ni); }
+  allCourses() {
+    const reg = { deeplearn: { id: 'deeplearn', name: 'deep-learning', navIcon: 'deeplearning', live: true, lessons: window.DL_LESSONS || [], summaryOrder: window.DL_SUMMARY_ORDER || [], notes: [], exams: [] } };
+    const x = window.COURSES || {};
+    Object.keys(x).forEach(k => { reg[k] = x[k]; });
+    return reg;
+  }
+  curCourse() { const a = this.allCourses(); return a[this.state.course] || a.deeplearn; }
+  curLessons() { const c = this.curCourse(); return [...(c.lessons || []), ...(c.exams || [])]; }
+  openNote(courseId, noteId) { const id = 'note-' + courseId + '-' + noteId; this.setState(s => ({ open: id, course: courseId, docId: id, tabs: s.tabs.includes(id) ? s.tabs : [...s.tabs, id] }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  buildNote(open) {
+    if (!(open || '').startsWith('note-')) return { noteEl: null };
+    const co = this.curCourse();
+    const nt = (co.notes || []).find(x => ('note-' + co.id + '-' + x.id) === open);
+    if (!nt) return { noteEl: null };
+    const h = React.createElement;
+    const inner = '<div class="note-eyebrow">' + (co.name || '').replace(/-/g, ' ').toUpperCase() + '</div><h1 class="note-title">' + (nt.title || '') + '</h1>' + (nt.html || '');
+    const noteEl = h('div', { className: 'as-note', 'data-screen-label': 'Note', style: { maxWidth: '880px', margin: '0 auto', padding: '46px 40px 130px' }, onClick: (e) => { const t = e.target; if (t && t.tagName === 'IMG' && t.src) { e.preventDefault(); this.setState({ lightSrc: t.src }); } }, dangerouslySetInnerHTML: { __html: inner } });
+    return { noteEl };
+  }
   check() {
     if (this.state.revealed) return;
     const type = this._curType || 'single';
     if (type === 'dropdown') { const bl = this._curBlanks || []; const ds = this.state.dropSel; if (bl.some((b, i) => ds[i] == null || ds[i] === '')) return; }
     else if (type !== 'review' && this.state.selected.length === 0) return;
-    const li = this.state.dlLesson, qi = this.state.qIndex;
+    const li = this.state.course + ':' + this.state.dlLesson, qi = this.state.qIndex;
     let correctBool;
     if (type === 'review') correctBool = true;
     else if (type === 'dropdown') { const bl = this._curBlanks || []; const ds = this.state.dropSel; correctBool = bl.every((b, i) => ds[i] === b.correct); }
@@ -775,10 +826,10 @@ class Component extends DCLogic {
       ['Linear Algebra', 'linalg', false, null],
       ['Statistics', 'stats', false, null],
       ['Statistics 2', 'stats', false, null],
-      ['Cognitive Neuroscience', 'cogneuro', true, () => this.openFile('dashboard')],
-      ['Autonomous Systems', 'autonomous', false, null],
+      ['Cognitive Neuroscience', 'cogneuro', false, null],
+      ['Autonomous Systems', 'autonomous', true, () => this.openQuizLesson('autosys', 0)],
       ['Research Workshop', 'research', false, null],
-      ['Introduction to Deep Learning', 'deeplearning', true, () => this.openQuizLesson(0)],
+      ['Introduction to Deep Learning', 'deeplearning', true, () => this.openQuizLesson('deeplearn', 0)],
       ['Advanced Programming for CSAI', 'advprog', false, null],
       ['Computational Linguistics', 'linguistics', false, null],
       ["Bachelor's Thesis", 'thesis', false, null],
@@ -813,45 +864,56 @@ class Component extends DCLogic {
     };
     const DL_TOPICS = (window.DL_LESSONS && window.DL_LESSONS.length) ? window.DL_LESSONS.map(l => l.topic) : ['MLPs','Backpropagation','Optimizers','CNNs','Regularization','Recurrence','Transformers','Computer Vision'];
     const dlSlug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    if (folder('deeplearn', 'deep-learning', 0)) {
-      if (folder('dlquizzes', 'quizzes', 1)) {
-        DL_TOPICS.forEach((t, i) => {
-          const act = open === 'quiz' && S.dlLesson === i;
-          const answered = Object.keys(S.progress[i] || {}).length;
-          const lcq = ((window.DL_LESSONS || [])[i] || {}).questions; const cnt = lcq ? lcq.length : 15; const done = answered >= cnt;
-          rows.push({ key: 'dlq' + i, label: 'l' + (i + 1) + '-' + dlSlug(t) + '.mc', pad: (12 + 2 * 18) + 'px',
-            chev: 'hn-blank', chevOp: '0', icon: 'hn-check-list', iconColor: act ? 'var(--ink)' : 'var(--mute)',
-            fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent',
-            mark: act ? 'var(--ink)' : 'transparent',
-            prog: done ? '' : (answered > 0 ? answered + '/' + cnt : ''),
-            tagIcon: done ? 'hn-check' : 'hn-blank', tagOp: done ? '1' : '0',
-            onClick: () => this.openQuizLesson(i) });
+    const COURSES = this.allCourses();
+    const qrow = (key, label, icon, act, answered, cnt, onClick) => rows.push({
+      key, label, pad: (12 + 2 * 18) + 'px', chev: 'hn-blank', chevOp: '0', icon,
+      iconColor: act ? 'var(--ink)' : 'var(--mute)', fg: 'var(--ink)', weight: act ? '700' : '400',
+      bg: act ? 'var(--sel)' : 'transparent', mark: act ? 'var(--ink)' : 'transparent',
+      prog: (cnt && answered >= cnt) ? '' : (answered > 0 ? answered + '/' + cnt : ''),
+      tagIcon: (cnt && answered >= cnt) ? 'hn-check' : 'hn-blank', tagOp: (cnt && answered >= cnt) ? '1' : '0', onClick });
+    Object.keys(COURSES).forEach((cid) => {
+      const co = COURSES[cid];
+      const lessons = co.lessons || [], exams = co.exams || [];
+      if (!folder('c-' + cid, co.name, 0)) return;
+      if (lessons.length && folder('c-' + cid + '-quizzes', 'quizzes', 1)) {
+        lessons.forEach((l, i) => {
+          const act = open === 'quiz' && S.course === cid && S.dlLesson === i;
+          const answered = Object.keys(S.progress[cid + ':' + i] || {}).length;
+          const cnt = (l.questions || []).length || l.count || 0;
+          qrow('q-' + cid + '-' + i, 'l' + (i + 1) + '-' + dlSlug(l.topic || ('l' + (i + 1))) + '.mc', 'hn-check-list', act, answered, cnt, () => this.openQuizLesson(cid, i));
         });
       }
-      if (folder('dlsummaries', 'summaries', 1)) {
-        (window.DL_SUMMARY_ORDER || [['rnns', 'RNNs.sum']]).forEach(([slug, lbl]) => file('sum-' + slug, lbl, 2, 'hn-newspaper'));
+      if ((co.summaryOrder || []).length && folder('c-' + cid + '-summaries', 'summaries', 1)) {
+        co.summaryOrder.forEach(([slug, lbl]) => file('sum-' + slug, lbl, 2, 'hn-newspaper'));
       }
-      if (folder('dllectures', 'lectures', 1)) {
-        DL_TOPICS.forEach((t, i) => {
-          const act = open === 'dllecture' && S.dlLesson === i;
-          rows.push({ key: 'dll' + i, label: 'l' + (i + 1) + '-' + dlSlug(t) + '.dl', pad: (12 + 2 * 18) + 'px',
+      if ((co.notes || []).length && folder('c-' + cid + '-notes', 'notes', 1)) {
+        co.notes.forEach((nt, i) => {
+          const id = 'note-' + cid + '-' + nt.id; const act = open === id;
+          rows.push({ key: id, label: 'l' + (i + 1) + '-' + dlSlug(nt.title || ('note' + i)) + '.md', pad: (12 + 2 * 18) + 'px',
+            chev: 'hn-blank', chevOp: '0', icon: 'hn-notebook', iconColor: act ? 'var(--ink)' : 'var(--mute)',
+            fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent', mark: act ? 'var(--ink)' : 'transparent',
+            prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openNote(cid, nt.id) });
+        });
+      }
+      if (cid === 'deeplearn' && lessons.length && folder('c-' + cid + '-lectures', 'lectures', 1)) {
+        lessons.forEach((l, i) => {
+          const act = open === 'dllecture' && S.course === cid && S.dlLesson === i;
+          rows.push({ key: 'dll-' + cid + '-' + i, label: 'l' + (i + 1) + '-' + dlSlug(l.topic || ('l' + (i + 1))) + '.dl', pad: (12 + 2 * 18) + 'px',
             chev: 'hn-blank', chevOp: '0', icon: 'hn-book', iconColor: act ? 'var(--ink)' : 'var(--mute)',
-            fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent',
-            mark: act ? 'var(--ink)' : 'transparent', prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openDlLesson(i) });
+            fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent', mark: act ? 'var(--ink)' : 'transparent',
+            prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openDlLesson(cid, i) });
         });
       }
-    }
-    if (folder('cogneuro', 'cognitive-neuroscience', 0)) {
-      file('dashboard', 'overview.md', 1, 'hn-chart-network');
-      if (folder('m3', 'module-3-memory', 1)) {
-        file('m3l1', 'memory-systems.lec', 2, 'hn-notebook');
-        file('m3l2', 'learning-plasticity.lec', 2, 'hn-notebook');
+      if (exams.length && folder('c-' + cid + '-exams', 'exams', 1)) {
+        exams.forEach((ex, j) => {
+          const gi = lessons.length + j;
+          const act = open === 'quiz' && S.course === cid && S.dlLesson === gi;
+          const answered = Object.keys(S.progress[cid + ':' + gi] || {}).length;
+          const cnt = (ex.questions || []).length || ex.count || 0;
+          qrow('ex-' + cid + '-' + j, dlSlug(ex.topic || ('exam' + j)) + '.ex', 'hn-graduation-cap', act, answered, cnt, () => this.openQuizLesson(cid, gi));
+        });
       }
-      if (folder('m4', 'module-4-emotion', 1)) {
-        file('m4l1', 'emotion-social.lec', 2, 'hn-notebook');
-      }
-      file('notes', 'notes.txt', 1, 'hn-notebook');
-    }
+    });
 
     // ---- tabs ----
     const tabs = S.tabs.map(id => {
@@ -866,14 +928,20 @@ class Component extends DCLogic {
     });
 
     // ---- quiz ----
-    const DL = window.DL_LESSONS || [];
+    const CC = this.curCourse();
+    const cLabel = (CC.name || '').replace(/-/g, ' ').toUpperCase();
+    const DL = this.curLessons();
     const lessonData = DL[S.dlLesson];
     const typeLabelOf = (t) => t === 'multi' ? 'SELECT ALL THAT APPLY' : (t === 'dropdown' ? 'FILL IN THE BLANKS' : (t === 'review' ? 'CONCEPT REVIEW' : 'SINGLE RESPONSE'));
     const questions = lessonData
       ? lessonData.questions.map(qq => {
           const type = qq.type || 'single';
           const correctArr = Array.isArray(qq.correct) ? qq.correct : (qq.correct != null ? [qq.correct] : []);
-          const options = qq.options ? Object.keys(qq.options).map(k => ({ letter: k, text: qq.options[k] })) : [];
+          const options = qq.options
+            ? Object.keys(qq.options)
+                .filter(k => { const ok = (qq.options[k] ?? '').trim() !== ''; if (!ok) console.warn('[pixel-quiz] blank option dropped', k, (qq.q || '').slice(0, 60)); return ok; })
+                .map(k => ({ letter: k, text: qq.options[k] }))
+            : [];
           return { type, typeLabel: typeLabelOf(type), q: qq.q, correct: correctArr, explain: qq.explain || '', options, blanks: qq.blanks || [], code: !!qq.code };
         })
       : [{ type: 'single', typeLabel: 'SINGLE RESPONSE', q: 'Loading questions…', correct: ['A'], explain: '', options: [{ letter: 'A', text: '…' }] }];
@@ -881,7 +949,7 @@ class Component extends DCLogic {
     const total = questions.length;
     const q = questions[Math.min(S.qIndex, total - 1)];
     const atLast = S.qIndex === total - 1;
-    const DLlen = (window.DL_LESSONS || []).length || 8;
+    const DLlen = DL.length || 8;
     const hasNextLesson = S.dlLesson < DLlen - 1;
     const nextEnabled = true;
     const blocks = Array.from({ length: total }, (_, i) => ({ fill: i <= S.qIndex ? 'var(--ink)' : 'var(--line)' }));
@@ -1027,7 +1095,7 @@ class Component extends DCLogic {
     const d = docs[S.docId] || docs.m3l1;
 
     // ---- deep-learning lecture (placeholder shell) ----
-    const dlTabs = DL_TOPICS.map((t, i) => ({ code: (((window.DL_LESSONS || [])[i] || {}).isExam ? 'EXAM' : ('L' + (i + 1))), active: i === S.dlLesson,
+    const dlTabs = DL.map((l, i) => ({ code: (l.code || (l.isExam ? 'EXAM' : ('L' + (i + 1)))), active: i === S.dlLesson,
       fg: i === S.dlLesson ? 'var(--ink)' : 'var(--mute)', weight: i === S.dlLesson ? '700' : '400',
       ind: i === S.dlLesson ? 'var(--ink)' : 'transparent', selBd: i === S.dlLesson ? 'var(--ink)' : 'var(--line)', onClick: () => this.setDlLesson(i) }));
     const MATS = [
@@ -1049,8 +1117,8 @@ class Component extends DCLogic {
       bg: i < 11 ? 'var(--ink)' : 'var(--line)' }));
     const dl = {
       dlTabs, materials, bars,
-      dlEyebrow: 'Deep Learning · Lesson ' + (S.dlLesson + 1),
-      dlTopic: DL_TOPICS[S.dlLesson].toUpperCase(),
+      dlEyebrow: cLabel + ' · LESSON ' + (S.dlLesson + 1),
+      dlTopic: ((DL[S.dlLesson] || {}).topic || '').toUpperCase(),
       matPptx: S.material === 'pptx', matTranscript: S.material === 'transcript',
       matChapter: S.material === 'chapter', matPodcast: S.material === 'podcast', matNotes: S.material === 'notes',
       podIcon: S.podPlaying ? 'hn-pause' : 'hn-play',
@@ -1084,14 +1152,17 @@ class Component extends DCLogic {
       navCourses, navLive, navSoon,
       isQuiz: open === 'quiz' && !S.resultOpen, isResult: open === 'quiz' && S.resultOpen, isDashboard: open === 'dashboard',
       isDl: open === 'dllecture',
-      isLecture: open !== 'quiz' && open !== 'dashboard' && open !== 'dllecture' && open !== 'landing' && !(open || '').startsWith('sum-'),
+      isLecture: open !== 'quiz' && open !== 'dashboard' && open !== 'dllecture' && open !== 'landing' && !(open || '').startsWith('sum-') && !(open || '').startsWith('note-'),
       isSummary: (open || '').startsWith('sum-'),
+      isNote: (open || '').startsWith('note-'),
+      lightOn: !!S.lightSrc, lightSrc: S.lightSrc || '', closeLight: () => this.setState({ lightSrc: null }),
       ...this.buildSummary(open),
+      ...this.buildNote(open),
       ...dl,
       quizReal: !!(lessonData && lessonData.real),
       quizSource: lessonData ? (lessonData.source || '') : '',
-      quizEyebrow: lessonData ? (lessonData.isExam ? 'DEEP LEARNING · FINAL EXAM' : ('DEEP LEARNING · LESSON ' + (S.dlLesson + 1))) : 'DEEP LEARNING',
-      quizTitle: lessonData ? (lessonData.isExam ? 'FINAL EXAM' : ('L' + (S.dlLesson + 1) + ': ' + lessonData.topic.toUpperCase())) : 'LOADING…',
+      quizEyebrow: lessonData ? (cLabel + ' · ' + (lessonData.isExam ? ((lessonData.topic || 'EXAM').toUpperCase()) : (lessonData.code || ('LESSON ' + (S.dlLesson + 1))))) : cLabel,
+      quizTitle: lessonData ? (lessonData.isExam ? ((lessonData.topic || 'EXAM').toUpperCase()) : ((lessonData.code || ('L' + (S.dlLesson + 1))) + ': ' + (lessonData.topic || '').toUpperCase())) : 'LOADING…',
       counter: 'QUESTION ' + (S.qIndex + 1) + ' OF ' + total + ' · ' + total + ' TOTAL',
       qNum: (S.qIndex + 1 < 10 ? '0' : '') + (S.qIndex + 1),
       qType: q.typeLabel, qText: isCodeQ ? codeLead : (isInlineDropdown ? '' : q.q),
