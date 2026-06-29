@@ -122,6 +122,25 @@ export default function IdeShell() {
     });
   };
 
+  // Close a tab; if it was the active one, fall back to a neighbouring tab.
+  const handleCloseTab = (id) => {
+    const idx = tabs.indexOf(id);
+    const remaining = tabs.filter((x) => x !== id);
+    setTabs(remaining);
+    if (open === id && remaining.length) {
+      const fallback = remaining[Math.min(idx, remaining.length - 1)];
+      setOpen(fallback);
+      if (
+        fallback !== "dashboard" &&
+        fallback !== "quiz" &&
+        fallback !== "dllecture" &&
+        fallback !== "summary"
+      ) {
+        setDocId(fallback);
+      }
+    }
+  };
+
   const handleToggleSidebar = () => setCollapsed((c) => !c);
   const handleToggleTheme = () =>
     setTheme((t) => (t === "light" ? "dark" : "light"));
@@ -520,7 +539,16 @@ export default function IdeShell() {
                 <span style={{ whiteSpace: "nowrap" }}>{tab.label}</span>
                 <i
                   className="hn hn-times"
-                  style={{ fontSize: 10, color: "var(--mute)", marginLeft: 6 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCloseTab(tab.id);
+                  }}
+                  style={{
+                    fontSize: 10,
+                    color: "var(--mute)",
+                    marginLeft: 6,
+                    cursor: "pointer",
+                  }}
                 />
               </div>
             ))}
