@@ -1,0 +1,108 @@
+{
+  "slug": "transformers",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L8 · ATTENTION & TRANSFORMERS",
+  "title": "ATTENTION & TRANSFORMERS",
+  "sub": "Visual exam summary — every section maps to a real quiz question.",
+  "podcast": { "href": "audio/transformers.mp3", "label": "LISTEN · TRANSFORMERS PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 8 (Self-Attention, Transformers & Positional Encoding)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "ATTENTION = CONTEXT, NOT MEMORY",
+      "exam": "Attention's job is to capture contextual relationships between tokens; in seq2seq it builds a context vector = a weighted sum of encoder states, weighted by a query–key compatibility score.",
+      "ascii": "decoder asks:  q (query) ─┐\n                          ▼\n encoder states:  h1    h2    h3    h4     (keys / values)\n score(q,hi):    0.1   0.7   0.1   0.1     ← query·key compatibility\n                  │     │     │     │\n                softmax  →  weights α (sum to 1)\n                          ▼\n context = Σ αi · hi   ── weighted sum, here mostly h2\n\n NOT recurrence · NOT gating · NOT convolution — just selective focus.",
+      "figures": [
+        { "kind": "slide", "slot": "transformers-s05", "ph": "DROP slide-05", "label": "LECTURE SLIDE", "cap": "Attention in RNN encoders",
+          "desc": "Each step can attend to the previous steps and itself — the seed of self-attention: a token weighs the others by relevance." },
+        { "kind": "slide", "slot": "transformers-s03", "ph": "DROP slide-03", "label": "LECTURE SLIDE", "cap": "Encoder–decoder attention",
+          "desc": "The attention matrix between encoder and decoder states. The context vector is a weighted sum of encoder hidden states — the exam answer for 'how is the context vector computed'." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "SELF-ATTENTION: Q, K, V & SCALED DOT-PRODUCT",
+      "exam": "scores = Q·Kᵀ / √d_k — dot-product similarity between the ROWS of Q and K, scaled by √(key-dim), softmax over the last dim, then weighted sum of V; the scores tensor is (batch, seq_len, seq_len).",
+      "ascii": "each token x ──► Q = x·Wq   K = x·Wk   V = x·Wv   (3 learned Linear maps)\n\n scores = Q·Kᵀ        dot-product similarity (row i vs row j)\n        ÷ √d_k        scale by sqrt(key dim) → stable softmax\n        softmax(-1)   → attention weights, each row sums to 1\n z = weights · V      → context-aware output\n\n shapes:  x (B, n, d) ─► scores (B, n, n) ─► z (B, n, d)\n highest weight ⇒ that token's V vector dominates the output.",
+      "figures": [
+        { "kind": "slide", "slot": "transformers-s18", "ph": "DROP slide-18", "label": "LECTURE SLIDE", "cap": "Step-by-step",
+          "desc": "Words → embeddings → Q/K/V → scores → weights → output as a weighted sum of values. The whole self-attention pipeline in one row." },
+        { "kind": "slide", "slot": "transformers-s24", "ph": "DROP slide-24", "label": "LECTURE SLIDE", "cap": "softmax(QKᵀ/√d_k)·V = Z",
+          "desc": "The exam formula itself: Q times K-transpose, divided by root d_k, softmaxed, times V. Note Q and K are stacked as ROWS." },
+        { "kind": "slide", "slot": "transformers-s41", "ph": "DROP slide-41", "label": "LECTURE SLIDE", "cap": "Raw scores S = QKᵀ/√d_k",
+          "desc": "Queries × keys gives the score grid (before softmax) — one similarity per query–key pair across the sentence." }
+      ],
+      "table": {
+        "head": ["Self-attention code", "What it does"],
+        "rows": [
+          ["self.query / key / value = Linear(d,d)", "map tokens into a shared space to compute attention"],
+          ["matmul(Q, K.transpose(-2,-1))", "the raw attention logits (scores)"],
+          ["scores.shape", "(batch_size, seq_len, seq_len)"],
+          ["matmul(weights, V)", "updated token reps, weighted by attention to all tokens"]
+        ]
+      }
+    },
+    {
+      "n": "03",
+      "title": "MULTI-HEAD ATTENTION",
+      "exam": "Split the embedding into h heads (head_dim = embed_size // heads, so embed_size MUST be divisible by heads), run scaled dot-product attention in each head in parallel, Concat, then project with Wo.",
+      "ascii": "embed_size d, heads h  ⇒  head_dim = d // h   (must divide evenly!)\n einsum 'nqhd,nkhd->nhqk'  =  per-head query·key scores\n\n x ─┬─► head1:  softmax(Q1·K1ᵀ/√dk)·V1 ─┐\n    ├─► head2:  ...                     ├─► Concat ─► × Wo ─► out (d)\n    └─► head h:  ...                     ┘\n       heads run in parallel, each sees a d//h slice → different relations.",
+      "figures": [
+        { "kind": "slide", "slot": "transformers-s25", "ph": "DROP slide-25", "label": "LECTURE SLIDE", "cap": "Multi-head block",
+          "desc": "V, K, Q each pass through Linear, h scaled-dot-product attentions run in parallel, then Concat and a final Linear (Wo)." },
+        { "kind": "slide", "slot": "transformers-s27", "ph": "DROP slide-27", "label": "LECTURE SLIDE", "cap": "Heads → Concat → Wo",
+          "desc": "Inputs split into 3 attention heads; each output is concatenated and multiplied by the weight matrix Wo to give the final output." }
+      ]
+    },
+    {
+      "n": "04",
+      "title": "POSITIONAL ENCODING",
+      "exam": "Transformers have NO built-in order, so ADD a fixed (p, d) matrix of sin/cos values over exponentially increasing wavelengths; low dims change fast (local/word-level), high dims change slow (global/doc-level); not learned, generalizes to arbitrary length.",
+      "ascii": "Transformer has NO sense of order ⇒ ADD a position signal\n\n PE(pos, 2i)   = sin( pos / 10000^(2i/d) )   ← even dims\n PE(pos, 2i+1) = cos( pos / 10000^(2i/d) )   ← odd  dims\n\n low  dim i ── high frequency ── changes FAST → local / word-level\n high dim i ── low  frequency ── changes SLOW → global / document-level\n\n input = token-embedding  +  PE   (PE is a fixed p×d matrix, any length)",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/0/02/Positional_encoding.png",
+          "label": "WEB DIAGRAM", "cap": "Sinusoidal PE heatmap",
+          "desc": "Rows = position, columns = dimension i. Left columns oscillate fast (high freq, local), right columns oscillate slowly (low freq, global) — exactly the exam's low-vs-high dimension contrast." },
+        { "kind": "slide", "slot": "transformers-s13", "ph": "DROP slide-13", "label": "LECTURE SLIDE", "cap": "PE added to embeddings",
+          "desc": "Full Transformer: positional encoding is summed onto the input/output embeddings at the bottom — order is injected, not hard-wired like in an RNN." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "ADD & NORM + FEED-FORWARD",
+      "exam": "Each sublayer is wrapped in a residual Add then LayerNorm; LayerNorm takes mean/variance over the FEATURE dimension of a single example, so it is batch-independent — the right choice for Transformers; a position-wise feed-forward follows.",
+      "ascii": "          ┌───────────────────────► (residual / skip)\n in ──────►│ Self-Attention or FF │──► + ──► LayerNorm ──► out\n          └───────────────────────\n\n LayerNorm: mean & var over the FEATURE dim of ONE example\n   → batch-independent (works on 1 token at a time → used in Transformers)\n BatchNorm: stats over the mini-batch → noisy on tiny batches\n Feed-Forward: same MLP applied position-wise (each token independently).",
+      "figures": [
+        { "kind": "slide", "slot": "transformers-s30", "ph": "DROP slide-30", "label": "LECTURE SLIDE", "cap": "Add & Normalize",
+          "desc": "LayerNorm formula with the note 'statistics are taken over the last dimension' — i.e. across features of one example, not across the batch." },
+        { "kind": "slide", "slot": "transformers-s13", "ph": "DROP slide-13", "label": "LECTURE SLIDE", "cap": "Where Add & Norm + FF sit",
+          "desc": "Every Multi-Head Attention and Feed-Forward block is followed by an Add & Norm; stacked N times in both encoder and decoder." }
+      ]
+    },
+    {
+      "n": "06",
+      "title": "SELF, MASKED & CROSS ATTENTION",
+      "exam": "Encoder self-attention is bidirectional; decoder MASKED self-attention draws Q,K,V all from the decoder with a causal mask (attend only to earlier target tokens); encoder–decoder CROSS-attention takes Q from the decoder and K,V from the encoder.",
+      "ascii": "1) ENCODER self-attn      Q,K,V ← encoder    (bidirectional, see all)\n2) DECODER masked self-attn  Q,K,V ← decoder (causal: only earlier tokens)\n3) CROSS-attention        Q ← decoder ; K,V ← encoder (read the source)\n\n causal mask — keep lower-tri, set upper-tri to −∞ before softmax:\n          k1    k2    k3\n   q1 [   ✓    −∞    −∞ ]\n   q2 [   ✓     ✓    −∞ ]\n   q3 [   ✓     ✓     ✓ ]\n BERT=encoder(MLM) · GPT=decoder(causal) · T5/BART=encoder-decoder(seq2seq)",
+      "figures": [
+        { "kind": "slide", "slot": "transformers-s32", "ph": "DROP slide-32", "label": "LECTURE SLIDE", "cap": "Encoder–Decoder Attention",
+          "desc": "The decoder block's middle sublayer is cross-attention: its queries come from the decoder, its keys/values from the encoder output." },
+        { "kind": "slide", "slot": "transformers-s42", "ph": "DROP slide-42", "label": "LECTURE SLIDE", "cap": "Causal mask",
+          "desc": "Future positions get −∞ added before softmax, so a decoder position can only attend to itself and earlier tokens — masked self-attention." },
+        { "kind": "slide", "slot": "transformers-s34", "ph": "DROP slide-34", "label": "LECTURE SLIDE", "cap": "Decoder output head",
+          "desc": "Decoder stack → Linear → Softmax → argmax over the vocabulary: how a token is finally generated, one step at a time." }
+      ]
+    },
+    {
+      "n": "07",
+      "title": "WHY TRANSFORMERS BEAT RNNs",
+      "exam": "RNNs process one token at a time (sequential → hard to parallelize); Transformers process all positions in parallel (fast for short n) but self-attention is O(n²); both aim to capture long-distance dependencies; Transformer embeddings are contextual, Word2Vec are static.",
+      "ascii": " RNN:   x1 ─► x2 ─► x3 ─► x4     sequential · O(n) · hard to parallelize\n Trans:  x1  x2  x3  x4          all positions at once → parallel, fast\n         └── all-pairs ──┘        but self-attention cost ~ O(n²)\n\n both: capture long-distance dependencies in sequences\n embeddings:\n   Word2Vec     → ONE fixed vector for 'bank' (context-free)\n   Transformer  → context-dependent vector (river-bank vs money-bank)",
+      "figures": [
+        { "kind": "slide", "slot": "transformers-s35", "ph": "DROP slide-35", "label": "LECTURE SLIDE", "cap": "Teacher forcing / generation",
+          "desc": "Decoder training: input is the target shifted right (SOS ... ), target ends in EOS — autoregressive, one token at a time." },
+        { "kind": "slide", "slot": "transformers-s18", "ph": "DROP slide-18", "label": "LECTURE SLIDE", "cap": "Contextual embeddings",
+          "desc": "Self-attention turns static input embeddings into context-aware outputs — why a Transformer's 'bank' differs by sentence while Word2Vec's does not." }
+      ]
+    }
+  ]
+}

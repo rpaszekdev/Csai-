@@ -1,0 +1,123 @@
+{
+  "slug": "mlps",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L1 · MLPS",
+  "title": "MLPS / PERCEPTRONS",
+  "sub": "Visual exam summary — every section maps to a real quiz question.",
+  "podcast": { "href": "audio/mlps.mp3", "label": "LISTEN · MLPS PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 1 (Multilayer Perceptrons)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "THE PERCEPTRON",
+      "exam": "Computation: take the SUM of products of inputs and weights, add the bias, pass through the STEP activation -> binary 0/1; in o = f(w0 + Σ wᵢxᵢ), f is the activation function.",
+      "ascii": "inputs        weights\n  x1 ──w1─┐\n  x2 ──w2─┤\n  x3 ──w3─┼─►( Σ )─► z ─►[ f ]─► o ∈ {0,1}\n   ⋮      │     ▲         step\n +1 ──w0──┘    bias       f = activation function\n\n z = w0 + Σ wᵢ·xᵢ        o = 1 if z ≥ 0 else 0",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/6/60/ArtificialNeuronModel_english.png",
+          "label": "WEB DIAGRAM", "cap": "Artificial neuron",
+          "desc": "Inputs xᵢ scaled by weights wᵢ, summed (Σ = the transfer function = 'sum of products'), then squashed by the activation φ. The Σ box is exactly blank #1; the step box is f." },
+        { "kind": "slide", "slot": "mlps-s02", "ph": "DROP slide-02", "label": "LECTURE SLIDE", "cap": "The Perceptron",
+          "desc": "The lecturer's perceptron: x→w→Σ→f→output o, compared to expected y to get an error. Output is a binary 0/1 because f is the step function." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "LINEAR THRESHOLD & DESIGN",
+      "exam": "A perceptron is ONE linear threshold: it fires (o=1) iff w·x + b ≥ 0 — so pick weights/bias to set that boundary; a zero weight-column makes that input irrelevant and the step counts z=0 as 1.",
+      "ascii": "fire o=1  ⇔  w·x + b ≥ 0      (step: H(0)=1, so z=0 → 1)\n\nAND (separable, 1 line):     design a threshold:\n x1 x2 │ y                     all wᵢ=0.02, b=−1\n  0  0 │ 0                     Σ = 0.02·(#ones) − 1\n  1  0 │ 0                     crosses 0 near ~50 ones (mc5=A)\n  0  1 │ 0\n  1  1 │ 1     zero W-column ⇒ that xᵢ is IGNORED (exam Q15/Q30)",
+      "figures": [
+        { "kind": "slide", "slot": "mlps-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "Only separates linearly",
+          "desc": "A single perceptron can only draw a straight decision line, splitting the plane into two half-spaces — the equation o = f(w0 + Σ wᵢxᵢ) printed beside it." },
+        { "kind": "slide", "slot": "mlps-s05", "ph": "DROP slide-05", "label": "LECTURE SLIDE", "cap": "AND is separable",
+          "desc": "AND's four points: the lone (1,1)=1 can be cut off from the three 0's by one line, so one perceptron handles it. This is the kind of weight/bias design the quiz tests." }
+      ],
+      "table": {
+        "head": ["Goal", "Weights", "Bias", "Fires (o=1) when"],
+        "rows": [
+          ["mc6 table 0/1/0/0 (ans B)", "w1=−1, w2=1.3", "−1.0", "only at (x1=0, x2=1)"],
+          ["AND (linearly separable)", "w1=1, w2=1", "−1.5", "both inputs = 1"],
+          ["mc5: ~half+ of 100 ones (ans A)", "all = 0.02", "−1", "weighted count crosses 0"]
+        ]
+      }
+    },
+    {
+      "n": "03",
+      "title": "THE UPDATE RULE",
+      "exam": "Perceptron learning: error = target − output; Δwᵢ = η·(y−o)·xᵢ so d_weights = lr*error*inputs and d_bias = lr*error; then weights = weights + d_weights and bias += d_bias.",
+      "ascii": "Δwᵢ = η·(y − o)·xᵢ        wᵢ(t+1) = wᵢ(t) + Δwᵢ\n\n error     = target − output      # (y−o)  NOT weights*inputs\n d_weights = lr * error * inputs   # η·(y−o)·xᵢ\n d_bias    = lr * error            # bias has input = 1\n weights   = weights + d_weights    # ADD the delta (move toward target)\n bias     += d_bias\n\n o == y → error 0 → no change.   wrong → nudge each w along its xᵢ.",
+      "figures": [
+        { "kind": "slide", "slot": "mlps-s02b", "ph": "DROP slide-02", "label": "LECTURE SLIDE", "cap": "Error feeds the update",
+          "desc": "Output o is compared with expected y to form the error; that error 'updates the parameters' — the closed loop the update-rule code implements line by line." }
+      ],
+      "table": {
+        "head": ["Code line", "Blank → fill", "Why"],
+        "rows": [
+          ["error = target − ___", "output", "perceptron error is y − o"],
+          ["d_weights = lr*error* ___", "inputs", "Δwᵢ = η(y−o)xᵢ"],
+          ["d_bias = lr * ___", "error", "bias input is fixed at 1"],
+          ["weights = ___", "weights + d_weights", "add the delta"],
+          ["bias ___ d_bias", "+= (plus-equals)", "accumulate the update"]
+        ]
+      }
+    },
+    {
+      "n": "04",
+      "title": "XOR — WHY ONE LAYER FAILS",
+      "exam": "A single perceptron draws only ONE line, but XOR is NOT linearly separable, so it needs a hidden layer; a 2-layer sigmoid MLP with the right weights solves XOR.",
+      "ascii": "XOR: 1 when inputs DIFFER — no single line splits these 4 points:\n\n x2\n  1 │ (0,1)=1        (1,1)=0     the two 1's sit on a\n    │                            DIAGONAL from the two 0's\n  0 │ (0,0)=0        (1,0)=1     → one straight line can't\n    └──────────────── x1            separate them\n        0       1\n\n single layer → ✗      ≥1 hidden layer (2 lines) → ✓   (mc13 = not separable)",
+      "figures": [
+        { "kind": "slide", "slot": "mlps-s07", "ph": "DROP slide-07", "label": "LECTURE SLIDE", "cap": "XOR in the plane",
+          "desc": "XOR's truth table (0/1/1/0) and its four points: the two 1's are diagonal to the two 0's, so no straight line separates them — the definition of 'not linearly separable'." },
+        { "kind": "slide", "slot": "mlps-s10", "ph": "DROP slide-10", "label": "LECTURE SLIDE", "cap": "Two perceptrons, two lines",
+          "desc": "Stacking two perceptrons draws two lines; points BETWEEN the lines become one class and the rest the other — the hidden layer that makes XOR solvable." },
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/7/7b/XOR_perceptron_net.png",
+          "label": "WEB DIAGRAM", "cap": "XOR network",
+          "desc": "A worked 2-layer net for XOR: a hidden layer of threshold units feeding one output. Mirrors mc12, where only the correctly-signed weight matrices reproduce XOR." },
+        { "kind": "slide", "slot": "mlps-s15", "ph": "DROP slide-15", "label": "LECTURE SLIDE", "cap": "Transformed space",
+          "desc": "After the hidden layer the four points are re-mapped so a single line now separates them — visual proof that depth fixes XOR." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "WHY MLPS APPROXIMATE NON-LINEAR FUNCTIONS",
+      "exam": "Non-linear activation functions BETWEEN layers let the composition of multiple linear transformations represent non-linear input→output mappings (mc14=A).",
+      "ascii": "linear-only stack COLLAPSES:\n   W2·(W1·x) = (W2·W1)·x = W'·x   → still ONE line, no gain\n\nadd a non-linear f between layers:\n   a1 = f(W1·x + b1)     ← non-linear bend\n   o  = f(W2·a1 + b2)    → curved decision boundary\n\n NOT depth alone, NOT bias, NOT memorising — the NON-LINEARITY does it.",
+      "figures": [
+        { "kind": "slide", "slot": "mlps-s16", "ph": "DROP slide-16", "label": "LECTURE SLIDE", "cap": "Stacking perceptrons",
+          "desc": "A layer = several perceptrons sharing the same inputs, each with its own weights/bias and activation f. Stacking these layers builds the MLP." },
+        { "kind": "slide", "slot": "mlps-s25", "ph": "DROP slide-25", "label": "LECTURE SLIDE", "cap": "Dense / fully-connected",
+          "desc": "Input, hidden and output layers fully connected (dense). The hidden layer plus its non-linear f is what lets the network bend its decision surface." }
+      ]
+    },
+    {
+      "n": "06",
+      "title": "MLP AS LINEAR ALGEBRA",
+      "exam": "Weights are MATRICES connecting layers, biases are VECTORS, and a layer's output is computed by matrix multiplication plus addition: o = f(Wx + b) (mc11=B).",
+      "ascii": "ONE LAYER = MATRIX MULTIPLY + ADD     o = f( W x + b )\n\n   W (out×in)        x (in)      b (out)\n   ┌ w11 w12 w13 ┐   ┌ x1 ┐      ┌ b1 ┐\n   │ w21 w22 w23 │ · │ x2 │  +   │ b2 │  → f(·) → o\n   └  …          ┘   └ x3 ┘      └ …  ┘\n\n deep:  a⁰ = x ,  aˡ = f(Wˡ aˡ⁻¹ + bˡ) ,  o = aⁿ",
+      "figures": [
+        { "kind": "slide", "slot": "mlps-s18", "ph": "DROP slide-18", "label": "LECTURE SLIDE", "cap": "o = f(Wx + b)",
+          "desc": "The per-neuron sum oⱼ = f(bⱼ + Σ wⱼᵢxᵢ) rewritten as one compact matrix-vector equation o = f(Wx + b) — weights become a matrix W, biases a vector b." },
+        { "kind": "slide", "slot": "mlps-s26", "ph": "DROP slide-26", "label": "LECTURE SLIDE", "cap": "Layer recurrence aˡ",
+          "desc": "Every layer: aˡ = f(Wˡ aˡ⁻¹ + bˡ), with a⁰ = x and the network output o = aⁿ. This is the exact notation the backprop chain-rule questions use." }
+      ]
+    },
+    {
+      "n": "07",
+      "title": "TRAINING LOOP & BACKPROP MATH",
+      "exam": "Four steps: forward (feed input in), error (compute the cost), backward (gradient of cost w.r.t. each W,b via the chain rule), update (move params OPPOSITE the gradient).",
+      "ascii": "1 FORWARD : feed inputs        a⁰=x → … → o\n2 ERROR   : compute cost J(o,y)\n3 BACKWARD: ∂J/∂Wˡ via CHAIN RULE\n            δˡ = (∂J/∂zˡ⁺¹)·(∂zˡ⁺¹/∂aˡ)·(∂aˡ/∂zˡ)\n4 UPDATE  : W ← W − η·∂J/∂W      (step OPPOSITE the gradient)\n\n chain pieces (sigmoid):  ∂zˡ⁺¹/∂aˡ = Wˡ⁺¹   ∂J/∂zˡ⁺¹ = δˡ⁺¹\n                          ∂aˡ/∂zˡ   = σ(zˡ)(1−σ(zˡ))\n\n MEMORY/iter = (#params incl. biases) × factor   [SGD ×2 · momentum ×3 · Adam ×4]\n params/layer = in·out + out      (the +out = biases)",
+      "figures": [
+        { "kind": "slide", "slot": "mlps-s27", "ph": "DROP slide-27", "label": "LECTURE SLIDE", "cap": "Loss function L",
+          "desc": "The loss L (a.k.a. error or cost) measures the distance between the network output and the expected y — exactly the 'error calculation' step that backprop differentiates." }
+      ],
+      "table": {
+        "head": ["Step", "What happens", "Match"],
+        "rows": [
+          ["Forward pass", "input data is fed into the network", "Q7 → A"],
+          ["Error calculation", "the cost function output is computed", "Q8 → B"],
+          ["Backward pass", "gradient of cost w.r.t. each W,b via the chain rule", "Q9 → C"],
+          ["Weight update", "params modified OPPOSITE the gradient direction", "Q10 → D"]
+        ]
+      }
+    }
+  ]
+}

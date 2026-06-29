@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-08.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,20 @@ const QUESTIONS = [
     "prompt": "Why do affective scientists argue that <strong>autonomous systems may need emotion-like mechanisms</strong>, beyond rationality?",
     "options": [
       {
-        "html": "Because users find robots cuter that way."
+        "html": "Because emotion makes a robot appear more relatable, and field studies show people forgive errors faster from machines they find likeable.",
+        "correct": false
       },
       {
         "html": "Because emotion provides fast, body-budgeted action selection under uncertainty — a function pure utility maximisation cannot match in real time.",
         "correct": true
       },
       {
-        "html": "Because emotion replaces reinforcement learning."
+        "html": "Because an affective layer can replace the reward signal in reinforcement learning, removing the need to hand-design a reward function.",
+        "correct": false
       },
       {
-        "html": "Because emotion eliminates the need for sensors."
+        "html": "Because internal affect lets a system infer the external world state directly, reducing how many physical sensors the platform actually has to carry onboard.",
+        "correct": false
       }
     ],
     "prof": "Emotion is decision-making under uncertainty with a deadline. It's not decoration — it's functional, biologically and computationally."
@@ -132,17 +139,20 @@ const QUESTIONS = [
     "prompt": "The lecture distinguishes <strong>affect</strong>, <strong>feeling</strong>, and <strong>mood</strong>. Which mapping is correct?",
     "options": [
       {
-        "html": "Affect = subjective experience; feeling = body state; mood = synonym for emotion."
+        "html": "Affect = the subjective conscious experience you report on; feeling = the underlying physiological body state; mood = just another word for a single brief emotion.",
+        "correct": false
       },
       {
         "html": "Affect = core valence/arousal body state; feeling = subjective conscious experience of affect; mood = longer-lasting low-intensity affective state.",
         "correct": true
       },
       {
-        "html": "All three are interchangeable."
+        "html": "The three terms are interchangeable labels for one and the same construct, and differ only in which research tradition happens to use them.",
+        "correct": false
       },
       {
-        "html": "Mood is shorter than affect."
+        "html": "Mood = a brief high-intensity spike, while affect = the slow background tone that lingers on for hours or even days after the triggering event.",
+        "correct": false
       }
     ],
     "prof": "Affect is bodily, feeling is conscious, mood is durational. Sloppy interchanging of these terms is a textbook trap."
@@ -155,17 +165,20 @@ const QUESTIONS = [
     "prompt": "The Mr. Data thought experiment (the emotionless android in Star Trek) is used to highlight which functional role of emotion?",
     "options": [
       {
-        "html": "Emotion is purely social signaling."
+        "html": "That emotion is purely a social-signalling channel, useful only for communicating internal state outward to other agents.",
+        "correct": false
       },
       {
         "html": "Emotion is needed to prioritise, motivate action, and interrupt ongoing processing when something matters.",
         "correct": true
       },
       {
-        "html": "Emotion exists only to make robots more lovable."
+        "html": "That emotion is an optional surface layer added after reasoning, mainly to make an agent more lovable to human users.",
+        "correct": false
       },
       {
-        "html": "Emotion is just noise on top of cognition."
+        "html": "That emotion is stochastic noise riding on top of cognition, which a well-designed rational agent is better off filtering out.",
+        "correct": false
       }
     ],
     "prof": "Without emotion, every option looks equally weighted. Emotion injects salience — \"this matters now\" — which is what lets a finite agent finish anything."
@@ -178,17 +191,20 @@ const QUESTIONS = [
     "prompt": "Computational emotion models are commonly grouped as <strong>discrete</strong>, <strong>dimensional</strong>, or <strong>appraisal</strong>. Which option correctly pairs a model with its core idea?",
     "options": [
       {
-        "html": "Discrete = continuous valence-arousal axes."
+        "html": "Discrete = a continuous valence–arousal coordinate space; Dimensional = a fixed list of basic emotions like anger and joy; Appraisal = a purely reflexive, cognition-free response.",
+        "correct": false
       },
       {
         "html": "Dimensional = valence × arousal (× dominance) coordinates; Appraisal = emotion derives from cognitive evaluation of an event; Discrete = a small fixed set of basic emotions.",
         "correct": true
       },
       {
-        "html": "Appraisal models ignore cognition."
+        "html": "Appraisal = emotion read straight off the body with no evaluation step at all; Dimensional = a set of hand-written symbolic rules; Discrete = a continuous valence–arousal coordinate space.",
+        "correct": false
       },
       {
-        "html": "Discrete models use neural networks; the others do not."
+        "html": "Discrete = the only one of the three models that uses neural networks; Dimensional and Appraisal = older symbolic systems that long predate modern machine learning.",
+        "correct": false
       }
     ],
     "prof": "Three orthogonal axes for thinking about emotion: which (discrete), where in space (dimensional), and why (appraisal). Pick by use case."
@@ -201,17 +217,20 @@ const QUESTIONS = [
     "prompt": "Lisa Feldman Barrett's <strong>theory of constructed emotion</strong> claims that emotions are not hardwired categories. What does the theory propose instead?",
     "options": [
       {
-        "html": "Emotions are entirely cultural and have no biological basis."
+        "html": "That emotions are entirely cultural artefacts with no biological basis, learned wholesale from language and social convention alone.",
+        "correct": false
       },
       {
         "html": "The brain constructs emotion concepts on the fly from interoception, prediction, and prior learning — emotions are predictions, not reflexes.",
         "correct": true
       },
       {
-        "html": "There are exactly six basic emotions universal across species."
+        "html": "That there are exactly six innate basic emotions, each one wired to a dedicated brain circuit that is shared across all mammalian species.",
+        "correct": false
       },
       {
-        "html": "Emotions only exist in humans."
+        "html": "That emotion is a uniquely human faculty, one that arises only once a brain has grown large enough to support reflective self-awareness.",
+        "correct": false
       }
     ],
     "prof": "Constructed emotion + degeneracy + predictive brain — same body state can be labelled \"fear\" or \"excitement\" depending on context and learned concepts."
@@ -224,17 +243,20 @@ const QUESTIONS = [
     "prompt": "In <strong>Robot–Robot Interaction (RRI)</strong>, trust is a functional construct, not a feeling. What is the operational definition used in the lecture?",
     "options": [
       {
-        "html": "A robot trusts another if they share batteries."
+        "html": "Trust = the degree to which two robots share a communication protocol, so that messages exchanged between them are never corrupted.",
+        "correct": false
       },
       {
         "html": "Trust = willingness to rely on another agent's output / behaviour given uncertainty, calibrated by prior reliability.",
         "correct": true
       },
       {
-        "html": "Trust is undefinable for non-human agents."
+        "html": "Trust = an emotional bond that cannot be defined for non-human agents, so RRI replaces it with fixed hard-coded cooperation rules.",
+        "correct": false
       },
       {
-        "html": "Trust is a hardware feature."
+        "html": "Trust = a measured hardware property of a robot's sensors, fixed at manufacture and independent of any prior interaction history.",
+        "correct": false
       }
     ],
     "prof": "Trust = expected reliability under uncertainty. Important for swarms, multi-robot teams, and any human-robot delegation."
@@ -247,17 +269,20 @@ const QUESTIONS = [
     "prompt": "Which design guideline is <strong>most often violated</strong> by hobbyist social-robot projects, according to the lecture?",
     "options": [
       {
-        "html": "Use a microcontroller."
+        "html": "Keep response latency low — hobbyist social robots are criticised in the lecture mainly for pausing far too long before reacting to a user's speech.",
+        "correct": false
       },
       {
         "html": "Match form to expected role — over-anthropomorphic appearance triggers user expectations the robot's behaviour cannot satisfy (the uncanny-valley / over-promise problem).",
         "correct": true
       },
       {
-        "html": "Use coloured LEDs."
+        "html": "Use expressive multi-colour lighting — hobbyist projects that skip status LEDs are said to leave users completely unable to read the robot's current internal state.",
+        "correct": false
       },
       {
-        "html": "Always run on Linux."
+        "html": "Standardise on one operating system — fragmentation across competing platforms is what the lecture says most often makes hobbyist social robots unreliable.",
+        "correct": false
       }
     ],
     "prof": "Promise less, deliver more. A robot that looks human invites human-level expectations, and breaks trust the first time it fails on something a child could do."
@@ -270,22 +295,35 @@ const QUESTIONS = [
     "prompt": "Which is the central <strong>ethical worry</strong> raised by affective robots in care settings?",
     "options": [
       {
-        "html": "That they consume electricity."
+        "html": "That a care robot might mis-detect a vulnerable user's emotion and then respond inappropriately, gradually eroding the clinical accuracy of the intervention.",
+        "correct": false
       },
       {
         "html": "That users may form asymmetric attachments: the user develops genuine affect for a system that has none, with consequences for consent, deception, and dependence.",
         "correct": true
       },
       {
-        "html": "That they require frequent firmware updates."
+        "html": "That continuous affect sensing in a care setting collects intimate emotional data about the user, raising serious questions about privacy, consent, and long-term storage.",
+        "correct": false
       },
       {
-        "html": "That they are too expensive."
+        "html": "That deploying affective robots in care settings displaces human carers, concentrating the entire ethical burden on the resulting loss of skilled employment.",
+        "correct": false
       }
     ],
     "prof": "Affective HRI's hardest ethics question is not \"can the robot feel?\" — it's \"what does it do to the user when they treat the robot as if it does?\""
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l08_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week08-slides/slide-";

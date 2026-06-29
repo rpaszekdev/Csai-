@@ -1,0 +1,26 @@
+{
+  "section_id": "lec5",
+  "quiz_type": "multiple_response",
+  "title": "Lecturer Quiz: CNNs - Multiple Response",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec5_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Consider that the input to a CNN is a 3D tensor with shape H, W, D (where D >= 2). We apply two types of kernels on this input: k1 with a shape h_k, w_k, 1 and k2 with a shape of h_k, w_k, D (where h_k < H, w_k < W, D = D). Which of the following is/are valid for the feature maps after applying k1 or k2 on the input? Select ALL that apply",
+      "options": {
+        "A": "The third dimension of the feature map after applying k2 is going to be 1.",
+        "B": "Applying k1 on the input can be referred to as 3D convolution.",
+        "C": "Applying k2 on the input can be referred to as 3D convolution.",
+        "D": "The third dimension of the feature map after applying k1 is going to be D."
+      },
+      "correct_answers": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": ""
+    }
+  ]
+}

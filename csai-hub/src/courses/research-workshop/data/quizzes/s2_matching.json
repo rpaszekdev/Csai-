@@ -1,0 +1,121 @@
+{
+  "section_id": "s2",
+  "quiz_type": "matching",
+  "title": "Research Question & Literature Review - Matching",
+  "questions": [
+    {
+      "id": "s2_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each common research-question shape to its example.",
+      "items": ["Does X affect Y?", "How does X differ between groups?", "Can model M predict Y?"],
+      "categories": [
+        "Does background noise affect reading speed?",
+        "How does reaction time differ between novices and experts?",
+        "Can a neural network predict attentional lapses from EEG?"
+      ],
+      "correct_mapping": {
+        "Does X affect Y?": "Does background noise affect reading speed?",
+        "How does X differ between groups?": "How does reaction time differ between novices and experts?",
+        "Can model M predict Y?": "Can a neural network predict attentional lapses from EEG?"
+      },
+      "explanation": "The three common RQ shapes are effect (Does X affect Y?), group difference (How does X differ between groups?), and prediction (Can model M predict Y?)."
+    },
+    {
+      "id": "s2_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each common citation mistake to its description.",
+      "items": ["Citing irrelevant literature", "Overciting definitions", "Misattributing", "Citing the citation"],
+      "categories": [
+        "Including sources that do not actually support the claim",
+        "Adding several citations to one well-known definition",
+        "Crediting a finding to the wrong author",
+        "Citing a paper that cites the original instead of the original"
+      ],
+      "correct_mapping": {
+        "Citing irrelevant literature": "Including sources that do not actually support the claim",
+        "Overciting definitions": "Adding several citations to one well-known definition",
+        "Misattributing": "Crediting a finding to the wrong author",
+        "Citing the citation": "Citing a paper that cites the original instead of the original"
+      },
+      "explanation": "These are the four common citation mistakes; the fix for citing the citation is to find and cite the original source."
+    },
+    {
+      "id": "s2_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each source feature to whether it signals scholarly or non-scholarly status.",
+      "items": ["Passed peer review", "Author has subject-area credentials", "Anonymous viral blog post", "High social-media share count"],
+      "categories": [
+        "Scholarly signal",
+        "Scholarly signal",
+        "Non-scholarly signal",
+        "Non-scholarly signal"
+      ],
+      "correct_mapping": {
+        "Passed peer review": "Scholarly signal",
+        "Author has subject-area credentials": "Scholarly signal",
+        "Anonymous viral blog post": "Non-scholarly signal",
+        "High social-media share count": "Non-scholarly signal"
+      },
+      "explanation": "Peer review and author credentials signal scholarliness; anonymity and popularity metrics do not establish it."
+    },
+    {
+      "id": "s2_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each term to its definition.",
+      "items": ["Research question", "Hypothesis", "Literature review"],
+      "categories": [
+        "The specific, answerable question your study addresses",
+        "Your predicted answer to that question",
+        "A critical evaluation of prior work that locates your gap"
+      ],
+      "correct_mapping": {
+        "Research question": "The specific, answerable question your study addresses",
+        "Hypothesis": "Your predicted answer to that question",
+        "Literature review": "A critical evaluation of prior work that locates your gap"
+      },
+      "explanation": "The RQ is the question, the hypothesis is the predicted answer, and the review critically evaluates prior work to locate the gap."
+    },
+    {
+      "id": "s2_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each reading strategy to its goal.",
+      "items": ["Skim", "Deep-read", "Take notes with sources"],
+      "categories": [
+        "Judge whether a paper is relevant to your question",
+        "Follow and evaluate a specific argument in detail",
+        "Record key concepts and where you read them for citing"
+      ],
+      "correct_mapping": {
+        "Skim": "Judge whether a paper is relevant to your question",
+        "Deep-read": "Follow and evaluate a specific argument in detail",
+        "Take notes with sources": "Record key concepts and where you read them for citing"
+      },
+      "explanation": "Goal-directed reading uses different strategies: skim for relevance, deep-read for argument, and note concepts plus where you read them."
+    },
+    {
+      "id": "s2_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each flaw to the vague research question that exhibits it.",
+      "items": ["Too broad", "Untestable", "Already answered", "Infeasible scope"],
+      "categories": [
+        "What is the nature of human intelligence overall?",
+        "Is consciousness ultimately a beautiful thing?",
+        "Does the Stroop task produce interference?",
+        "Can we record everyone's EEG everywhere for five years?"
+      ],
+      "correct_mapping": {
+        "Too broad": "What is the nature of human intelligence overall?",
+        "Untestable": "Is consciousness ultimately a beautiful thing?",
+        "Already answered": "Does the Stroop task produce interference?",
+        "Infeasible scope": "Can we record everyone's EEG everywhere for five years?"
+      },
+      "explanation": "Each RQ risk maps to an example: overly broad, untestable (no measurable variables), already settled, and infeasible for one semester."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "section_id": "s4",
+  "quiz_type": "matching",
+  "title": "Writing a Research Proposal - Matching",
+  "questions": [
+    {
+      "id": "s4_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each proposal section to what it must convince the reader of.",
+      "items": ["Motivation", "Background", "Methods"],
+      "categories": ["You've done your homework", "This is correct and replicable", "We need this study"],
+      "correct_mapping": {
+        "Motivation": "We need this study",
+        "Background": "You've done your homework",
+        "Methods": "This is correct and replicable"
+      },
+      "explanation": "Motivation convinces the reader 'we need this study', background shows 'you've done your homework' via the state of the art and credible sources, and methods convince that the design is correct and replicable."
+    },
+    {
+      "id": "s4_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each of the 5 C's to its definition.",
+      "items": ["Compare", "Contrast", "Critique", "Connect"],
+      "categories": ["What sources agree on", "What sources disagree on or do differently", "Which arguments were more convincing and what is lacking", "How it applies to your own research"],
+      "correct_mapping": {
+        "Compare": "What sources agree on",
+        "Contrast": "What sources disagree on or do differently",
+        "Critique": "Which arguments were more convincing and what is lacking",
+        "Connect": "How it applies to your own research"
+      },
+      "explanation": "Compare is agreement, Contrast is disagreement, Critique judges the arguments and gaps, and Connect links the literature to your own research. The fifth C, Cite, pairs an in-text citation with a matching reference entry."
+    },
+    {
+      "id": "s4_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each AI use to the reason it is responsible or forbidden under the course policy.",
+      "items": ["Generating content to submit", "Finding scientific sources", "Help with coding you already know", "Brainstorming to get started"],
+      "categories": ["Forbidden — AI invents facts", "Forbidden — AI hallucinates the source", "Responsible — you can verify it", "Responsible — supports your process"],
+      "correct_mapping": {
+        "Generating content to submit": "Forbidden — AI invents facts",
+        "Finding scientific sources": "Forbidden — AI hallucinates the source",
+        "Help with coding you already know": "Responsible — you can verify it",
+        "Brainstorming to get started": "Responsible — supports your process"
+      },
+      "explanation": "Brainstorming supports your process and code help is fine when you can verify it, so both are responsible. Generating content to submit is forbidden because AI invents facts, and finding sources is forbidden because AI hallucinates the source and its contents."
+    },
+    {
+      "id": "s4_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each source-misuse error to its description.",
+      "items": ["Lumping citations at paragraph end", "Claim with no citation", "Listing instead of synthesising"],
+      "categories": ["Reader can't tell which claim maps to which source", "Reader assumes it's your own idea, risking plagiarism", "Repetitive, no narrative, no point of your own"],
+      "correct_mapping": {
+        "Lumping citations at paragraph end": "Reader can't tell which claim maps to which source",
+        "Claim with no citation": "Reader assumes it's your own idea, risking plagiarism",
+        "Listing instead of synthesising": "Repetitive, no narrative, no point of your own"
+      },
+      "explanation": "Lumping citations hides which claim maps to which source; an uncited claim is read as your own idea and risks plagiarism; listing is repetitive with no narrative or point of your own. The last is the most common and hardest to fix."
+    },
+    {
+      "id": "s4_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each synthesis-matrix observation to what it means.",
+      "items": ["A mostly-empty row", "A very full row", "A vertical read", "A horizontal read"],
+      "categories": ["Drop the idea or find more sources", "The idea is too big; split it", "One source at a time, a summary", "One idea across sources, a synthesis"],
+      "correct_mapping": {
+        "A mostly-empty row": "Drop the idea or find more sources",
+        "A very full row": "The idea is too big; split it",
+        "A vertical read": "One source at a time, a summary",
+        "A horizontal read": "One idea across sources, a synthesis"
+      },
+      "explanation": "An empty row signals weak support (drop it or find more sources); a full row signals an idea that is too big to split. Reading vertically gives a per-source summary, while reading horizontally gives synthesis across sources."
+    },
+    {
+      "id": "s4_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match the document to its primary goal.",
+      "items": ["Proposal", "Paper", "Technology Statement"],
+      "categories": ["Convince the reader to approve a future study", "Convince the reader the conducted study was good and contributes", "Declare any GenAI or tooling used"],
+      "correct_mapping": {
+        "Proposal": "Convince the reader to approve a future study",
+        "Paper": "Convince the reader the conducted study was good and contributes",
+        "Technology Statement": "Declare any GenAI or tooling used"
+      },
+      "explanation": "A proposal aims to get a future study approved; a paper argues a finished study was good and contributes to science and the real world; the Technology Statement is the required declaration of GenAI or tooling used."
+    }
+  ]
+}

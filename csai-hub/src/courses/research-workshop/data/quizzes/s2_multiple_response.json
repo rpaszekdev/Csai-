@@ -1,0 +1,153 @@
+{
+  "section_id": "s2",
+  "quiz_type": "multiple_response",
+  "title": "Research Question & Literature Review - Multiple Response",
+  "questions": [
+    {
+      "id": "s2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which features make a research question good for a student project? (Select all that apply)",
+      "options": {
+        "A": "It is specific and clearly scoped to one study.",
+        "B": "It is answerable with measurable variables.",
+        "C": "It is feasible given the time and resources of one semester.",
+        "D": "It is so broad that it covers an entire field at once.",
+        "E": "It has already been definitively answered in the literature."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "A good RQ is specific, answerable, novel-enough, and scoped to a feasible study. D (too broad) and E (already answered) are exactly the risks a good RQ avoids."
+    },
+    {
+      "id": "s2_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which are the four common citation mistakes described in the course? (Select all that apply)",
+      "options": {
+        "A": "Citing irrelevant literature that does not support the claim.",
+        "B": "Overciting definitions instead of citing once.",
+        "C": "Misattributing a finding to the wrong author.",
+        "D": "Citing the citation rather than the original source.",
+        "E": "Formatting the reference list before writing the body."
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The four mistakes are citing irrelevant literature, overciting definitions, misattributing, and citing the citation. E is just a workflow choice, not a citation mistake."
+    },
+    {
+      "id": "s2_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which signals help judge whether a source is scholarly? (Select all that apply)",
+      "options": {
+        "A": "Whether the work was peer reviewed.",
+        "B": "The credentials and expertise of the author.",
+        "C": "The reputation of the publication venue.",
+        "D": "How many total page views the page has received.",
+        "E": "Whether the headline sounds confident and persuasive."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Scholarly status rests on peer review, author credentials, and venue. D (views) and E (tone) are popularity and style cues that non-scholarly sources share too."
+    },
+    {
+      "id": "s2_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Where do good research topics typically come from? (Select all that apply)",
+      "options": {
+        "A": "Your own personal curiosity about a phenomenon.",
+        "B": "A menu of topics offered by a supervisor.",
+        "C": "Identified gaps in the existing literature.",
+        "D": "Whichever topic has the most existing papers, regardless of fit."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Topics come from personal curiosity, a supervisor menu, and gaps in the literature. D picks by sheer volume rather than fit or feasibility and is not a recommended source."
+    },
+    {
+      "id": "s2_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "What does a literature review accomplish for your project? (Select all that apply)",
+      "options": {
+        "A": "It shows what prior work is relevant to your question.",
+        "B": "It identifies the gap your research question fills.",
+        "C": "It explains why your research question matters.",
+        "D": "It lists every paper you read in alphabetical order by author.",
+        "E": "It replaces the need to state any research question at all."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "A review shows relevance, locates the gap, and motivates your RQ. D is the summary/author-ordered approach to avoid, and E is false because the review supports the RQ rather than replacing it."
+    },
+    {
+      "id": "s2_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which actions reflect goal-directed academic reading? (Select all that apply)",
+      "options": {
+        "A": "Skimming a paper to judge its relevance to your goal.",
+        "B": "Deep-reading a section to follow a specific argument.",
+        "C": "Taking notes of key concepts and where you read them.",
+        "D": "Reading every paper cover to cover in publication order."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Goal-directed reading means skimming for relevance, deep-reading for argument, and noting concepts plus their sources for later citation. D is the novel-style top-to-bottom reading the course contrasts against."
+    },
+    {
+      "id": "s2_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which behaviours violate academic integrity or the course GenAI policy? (Select all that apply)",
+      "options": {
+        "A": "Submitting fully GenAI-generated text as your own writing.",
+        "B": "Presenting another author's words as your own without quotation.",
+        "C": "Trusting GenAI-produced references without verifying them.",
+        "D": "Using Zotero or Mendeley to manage your references.",
+        "E": "Quoting a source properly with quotation marks and a citation."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Passing off GenAI or others' words as your own is plagiarism, and GenAI references are often hallucinated, so they must be verified. D (reference managers) and E (proper quoting) are good, allowed practices."
+    },
+    {
+      "id": "s2_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which are recognised ways to find sources for a literature review? (Select all that apply)",
+      "options": {
+        "A": "Searching library databases.",
+        "B": "Searching Google Scholar.",
+        "C": "Following citation chains from a relevant paper.",
+        "D": "Copying a classmate's reference list without reading the sources."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Library databases, Google Scholar, and citation chains are the recommended search routes. D skips reading and evaluating the sources yourself, which the course requires."
+    },
+    {
+      "id": "s2_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "When evaluating a paper BEFORE deep-reading it, which cues are useful? (Select all that apply)",
+      "options": {
+        "A": "The abstract.",
+        "B": "The conclusions.",
+        "C": "Its citation count.",
+        "D": "Its recency.",
+        "E": "The colour of the journal's website."
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Before committing to a full read you can scan the abstract, conclusions, citation count, and recency. E is a cosmetic feature that carries no information about quality or relevance."
+    },
+    {
+      "id": "s2_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which strategies help avoid the \"summary effect\" in a literature review? (Select all that apply)",
+      "options": {
+        "A": "Organising sources by topic or purpose rather than by author.",
+        "B": "Grouping studies into sub-themes for comparison.",
+        "C": "Framing the review as sides of an ongoing debate.",
+        "D": "Writing one isolated summary paragraph per source in turn."
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Organising by topic, grouping into sub-themes, and structuring around debate sides all defeat the summary effect. D is the author-by-author summarising that causes it."
+    }
+  ]
+}

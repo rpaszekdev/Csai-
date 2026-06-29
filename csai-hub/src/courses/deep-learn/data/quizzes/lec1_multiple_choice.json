@@ -1,0 +1,264 @@
+{
+  "section_id": "lec1",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: MLP - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "The perceptron is one of the first and most basic artificial neural network models. Fill in the blanks in the text below by selecting the option from the list which will make the statement correct with respect to the perceptron. The output of the perceptron is computed by first computing the Sum of the products of inputs and weights, plus the bias, which is then passed through the step activation function resulting in a binary output 0/1 .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "Cartesian product",
+        "B": "Cross product",
+        "C": "Sum of the products"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "The perceptron is one of the first and most basic artificial neural network models. Fill in the blanks in the text below by selecting the option from the list which will make the statement correct with respect to the perceptron. The output of the perceptron is computed by first computing the Sum of the products of inputs and weights, plus the bias, which is then passed through the step activation function resulting in a binary output 0/1 .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "identity",
+        "B": "softmax",
+        "C": "sigmoid",
+        "D": "step"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "The perceptron is one of the first and most basic artificial neural network models. Fill in the blanks in the text below by selecting the option from the list which will make the statement correct with respect to the perceptron. The output of the perceptron is computed by first computing the Sum of the products of inputs and weights, plus the bias, which is then passed through the step activation function resulting in a binary output 0/1 .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "a binary output 0/1",
+        "B": "outputs ranging from 0 to 1"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "The perceptron is one of the simplest and earliest artificial neural network models. It can be mapped to the following function: 𝑜 = 𝑓 ( 𝑤 0 + ∑ 𝑖 = 1 𝑛 𝑤 𝑖 ∗ 𝑥 𝑖 ) Which of the following statements is correct with respect to f?",
+      "options": {
+        "A": "f denotes the function being approximated",
+        "B": "f denotes the activation function",
+        "C": "f denotes the loss function"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Consider a learning problem with 100 inputs: x0, … x100 that can have values 0 or 1. The learning objective is to predict 1 when at least any of the 51 inputs are 1 and 0 when at least any of the 51 inputs are 0. Which of the following describes a perceptron that can do that:",
+      "options": {
+        "A": "All weights equal to 0.02, and bias equals -1",
+        "B": "At least half of the weights equal 0.04, and bias equals 0.0",
+        "C": "All weights equal to 0.01, and bias equals -1"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "You train a perceptron with a step activation function to learn the function specified by this table: Input 1 Input 2 Output 0 0 0 0 1 1 1 0 0 1 1 0 With which of the following set of weights can you say that the perceptron correctly approximates the function? (w1 being the weight for input 1 and w2 for input 2)",
+      "options": {
+        "A": "A single perceptron cannot model this function.",
+        "B": "w1 = -1, w2 = 1.3, bias = -1.0",
+        "C": "w1 = 1, w2 = -1.3, bias = -0.5",
+        "D": "w1 = -1, w2 = 1.3, bias = -1.5"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Training a multilayer perceptron (MLP) involves the following steps: forward pass, error calculation, backward pass and weight update. The following statements describe parts of these steps. Place them in the most suitable category:\n\nMatch: Forward pass",
+      "options": {
+        "A": "input data is fed into the neural network",
+        "B": "the cost function output is computed",
+        "C": "the gradient of the cost with respect to each weight and bias is computed using the chain rule.",
+        "D": "the network parameters are modified according to the the opposite direction of the gradient"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Training a multilayer perceptron (MLP) involves the following steps: forward pass, error calculation, backward pass and weight update. The following statements describe parts of these steps. Place them in the most suitable category:\n\nMatch: Error calculation",
+      "options": {
+        "A": "input data is fed into the neural network",
+        "B": "the cost function output is computed",
+        "C": "the gradient of the cost with respect to each weight and bias is computed using the chain rule.",
+        "D": "the network parameters are modified according to the the opposite direction of the gradient"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Training a multilayer perceptron (MLP) involves the following steps: forward pass, error calculation, backward pass and weight update. The following statements describe parts of these steps. Place them in the most suitable category:\n\nMatch: Backward pass",
+      "options": {
+        "A": "input data is fed into the neural network",
+        "B": "the cost function output is computed",
+        "C": "the gradient of the cost with respect to each weight and bias is computed using the chain rule.",
+        "D": "the network parameters are modified according to the the opposite direction of the gradient"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Training a multilayer perceptron (MLP) involves the following steps: forward pass, error calculation, backward pass and weight update. The following statements describe parts of these steps. Place them in the most suitable category:\n\nMatch: Weight update",
+      "options": {
+        "A": "input data is fed into the neural network",
+        "B": "the cost function output is computed",
+        "C": "the gradient of the cost with respect to each weight and bias is computed using the chain rule.",
+        "D": "the network parameters are modified according to the the opposite direction of the gradient"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "How are weights and biases defined and used in the context of a multi-layered perceptron (MLP) when considering Linear Algebra?",
+      "options": {
+        "A": "Weights are scalars applied to each input feature, and biases are matrices used for activation functions.",
+        "B": "Weights are matrices connecting layers, biases are vectors, and the output is computed using matrix multiplication and addition.",
+        "C": "Weights and biases are not applicable in the Linear Algebra representation of an MLP.",
+        "D": "Weights are represented as vectors, and biases as matrices, determining the output through vector multiplication."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "You have trained a simple MLP (two layers with sigmoid activation) on the XOR problem and got perfect results. What parameters (weights and biases) among the ones listed below would provide the right solution to the XOR problem? Remember that the XOR function takes two binary inputs and returns 1 when the two inputs are different and zero otherwise. The input vector is a column vector given as: x = [x1; x2]",
+      "options": {
+        "A": "Weights of the first layer: Biases for the first layer: 8 -8 -4 8 -8 4 Weights of the second layer: Biases for the second layer: 12 -12 6",
+        "B": "Weights of the first layer: Biases for the first layer: -8 -8 -4 8 -8 4 Weights of the second layer: Biases for the second layer: 12 -12 6",
+        "C": "Weights of the first layer: Biases for the first layer: 8 -8 -4 8 -8 0 Weights of the second layer: Biases for the second layer: 0 -12 6",
+        "D": "Weights of the first layer: Biases for the first layer: -8 8 4 8 -8 -4 Weights of the second layer: Biases for the second layer: -12 12 6"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "Why can’t a single layer of perceptrons model the XOR problem?",
+      "options": {
+        "A": "The number of inputs does not allow to have a single layer with only one output",
+        "B": "The problem is linearly separable but has to be addressed in two stages",
+        "C": "The problem is not linearly separable",
+        "D": "The problem is linearly separable as long as there are more than two perceptrons in the first layer"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "A Multi-Layer Perceptron (MLP) can approximate complex, non-linear functions. Which statement best explains why this is possible?",
+      "options": {
+        "A": "Because non-linear activation functions between layers allow the composition of multiple linear transformations to represent non-linear mappings from inputs to outputs.",
+        "B": "Because each neuron applies a linear transformation, stacking multiple linear layers automatically increases the model’s expressive power, even without non-linear activations.",
+        "C": "Because using a larger number of hidden units ensures that the network memorizes every possible input-output pair, regardless of activation functions.",
+        "D": "Because the bias terms in each layer make the transformations non-linear, allowing the network to learn curved decision boundaries."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "This code is the python implementation of the perceptron update rule stated below, fill in the blanks with the correct values to make this code run correctly. Equation: Δ 𝑤 𝑖 = 𝜂 ( 𝑦 − 𝑜 ) 𝑥 𝑖 𝑤 𝑖 ( 𝑡 + 1 ) = 𝑤 𝑖 ( 𝑡 ) + Δ 𝑤 𝑖 def update(inputs, output, target, weights, bias, learning_rate): # Calculate the error error = target - [ Select ] output weights * inputs + bias inputs # Calculate delta for weights d_weights = learning_rate * error * [ Select ] # Calculate delta for bias d_bias = learning_rate * [ Select ] bias weigths * bias error # update weights weights = weights + d_weights # update bias bias += d_bias return error, weights, bias\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "output",
+        "B": "weights * inputs + bias",
+        "C": "inputs"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "This code is the python implementation of the perceptron update rule stated below, fill in the blanks with the correct values to make this code run correctly. Equation: Δ 𝑤 𝑖 = 𝜂 ( 𝑦 − 𝑜 ) 𝑥 𝑖 𝑤 𝑖 ( 𝑡 + 1 ) = 𝑤 𝑖 ( 𝑡 ) + Δ 𝑤 𝑖 def update(inputs, output, target, weights, bias, learning_rate): # Calculate the error error = target - [ Select ] output weights * inputs + bias inputs # Calculate delta for weights d_weights = learning_rate * error * [ Select ] # Calculate delta for bias d_bias = learning_rate * [ Select ] bias weigths * bias error # update weights weights = weights + d_weights # update bias bias += d_bias return error, weights, bias\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "weights",
+        "B": "bias",
+        "C": "inputs"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "This code is the python implementation of the perceptron update rule stated below, fill in the blanks with the correct values to make this code run correctly. Equation: Δ 𝑤 𝑖 = 𝜂 ( 𝑦 − 𝑜 ) 𝑥 𝑖 𝑤 𝑖 ( 𝑡 + 1 ) = 𝑤 𝑖 ( 𝑡 ) + Δ 𝑤 𝑖 def update(inputs, output, target, weights, bias, learning_rate): # Calculate the error error = target - [ Select ] output weights * inputs + bias inputs # Calculate delta for weights d_weights = learning_rate * error * [ Select ] # Calculate delta for bias d_bias = learning_rate * [ Select ] bias weigths * bias error # update weights weights = weights + d_weights # update bias bias += d_bias return error, weights, bias\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "bias",
+        "B": "weigths * bias",
+        "C": "error"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "This code is the python implementation of the perceptron update rule stated below, fill in the blanks with the correct values to make this code run correctly. Equation: Δ 𝑤 𝑖 = 𝜂 ( 𝑦 − 𝑜 ) 𝑥 𝑖 𝑤 𝑖 ( 𝑡 + 1 ) = 𝑤 𝑖 ( 𝑡 ) + Δ 𝑤 𝑖 def update(inputs, output, target, weights, bias, learning_rate): # Calculate the error error = target - [ Select ] output weights * inputs + bias inputs # Calculate delta for weights d_weights = learning_rate * error * [ Select ] # Calculate delta for bias d_bias = learning_rate * [ Select ] bias weigths * bias error # update weights weights = weights + d_weights # update bias bias += d_bias return error, weights, bias\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "weights - inputs * d_weights",
+        "B": "weights + d_weights",
+        "C": "weights - d_weights"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec1_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "This code is the python implementation of the perceptron update rule stated below, fill in the blanks with the correct values to make this code run correctly. Equation: Δ 𝑤 𝑖 = 𝜂 ( 𝑦 − 𝑜 ) 𝑥 𝑖 𝑤 𝑖 ( 𝑡 + 1 ) = 𝑤 𝑖 ( 𝑡 ) + Δ 𝑤 𝑖 def update(inputs, output, target, weights, bias, learning_rate): # Calculate the error error = target - [ Select ] output weights * inputs + bias inputs # Calculate delta for weights d_weights = learning_rate * error * [ Select ] # Calculate delta for bias d_bias = learning_rate * [ Select ] bias weigths * bias error # update weights weights = weights + d_weights # update bias bias += d_bias return error, weights, bias\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "-= d_bias",
+        "B": "= bias - error",
+        "C": "+= d_bias"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    }
+  ]
+}

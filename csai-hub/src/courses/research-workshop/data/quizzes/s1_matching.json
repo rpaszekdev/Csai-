@@ -1,0 +1,115 @@
+{
+  "section_id": "s1",
+  "quiz_type": "matching",
+  "title": "Course Introduction - Matching",
+  "questions": [
+    {
+      "id": "s1_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each mandatory assignment to its purpose.",
+      "items": ["Research proposal", "Ethical Standards Compliance", "Technology Statement", "Final paper"],
+      "categories": [
+        "Sets the RQ, hypothesis, design, and planned analysis",
+        "Clears the study and consent before data collection",
+        "Declares any GenAI or tooling used",
+        "Full write-up following the example papers' structure"
+      ],
+      "correct_mapping": {
+        "Research proposal": "Sets the RQ, hypothesis, design, and planned analysis",
+        "Ethical Standards Compliance": "Clears the study and consent before data collection",
+        "Technology Statement": "Declares any GenAI or tooling used",
+        "Final paper": "Full write-up following the example papers' structure"
+      },
+      "explanation": "The proposal fixes the RQ and plan, ethics compliance clears data collection, the Technology Statement discloses tooling, and the final paper is the full write-up."
+    },
+    {
+      "id": "s1_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each course component to what it provides.",
+      "items": ["Plenary lectures", "Supervision sessions", "Writing support sessions"],
+      "categories": [
+        "Whole-cohort teaching on RQ, design, analysis, and writing",
+        "Small-group meetings with an assigned supervisor and topic",
+        "Proposal feedback, paper structure, and common pitfalls"
+      ],
+      "correct_mapping": {
+        "Plenary lectures": "Whole-cohort teaching on RQ, design, analysis, and writing",
+        "Supervision sessions": "Small-group meetings with an assigned supervisor and topic",
+        "Writing support sessions": "Proposal feedback, paper structure, and common pitfalls"
+      },
+      "explanation": "Plenary lectures teach the cohort, supervision sessions are small-group topic meetings, and writing support sessions give feedback on proposals, structure, and pitfalls."
+    },
+    {
+      "id": "s1_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each assessment element to its weight and product type.",
+      "items": ["Paper", "Exam"],
+      "categories": [
+        "40% of the grade and the group product",
+        "60% of the grade and the individual product"
+      ],
+      "correct_mapping": {
+        "Paper": "40% of the grade and the group product",
+        "Exam": "60% of the grade and the individual product"
+      },
+      "explanation": "The paper is 40% and is the group product; the exam is 60% and is the individual product, and both must pass."
+    },
+    {
+      "id": "s1_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each track or framework to what it concerns.",
+      "items": ["Human-Studies (HS) track", "Machine-Learning (ML) track", "Hitchhikers and Couch Potatoes"],
+      "categories": [
+        "Example proposals focused on human-participant methods",
+        "Example proposals focused on ML evaluation methods",
+        "Framework for handling free-riders in a team"
+      ],
+      "correct_mapping": {
+        "Human-Studies (HS) track": "Example proposals focused on human-participant methods",
+        "Machine-Learning (ML) track": "Example proposals focused on ML evaluation methods",
+        "Hitchhikers and Couch Potatoes": "Framework for handling free-riders in a team"
+      },
+      "explanation": "The HS and ML tracks have different example proposals reflecting their method focus, while Hitchhikers and Couch Potatoes is the free-rider framework."
+    },
+    {
+      "id": "s1_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each resource to its description.",
+      "items": ["Project Schedule Template", "Belcher book", "Example papers"],
+      "categories": [
+        "Required xlsx planning artefact",
+        "Reference for writing the literature review",
+        "Structural templates for the final write-up"
+      ],
+      "correct_mapping": {
+        "Project Schedule Template": "Required xlsx planning artefact",
+        "Belcher book": "Reference for writing the literature review",
+        "Example papers": "Structural templates for the final write-up"
+      },
+      "explanation": "The Project Schedule Template is the required xlsx planner, Belcher's book is the lit-review reference, and example papers serve as structural templates for the write-up."
+    },
+    {
+      "id": "s1_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each minimum project requirement to its threshold or tool.",
+      "items": ["Conditions", "Participants per condition", "Analysis language"],
+      "categories": [
+        "At least 2",
+        "At least 20",
+        "R or Python"
+      ],
+      "correct_mapping": {
+        "Conditions": "At least 2",
+        "Participants per condition": "At least 20",
+        "Analysis language": "R or Python"
+      },
+      "explanation": "Projects need at least 2 conditions, at least 20 participants per condition, and analysis in R or Python."
+    }
+  ]
+}

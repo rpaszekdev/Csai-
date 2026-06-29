@@ -1,0 +1,108 @@
+{
+  "section_id": "s5",
+  "quiz_type": "ordering",
+  "title": "Data Analysis & ML Pitfalls - Ordering",
+  "questions": [
+    {
+      "id": "s5_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the steps of a leakage-safe supervised ML workflow.",
+      "items": [
+        "Train the model to fit its parameters",
+        "Split the data into train, validation, and test",
+        "Compare models with a statistical test",
+        "Fit data-driven preprocessing inside each fold",
+        "Tune hyperparameters on validation / cross-validation",
+        "Evaluate once on the held-out test set"
+      ],
+      "correct_order": [
+        "Split the data into train, validation, and test",
+        "Fit data-driven preprocessing inside each fold",
+        "Train the model to fit its parameters",
+        "Tune hyperparameters on validation / cross-validation",
+        "Evaluate once on the held-out test set",
+        "Compare models with a statistical test"
+      ],
+      "explanation": "Splitting first is the golden rule; preprocessing is fit inside each fold, the model is trained, hyperparameters are tuned on validation, the test set is used exactly once, and only then are models compared with a statistical test."
+    },
+    {
+      "id": "s5_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps for correctly applying SMOTE on an imbalanced dataset.",
+      "items": [
+        "Split the data before any resampling",
+        "Apply SMOTE only to the training fold",
+        "Train the classifier on the resampled training data",
+        "Evaluate on the untouched test data"
+      ],
+      "correct_order": [
+        "Split the data before any resampling",
+        "Apply SMOTE only to the training fold",
+        "Train the classifier on the resampled training data",
+        "Evaluate on the untouched test data"
+      ],
+      "explanation": "SMOTE must come after the split and inside the training fold so synthetic points never use test rows; performance may honestly drop once the leakage is removed."
+    },
+    {
+      "id": "s5_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the steps for setting and using a classification decision threshold without leakage.",
+      "items": [
+        "Train the model on the training data",
+        "Calibrate the decision threshold on training only",
+        "Lock the threshold before touching the test set",
+        "Apply the fixed threshold to the test predictions"
+      ],
+      "correct_order": [
+        "Train the model on the training data",
+        "Calibrate the decision threshold on training only",
+        "Lock the threshold before touching the test set",
+        "Apply the fixed threshold to the test predictions"
+      ],
+      "explanation": "The threshold is a hyperparameter chosen from training data and then locked; re-tuning it on the test set (for example, 0.57 on train but 0.49 on test) inflates the reported estimate."
+    },
+    {
+      "id": "s5_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps that fix a tree model which cannot extrapolate on a rising trend.",
+      "items": [
+        "Notice predictions flatten and never exceed past values on a rising trend",
+        "Recognize that trees output averages of values seen in training",
+        "Transform the problem to predict the difference or residual off a trend",
+        "Fit the model on the transformed target and forecast the trend"
+      ],
+      "correct_order": [
+        "Notice predictions flatten and never exceed past values on a rising trend",
+        "Recognize that trees output averages of values seen in training",
+        "Transform the problem to predict the difference or residual off a trend",
+        "Fit the model on the transformed target and forecast the trend"
+      ],
+      "explanation": "Once you see flattening and understand trees cannot extrapolate, you reframe the target as a difference or residual (or use a linear booster) so the model can follow the rising trend."
+    },
+    {
+      "id": "s5_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the steps of a transparent confirmatory behavioural study.",
+      "items": [
+        "Pre-register the confirmatory hypotheses and analysis plan",
+        "Collect the data as planned",
+        "Run the pre-planned confirmatory analysis",
+        "Label any extra findings as exploratory and report everything",
+        "Share the data and code for reproducibility"
+      ],
+      "correct_order": [
+        "Pre-register the confirmatory hypotheses and analysis plan",
+        "Collect the data as planned",
+        "Run the pre-planned confirmatory analysis",
+        "Label any extra findings as exploratory and report everything",
+        "Share the data and code for reproducibility"
+      ],
+      "explanation": "Pre-registering before data collection guards against HARKing and p-hacking; running the planned analysis, labelling unplanned findings as exploratory, and sharing data and code complete a transparent, reproducible study."
+    }
+  ]
+}

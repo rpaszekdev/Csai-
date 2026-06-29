@@ -1,0 +1,106 @@
+{
+  "section_id": "lec4",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: PyTorch & Hyperparameter Tuning - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec4_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What is the purpose of hyperparameter tuning in the context of machine learning?",
+      "options": {
+        "A": "To find the optimal configuration for hyperparameters",
+        "B": "To increase the complexity of the neural network",
+        "C": "To adjust the training data to better fit the model",
+        "D": "To automatically generate new features for improved accuracy"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec4_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In PyTorch, what is the primary function of the nn.Linear module?",
+      "options": {
+        "A": "It defines the forward pass of the model",
+        "B": "It applies an activation function to the layer's output",
+        "C": "It makes the layer's input data linealry independent",
+        "D": "It connects each input in a layer to every output using a linear transformation"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec4_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Why is nn.ModuleList commonly used in PyTorch for defining neural network architectures?",
+      "options": {
+        "A": "It allows for a dynamic creation of layers by registering all modules it contains as part of a model",
+        "B": "It automatically computes gradients during backpropagation, making it necessary for training",
+        "C": "It stores the values of the activations in the forward pass as a list to be backpropagated through when updating the parameters",
+        "D": "It enforces sequential execution of layers"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec4_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "In PyTorch, when using the CrossEntropyLoss for classification, we don't add an activation function after the output layer. Why?",
+      "options": {
+        "A": "The CrossEntropyLoss works with the raw, unnormalized scores (logits)",
+        "B": "The CrossEntropyLoss assumes the use of the sigmoid activation function",
+        "C": "This is a bad practice; Not adding an activation function after the output layer may cause numerical instability in this case",
+        "D": "The CrossEntropyLoss is incompatible with any activation function"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec4_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "When training an MLP in PyTorch, what is the purpose of the torch.optim module?",
+      "options": {
+        "A": "It optimizes the model parameters using gradient descent.",
+        "B": "It specifies the number of hidden layers in the model.",
+        "C": "It defines the loss function for the model.",
+        "D": "It computes the gradients during backpropagation."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec4_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Select the correct alternatives based on this code: def train_model(MLP_model, num_epochs = 10): MLP_model.to(device) # Move model to device # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.SGD(MLP_model.parameters(), lr=0.01) # Training loop for epoch in range(num_epochs): total_loss = 0 for inputs, labels in train_loader: inputs, labels = inputs.to(device), labels.to(device) # Move data to device optimizer.zero_grad() # Zero the gradients inputs = inputs.view(-1, 28 * 28) # Flatten the images outputs = MLP_model(inputs) # Forward pass loss = criterion(outputs, labels) # Compute the loss loss.backward() # Backward pass optimizer.step() # Update the weights total_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader)}') 1) In the line: MLP_model.to(device) what is the purpose of calling .to(device) on the model? [ Select ] 2) In the line: inputs = inputs.view(-1, 28 * 28) why is the input reshaped this way? [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "It freezes all parameters so they no longer update during training",
+        "B": "It moves all model parameters and buffers to the CPU or GPU specified by device, ensuring computations happen on the correct hardware",
+        "C": "It automatically tunes the learning rate to match the device speed",
+        "D": "It converts the model into a TorchScript module for faster inference"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec4_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Select the correct alternatives based on this code: def train_model(MLP_model, num_epochs = 10): MLP_model.to(device) # Move model to device # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.SGD(MLP_model.parameters(), lr=0.01) # Training loop for epoch in range(num_epochs): total_loss = 0 for inputs, labels in train_loader: inputs, labels = inputs.to(device), labels.to(device) # Move data to device optimizer.zero_grad() # Zero the gradients inputs = inputs.view(-1, 28 * 28) # Flatten the images outputs = MLP_model(inputs) # Forward pass loss = criterion(outputs, labels) # Compute the loss loss.backward() # Backward pass optimizer.step() # Update the weights total_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader)}') 1) In the line: MLP_model.to(device) what is the purpose of calling .to(device) on the model? [ Select ] 2) In the line: inputs = inputs.view(-1, 28 * 28) why is the input reshaped this way? [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "Because SGD can only operate on flattened tensors",
+        "B": "Because the MLP expects 1-dimensional feature vectors, so each 28×28 image must be flattened into a single vector before being fed into the first fully connected layer",
+        "C": "Because CrossEntropyLoss requires 1-dimensional inputs only",
+        "D": "Because flattening reduces overfitting by removing spatial correlations"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    }
+  ]
+}

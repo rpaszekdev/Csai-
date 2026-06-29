@@ -1,0 +1,147 @@
+{
+  "section_id": "s4",
+  "quiz_type": "multiple_choice",
+  "title": "Writing a Research Proposal - Multiple Choice",
+  "questions": [
+    {
+      "id": "s4_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "A group writes their proposal and includes a Results section summarising the expected outcomes of the planned study. Is including a Results section in a proposal RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT — a proposal needs results so the reader can judge whether the study contributed",
+        "B": "RIGHT — listing expected results shows the reader the methods were well designed",
+        "C": "WRONG — a proposal plans a future study, so it has no results and no discussion yet",
+        "D": "WRONG — results belong in the proposal but the discussion section must come first"
+      },
+      "correct_answer": "C",
+      "explanation": "A proposal is a plan for a study not yet run, so it contains no results and no discussion. A and B treat the proposal like a paper that reports a finished study; D wrongly accepts a results section into the proposal."
+    },
+    {
+      "id": "s4_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "What is the single most important job of a research proposal?",
+      "options": {
+        "A": "To get the planned study approved by convincing the supervisor to green-light it",
+        "B": "To report the findings of the study to the wider scientific community clearly",
+        "C": "To prove the study already contributed to both science and the real world",
+        "D": "To lock the methods so that nothing about the study can be changed later"
+      },
+      "correct_answer": "A",
+      "explanation": "A proposal's only job is to get the study approved by convincing your supervisor to green-light it. B and C describe a paper about an already-conducted study; D is wrong because methods may legitimately change later."
+    },
+    {
+      "id": "s4_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "A reviewer reads a proposal and can comfortably shrug and say 'so what if we don't know this?'. According to the section, which part of the proposal has most clearly failed?",
+      "options": {
+        "A": "The background, because it did not list enough peer-reviewed sources",
+        "B": "The motivation, because it failed the 'so what?' test of relevance",
+        "C": "The methods, because they were not described in replicable detail",
+        "D": "The research question, because it was phrased far too broadly"
+      },
+      "correct_answer": "B",
+      "explanation": "The 'so what?' test targets the motivation: if a reader can shrug at your question, the motivation has failed to establish relevance. A, C, and D name other sections, but the shrug-test is explicitly the diagnostic for a weak motivation."
+    },
+    {
+      "id": "s4_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Which two kinds of relevance must a proposal's motivation establish?",
+      "options": {
+        "A": "Statistical relevance and practical replicability of the chosen design",
+        "B": "Historical relevance and the personal interest of the group members",
+        "C": "Methodological relevance and the novelty of the data set used",
+        "D": "Scientific relevance and real-world (practical/societal) relevance"
+      },
+      "correct_answer": "D",
+      "explanation": "The motivation must establish BOTH scientific relevance AND real-world (practical/societal) relevance. A, B, and C mix in concepts that belong to methods or are simply not the two required kinds of relevance."
+    },
+    {
+      "id": "s4_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "A student backs the real-world relevance of their motivation only with a vivid personal anecdote about a friend. Is this sufficient support, RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT — an anecdote is the strongest possible evidence for real-world relevance one can give",
+        "B": "RIGHT — anecdotes fully count as scientific sources when they are detailed enough",
+        "C": "WRONG — relevance must be proven, and only the background section may use anecdotes",
+        "D": "WRONG — an anecdote is a hook; back relevance with news or statistics"
+      },
+      "correct_answer": "D",
+      "explanation": "An anecdote is a useful hook but not enough; real-world relevance should be backed with news, statistics, or the future-work sections of peer-reviewed papers. A and B overrate the anecdote; C invents a rule about which section may use anecdotes."
+    },
+    {
+      "id": "s4_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "What is the key test the methods section of a proposal must pass?",
+      "options": {
+        "A": "Could someone replicate your study from this description?",
+        "B": "Does the section cite at least five peer-reviewed sources?",
+        "C": "Will the planned analyses produce a statistically significant result?",
+        "D": "Does the section prove the study will save lives in practice?"
+      },
+      "correct_answer": "A",
+      "explanation": "The methods must convince the reader the approach is correct and replicable; the key test is whether someone could replicate the study from the description. B is a background requirement, C cannot be promised in advance, and D is an example of overclaiming."
+    },
+    {
+      "id": "s4_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "According to the section, which source-use error is the MOST common and the hardest skill to fix?",
+      "options": {
+        "A": "Lumping all citations together at the very end of a paragraph",
+        "B": "Listing sources one by one instead of synthesising them",
+        "C": "Making claims with no citation at all attached to them",
+        "D": "Citing sources that the writer has never actually read"
+      },
+      "correct_answer": "B",
+      "explanation": "Listing instead of synthesising ('Smith said X. Furthermore, Jones said Y.') is the most common and hardest-to-master error. A is the least common, C happens constantly but is mid-frequency, and D is an AI-related verification issue, not one of the three ranked source-use errors."
+    },
+    {
+      "id": "s4_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "In the dinner-party analogy for writing with sources, what does introducing each guest one-by-one represent?",
+      "options": {
+        "A": "A synthesis, because every guest is given a fair turn to speak in order",
+        "B": "A critique, because each guest is judged separately on their merits",
+        "C": "A summary, because it tells what each source says with no overarching story",
+        "D": "A citation, because naming each guest is the same as an in-text reference"
+      },
+      "correct_answer": "C",
+      "explanation": "Introducing guests one-by-one is a summary: it reports each source separately with no story. Synthesis (A) instead explains why they were all invited together; B and D confuse the analogy with the 5 C's terms."
+    },
+    {
+      "id": "s4_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "A group asks an AI tool to find the five scientific sources for their background and pastes its reference list straight in. Is this RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT — tools such as Consensus and Elicit are reliable enough to source papers",
+        "B": "RIGHT — AI may both find and summarise sources as long as they are later cited",
+        "C": "WRONG — AI hallucinates sources, so every citation must trace to a paper you read",
+        "D": "WRONG — AI may help only by writing the full background paragraph for the group"
+      },
+      "correct_answer": "C",
+      "explanation": "Finding sources with AI is forbidden because it hallucinates both the source and its contents, even tools like Consensus, Elicit, or Perplexity; every citation must trace to a real paper you read. A and B trust the tools too far; D is forbidden because generating content to submit lets AI invent facts."
+    },
+    {
+      "id": "s4_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "When reading a completed synthesis matrix, a mostly-empty row appears for one idea. What does the section say this signals?",
+      "options": {
+        "A": "The idea is too big and should be split into several smaller ideas",
+        "B": "The matrix was read vertically, which always produces a summary",
+        "C": "The idea is well supported and ready to anchor its own paragraph",
+        "D": "The idea is weakly supported; drop it or find more sources for it"
+      },
+      "correct_answer": "D",
+      "explanation": "A mostly-empty row means few sources address that idea, so you should drop it or find more sources. A describes the opposite diagnostic (a very full row), B confuses reading direction with row fullness, and C contradicts the weak support an empty row shows."
+    }
+  ]
+}

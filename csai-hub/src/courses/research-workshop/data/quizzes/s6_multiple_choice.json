@@ -1,0 +1,147 @@
+{
+  "section_id": "s6",
+  "quiz_type": "multiple_choice",
+  "title": "Writing a Research Paper - Multiple Choice",
+  "questions": [
+    {
+      "id": "s6_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "The following is an adapted excerpt from the introduction of a paper. It opens on p-centers, then drifts into syllable structure, then speech rhythm perception, then the experimental methods used to measure timing, touching each topic briefly without ever stating one question the paper will answer. What is the main problem with this passage? (Select one answer)",
+      "options": {
+        "A": "It discusses several related topics without clearly establishing a single research focus.",
+        "B": "It shifts attention toward broader methodological issues without linking them to a central focus.",
+        "C": "It places too much emphasis on how syllable structure influences speech rhythm perception.",
+        "D": "It overemphasises the role of experimental methods in measuring p-centers across studies."
+      },
+      "correct_answer": "A",
+      "explanation": "The passage names many real sub-topics but never converges on one gap or question, so it fails CARS Move 2/3 (establish and occupy a niche). B, C and D each describe a real surface feature of the text, but the central failing is the absence of a single clear research focus, not an imbalance among those topics."
+    },
+    {
+      "id": "s6_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "A student claims that because a paper is read start to finish, the writer's main job is to entertain the reader so they keep going. Is this view RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT, because an engaging, entertaining narrative is what keeps every reviewer reading the full paper.",
+        "B": "WRONG, because readers skim and jump, so the job is to inform and make key points easy to find.",
+        "C": "WRONG, because entertainment belongs only in the abstract, not in the body sections.",
+        "D": "RIGHT, because a paper reports a completed study that must hold the reader's attention."
+      },
+      "correct_answer": "B",
+      "explanation": "Readers do not read linearly; the writer's job is to inform and surface key points in the abstract, conclusion, and keywords. A and D wrongly treat entertainment as the goal, and C invents a rule that entertainment is confined to the abstract."
+    },
+    {
+      "id": "s6_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Which statement correctly describes what EVERY introduction must contain versus what is optional?",
+      "options": {
+        "A": "Every introduction must include the paper's full structure overview; the literature review remains optional.",
+        "B": "Every introduction must report the main results; stating the objectives is optional.",
+        "C": "Every introduction must define the topic, state the problem, give the aim, and introduce the literature.",
+        "D": "Every introduction must include numbered hypotheses; defining the topic is optional."
+      },
+      "correct_answer": "C",
+      "explanation": "Per Wallwork, all introductions define the topic/background, state the accepted state plus the problem, give the authors' aim, and introduce the literature. The structure overview (A) is only needed for longer texts, results (B) belong in Results, and a numbered-hypothesis requirement (D) is invented."
+    },
+    {
+      "id": "s6_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "In Swales' CARS model, an author writes: 'However, no study has examined whether this effect holds for non-native speakers.' Which move is this, and what does it do?",
+      "options": {
+        "A": "Move 1, establishing the territory by reviewing what is already known.",
+        "B": "Move 2, establishing a niche by indicating a gap in prior research.",
+        "C": "Move 3, occupying the niche by stating the specific research question.",
+        "D": "Move 1, establishing the territory by showing the topic is important."
+      },
+      "correct_answer": "B",
+      "explanation": "Pointing to what no study has yet done indicates a gap, which is CARS Move 2 (establish a niche). Move 1 (A, D) shows relevance and reviews knowledge, while Move 3 (C) states the author's own purpose or question rather than naming the gap."
+    },
+    {
+      "id": "s6_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "A reviewer proposes writing the Methods of a completed participant study in the present tense and active first person ('We recruit 40 participants and we test them'). Is this RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT, because active first person makes the procedure clearer to replicate.",
+        "B": "RIGHT, because present tense keeps the methods feeling current for the reader.",
+        "C": "WRONG, because Methods should use future tense since it describes a planned protocol.",
+        "D": "WRONG, because the study is done, so Methods use past tense, and passive voice suits it."
+      },
+      "correct_answer": "D",
+      "explanation": "The study is completed, so Methods take the past tense, and passive voice is fine because the procedure, not the researcher, is the point. A and B endorse the wrong tense/voice, and C wrongly calls for future tense, which suits a proposal, not a finished study's paper."
+    },
+    {
+      "id": "s6_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "A draft Results section interprets why an effect appeared, repeats every raw participant score, and re-states the procedure. Which statement about this draft is correct?",
+      "options": {
+        "A": "It is fine, because the Results should fully interpret and carefully justify each separate finding for the reader.",
+        "B": "It is fine, because reporting all raw scores makes the Results independent and complete.",
+        "C": "It is flawed, because Results should exclude interpretation, raw scores, and procedure, reporting patterns.",
+        "D": "It is flawed only because it omits the discussion of the study's limitations."
+      },
+      "correct_answer": "C",
+      "explanation": "Results must exclude interpretation, raw scores, background, procedure, and stats-class explanations, and instead summarise patterns with references to tables/figures. A and B endorse content that belongs elsewhere, and D misplaces limitations, which belong in the Discussion, not the Results."
+    },
+    {
+      "id": "s6_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Within a Results section, which tense pairing follows the APA-style rule for findings versus exhibits?",
+      "options": {
+        "A": "Present for the findings themselves, and past when pointing to your own tables or figures.",
+        "B": "Future for the findings, and present when pointing to your own tables or figures.",
+        "C": "Present for both the findings and the references to your own tables or figures.",
+        "D": "Past for the findings themselves, and present when pointing to your own tables or figures."
+      },
+      "correct_answer": "D",
+      "explanation": "Your findings are reported in the past tense, but you switch to the present when pointing to your own exhibits ('scores are shown in Table 2'). A inverts the rule, while B and C apply the wrong tense to the findings."
+    },
+    {
+      "id": "s6_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Which option lists the four jobs of the Discussion section?",
+      "options": {
+        "A": "Interpret the results, justify your approach, answer the research question, and critically evaluate.",
+        "B": "Describe the procedure, list the materials, report the patterns, and reference the tables.",
+        "C": "Define the topic, review the literature, state the gap, and present the hypotheses.",
+        "D": "Summarise each section, draw the reader in, list keywords, and stay within the word limit."
+      },
+      "correct_answer": "A",
+      "explanation": "The Discussion interprets/explains results, justifies the approach, answers the RQ, and critically evaluates the work. B describes Methods/Results, C describes the Introduction, and D describes the abstract's purpose and constraints."
+    },
+    {
+      "id": "s6_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "A student writes their Discussion entirely in the passive ('It was found that the effect was caused by attention') and uses no hedging anywhere. Is this RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT, because passive voice and firm claims project scientific confidence in the Discussion.",
+        "B": "RIGHT, because hedging is only ever appropriate in the abstract, not in the Discussion.",
+        "C": "WRONG, because the Discussion should be as active as possible and should hedge claims about meaning.",
+        "D": "WRONG, because the Discussion must instead use future tense to describe what the study will show."
+      },
+      "correct_answer": "C",
+      "explanation": "The Discussion is the opposite of Methods: be as active as possible and hedge claims about meaning (may, suggests, seems). A and B endorse the wrong voice and misplace hedging, and D introduces future tense, which does not fit interpreting a completed study."
+    },
+    {
+      "id": "s6_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Which statement about the abstract is correct?",
+      "options": {
+        "A": "Write it first to lock in your message, and format it as a bulleted list of the five elements.",
+        "B": "Write it last, and make it an independent paragraph covering the five IMRaD-mapped elements.",
+        "C": "Write it last, but keep it dependent on the paper so readers must read both together.",
+        "D": "Write it first, and exclude the conclusion so the ending stays a surprise for the reader."
+      },
+      "correct_answer": "B",
+      "explanation": "The abstract is written last, is an independent paragraph (not a list), and covers five elements mapped to IMRaD: topic, RQ/aim, study type/design/materials, main outcome, and conclusion/implications. A and D wrongly write it first, and C wrongly makes it dependent on the paper."
+    }
+  ]
+}

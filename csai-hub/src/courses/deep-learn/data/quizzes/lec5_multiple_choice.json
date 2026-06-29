@@ -1,0 +1,328 @@
+{
+  "section_id": "lec5",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: CNNs - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec5_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "Consider the following 2D input I to a CNN: 0 0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 0 And the kernel k: 0 0 1 0 1 0 1 0 0 Which of the following feature maps is the output of applying the kernel to the input (stride = 1, padding = 0), followed by a 2x2 max pooling m, that is m(k ∗ I):",
+      "options": {
+        "A": "K=[3 1.71 0 2.71]",
+        "B": "K=[0 0 0 0]",
+        "C": "K=[3 2 2 3]",
+        "D": "K=[2.71 0.71 0.71 2.71]"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Convolution and pooling are two very similar yet very different operations. Which of the following describes most completely the difference between convolution and pooling?",
+      "options": {
+        "A": "Pooling is the general term for an operation that generates a summary (i.e. a single value) of the input values. It is the more general form of convolution which, unlike pooling, is limited to applying a static kernel on the input region (multiple values).",
+        "B": "Both pooling and convolution apply operations on a given input region (multiple values) to generate a single value, i.e. a summary; unlike pooling, convolution can be viewed as an infinitely strong prior.",
+        "C": "Pooling is an operation that generates a summary (i.e. a single value) of the input values by applying a predetermined function, e.g. average or max; similarly the operation of convolution applies a kernel on a given input region (multiple values) to generate one output value, but unlike pooling, which applies a static function, the weights of the kernel are learnable.",
+        "D": "Pooling is an operation that generates a summary (i.e. a single value) of the input values by applying a predetermined function, e.g. average or max; in contrast the operation of convolution applies a kernel on a given input region (multiple values) to generate multiple output values."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "For a particular application you are implementing a network in PyTorch by defining a module. The last three layers are called L_n, L_m and L_out. The first two are defined as follows: self.L_n = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=(3,3)) self.L_m = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3,3)) To create the final output, you concatenate the outputs from L_m and L_n over the channels axis and feed the result to L_out. You expect an output performing a segmentation into two classes, telling which areas of the feature map contain a relevant property and which don't. Which of these layers would be the most adequate for this:",
+      "options": {
+        "A": "self.L_out = nn.Conv2d(in_channels=64, out_channels=2, kernel_size=(3,3)) self.L_out_activation = nn.Softmax()",
+        "B": "self.L_out = nn.Conv2d(in_channels=128, out_channels=1, kernel_size=(3,3)) self.L_out_activation = nn.Sigmoid()",
+        "C": "self.L_out = nn.Conv2d(in_channels=96, out_channels=2, kernel_size=(3,3)) self.L_out_activation = nn.Sigmoid()",
+        "D": "self.L_out = nn.Conv2d(in_channels=64, out_channels=1, kernel_size=(3,3)) self.L_out_activation = nn.Sigmoid()"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "In a mapping operation, such as convolution, an input is mapped to an output map. Some properties can be of interest in such kinds of operations, for example, translation invariance and equivariance. Translation invariance means that if the input is shifted, the output map stays the same or invariant. Translation equivariance means that when the input is shifted, the output map shifts in the same way, equivalently. Which of those two properties apply to 2D convolutional layers:",
+      "options": {
+        "A": "Both, translation invariance and equivariance.",
+        "B": "Translation equivariance, but not invariance.",
+        "C": "Translation invariance, but not equivariance.",
+        "D": "None."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "The convolution operation produces a feature map of a certain dimension which depends on the input dimensions, the kernel size, the stride, the padding and the dilation. Consider a 8x7 image which is processed by a 3x3 kernel; the padding is 1; the stride is 2 and the dilation is 1. Which of the following answers is true:",
+      "options": {
+        "A": "These values are incompatible since the kernel has the same height and width while the input does not. This will lead to a non-integer output size which is not allowed.",
+        "B": "The stride should not be larger than the dilation. The given values for the stride and the dilation will lead to negative values for the size of the output feature map.",
+        "C": "The output feature map is of size 5x5",
+        "D": "The output feature map is of size 4x4"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "For a given application, you train a neural network composed of two parts, a CNN that extracts a feature vector f and an MLP that classifies f into N classes. You have divided your train set into two: S1 and S2. The distribution of classes in S1 and S2 is the same; the only difference is that the data in S1 comes from a different population than the data in S2. You want your network to accurately classify all the data points regardless of the group they come from; however, at the same time, you want the features f1 extracted by the CNN from data in S1 to be as different as possible from the features f2 extracted from data in S2. Thus, you feed the data to the network in pairs coming from both groups, and you use a loss function for each one of the described goals: L1, a cross-entropy for the classification, and L2, a cosine distance between f1 and f2. The total loss L you want to minimize can be expressed as:",
+      "options": {
+        "A": "L = L1 + L2",
+        "B": "L = - (L1 + L2)",
+        "C": "L = L1 - L2",
+        "D": "L = -L1 + L2"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "With an input feature map M of shape (C, W, H), when would applying any of the two possibilities described below be equivalent? nn.Conv2d(in_channels = NC_in, out_channels = NC_out, kernel_size=(k_w, k_h)) nn.Flatten() nn.Linear = (in_features = NL_in, out_features = NL_out) When:",
+      "options": {
+        "A": "k_w = W, k_h = H, NL_in = NC_in, and NC_out = NL_in*W*H",
+        "B": "kw = W, k_h = H, NL_in = NC_in*W*H, and NC_out = NL_out",
+        "C": "k_w = W, k_h = H, NC_in = NL_in, and NC_out = NL_out",
+        "D": "k_w = W, k_h = H, NC_in = NL_out, and NC_out = NL_in"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "In the context of CNNs, what does parameter sharing refer to:",
+      "options": {
+        "A": "Coefficients are the same for each kernel in the network.",
+        "B": "Kernel coefficients are the same for all the positions where they are applied in a given layer.",
+        "C": "Coefficients are initialized to the same random values for each kernel of the network.",
+        "D": "Kernel coefficients are the same at each epoch."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Consider a black and white image with a width and height of 28. We first apply convolution with a 5x5 filter, using 0 padding (i.e., no padding) and a stride of 1. On the resulting feature map, we then apply 2x2 max pooling. The two layers are defined as follows: model.add_module('Conv_1', nn.Conv2d(in_channels=1, out_channels=32, kernel_size=(5,5))) model.add_module('MaxPool_1', nn.MaxPool2d(kernel_size=2)) After running, you observe that the output shape is different from the one you expected. What is the dimension of the resulting feature map (after the average pooling) according to PyTorch? [ Select ] What is the reason for the discrepancies you may observe between the shape you expected and the one you got in Python? [ Select ] Hint: check the documentation of PyTorch for max pooling\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "28",
+        "B": "23",
+        "C": "12",
+        "D": "14"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Consider a black and white image with a width and height of 28. We first apply convolution with a 5x5 filter, using 0 padding (i.e., no padding) and a stride of 1. On the resulting feature map, we then apply 2x2 max pooling. The two layers are defined as follows: model.add_module('Conv_1', nn.Conv2d(in_channels=1, out_channels=32, kernel_size=(5,5))) model.add_module('MaxPool_1', nn.MaxPool2d(kernel_size=2)) After running, you observe that the output shape is different from the one you expected. What is the dimension of the resulting feature map (after the average pooling) according to PyTorch? [ Select ] What is the reason for the discrepancies you may observe between the shape you expected and the one you got in Python? [ Select ] Hint: check the documentation of PyTorch for max pooling\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "The code would not run because of a mismatch between input and output channels",
+        "B": "The stride for max pooling is always 2, if not specified otherwise",
+        "C": "There is no discrepancy"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "Consider that the last layers of a CNN, before the fully connected network are defined in pytorch as: input.shape = (128, 7, 7) model.add_module('Conv_3', nn.Conv2d(in_channels=128, out_channels=32, kernel_size=(5,5))) model.add_module('Relu_3', nn.ReLU()) What would be the input dimension that needs to be defined for the fully connected layer, which would come after using the Flatten function? nn.Linear(in_features = [ Select ] , out_features=10)\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "3200",
+        "B": "288",
+        "C": "640",
+        "D": "160"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "Consider the following two 3×3 convolution kernels (filters): Kernel A: [-1 -1 -1] [ 0 0 0] [ 1 1 1] Kernel B: [-1 0 1] [-1 0 1] [-1 0 1] Which function does each kernel perform? Detects vertical edges: [ Select ] Detects horizontal edges: [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "B",
+        "B": "A"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "Consider the following two 3×3 convolution kernels (filters): Kernel A: [-1 -1 -1] [ 0 0 0] [ 1 1 1] Kernel B: [-1 0 1] [-1 0 1] [-1 0 1] Which function does each kernel perform? Detects vertical edges: [ Select ] Detects horizontal edges: [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "B",
+        "B": "A"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "You are designing a model to classify short spoken utterances (e.g., audio clips of 1–3 seconds) into language categories. Your approach uses 1D CNNs to process the raw waveform. Below is a simplified version of the CNN architecture: import torch.nn as nn class AudioClassifier(nn.Module): def __init__(self, in_channels): super().__init__() self.net = nn.Sequential( nn.Conv1d(in_channels=in_channels, out_channels=64, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(64, 128, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(128, 128, kernel_size=3, stride=2), nn.ReLU(), ##### MISSING LINE HERE ######, nn.Flatten(), nn.Linear(128, 10) # 10 language classes ) def forward(self, x): return self.net(x) You're building a model to classify short audio clips. The initial architecture works, but it is slow to train and memory-intensive. To improve performance, you consider modifying the convolutional layers and pooling strategy: To reduce training time and memory usage, you decide to [ Select ] in the early convolutional layers. This reduces the number of activations early in the model, leading to fewer computations and faster training. However, you must be cautious. If this is done too aggressively in early layers, you risk [ Select ] , which may degrade model performance by discarding fine-grained temporal patterns essential for distinguishing phonemes or intonation. Finally, before classification, you want to reduce the temporal dimension to a fixed size, regardless of input length. This is the missing line in the code. In order to achieve the expected behaviour, you need to include the line [ Select ] , which compresses the entire sequence down to a single value per channel.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "Decrease the kernel sizes",
+        "B": "Remove padding",
+        "C": "Add more filters",
+        "D": "Increase the stride"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "You are designing a model to classify short spoken utterances (e.g., audio clips of 1–3 seconds) into language categories. Your approach uses 1D CNNs to process the raw waveform. Below is a simplified version of the CNN architecture: import torch.nn as nn class AudioClassifier(nn.Module): def __init__(self, in_channels): super().__init__() self.net = nn.Sequential( nn.Conv1d(in_channels=in_channels, out_channels=64, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(64, 128, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(128, 128, kernel_size=3, stride=2), nn.ReLU(), ##### MISSING LINE HERE ######, nn.Flatten(), nn.Linear(128, 10) # 10 language classes ) def forward(self, x): return self.net(x) You're building a model to classify short audio clips. The initial architecture works, but it is slow to train and memory-intensive. To improve performance, you consider modifying the convolutional layers and pooling strategy: To reduce training time and memory usage, you decide to [ Select ] in the early convolutional layers. This reduces the number of activations early in the model, leading to fewer computations and faster training. However, you must be cautious. If this is done too aggressively in early layers, you risk [ Select ] , which may degrade model performance by discarding fine-grained temporal patterns essential for distinguishing phonemes or intonation. Finally, before classification, you want to reduce the temporal dimension to a fixed size, regardless of input length. This is the missing line in the code. In order to achieve the expected behaviour, you need to include the line [ Select ] , which compresses the entire sequence down to a single value per channel.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "Increasing embedding size too early",
+        "B": "Overfitting to silence",
+        "C": "Duplicating features unnecessarily",
+        "D": "Losing short-term information by skipping too much input"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "You are designing a model to classify short spoken utterances (e.g., audio clips of 1–3 seconds) into language categories. Your approach uses 1D CNNs to process the raw waveform. Below is a simplified version of the CNN architecture: import torch.nn as nn class AudioClassifier(nn.Module): def __init__(self, in_channels): super().__init__() self.net = nn.Sequential( nn.Conv1d(in_channels=in_channels, out_channels=64, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(64, 128, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(128, 128, kernel_size=3, stride=2), nn.ReLU(), ##### MISSING LINE HERE ######, nn.Flatten(), nn.Linear(128, 10) # 10 language classes ) def forward(self, x): return self.net(x) You're building a model to classify short audio clips. The initial architecture works, but it is slow to train and memory-intensive. To improve performance, you consider modifying the convolutional layers and pooling strategy: To reduce training time and memory usage, you decide to [ Select ] in the early convolutional layers. This reduces the number of activations early in the model, leading to fewer computations and faster training. However, you must be cautious. If this is done too aggressively in early layers, you risk [ Select ] , which may degrade model performance by discarding fine-grained temporal patterns essential for distinguishing phonemes or intonation. Finally, before classification, you want to reduce the temporal dimension to a fixed size, regardless of input length. This is the missing line in the code. In order to achieve the expected behaviour, you need to include the line [ Select ] , which compresses the entire sequence down to a single value per channel.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "nn.AdaptiveAvgPool1d(1)",
+        "B": "nn.AvgPool1d(kernel_size=1)",
+        "C": "nn.MaxPool1d(kernel_size=2)",
+        "D": "nn.Linear(128, 1)"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "The code below implements a 1D convolution using NumPy. This function takes batched inputs, with an arbitrary number of channels. Choose the best options to complete the statements, considering the code. # Import necessary libraries import numpy as np def apply_convolution(input_data, filters, output_length, sum_reduction_axes, stride): \"\"\" Parameters: - input_data: numpy array, the input data - filters: numpy array, representing the filters - output_length: Integers, precomputed length of the output given the input and filters - sum_reduction_axes: A tuple, it contains the axis over which to sum the multiplication between an input segment and the filters in each step of the convolution. - stride: Integer, the stride of the convolution operation Returns: - output: numpy array, the result of convolution \"\"\" # If input_data is 2D, ensure filters are the right shape assert all(f.shape[0] == input_data.shape[1] for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result num_filters = len(filters) batch_size = input_data.shape[0] output = np.zeros((batch_size, num_filters, output_length)) # Add necessary broadcastable dimenssions input_data = np.expand_dims(input_data, 1) filters = np.expand_dims(filters, 0) # Perform convolution with the specified stride for i in range(output_length): input_segment = input_data[:, :, :, i * stride:i * stride + filters[0].shape[-1]] output[:, :, i] = np.sum(input_segment * filters, axis=sum_reduction_axes) return output The apply_convolution function is used to calculate the convolution between an input batch with 16 sequences of length 100 and two channels (shape (16, 2, 100)) with a set of 4 filters of size 3, using stride=1 and no padding. The function expects the parameter output_length, which in this case must be: [ Select ] Furthermore, the function gets as a parameter the filters, which are a numpy array with shape: [ Select ] Finally, the argument sum_reduction_axes must be: [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "98",
+        "B": "96",
+        "C": "16",
+        "D": "100"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "The code below implements a 1D convolution using NumPy. This function takes batched inputs, with an arbitrary number of channels. Choose the best options to complete the statements, considering the code. # Import necessary libraries import numpy as np def apply_convolution(input_data, filters, output_length, sum_reduction_axes, stride): \"\"\" Parameters: - input_data: numpy array, the input data - filters: numpy array, representing the filters - output_length: Integers, precomputed length of the output given the input and filters - sum_reduction_axes: A tuple, it contains the axis over which to sum the multiplication between an input segment and the filters in each step of the convolution. - stride: Integer, the stride of the convolution operation Returns: - output: numpy array, the result of convolution \"\"\" # If input_data is 2D, ensure filters are the right shape assert all(f.shape[0] == input_data.shape[1] for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result num_filters = len(filters) batch_size = input_data.shape[0] output = np.zeros((batch_size, num_filters, output_length)) # Add necessary broadcastable dimenssions input_data = np.expand_dims(input_data, 1) filters = np.expand_dims(filters, 0) # Perform convolution with the specified stride for i in range(output_length): input_segment = input_data[:, :, :, i * stride:i * stride + filters[0].shape[-1]] output[:, :, i] = np.sum(input_segment * filters, axis=sum_reduction_axes) return output The apply_convolution function is used to calculate the convolution between an input batch with 16 sequences of length 100 and two channels (shape (16, 2, 100)) with a set of 4 filters of size 3, using stride=1 and no padding. The function expects the parameter output_length, which in this case must be: [ Select ] Furthermore, the function gets as a parameter the filters, which are a numpy array with shape: [ Select ] Finally, the argument sum_reduction_axes must be: [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "(2, 3, 4)",
+        "B": "(4, 2, 3)",
+        "C": "(4, 3, 2)",
+        "D": "(3, 2, 4)",
+        "E": "(3, 4, 2)"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "The code below implements a 1D convolution using NumPy. This function takes batched inputs, with an arbitrary number of channels. Choose the best options to complete the statements, considering the code. # Import necessary libraries import numpy as np def apply_convolution(input_data, filters, output_length, sum_reduction_axes, stride): \"\"\" Parameters: - input_data: numpy array, the input data - filters: numpy array, representing the filters - output_length: Integers, precomputed length of the output given the input and filters - sum_reduction_axes: A tuple, it contains the axis over which to sum the multiplication between an input segment and the filters in each step of the convolution. - stride: Integer, the stride of the convolution operation Returns: - output: numpy array, the result of convolution \"\"\" # If input_data is 2D, ensure filters are the right shape assert all(f.shape[0] == input_data.shape[1] for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result num_filters = len(filters) batch_size = input_data.shape[0] output = np.zeros((batch_size, num_filters, output_length)) # Add necessary broadcastable dimenssions input_data = np.expand_dims(input_data, 1) filters = np.expand_dims(filters, 0) # Perform convolution with the specified stride for i in range(output_length): input_segment = input_data[:, :, :, i * stride:i * stride + filters[0].shape[-1]] output[:, :, i] = np.sum(input_segment * filters, axis=sum_reduction_axes) return output The apply_convolution function is used to calculate the convolution between an input batch with 16 sequences of length 100 and two channels (shape (16, 2, 100)) with a set of 4 filters of size 3, using stride=1 and no padding. The function expects the parameter output_length, which in this case must be: [ Select ] Furthermore, the function gets as a parameter the filters, which are a numpy array with shape: [ Select ] Finally, the argument sum_reduction_axes must be: [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "(-2, -3)",
+        "B": "(1, 2)",
+        "C": "(-1)",
+        "D": "(-2, -1)",
+        "E": "(0, 1)",
+        "F": "(0, -1)"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "Fill in the blanks about the following code (beware, array indexing is done with round brackets due to Canvas formatting constraints) : def apply_2D_convolution(input_data, filters, stride=1): \"\"\" Apply convolution on a 3D input (2D image + channels) using given filters. Parameters: - input_data: 3D numpy array, the input data (channels, height, width) - filters: List of 3D numpy arrays, representing the filters - stride: Integer, the stride of the convolution operation Returns: - output: 3D numpy array, the result of convolution \"\"\" # If input_data is 3D, ensure filters are the right shape assert all(f.shape(0) == input_data.shape(0) for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result output_h = (input_data.shape(1) - filters(0).shape(1)) // stride + 1 output_w = (input_data.shape(2) - filters(0).shape(2)) // stride + 1 num_filters = len(filters) output = np.zeros((num_filters, output_h, output_w)) # Perform convolution with the specified stride for i in range(output_h): for j in range(output_w): output[:, i, j] = np.sum(input_data[:, i * stride : i * stride + filters(0).shape(1), j * stride : j * stride + filters(0).shape(2)] * filters, axis=(1, 2, 3)) return output 1) Before performing the convolution, the code verifies that each filter has the same number of channels as the input by checking assert all(f.shape[0] == input_data.shape[0] for f in filters) This ensures that [ [ Select ] ]. 2) The output height is computed as output_h = (input_data.shape[1] - filters[0].shape[1]) // stride + 1 This reflects the standard convolution formula, where the output size shrinks because [ [ Select ] ]. 3) Inside the nested loops, the expression input_data[:, i*stride : i*stride + filters[0].shape[1], j*stride : j*stride + filters[0].shape[2]] extracts a local input patch whose shape matches each filter, which is necessary because convolution is computed over [ [ Select ] ]. 4) The operation np.sum(input_patch * filters, axis=(1, 2, 3)) produces one output value per filter because multiplying the input patch by all filters produces a tensor with shape (num_filters,C,Hf,Wf ), and summing over axes (1,2,3) computes [ [ Select ] ].\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "each filter spans all input channels",
+        "B": "all filters are normalized before use",
+        "C": "each filter has the same spatial size as the input",
+        "D": "convolution reduces the number of channels"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "Fill in the blanks about the following code (beware, array indexing is done with round brackets due to Canvas formatting constraints) : def apply_2D_convolution(input_data, filters, stride=1): \"\"\" Apply convolution on a 3D input (2D image + channels) using given filters. Parameters: - input_data: 3D numpy array, the input data (channels, height, width) - filters: List of 3D numpy arrays, representing the filters - stride: Integer, the stride of the convolution operation Returns: - output: 3D numpy array, the result of convolution \"\"\" # If input_data is 3D, ensure filters are the right shape assert all(f.shape(0) == input_data.shape(0) for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result output_h = (input_data.shape(1) - filters(0).shape(1)) // stride + 1 output_w = (input_data.shape(2) - filters(0).shape(2)) // stride + 1 num_filters = len(filters) output = np.zeros((num_filters, output_h, output_w)) # Perform convolution with the specified stride for i in range(output_h): for j in range(output_w): output[:, i, j] = np.sum(input_data[:, i * stride : i * stride + filters(0).shape(1), j * stride : j * stride + filters(0).shape(2)] * filters, axis=(1, 2, 3)) return output 1) Before performing the convolution, the code verifies that each filter has the same number of channels as the input by checking assert all(f.shape[0] == input_data.shape[0] for f in filters) This ensures that [ [ Select ] ]. 2) The output height is computed as output_h = (input_data.shape[1] - filters[0].shape[1]) // stride + 1 This reflects the standard convolution formula, where the output size shrinks because [ [ Select ] ]. 3) Inside the nested loops, the expression input_data[:, i*stride : i*stride + filters[0].shape[1], j*stride : j*stride + filters[0].shape[2]] extracts a local input patch whose shape matches each filter, which is necessary because convolution is computed over [ [ Select ] ]. 4) The operation np.sum(input_patch * filters, axis=(1, 2, 3)) produces one output value per filter because multiplying the input patch by all filters produces a tensor with shape (num_filters,C,Hf,Wf ), and summing over axes (1,2,3) computes [ [ Select ] ].\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "channels determine spatial resolution",
+        "B": "filters only slide over valid positions without padding",
+        "C": "stride automatically increases receptive field size",
+        "D": "filters expand the input volume"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "Fill in the blanks about the following code (beware, array indexing is done with round brackets due to Canvas formatting constraints) : def apply_2D_convolution(input_data, filters, stride=1): \"\"\" Apply convolution on a 3D input (2D image + channels) using given filters. Parameters: - input_data: 3D numpy array, the input data (channels, height, width) - filters: List of 3D numpy arrays, representing the filters - stride: Integer, the stride of the convolution operation Returns: - output: 3D numpy array, the result of convolution \"\"\" # If input_data is 3D, ensure filters are the right shape assert all(f.shape(0) == input_data.shape(0) for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result output_h = (input_data.shape(1) - filters(0).shape(1)) // stride + 1 output_w = (input_data.shape(2) - filters(0).shape(2)) // stride + 1 num_filters = len(filters) output = np.zeros((num_filters, output_h, output_w)) # Perform convolution with the specified stride for i in range(output_h): for j in range(output_w): output[:, i, j] = np.sum(input_data[:, i * stride : i * stride + filters(0).shape(1), j * stride : j * stride + filters(0).shape(2)] * filters, axis=(1, 2, 3)) return output 1) Before performing the convolution, the code verifies that each filter has the same number of channels as the input by checking assert all(f.shape[0] == input_data.shape[0] for f in filters) This ensures that [ [ Select ] ]. 2) The output height is computed as output_h = (input_data.shape[1] - filters[0].shape[1]) // stride + 1 This reflects the standard convolution formula, where the output size shrinks because [ [ Select ] ]. 3) Inside the nested loops, the expression input_data[:, i*stride : i*stride + filters[0].shape[1], j*stride : j*stride + filters[0].shape[2]] extracts a local input patch whose shape matches each filter, which is necessary because convolution is computed over [ [ Select ] ]. 4) The operation np.sum(input_patch * filters, axis=(1, 2, 3)) produces one output value per filter because multiplying the input patch by all filters produces a tensor with shape (num_filters,C,Hf,Wf ), and summing over axes (1,2,3) computes [ [ Select ] ].\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "flattened pixel vectors",
+        "B": "the entire image across all channels",
+        "C": "normalized activation maps",
+        "D": "spatially aligned receptive fields"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec5_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "Fill in the blanks about the following code (beware, array indexing is done with round brackets due to Canvas formatting constraints) : def apply_2D_convolution(input_data, filters, stride=1): \"\"\" Apply convolution on a 3D input (2D image + channels) using given filters. Parameters: - input_data: 3D numpy array, the input data (channels, height, width) - filters: List of 3D numpy arrays, representing the filters - stride: Integer, the stride of the convolution operation Returns: - output: 3D numpy array, the result of convolution \"\"\" # If input_data is 3D, ensure filters are the right shape assert all(f.shape(0) == input_data.shape(0) for f in filters), \"Filter dimensions must match input data dimensions\" # Initialize an empty array to store the convolution result output_h = (input_data.shape(1) - filters(0).shape(1)) // stride + 1 output_w = (input_data.shape(2) - filters(0).shape(2)) // stride + 1 num_filters = len(filters) output = np.zeros((num_filters, output_h, output_w)) # Perform convolution with the specified stride for i in range(output_h): for j in range(output_w): output[:, i, j] = np.sum(input_data[:, i * stride : i * stride + filters(0).shape(1), j * stride : j * stride + filters(0).shape(2)] * filters, axis=(1, 2, 3)) return output 1) Before performing the convolution, the code verifies that each filter has the same number of channels as the input by checking assert all(f.shape[0] == input_data.shape[0] for f in filters) This ensures that [ [ Select ] ]. 2) The output height is computed as output_h = (input_data.shape[1] - filters[0].shape[1]) // stride + 1 This reflects the standard convolution formula, where the output size shrinks because [ [ Select ] ]. 3) Inside the nested loops, the expression input_data[:, i*stride : i*stride + filters[0].shape[1], j*stride : j*stride + filters[0].shape[2]] extracts a local input patch whose shape matches each filter, which is necessary because convolution is computed over [ [ Select ] ]. 4) The operation np.sum(input_patch * filters, axis=(1, 2, 3)) produces one output value per filter because multiplying the input patch by all filters produces a tensor with shape (num_filters,C,Hf,Wf ), and summing over axes (1,2,3) computes [ [ Select ] ].\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "the stride-normalized activation",
+        "B": "the max value in each receptive field",
+        "C": "the dot product between each filter and the local patch",
+        "D": "the channel-averaged feature map"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    }
+  ]
+}

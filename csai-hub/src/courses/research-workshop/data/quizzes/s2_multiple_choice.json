@@ -1,0 +1,138 @@
+{
+  "section_id": "s2",
+  "quiz_type": "multiple_choice",
+  "title": "Research Question & Literature Review - Multiple Choice",
+  "questions": [
+    {
+      "id": "s2_mc_1",
+      "number": 1,
+      "question": "A student proposes this research question: \"How accurately can a machine learning model predict moment-to-moment attentional lapses in everyday environments using continuous EEG recordings collected over a five-year period?\" The RQ contains a flaw. Which revision best fixes its main issue?",
+      "options": {
+        "A": "How does sustained attention feel to people across different everyday environments over many years of life?",
+        "B": "How accurately can models predict attentional lapses from EEG recorded during laboratory attention tasks?",
+        "C": "What is the deeper neural meaning of attention in the human brain across the entire human lifespan and beyond?",
+        "D": "How accurately can one model predict attentional lapses everywhere using lifelong EEG gathered from many people?"
+      },
+      "correct_answer": "B",
+      "explanation": "The flaw is infeasible scope: five years of continuous everyday-environment EEG cannot be done in a student project. B narrows it to a feasible, measurable lab-task study while keeping the same construct. A changes the construct to subjective feeling and is untestable; C is broad and philosophical; D stays just as infeasible and vague."
+    },
+    {
+      "id": "s2_mc_2",
+      "number": 2,
+      "question": "A draft introduction supports a single claim with a string of eight in-text citations packed into one sentence. A reviewer flags it. What is the main problem?",
+      "options": {
+        "A": "Too many sources support one claim; cite at most about three, keeping the strongest two or three.",
+        "B": "It wrongly mixes in-text and parenthetical citation styles, and that is the real error to fix here.",
+        "C": "It gives far too many concrete numerical examples for what is only an introduction paragraph here.",
+        "D": "At least one of the cited sources is almost certainly too old to belong in a modern introduction now."
+      },
+      "correct_answer": "A",
+      "explanation": "Overciting confuses and distracts the reader; pick the two or three strongest sources for one claim. B, C, and D are plausible writing concerns but none is the actual issue here, which is simply citing too many sources at once."
+    },
+    {
+      "id": "s2_mc_3",
+      "number": 3,
+      "question": "A peer claims that a literature review is essentially a well-organised summary of every paper you read. Is this RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT, because the reader needs an accurate description of each source you consulted.",
+        "B": "RIGHT, as long as the summaries are grouped neatly by author for easy reference.",
+        "C": "WRONG, because a review is analysis and critical evaluation that shows the gap your RQ fills.",
+        "D": "WRONG, because a review should instead list only the methods sections of each paper."
+      },
+      "correct_answer": "C",
+      "explanation": "A lit review is not a summary; it critically evaluates and connects sources to motivate your research gap (\"joining the conversation\"). A and B treat it as description; D invents a narrow methods-only rule that the section content does not support."
+    },
+    {
+      "id": "s2_mc_4",
+      "number": 4,
+      "question": "Belcher (2019) frames academic writing as a \"debate you overheard.\" What does this imply for structuring a literature review?",
+      "options": {
+        "A": "You should review the sides of the ongoing debate, not summarise sources one by one.",
+        "B": "You should report only the loudest single source and treat its lone view as fully settled fact.",
+        "C": "You should avoid citing any prior work at all so that your own voice stays clearly dominant throughout.",
+        "D": "You should present the sources strictly in the chronological order in which you happened to read them."
+      },
+      "correct_answer": "A",
+      "explanation": "\"Joining the conversation\" means entering an ongoing scholarly debate and organising the review around its sides, which avoids the summary effect. B over-trusts one source; C contradicts the point of a review; D imposes a meaningless reading-order structure."
+    },
+    {
+      "id": "s2_mc_5",
+      "number": 5,
+      "question": "A student writes: \"Background noise reduces task performance because divided attention lowers accuracy.\" Which statement correctly distinguishes a research question from a hypothesis here?",
+      "options": {
+        "A": "Both sentences are hypotheses, since any sentence about variables predicts an outcome.",
+        "B": "The sentence is a research question, because it ends without a question mark by mistake.",
+        "C": "It is a hypothesis: \"Does background noise reduce task performance?\" would be the RQ.",
+        "D": "It is neither, because hypotheses may never mention a proposed mechanism such as attention."
+      },
+      "correct_answer": "C",
+      "explanation": "The RQ is the question; the hypothesis is your predicted answer. \"Does noise reduce performance?\" is the question, while the given sentence asserts a predicted outcome and so is a hypothesis. A erases the distinction, B fixates on punctuation, and D invents a false rule about mechanisms."
+    },
+    {
+      "id": "s2_mc_6",
+      "number": 6,
+      "question": "A student needs a definition of the \"cocktail-party effect\" and cites a 2021 textbook that itself attributes the term to Cherry (1953). What citation mistake is this, and what should they do?",
+      "options": {
+        "A": "Misattribution; they should credit the textbook authors as the originators of the effect.",
+        "B": "Citing the citation; they should track down and cite Cherry (1953), the original source.",
+        "C": "Overciting a definition; they should drop the citation and state the definition unsourced.",
+        "D": "Citing irrelevant literature; the cocktail-party effect does not belong in attention work.",
+        "E": "No mistake; citing whichever recent source mentions the term is always acceptable."
+      },
+      "correct_answer": "B",
+      "explanation": "Citing a paper that cites the original instead of the original itself is \"citing the citation\"; always find the original source for a definition (here Cherry, 1953). A reverses the credit, C wrongly drops attribution, and D mislabels a clearly relevant concept as irrelevant."
+    },
+    {
+      "id": "s2_mc_7",
+      "number": 7,
+      "question": "Why is academic reading described as goal-directed rather than read top-to-bottom like a novel?",
+      "options": {
+        "A": "Because journal articles are legally required to be skimmed, never read in full.",
+        "B": "Because reading every word in linear order is the surest way to avoid any misinterpretation.",
+        "C": "Because the abstract is always wrong, so the article body must be read first instead.",
+        "D": "Because you hunt for what serves your goal, using different strategies for different aims."
+      },
+      "correct_answer": "D",
+      "explanation": "You read with a specific goal, hunting for what you need and switching strategies (skim for relevance, deep-read for argument). A invents a legal rule, B describes novel-reading (the very contrast being rejected), and C wrongly distrusts abstracts."
+    },
+    {
+      "id": "s2_mc_8",
+      "number": 8,
+      "question": "What is the course policy on using generative AI to write text, and the main reason behind it?",
+      "options": {
+        "A": "GenAI is fully banned for all tasks because it can never improve a sentence's clarity.",
+        "B": "GenAI text may be submitted verbatim as long as a reference manager formats it.",
+        "C": "Avoid fully GenAI-generated text, because models hallucinate references and content.",
+        "D": "GenAI is encouraged for final drafts since its citations are more reliable than yours."
+      },
+      "correct_answer": "C",
+      "explanation": "The policy is to avoid fully GenAI-generated text because models hallucinate references and their content, and passing off an LLM's words as your own is plagiarism. A overstates the ban, B ignores plagiarism and hallucination, and D falsely claims GenAI citations are reliable."
+    },
+    {
+      "id": "s2_mc_9",
+      "number": 9,
+      "question": "A student is deciding whether a found source is scholarly. Which combination of signals best supports judging it as scholarly?",
+      "options": {
+        "A": "Peer review, recognised author credentials, and a reputable publication venue.",
+        "B": "A confident tone, a long word count, and a recent posting date on a blog.",
+        "C": "High view counts, a catchy headline, and inclusion in a Google web search.",
+        "D": "A paywall, a downloadable PDF, and the presence of any reference list at all."
+      },
+      "correct_answer": "A",
+      "explanation": "Scholarly status rests on peer review, author credentials, and the venue. B, C, and D list surface features (tone, popularity, format) that non-scholarly sources can easily share, so they do not establish scholarliness."
+    },
+    {
+      "id": "s2_mc_10",
+      "number": 10,
+      "question": "A reviewer says a lit-review draft suffers from the \"summary effect.\" Which revision best addresses it?",
+      "options": {
+        "A": "Add a one-paragraph summary of each study, ordered alphabetically by first author.",
+        "B": "Move every individual study summary into a single long table at the end of the section.",
+        "C": "Cut all citations and replace them with the student's own opinions about the topic.",
+        "D": "Group studies into sub-themes or sides of a debate that build toward the research gap."
+      },
+      "correct_answer": "D",
+      "explanation": "The summary effect is fixed by organising sources by topic or debate side rather than author, which facilitates comparison and guides the reader to your gap. A keeps author-by-author summarising, B just relocates the summaries without analysis, and C removes the evidence base."
+    }
+  ]
+}

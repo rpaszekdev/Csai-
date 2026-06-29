@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/iconfont.css">
+<script src="image-slot.js"></script>
+<script src="dl-data.js"></script>
+<script src="deep-learning/summaries/rnns-summary-data.js"></script>
+<style>
+@keyframes vaderwalk { from { background-position-x: 0; } to { background-position-x: -330px; } }
+@keyframes tickpop { 0% { transform: scale(0); } 45% { transform: scale(1.6); } 70% { transform: scale(.9); } 100% { transform: scale(1); } }
+@keyframes btnpop { 0% { transform: scale(1); } 25% { transform: scale(1.07); } 60% { transform: scale(.98); } 100% { transform: scale(1); } }
+@keyframes heartbreak { 0% { transform: scale(1) rotate(0); } 18% { transform: scale(1.4) rotate(-10deg); } 42% { transform: scale(.7) rotate(10deg); } 70% { transform: scale(1.12) rotate(-4deg); } 100% { transform: scale(1) rotate(0); } }
+@keyframes fbpop { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="height:100vh; display:flex; font-family:'JetBrains Mono',ui-monospace,monospace; color:#141414; background:#fff; overflow:hidden; image-rendering:pixelated;">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <div ref="{{ sideRef }}" style="flex:none; width:274px; min-width:274px; display:flex; flex-direction:column; background:var(--bg); border-right:1px dashed var(--line); overflow:hidden; transition:width .22s ease, min-width .22s ease;">
+
+    <div style="display:flex; align-items:center; gap:13px; padding:24px 18px 20px;">
+      <span onClick="{{ goLanding }}" title="Home" style="font-family:'Press Start 2P',monospace; font-size:13px; letter-spacing:1px; white-space:nowrap; display:inline-flex; align-items:center; cursor:pointer;">CSAI<span style="font-size:13px; margin:0 2px; color:var(--accent);">@</span>LIVE</span>
+      <span style="flex:1;"></span>
+      <i onClick="{{ toggleSidebar }}" class="hn hn-side-nav-collapse" style="font-size:21px; color:var(--ink); cursor:pointer;" data-comment-anchor="4930e4997c-i"></i>
+    </div>
+
+    <div style="display:flex; align-items:center; padding:6px 22px 14px;">
+      <span style="font-family:'Press Start 2P',monospace; font-size:8px; letter-spacing:1px; color:var(--mute);">FILES</span>
+      <span style="flex:1;"></span>
+      <i class="hn hn-plus" style="font-size:15px; color:var(--mute); cursor:pointer; margin-right:14px;"></i>
+      <i class="hn hn-folder" style="font-size:15px; color:var(--mute); cursor:pointer;"></i>
+    </div>
+
+    <div style="flex:1; min-height:0; overflow:auto; padding:2px 12px 12px;" data-comment-anchor="5f2dda31ea-div">
+      <sc-for list="{{ rows }}" as="row" hint-placeholder-count="8">
+        <div onClick="{{ row.onClick }}" style="display:flex; align-items:center; gap:11px; height:36px; padding-right:10px; padding-left:{{ row.pad }}; cursor:pointer; font-size:12.5px; color:{{ row.fg }}; font-weight:{{ row.weight }}; background:{{ row.bg }}; border-left:3px solid {{ row.mark }};">
+          <i class="hn {{ row.chev }}" style="font-size:9px; width:9px; text-align:center; color:var(--mute); opacity:{{ row.chevOp }};"></i>
+          <i class="hn {{ row.icon }}" style="font-size:15px; color:{{ row.iconColor }};"></i>
+          <span style="flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ row.label }}</span>
+          <span style="font-size:9px; color:var(--mute); letter-spacing:.5px;">{{ row.prog }}</span>
+          <i class="hn {{ row.tagIcon }}" style="font-size:12px; color:var(--ink); opacity:{{ row.tagOp }};"></i>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:20px; padding:18px 24px; border-top:1px dashed var(--line);">
+      <a href="https://github.com/rpaszekdev/Csai-" target="_blank" style="color:var(--ink); text-decoration:none; display:flex;"><i class="hn hn-github" style="font-size:19px;"></i></a>
+      <i onClick="{{ toggleTheme }}" class="hn {{ themeIcon }}" style="font-size:19px; cursor:pointer;"></i>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN ===================== -->
+  <div style="flex:1; min-width:0; display:flex; flex-direction:column; background:var(--bg);">
+
+    <div style="flex:none; display:flex; align-items:stretch; height:52px; border-bottom:1px dashed var(--line);">
+      <sc-if value="{{ collapsed }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ toggleSidebar }}" style="flex:none; width:52px; display:flex; align-items:center; justify-content:center; cursor:pointer; border-right:1px dashed var(--line); color:var(--ink);">
+          <i class="hn hn-side-nav-expand" style="font-size:19px;"></i>
+        </div>
+      </sc-if>
+      <div style="flex:1; min-width:0; display:flex; align-items:stretch; overflow-x:auto;" data-comment-anchor="f8ea118aa6-div">
+        <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="2">
+          <div draggable="true" onDragStart="{{ tab.onDragStart }}" onDragOver="{{ tab.onDragOver }}" onDrop="{{ tab.onDrop }}" style="flex:none; display:flex; align-items:center; gap:9px; padding:0 13px 0 18px; font-size:12px; color:{{ tab.fg }}; font-weight:{{ tab.weight }}; border-right:1px dashed var(--line); border-bottom:2px solid {{ tab.ind }}; position:relative; top:1px;" data-comment-anchor="7f25bbcc01-div">
+            <div onClick="{{ tab.onClick }}" style="display:flex; align-items:center; gap:9px; cursor:pointer;">
+              <i class="hn {{ tab.icon }}" style="font-size:13px; color:{{ tab.iconColor }};"></i>
+              <span style="white-space:nowrap;">{{ tab.label }}</span>
+            </div>
+            <i onClick="{{ tab.onClose }}" class="hn hn-times" style="font-size:11px; color:var(--mute); margin-left:5px; cursor:pointer; padding:3px;" style-hover="{color:'var(--ink)'}" data-comment-anchor="76fd4406e7-i"></i>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:0 22px; color:var(--mute); font-size:10px; letter-spacing:1px;">
+        
+        
+      </div>
+    </div>
+
+    <!-- content -->
+    <div ref="{{ scrollRef }}" style="flex:1; min-height:0; overflow:auto;">
+      <div data-sumhole="1">{{ summaryEl }}</div>
+
+      <!-- ============ LANDING (course navigator) ============ -->
+      <sc-if value="{{ isLanding }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Landing" style="min-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:56px 60px 64px; box-sizing:border-box;">
+          <div style="text-align:center; margin-bottom:48px;">
+            <div style="font-family:'Press Start 2P',monospace; font-size:9px; letter-spacing:2px; color:var(--ink);">SELECT&nbsp;A&nbsp;MODULE</div>
+            <div style="margin-top:13px; font-size:9px; letter-spacing:2px; color:var(--mute);">{{ navLive }}&nbsp;LIVE&nbsp;·&nbsp;{{ navSoon }}&nbsp;UPCOMING</div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(5,1fr); column-gap:22px; row-gap:40px; max-width:700px; justify-items:center;">
+            <sc-for list="{{ navCourses }}" as="co" hint-placeholder-count="0">
+              <div onClick="{{ co.onClick }}" style="display:flex; flex-direction:column; align-items:center; gap:12px; width:118px; cursor:{{ co.cursor }};">
+                <div style="width:78px; height:78px; display:flex; align-items:center; justify-content:center; border:1px solid {{ co.cell }}; transition:border-color .14s, transform .14s;" style-hover="{transform:'translateY(-3px)', borderColor:'var(--ink)'}">
+                  <div style="{{ co.iconStyle }}"></div>
+                </div>
+                <span style="font-size:9.5px; line-height:1.34; text-align:center; letter-spacing:.2px; color:{{ co.label }}; font-weight:{{ co.weight }}; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; max-width:110px;">{{ co.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ QUIZ (centered, minimal, fluid, no scroll) ============ -->
+      <sc-if value="{{ isQuiz }}" hint-placeholder-val="{{ true }}">
+        <div style="height:100%; display:flex; min-height:0;">
+
+          <!-- quiz column -->
+          <div style="flex:1; min-width:0; height:100%; box-sizing:border-box; display:flex; flex-direction:column; padding:clamp(10px,2vh,20px) 44px; overflow:hidden;">
+            <div style="width:100%; max-width:680px; margin:0 auto; flex:1; min-height:0; display:flex; flex-direction:column;">
+
+              <div ref="{{ qTabsRef }}" style="flex:none; overflow:hidden; max-height:64px; opacity:1; transition:max-height .18s ease-out, opacity .12s ease-out;">
+                <div style="display:flex; gap:5px; justify-content:center; flex-wrap:wrap;">
+                  <sc-for list="{{ dlTabs }}" as="t" hint-placeholder-count="8">
+                    <div onClick="{{ t.onClick }}" style="padding:5px 9px; cursor:pointer; font-size:10px; font-weight:{{ t.weight }}; color:{{ t.fg }}; border:1.5px solid {{ t.selBd }};">{{ t.code }}</div>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div ref="{{ qScrollRef }}" onScroll="{{ onQScroll }}" style="flex:1; min-height:0; overflow-y:auto; position:relative; padding-right:6px; margin-top:clamp(10px,1.6vh,16px);">
+                <div ref="{{ qLessonRef }}" style="text-align:center; padding-bottom:clamp(10px,1.7vh,16px);">
+                  <div style="font-size:9px; letter-spacing:3px; color:var(--mute);">{{ quizEyebrow }}</div>
+                  <h1 style="margin:10px 0 0; font-family:'Press Start 2P',monospace; font-size:clamp(13px,1.5vw,16px); line-height:1.5; letter-spacing:1px;">{{ quizTitle }}</h1>
+                  <div style="font-size:10px; letter-spacing:2px; color:var(--mute); margin-top:11px;">{{ counter }}</div>
+                  <sc-if value="{{ quizReal }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:4px 10px; border:1.5px solid var(--ink); font-family:'Press Start 2P',monospace; font-size:7px; letter-spacing:1.5px; color:var(--ink);"><i class="hn hn-check" style="font-size:9px;"></i>REAL&nbsp;COURSE&nbsp;QUIZ</div>
+                  </sc-if>
+                  <div style="display:flex; justify-content:center; margin-top:14px;">
+                    <div style="position:relative; width:230px; padding-top:23px;">
+                      <div ref="{{ vaderRef }}" style="position:absolute; left:5%; bottom:8px; width:30px; height:30px; background:url('assets/vader_walk_right.png') left center / 330px 30px no-repeat; image-rendering:pixelated; animation:none; transform:translateX(-50%); transition:left .55s cubic-bezier(.4,.06,.2,1); pointer-events:none;"></div>
+                      <div style="display:flex; gap:5px;">
+                        <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="10">
+                          <span style="flex:1; height:3px; background:{{ b.fill }};"></span>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display:flex; align-items:center; justify-content:center; gap:16px; margin-top:16px;">
+                    <span style="font-family:'Press Start 2P',monospace; font-size:10px; letter-spacing:1px; color:var(--ink); display:inline-block; animation:{{ scoreAnim }};">SCORE&nbsp;{{ scoreText }}</span>
+                    <span style="width:1px; height:13px; background:var(--line);"></span>
+                    <span style="font-size:8px; letter-spacing:2px; color:var(--mute);">VADER</span>
+                    <div style="display:flex; gap:5px; align-items:center;">
+                      <sc-for list="{{ vaderLives }}" as="hp" hint-placeholder-count="3">
+                        <i class="hn {{ hp.icon }}" style="font-size:12px; color:{{ hp.color }}; animation:{{ hp.anim }};"></i>
+                      </sc-for>
+                    </div>
+                  </div>
+                </div>
+
+                <div ref="{{ qStickyRef }}" style="position:sticky; top:0; z-index:3; background:var(--bg); padding-top:clamp(8px,1.4vh,14px); padding-bottom:0px; border-bottom:1px dashed transparent; transition:border-color .16s ease, box-shadow .16s ease, padding-bottom .16s ease;">
+                  <div ref="{{ qNumRowRef }}" style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; overflow:hidden; max-height:48px; opacity:1; transition:max-height .18s ease-out, opacity .12s ease-out;">
+                    <span style="font-family:'Press Start 2P',monospace; font-size:26px; line-height:1; -webkit-text-stroke:2px var(--ink); color:transparent;">{{ qNum }}</span>
+                    <span style="font-size:9px; letter-spacing:2px; color:var(--mute); margin-top:4px;">{{ qType }}</span>
+                  </div>
+                  <div ref="{{ qTextRef }}" style="font-size:clamp(13px,1.35vw,15px); font-weight:600; line-height:1.6; margin-top:12px; transition:font-size .16s ease-out, margin-top .16s ease-out;">{{ qText }}</div>
+                </div>
+                <div style="margin-top:14px;">
+                  <sc-if value="{{ isCodeQ }}" hint-placeholder-val="{{ false }}">
+                    <pre style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12px; line-height:1.75; margin:0 0 16px; padding:14px 16px; background:var(--sel); border-left:3px solid var(--ink); white-space:pre-wrap; word-break:break-word; overflow-x:auto; color:var(--ink); tab-size:2;"><sc-for list="{{ codeSegments }}" as="seg" hint-placeholder-count="6"><sc-if value="{{ seg.isText }}" hint-placeholder-val="{{ true }}"><span>{{ seg.text }}</span></sc-if><sc-if value="{{ seg.isBlank }}" hint-placeholder-val="{{ false }}"><select onChange="{{ seg.onChange }}" value="{{ seg.value }}" disabled="{{ seg.disabled }}" style="font-family:inherit; font-size:11.5px; font-weight:700; color:{{ seg.fg }}; background:{{ seg.bg }}; border:1.5px solid {{ seg.bd }}; padding:1px 6px; margin:0 2px; cursor:pointer; vertical-align:baseline; max-width:240px;"><option value="">—</option><sc-for list="{{ seg.opts }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for></select></sc-if></sc-for></pre>
+                  </sc-if>
+                  <sc-for list="{{ options }}" as="opt" hint-placeholder-count="4">
+                    <div onClick="{{ opt.onClick }}" style="display:flex; align-items:flex-start; gap:14px; padding:12px 2px; cursor:pointer; border-bottom:1px dashed var(--line);">
+                      <span style="flex:none; margin-top:1px; width:16px; height:16px; display:flex; align-items:center; justify-content:center; border:1.5px solid {{ opt.boxBd }}; background:{{ opt.boxBg }};">
+                        <i class="hn {{ opt.checkIcon }}" style="font-size:9px; color:{{ opt.checkColor }}; opacity:{{ opt.checkOp }}; animation:{{ opt.tickAnim }};"></i>
+                      </span>
+                      <span style="flex:none; font-weight:700; font-size:13.5px; min-width:18px; color:{{ opt.dim }};">{{ opt.letter }}.</span>
+                      <span style="flex:1; font-size:13.5px; line-height:1.55; font-weight:{{ opt.textWeight }}; color:{{ opt.dim }};">{{ opt.text }}</span>
+                      <span style="flex:none; margin-top:1px; font-size:8px; letter-spacing:1px; color:{{ opt.tagColor }}; opacity:{{ opt.tagOp }};">{{ opt.tag }}</span>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ isInlineDropdown }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:14px; line-height:2.6; margin-top:8px; color:var(--ink); text-wrap:pretty;">
+                      <sc-for list="{{ qSegments }}" as="seg" hint-placeholder-count="5">
+                        <sc-if value="{{ seg.isText }}" hint-placeholder-val="{{ true }}"><span>{{ seg.text }}</span></sc-if>
+                        <sc-if value="{{ seg.isBlank }}" hint-placeholder-val="{{ false }}"><select onChange="{{ seg.onChange }}" value="{{ seg.value }}" disabled="{{ seg.disabled }}" style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:12.5px; font-weight:700; color:{{ seg.fg }}; background:{{ seg.bg }}; border:1.5px solid {{ seg.bd }}; padding:3px 7px; margin:0 3px; cursor:pointer; vertical-align:middle; max-width:260px;"><option value="">— select —</option><sc-for list="{{ seg.opts }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for></select></sc-if>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ isReviewQ }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:22px 2px; color:var(--mute); font-size:12.5px; line-height:1.65;">This is a concept / recall question — there are no options to tick. Hit <span style="color:var(--ink); font-weight:700;">REVEAL ANSWER</span> for the worked solution.</div>
+                  </sc-if>
+                </div>
+              </div>
+
+              <div style="flex:none; display:flex; align-items:center; gap:10px; margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);">
+                <div onClick="{{ prevQ }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:10px 15px; border:2px solid {{ prevBorder }}; color:{{ prevColor }}; cursor:{{ prevCursor }};"><i class="hn hn-arrow-left" style="font-size:12px;"></i>PREV</div>
+                <div onClick="{{ centerClick }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:10px 18px; background:{{ centerBg }}; color:{{ centerColor }}; border:2px solid {{ centerBorder }}; cursor:{{ centerCursor }}; animation:{{ centerAnim }};">{{ centerLabel }} <i class="hn {{ centerIcon }}" style="font-size:12px;"></i></div>
+                <div onClick="{{ nextClick }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:10px 15px; border:2px solid {{ nextBorder }}; color:{{ nextColor }}; cursor:{{ nextCursor }};">{{ nextLabel }} <i class="hn hn-arrow-right" style="font-size:12px;"></i></div>
+                <div style="flex:1;"></div>
+                <div onClick="{{ rightClick }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:10px 15px; color:{{ rightColor }}; cursor:pointer;">{{ rightLabel }}<i class="hn {{ rightIcon }}" style="font-size:12px; opacity:{{ rightIconOp }};"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- explanation drawer (slides from right) -->
+          <div ref="{{ explRef }}" style="flex:none; width:0; height:100%; border-left:1px dashed var(--line); overflow:hidden; transition:width .3s ease; background:var(--bg);">
+            <div style="width:280px; height:100%; box-sizing:border-box; display:flex; flex-direction:column; padding:22px 22px 26px;">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:'Press Start 2P',monospace; font-size:10px; letter-spacing:1px;">EXPLANATION</span>
+                <i onClick="{{ closeExpl }}" class="hn hn-times" style="font-size:16px; color:var(--mute); cursor:pointer;"></i>
+              </div>
+              <sc-if value="{{ quizRevealed }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-direction:column; flex:1; min-height:0; overflow-y:auto; padding-right:4px;">
+                  <div style="display:flex; align-items:center; gap:9px; margin-top:18px;">
+                    <span style="flex:none; width:22px; height:22px; display:flex; align-items:center; justify-content:center; background:{{ fbBg }}; color:#ffffff; animation:{{ fbAnim }};"><i class="hn {{ fbIcon }}" style="font-size:11px;"></i></span>
+                    <span style="font-size:11px; font-weight:700; letter-spacing:1px; color:{{ fbBg }};">{{ fbText }}</span>
+                  </div>
+                  <sc-if value="{{ hasAnswerChip }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:inline-flex; align-self:flex-start; align-items:center; gap:8px; margin-top:18px; padding:8px 12px; border:2px solid var(--ink);">
+                      <i class="hn hn-check" style="font-size:12px;"></i>
+                      <span style="font-size:12px; font-weight:700;">{{ explAnswer }}</span>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ hasExpl }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-size:9px; letter-spacing:2px; color:var(--mute); margin-top:22px;">WHY</div>
+                    <div style="font-size:13px; line-height:1.75; margin-top:12px; white-space:pre-line;" data-comment-anchor="f2b3068091-div">{{ explText }}</div>
+                  </sc-if>
+                  <sc-if value="{{ teacherShow }}" hint-placeholder-val="{{ false }}">
+                    <div style="margin-top:24px; border-top:1px dashed var(--line); padding-top:18px;">
+                      <div style="display:flex; align-items:center; gap:7px;"><i class="hn hn-graduation-cap" style="font-size:13px;"></i><span style="font-family:'Press Start 2P',monospace; font-size:8px; letter-spacing:1px;">TEACHER'S READ</span></div>
+                      <div style="font-size:12.5px; line-height:1.7; margin-top:12px; color:var(--ink);">{{ teacherTip }}</div>
+                      <sc-if value="{{ teacherHasTells }}" hint-placeholder-val="{{ false }}">
+                        <div style="font-size:9px; letter-spacing:1.5px; color:var(--mute); margin-top:16px;">GIVEAWAY WORDS IN THE OPTIONS</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:9px;">
+                          <sc-for list="{{ teacherTells }}" as="t" hint-placeholder-count="3">
+                            <span style="display:inline-flex; align-items:baseline; gap:5px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:700; padding:3px 8px; border:1.5px solid {{ t.color }}; color:{{ t.color }};">{{ t.word }}<span style="font-size:8px; font-weight:400; opacity:.75; letter-spacing:.5px;">{{ t.label }}</span></span>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                      <div style="font-size:11.5px; line-height:1.65; margin-top:16px; color:var(--mute);">{{ teacherLen }}</div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ teacherNoSignal }}" hint-placeholder-val="{{ false }}">
+                    <div style="margin-top:24px; border-top:1px dashed var(--line); padding-top:18px;">
+                      <div style="display:flex; align-items:center; gap:7px;"><i class="hn hn-graduation-cap" style="font-size:13px;"></i><span style="font-family:'Press Start 2P',monospace; font-size:8px; letter-spacing:1px;">TEACHER'S READ</span></div>
+                      <div style="font-size:12.5px; line-height:1.7; margin-top:12px; color:var(--mute);">This is a recall / compute / code question — phrasing tells don't apply here. Work the mechanism or the math; don't pattern-match the wording.</div>
+                    </div>
+                  </sc-if>
+                  <div style="flex:1;"></div>
+                  <div style="display:flex; align-items:center; gap:9px; font-size:10px; color:var(--mute); letter-spacing:1px; border-top:1px dashed var(--line); padding-top:16px;">
+                    <i class="hn hn-robot" style="font-size:13px; color:var(--ink);"></i>{{ explFoot }}
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ quizNotRevealed }}" hint-placeholder-val="{{ true }}">
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:16px; color:var(--mute);">
+                  <i class="hn hn-lock" style="font-size:24px;"></i>
+                  <div style="font-size:10px; letter-spacing:1.5px; line-height:1.9;">ANSWER THE QUESTION<br>TO REVEAL THE EXPLANATION</div>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ QUIZ RESULT ============ -->
+      <sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}">
+        <div data-screen-label="Quiz Result" style="height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 32px; box-sizing:border-box;">
+          <div style="font-family:'Press Start 2P',monospace; font-size:9px; letter-spacing:2px; color:var(--mute);">{{ resultEyebrow }}</div>
+          <h1 style="font-family:'Press Start 2P',monospace; font-size:24px; line-height:1.4; letter-spacing:1px; margin:16px 0 0; color:{{ resultColor }};">{{ resultTitle }}</h1>
+          <div style="position:relative; width:80px; height:64px; margin:24px 0 20px;">
+            <div style="position:absolute; left:50%; bottom:0; width:64px; height:64px; background:url('assets/vader_walk_right.png') left center / 704px 64px no-repeat; image-rendering:pixelated; filter:var(--iconFilter); transform:{{ resultVaderTransform }}; opacity:{{ resultVaderOpacity }};"></div>
+          </div>
+          <div style="font-family:'Press Start 2P',monospace; font-size:40px; line-height:1; color:var(--ink);">{{ scorePct }}%</div>
+          <div style="font-size:10px; letter-spacing:2px; color:var(--mute); margin-top:13px;">{{ scoreText }}&nbsp;CORRECT&nbsp;·&nbsp;PASS&nbsp;{{ passPct }}%</div>
+          <div style="font-size:12.5px; line-height:1.7; color:var(--ink); margin-top:20px; max-width:430px;">{{ resultBlurb }}</div>
+          <div style="display:flex; gap:12px; margin-top:30px;">
+            <div onClick="{{ retryQuiz }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:12px 20px; background:var(--fill); color:var(--onFill); border:2px solid var(--fill); cursor:pointer;"><i class="hn hn-refresh" style="font-size:12px;"></i>RETRY</div>
+            <sc-if value="{{ canAdvance }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ goNextQuiz }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:12px 20px; border:2px solid var(--ink); color:var(--ink); cursor:pointer;">NEXT QUIZ <i class="hn hn-arrow-right" style="font-size:12px;"></i></div>
+            </sc-if>
+            <div onClick="{{ goLanding }}" style="display:flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:1px; padding:12px 20px; border:2px solid var(--line); color:var(--mute); cursor:pointer;">MENU</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ DEEP-LEARNING LECTURE (placeholder shell) ============ -->
+      <sc-if value="{{ isDl }}" hint-placeholder-val="{{ true }}">
+        <div style="min-height:100%; display:flex; flex-direction:column;">
+          <div style="padding:0;">
+          <div style="flex:1; padding:34px 40px 54px; max-width:1000px;">
+            <div style="font-size:10px; letter-spacing:2px; color:var(--mute); text-transform:uppercase;">{{ dlEyebrow }}</div>
+            <h1 style="margin:12px 0 0; font-family:'Press Start 2P',monospace; font-size:20px; line-height:1.5;">{{ dlTopic }}</h1>
+
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;">
+              <sc-for list="{{ materials }}" as="m" hint-placeholder-count="5">
+                <div onClick="{{ m.onClick }}" style="display:flex; align-items:center; gap:9px; padding:11px 16px; cursor:pointer; font-size:11px; font-weight:700; letter-spacing:1px; background:{{ m.bg }}; color:{{ m.fg }}; border:2px solid var(--ink); box-shadow:{{ m.shadow }};"><i class="hn {{ m.icon }}" style="font-size:14px;"></i>{{ m.label }}</div>
+              </sc-for>
+            </div>
+
+            <div style="border-top:1px dashed var(--line); margin:30px 0 0;"></div>
+
+            <div style="margin-top:30px;">
+              <sc-if value="{{ matPptx }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap;">
+                  <div style="position:relative; width:380px; max-width:100%; aspect-ratio:16/9; border:2px solid var(--ink); box-shadow:7px 7px 0 var(--line);">
+                    <div style="position:absolute; top:0; left:0; z-index:2; background:var(--ink); color:var(--onFill); font-family:'Press Start 2P',monospace; font-size:10px; padding:6px 9px;">01</div>
+                    <image-slot id="{{ slideId }}" placeholder="DROP SLIDE 01" style="width:100%; height:100%; display:block;"></image-slot>
+                  </div>
+                  <div style="flex:1; min-width:220px;">
+                    <div style="font-family:'Press Start 2P',monospace; font-size:10px;">SLIDE DECK</div>
+                    <div style="font-size:12.5px; line-height:1.75; color:var(--mute); margin-top:14px;">Placeholder — drag a slide image onto the frame. The real PPTX wires in here, one framed thumbnail per slide.</div>
+                    <div style="display:inline-flex; align-items:center; gap:9px; margin-top:18px; padding:11px 16px; border:2px solid var(--ink); font-size:11px; font-weight:700; letter-spacing:1px; cursor:pointer;"><i class="hn hn-grid" style="font-size:13px;"></i>OPEN DECK</div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ matTranscript }}" hint-placeholder-val="{{ false }}">
+                <div style="max-width:760px;">
+                  <div style="font-family:'Press Start 2P',monospace; font-size:10px;">TRANSCRIPT</div>
+                  <div style="display:flex; gap:16px; margin-top:20px; padding-bottom:16px; border-bottom:1px dashed var(--line);">
+                    <span style="font-size:11px; color:var(--mute); min-width:46px;">00:00</span>
+                    <span style="font-size:13px; line-height:1.75;">Placeholder transcript segment — the lesson’s auto-synced transcript appears here, one timestamped block per paragraph.</span>
+                  </div>
+                  <div style="font-size:11px; color:var(--mute); letter-spacing:1px; margin-top:18px;">··· full transcript wires in here ···</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ matChapter }}" hint-placeholder-val="{{ false }}">
+                <div style="max-width:760px;">
+                  <div style="font-family:'Press Start 2P',monospace; font-size:10px;">CHAPTER</div>
+                  <div style="font-size:14px; font-weight:700; margin-top:18px;">Chapter 1 — {{ dlTopic }}</div>
+                  <p style="font-size:13px; line-height:1.85; color:var(--mute); margin-top:12px;">Placeholder chapter excerpt. The matching textbook chapter renders here for reading alongside the lecture and slides.</p>
+                  <div style="display:inline-flex; align-items:center; gap:9px; margin-top:8px; padding:11px 16px; border:2px solid var(--ink); font-size:11px; font-weight:700; letter-spacing:1px; cursor:pointer;"><i class="hn hn-book" style="font-size:13px;"></i>OPEN FULL CHAPTER</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ matNotes }}" hint-placeholder-val="{{ false }}">
+                <div style="max-width:680px;">
+                  <div style="display:flex; align-items:center; gap:9px;"><i class="hn hn-copy" style="font-size:15px;"></i><span style="font-family:'Press Start 2P',monospace; font-size:10px;">NOTES</span></div>
+                  <div style="margin-top:18px; border:2px solid var(--ink); box-shadow:7px 7px 0 var(--line); padding:20px; font-size:13px; line-height:2; color:var(--mute);">— Placeholder note line<br>— Add your own notes for this lesson<br>— Saved alongside the lecture materials</div>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+          <sc-if value="{{ podcastOn }}" hint-placeholder-val="{{ false }}">
+            <div style="position:sticky; bottom:0; z-index:6; background:var(--bg); border-top:1px dashed var(--line); padding:13px 40px; display:flex; align-items:center; gap:16px;">
+              <div onClick="{{ togglePlay }}" style="flex:none; width:40px; height:40px; background:var(--fill); color:var(--onFill); display:flex; align-items:center; justify-content:center; cursor:pointer;"><i class="hn {{ podIcon }}" style="font-size:15px;"></i></div>
+              <div style="flex:none; font-size:11px; font-weight:700; white-space:nowrap;">{{ dlTopic }}<span style="color:var(--mute); font-weight:400;"> · podcast</span></div>
+              <div style="flex:1; min-width:0; display:flex; align-items:flex-end; gap:2px; height:22px;">
+                <sc-for list="{{ bars }}" as="bar" hint-placeholder-count="36"><span style="flex:1; height:{{ bar.h }}; background:{{ bar.bg }};"></span></sc-for>
+              </div>
+              <span style="flex:none; font-size:11px; color:var(--mute);">03:12 / 18:24</span>
+              <i onClick="{{ closePodcast }}" class="hn hn-times" style="flex:none; font-size:15px; color:var(--mute); cursor:pointer;"></i>
+            </div>
+          </sc-if>
+        </div>
+      
+
+      <!-- ============ DASHBOARD ============ -->
+      <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:46px 60px 56px; max-width:940px;">
+          <div style="font-size:10px; letter-spacing:2px; color:var(--mute); text-transform:uppercase;">Module Overview · Year 2 · 6 ECTS</div>
+          <h1 style="margin:14px 0 0; font-family:'Press Start 2P',monospace; font-size:21px; line-height:1.55;">COGNITIVE<br>NEUROSCIENCE</h1>
+
+          <div style="display:flex; gap:0; margin-top:40px; border-top:1px dashed var(--line); border-bottom:1px dashed var(--line);">
+            <div style="flex:1; padding:22px 24px 22px 0;">
+              <div style="display:flex; align-items:center; gap:8px; font-size:9px; letter-spacing:1px; color:var(--mute);"><i class="hn hn-check-list" style="font-size:13px; color:var(--ink);"></i>PROGRESS</div>
+              <div style="font-family:'Press Start 2P',monospace; font-size:18px; margin-top:14px;">6<span style="color:var(--mute); font-size:11px;">/11</span></div>
+              <div style="margin-top:14px; height:14px; border:2px solid var(--ink); display:flex;"><div style="width:55%; background:var(--ink);"></div></div>
+            </div>
+            <div style="flex:1; padding:22px 24px; border-left:1px dashed var(--line);">
+              <div style="display:flex; align-items:center; gap:8px; font-size:9px; letter-spacing:1px; color:var(--mute);"><i class="hn hn-calendar-alt" style="font-size:13px; color:var(--ink);"></i>NEXT EXAM</div>
+              <div style="font-family:'Press Start 2P',monospace; font-size:18px; margin-top:14px;">26 MAY</div>
+              <div style="margin-top:16px; font-size:11px; color:var(--mute);">17:30 · in 12 days</div>
+            </div>
+            <div style="flex:1; padding:22px 0 22px 24px; border-left:1px dashed var(--line);">
+              <div style="display:flex; align-items:center; gap:8px; font-size:9px; letter-spacing:1px; color:var(--mute);"><i class="hn hn-trophy" style="font-size:13px; color:var(--ink);"></i>BEST QUIZ</div>
+              <div style="font-family:'Press Start 2P',monospace; font-size:18px; margin-top:14px;">86<span style="color:var(--mute); font-size:11px;">%</span></div>
+              <div style="margin-top:16px; font-size:11px; color:var(--mute);">Memory Systems</div>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:12px; margin-top:44px; margin-bottom:6px;">
+            <span style="font-family:'Press Start 2P',monospace; font-size:11px;">LECTURES</span>
+            <span style="flex:1;"></span>
+            <span style="font-size:10px; color:var(--mute); letter-spacing:1px;">11 TOTAL</span>
+          </div>
+          <div>
+            <sc-for list="{{ lectures }}" as="lec" hint-placeholder-count="5">
+              <div onClick="{{ lec.onClick }}" style="display:flex; align-items:center; gap:16px; padding:16px 4px; cursor:pointer; border-bottom:1px dashed var(--line);">
+                <span style="font-family:'Press Start 2P',monospace; font-size:8px; min-width:48px; color:var(--mute);">{{ lec.mod }}</span>
+                <span style="flex:1; font-size:13.5px; font-weight:600; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:{{ lec.fg }};">{{ lec.title }}</span>
+                <span style="font-size:9px; letter-spacing:1px; color:var(--mute);">{{ lec.status }}</span>
+                <i class="hn {{ lec.icon }}" style="font-size:15px; color:{{ lec.fg }};"></i>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex; gap:48px; margin-top:46px;">
+            <div style="flex:1.1;">
+              <div style="display:flex; align-items:center; gap:9px; margin-bottom:18px;"><i class="hn hn-graduation-cap" style="font-size:14px;"></i><span style="font-family:'Press Start 2P',monospace; font-size:9px;">EXAMS</span></div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px dashed var(--line);"><span style="font-size:12px; font-weight:700;">FINAL · Digital</span><span style="font-family:'Press Start 2P',monospace; font-size:9px;">40%</span></div>
+              <div style="font-size:10.5px; color:var(--mute); padding:8px 0 16px;">26 May · 17:30–19:30 · no min grade</div>
+              <div style="display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px dashed var(--line);"><span style="font-size:12px; font-weight:700;">RESIT · Digital</span><span style="font-family:'Press Start 2P',monospace; font-size:9px;">80%</span></div>
+              <div style="font-size:10.5px; color:var(--mute); padding:8px 0 0;">23 Jun · resit replaces final</div>
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex; align-items:center; gap:9px; margin-bottom:18px;"><i class="hn hn-pencil-ruler" style="font-size:14px;"></i><span style="font-family:'Press Start 2P',monospace; font-size:9px;">ASSIGNMENT</span></div>
+              <div style="font-size:12px; font-weight:600; line-height:1.6; margin-bottom:14px;">4 of 6 practicals + flipped-classroom presentation</div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;"><span style="font-family:'Press Start 2P',monospace; font-size:9px;">20%</span><span style="font-size:10.5px; color:var(--mute);">throughout semester</span></div>
+              <div style="display:flex; align-items:flex-start; gap:9px; font-size:10.5px; border-top:1px dashed var(--line); padding-top:16px; color:var(--mute);"><i class="hn hn-bell" style="font-size:12px; margin-top:1px; color:var(--ink);"></i><span>Skip either component → grade becomes 0</span></div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- ============ LECTURE / DOC ============ -->
+      <sc-if value="{{ isLecture }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:46px 60px 56px; max-width:820px;">
+          <div style="font-size:10px; letter-spacing:2px; color:var(--mute); text-transform:uppercase;">{{ docEyebrow }}</div>
+          <h1 style="margin:14px 0 0; font-family:'Press Start 2P',monospace; font-size:18px; line-height:1.6;">{{ docTitle }}</h1>
+
+          <div style="display:flex; gap:26px; margin-top:24px; font-size:11px; color:var(--mute); letter-spacing:.5px;">
+            <span style="display:inline-flex; align-items:center; gap:7px;"><i class="hn hn-file-import" style="font-size:13px; color:var(--ink);"></i>6 SOURCES</span>
+            <span style="display:inline-flex; align-items:center; gap:7px;"><i class="hn hn-grid" style="font-size:13px; color:var(--ink);"></i>24 SLIDES</span>
+            <span style="display:inline-flex; align-items:center; gap:7px;"><i class="hn hn-clock" style="font-size:13px; color:var(--ink);"></i>45 MIN</span>
+          </div>
+
+          <div style="border-top:1px dashed var(--line); margin:30px 0 0;"></div>
+
+          <div style="display:flex; align-items:center; gap:9px; margin-top:30px; margin-bottom:10px;"><i class="hn hn-check-list" style="font-size:14px;"></i><span style="font-family:'Press Start 2P',monospace; font-size:9px;">LEARNING GOALS</span></div>
+          <sc-for list="{{ goals }}" as="g" hint-placeholder-count="4">
+            <div style="display:flex; align-items:flex-start; gap:12px; padding:9px 0; font-size:13px; line-height:1.5; border-bottom:1px dashed var(--line);"><i class="hn hn-angle-right" style="font-size:12px; margin-top:3px; color:var(--mute);"></i><span>{{ g.text }}</span></div>
+          </sc-for>
+
+          <p style="font-size:13.5px; line-height:1.8; margin:26px 0 16px;">{{ docBody1 }}</p>
+          <p style="font-size:13.5px; line-height:1.8; margin:0 0 30px;">{{ docBody2 }}</p>
+
+          <div style="display:flex; gap:14px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:1px; padding:14px 22px; background:var(--fill); color:var(--onFill); cursor:pointer;"><i class="hn hn-play" style="font-size:13px;"></i>OPEN SLIDES</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:11px; font-weight:700; letter-spacing:1px; padding:14px 22px; border:2px solid var(--ink); cursor:pointer;"><i class="hn hn-bookmark" style="font-size:13px;"></i>SAVE</div>
+          </div>
+        </div>
+      </sc-if>
+
+
+
+    </div>
+  </sc-if></div>
+</div>
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:820},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;light&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  sideRef = React.createRef();
+  scrollRef = React.createRef();
+  vaderRef = React.createRef();
+  explRef = React.createRef();
+  qScrollRef = React.createRef();
+  qLessonRef = React.createRef();
+  qStickyRef = React.createRef();
+  qNumRowRef = React.createRef();
+  qTextRef = React.createRef();
+  qTabsRef = React.createRef();
+  _stuck = false;
+  _walk = false;
+
+  state = {
+    open: 'landing',
+    docId: 'm3l1',
+    theme: (this.props.theme || 'light'),
+    collapsed: false,
+    material: 'pptx',
+    dlLesson: 0,
+    podcast: false,
+    podPlaying: false,
+    progress: this.loadProgress(),
+    expanded: { deeplearn: true, dlquizzes: true, dlsummaries: true, dllectures: false, cogneuro: false, m3: true, m4: false },
+    tabs: ['quiz', 'dllecture'],
+    qIndex: 0,
+    selected: [],
+    dropSel: {},
+    revealed: false,
+    walking: false,
+    explOpen: false,
+    resultOpen: false,
+    attempt: {},
+    gameOver: false,
+  };
+
+  files = {
+    dllecture: { label: 'lecture.dl', icon: 'hn-book' },
+    dashboard: { label: 'overview.md', icon: 'hn-chart-network' },
+    quiz: { label: 'quizzes.mc', icon: 'hn-check-list' },
+    'sum-rnns': { label: 'RNNs.sum', icon: 'hn-newspaper' },
+    m3l1: { label: 'memory-systems.lec', icon: 'hn-notebook' },
+    m3l2: { label: 'learning-plasticity.lec', icon: 'hn-notebook' },
+    m4l1: { label: 'emotion-social.lec', icon: 'hn-notebook' },
+    notes: { label: 'notes.txt', icon: 'hn-notebook' },
+  };
+
+  questions = [
+    { type:'SINGLE RESPONSE', q:'Which medial temporal lobe structure is most critical for consolidating new declarative memories?', correct:'B',
+      options:[{letter:'A',text:'Amygdala'},{letter:'B',text:'Hippocampus'},{letter:'C',text:'Cerebellum'},{letter:'D',text:'Basal ganglia'},{letter:'E',text:'Entorhinal cortex'}],
+      explain:'The hippocampus binds distributed cortical traces into a single coherent memory during consolidation. Bilateral damage (patient H.M.) blocks new declarative memories while leaving skill learning intact.' },
+    { type:'SINGLE RESPONSE', q:'Which neuroimaging technique offers the highest temporal resolution?', correct:'B',
+      options:[{letter:'A',text:'fMRI'},{letter:'B',text:'EEG'},{letter:'C',text:'PET'},{letter:'D',text:'Structural MRI'}],
+      explain:'EEG records electrical activity directly with millisecond resolution, far faster than the slow haemodynamic signals measured by fMRI or PET.' },
+    { type:'SINGLE RESPONSE', q:'The primary visual cortex (V1) is located in which lobe?', correct:'C',
+      options:[{letter:'A',text:'Frontal'},{letter:'B',text:'Parietal'},{letter:'C',text:'Occipital'},{letter:'D',text:'Temporal'}],
+      explain:'V1 sits at the back of the brain in the occipital lobe, where signals from the retina (via the thalamus) first reach the cortex.' },
+    { type:'SINGLE RESPONSE', q:'Which network reorients attention toward unexpected, salient stimuli?', correct:'B',
+      options:[{letter:'A',text:'Default mode network'},{letter:'B',text:'Ventral attention network'},{letter:'C',text:'Motor network'},{letter:'D',text:'Limbic network'}],
+      explain:'The ventral attention network acts as a circuit-breaker, interrupting ongoing activity to reorient attention toward unexpected but behaviourally relevant events.' },
+    { type:'SINGLE RESPONSE', q:'Long-term potentiation (LTP) primarily strengthens which element?', correct:'B',
+      options:[{letter:'A',text:'The axon hillock'},{letter:'B',text:'The synapse'},{letter:'C',text:'The soma'},{letter:'D',text:'The myelin sheath'}],
+      explain:'LTP is a long-lasting strengthening of transmission at the synapse between neurons that fire together — a core cellular mechanism of learning and memory.' },
+    { type:'SINGLE RESPONSE', q:'The amygdala is most strongly associated with processing which of the following?', correct:'B',
+      options:[{letter:'A',text:'Reward only'},{letter:'B',text:'Threat and fear'},{letter:'C',text:'Language syntax'},{letter:'D',text:'Balance'}],
+      explain:'The amygdala rapidly evaluates threat and drives fear responses, boosting attention and memory for emotionally salient events.' },
+    { type:'SINGLE RESPONSE', q:'Theory of mind reliably recruits which pair of regions?', correct:'B',
+      options:[{letter:'A',text:'V1 and A1'},{letter:'B',text:'mPFC and TPJ'},{letter:'C',text:'Cerebellum and pons'},{letter:'D',text:'Brainstem and thalamus'}],
+      explain:'Reasoning about other people’s beliefs reliably engages the medial prefrontal cortex (mPFC) and the temporoparietal junction (TPJ).' },
+    { type:'SINGLE RESPONSE', q:'Working memory depends most heavily on which cortical region?', correct:'B',
+      options:[{letter:'A',text:'Occipital cortex'},{letter:'B',text:'Dorsolateral prefrontal cortex'},{letter:'C',text:'Primary motor cortex'},{letter:'D',text:'Insular cortex'}],
+      explain:'The dorsolateral prefrontal cortex maintains and manipulates information over short delays — the active core of working memory.' },
+    { type:'SINGLE RESPONSE', q:'The case of Phineas Gage informed understanding of which lobe?', correct:'C',
+      options:[{letter:'A',text:'Occipital'},{letter:'B',text:'Temporal'},{letter:'C',text:'Frontal'},{letter:'D',text:'Parietal'}],
+      explain:'Gage’s frontal-lobe injury changed his personality and decision-making, spotlighting the frontal lobe’s role in executive control and social behaviour.' },
+    { type:'SINGLE RESPONSE', q:'Which retinal photoreceptors are specialised for low-light (scotopic) vision?', correct:'B',
+      options:[{letter:'A',text:'Cones'},{letter:'B',text:'Rods'},{letter:'C',text:'Bipolar cells'},{letter:'D',text:'Horizontal cells'}],
+      explain:'Rods are far more light-sensitive than cones and drive vision in dim conditions, though they do not encode colour.' },
+  ];
+
+  themes() {
+    return {
+      light: { '--bg':'#ffffff','--ink':'#141414','--mute':'#9c9c9c','--line':'#e4e4e4','--sel':'#f3f3f3','--hover':'#f8f8f8','--fill':'#141414','--onFill':'#ffffff','--ok':'#141414','--accent':'#141414','--good':'#1db954','--bad':'#d83a3a','--iconFilter':'none' },
+      dark:  { '--bg':'#272927','--ink':'#dfe0e6','--mute':'#8f9088','--line':'#3a3c38','--sel':'#31332f','--hover':'#2d2f2b','--fill':'#dfe0e6','--onFill':'#272927','--ok':'#dfe0e6','--accent':'#dfe0e6','--good':'#34d399','--bad':'#f1707a','--iconFilter':'invert(1)' },
+    };
+  }
+  applyTheme() {
+    const t = this.themes()[this.state.theme] || this.themes().light;
+    const el = this.rootRef.current; if (!el) return;
+    for (const k in t) el.style.setProperty(k, t[k]);
+    el.style.background = t['--bg']; el.style.color = t['--ink'];
+  }
+  applyLayout() {
+    const el = this.sideRef.current;
+    if (el) { const w = this.state.collapsed ? '0px' : '274px'; el.style.width = w; el.style.minWidth = w; }
+    const sc = this.scrollRef.current;
+    if (sc) sc.style.overflowY = (this.state.open === 'quiz') ? 'hidden' : 'auto';
+    const ex = this.explRef.current;
+    if (ex) ex.style.width = (this.state.open === 'quiz' && this.state.explOpen) ? '280px' : '0px';
+  }
+  applyVader() {
+    const el = this.vaderRef.current; if (!el) return;
+    const total = this._qcount || 1;
+    el.style.left = (((this.state.qIndex + 0.5) / total) * 100) + '%';
+    const w = this.state.walking;
+    if (this._walk !== w) {
+      this._walk = w;
+      if (w) { el.style.backgroundPositionX = ''; el.style.animation = 'vaderwalk .55s steps(11) infinite'; }
+      else { el.style.animation = 'none'; el.style.backgroundPositionX = '0px'; }
+    }
+  }
+  onQScroll(e) {
+    const sc = e.currentTarget, lead = this.qLessonRef.current;
+    const base = lead ? Math.max(20, lead.offsetHeight - 16) : 40;
+    const top = sc.scrollTop;
+    const room = sc.scrollHeight - sc.clientHeight;   // total scrollable distance
+    let stuck = this._stuck;
+    if (!stuck) {
+      // only collapse when there's real runway — otherwise collapsing eats its own scroll and flickers
+      if (top > base && room > base + 90) stuck = true;
+    } else if (top < Math.max(16, base - 70)) {
+      stuck = false;                                   // wide dead-zone release
+    }
+    if (stuck !== this._stuck) { this._stuck = stuck; this.applyStuck(stuck); }
+  }
+  applyStuck(stuck) {
+    const head = this.qStickyRef.current, num = this.qNumRowRef.current, txt = this.qTextRef.current, tabs = this.qTabsRef.current;
+    if (head) { head.style.borderBottomColor = stuck ? 'var(--line)' : 'transparent'; head.style.boxShadow = stuck ? '0 8px 12px -10px rgba(0,0,0,.3)' : 'none'; head.style.paddingBottom = stuck ? '10px' : '0px'; }
+    if (num) { num.style.maxHeight = stuck ? '0px' : '48px'; num.style.opacity = stuck ? '0' : '1'; }
+    if (txt) { txt.style.fontSize = stuck ? '12.5px' : 'clamp(13px,1.35vw,15px)'; txt.style.marginTop = stuck ? '2px' : '12px'; txt.style.fontWeight = stuck ? '700' : '600'; }
+    if (tabs) { tabs.style.maxHeight = stuck ? '0px' : '64px'; tabs.style.opacity = stuck ? '0' : '1'; }
+  }
+  componentDidMount() { this.applyTheme(); this.applyLayout(); this.applyVader(); this.applyStuck(false); this.pollDl(); }
+  pollDl() { if (window.DL_LESSONS) { this.forceUpdate(); return; } this._dlT = setTimeout(() => this.pollDl(), 80); }
+  componentDidUpdate() { this.applyTheme(); this.applyLayout(); this.applyVader(); if (this._resetScroll) { this._resetScroll = false; const sc = this.qScrollRef.current; if (sc) sc.scrollTop = 0; this._stuck = false; this.applyStuck(false); } }
+
+  openFile(id) {
+    this.setState(s => ({
+      open: id,
+      docId: (id !== 'dashboard' && id !== 'quiz') ? id : s.docId,
+      tabs: s.tabs.includes(id) ? s.tabs : [...s.tabs, id],
+    }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; });
+  }
+  toggle(key) { this.setState(s => ({ expanded: { ...s.expanded, [key]: !s.expanded[key] } })); }
+  reorderTabs(from, to) { if (!from || from === to) return; this.setState(s => { const a = s.tabs.filter(x => x !== from); const ti = a.indexOf(to); a.splice(ti < 0 ? a.length : ti, 0, from); return { tabs: a }; }); }
+  toggleSidebar() { this.setState(s => ({ collapsed: !s.collapsed })); }
+  goLanding() { this.setState({ open: 'landing' }, () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  toggleTheme() { this.setState(s => ({ theme: s.theme === 'light' ? 'dark' : 'light' })); }
+  setMaterial(m) { this.setState({ material: m }); }
+
+  buildSummary(open) {
+    const key = (open || '').slice(4);
+    const reg = { rnns: window.RNN_SUMMARY };
+    const d = reg[key] || null;
+    const h = React.createElement;
+    if (!d) return { summaryEl: null };
+    const sections = (d.sections || []).map(s => {
+      let tableNode = null;
+      if (s.table) {
+        const head = s.table.head || []; const rows = s.table.rows || [];
+        const headRow = h('tr', { key: 'hr' }, head.map((hh, i) => h('th', { key: i, style: { borderBottom: '2px solid var(--ink)', padding: '12px 10px 12px 0', textAlign: 'left', fontWeight: 700, letterSpacing: '.5px', lineHeight: '1.6' } }, hh)));
+        const bodyRows = rows.map((r, ri) => h('tr', { key: ri }, (r || []).map((c, ci) => h('td', { key: ci, style: { borderBottom: '1px dashed var(--line)', padding: '12px 10px 12px 0', textAlign: 'left', lineHeight: '1.6', verticalAlign: 'top' } }, c))));
+        tableNode = h('table', { style: { borderCollapse: 'collapse', width: '100%', margin: '34px 0', fontSize: '13px', color: 'var(--ink)' } }, h('tbody', null, [headRow].concat(bodyRows)));
+      }
+      const figs = s.figures || [];
+      return { n: s.n, title: s.title, exam: s.exam, hasAscii: !!s.ascii, ascii: s.ascii || '', hasTable: !!s.table, tableNode,
+        hasFigures: figs.length > 0,
+        figures: figs.map((f, i) => {
+          let media;
+          if (f.kind === 'web') {
+            media = h('a', { href: f.src, target: '_blank', rel: 'noopener', title: 'Open full image', style: { display: 'block', cursor: 'zoom-in' } }, h('img', { src: f.src, alt: f.cap || '', style: { width: '100%', display: 'block', border: '1px solid var(--line)', filter: 'grayscale(1) contrast(1.05)', background: '#fff', imageRendering: 'auto' } }));
+          } else {
+            media = h('image-slot', { id: f.slot, placeholder: f.ph || ('DROP ' + (f.cap || 'SLIDE')), shape: 'rect', style: { width: '100%', aspectRatio: '16 / 9', display: 'block', border: '1px solid var(--line)' } });
+          }
+          return { media, label: f.label || '', cap: f.cap || '', desc: f.desc || '', sep: (i === figs.length - 1) ? 'none' : '1px dashed var(--line)' };
+        })
+      };
+    });
+    let podLabel = (d.podcast && d.podcast.label) || 'LISTEN';
+    if (podLabel.indexOf('\u25B6') === -1) podLabel = '\u25B6 ' + podLabel;
+    const sectionEls = sections.map((s, si) => h('div', { key: 's' + si, style: { margin: '80px 0 0', borderTop: '1px dashed var(--line)', paddingTop: '44px' } }, [
+      h('div', { key: 'hd', style: { display: 'flex', alignItems: 'flex-start', gap: '24px', marginBottom: '28px' } }, [
+        h('span', { key: 'n', style: { fontFamily: "'Press Start 2P',monospace", fontSize: '40px', lineHeight: 1, color: 'transparent', WebkitTextStroke: '2px var(--ink)', flex: 'none' } }, s.n),
+        h('span', { key: 't', style: { fontFamily: "'Press Start 2P',monospace", fontSize: '13px', lineHeight: 1.75, letterSpacing: '.5px', margin: '7px 0 0', color: 'var(--ink)' } }, s.title)
+      ]),
+      h('div', { key: 'ex', style: { margin: '0 0 36px', lineHeight: 1.85, fontSize: '15px', color: 'var(--ink)' } }, [
+        h('span', { key: 'tg', style: { display: 'inline-block', border: '1.5px solid var(--ink)', color: 'var(--ink)', fontFamily: "'Press Start 2P',monospace", fontSize: '8px', letterSpacing: '1px', padding: '5px 8px', marginRight: '13px', whiteSpace: 'nowrap' } }, 'EXAM'),
+        s.exam || ''
+      ]),
+      s.hasAscii ? h('pre', { key: 'asc', style: { background: 'var(--sel)', color: 'var(--ink)', padding: '24px 26px', overflow: 'auto', margin: '34px 0', fontFamily: "'JetBrains Mono',ui-monospace,monospace", fontSize: '13px', lineHeight: 1.65, border: '1px solid var(--line)', whiteSpace: 'pre' } }, s.ascii) : null,
+      (s.figures && s.figures.length) ? h('div', { key: 'figs', style: { margin: '36px 0 0' } }, s.figures.map((f, i) => h('div', { key: 'f' + i, style: { display: 'flex', gap: '28px', padding: '30px 0', alignItems: 'flex-start', borderBottom: f.sep === 'none' ? 'none' : '1px dashed var(--line)' } }, [
+        h('div', { key: 'mw', style: { flex: '0 0 44%', maxWidth: '44%', minWidth: 0 } }, f.media),
+        h('div', { key: 'cw', style: { flex: 1, minWidth: 0 } }, [
+          h('span', { key: 'l', style: { display: 'inline-block', border: '1px solid var(--ink)', color: 'var(--ink)', background: 'var(--bg)', fontFamily: "'Press Start 2P',monospace", fontSize: '7px', letterSpacing: '1px', padding: '5px 7px', whiteSpace: 'nowrap' } }, f.label),
+          h('div', { key: 'cap', style: { fontWeight: 700, margin: '13px 0 9px', fontSize: '14px', lineHeight: 1.5, color: 'var(--ink)' } }, f.cap),
+          h('p', { key: 'd', style: { margin: 0, fontSize: '13.5px', lineHeight: 1.8, color: 'var(--mute)' } }, f.desc)
+        ])
+      ]))) : null,
+      s.hasTable ? s.tableNode : null
+    ]));
+    const summaryEl = h('div', { 'data-screen-label': 'Summary', style: { maxWidth: '760px', margin: '0 auto', padding: '56px 30px 120px', fontSize: '14.5px', lineHeight: 1.9, color: 'var(--ink)' } }, [
+      h('div', { key: 'eb', style: { fontSize: '10px', letterSpacing: '2.5px', color: 'var(--mute)', marginBottom: '8px' } }, d.eyebrow || ''),
+      h('h1', { key: 'ti', style: { fontFamily: "'Press Start 2P',monospace", fontSize: '22px', lineHeight: 1.65, margin: '14px 0 16px', color: 'var(--ink)' } }, d.title || ''),
+      h('p', { key: 'sb', style: { color: 'var(--mute)', margin: 0, lineHeight: 1.7, maxWidth: '58ch' } }, d.sub || ''),
+      h('a', { key: 'pod', href: (d.podcast && d.podcast.href) || '#', target: '_blank', rel: 'noopener', style: { display: 'inline-block', margin: '28px 0 0', background: 'var(--ink)', color: 'var(--bg)', textDecoration: 'none', fontFamily: "'Press Start 2P',monospace", fontSize: '9px', letterSpacing: '1px', padding: '14px 18px' } }, podLabel),
+      ...sectionEls,
+      h('div', { key: 'src', style: { marginTop: '90px', borderTop: '1px dashed var(--line)', paddingTop: '20px', color: 'var(--mute)', fontSize: '11px', letterSpacing: '1px' } }, d.source || '')
+    ]);
+    return { summaryEl };
+  }
+  setDlLesson(i) { clearTimeout(this._wt); clearTimeout(this._got); this._resetScroll = true; this.setState({ dlLesson: i, attempt: {}, gameOver: false, qIndex: 0, selected: [], dropSel: {}, revealed: false, walking: false, explOpen: false, resultOpen: false }); }
+  togglePodcast() { this.setState(s => (s.podcast ? { podcast: false, podPlaying: false } : { podcast: true, podPlaying: true })); }
+  togglePlay() { this.setState(s => ({ podPlaying: !s.podPlaying })); }
+  closePodcast() { this.setState({ podcast: false, podPlaying: false }); }
+  showResult() { clearTimeout(this._got); this.setState({ resultOpen: true, gameOver: false }, () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  retryQuiz() {
+    const li = this.state.dlLesson;
+    clearTimeout(this._wt); clearTimeout(this._got); this._resetScroll = true;
+    this.setState(s => { const progress = { ...s.progress }; delete progress[li]; this.saveProgress(progress);
+      return { progress, attempt: {}, gameOver: false, qIndex: 0, selected: [], dropSel: {}, revealed: false, walking: false, explOpen: false, resultOpen: false }; });
+  }
+  closeTab(id) {
+    this.setState(s => {
+      const idx = s.tabs.indexOf(id);
+      const tabs = s.tabs.filter(t => t !== id);
+      let open = s.open;
+      if (s.open === id) open = tabs.length ? tabs[Math.max(0, idx - 1)] : 'landing';
+      return { tabs, open };
+    });
+  }
+  openDlLesson(i) {
+    this.setState(s => ({ open: 'dllecture', dlLesson: i,
+      tabs: s.tabs.includes('dllecture') ? s.tabs : [...s.tabs, 'dllecture'] }),
+      () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; });
+  }
+  select(l) {
+    if (this.state.revealed) return;
+    const type = this._curType || 'single';
+    this.setState(s => {
+      if (type === 'multi') {
+        const has = s.selected.includes(l);
+        return { selected: has ? s.selected.filter(x => x !== l) : [...s.selected, l] };
+      }
+      return { selected: [l] };
+    });
+  }
+  selectBlank(bi, val) { if (this.state.revealed) return; this.setState(s => ({ dropSel: { ...s.dropSel, [bi]: val } })); }
+  loadProgress() { try { return JSON.parse(localStorage.getItem('dlquiz-progress') || '{}'); } catch (e) { return {}; } }
+  saveProgress(p) { try { localStorage.setItem('dlquiz-progress', JSON.stringify(p)); } catch (e) {} }
+  openQuizLesson(i) { clearTimeout(this._wt); clearTimeout(this._got); this._resetScroll = true; this.setState(s => ({ open: 'quiz', dlLesson: i, attempt: {}, gameOver: false, qIndex: 0, selected: [], dropSel: {}, revealed: false, walking: false, explOpen: false, resultOpen: false, tabs: s.tabs.includes('quiz') ? s.tabs : ['quiz', ...s.tabs] }), () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }); }
+  nextQuiz() { const DL = window.DL_LESSONS || []; const ni = this.state.dlLesson + 1; if (ni < DL.length) this.setDlLesson(ni); }
+  check() {
+    if (this.state.revealed) return;
+    const type = this._curType || 'single';
+    if (type === 'dropdown') { const bl = this._curBlanks || []; const ds = this.state.dropSel; if (bl.some((b, i) => ds[i] == null || ds[i] === '')) return; }
+    else if (type !== 'review' && this.state.selected.length === 0) return;
+    const li = this.state.dlLesson, qi = this.state.qIndex;
+    let correctBool;
+    if (type === 'review') correctBool = true;
+    else if (type === 'dropdown') { const bl = this._curBlanks || []; const ds = this.state.dropSel; correctBool = bl.every((b, i) => ds[i] === b.correct); }
+    else {
+      const corr = this._curCorrect || [];
+      const sel = this.state.selected;
+      correctBool = corr.length === sel.length && corr.every(c => sel.includes(c));
+    }
+    this.setState(s => {
+      const prog = { ...s.progress, [li]: { ...(s.progress[li] || {}), [qi]: correctBool } };
+      const attempt = { ...s.attempt, [qi]: correctBool };
+      this.saveProgress(prog);
+      return { revealed: true, explOpen: true, progress: prog, attempt };
+    }, () => {
+      const a = this.state.attempt || {};
+      const wrong = Object.keys(a).filter(k => a[k] === false).length;
+      if (!correctBool && wrong >= 4) {
+        clearTimeout(this._got);
+        this._got = setTimeout(() => this.setState({ resultOpen: true, gameOver: true }, () => { if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0; }), 1500);
+      }
+    });
+  }
+  toggleExpl() { this.setState(s => ({ explOpen: !s.explOpen })); }
+  closeExpl() { this.setState({ explOpen: false }); }
+  walkTo(next) {
+    clearTimeout(this._wt); clearTimeout(this._got);
+    this._resetScroll = true; this.setState({ qIndex: next, selected: [], dropSel: {}, revealed: false, walking: true });
+    this._wt = setTimeout(() => this.setState({ walking: false }), 600);
+  }
+  nextQ() { const n = Math.min((this._qcount || 1) - 1, this.state.qIndex + 1); if (n !== this.state.qIndex) this.walkTo(n); }
+  prevQ() { const n = Math.max(0, this.state.qIndex - 1); if (n !== this.state.qIndex) this.walkTo(n); }
+
+  renderVals() {
+    const S = this.state;
+    const open = S.open;
+
+    // ---- landing navigator (course grid) ----
+    const NAV = [
+      ['Introduction to Programming', 'prog', false, null],
+      ['Calculus', 'calculus', false, null],
+      ['Logic & Set Theory', 'logic', false, null],
+      ['Cognitive Science 1', 'cogsci1', false, null],
+      ['Data Structures & Algorithms', 'dsa', false, null],
+      ['Linear Algebra', 'linalg', false, null],
+      ['Statistics', 'stats', false, null],
+      ['Statistics 2', 'stats', false, null],
+      ['Cognitive Neuroscience', 'cogneuro', true, () => this.openFile('dashboard')],
+      ['Autonomous Systems', 'autonomous', false, null],
+      ['Research Workshop', 'research', false, null],
+      ['Introduction to Deep Learning', 'deeplearning', true, () => this.openQuizLesson(0)],
+      ['Advanced Programming for CSAI', 'advprog', false, null],
+      ['Computational Linguistics', 'linguistics', false, null],
+      ["Bachelor's Thesis", 'thesis', false, null],
+    ];
+    const navCourses = NAV.map(([name, img, live, go]) => ({
+      name,
+      iconStyle: { width: '44px', height: '44px', background: 'url(assets/icons/' + img + '.png) center / contain no-repeat', opacity: live ? 1 : 0.3, filter: 'var(--iconFilter)' },
+      onClick: go || (() => {}),
+      cursor: live ? 'pointer' : 'default',
+      cell: live ? 'var(--ink)' : 'var(--line)',
+      label: live ? 'var(--ink)' : 'var(--mute)',
+      weight: live ? 700 : 500,
+    }));
+    const navLive = NAV.filter(n => n[2]).length;
+    const navSoon = NAV.length - navLive;
+
+    // ---- file tree ----
+    const rows = [];
+    const folder = (key, label, depth) => {
+      const ex = !!S.expanded[key];
+      rows.push({ key, label, pad: (12 + depth * 18) + 'px', chev: ex ? 'hn-angle-down' : 'hn-angle-right', chevOp: '1',
+        icon: ex ? 'hn-folder-open' : 'hn-folder', iconColor: 'var(--ink)', fg: 'var(--ink)', weight: '700',
+        bg: 'transparent', mark: 'transparent', prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.toggle(key) });
+      return ex;
+    };
+    const file = (id, label, depth, icon) => {
+      const active = open === id;
+      rows.push({ key: id, label, pad: (12 + depth * 18) + 'px', chev: 'hn-blank', chevOp: '0',
+        icon, iconColor: active ? 'var(--ink)' : 'var(--mute)', fg: 'var(--ink)', weight: active ? '700' : '400',
+        bg: active ? 'var(--sel)' : 'transparent', mark: active ? 'var(--ink)' : 'transparent',
+        prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openFile(id) });
+    };
+    const DL_TOPICS = (window.DL_LESSONS && window.DL_LESSONS.length) ? window.DL_LESSONS.map(l => l.topic) : ['MLPs','Backpropagation','Optimizers','CNNs','Regularization','Recurrence','Transformers','Computer Vision'];
+    const dlSlug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    if (folder('deeplearn', 'deep-learning', 0)) {
+      if (folder('dlquizzes', 'quizzes', 1)) {
+        DL_TOPICS.forEach((t, i) => {
+          const act = open === 'quiz' && S.dlLesson === i;
+          const answered = Object.keys(S.progress[i] || {}).length;
+          const lcq = ((window.DL_LESSONS || [])[i] || {}).questions; const cnt = lcq ? lcq.length : 15; const done = answered >= cnt;
+          rows.push({ key: 'dlq' + i, label: 'l' + (i + 1) + '-' + dlSlug(t) + '.mc', pad: (12 + 2 * 18) + 'px',
+            chev: 'hn-blank', chevOp: '0', icon: 'hn-check-list', iconColor: act ? 'var(--ink)' : 'var(--mute)',
+            fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent',
+            mark: act ? 'var(--ink)' : 'transparent',
+            prog: done ? '' : (answered > 0 ? answered + '/' + cnt : ''),
+            tagIcon: done ? 'hn-check' : 'hn-blank', tagOp: done ? '1' : '0',
+            onClick: () => this.openQuizLesson(i) });
+        });
+      }
+      if (folder('dlsummaries', 'summaries', 1)) {
+        file('sum-rnns', 'RNNs.sum', 2, 'hn-newspaper');
+      }
+      if (folder('dllectures', 'lectures', 1)) {
+        DL_TOPICS.forEach((t, i) => {
+          const act = open === 'dllecture' && S.dlLesson === i;
+          rows.push({ key: 'dll' + i, label: 'l' + (i + 1) + '-' + dlSlug(t) + '.dl', pad: (12 + 2 * 18) + 'px',
+            chev: 'hn-blank', chevOp: '0', icon: 'hn-book', iconColor: act ? 'var(--ink)' : 'var(--mute)',
+            fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent',
+            mark: act ? 'var(--ink)' : 'transparent', prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openDlLesson(i) });
+        });
+      }
+    }
+    if (folder('cogneuro', 'cognitive-neuroscience', 0)) {
+      file('dashboard', 'overview.md', 1, 'hn-chart-network');
+      if (folder('m3', 'module-3-memory', 1)) {
+        file('m3l1', 'memory-systems.lec', 2, 'hn-notebook');
+        file('m3l2', 'learning-plasticity.lec', 2, 'hn-notebook');
+      }
+      if (folder('m4', 'module-4-emotion', 1)) {
+        file('m4l1', 'emotion-social.lec', 2, 'hn-notebook');
+      }
+      file('notes', 'notes.txt', 1, 'hn-notebook');
+    }
+
+    // ---- tabs ----
+    const tabs = S.tabs.map(id => {
+      const m = this.files[id] || { icon: 'hn-notebook', label: id };
+      const active = open === id;
+      return { id, label: m.label, icon: m.icon, iconColor: active ? 'var(--ink)' : 'var(--mute)',
+        fg: active ? 'var(--ink)' : 'var(--mute)', weight: active ? '700' : '400',
+        ind: active ? 'var(--ink)' : 'transparent', onClick: () => this.openFile(id),
+        onDragStart: () => { this._dragTab = id; }, onDragOver: (e) => e.preventDefault(),
+        onDrop: (e) => { e.preventDefault(); this.reorderTabs(this._dragTab, id); },
+        onClose: (e) => { e.stopPropagation(); this.closeTab(id); } };
+    });
+
+    // ---- quiz ----
+    const DL = window.DL_LESSONS || [];
+    const lessonData = DL[S.dlLesson];
+    const typeLabelOf = (t) => t === 'multi' ? 'SELECT ALL THAT APPLY' : (t === 'dropdown' ? 'FILL IN THE BLANKS' : (t === 'review' ? 'CONCEPT REVIEW' : 'SINGLE RESPONSE'));
+    const questions = lessonData
+      ? lessonData.questions.map(qq => {
+          const type = qq.type || 'single';
+          const correctArr = Array.isArray(qq.correct) ? qq.correct : (qq.correct != null ? [qq.correct] : []);
+          const options = qq.options ? Object.keys(qq.options).map(k => ({ letter: k, text: qq.options[k] })) : [];
+          return { type, typeLabel: typeLabelOf(type), q: qq.q, correct: correctArr, explain: qq.explain || '', options, blanks: qq.blanks || [], code: !!qq.code };
+        })
+      : [{ type: 'single', typeLabel: 'SINGLE RESPONSE', q: 'Loading questions…', correct: ['A'], explain: '', options: [{ letter: 'A', text: '…' }] }];
+    this._qcount = questions.length;
+    const total = questions.length;
+    const q = questions[Math.min(S.qIndex, total - 1)];
+    const atLast = S.qIndex === total - 1;
+    const DLlen = (window.DL_LESSONS || []).length || 8;
+    const hasNextLesson = S.dlLesson < DLlen - 1;
+    const nextEnabled = true;
+    const blocks = Array.from({ length: total }, (_, i) => ({ fill: i <= S.qIndex ? 'var(--ink)' : 'var(--line)' }));
+    this._curType = q.type;
+    this._curCorrect = q.correct;
+    this._curBlanks = q.blanks || [];
+    const isReviewQ = q.type === 'review';
+    const isDropdownQ = q.type === 'dropdown';
+    const isCodeQ = !!q.code;
+    const isInlineDropdown = isDropdownQ && !isCodeQ;
+    const options = q.options.map(o => {
+      const selo = S.selected.includes(o.letter);
+      const isCorrect = S.revealed && q.correct.includes(o.letter);
+      const isWrong = S.revealed && selo && !q.correct.includes(o.letter);
+      const filled = selo || isCorrect;
+      const faded = S.revealed && !isCorrect && !selo;
+      return { ...o,
+        onClick: () => this.select(o.letter),
+        boxBd: isCorrect ? 'var(--good)' : (isWrong ? 'var(--bad)' : (faded ? 'var(--line)' : 'var(--ink)')),
+        boxBg: isCorrect ? 'var(--good)' : (isWrong ? 'var(--bad)' : ((selo && !S.revealed) ? 'var(--ink)' : 'transparent')),
+        checkColor: (isCorrect || isWrong) ? '#ffffff' : 'var(--onFill)',
+        checkIcon: isWrong ? 'hn-times' : 'hn-check',
+        checkOp: filled ? '1' : '0',
+        tickAnim: isCorrect ? 'tickpop .42s ease-out' : 'none',
+        dim: faded ? 'var(--mute)' : 'var(--ink)',
+        textWeight: filled ? '700' : '400',
+        tag: isCorrect ? 'CORRECT' : (isWrong ? 'WRONG' : ''),
+        tagColor: isCorrect ? 'var(--good)' : (isWrong ? 'var(--bad)' : 'var(--ink)'),
+        tagOp: (isCorrect || isWrong) ? '1' : '0',
+      };
+    });
+
+    const anySel = S.selected.length > 0;
+    const rev = S.revealed;
+    const dropReady = isDropdownQ && (q.blanks || []).every((b, i) => S.dropSel[i] != null && S.dropSel[i] !== '');
+    const dropBlanks = (q.blanks || []).map((b, i) => {
+      const val = S.dropSel[i] != null ? S.dropSel[i] : '';
+      const isC = rev && val === b.correct;
+      const isW = rev && val !== '' && val !== b.correct;
+      return { label: b.label, opts: b.pool, value: val, disabled: rev,
+        onChange: (e) => this.selectBlank(i, e.target.value),
+        bd: isC ? 'var(--good)' : (isW ? 'var(--bad)' : 'var(--ink)'),
+        showResult: rev, resultText: isC ? '\u2713 Correct' : ('Answer: ' + b.correct),
+        resultColor: isC ? 'var(--good)' : 'var(--bad)' };
+    });
+    const buildSegs = (txt) => {
+      const segs = [];
+      (txt || '').split(/\[\[(\d+)\]\]/).forEach((p, ix) => {
+        if (ix % 2 === 0) { if (p) segs.push({ isText: true, isBlank: false, text: p }); }
+        else {
+          const bi = parseInt(p, 10) - 1; const b = (q.blanks || [])[bi];
+          if (b) {
+            const val = S.dropSel[bi] != null ? S.dropSel[bi] : '';
+            const isC = rev && val === b.correct; const isW = rev && val !== '' && val !== b.correct;
+            segs.push({ isText: false, isBlank: true, opts: b.pool, value: val, disabled: rev,
+              onChange: (e) => this.selectBlank(bi, e.target.value),
+              bd: isC ? 'var(--good)' : (isW ? 'var(--bad)' : 'var(--ink)'),
+              bg: isC ? 'var(--good)' : (isW ? 'var(--bad)' : 'var(--sel)'),
+              fg: (isC || isW) ? '#ffffff' : 'var(--ink)' });
+          }
+        }
+      });
+      return segs;
+    };
+    let codeLead = '', qSegments = [], codeSegments = [];
+    if (isCodeQ) {
+      const parts = (q.q || '').split('\n\n');
+      codeLead = parts.length > 1 ? parts[0] : '';
+      const codeBody = parts.length > 1 ? parts.slice(1).join('\n\n') : (q.q || '');
+      codeSegments = buildSegs(codeBody);
+    } else if (isInlineDropdown) {
+      qSegments = buildSegs(q.q);
+    }
+    const wasCorrect = isReviewQ ? null : (isDropdownQ
+      ? (rev && (q.blanks || []).every((b, i) => S.dropSel[i] === b.correct))
+      : (rev && q.correct.length === S.selected.length && q.correct.every(c => S.selected.includes(c))));
+    const enabled = rev || anySel || isReviewQ || dropReady;
+    const correctOpts = q.options.filter(o => q.correct.includes(o.letter));
+    const explAnswer = isDropdownQ
+      ? (q.blanks || []).map(b => b.label + ': ' + b.correct).join('   \u00b7   ')
+      : correctOpts.map(o => o.letter + '. ' + o.text).join('   \u00b7   ');
+
+    // ---- teacher's read (exam-phrasing tells) ----
+    const ABS_WORDS = ['only','always','never','guarantees','guarantee','cannot','equivalent','impossible','entirely','completely','regardless','removes the need','no need'];
+    const SCOPE_WORDS = ['whereas','while','selectively','instead','rather than','by contrast','partially','more gradual'];
+    const teacherShow = !isReviewQ && !isDropdownQ && q.options.length >= 2;
+    const teacherTells = [];
+    if (teacherShow) {
+      const norm = (s) => ' ' + (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' ';
+      const hasW = (txt, w) => txt.indexOf(' ' + w + ' ') >= 0;
+      const seen = {};
+      const corrTxt = norm(correctOpts.map(o => o.text || '').join(' '));
+      const distTxt = norm(q.options.filter(o => !q.correct.includes(o.letter)).map(o => o.text || '').join(' '));
+      ABS_WORDS.forEach(w => { if (!seen[w] && hasW(distTxt, w)) { seen[w] = 1; teacherTells.push({ word: w, color: '#e5484d', label: 'overclaim' }); } });
+      SCOPE_WORDS.forEach(w => { if (!seen[w] && hasW(corrTxt, w)) { seen[w] = 1; teacherTells.push({ word: w, color: 'var(--good)', label: 'scoping' }); } });
+    }
+    const teacherHasTells = teacherTells.length > 0;
+
+    // ---- score & vader health ----
+    const prog = S.progress[S.dlLesson] || {};
+    const att = S.attempt || {};
+    const gradedIdx = questions.map((qq, i) => (qq.type === 'review' ? -1 : i)).filter(i => i >= 0);
+    const gradedTotal = gradedIdx.length || 1;
+    const correctCount = gradedIdx.filter(i => att[i] === true).length;
+    const wrongCount = gradedIdx.filter(i => att[i] === false).length;
+    const passMark = Math.ceil(gradedTotal * 0.6);
+    const MAX_LIVES = 4;
+    const livesLeft = Math.max(0, MAX_LIVES - wrongCount);
+    const curWrong = rev && (att[S.qIndex] === false);
+    const vaderLives = Array.from({ length: MAX_LIVES }, (_, i) => {
+      const alive = i < livesLeft;
+      return {
+        icon: alive ? 'hn-heart-solid' : 'hn-heart',
+        color: '#e5484d',
+        anim: (!alive && i === livesLeft && curWrong) ? 'heartbreak .55s ease-out' : 'none',
+      };
+    });
+    const passed = correctCount >= passMark;
+    const scorePct = Math.round((correctCount / gradedTotal) * 100);
+    const passPct = Math.round((passMark / gradedTotal) * 100);
+    const scoreText = correctCount + '/' + gradedTotal;
+    const scoreAnim = (rev && wasCorrect) ? 'btnpop .45s ease-out' : 'none';
+
+    // ---- lecture docs ----
+    const docs = {
+      m3l1: { eyebrow: 'Module 3 · Lecture 1', title: 'MEMORY SYSTEMS',
+        goals: ['Distinguish declarative vs. non-declarative memory','Explain the hippocampus in consolidation','Describe working memory & capacity limits','Relate amnesia cases to brain structures'],
+        body1: 'Human memory is not a single store but a set of dissociable systems. Declarative (explicit) memory handles facts and events and depends heavily on medial temporal lobe structures — above all the hippocampus, which binds distributed cortical traces during consolidation.',
+        body2: 'Non-declarative (implicit) memory covers skills, priming and conditioning, supported by the basal ganglia, cerebellum and neocortex. Patient H.M. showed that bilateral hippocampal removal devastates new declarative learning while sparing motor-skill acquisition.' },
+      m3l2: { eyebrow: 'Module 3 · Lecture 2', title: 'LEARNING & PLASTICITY',
+        goals: ['Define synaptic plasticity','Explain LTP and LTD','Connect Hebbian learning to circuits','Describe critical periods'],
+        body1: 'Plasticity is the brain’s capacity to reorganise in response to experience. Long-term potentiation (LTP) strengthens synapses that fire together, providing a cellular basis for Hebbian learning and memory formation.',
+        body2: 'Long-term depression (LTD) weakens unused connections, balancing the network. Together these mechanisms sculpt circuits during development and continue to support learning throughout life.' },
+      m4l1: { eyebrow: 'Module 4 · Lecture 1', title: 'EMOTION & SOCIAL',
+        goals: ['Map core affect onto neural circuits','Explain the amygdala in threat detection','Describe theory-of-mind networks','Connect emotion to decision-making'],
+        body1: 'Emotion arises from coordinated subcortical and cortical circuits. The amygdala rapidly evaluates salience and threat, modulating attention and memory through projections to the hippocampus and prefrontal cortex.',
+        body2: 'Social cognition recruits the temporoparietal junction and medial prefrontal cortex to represent others’ mental states, letting us predict behaviour and integrate affect into decisions.' },
+      notes: { eyebrow: 'Personal · Scratchpad', title: 'NOTES',
+        goals: ['Review H.M. case before final','Re-watch LTP animation','Summarise amygdala pathways','Make flashcards for MTL anatomy'],
+        body1: 'Loose notes kept across the module. Consolidation seems to be the recurring theme in every lecture — hippocampus first, cortex later.',
+        body2: 'Exam is mostly applied: expect case studies rather than definitions. Focus on dissociations between memory systems and the structures that support each.' },
+    };
+    const d = docs[S.docId] || docs.m3l1;
+
+    // ---- deep-learning lecture (placeholder shell) ----
+    const dlTabs = DL_TOPICS.map((t, i) => ({ code: (((window.DL_LESSONS || [])[i] || {}).isExam ? 'EXAM' : ('L' + (i + 1))), active: i === S.dlLesson,
+      fg: i === S.dlLesson ? 'var(--ink)' : 'var(--mute)', weight: i === S.dlLesson ? '700' : '400',
+      ind: i === S.dlLesson ? 'var(--ink)' : 'transparent', selBd: i === S.dlLesson ? 'var(--ink)' : 'var(--line)', onClick: () => this.setDlLesson(i) }));
+    const MATS = [
+      { key: 'transcript', label: 'TRANSCRIPT', icon: 'hn-align-left' },
+      { key: 'chapter', label: 'CHAPTER', icon: 'hn-book' },
+      { key: 'pptx', label: 'PPTX', icon: 'hn-grid' },
+      { key: 'podcast', label: 'PODCAST', icon: 'hn-podcasts' },
+      { key: 'notes', label: 'NOTES', icon: 'hn-copy' },
+    ];
+    const materials = MATS.map(m => {
+      const isPod = m.key === 'podcast';
+      const act = isPod ? S.podcast : (S.material === m.key);
+      return { key: m.key, label: m.label, icon: m.icon,
+        onClick: isPod ? (() => this.togglePodcast()) : (() => this.setMaterial(m.key)),
+        bg: act ? 'var(--fill)' : 'var(--bg)', fg: act ? 'var(--onFill)' : 'var(--ink)',
+        shadow: act ? 'none' : '3px 3px 0 var(--line)' };
+    });
+    const bars = Array.from({ length: 36 }, (_, i) => ({ h: (6 + Math.round(18 * Math.abs(Math.sin(i * 0.7)))) + 'px',
+      bg: i < 11 ? 'var(--ink)' : 'var(--line)' }));
+    const dl = {
+      dlTabs, materials, bars,
+      dlEyebrow: 'Deep Learning · Lesson ' + (S.dlLesson + 1),
+      dlTopic: DL_TOPICS[S.dlLesson].toUpperCase(),
+      matPptx: S.material === 'pptx', matTranscript: S.material === 'transcript',
+      matChapter: S.material === 'chapter', matPodcast: S.material === 'podcast', matNotes: S.material === 'notes',
+      podIcon: S.podPlaying ? 'hn-pause' : 'hn-play',
+      podcastOn: S.podcast,
+      togglePodcast: () => this.togglePodcast(),
+      togglePlay: () => this.togglePlay(),
+      closePodcast: () => this.closePodcast(),
+      slideId: 'dl-l' + (S.dlLesson + 1) + '-slide-01',
+    };
+
+    return {
+      rootRef: this.rootRef, sideRef: this.sideRef, scrollRef: this.scrollRef, vaderRef: this.vaderRef, explRef: this.explRef,
+      qScrollRef: this.qScrollRef, qLessonRef: this.qLessonRef, qStickyRef: this.qStickyRef, qNumRowRef: this.qNumRowRef, qTextRef: this.qTextRef, qTabsRef: this.qTabsRef, onQScroll: (e) => this.onQScroll(e),
+      rows, tabs, collapsed: S.collapsed,
+      themeIcon: S.theme === 'light' ? 'hn-moon' : 'hn-sun',
+      toggleSidebar: () => this.toggleSidebar(),
+      toggleTheme: () => this.toggleTheme(),
+      prevQ: () => this.prevQ(),
+      nextQ: () => this.nextQ(),
+      closeExpl: () => this.closeExpl(),
+      isLanding: open === 'landing',
+      goLanding: () => this.goLanding(),
+      navCourses, navLive, navSoon,
+      isQuiz: open === 'quiz' && !S.resultOpen, isResult: open === 'quiz' && S.resultOpen, isDashboard: open === 'dashboard',
+      isDl: open === 'dllecture',
+      isLecture: open !== 'quiz' && open !== 'dashboard' && open !== 'dllecture' && open !== 'landing' && !(open || '').startsWith('sum-'),
+      isSummary: (open || '').startsWith('sum-'),
+      ...this.buildSummary(open),
+      ...dl,
+      quizReal: !!(lessonData && lessonData.real),
+      quizSource: lessonData ? (lessonData.source || '') : '',
+      quizEyebrow: lessonData ? (lessonData.isExam ? 'DEEP LEARNING · FINAL EXAM' : ('DEEP LEARNING · LESSON ' + (S.dlLesson + 1))) : 'DEEP LEARNING',
+      quizTitle: lessonData ? (lessonData.isExam ? 'FINAL EXAM' : ('L' + (S.dlLesson + 1) + ': ' + lessonData.topic.toUpperCase())) : 'LOADING…',
+      counter: 'QUESTION ' + (S.qIndex + 1) + ' OF ' + total + ' · ' + total + ' TOTAL',
+      qNum: (S.qIndex + 1 < 10 ? '0' : '') + (S.qIndex + 1),
+      qType: q.typeLabel, qText: isCodeQ ? codeLead : (isInlineDropdown ? '' : q.q),
+      blocks, options, isReviewQ, isInlineDropdown, isCodeQ, qSegments, codeSegments,
+      centerClick: () => this.check(),
+      centerAnim: (rev && wasCorrect) ? 'btnpop .45s ease-out' : 'none',
+      fbBg: isReviewQ ? 'var(--ink)' : (wasCorrect ? 'var(--good)' : 'var(--bad)'),
+      fbIcon: isReviewQ ? 'hn-book' : (wasCorrect ? 'hn-check' : 'hn-times'),
+      fbText: isReviewQ ? 'SOLUTION' : (wasCorrect ? 'CORRECT!' : 'NOT QUITE'),
+      fbAnim: 'fbpop .4s ease-out',
+      centerLabel: isReviewQ ? (rev ? 'REVEALED' : 'REVEAL ANSWER') : (rev ? (wasCorrect ? 'CORRECT' : 'INCORRECT') : 'CHECK ANSWER'),
+      centerIcon: isReviewQ ? (rev ? 'hn-check' : 'hn-eye') : (rev ? (wasCorrect ? 'hn-check' : 'hn-times') : 'hn-check-box'),
+      centerBg: rev ? (isReviewQ ? 'var(--fill)' : (wasCorrect ? 'var(--good)' : 'var(--bad)')) : (enabled ? 'var(--fill)' : 'transparent'),
+      centerColor: rev ? (isReviewQ ? 'var(--onFill)' : '#ffffff') : (enabled ? 'var(--onFill)' : 'var(--mute)'),
+      centerBorder: rev ? (isReviewQ ? 'var(--fill)' : (wasCorrect ? 'var(--good)' : 'var(--bad)')) : (enabled ? 'var(--fill)' : 'var(--line)'),
+      centerCursor: (!rev && (anySel || isReviewQ || dropReady)) ? 'pointer' : 'default',
+      prevBorder: S.qIndex === 0 ? 'var(--line)' : 'var(--ink)',
+      prevColor: S.qIndex === 0 ? 'var(--mute)' : 'var(--ink)',
+      prevCursor: S.qIndex === 0 ? 'default' : 'pointer',
+      nextLabel: atLast ? 'SEE RESULTS' : 'NEXT',
+      nextClick: () => { if (!atLast) { this.nextQ(); } else { this.showResult(); } },
+      nextBorder: nextEnabled ? 'var(--ink)' : 'var(--line)',
+      nextColor: nextEnabled ? 'var(--ink)' : 'var(--mute)',
+      nextCursor: nextEnabled ? 'pointer' : 'default',
+      scoreText, scorePct, passPct, scoreAnim, vaderLives, hasNextLesson, canAdvance: hasNextLesson && !S.gameOver,
+      retryQuiz: () => this.retryQuiz(),
+      goNextQuiz: () => this.nextQuiz(),
+      resultEyebrow: 'L' + (S.dlLesson + 1) + ' · ' + (lessonData ? lessonData.topic.toUpperCase() : ''),
+      resultTitle: S.gameOver ? 'GAME OVER' : 'STAYED @LIVE',
+      resultColor: S.gameOver ? '#e5484d' : (passed ? 'var(--good)' : 'var(--ink)'),
+      resultVaderTransform: S.gameOver ? 'translateX(-50%) rotate(82deg)' : 'translateX(-50%)',
+      resultVaderOpacity: S.gameOver ? '0.45' : '1',
+      resultBlurb: S.gameOver
+        ? 'Vader has fallen — all 4 lives are gone. Hit RETRY to revive him and run the quiz back from the top.'
+        : (passed
+          ? 'The Force is strong — you cleared the pass mark. Vader marches on.'
+          : 'You reached the end. Review the solutions, then retry to beat the pass mark.'),
+      rightClick: () => this.toggleExpl(),
+      rightLabel: 'EXPLANATION ',
+      rightIcon: S.explOpen ? 'hn-side-nav-collapse' : 'hn-side-nav-expand',
+      rightIconOp: '1',
+      rightColor: 'var(--ink)',
+      quizRevealed: rev,
+      quizNotRevealed: !rev,
+      explAnswer: explAnswer, hasAnswerChip: !isReviewQ && explAnswer.length > 0,
+      explText: q.explain,
+      hasExpl: !!(q.explain && q.explain.length),
+      teacherShow, teacherTells, teacherHasTells,
+      teacherNoSignal: rev && !teacherShow,
+      teacherTip: 'The answer NAMES the exact mechanism and SCOPES its claim (while / whereas / selectively). Distractors usually swap two mechanisms, or push a true-ish idea to an absolute (only / always / never).',
+      teacherLen: 'Tie-breaker: when torn, prefer the shorter, more direct option. Long answers that parrot the question are usually distractors.',
+      explFoot: (lessonData && lessonData.real) ? (lessonData.source || 'Official course quiz') : 'AI TUTOR · auto-generated',
+      lectures: [
+        { mod:'M1·L1', title:'History & Approaches', status:'DONE', icon:'hn-check', fg:'var(--ink)', onClick:()=>{} },
+        { mod:'M2·L2', title:'Attention', status:'DONE', icon:'hn-check', fg:'var(--ink)', onClick:()=>{} },
+        { mod:'M3·L1', title:'Memory Systems', status:'OPEN', icon:'hn-angle-right', fg:'var(--ink)', onClick:()=>this.openFile('m3l1') },
+        { mod:'M4·L1', title:'Emotion & Social Cognition', status:'NOW', icon:'hn-play', fg:'var(--ink)', onClick:()=>this.openFile('m4l1') },
+        { mod:'M5·L1', title:'Executive Function', status:'LOCKED', icon:'hn-lock', fg:'var(--mute)', onClick:()=>{} },
+      ],
+      docEyebrow: d.eyebrow, docTitle: d.title, goals: d.goals.map(t => ({ text: t })),
+      docBody1: d.body1, docBody2: d.body2,
+    };
+  }
+}
+</script>
+</body>
+</html>

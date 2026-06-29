@@ -1,0 +1,76 @@
+/* ideShell.css — tokens, keyframes, and shared styling for the CSAI IDE shell.
+ *
+ * The component itself keeps most styling inline (a faithful port of the
+ * .dc.html prototype). This file holds the things that cannot live inline:
+ * the walking-Vader keyframes, the theme-aware scrollbar, and a couple of
+ * resets scoped to the shell so the global App.css rules do not bleed in.
+ *
+ * Theme tokens (--bg, --ink, --mute, --line, --sel, --hover, --fill,
+ * --onFill, --ok, --accent) are injected onto the root element as inline
+ * custom properties by IdeShell (see shellThemes.js). Everything below
+ * references them via var().
+ */
+
+/* Walking Vader sprite: 11 frames across a 330px-wide sheet (30px each). */
+@keyframes vaderwalk {
+  from { background-position-x: 0; }
+  to { background-position-x: -330px; }
+}
+
+/* Quiz answer-reveal feedback animations (from design v2). */
+@keyframes tickpop {
+  0% { transform: scale(0); }
+  55% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+@keyframes btnpop {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.07); }
+  60% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+@keyframes fbpop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Podcast equalizer idle shimmer (decorative, paused when not playing). */
+@keyframes ideEq {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.55); }
+}
+
+.ide-shell {
+  height: 100vh;
+  display: flex;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+/* Pixel-flavoured thin scrollbars that follow the active theme. */
+.ide-shell *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.ide-shell *::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ide-shell *::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+.ide-shell *::-webkit-scrollbar-thumb:hover {
+  background: var(--mute);
+}
+
+/* Links inside the shell inherit the ink colour, no underline by default. */
+.ide-shell a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Tabs/options should never show a text selection caret while dragging. */
+.ide-shell [draggable="true"] {
+  user-select: none;
+}

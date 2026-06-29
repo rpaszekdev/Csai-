@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-11.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,17 @@ const QUESTIONS = [
     "prompt": "Sample exam Q1: Vehicle 1 has one sensor and one motor wired with a positive connection. Place it in a single-light world and describe its behaviour. Which is correct?",
     "options": [
       {
-        "html": "It cannot move at all."
+        "html": "It stays motionless, because a single positive sensor-motor wire provides no drive signal until a second sensor is added."
       },
       {
         "html": "It moves at a speed proportional to the light intensity but cannot steer; an observer reads it as \"alive\".",
         "correct": true
       },
       {
-        "html": "It approaches the light and stops."
+        "html": "It drives straight at the light source and comes to a halt once it reaches the brightest point in the world."
       },
       {
-        "html": "It always orbits the source."
+        "html": "It settles into a stable circular orbit around the source, endlessly looping at a fixed radius from the light."
       }
     ],
     "prof": "Vehicle 1 is the cleanest demo of behaviour-from-wiring. One wire, no steering, but the speed modulation is enough for an observer to invent a story."
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "True or false? <em>\"A camera is always a proprioceptive sensor because it is mounted on the robot.\"</em>",
     "options": [
       {
-        "html": "True — anything mounted on the robot is proprioceptive."
+        "html": "True — any sensor physically attached to the robot's body counts as proprioceptive, so a mounted camera qualifies by definition."
       },
       {
         "html": "False — proprioceptive vs exteroceptive depends on what is measured, not where the sensor is mounted; a camera measures the external scene → exteroceptive.",
         "correct": true
       },
       {
-        "html": "True only at night."
+        "html": "True, but only under low-light conditions, since at night the camera measures internal state rather than the external scene."
       },
       {
-        "html": "False — cameras are actuators."
+        "html": "False — a camera is best classified as an actuator, because it actively projects and emits light onto the scene it observes."
       }
     ],
     "prof": "Mounting location is irrelevant. Joint encoder mounted on the robot? Proprioceptive. Camera mounted on the robot? Exteroceptive."
@@ -155,17 +159,17 @@ const QUESTIONS = [
     "prompt": "Sample exam Q: Give the cleanest example of morphological computation discussed in the course.",
     "options": [
       {
-        "html": "A drone with GPS waypoints."
+        "html": "A delivery drone that follows GPS waypoints, where the flight controller offloads stabilisation onto the airframe's shape."
       },
       {
         "html": "A passive walker that descends an incline using leg geometry alone — no controller, behaviour produced by morphology.",
         "correct": true
       },
       {
-        "html": "A self-driving car."
+        "html": "A self-driving car, whose perception stack lets the chassis geometry compute the steering response without explicit control."
       },
       {
-        "html": "An industrial 6-DoF arm running PID."
+        "html": "An industrial 6-DoF arm running PID, where the link masses themselves perform the trajectory computation instead of the controller."
       }
     ],
     "prof": "Operational test: remove the controller. If behaviour persists, the body was computing. Passive walker is the canonical case."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "In a hybrid deliberative/reactive robot, an unexpected obstacle appears 30 cm ahead. Which layer handles it, and why?",
     "options": [
       {
-        "html": "The deliberative layer, because it has the world model."
+        "html": "The deliberative layer, because only its world model can decide the safe response to an obstacle this close to the robot."
       },
       {
         "html": "The reactive layer, because it must respond within milliseconds; the deliberative layer would be too slow.",
         "correct": true
       },
       {
-        "html": "Neither — the robot stops on a timer."
+        "html": "Neither layer reacts to the obstacle; the robot halts on a fixed safety timer that fires independently of either layer."
       },
       {
-        "html": "Both layers issue a command simultaneously and average the result."
+        "html": "Both layers fire a command at once, and the hybrid architecture averages the two outputs into a single blended motion."
       }
     ],
     "prof": "Plan slow, react fast. Safety-critical responses live in the reactive shell; the planner keeps working on the long-horizon goal."
@@ -201,17 +205,17 @@ const QUESTIONS = [
     "prompt": "Sample exam Q: Briefly contrast Learning from Demonstration (LfD) and Reinforcement Learning (RL).",
     "options": [
       {
-        "html": "LfD = no data; RL = labelled data."
+        "html": "LfD learns entirely without data while RL depends on a fully labelled dataset, so the two methods need opposite data regimes."
       },
       {
         "html": "LfD = supervised by demonstrations (kinesthetic / teleop / observation); RL = trial and error guided by reward; LfD is sample-efficient but bounded by the teacher, RL can surpass the teacher but is sample-hungry.",
         "correct": true
       },
       {
-        "html": "Both produce identical policies."
+        "html": "Both methods converge to identical policies in practice, since demonstrations and reward signals encode exactly the same information."
       },
       {
-        "html": "LfD only works in simulation; RL only works on real robots."
+        "html": "LfD is restricted to simulation and RL is restricted to real robots, so the choice between them is dictated purely by the platform."
       }
     ],
     "prof": "Combine them: warm-start with LfD, refine with RL. Pure RL on real robots is brutal; pure LfD plateaus at teacher quality."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "A robot must hold a target arm position despite small disturbances. Which controller is the appropriate <strong>minimum</strong>?",
     "options": [
       {
-        "html": "Open-loop fixed motor command."
+        "html": "An open-loop fixed motor command, which holds the arm in place because a constant torque is enough to absorb small disturbances."
       },
       {
         "html": "Closed-loop proportional (P) control, possibly extended to PID — open-loop cannot reject disturbances.",
         "correct": true
       },
       {
-        "html": "A bang-bang switch."
+        "html": "A bang-bang on/off switch, since toggling full torque at the threshold is the simplest controller able to hold a target position."
       },
       {
-        "html": "An LLM in the loop."
+        "html": "A large language model in the control loop, querying it each cycle to compute the corrective command for the arm joint."
       }
     ],
     "prof": "Disturbance rejection requires feedback. Open-loop is a non-starter; bang-bang oscillates; P-control is the simplest correct answer."
@@ -247,17 +251,17 @@ const QUESTIONS = [
     "prompt": "Which is the <strong>most common</strong> exam trap that the lecturer flagged repeatedly across the course?",
     "options": [
       {
-        "html": "Confusing actuators with sensors."
+        "html": "Swapping the definitions of actuators and sensors, labelling a motor as a sensor and a measurement device as an actuator."
       },
       {
         "html": "Calling a system \"autonomous\" when it satisfies only one or two of Nolfi's three conditions, especially missing the partially-unknown-environment requirement.",
         "correct": true
       },
       {
-        "html": "Forgetting to charge the battery."
+        "html": "Treating proprioceptive and exteroceptive as interchangeable, and grouping every onboard sensor under a single combined category."
       },
       {
-        "html": "Writing in pencil instead of pen."
+        "html": "Confusing the deliberative and reactive layers, attributing millisecond obstacle responses to the slow world-model planner."
       }
     ],
     "prof": "If you remember nothing else from the exam: <em>three</em> conditions, all three must hold. The Spigler counter-example is built directly on this trap."
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "Which exam-day strategy did the lecturer recommend most strongly?",
     "options": [
       {
-        "html": "Memorise every slide verbatim."
+        "html": "Memorise every slide verbatim, since the exam rewards reciting the lecturer's exact wording over reasoning from the concepts."
       },
       {
         "html": "Anchor every answer to the course's recurring concepts (Nolfi's 3 conditions, perception–action cycle, paradigms, embodiment, RL framework) — reasoning beats memorisation.",
         "correct": true
       },
       {
-        "html": "Skip the open-ended questions."
+        "html": "Skip the open-ended questions and bank the time on multiple-choice, where the marks are easier and faster to secure."
       },
       {
-        "html": "Use only one-word answers."
+        "html": "Keep every answer to a single word or short phrase, since examiners reward concise responses over fully scaffolded reasoning."
       }
     ],
     "prof": "Open-ended questions reward conceptual scaffolding, not recall. Tie your answer to the course's spine — definition, framework, paradigm — and you've earned the points."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l11_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week11-slides/slide-";

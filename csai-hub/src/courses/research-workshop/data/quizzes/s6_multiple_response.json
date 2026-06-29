@@ -1,0 +1,155 @@
+{
+  "section_id": "s6",
+  "quiz_type": "multiple_response",
+  "title": "Writing a Research Paper - Multiple Response",
+  "questions": [
+    {
+      "id": "s6_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which elements must appear in EVERY introduction, according to Wallwork? (Select all that apply)",
+      "options": {
+        "A": "Define the topic and give background",
+        "B": "State the accepted state and the problem",
+        "C": "Give the authors' objectives or aim",
+        "D": "Introduce the relevant literature",
+        "E": "Report the main numerical results"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "All introductions define the topic/background, state the accepted state plus the problem, give the aim, and introduce the literature. Reporting numerical results (E) belongs in the Results section, not the introduction."
+    },
+    {
+      "id": "s6_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which signal an INFORMAL register that should be avoided in an introduction? (Select all that apply)",
+      "options": {
+        "A": "Contractions such as 'don't' and 'isn't'",
+        "B": "Rhetorical questions aimed at the reader",
+        "C": "Sentence-initial 'And', 'But', or 'So'",
+        "D": "Vague approximations and slang",
+        "E": "A clearly stated research aim"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Contractions, rhetorical questions, sentence-initial And/But/So, and vague approximations or slang all mark an informal register to avoid. A clearly stated aim (E) is required content, not an informality."
+    },
+    {
+      "id": "s6_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "In CARS, which moves can be used to establish a niche (Move 2)? (Select all that apply)",
+      "options": {
+        "A": "Challenge earlier work with a counterclaim",
+        "B": "Indicate a gap in what is known",
+        "C": "Extend prior research in a new direction",
+        "D": "Review what is already known about the topic",
+        "E": "State the paper's specific purpose and structure"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Move 2 establishes a niche by counterclaim, gap, or extension of prior work. Reviewing what is known (D) is Move 1, and stating the purpose and structure (E) is Move 3."
+    },
+    {
+      "id": "s6_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which subsections are typical of a participant-study Methods section? (Select all that apply)",
+      "options": {
+        "A": "Participants",
+        "B": "Materials or Stimuli",
+        "C": "Design",
+        "D": "Procedure",
+        "E": "Dataset and Preprocessing"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "A participant study typically runs Participants, Materials/Stimuli, Design, and Procedure (often with Aim and Analysis). Dataset and Preprocessing (E) belong to the ML-study Methods order, not the participant-study order."
+    },
+    {
+      "id": "s6_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "What must a Results section EXCLUDE? (Select all that apply)",
+      "options": {
+        "A": "Interpretation of why effects occurred",
+        "B": "Every raw participant score",
+        "C": "Background and the procedure",
+        "D": "Stats-class explanations of the test",
+        "E": "A summary of the main patterns found"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Results excludes interpretation, raw scores, background, procedure, stats-class explanations, and irrelevant data. A summary of the main patterns (E) is exactly what Results should include."
+    },
+    {
+      "id": "s6_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which requirements apply to tables and figures in a Results section? (Select all that apply)",
+      "options": {
+        "A": "They must be referred to in the text",
+        "B": "They must be understandable on their own",
+        "C": "They must not merely repeat the prose",
+        "D": "They must replace the prose summary entirely",
+        "E": "They must list every individual data point"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Exhibits must be referenced in text, be independent (understandable alone), and not duplicate the prose. They do not replace the prose summary (D), and the text should report patterns rather than every point (E)."
+    },
+    {
+      "id": "s6_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which prompts make up the 'message in a bottle' test you apply before writing the Discussion? (Select all that apply)",
+      "options": {
+        "A": "Why did you do the study?",
+        "B": "What is the central question?",
+        "C": "What are the main findings, and why should people care?",
+        "D": "What is new about the work?",
+        "E": "Which font and citation style will the journal require?"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The message-in-a-bottle test asks why you did the study, the central question, the main findings, why people should care, and what is new, distilled to one core sentence. Formatting choices like font or citation style (E) are not part of this test."
+    },
+    {
+      "id": "s6_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Why do academic writers hedge? (Select all that apply)",
+      "options": {
+        "A": "To reduce the risk of overstating a claim",
+        "B": "To be more precise about uncertainty",
+        "C": "To meet academic expectations",
+        "D": "To hide weaknesses in the data"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Hedging reduces risk, improves precision, and meets academic expectations, using tools such as UEFAP and the Manchester Academic Phrasebank. It is not used to hide weaknesses (D); limitations should be stated honestly."
+    },
+    {
+      "id": "s6_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which belong in the abstract's five required elements? (Select all that apply)",
+      "options": {
+        "A": "Topic and background",
+        "B": "The research question or aim",
+        "C": "Study type, design, and materials or participants",
+        "D": "The main outcome",
+        "E": "The full reference list"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The abstract maps onto IMRaD with topic/background, RQ/aim, study type/design/materials, main outcome, and conclusion/implications. A reference list (E) is never part of an abstract."
+    },
+    {
+      "id": "s6_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which statements about the known-new contract and abstract style are correct? (Select all that apply)",
+      "options": {
+        "A": "Each sentence should start from what is known and introduce something new",
+        "B": "Parts are linked with signposts such as 'Additionally' or 'Together, these results'",
+        "C": "The abstract is a connected paragraph, not a bulleted list",
+        "D": "Choppy, disconnected sentences are preferred for clarity"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The known-new contract links sentences from known to new with signposts, producing a connected paragraph. Choppy, disconnected sentences (D) are explicitly to be avoided in the abstract."
+    }
+  ]
+}

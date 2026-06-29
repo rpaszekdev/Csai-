@@ -1,0 +1,52 @@
+{
+  "section_id": "s1",
+  "quiz_type": "ordering",
+  "title": "Course Introduction - Ordering",
+  "questions": [
+    {
+      "id": "s1_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the stages of the full research cycle as practised in the course.",
+      "items": ["Analysis", "Research Question", "Data", "Design", "Paper"],
+      "correct_order": ["Research Question", "Design", "Data", "Analysis", "Paper"],
+      "explanation": "The full research cycle runs Research Question, then design, then data, then analysis, and finally the paper."
+    },
+    {
+      "id": "s1_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the project workflow from topic selection to submission.",
+      "items": ["Data collection", "Topic selection", "Analysis", "Ethics and consent", "Proposal", "Paper"],
+      "correct_order": ["Topic selection", "Proposal", "Ethics and consent", "Data collection", "Analysis", "Paper"],
+      "explanation": "The workflow goes topic selection, proposal, ethics and consent, data collection, analysis, then paper, with ethics cleared before any data is collected."
+    },
+    {
+      "id": "s1_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the plenary lecture topics as the course presents them.",
+      "items": ["Data analysis", "RQ and literature review", "Writing", "Experimental design"],
+      "correct_order": ["RQ and literature review", "Experimental design", "Data analysis", "Writing"],
+      "explanation": "The plenary lectures progress from RQ and literature review, to experimental design, to data analysis, and finally writing."
+    },
+    {
+      "id": "s1_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the high-level project timeline milestones.",
+      "items": ["Analysis", "Topic selection", "Paper", "Proposal", "Data collection"],
+      "correct_order": ["Topic selection", "Proposal", "Data collection", "Analysis", "Paper"],
+      "explanation": "The timeline moves from topic selection to proposal, then data collection, then analysis, and ends with the paper."
+    },
+    {
+      "id": "s1_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order these early group-formation and planning steps in the order a student should do them.",
+      "items": ["Sign the Team Expectations Agreement", "Pick a supervisor topic from the menu", "Self-enroll in the research-topic group on Canvas"],
+      "correct_order": ["Pick a supervisor topic from the menu", "Self-enroll in the research-topic group on Canvas", "Sign the Team Expectations Agreement"],
+      "explanation": "A student first picks a supervisor topic, then self-enrolls in that research-topic group on Canvas (not the auto-assigned group), and then the formed team signs its Team Expectations Agreement."
+    }
+  ]
+}

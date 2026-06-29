@@ -1,0 +1,127 @@
+{
+  "section_id": "s6",
+  "quiz_type": "matching",
+  "title": "Writing a Research Paper - Matching",
+  "questions": [
+    {
+      "id": "s6_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each IMRaD section to its core purpose.",
+      "items": ["Introduction", "Methods", "Results", "Discussion"],
+      "categories": [
+        "Give background, engage the reader, and motivate the study",
+        "Describe and justify what was done, arguing for replicability",
+        "Summarise the findings and refer to tables and figures",
+        "Interpret results, answer the RQ, and critically evaluate"
+      ],
+      "correct_mapping": {
+        "Introduction": "Give background, engage the reader, and motivate the study",
+        "Methods": "Describe and justify what was done, arguing for replicability",
+        "Results": "Summarise the findings and refer to tables and figures",
+        "Discussion": "Interpret results, answer the RQ, and critically evaluate"
+      },
+      "explanation": "The Introduction motivates the study, Methods describe and justify for replicability, Results summarise findings with exhibits, and the Discussion interprets and evaluates."
+    },
+    {
+      "id": "s6_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each CARS move to its description.",
+      "items": ["Move 1", "Move 2", "Move 3"],
+      "categories": [
+        "Establish the territory: show the topic matters and review what is known",
+        "Establish a niche: counterclaim, indicate a gap, or extend prior work",
+        "Occupy the niche: state the purpose, RQ, and the paper's structure"
+      ],
+      "correct_mapping": {
+        "Move 1": "Establish the territory: show the topic matters and review what is known",
+        "Move 2": "Establish a niche: counterclaim, indicate a gap, or extend prior work",
+        "Move 3": "Occupy the niche: state the purpose, RQ, and the paper's structure"
+      },
+      "explanation": "CARS runs Move 1 (establish the territory), Move 2 (establish a niche via counterclaim/gap/extension), and Move 3 (occupy the niche by stating the purpose and RQ)."
+    },
+    {
+      "id": "s6_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each section to its expected voice or tense.",
+      "items": ["Methods", "Results findings", "Results exhibits", "Discussion"],
+      "categories": [
+        "Passive voice and past tense",
+        "Past tense for what you found",
+        "Present tense when pointing to your tables or figures",
+        "As active as possible, with hedging on claims about meaning"
+      ],
+      "correct_mapping": {
+        "Methods": "Passive voice and past tense",
+        "Results findings": "Past tense for what you found",
+        "Results exhibits": "Present tense when pointing to your tables or figures",
+        "Discussion": "As active as possible, with hedging on claims about meaning"
+      },
+      "explanation": "Methods use passive/past, your findings use past, references to your own exhibits use present, and the Discussion is active and hedged."
+    },
+    {
+      "id": "s6_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each abstract element to its IMRaD part.",
+      "items": ["Topic and background", "Research question or aim", "Study type, design, and materials", "Main outcome", "Conclusion and implications"],
+      "categories": [
+        "Introduction (background)",
+        "Introduction (aim)",
+        "Method",
+        "Results",
+        "Discussion"
+      ],
+      "correct_mapping": {
+        "Topic and background": "Introduction (background)",
+        "Research question or aim": "Introduction (aim)",
+        "Study type, design, and materials": "Method",
+        "Main outcome": "Results",
+        "Conclusion and implications": "Discussion"
+      },
+      "explanation": "The abstract's five elements map onto IMRaD: topic and aim from the Introduction, study type/design/materials from Method, main outcome from Results, and conclusion/implications from the Discussion."
+    },
+    {
+      "id": "s6_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each Methods subsection to the study type whose template it belongs to.",
+      "items": ["Participants", "Procedure", "Dataset", "Performance Evaluation"],
+      "categories": [
+        "Participant study",
+        "Participant study (action steps)",
+        "ML study",
+        "ML study (results metrics)"
+      ],
+      "correct_mapping": {
+        "Participants": "Participant study",
+        "Procedure": "Participant study (action steps)",
+        "Dataset": "ML study",
+        "Performance Evaluation": "ML study (results metrics)"
+      },
+      "explanation": "A participant study orders Participants, Materials/Stimuli, Design, Procedure; an ML study orders Dataset, Preprocessing, Implementation, Performance Evaluation."
+    },
+    {
+      "id": "s6_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each lens used to view a section to what it checks.",
+      "items": ["Content", "Structure", "Language", "Grammar and Mechanics"],
+      "categories": [
+        "Whether the right information is present",
+        "How the parts are ordered and connected",
+        "Register, voice, and word choice",
+        "Tense, punctuation, and number formatting"
+      ],
+      "correct_mapping": {
+        "Content": "Whether the right information is present",
+        "Structure": "How the parts are ordered and connected",
+        "Language": "Register, voice, and word choice",
+        "Grammar and Mechanics": "Tense, punctuation, and number formatting"
+      },
+      "explanation": "Each section is viewed through four lenses in order: Content (what is present), Structure (order and connection), Language (register/voice/word choice), and Grammar and Mechanics (tense, punctuation, numbers)."
+    }
+  ]
+}

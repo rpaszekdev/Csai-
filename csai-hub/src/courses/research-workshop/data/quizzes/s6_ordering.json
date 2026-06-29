@@ -1,0 +1,80 @@
+{
+  "section_id": "s6",
+  "quiz_type": "ordering",
+  "title": "Writing a Research Paper - Ordering",
+  "questions": [
+    {
+      "id": "s6_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the IMRaD sections as they appear in a paper.",
+      "items": ["Results", "Introduction", "Discussion", "Methods"],
+      "correct_order": ["Introduction", "Methods", "Results", "Discussion"],
+      "explanation": "IMRaD is the standard skeleton: Introduction, then Methods, then Results, then Discussion."
+    },
+    {
+      "id": "s6_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order Swales' three CARS moves as they occur in an introduction.",
+      "items": [
+        "Occupy the niche: state the purpose, RQ, and structure",
+        "Establish the territory: show relevance and review what is known",
+        "Establish a niche: counterclaim, indicate a gap, or extend prior work"
+      ],
+      "correct_order": [
+        "Establish the territory: show relevance and review what is known",
+        "Establish a niche: counterclaim, indicate a gap, or extend prior work",
+        "Occupy the niche: state the purpose, RQ, and structure"
+      ],
+      "explanation": "CARS moves run Move 1 (establish the territory), Move 2 (establish a niche), then Move 3 (occupy the niche)."
+    },
+    {
+      "id": "s6_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order the introduction's funnel from its opening to its tip.",
+      "items": [
+        "The specific research question and hypothesis",
+        "Broad background establishing the topic's importance",
+        "The narrowed gap or niche in prior research"
+      ],
+      "correct_order": [
+        "Broad background establishing the topic's importance",
+        "The narrowed gap or niche in prior research",
+        "The specific research question and hypothesis"
+      ],
+      "explanation": "The funnel goes broad to specific: broad background, then the narrowed niche, then the research question and hypothesis at the tip."
+    },
+    {
+      "id": "s6_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the typical subsections of a participant-study Methods section.",
+      "items": ["Procedure", "Materials or Stimuli", "Participants", "Design"],
+      "correct_order": ["Participants", "Materials or Stimuli", "Design", "Procedure"],
+      "explanation": "A participant study typically runs Participants, then Materials/Stimuli, then Design, then Procedure (often framed by Aim and Analysis)."
+    },
+    {
+      "id": "s6_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order the abstract's five elements as they are read, mapped onto IMRaD.",
+      "items": [
+        "Main outcome of the study",
+        "Topic and background",
+        "Conclusion and implications",
+        "Research question or aim",
+        "Study type, design, and materials"
+      ],
+      "correct_order": [
+        "Topic and background",
+        "Research question or aim",
+        "Study type, design, and materials",
+        "Main outcome of the study",
+        "Conclusion and implications"
+      ],
+      "explanation": "The abstract follows IMRaD reading order: topic/background and RQ/aim (Introduction), study type/design/materials (Method), main outcome (Results), and conclusion/implications (Discussion)."
+    }
+  ]
+}

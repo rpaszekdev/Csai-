@@ -45,7 +45,10 @@ export default function QuizIndex({ courseId, listSections, QUIZ_TYPES }) {
           <span className="quiz-list-dot">{"\u00b7"}</span>
           <span>{totalQuestions} questions</span>
           <span className="quiz-list-dot">{"\u00b7"}</span>
-          <span>5 types {"\u00b7"} MC {"\u00b7"} MR {"\u00b7"} Fill {"\u00b7"} Match {"\u00b7"} Order</span>
+          <span>
+            5 types {"\u00b7"} MC {"\u00b7"} MR {"\u00b7"} Fill {"\u00b7"} Match{" "}
+            {"\u00b7"} Order
+          </span>
         </p>
       </header>
 
@@ -58,6 +61,23 @@ export default function QuizIndex({ courseId, listSections, QUIZ_TYPES }) {
             <div className="quiz-mod-head">
               <span className="quiz-mod-num">{num}</span>
               <h2 className="quiz-mod-title">{section.title}</h2>
+              {section.lecturer ? (
+                <span
+                  className="quiz-mod-badge quiz-mod-badge--lecturer"
+                  style={{
+                    fontSize: "0.65rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    padding: "0.15em 0.5em",
+                    borderRadius: "0.25em",
+                    border: "1px solid currentColor",
+                    textTransform: "uppercase",
+                    opacity: 0.75,
+                  }}
+                >
+                  Lecturer
+                </span>
+              ) : null}
               <span className="quiz-mod-meta">
                 <span>{section.questionCount} Q</span>
                 <span className="quiz-mod-dot">{"\u00b7"}</span>

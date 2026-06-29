@@ -10,6 +10,15 @@ const QUIZ_TYPES = [
 
 const SECTION_ORDER = [
   "exam",
+  "lec1",
+  "lec2",
+  "lec3",
+  "lec4",
+  "lec5",
+  "lec6",
+  "lec7",
+  "lec8",
+  "lec9",
   "l1",
   "l2",
   "l3",
@@ -23,6 +32,15 @@ const SECTION_ORDER = [
 
 const SECTION_TITLES = {
   exam: "Exam: Real-Style MCQ",
+  lec1: "Lecturer Quiz: MLP",
+  lec2: "Lecturer Quiz: MLP Activation & Backprop",
+  lec3: "Lecturer Quiz: Gradient Descent & Optimizers",
+  lec4: "Lecturer Quiz: PyTorch & Hyperparameters",
+  lec5: "Lecturer Quiz: CNNs",
+  lec6: "Lecturer Quiz: Regularization",
+  lec7: "Lecturer Quiz: RNNs, LSTMs & GRUs",
+  lec8: "Lecturer Quiz: Attention & Transformers",
+  lec9: "Lecturer Quiz: Positional Encoding & Transformers",
   l1: "L1: MLPs",
   l2: "L2: Backpropagation",
   l3: "L3: Optimizers",
@@ -95,15 +113,19 @@ export function getAvailableTypes(sectionId) {
 
 export function listSections() {
   return SECTION_ORDER.filter((id) => getQuizzesForSection(id).length > 0).map(
-    (id) => ({
-      id,
-      title: SECTION_TITLES[id] ?? id,
-      questionCount: getQuizzesForSection(id).reduce(
-        (sum, q) => sum + (q.questions?.length ?? 0),
-        0,
-      ),
-      availableTypes: getAvailableTypes(id),
-    }),
+    (id) => {
+      const quizzes = getQuizzesForSection(id);
+      return {
+        id,
+        title: SECTION_TITLES[id] ?? id,
+        questionCount: quizzes.reduce(
+          (sum, q) => sum + (q.questions?.length ?? 0),
+          0,
+        ),
+        availableTypes: getAvailableTypes(id),
+        lecturer: quizzes.some((q) => q.source === "lecturer"),
+      };
+    },
   );
 }
 

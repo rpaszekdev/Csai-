@@ -2,6 +2,7 @@
   "section_id": "exam",
   "quiz_type": "multiple_choice",
   "title": "Exam: Real-Style MCQ",
+  "source": "exam",
   "questions": [
     {
       "id": "exam_mc_1",

@@ -1,0 +1,26 @@
+{
+  "section_id": "lec7",
+  "quiz_type": "multiple_response",
+  "title": "Lecturer Quiz: RNNs, LSTMs & GRUs - Multiple Response",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec7_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following NLP tasks can be performed by a many-to-many RNN-based encoder-decoder architecture:",
+      "options": {
+        "A": "Machine Translation: translating a sentence in one language into a sentence in another.",
+        "B": "Textual entailment: given two sentences, decide whether the one entails the other.",
+        "C": "Sentence parsing: given a natural language sentence, generate its parse tree.",
+        "D": "Text summarisation: given a natural language text, generate a reduced (in volume) version of it."
+      },
+      "correct_answers": [
+        "A",
+        "C",
+        "D"
+      ],
+      "explanation": ""
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { PROGRAM } from "./data/courses";
 import Year from "./components/Year";
@@ -14,9 +14,13 @@ import BrainQuizView from "./courses/cog-neuro/routes/BrainQuizView";
 import DeepLearnDashboard from "./courses/deep-learn/routes/DeepLearnDashboard";
 import DLQuizIndex from "./courses/deep-learn/routes/QuizIndex";
 import DLQuizSession from "./courses/deep-learn/routes/QuizSession";
+import RWDashboard from "./courses/research-workshop/routes/RWDashboard";
+import RWQuizIndex from "./courses/research-workshop/routes/QuizIndex";
+import RWQuizSession from "./courses/research-workshop/routes/QuizSession";
 import NotesPage from "./routes/NotesPage";
 import EventModal from "./components/EventModal";
 import CoffeeButton from "./components/CoffeeButton";
+import IdeShell from "./shell/IdeShell";
 import "./App.css";
 
 const CURRENT_SEMESTER = 4;
@@ -56,7 +60,8 @@ function App() {
       <CoffeeButton />
       <EventModal />
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<IdeShell />} />
+        <Route path="/home" element={<Landing />} />
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/courses/cog-neuro" element={<CogNeuroDashboard />}>
           <Route index element={<RoadmapView />} />
@@ -69,6 +74,11 @@ function App() {
           <Route index element={<DLQuizIndex />} />
           <Route path="quiz" element={<DLQuizIndex />} />
           <Route path="quiz/:sectionId/:quizType" element={<DLQuizSession />} />
+        </Route>
+        <Route path="/courses/rw" element={<RWDashboard />}>
+          <Route index element={<Navigate to="quiz" replace />} />
+          <Route path="quiz" element={<RWQuizIndex />} />
+          <Route path="quiz/:sectionId/:quizType" element={<RWQuizSession />} />
         </Route>
       </Routes>
       <Analytics />

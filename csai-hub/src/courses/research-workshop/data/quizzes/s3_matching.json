@@ -1,0 +1,93 @@
+{
+  "section_id": "s3",
+  "quiz_type": "matching",
+  "title": "Experimental Design - Matching",
+  "questions": [
+    {
+      "id": "s3_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each design to the statistical test that fits it.",
+      "items": ["Two between-subjects conditions", "Two within-subjects conditions", "A 2x2 factorial design", "Three within-subjects conditions"],
+      "categories": ["Independent t-test", "Paired t-test", "Factorial ANOVA", "Repeated-measures ANOVA"],
+      "correct_mapping": {
+        "Two between-subjects conditions": "Independent t-test",
+        "Two within-subjects conditions": "Paired t-test",
+        "A 2x2 factorial design": "Factorial ANOVA",
+        "Three within-subjects conditions": "Repeated-measures ANOVA"
+      },
+      "explanation": "Design dictates the test: between-subjects pairs use an independent t-test, within-subjects pairs use a paired t-test, crossed IVs use factorial ANOVA, and three within conditions use repeated-measures ANOVA."
+    },
+    {
+      "id": "s3_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each role to its definition in an experiment.",
+      "items": ["Independent variable", "Dependent variable", "Condition"],
+      "categories": ["What the researcher manipulates", "What the researcher measures", "A level of the independent variable"],
+      "correct_mapping": {
+        "Independent variable": "What the researcher manipulates",
+        "Dependent variable": "What the researcher measures",
+        "Condition": "A level of the independent variable"
+      },
+      "explanation": "The IV is manipulated, the DV is measured, and a condition is one level of the IV (for example silence, background, or loud noise)."
+    },
+    {
+      "id": "s3_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each statistical concept to its definition.",
+      "items": ["Type I error", "Type II error", "Power"],
+      "categories": ["A false positive: detecting an effect that is not there", "A false negative: missing an effect that is there", "The probability of correctly detecting a real effect"],
+      "correct_mapping": {
+        "Type I error": "A false positive: detecting an effect that is not there",
+        "Type II error": "A false negative: missing an effect that is there",
+        "Power": "The probability of correctly detecting a real effect"
+      },
+      "explanation": "Type I error (alpha) is a false positive, Type II error (beta) is a false negative, and power equals 1 - beta, the chance of detecting a true effect."
+    },
+    {
+      "id": "s3_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each design type to its key property.",
+      "items": ["Between-subjects", "Within-subjects", "Quasi-experimental"],
+      "categories": ["Different participants per condition; needs about twice the sample", "Same participants in all conditions; each is their own control", "Groups defined by naturalistic variation, not random assignment"],
+      "correct_mapping": {
+        "Between-subjects": "Different participants per condition; needs about twice the sample",
+        "Within-subjects": "Same participants in all conditions; each is their own control",
+        "Quasi-experimental": "Groups defined by naturalistic variation, not random assignment"
+      },
+      "explanation": "Between-subjects uses separate groups and a larger sample, within-subjects reuses participants for higher power, and quasi-experiments rely on pre-existing group differences."
+    },
+    {
+      "id": "s3_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each scenario to its correct study classification.",
+      "items": ["Randomly assigning participants to silence vs loud noise", "Correlating natural IQ with reaction time", "Comparing ChatGPT users vs non-users by existing use"],
+      "categories": ["Experimental", "Correlational", "Quasi-experimental"],
+      "correct_mapping": {
+        "Randomly assigning participants to silence vs loud noise": "Experimental",
+        "Correlating natural IQ with reaction time": "Correlational",
+        "Comparing ChatGPT users vs non-users by existing use": "Quasi-experimental"
+      },
+      "explanation": "Random assignment with a manipulated IV is experimental, relating two measured variables is correlational, and grouping by a pre-existing trait is quasi-experimental."
+    },
+    {
+      "id": "s3_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each term to its description.",
+      "items": ["Filler", "Confound", "Demand characteristics", "Counterbalancing"],
+      "categories": ["An unrelated trial that hides the manipulation", "A variable that systematically differs between conditions", "Participants guessing the hypothesis and adjusting", "Reversing condition order across groups"],
+      "correct_mapping": {
+        "Filler": "An unrelated trial that hides the manipulation",
+        "Confound": "A variable that systematically differs between conditions",
+        "Demand characteristics": "Participants guessing the hypothesis and adjusting",
+        "Counterbalancing": "Reversing condition order across groups"
+      },
+      "explanation": "Fillers disguise the manipulation, confounds offer rival explanations, demand characteristics arise from participants inferring the aim, and counterbalancing cancels order effects."
+    }
+  ]
+}

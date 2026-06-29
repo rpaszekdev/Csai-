@@ -1,0 +1,124 @@
+{
+  "slug": "backpropagation",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L2 · BACKPROPAGATION",
+  "title": "BACKPROPAGATION",
+  "sub": "Visual exam summary — every section maps to a real quiz question.",
+  "podcast": { "href": "audio/backpropagation.mp3", "label": "LISTEN · BACKPROPAGATION PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 2 (Activation Functions & Backpropagation)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "THE ALGORITHM: FORWARD THEN BACKWARD",
+      "exam": "Backprop = a forward pass that predicts the output, then a backward pass that updates every weight by gradient descent on the loss — it does NOT adjust weights randomly.",
+      "ascii": "FORWARD  ─────────────────────────────────────────►  predict\n x ─►[W1]─► z1 ─►f─► a1 ─►[W2]─► z2 ─►f─► y_hat ─► L(y_hat , y)\n ◄─────────────────────────────────────────────────  BACKWARD: assign blame\n\n   for every weight:   W  ←  W − eta · (∂L/∂W)\n   ∂L/∂W is obtained by the CHAIN RULE, computed layer by layer\n   (loss compares prediction y_hat to target y; gradient says how to nudge W)",
+      "figures": [
+        { "kind": "slide", "slot": "backpropagation-s06", "ph": "DROP slide-06", "label": "LECTURE SLIDE", "cap": "Gradient descent",
+          "desc": "Loss vs weight: from a random start, each step moves the weights OPPOSITE to the gradient toward the minimum. Backprop just supplies that gradient." },
+        { "kind": "slide", "slot": "backpropagation-s10", "ph": "DROP slide-10", "label": "LECTURE SLIDE", "cap": "The update rule",
+          "desc": "W ← W − eta·ΔW and b ← b − eta·Δb. The whole job of backprop is to compute ΔW and Δb for every layer — the gradient of the loss." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "CHAIN RULE & THE DELTA RECURSION",
+      "exam": "Each layer's error is delta^l = (delta^(l+1) · W^(l+1)) ⊙ f'(z^l): error from the NEXT layer × NEXT weights × LOCAL activation slope; this layer-wise decomposition is exactly what the chain rule buys.",
+      "ascii": "        ┌── error from NEXT layer ──┐   ┌ local slope ┐\n delta^l_j  =  delta^(l+1)_i · W^(l+1)_ij  ·  f'(z^l_j)\n               │              │              │\n               │              │              └ ∂a^l/∂z^l  (activation derivative)\n               │              └ ∂z^(l+1)/∂a^l = W^(l+1)  (next layer's weights)\n               └ ∂L/∂z^(l+1) = delta of the NEXT layer (already computed)\n\n full chain for a hidden unit:\n   ∂L/∂z^(l-1) = [ ∂L/∂z^l · ∂z^l/∂a^(l-1) ] · ∂a^(l-1)/∂z^(l-1)\n                 └── first two terms = how a^(l-1) feeds the loss ──┘",
+      "figures": [
+        { "kind": "slide", "slot": "backpropagation-s14", "ph": "DROP slide-14", "label": "LECTURE SLIDE", "cap": "The chain rule",
+          "desc": "If L=f(a) and a=g(z) then ∂L/∂z = ∂L/∂a · ∂a/∂z. Every backprop term is just this rule stacked across layers." },
+        { "kind": "slide", "slot": "backpropagation-s28", "ph": "DROP slide-28", "label": "LECTURE SLIDE", "cap": "Other layers",
+          "desc": "∂L/∂z^(l-1) splits into three factors; the FIRST TWO together are the contribution of activation a^(l-1) to the overall loss — the exact quiz answer." },
+        { "kind": "slide", "slot": "backpropagation-s31", "ph": "DROP slide-31", "label": "LECTURE SLIDE", "cap": "General form",
+          "desc": "delta^l_j = delta^(l+1)_i · W^(l+1)_ij · f'(z^l_j). The recursion that lets you reuse the next layer's error to get this layer's." },
+        { "kind": "slide", "slot": "backpropagation-s32", "ph": "DROP slide-32", "label": "LECTURE SLIDE", "cap": "General form, labelled",
+          "desc": "Left box = error propagated from layer l (i.e. delta^(l+1)·W^(l+1)); right box = derivative of the activation f'(z). Names every factor." }
+      ]
+    },
+    {
+      "n": "03",
+      "title": "READING BACKPROP CODE",
+      "exam": "Decode each line by the chain rule: delta_output = output − target (BCE+sigmoid shortcut), error = delta·Wᵀ pushes error BACKWARD through the weights, ×f'(z) applies the local slope, aᵀ·delta is the weight gradient.",
+      "ascii": "delta_output = output - target            # ∂L/∂z_out  (BCE+sigmoid simplifies)\n      │  .dot(W_ho.T)                        # push error BACKWARD thru weights\n      ▼                                       #   = chain rule, opposite of forward\nerror_hidden  ── shape [1, hidden_size]\n      │  * activation_derivative(z_hidden)   # × LOCAL slope ∂a/∂z at each neuron\n      ▼\ndelta_hidden\n      │\n W_ho -= a_hidden.T.dot(delta_output)*lr    # weight grad, shape (hidden, output)\n b    -= delta * lr                          # bias grad = delta",
+      "figures": [
+        { "kind": "slide", "slot": "backpropagation-s17", "ph": "DROP slide-17", "label": "LECTURE SLIDE", "cap": "Output-layer chain rule",
+          "desc": "∂L/∂W = ∂L/∂a · ∂a/∂z · ∂z/∂W. The middle term ∂a/∂z is the sigmoid_derivative(z) you see multiplied in the code." },
+        { "kind": "slide", "slot": "backpropagation-s23", "ph": "DROP slide-23", "label": "LECTURE SLIDE", "cap": "delta = loss' × activation'",
+          "desc": "delta = (∂L/∂a)·(∂f/∂z): loss derivative times activation derivative. That is exactly delta_output = derivative_of_loss * sigmoid_derivative." },
+        { "kind": "slide", "slot": "backpropagation-s25", "ph": "DROP slide-25", "label": "LECTURE SLIDE", "cap": "Weight gradient = delta·a",
+          "desc": "∂L/∂W = delta · a^(n-1): the weight gradient is delta times the incoming activation — the a_hidden.T.dot(delta_output) line." }
+      ]
+    },
+    {
+      "n": "04",
+      "title": "LOSS ↔ OUTPUT ACTIVATION",
+      "exam": "Match the output head to the task: binary → 1 sigmoid node + binary cross-entropy (chosen over MSE for better gradients, probability meaning, numerical stability); a CE you minimise plus a log-likelihood you maximise combine as L = L1 − L2; softmax is the f that makes coefficients sum to 1.",
+      "ascii": "BCE  vs  MSE  for binary classification — why BCE wins:\n   ✔ better GRADIENTS (faster convergence)   ✔ outputs read as PROBABILITIES\n   ✔ NUMERICAL stability near 0 and 1\n   (NOT because it forces outputs into [0,1] — that is the sigmoid's job)\n\ncombine two heads:  L1 = cross-entropy (MINIMISE) ,  L2 = log-likelihood (MAXIMISE)\n        minimise L1 and maximise L2   =>   L = L1 - L2\n\nsoftmax(y2) over N units  =>  coefficients a_i sum to 1  =>  A = Σ a_i·A_i  (weighted avg)",
+      "figures": [
+        { "kind": "slide", "slot": "backpropagation-s13", "ph": "DROP slide-13", "label": "LECTURE SLIDE", "cap": "The loss node",
+          "desc": "The loss L measures the distance between the network's output and the target. The choice of L (and the output activation) sets the very first gradient." },
+        { "kind": "slide", "slot": "backpropagation-s09", "ph": "DROP slide-09", "label": "LECTURE SLIDE", "cap": "Output delta",
+          "desc": "At the output layer ∂L/∂a · ∂f/∂z: the first gradient DEPENDS on the chosen output activation and loss — which is why you pair them by task." }
+      ],
+      "table": {
+        "head": ["Task", "Output layer", "Loss"],
+        "rows": [
+          ["Binary (spam / not spam)", "1 node · sigmoid", "Binary cross-entropy"],
+          ["Multi-class (N classes)", "N nodes · softmax", "Categorical cross-entropy"],
+          ["Regression", "linear", "MSE / MAE"]
+        ]
+      }
+    },
+    {
+      "n": "05",
+      "title": "RELU vs SIGMOID & VANISHING GRADIENTS",
+      "exam": "ReLU = max(0,x) is piecewise-linear and promotes sparsity; it beats sigmoid on vanishing gradients because its derivative is exactly 1 for positive inputs, whereas the sigmoid derivative tends to 0 once |z| is large (it saturates).",
+      "ascii": "SIGMOID  σ(z)      z<<0 ──┐                ┌── z>>0   flat tails => σ'(z) ≈ 0\n                         │                │           gradient VANISHES\n                  0.5 ───┼────/───────────┤\n                         └─────────────────────────►  z\n\nReLU  max(0,x)     derivative = 1 for x>0  (gradient flows, no shrink)\n         ╱                            = 0 for x<0  (sparse activations)\n    ────╱\n        0          NOTE: ReLU is NOT ln(1+e^x) — that curve is SOFTPLUS",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Rectifier_and_softplus_functions.svg",
+          "label": "WEB DIAGRAM", "cap": "ReLU vs softplus",
+          "desc": "The sharp blue ReLU = max(0,x) vs the smooth softplus = ln(1+e^x). Quiz trap: the ln(1+e^x) formula is softplus, NOT ReLU." },
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/Logistic-curve.svg",
+          "label": "WEB DIAGRAM", "cap": "Sigmoid saturation",
+          "desc": "The S-curve flattens at both ends; on those flat tails the slope (derivative) is near zero, so gradients vanish through deep sigmoid stacks." }
+      ],
+      "table": {
+        "head": ["Activation f(x),  x ~ Uniform(-1,1)", "Mean output E[f(x)]"],
+        "rows": [
+          ["Tanh (odd, zero-centred)", "0.0"],
+          ["Leaky ReLU (negative slope 0.4)", "0.2"],
+          ["ReLU (keeps only the positive half)", "0.3"],
+          ["Sigmoid (symmetric about 0.5)", "0.5"]
+        ]
+      }
+    },
+    {
+      "n": "06",
+      "title": "WEIGHT INITIALISATION: XAVIER vs HE",
+      "exam": "Pick init by activation: sigmoid/tanh → Xavier (variance ≈ 1/n_in); ReLU → He, i.e. draw weights from Normal(0, 2/n_in) with biases set to 0 — never initialise all weights to 0.",
+      "ascii": "goal: keep activation variance stable layer-to-layer (avoid vanish / explode)\n\n  SIGMOID / TANH  ──►  XAVIER (Glorot)   var = 1 / n_in\n  ReLU            ──►  HE (Kaiming)      var = 2 / n_in ,  bias = 0\n\n  W ~ Normal(mean = 0 , var)            biases = 0\n  NEVER all-zeros  →  every neuron identical, gradients identical, no learning\n  (n_in = number of incoming connections to the layer)",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Normal_Distribution_PDF.svg",
+          "label": "WEB DIAGRAM", "cap": "Draw from a centred normal",
+          "desc": "Both schemes sample weights from a zero-mean normal; only the variance differs — 1/n_in for Xavier, 2/n_in for He. Wider spread = larger variance." }
+      ]
+    },
+    {
+      "n": "07",
+      "title": "WHAT TRAINING STORES (OPTIMIZER MEMORY)",
+      "exam": "Per iteration you store params + their gradients + any optimizer state; params per layer = in·out + out (the +out is the bias), and the per-parameter multiplier is SGD 2, momentum/Nesterov 3, Adam 4.",
+      "ascii": "stored per iteration = (number of params)  ×  (optimizer multiplier)\nparams per layer = in * out  +  out          ← the +out is the BIAS term\n\n  5→4→3    SGD :  (5*4+4)+(4*3+3) = 24+15 = 39      →  2 * 39 = 78\n  8→5→3→2  Adam:  (8*5+5)+(5*3+3)+(3*2+2) = 71      →  4 * 71 = 284\n\n  traps: forgetting biases (in*out only) · forgetting the gradient copy ·\n         using the wrong multiplier for the optimizer",
+      "figures": [
+        { "kind": "slide", "slot": "backpropagation-s34", "ph": "DROP slide-34", "label": "LECTURE SLIDE", "cap": "Updating parameters",
+          "desc": "W ← W − eta·ΔW with ΔW = (a^(l-1))ᵀ·delta. Each iteration holds the params, their gradients (ΔW, Δb), plus any optimizer buffers." }
+      ],
+      "table": {
+        "head": ["Optimizer", "Scalars stored per parameter", "×"],
+        "rows": [
+          ["Plain SGD", "value + gradient", "2"],
+          ["Momentum / Nesterov", "value + gradient + velocity", "3"],
+          ["Adam", "value + gradient + m + v", "4"]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "slug": "rnns",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L7 · RECURRENCE",
+  "title": "RNNS, LSTMS & GRUS",
+  "sub": "Visual exam summary — every section maps to a real lecturer-quiz question.",
+  "podcast": { "href": "audio/rnns.mp3", "label": "LISTEN · RNNS PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 7 (Recurrence)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "AN RNN IS A LOOP WITH MEMORY",
+      "exam": "Working principle: a loop feeds the hidden state h back in each step, so information persists across the sequence.",
+      "ascii": "x1 → x2 → x3        (inputs over time)\n │     │     │\n ▼     ▼     ▼\n[h1]→[h2]→[h3]       h = hidden state = running memory\n │     │     │\n ▼     ▼     ▼\n y1    y2    y3       (outputs)",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg",
+          "label": "WEB DIAGRAM", "cap": "RNN unrolled through time",
+          "desc": "The same cell is copied at every step; the horizontal arrows carry the hidden state forward. That loop is the 'working principle' answer." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "THE ARCHITECTURE ZOO",
+      "exam": "Pick the I/O shape by task: encoder–decoder (seq2seq) is the shape for translation, summarisation and parsing.",
+      "ascii": "one-to-many        many-to-one        many-to-many(sync)     encoder→decoder\n  in                in in in            in in in              in in in ┊\n   ↓                 ↓  ↓  ↓             ↓  ↓  ↓               ↘  ↓  ↙ ┊ ↓ ↓ ↓\n [h]→[h]→[h]        [h]→[h]→[h]         [h]→[h]→[h]           [h]→[h]→[h]┊[h]→[h]→[h]\n  ↓   ↓   ↓               ↓             ↓   ↓   ↓                       ┊ ↓  ↓  ↓\n out out out             out           out out out                     ┊out out out\n (music from mood)  (sentiment/author) (tag each word)        (translate / summarise)",
+      "figures": [
+        { "kind": "slide", "slot": "rnn-s40", "ph": "DROP slide-40", "label": "LECTURE SLIDE", "cap": "Encoder (many-to-one)",
+          "desc": "A whole input is read; only the final hidden vector is kept as a summary. The 'many-to-one' shape — e.g. sentiment or author prediction." },
+        { "kind": "slide", "slot": "rnn-s42", "ph": "DROP slide-42", "label": "LECTURE SLIDE", "cap": "Decoder (one-to-many)",
+          "desc": "From one summary vector the network emits an output each step — 'one-to-many', e.g. generating music from a single mood label." },
+        { "kind": "slide", "slot": "rnn-s38", "ph": "DROP slide-38", "label": "LECTURE SLIDE", "cap": "Encoder–decoder (seq2seq)",
+          "desc": "Encoder compresses the whole input, then the decoder generates the whole output — the shape tied to translation, summarisation and parsing." },
+        { "kind": "slide", "slot": "rnn-s39", "ph": "DROP slide-39", "label": "LECTURE SLIDE", "cap": "Seq2seq, unrolled",
+          "desc": "Drawn step by step, so you can see where the encoder's summary hands over to the decoder." },
+        { "kind": "slide", "slot": "rnn-s41", "ph": "DROP slide-41", "label": "LECTURE SLIDE", "cap": "Seq2seq generation",
+          "desc": "Each decoder step produces a token and passes its state on — how the output sequence is built one item at a time." }
+      ]
+    },
+    {
+      "n": "03",
+      "title": "TRAINING: BPTT & VANISHING GRADIENT",
+      "exam": "BPTT gradients are w.r.t. the SHARED recurrent weights; fix vanishing gradients with clipping, gating (LSTM/GRU) or attention — NOT dropout.",
+      "ascii": "loss J\n   ▲  multiply by small numbers at every hop ↓\n[h1]←[h2]←[h3]← ... ←[hT]\n  └─ gradient shrinks → ~0 ── early steps stop learning (the 'fading telephone game')",
+      "figures": [
+        { "kind": "slide", "slot": "rnn-s03", "ph": "DROP slide-03", "label": "LECTURE SLIDE", "cap": "Backpropagation Through Time",
+          "desc": "The loss gradient propagates back along the unrolled chain. The gradients are w.r.t. the shared recurrent weights, summed over all steps." },
+        { "kind": "slide", "slot": "rnn-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "Vanishing gradient",
+          "desc": "Multiplying small numbers at each step shrinks the gradient toward zero, so the earliest steps barely learn — distant events can't be linked." }
+      ]
+    },
+    {
+      "n": "04",
+      "title": "LSTM — THREE GATES",
+      "exam": "LSTM = forget+input+output gates over a protected cell state; the gates use sigmoid, the candidate uses tanh.",
+      "ascii": "          ┌─ forget σ ─┐  drop irrelevant old memory\n C(t-1) ──┤             ├──► C(t)\n          ├─ input  σ ─┤  write new (candidate = tanh)\n x,h ─────┤             │\n          └─ output σ ─┘  → h(t) read out to next step",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/1/17/The_LSTM_Cell.svg",
+          "label": "WEB DIAGRAM", "cap": "LSTM cell",
+          "desc": "Three gates guard a protected cell state that runs straight through — a clear highway for gradients. Gates are sigmoids; the candidate is tanh." },
+        { "kind": "slide", "slot": "rnn-s10", "ph": "DROP slide-10", "label": "LECTURE SLIDE", "cap": "LSTM cell (lecture)",
+          "desc": "The lecturer's view of the same cell — the three gate units feeding the cell state." },
+        { "kind": "slide", "slot": "rnn-s14", "ph": "DROP slide-14", "label": "LECTURE SLIDE", "cap": "LSTM equations",
+          "desc": "Each gate f, i, o is a sigmoid of the inputs; the candidate uses tanh — confirms 'gates = sigmoid, candidate = tanh'." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "GRU — TWO GATES + THE CROSSFADE",
+      "exam": "GRU = reset+update gates; h_t = (1−z)·h_(t-1) + z·h̃_t blends old vs new — the carry-over that beats vanishing gradients.",
+      "ascii": "h_t = (1 − z) · h_(t-1)   +   z · h̃_t\n          └─ keep OLD ─┘        └─ take NEW ─┘\n\n z ≈ 0 :  ██████████░░░░   mostly OLD memory  (smooth carry-over → beats vanishing gradient)\n z ≈ 1 :  ░░░░██████████   mostly NEW candidate\n reset r ≈ 0 : ignore the past entirely (e.g. a fresh sentence)",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/3/37/Gated_Recurrent_Unit%2C_base_type.svg",
+          "label": "WEB DIAGRAM", "cap": "GRU cell",
+          "desc": "Only two gates — reset r and update z — and no separate cell state. Simpler than the LSTM, often just as good." },
+        { "kind": "slide", "slot": "rnn-s20", "ph": "DROP slide-20", "label": "LECTURE SLIDE", "cap": "GRU cell (lecture)",
+          "desc": "Shows the update gate z blending the previous hidden state with the new candidate." },
+        { "kind": "slide", "slot": "rnn-s21", "ph": "DROP slide-21", "label": "LECTURE SLIDE", "cap": "GRU equations",
+          "desc": "r and z are sigmoids; the candidate uses the reset-gated previous state; the final state is the (1−z)/z blend." }
+      ]
+    },
+    {
+      "n": "06",
+      "title": "SEQ2SEQ & THE EXAM'S QUIET CHOICES",
+      "exam": "Match last layer + loss to the task; teacher forcing feeds the real previous token during training.",
+      "ascii": "",
+      "figures": [
+        { "kind": "slide", "slot": "rnn-s22", "ph": "DROP slide-22", "label": "LECTURE SLIDE", "cap": "Seq2Seq",
+          "desc": "The encoder turns the input into a context vector; the decoder unrolls that into the output sequence." },
+        { "kind": "slide", "slot": "rnn-s24", "ph": "DROP slide-24", "label": "LECTURE SLIDE", "cap": "Toward embeddings",
+          "desc": "Bridges sequence models to embeddings — how tokens become the vectors an RNN consumes." }
+      ],
+      "table": {
+        "head": ["Task", "Last layer", "Loss"],
+        "rows": [
+          ["Binary (urgent email?)", "1 node · sigmoid", "Binary cross-entropy"],
+          ["Multi-class (42 car brands)", "42 nodes · softmax", "Categorical cross-entropy"],
+          ["Regression (predict a score)", "linear", "MSE"],
+          ["Hidden layers", "tanh (bounds activations)", "—"]
+        ]
+      }
+    }
+  ]
+}

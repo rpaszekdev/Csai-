@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-06.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "Why is unsupervised learning particularly attractive for autonomous robots?",
     "options": [
       {
-        "html": "It always converges faster than supervised."
+        "html": "Because it has no labels to fit, unsupervised learning always converges faster and more reliably than the supervised alternative."
       },
       {
         "html": "Robots collect vast unlabeled sensor streams; labels are expensive or impossible to obtain in the wild.",
         "correct": true
       },
       {
-        "html": "It needs no compute."
+        "html": "Unsupervised methods run with negligible compute, which is what makes them suitable for the limited hardware onboard a robot."
       },
       {
-        "html": "It eliminates the need for sensors."
+        "html": "Because it discovers structure on its own, unsupervised learning lets a robot operate with far fewer onboard sensors."
       }
     ],
     "prof": "In the wild, nobody hands you labeled examples. Unsupervised methods extract structure (clusters, manifolds, prototypes) directly from raw experience."
@@ -155,17 +159,17 @@ const QUESTIONS = [
     "prompt": "K-means clustering iterates two steps until convergence. Which pair is correct?",
     "options": [
       {
-        "html": "(1) Compute gradients · (2) update weights."
+        "html": "(1) Compute the gradient of a clustering loss · (2) update the centroids by a small step in the descent direction."
       },
       {
         "html": "(1) Assign each point to the nearest centroid · (2) recompute each centroid as the mean of its assigned points.",
         "correct": true
       },
       {
-        "html": "(1) Encode · (2) decode."
+        "html": "(1) Encode each point into a latent code · (2) decode it back and move centroids to cut reconstruction error."
       },
       {
-        "html": "(1) Sample · (2) reward."
+        "html": "(1) Sample a point at random · (2) nudge the nearest centroid toward it by a reward-weighted amount."
       }
     ],
     "prof": "Two-step EM: assign, then update. K-means is fast and intuitive but sensitive to initialisation and assumes roughly spherical clusters."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "In <strong>competitive learning</strong>, when an input is presented to a layer of neurons, what is the \"winner-take-all\" rule?",
     "options": [
       {
-        "html": "Every neuron updates equally."
+        "html": "Every neuron is declared a partial winner and all of their weight vectors are nudged toward the input in proportion to their response."
       },
       {
         "html": "The neuron whose weights are closest to the input wins, and only its weights are updated toward the input.",
         "correct": true
       },
       {
-        "html": "The slowest neuron wins."
+        "html": "The neuron that responds most slowly is selected as the winner, so the laggard gets to specialise on that input pattern."
       },
       {
-        "html": "Only the bias is updated."
+        "html": "The winning neuron keeps its weight vector fixed and instead adjusts only its bias term toward the presented input."
       }
     ],
     "prof": "One winner per input. Over time, each neuron specialises on a region of input space — much like K-means centroids, but online and biologically inspired."
@@ -201,17 +205,17 @@ const QUESTIONS = [
     "prompt": "Kohonen's <strong>Self-Organising Map</strong> extends competitive learning with one extra ingredient. Which one?",
     "options": [
       {
-        "html": "Random sampling."
+        "html": "A random sampling schedule that presents inputs in shuffled order, which is what gives the map its self-organising structure."
       },
       {
-        "html": "A loss function with labels."
+        "html": "A supervised loss function over labelled targets, letting the map correct each winning neuron against the ground-truth class."
       },
       {
         "html": "A topological neighbourhood — when a neuron wins, its neighbours on the map grid also update, just less.",
         "correct": true
       },
       {
-        "html": "Backpropagation through time."
+        "html": "A backpropagation-through-time pass that unrolls the competition over the sequence and credits earlier winning neurons."
       }
     ],
     "prof": "That neighbourhood term is what produces a topologically ordered map: nearby inputs end up activating nearby neurons. Pure competitive learning has no such order."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "Which statement best contrasts K-means and SOM?",
     "options": [
       {
-        "html": "Both produce identical results given the same data."
+        "html": "Given the same data and number of units they converge to identical centroids, since SOM is just K-means with a different update order."
       },
       {
         "html": "K-means produces flat clusters with no spatial relation; SOM produces a low-dimensional, topology-preserving map of the input space.",
         "correct": true
       },
       {
-        "html": "Only SOM uses Euclidean distance."
+        "html": "K-means relies on a probabilistic assignment rule, whereas only SOM measures similarity with Euclidean distance between weights and input."
       },
       {
-        "html": "K-means cannot run online."
+        "html": "K-means is inherently a batch method that cannot run online, while SOM is the streaming version that updates one sample at a time."
       }
     ],
     "prof": "If you only need labels → K-means. If you need a <em>map</em> — visualisation, dimensionality reduction, or biologically plausible learning — SOM."
@@ -247,17 +251,17 @@ const QUESTIONS = [
     "prompt": "In SOM-based robot architectures, the map's role is most often to:",
     "options": [
       {
-        "html": "Replace the actuators."
+        "html": "Drive the actuators directly, with each winning neuron on the map wired to a motor command so the SOM acts as the control layer."
       },
       {
         "html": "Cluster sensor experience into prototypes the controller can index — turning continuous streams into a discrete, navigable representation.",
         "correct": true
       },
       {
-        "html": "Compute kinematics directly."
+        "html": "Solve the forward and inverse kinematics, mapping joint angles to end-effector poses so the planner can skip those calculations."
       },
       {
-        "html": "Tune motor PID gains."
+        "html": "Continuously retune the motor PID gains, using the map's winning unit to select which gain schedule the low-level loop should run."
       }
     ],
     "prof": "Think of the SOM as a sensor-side codebook: it learns \"what the world feels like\" so downstream control or learning has tractable categories to work with."
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "When applying K-means or SOM to robot sensor data, what is the most common <strong>preprocessing</strong> mistake students make?",
     "options": [
       {
-        "html": "Forgetting to plot results."
+        "html": "Forgetting to visualise the clusters afterwards, which leaves students unable to tell whether the grouping is meaningful."
       },
       {
         "html": "Skipping feature scaling — distance-based methods are dominated by the largest-magnitude feature.",
         "correct": true
       },
       {
-        "html": "Using too few iterations."
+        "html": "Running too few iterations, so the centroids stop moving long before they have actually settled on the true cluster means."
       },
       {
-        "html": "Not using GPUs."
+        "html": "Not offloading the distance computations to a GPU, which makes clustering on large sensor logs intractably slow to train."
       }
     ],
     "prof": "Always scale before clustering. A range-sensor in metres next to a battery level in percent will hand the centroid to whichever has bigger numbers."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l06_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week06-slides/slide-";

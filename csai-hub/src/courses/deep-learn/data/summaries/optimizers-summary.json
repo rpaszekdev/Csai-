@@ -1,0 +1,117 @@
+{
+  "slug": "optimizers",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L3 · OPTIMIZERS",
+  "title": "GRADIENT DESCENT & OPTIMIZERS",
+  "sub": "Visual exam summary — every section maps to a real quiz question.",
+  "podcast": { "href": "audio/optimizers.mp3", "label": "LISTEN · OPTIMIZERS PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 3 (Gradient Descent, Optimizers, PyTorch & Hyperparameters)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "GRADIENT DESCENT & THE SIGN OF THE STEP",
+      "exam": "Goal is to MINIMIZE the cost J: the step is θ ← θ − α·∇J, so a positive gradient (prediction above target) forces a NEGATIVE step, and a learning rate that is too high overshoots the minimum and fails to converge.",
+      "ascii": "GOAL: minimize cost J(θ)        update:  θ ← θ − α·(∂J/∂θ)\n                                          └step┘    └ gradient ┘\n\nexample (MSE):  prediction ŷ  >  target y   (ŷ too big)\n   ∂J/∂θ  = +     gradient is POSITIVE\n   step   = −α·(+) = −     step is NEGATIVE  →  θ moves DOWN\n                                               pulling ŷ back toward y\n\nlearning rate α = SIZE of the step:\n   α too small ─▶ ·_·_·_·_   crawls, very slow\n   α just right ▶ ╲________   smooth descent to the minimum\n   α too LARGE ─▶ ╱╲╱╲╱╲╱╲   OVERSHOOTS — bounces, never converges",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg",
+          "label": "WEB DIAGRAM", "cap": "Descent steps toward the minimum",
+          "desc": "Each marked step (0,1,2,...) moves DOWN the gradient toward the centre of the bowl — the minimum of J. That downhill direction is why the step has the opposite sign to the gradient." },
+        { "kind": "slide", "slot": "optimizers-s03", "ph": "DROP slide-03", "label": "LECTURE SLIDE", "cap": "The update rule",
+          "desc": "W ← W − η·ΔW: parameters move AGAINST the gradient, scaled by the learning rate η. This is the exact mechanism behind the sign-of-the-step question." },
+        { "kind": "slide", "slot": "optimizers-s11", "ph": "DROP slide-11", "label": "LECTURE SLIDE", "cap": "Limitations of gradient descent",
+          "desc": "θ = θ − α·∇J(θ). Plain GD can get stuck in local minima, a good learning rate is hard to pick, and the SAME rate applies to every parameter — the gaps that optimizers later fix." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "MOMENTUM & NESTEROV LOOK-AHEAD",
+      "exam": "Momentum accelerates convergence by accumulating past gradients into a velocity (an exponentially weighted average); SGD-with-momentum and Nesterov differ ONLY in WHERE the gradient is computed — at the look-ahead position θ − β·v, not the current one.",
+      "ascii": "MOMENTUM = a heavy ball with inertia: reuse past gradients (velocity v = EMA).\n   v_t = β·v_(t-1) + (1−β)·∇J(θ)        θ ← θ − α·v_t\n         └ remember the past ┘ └ new ┘     builds speed in steady directions,\n                                            damps the noisy zig-zag\n\nSGD+MOMENTUM   vs   NESTEROV (look-ahead):\n   classic :  measure gradient HERE  ●───▶  then add momentum\n   nesterov:  jump by momentum FIRST ●----▶◌  measure gradient THERE\n                                            (at θ − β·v = the look-ahead point)\n\n   ⇒ the ONLY difference = WHERE the gradient is evaluated\n        current position   (SGD+momentum)   vs   look-ahead   (Nesterov)",
+      "figures": [
+        { "kind": "slide", "slot": "optimizers-s13", "ph": "DROP slide-13", "label": "LECTURE SLIDE", "cap": "Exponentially weighted average",
+          "desc": "v_t = β·v_(t-1) + (1−β)·x_t: a filtered, decaying average of past values. This EMA is the 'accumulate past gradients' engine inside momentum, RMSProp and Adam." },
+        { "kind": "slide", "slot": "optimizers-s14", "ph": "DROP slide-14", "label": "LECTURE SLIDE", "cap": "Gradient descent with momentum",
+          "desc": "θ = θ − α·v, with v = β·v_(t-1) + (1−β)·∇J. The contour plots show momentum (bottom) cutting the wild oscillation of plain GD (top) and reaching the minimum faster." },
+        { "kind": "slide", "slot": "optimizers-s16", "ph": "DROP slide-16", "label": "LECTURE SLIDE", "cap": "Nesterov look-ahead",
+          "desc": "The label 'Gradient is calculated here' sits at the LOOK-AHEAD point (θ − β·v) for Nesterov, but at the current point for standard momentum — the single distinction the exam tests." }
+      ]
+    },
+    {
+      "n": "03",
+      "title": "ADAPTIVE RATES — ADAGRAD vs RMSPROP",
+      "exam": "Adaptive methods give each parameter its own step by scaling α by the inverse square root of its past squared gradients; AdaGrad's RAW SUM grows forever and shrinks the rate toward zero, so RMSProp/Adam use an exponentially weighted moving average to keep the denominator bounded.",
+      "ascii": "Adaptive LR = a PER-PARAMETER step, scaled by that param's own gradient size.\n   step_i = α / (√(accumulator_i) + ε) · g_i      big grads → smaller steps\n\nADAGRAD:   r ← r + g²        RAW SUM — only ever grows\n   denom √r ─▶ ▁▂▃▅▇█  keeps climbing → step → 0 → learning STALLS\n\nRMSPROP / ADAM:   v ← β·v + (1−β)·g²     EXP. MOVING AVERAGE\n   denom √v ─▶ ▃▄▃▄▃▄  stays BOUNDED → step stays usable  ✓ the fix\n\nwhy preferred: the moving average stops the denominator from blowing up,\nso the learning rate never collapses the way AdaGrad's does.",
+      "figures": [
+        { "kind": "slide", "slot": "optimizers-s21", "ph": "DROP slide-21", "label": "LECTURE SLIDE", "cap": "AdaGrad",
+          "desc": "r_t,i = r_(t-1),i + g²: the accumulator is a RAW SUM of squared gradients, so √r only grows and the per-parameter rate keeps shrinking — AdaGrad's weakness." },
+        { "kind": "slide", "slot": "optimizers-s25", "ph": "DROP slide-25", "label": "LECTURE SLIDE", "cap": "RMSProp",
+          "desc": "v_t,i = β·v_(t-1),i + (1−β)·g²: the EXPONENTIALLY WEIGHTED AVERAGE replaces the raw sum, so √v stays bounded and the learning rate does not vanish — the answer to 'why moving average over raw sum'." },
+        { "kind": "slide", "slot": "optimizers-s09", "ph": "DROP slide-09", "label": "LECTURE SLIDE", "cap": "Optimizers on a saddle",
+          "desc": "Trajectories of SGD, Momentum, NAG, Adagrad, Adadelta and RMSprop escaping a saddle point — adaptive methods adjust the step to the local curvature of the cost surface." }
+      ]
+    },
+    {
+      "n": "04",
+      "title": "ADAM — FIRST & SECOND MOMENTS",
+      "exam": "Adam tracks two per-parameter quantities: m = the FIRST moment (mean of the gradients) and v = the SECOND moment (uncentered variance, i.e. mean of g squared), with β1 and β2 their exponential decay rates — combining Momentum with RMSProp.",
+      "ascii": "ADAM = Momentum (1st moment)  +  RMSProp (2nd moment), per parameter.\n\n   m_t = β1·m_(t-1) + (1−β1)·g       ← 1st moment = MEAN of gradients\n   v_t = β2·v_(t-1) + (1−β2)·g²      ← 2nd moment = uncentered VARIANCE\n         β1, β2 = decay rates        g = gradient at step t\n\n   update:   θ ← θ − α · m̂ / (√v̂ + ε)\n              └ direction (m) ┘  └ adaptive size (v) ┘\n\n   m gives the smoothed direction; √v shrinks the step where gradients are big.",
+      "figures": [
+        { "kind": "slide", "slot": "optimizers-s30", "ph": "DROP slide-30", "label": "LECTURE SLIDE", "cap": "Adam's two moments",
+          "desc": "m_t,i = β1·m + (1−β1)·g and v_t,i = β2·v + (1−β2)·g²: the moving average of gradients (1st moment) and of squared gradients (2nd moment) — the exact interpretation the quiz asks for." },
+        { "kind": "slide", "slot": "optimizers-s29", "ph": "DROP slide-29", "label": "LECTURE SLIDE", "cap": "Adam update rule",
+          "desc": "θ = θ − α/(√v̂ + ε)·m̂. The division by √v̂ adapts the learning rate per parameter, scaling it inversely to the size of past squared gradients." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "ADAM — ONE STEP, BY HAND",
+      "exam": "First Adam step with θ0=0.5, g=0.2, α=0.1, β1=0.9, β2=0.999: m1=0.02, v1=0.00004, bias-corrected m̂=0.2 and v̂=0.04, denominator √v̂+ε≈0.20000001, update Δ≈0.1, so θ1=0.4.",
+      "ascii": "ONE Adam step.  θ0=0.5, g=0.2, α=0.1, β1=0.9, β2=0.999, ε=1e-8, m0=v0=0\n ┌──────────────────────────────────────────────────────────────┐\n │ m1 = 0.9·0 + 0.1·0.2            = 0.02                          │\n │ v1 = 0.999·0 + 0.001·(0.2²)     = 0.00004                       │\n │ m̂1 = 0.02 / (1 − 0.9¹)          = 0.2     (bias correction)     │\n │ v̂1 = 0.00004 / (1 − 0.999¹)     = 0.04    (bias correction)     │\n │ denom = √0.04 + 1e-8            = 0.20000001                    │\n │ Δ  = α·m̂1/denom = 0.1·0.2/0.2   ≈ 0.1                           │\n │ θ1 = θ0 − Δ = 0.5 − 0.1         = 0.4                           │\n └──────────────────────────────────────────────────────────────┘\n bias correction matters: at t=1 it scales the near-zero m,v back up.",
+      "figures": [
+        { "kind": "slide", "slot": "optimizers-s31", "ph": "DROP slide-31", "label": "LECTURE SLIDE", "cap": "Bias correction",
+          "desc": "m̂ = m/(1−β1^t) and v̂ = v/(1−β2^t). The graph shows the corrected estimate (red) jumping up from the zero-biased start (green) — exactly the m̂=0.2, v̂=0.04 step in the worked example." },
+        { "kind": "slide", "slot": "optimizers-s29", "ph": "DROP slide-29", "label": "LECTURE SLIDE", "cap": "Plugging into the update",
+          "desc": "θ = θ − α·m̂/(√v̂ + ε): substituting m̂=0.2, v̂=0.04, α=0.1 gives Δ≈0.1 and θ1=0.4 — the final blank in the calculation question." }
+      ]
+    },
+    {
+      "n": "06",
+      "title": "OPTIMIZER STATE — COUNTING SCALARS",
+      "exam": "Per iteration you store value + gradient + optimizer state: plain SGD keeps 2 scalars per parameter, Momentum/Nesterov 3, and Adam 4 (it adds m and v); always count parameters WITH biases, in×out + out per layer.",
+      "ascii": "Per iteration store:  params + grads + optimizer state.\n   params per layer = (in × out) + out      the +out is the BIAS — never drop it!\n\n   scalars stored PER PARAMETER:\n      SGD (plain) ........ 2   value + grad\n      Momentum / Nesterov  3   value + grad + velocity\n      Adam ............... 4   value + grad + m + v\n\n EXAM A:  MLP 8 → 5 → 3 → 2, biases on, Adam\n   params = (8·5+5) + (5·3+3) + (3·2+2) = 45 + 18 + 8 = 71\n   Adam → 4 × 71 = 284 scalars\n\n EXAM B:  MLP 5 → 4 → 3, biases on, plain SGD\n   params = (5·4+4) + (4·3+3) = 24 + 15 = 39  →  2 × 39 = 78 scalars",
+      "table": {
+        "head": ["Optimizer", "Scalars / param", "What it stores"],
+        "rows": [
+          ["SGD (plain)", "2", "value + gradient"],
+          ["Momentum / Nesterov", "3", "value + gradient + velocity"],
+          ["Adam", "4", "value + gradient + m (1st) + v (2nd)"]
+        ]
+      },
+      "figures": [
+        { "kind": "slide", "slot": "optimizers-s41", "ph": "DROP slide-41", "label": "LECTURE SLIDE", "cap": "Optimizers compared",
+          "desc": "Validation accuracy of common optimizers over training — Adam-family methods climb fastest, the practical pay-off for storing two extra moment buffers per parameter." },
+        { "kind": "slide", "slot": "optimizers-s30", "ph": "DROP slide-30", "label": "LECTURE SLIDE", "cap": "The two buffers Adam adds",
+          "desc": "m and v are the extra per-parameter state on top of value and gradient — that is why Adam costs 4 scalars per parameter while plain SGD costs only 2." }
+      ]
+    },
+    {
+      "n": "07",
+      "title": "PYTORCH LOOP & HYPERPARAMETER SEARCH",
+      "exam": "The loop zeroes grads (PyTorch ACCUMULATES by default), forwards, computes CrossEntropyLoss on RAW logits, backprops, then optimizer.step updates ALL weights+biases under torch.no_grad; grid search is exhaustive, random search covers more in fewer trials, Bayesian reuses past results.",
+      "ascii": "TRAIN LOOP (each mini-batch):\n   optimizer.zero_grad()  → clear old grads (PyTorch ACCUMULATES otherwise)\n   outputs = model(x)     → forward pass\n   loss = criterion(out,y)  ← CrossEntropyLoss takes RAW LOGITS (no softmax)\n   loss.backward()        → fresh gradients for this batch\n   optimizer.step()       → update ALL learnable weights + biases\n        • step wrapped in torch.no_grad(): the update is NOT tracked by autograd\n        • plain-SGD step does exactly:  W ← W − lr · grad\n\nHYPERPARAMETER SEARCH:\n   Grid     → tries EVERY combo  (exhaustive; cost explodes with #params)\n   Random   → samples combos     (wider coverage, fewer trials)\n   Bayesian → uses past results  (fewest evals, heavier per iteration)",
+      "table": {
+        "head": ["Search method", "Trait"],
+        "rows": [
+          ["Grid", "Tests every combination — guaranteed coverage, expensive"],
+          ["Random", "Samples combos — more efficient, wider range in fewer trials"],
+          ["Bayesian", "Models past results — fewest evaluations, complex / heavy per step"]
+        ]
+      },
+      "figures": [
+        { "kind": "slide", "slot": "optimizers-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "What optimizer.step does",
+          "desc": "Stochastic gradient descent: W ← W − η·∇W, b ← b − η·∇b. This is the rule a custom SGD's step() implements with param.data -= lr · param.grad." },
+        { "kind": "slide", "slot": "optimizers-s06", "ph": "DROP slide-06", "label": "LECTURE SLIDE", "cap": "Batch gradient descent",
+          "desc": "Cost J(w) falling over iterations as the loop repeats. Batch GD uses the whole dataset per step — the trade-off the mini-batch and search choices try to manage." }
+      ]
+    }
+  ]
+}

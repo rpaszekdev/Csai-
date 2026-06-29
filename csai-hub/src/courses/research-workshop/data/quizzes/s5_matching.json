@@ -1,0 +1,95 @@
+{
+  "section_id": "s5",
+  "quiz_type": "matching",
+  "title": "Data Analysis & ML Pitfalls - Matching",
+  "questions": [
+    {
+      "id": "s5_mat_1",
+      "number": 1,
+      "type": "matching",
+      "question": "Match each data type to the train/test split that fits it.",
+      "items": ["Time-series / forecasting data", "Multiple samples per subject", "Imbalanced class labels"],
+      "categories": ["Chronological split (and time-series CV)", "Group split by subject ID", "Stratified split"],
+      "correct_mapping": {
+        "Time-series / forecasting data": "Chronological split (and time-series CV)",
+        "Multiple samples per subject": "Group split by subject ID",
+        "Imbalanced class labels": "Stratified split"
+      },
+      "explanation": "Chronological splits stop the future leaking into the past, group splits keep one subject on one side to stop subject-level leakage, and stratified splits preserve class proportions on both sides under imbalance."
+    },
+    {
+      "id": "s5_mat_2",
+      "number": 2,
+      "type": "matching",
+      "question": "Match each leakage pitfall to its correct fix.",
+      "items": ["Scaling on the full dataset before splitting", "SMOTE applied before the split", "Target derived from features kept as inputs", "Random row-split with repeated subjects"],
+      "categories": ["Fit the scaler on training only, apply to test", "Run SMOTE inside each fold", "Drop the source variables from the inputs", "Use a group split by participant ID"],
+      "correct_mapping": {
+        "Scaling on the full dataset before splitting": "Fit the scaler on training only, apply to test",
+        "SMOTE applied before the split": "Run SMOTE inside each fold",
+        "Target derived from features kept as inputs": "Drop the source variables from the inputs",
+        "Random row-split with repeated subjects": "Use a group split by participant ID"
+      },
+      "explanation": "Each fix keeps test information out of the fitted model: scalers fit on train only, SMOTE runs per fold, target-source variables are removed, and a group split isolates each subject."
+    },
+    {
+      "id": "s5_mat_3",
+      "number": 3,
+      "type": "matching",
+      "question": "Match each evaluation metric or baseline to its purpose under imbalance.",
+      "items": ["F1 / F-beta score", "Precision", "Recall (sensitivity)", "Majority-class baseline"],
+      "categories": ["Balances precision and recall in one number", "Fraction of predicted positives that are correct", "Fraction of true positives that are detected", "The accuracy a trivial majority predictor would reach"],
+      "correct_mapping": {
+        "F1 / F-beta score": "Balances precision and recall in one number",
+        "Precision": "Fraction of predicted positives that are correct",
+        "Recall (sensitivity)": "Fraction of true positives that are detected",
+        "Majority-class baseline": "The accuracy a trivial majority predictor would reach"
+      },
+      "explanation": "On imbalanced data these metrics expose minority-class performance, and the majority-class baseline is the bar a model must beat, not the 50% chance level."
+    },
+    {
+      "id": "s5_mat_4",
+      "number": 4,
+      "type": "matching",
+      "question": "Match each ML figure to what it shows.",
+      "items": ["Confusion matrix", "ROC curve", "Feature-importance plot"],
+      "categories": ["Counts of TP, FP, FN, TN for each class", "Trade-off above a dashed chance diagonal, summarized by AUC", "Ranked contribution of the top features"],
+      "correct_mapping": {
+        "Confusion matrix": "Counts of TP, FP, FN, TN for each class",
+        "ROC curve": "Trade-off above a dashed chance diagonal, summarized by AUC",
+        "Feature-importance plot": "Ranked contribution of the top features"
+      },
+      "explanation": "A confusion matrix breaks down TP/FP/FN/TN (where many true negatives can inflate accuracy under imbalance), the ROC curve should sit above its dashed chance diagonal, and feature-importance plots show only the top features for readability."
+    },
+    {
+      "id": "s5_mat_5",
+      "number": 5,
+      "type": "matching",
+      "question": "Match each transparency or analysis term to its definition.",
+      "items": ["HARKing", "P-hacking", "Pre-registration", "Held-out test set"],
+      "categories": ["Presenting an exploratory result as a planned hypothesis", "Reporting only the analyses that reached significance", "Specifying confirmatory analyses before data collection", "Data touched once for the final unbiased estimate"],
+      "correct_mapping": {
+        "HARKing": "Presenting an exploratory result as a planned hypothesis",
+        "P-hacking": "Reporting only the analyses that reached significance",
+        "Pre-registration": "Specifying confirmatory analyses before data collection",
+        "Held-out test set": "Data touched once for the final unbiased estimate"
+      },
+      "explanation": "HARKing and p-hacking are the transparency violations, while pre-registration and a locked held-out test set are protections for confirmatory work and for honest predictive estimates."
+    },
+    {
+      "id": "s5_mat_6",
+      "number": 6,
+      "type": "matching",
+      "question": "Match each analysis flavour or model to its description.",
+      "items": ["Explanatory / behavioural analysis", "Predictive / ML analysis", "General linear model", "Linear mixed model"],
+      "categories": ["Tests a causal hypothesis; risks p-hacking and HARKing", "Makes accurate predictions; risks overfitting and leakage", "Unifies t-test, ANOVA, and regression as y = X-beta + epsilon", "Adds random effects for nested data as y = X-beta + Z-u + epsilon"],
+      "correct_mapping": {
+        "Explanatory / behavioural analysis": "Tests a causal hypothesis; risks p-hacking and HARKing",
+        "Predictive / ML analysis": "Makes accurate predictions; risks overfitting and leakage",
+        "General linear model": "Unifies t-test, ANOVA, and regression as y = X-beta + epsilon",
+        "Linear mixed model": "Adds random effects for nested data as y = X-beta + Z-u + epsilon"
+      },
+      "explanation": "Explanatory work tests hypotheses and predictive work optimizes accuracy; the general linear model underlies the common behavioural tests, while the linear mixed model extends it with random effects for repeated-measures or nested data."
+    }
+  ]
+}

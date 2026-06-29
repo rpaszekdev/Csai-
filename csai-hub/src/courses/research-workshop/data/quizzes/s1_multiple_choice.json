@@ -1,0 +1,147 @@
+{
+  "section_id": "s1",
+  "quiz_type": "multiple_choice",
+  "title": "Course Introduction - Multiple Choice",
+  "questions": [
+    {
+      "id": "s1_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "How does the final grade for the Research Workshop break down between the two assessed products?",
+      "options": {
+        "A": "60% group paper and 40% individual exam, both averaged together",
+        "B": "40% group paper and 60% individual exam, and both must pass",
+        "C": "50% group paper and 50% individual exam, with no pass requirement",
+        "D": "40% individual exam and 60% group paper, and both must pass"
+      },
+      "correct_answer": "B",
+      "explanation": "The paper is worth 40% and the exam 60%, and both the group product (paper) and the individual product (exam) must pass independently. A inverts the weighting; C invents a 50/50 split with no pass rule; D swaps which product carries which weight."
+    },
+    {
+      "id": "s1_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "A student plans to use the GenAI tools they relied on for analysis only in the final paper and skip the Technology Statement. Is this approach RIGHT or WRONG, and why?",
+      "options": {
+        "A": "RIGHT — the Technology Statement is optional and unnecessary once the tools are cited somewhere in the paper body",
+        "B": "RIGHT — disclosure is only required if GenAI wrote the actual paper text",
+        "C": "WRONG — the Technology Statement is a separate required declaration of any GenAI or tooling used",
+        "D": "WRONG — GenAI use is banned, so there is nothing to declare in any statement"
+      },
+      "correct_answer": "C",
+      "explanation": "The Technology Statement is a mandatory, separate declaration of any GenAI or tooling used anywhere in the project, not a citation in the paper. A and B wrongly treat it as optional; D is wrong because GenAI is not banned, its use simply must be disclosed."
+    },
+    {
+      "id": "s1_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Which document is required to be completed BEFORE any data collection may begin?",
+      "options": {
+        "A": "The Project Schedule Template spreadsheet",
+        "B": "The Team Expectations Agreement contract",
+        "C": "The final paper following the example structure",
+        "D": "Ethical Standards Compliance with the informed consent template"
+      },
+      "correct_answer": "D",
+      "explanation": "Ethics compliance plus the informed consent template must be in place before data collection starts. The schedule template (A) and the Team Expectations Agreement (B) are planning artefacts, not data-collection gates; the final paper (C) comes after data and analysis."
+    },
+    {
+      "id": "s1_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "On Canvas a student is placed into an auto-assigned group. To work on a supervisor's research topic, what must they do?",
+      "options": {
+        "A": "Self-enroll in the research-topic group, since auto-assigned groups are not the topic groups",
+        "B": "Stay in the auto-assigned group, which is already the correct research-topic group",
+        "C": "Email the supervisor and ask to be manually moved out of every Canvas group that was auto-created",
+        "D": "Wait for the supervisor to merge the auto group into the topic group"
+      },
+      "correct_answer": "A",
+      "explanation": "Canvas auto-assigned groups are NOT the research-topic groups, so students must self-enroll around a supervisor's topic. B confuses the two group types; C and D invent procedures that are not how enrollment works."
+    },
+    {
+      "id": "s1_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "A team proposes a study with 1 condition and 15 participants, analysed in Excel. Is this design RIGHT or WRONG against the minimum project requirements?",
+      "options": {
+        "A": "RIGHT — a single rich condition with 15 well-characterised participants comfortably exceeds the stated minimum",
+        "B": "RIGHT — the analysis tool is free choice as long as participants are enough",
+        "C": "WRONG — it needs at least 2 conditions, at least 20 participants per condition, and R or Python",
+        "D": "WRONG — only because Excel is banned; 1 condition and 15 participants are fine"
+      },
+      "correct_answer": "C",
+      "explanation": "The minimum is at least 2 conditions, at least 20 participants per condition, and analysis in R or Python; this design fails all three. A and B ignore the condition count and tooling rules; D fixes only the tool while leaving the condition and sample-size violations unaddressed."
+    },
+    {
+      "id": "s1_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Which sequence correctly lists the plenary lecture topics in the order the course presents them?",
+      "options": {
+        "A": "Experimental design, RQ and literature review, writing, then data analysis",
+        "B": "Data analysis, writing, RQ and literature review, then experimental design",
+        "C": "Writing, data analysis, experimental design, then RQ and literature review",
+        "D": "RQ and literature review, experimental design, data analysis, then writing"
+      },
+      "correct_answer": "D",
+      "explanation": "The plenary lectures move from RQ and literature review, to experimental design, to data analysis, and finally to writing. A, C, and D shuffle these stages out of the logical research progression that the course follows."
+    },
+    {
+      "id": "s1_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Which statement best captures the purpose of the Team Expectations Agreement (TEP)?",
+      "options": {
+        "A": "It is the ethics form authorising the team to collect data from participants",
+        "B": "It is a written contract on roles, deadlines, and conflict resolution within the team",
+        "C": "It is the spreadsheet used to plan the project milestones and timeline",
+        "D": "It is the statement disclosing which GenAI tools the team relied on"
+      },
+      "correct_answer": "B",
+      "explanation": "The TEP is a written contract covering team roles, deadlines, and how conflicts are resolved, which helps manage issues like free-riders. A is the ethics document, C is the Project Schedule Template, and D is the Technology Statement."
+    },
+    {
+      "id": "s1_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "What is the stated primary exam material that the exam is built from?",
+      "options": {
+        "A": "The plenary lecture slides, which cover all the plenary lectures",
+        "B": "The HS and ML example proposals that are posted on Canvas for student reference",
+        "C": "The Belcher book chapter on writing the literature review",
+        "D": "The group's own final paper and its analysis results"
+      },
+      "correct_answer": "A",
+      "explanation": "The exam covers all plenary lectures, and the slides are the primary exam material. The example proposals (B) are structural templates, Belcher (C) is a recommended reference, and the paper (D) is the separately graded group product, not exam source material."
+    },
+    {
+      "id": "s1_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "A student on the Machine-Learning track expects the same example proposal as a Human-Studies peer. Is that expectation RIGHT or WRONG?",
+      "options": {
+        "A": "RIGHT — a single shared example proposal serves both tracks equally",
+        "B": "RIGHT — track choice only affects the supervisor, not the example materials",
+        "C": "WRONG — the HS and ML tracks have different example proposals on Canvas",
+        "D": "WRONG — example proposals exist only for the Human-Studies track"
+      },
+      "correct_answer": "C",
+      "explanation": "The HS and ML tracks have distinct example proposals reflecting their different method focus. A and B wrongly assume one shared template; D wrongly claims ML students have no example proposal at all."
+    },
+    {
+      "id": "s1_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Which option best states an intended learning outcome of the course?",
+      "options": {
+        "A": "Formulate testable research questions, design valid studies, run analyses, and write and defend a paper",
+        "B": "Memorise the slide deck so the exam can be passed without any supervision sessions",
+        "C": "Publish a peer-reviewed journal article in a top-tier venue before the semester ends",
+        "D": "Complete a literature review only, leaving the design and the analysis to the supervisor"
+      },
+      "correct_answer": "A",
+      "explanation": "The learning outcomes are to formulate testable RQs, design valid studies, run analyses, and write and defend a paper, practising the full research cycle. A reduces the course to rote recall, C overstates the deliverable as a publication, and D omits the core design and analysis work students must do."
+    }
+  ]
+}

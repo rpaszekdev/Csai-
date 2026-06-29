@@ -53,6 +53,16 @@ export default function Course({ course }) {
             </div>
           </div>
 
+          {course.examLinks?.length > 0 && (
+            <div className="course-exam-links">
+              {course.examLinks.map((e) => (
+                <a key={e.label} href={e.href} className="exam-link-btn">
+                  {e.label}
+                </a>
+              ))}
+            </div>
+          )}
+
           {course.resources.length > 0 && (
             <div className="course-resources">
               {course.resources.map((r) => (

@@ -1,0 +1,88 @@
+{
+  "slug": "computer-vision",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L9 · COMPUTER VISION",
+  "title": "COMPUTER VISION",
+  "sub": "Visual exam summary — every section maps to a real quiz question.",
+  "podcast": { "href": "audio/computer-vision.mp3", "label": "LISTEN · COMPUTER-VISION PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Computer Vision",
+  "sections": [
+    {
+      "n": "01",
+      "title": "WHY VISION IS HARD: EQUIVARIANCE, NOT INVARIANCE",
+      "exam": "2D convolution is translation-EQUIVARIANT — shift the input and the feature-map response shifts the same way — but it is NOT rotation- or scale-INVARIANT; only pooling buys a little translation invariance.",
+      "ascii": "INPUT shifted right →            FEATURE MAP shifts the same way →   = EQUIVARIANCE\n  . . X . .                        . . o . .\n  . . X . .   →(same kernel)→       . . o . .    response moves WITH the input\n  . . X . .                        . . o . .\n\nrotate / rescale / occlude the object →  response is NOT preserved   = NOT invariant\nconv alone is NOT rotation-invariant — a swept shared filter does NOT 'guarantee'\nrecognition at any angle. Pooling adds only a little translation invariance.",
+      "figures": [
+        { "kind": "slide", "slot": "computer-vision-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "Viewpoint variation",
+          "desc": "The same sculpture from different angles is a totally different pixel pattern. This is why we want features that survive movement — convolution gives translation equivariance, not full invariance." },
+        { "kind": "slide", "slot": "computer-vision-s08", "ph": "DROP slide-08", "label": "LECTURE SLIDE", "cap": "Deformation",
+          "desc": "Galloping horses bend into many shapes yet are all 'horse'. Convolution copes with shifts of a pattern, not arbitrary warps — motivating the equivariance-vs-invariance distinction." },
+        { "kind": "slide", "slot": "computer-vision-s06", "ph": "DROP slide-06", "label": "LECTURE SLIDE", "cap": "Occlusion",
+          "desc": "The rider is hidden behind the horse, so parts of the object are missing. Local evidence alone is unreliable, which is why context and pooling matter." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "CONVOLUTION = A SLIDING, LEARNED KERNEL",
+      "exam": "Convolution slides one LEARNED kernel over each local patch, multiplies elementwise and SUMS across ALL input channels into a single feature-map value; reusing the same kernel at every position is weight sharing (fewer parameters) — unlike pooling's fixed max/avg, the kernel weights are trained.",
+      "ascii": "  input patch (receptive field)         kernel K  (LEARNED weights)\n        a b c                                w1 w2 w3\n        d e f      ⊙ elementwise, then        w4 w5 w6     →  ONE feature-map cell\n        g h i      Σ over patch AND            w7 w8 w9        = dot product\n                     all C channels\n\nslide K by `stride` over every position → fill the whole feature map\nSAME K reused everywhere = WEIGHT SHARING → far fewer parameters\nfeature map = the detector's response recorded at each location\n(pooling applies a FIXED max/avg; convolution's weights are TRAINED)",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/1/19/2D_Convolution_Animation.gif",
+          "label": "WEB DIAGRAM", "cap": "2D convolution",
+          "desc": "The kernel (shaded window) slides over the input; at each stop it computes one dot product that fills one cell of the feature map. The same weights are reused everywhere — that is weight sharing." }
+      ]
+    },
+    {
+      "n": "03",
+      "title": "OUTPUT SIZE: STRIDE, PADDING, DILATION",
+      "exam": "Feature-map size = floor((W + 2P − d·(K−1) − 1) / stride) + 1 per dimension; a larger stride shrinks the map (less memory and compute) but discards fine detail, while padding adds a border that preserves size.",
+      "ascii": "out = floor( ( W + 2P − d·(K−1) − 1 ) / S ) + 1      [per spatial dim]\n\n  8x7 img, K=3, P=1, S=2, d=1 :  (7+2−2−1)/2 + 1 = 3+1 = 4   → 4 x 4\n  28   img, K=5, P=0, S=1     :  (28−5)/1   + 1 = 24          → 24 (valid conv)\n  len 100, K=3, P=0, S=1      :  (100−3)/1  + 1 = 98          → 98\n\nbigger STRIDE → bigger steps → smaller map → cheaper, less memory\n          ...but too aggressive early on DROPS fine-grained detail\nPADDING = a frame of zeros that keeps the output the same size",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Convolution_arithmetic_-_Padding_strides.gif",
+          "label": "WEB DIAGRAM", "cap": "Stride + padding",
+          "desc": "Padded input (outer border) with the kernel window stepping by the stride; the small grid is the output. Larger stride = fewer output positions; padding restores the lost border — exactly what the size formula encodes." }
+      ],
+      "table": {
+        "head": ["Input", "Kernel", "Pad", "Stride", "Output"],
+        "rows": [
+          ["8 (H)", "3", "1", "2", "4"],
+          ["7 (W)", "3", "1", "2", "4"],
+          ["28", "5", "0", "1", "24"],
+          ["100", "3", "0", "1", "98"]
+        ]
+      }
+    },
+    {
+      "n": "04",
+      "title": "POOLING: DOWNSAMPLE & SUMMARISE",
+      "exam": "Pooling summarises each window with a FIXED function (max or average) and NO learned weights; PyTorch MaxPool2d defaults its stride to the kernel size, and adaptive/global pooling collapses each channel to ONE value for any input size before flattening to the head.",
+      "ascii": "2x2 MAX POOL, stride 2   (PyTorch default: stride = kernel size!)\n\n  1  3 | 2  1          ┌─────┬─────┐\n  4  2 | 0  5          │  4  │  5  │   = max of each 2x2 window\n ──────┼──────   →     ├─────┼─────┤   (no learned weights — fixed function)\n  6  1 | 1  0          │  6  │  3  │\n  2  0 | 3  2          └─────┴─────┘\n   24x24 map  →  12x12        (28→24 by conv, →12 by 2x2 pool)\n\nGLOBAL / AdaptiveAvgPool → ONE value per channel, any input length\nthen FLATTEN the (C,H,W) map → a C·H·W vector  (e.g. 32·3·3 = 288) for the dense head",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Max_pooling.png",
+          "label": "WEB DIAGRAM", "cap": "2x2 max pooling",
+          "desc": "Each coloured 2x2 window is replaced by its maximum, halving height and width with no trainable parameters. The pooling stride defaults to the kernel size, which is the source of PyTorch shape surprises." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "FILTERS LEARN EDGES; RECEPTIVE FIELDS & FEATURE MAPS",
+      "exam": "Each kernel is a learned edge/pattern detector — a column kernel [−1,0,1] fires on VERTICAL edges, a row kernel fires on HORIZONTAL edges — and its feature map records that response at every position; stacking layers grows the receptive field so deeper units capture more context.",
+      "ascii": "Kernel B (columns)        Kernel A (rows)\n  -1  0  1                 -1 -1 -1\n  -1  0  1   fires on        0  0  0   fires on\n  -1  0  1   VERTICAL         1  1  1   HORIZONTAL\n             edges                      edges\n\nfeature map = detector's RESPONSE at every location (bright where the edge is)\nstack conv layers → receptive field GROWS → deeper units see more CONTEXT\n  layer1 sees 3x3 ─► layer2 sees 5x5 ─► ... a lone patch is ambiguous; context fixes it",
+      "figures": [
+        { "kind": "slide", "slot": "computer-vision-s11", "ph": "DROP slide-11", "label": "LECTURE SLIDE", "cap": "Local ambiguity & context",
+          "desc": "Each blurred patch is unrecognisable on its own but obvious inside the full scene. Stacking convolutions enlarges the receptive field so deeper units 'see' enough context to disambiguate what a single edge detector cannot." }
+      ]
+    },
+    {
+      "n": "06",
+      "title": "SEGMENTATION = PER-PIXEL CLASSIFICATION",
+      "exam": "Semantic segmentation is per-pixel classification: the output has ONE channel per class at every location (binary mask → 1 channel + sigmoid, K classes → K channels + softmax); the encoder may downsample because the decoder upsamples and skip connections restore detail — never flatten to 1D, which destroys the spatial correspondence the task needs.",
+      "ascii": "ENCODER (downsample)                         DECODER (upsample)\n img →[conv]→[pool]→ ··· → bottleneck → [upconv]→ ··· → per-pixel label map\n   │      │      │                          ▲     ▲     ▲\n   └──────┴──────┴──── skip connections ─────┘     │     │   (recover fine detail)\n\nOUTPUT: one channel PER CLASS at every pixel\n   binary 'relevant vs not'  →  1 channel + sigmoid\n   K classes                 →  K channels + softmax\nconcatenating two 64-channel maps over the channel axis → 128 in_channels\nDO NOT flatten to 1D → that destroys the per-pixel spatial map",
+      "figures": [
+        { "kind": "slide", "slot": "computer-vision-s14", "ph": "DROP slide-14", "label": "LECTURE SLIDE", "cap": "Classification vs segmentation",
+          "desc": "Classification returns one label with NO spatial extent; semantic segmentation labels every pixel ('no objects, just pixels'). That is exactly why segmentation outputs one class-channel per pixel instead of a flattened vector." },
+        { "kind": "slide", "slot": "computer-vision-s15", "ph": "DROP slide-15", "label": "LECTURE SLIDE", "cap": "Dense prediction tasks",
+          "desc": "Temporal segmentation, object tracking and motion estimation all demand per-pixel / per-frame output — the same encoder-decoder-with-skip-connections recipe that restores full resolution." }
+      ]
+    }
+  ]
+}

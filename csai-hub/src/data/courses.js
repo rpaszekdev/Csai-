@@ -126,6 +126,12 @@ export const PROGRAM = [
                 rules: "—",
               },
             ],
+            examLinks: [
+              { label: "Final Exam", href: "/auto-sys/final-exam.html" },
+              { label: "Mock Exam", href: "/auto-sys/mock-exam.html" },
+              { label: "Final Exam 2", href: "/auto-sys/final-exam-2.html" },
+              { label: "Final Exam 3", href: "/auto-sys/final-exam-3.html" },
+            ],
             resources: [
               {
                 label: "L01 — Intro & Logistics",
@@ -180,7 +186,10 @@ export const PROGRAM = [
                 time: "23:59",
               },
             ],
-            resources: [{ label: "Project", href: "#" }],
+            resources: [
+              { label: "Dashboard & Quizzes", href: "/courses/rw" },
+              { label: "Project", href: "#" },
+            ],
           },
           {
             id: "deep-learn",

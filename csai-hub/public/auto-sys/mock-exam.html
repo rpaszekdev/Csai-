@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mock Exam — Autonomous Systems</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+  /* Mistakes-review block — reuses the cream/ink/rust editorial palette. */
+  .mistakes { margin-top: 40px; }
+  .mistakes-head {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); margin: 0 0 18px;
+  }
+  .mistake-card {
+    border: 1.5px solid var(--ink);
+    background: var(--paper, #F2EDE0);
+    padding: 20px 22px; margin-bottom: 20px;
+  }
+  .mistake-card .mc-meta {
+    display: flex; gap: 12px; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 10px;
+  }
+  .mistake-card .mc-num { font-weight: 700; color: var(--ink); }
+  .mistake-card .mc-prompt {
+    font-size: 15px; line-height: 1.5; margin: 0 0 16px; color: var(--ink);
+  }
+  .mistake-card .mc-ans { margin: 8px 0; padding: 10px 12px; line-height: 1.45; }
+  .mistake-card .mc-yours {
+    border-left: 3px solid var(--rust); color: var(--rust);
+    background: rgba(168, 79, 42, 0.06);
+  }
+  .mistake-card .mc-correct {
+    border-left: 3px solid var(--ink); color: var(--ink);
+    background: rgba(26, 26, 26, 0.04);
+  }
+  .mistake-card .mc-tag {
+    display: inline-block; font-weight: 700; margin-right: 8px;
+    font-size: 11px; letter-spacing: 0.06em;
+  }
+  .mistake-card .mc-yours .mc-tag { color: var(--rust); }
+  .mistake-card .mc-correct .mc-tag { color: var(--ink); }
+  .mistake-card .mc-prof {
+    margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--ink-mute);
+    font-size: 13px; line-height: 1.5; color: var(--ink-mute);
+  }
+  .mistakes-perfect {
+    border: 1.5px solid var(--ink); padding: 24px;
+    font-size: 15px; line-height: 1.5; text-align: center;
+  }
+  .mistakes-count {
+    font-size: 12px; color: var(--ink-mute); margin: 0 0 24px;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-01.html" class="back">← Back to lectures</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-01.html">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html" class="active">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Mock Exam · Practice Set</span>
+      <h1 class="hero-title">
+        Mock Exam <span class="exam-mode-pill">20 Q</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>20 questions</span>
+      <span>~30 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">20</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Mock Exam Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">20</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;"><strong id="sum-correct">0</strong> of <strong id="sum-correct-total">20</strong> correct</p>
+
+      <div class="mistakes" id="mistakes-block"></div>
+
+      <h3 style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-mute);margin:40px 0 12px;">At a glance</h3>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-01.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lectures</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    "id": 1,
+    "section": "EXAM STYLE · BRAITENBERG / DIRECT COUPLING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A tiny rover carries one light sensor wired straight to its single drive motor, rolling across a floor where brightness varies (brightness is never zero; no two consecutive readings are equal). Describe its motion.",
+    "options": [
+      {
+        "html": "It crawls through dim patches and races through bright ones, and is always in motion somewhere.",
+        "correct": true
+      },
+      {
+        "html": "It races through dim patches and crawls through bright ones, freezing the instant it hits a peak.",
+        "correct": false
+      },
+      {
+        "html": "It keeps one fixed speed throughout, since a lone wire cannot carry any change in brightness at all.",
+        "correct": false
+      },
+      {
+        "html": "It brakes to a halt every time two consecutive readings differ from each other by a wide margin.",
+        "correct": false
+      }
+    ],
+    "prof": "One sensor wired straight to one motor makes speed directly proportional to the reading: dim means slow, bright means fast. Because brightness is positive and readings never repeat, it never stops — pure reactive coupling, no controller. The trap inverts the relation or invents a threshold the wiring cannot encode."
+  },
+  {
+    "id": 2,
+    "section": "EXAM STYLE · ACTIVE vs PASSIVE SENSORS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A delivery robot has an infrared time-of-flight rangefinder on its bumper. Two claims: (a) an active sensor emits its own signal and measures what comes back; (b) this rangefinder is therefore an active sensor. Which verdict is right?",
+    "options": [
+      {
+        "html": "(a) true and (b) false — emitting is the right definition, but a rangefinder only ever listens.",
+        "correct": false
+      },
+      {
+        "html": "(a) false and (b) false — active means it only receives, so the rangefinder is actually passive.",
+        "correct": false
+      },
+      {
+        "html": "(a) true and (b) true — emitting then measuring the return is active, and the rangefinder does this.",
+        "correct": true
+      },
+      {
+        "html": "(a) false and (b) true — the definition is wrong, yet this rangefinder still counts as active.",
+        "correct": false
+      }
+    ],
+    "prof": "Statement (a) is the correct definition: an active sensor emits energy and measures its reflection. A time-of-flight rangefinder fires its own IR pulse and times the echo, so it is active. The trap flips the active definition onto passive sensors, which merely receive ambient energy."
+  },
+  {
+    "id": 3,
+    "section": "EXAM STYLE · PROPRIOCEPTIVE vs EXTEROCEPTIVE",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A walking robot has a strain gauge buried inside one of its knee joints reporting the joint's load. Two claims: (a) an exteroceptive sensor measures the world outside the agent; (b) this internal knee gauge is exteroceptive. Which verdict is right?",
+    "options": [
+      {
+        "html": "(a) false and (b) true — exteroceptive means internal, so the buried knee gauge qualifies.",
+        "correct": false
+      },
+      {
+        "html": "(a) true and (b) false — the world-facing definition holds, but the gauge reads the robot's own state.",
+        "correct": true
+      },
+      {
+        "html": "(a) true and (b) true — both are right because any joint-mounted gauge faces the environment.",
+        "correct": false
+      },
+      {
+        "html": "(a) false and (b) false — the definition is backwards and the gauge is exteroceptive regardless.",
+        "correct": false
+      }
+    ],
+    "prof": "Statement (a) is correct: exteroceptive sensors measure the external world. A strain gauge reading the robot's own joint load reports internal state, so it is proprioceptive, not exteroceptive. What the sensor measures decides the category, never how deep inside the body it is mounted."
+  },
+  {
+    "id": 4,
+    "section": "EXAM STYLE · EMBODIMENT & MORPHOLOGY",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "You are shown a bolted-down robotic welding arm and a soft swimming robot shaped like an eel. Two claims: (a) both are embodied agents; (b) the soft swimmer has the morphology of a wheel. Which verdict is right?",
+    "options": [
+      {
+        "html": "(a) false and (b) false — only the fixed welding arm is embodied, and its form is a wheel shape.",
+        "correct": false
+      },
+      {
+        "html": "(a) true and (b) true — both have bodies, and any soft robot defaults to a round, wheel-like form.",
+        "correct": false
+      },
+      {
+        "html": "(a) false and (b) true — being bolted down breaks embodiment, but the swimmer's form is a wheel.",
+        "correct": false
+      },
+      {
+        "html": "(a) true and (b) false — both have physical bodies, yet an eel-shaped swimmer is not a wheel.",
+        "correct": true
+      }
+    ],
+    "prof": "Embodiment means having a physical body situated in the world; a fixed welding arm and a soft swimmer both qualify. Morphology is bodily shape, and an eel form is not a wheel. The trap conflates softness with a default round shape and wrongly treats being anchored as disqualifying embodiment."
+  },
+  {
+    "id": 5,
+    "section": "EXAM STYLE · MORPHOLOGICAL COMPUTATION",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A soft elastic gripper closes around oddly shaped fruit and conforms to each one without any per-finger force computation. Why is this cited as morphological computation?",
+    "options": [
+      {
+        "html": "Because a planner pre-scans each fruit and pre-computes a separate grasp trajectory for every shape.",
+        "correct": false
+      },
+      {
+        "html": "Because the material's passive compliance shapes the grasp, doing work the controller would otherwise do.",
+        "correct": true
+      },
+      {
+        "html": "Because its rigid steel fingers clamp with one fixed identical force on every object it picks up.",
+        "correct": false
+      },
+      {
+        "html": "Because dense tactile arrays feed a model that recomputes finger angles many times each second.",
+        "correct": false
+      }
+    ],
+    "prof": "The compliant material conforms to each object on its own, so the body's physics replaces the per-finger force control a rigid hand would need. That offloading is the essence of morphological computation. The traps describe explicit central control (planning, dense sensing) or rigidity, which is the opposite."
+  },
+  {
+    "id": 6,
+    "section": "EXAM STYLE · MORPHOLOGICAL COMPUTATION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A six-axis CNC drilling robot positions its bit with a central controller computing every joint angle to the micron. Why does it <strong>not</strong> perform morphological computation?",
+    "options": [
+      {
+        "html": "Because it has no physical body whatsoever, leaving no morphology that could carry out computation.",
+        "correct": false
+      },
+      {
+        "html": "Because it is rigid and fully controlled; the controller does all the work and the body offloads nothing.",
+        "correct": true
+      },
+      {
+        "html": "Because its springy compliant links flex so much the controller can no longer command them precisely.",
+        "correct": false
+      },
+      {
+        "html": "Because it cycles far too slowly for any of its own body dynamics to take over part of the control task.",
+        "correct": false
+      }
+    ],
+    "prof": "Every joint angle is explicitly computed by the controller and the stiff body merely executes commands, so nothing is offloaded to physics. Having a body is not enough; the dynamics must replace control. The traps wrongly deny it a body, or invent compliance and slowness it does not have."
+  },
+  {
+    "id": 7,
+    "section": "EXAM STYLE · REACTIVE PARADIGM",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A vacuum robot maps its bump and cliff sensors straight onto turn-and-back commands with no internal map or planner. Which paradigm does this exemplify, and what is its signature?",
+    "options": [
+      {
+        "html": "Deliberative — it builds a symbolic model and searches it before committing to any single movement.",
+        "correct": false
+      },
+      {
+        "html": "Reactive — it maps sensing tightly to action in fast loops with no world model in between.",
+        "correct": true
+      },
+      {
+        "html": "Hybrid — a slow planner overrides a fast reflex layer whenever the two happen to disagree.",
+        "correct": false
+      },
+      {
+        "html": "Learned — it trains a value network online from reward and stores no explicit reflexes at all.",
+        "correct": false
+      }
+    ],
+    "prof": "Mapping sensors directly to actions in tight loops with no world model is the reactive (subsumption) paradigm. Deliberative builds and searches a symbolic model; hybrid arbitrates between a planner and reflexes. The signature here is speed without representation."
+  },
+  {
+    "id": 8,
+    "section": "EXAM STYLE · OPEN vs CLOSED LOOP",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A greenhouse robot runs its watering pump for a fixed 10 seconds on a timer, never checking the resulting soil moisture. Which control scheme is this, and what is its core limitation?",
+    "options": [
+      {
+        "html": "Closed-loop — it senses moisture continuously, so any disturbance is corrected within the same cycle.",
+        "correct": false
+      },
+      {
+        "html": "Open-loop — it commands blindly without feedback, so it cannot correct for disturbances.",
+        "correct": true
+      },
+      {
+        "html": "Closed-loop — the fixed timer is itself the feedback path that keeps the output on its set point.",
+        "correct": false
+      },
+      {
+        "html": "Open-loop — it reads the moisture error each step but simply chooses to ignore the value it gets.",
+        "correct": false
+      }
+    ],
+    "prof": "Acting on a fixed timer with no measurement of the result is open-loop control; with no feedback it cannot compensate for disturbances like dry or already-wet soil. The traps mislabel it closed-loop or claim a timer is feedback, but feedback requires sensing the controlled variable."
+  },
+  {
+    "id": 9,
+    "section": "EXAM STYLE · LEARNING FROM DEMONSTRATION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A trainer switches a robot arm into zero-force mode and physically guides its links through a polishing motion while sensors log the joint trajectory. Which LfD channel is this?",
+    "options": [
+      {
+        "html": "Teleoperation — the trainer drives the arm from a distance through a joystick or master device.",
+        "correct": false
+      },
+      {
+        "html": "Kinesthetic teaching — the trainer grasps the arm itself and moves its joints by hand.",
+        "correct": true
+      },
+      {
+        "html": "Observational learning — the arm watches the trainer polish with their own hand, then imitates.",
+        "correct": false
+      },
+      {
+        "html": "Reinforcement learning — the arm explores polishing strokes on its own, scored by a reward signal.",
+        "correct": false
+      }
+    ],
+    "prof": "Physically grasping the robot's links and guiding them in zero-force mode is kinesthetic teaching. Teleoperation is remote control through a master device; observation is the robot watching a human's own body. The hands-on-the-robot detail pins it to kinesthetic."
+  },
+  {
+    "id": 10,
+    "section": "EXAM STYLE · LEARNING FROM DEMONSTRATION",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A robot films a chef chopping vegetables with the chef's own hands, then later reproduces the motion on its own gripper. Which type of learning from demonstration is this?",
+    "options": [
+      {
+        "html": "Kinesthetic teaching — the chef takes hold of the robot's gripper and guides its joints directly.",
+        "correct": false
+      },
+      {
+        "html": "Observational learning — the robot watches a human perform with their own body and imitates it.",
+        "correct": true
+      },
+      {
+        "html": "Teleoperation — the chef pilots the robot through a master device while it mirrors the commands.",
+        "correct": false
+      },
+      {
+        "html": "Supervised regression — the robot is handed labelled joint targets for each frame in advance.",
+        "correct": false
+      }
+    ],
+    "prof": "Watching a human perform with their own body via camera and later imitating is observational (shadowing) learning. Kinesthetic requires touching the robot; teleoperation requires a master device the human pilots. No master device and no contact means observation."
+  },
+  {
+    "id": 11,
+    "section": "EXAM STYLE · RL VOCABULARY (EXPLORE vs EXPLOIT)",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A foraging robot sometimes takes the action it currently believes is best, and sometimes tries a different action to gather information. Name the two behaviours in that order.",
+    "options": [
+      {
+        "html": "(1) exploration and (2) exploitation — trying new actions first, then taking the believed-best one.",
+        "correct": false
+      },
+      {
+        "html": "(1) exploitation and (2) exploration — taking the believed-best action, then trying others to learn.",
+        "correct": true
+      },
+      {
+        "html": "(1) on-policy and (2) off-policy — both names just describe whose policy is sampled during updates.",
+        "correct": false
+      },
+      {
+        "html": "(1) greedy and (2) discounting — acting greedily, then shrinking future rewards by a fixed factor.",
+        "correct": false
+      }
+    ],
+    "prof": "Taking the action you currently believe is best is exploitation; trying something else to gather information is exploration. The order in the prompt is exploit-then-explore. The traps reverse the pair or swap in unrelated terms (on/off-policy, discounting)."
+  },
+  {
+    "id": 12,
+    "section": "EXAM STYLE · RL · MARKOV PROPERTY",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "An MDP modelling a warehouse robot assumes the Markov property. What does that property state about the current state?",
+    "options": [
+      {
+        "html": "That the current state alone determines the next-state and reward distribution, given the action.",
+        "correct": true
+      },
+      {
+        "html": "That the next state depends on the full ordered history of every state the agent has ever visited.",
+        "correct": false
+      },
+      {
+        "html": "That the reward must be deterministic and the same every single time a given state is re-entered.",
+        "correct": false
+      },
+      {
+        "html": "That every state in the environment is guaranteed to be visited equally often over a long run.",
+        "correct": false
+      }
+    ],
+    "prof": "The Markov property says the current state captures all relevant information: given it and the action, the next state and reward do not depend on earlier history. The traps demand full history (the opposite), or confuse it with determinism or uniform visitation, neither of which the property claims."
+  },
+  {
+    "id": 13,
+    "section": "EXAM STYLE · RL · POLICY vs VALUE",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "In a navigation task, one quantity tells the robot which way to move from a square, and another estimates how good standing on that square is in the long run. Match them.",
+    "options": [
+      {
+        "html": "Both are the reward function written two ways: one over actions and one over states only.",
+        "correct": false
+      },
+      {
+        "html": "Policy gives the action to take in a state; value gives the expected long-term return from it.",
+        "correct": true
+      },
+      {
+        "html": "Policy is a supervised label set, while the value function is the only object RL actually estimates.",
+        "correct": false
+      },
+      {
+        "html": "Value picks the action and the policy scores the state, since the two roles are simply swapped.",
+        "correct": false
+      }
+    ],
+    "prof": "The policy maps a state to the action to take; the value function gives expected long-term return from a state. The traps swap the two roles, collapse them into the reward, or wrongly file the policy under supervised learning."
+  },
+  {
+    "id": 14,
+    "section": "EXAM STYLE · UNSUPERVISED · K-MEANS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "K-means is run on a robot's logged range readings to find clusters. Which pair of steps does it alternate until convergence?",
+    "options": [
+      {
+        "html": "Assign each point to its nearest centroid, then move each centroid to its assigned points' mean.",
+        "correct": true
+      },
+      {
+        "html": "Label each point with a ground-truth class, then fit a boundary that separates the labelled classes.",
+        "correct": false
+      },
+      {
+        "html": "Pick a winning neuron per input, then nudge that neuron and its grid neighbours toward the input.",
+        "correct": false
+      },
+      {
+        "html": "Reduce the data to two principal axes, then draw an ellipse around every dense region it finds.",
+        "correct": false
+      }
+    ],
+    "prof": "K-means alternates assignment (each point to the nearest centroid) and update (each centroid to the mean of its points) until stable. The traps describe supervised classification, the SOM neighbourhood update, or PCA — related-sounding but different algorithms."
+  },
+  {
+    "id": 15,
+    "section": "EXAM STYLE · UNSUPERVISED · SOM",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A self-organising map is trained on a robot's sensor vectors. What does a SOM add on top of plain competitive (winner-take-all) learning?",
+    "options": [
+      {
+        "html": "A labelled target for each unit, turning the map into a fully supervised classifier of the inputs.",
+        "correct": false
+      },
+      {
+        "html": "A neighbourhood update that also pulls units near the winner, so the grid preserves topology.",
+        "correct": true
+      },
+      {
+        "html": "A reward signal per step that reinforces the winning unit whenever the action led to high return.",
+        "correct": false
+      },
+      {
+        "html": "A fixed centroid count chosen up front, after which only the single closest unit ever moves.",
+        "correct": false
+      }
+    ],
+    "prof": "A SOM extends competitive learning with a neighbourhood function: the winner and its grid neighbours all move toward the input, so nearby inputs map to nearby units and topology is preserved. The traps add supervision or reward (wrong learning type) or describe plain winner-take-all without the neighbourhood."
+  },
+  {
+    "id": 16,
+    "section": "EXAM STYLE · HARDWARE COMPONENTS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "On your Arduino build you used a servo motor. Which description of its function is correct?",
+    "options": [
+      {
+        "html": "It stores charge and releases it later to smooth out brief dips in the board's supply voltage.",
+        "correct": false
+      },
+      {
+        "html": "It converts a PWM signal into a held angular position, used for steering or a joint.",
+        "correct": true
+      },
+      {
+        "html": "It limits the current flowing into an LED so the diode and the driving pin are not damaged.",
+        "correct": false
+      },
+      {
+        "html": "It times a reflected ultrasonic pulse to report the distance to the nearest obstacle ahead.",
+        "correct": false
+      }
+    ],
+    "prof": "A servo turns a PWM command into a precise, held angular position, making it an actuator for steering or joints. The traps describe a capacitor (storing charge), a resistor (limiting current), and an ultrasonic sensor (timing echoes) — other kit parts."
+  },
+  {
+    "id": 17,
+    "section": "EXAM STYLE · HARDWARE COMPONENTS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Name a second part from your kit and its role: the breadboard. Which description fits it?",
+    "options": [
+      {
+        "html": "It runs the control program and drives every digital and analog pin on the whole circuit.",
+        "correct": false
+      },
+      {
+        "html": "It connects components into a circuit without soldering, for quick prototyping and rewiring.",
+        "correct": true
+      },
+      {
+        "html": "It measures the distance to obstacles by emitting a pulse and timing the returning echo.",
+        "correct": false
+      },
+      {
+        "html": "It lights up to show a technician that a particular digital output pin is currently set HIGH.",
+        "correct": false
+      }
+    ],
+    "prof": "A breadboard links components into a circuit solderlessly, ideal for prototyping and rewiring. The traps describe the microcontroller (runs code), an ultrasonic sensor (times echoes), and an LED (indicates a pin). Pick parts you can defend."
+  },
+  {
+    "id": 18,
+    "section": "EXAM STYLE · ACTION-PERCEPTION CYCLE",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A line-following robot keeps repeating: read the line sensor, decide a steering command, drive the wheels, which shifts its position, then read again. What does this loop illustrate, and what closes it?",
+    "options": [
+      {
+        "html": "An open-loop pipeline; nothing closes it, since the wheels never affect what the sensor reads next.",
+        "correct": false
+      },
+      {
+        "html": "The action-perception cycle; the controller's decide step links sensing to acting and closes it.",
+        "correct": true
+      },
+      {
+        "html": "A reward loop; the discount factor is what feeds each action's outcome back into the next decision.",
+        "correct": false
+      },
+      {
+        "html": "A pure planning loop; the symbolic world model is the element that ties one iteration to the next.",
+        "correct": false
+      }
+    ],
+    "prof": "Sense, decide, act, the world changes, sense again is the action-perception cycle, and the controller's decide step is what closes it by mapping sensor state to motor command. The traps deny that action feeds back (it does — position changes the next reading) or swap in reward/planning machinery the example does not use."
+  },
+  {
+    "id": 19,
+    "section": "EXAM STYLE · BRAITENBERG WIRING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A two-sensor cart is wired with positive crossed (contralateral) connections to a light: the left sensor speeds the right motor and the right sensor speeds the left motor. What does it do near a single light?",
+    "options": [
+      {
+        "html": "It veers away from the light, turning hardest when one side reads much brighter than the other.",
+        "correct": true
+      },
+      {
+        "html": "It homes straight in on the light and gently slows to a stop right beside the glowing source.",
+        "correct": false
+      },
+      {
+        "html": "It holds a fixed straight heading regardless of the light, since crossing the wires cancels any turn.",
+        "correct": false
+      },
+      {
+        "html": "It circles the light at a constant radius forever without ever drifting closer to or away from it.",
+        "correct": false
+      }
+    ],
+    "prof": "Positive contralateral wiring drives the motor on the far side from the brighter sensor, turning the cart away from the light — the classic \"coward/fear\" vehicle. The traps describe approach (that is ipsilateral or negative wiring) or invent cancellation and orbiting the crossed-positive scheme does not produce."
+  },
+  {
+    "id": 20,
+    "section": "EXAM STYLE · HYBRID PARADIGM",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A warehouse robot plans a route over a stored map but also runs a fast reflex that brakes for a suddenly appearing person. In the hybrid paradigm, how is labour divided between the two layers?",
+    "options": [
+      {
+        "html": "The reactive layer plans long routes while the deliberative layer fires reflexes for emergencies.",
+        "correct": false
+      },
+      {
+        "html": "The deliberative layer plans over the map; the reactive layer handles fast Sense-to-Act responses.",
+        "correct": true
+      },
+      {
+        "html": "Both layers plan symbolically over the map, and neither one is allowed to react without planning first.",
+        "correct": false
+      },
+      {
+        "html": "Only the reactive layer is ever active, so the stored map and the planner are never actually consulted.",
+        "correct": false
+      }
+    ],
+    "prof": "Hybrid splits the work: a deliberative layer plans over a world model on a slow horizon, while a reactive layer maps Sense to Act in fast loops for emergencies, with arbitration between them. The traps swap the two layers' jobs, deny reaction, or deny planning."
+  }
+];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
+
+const STORAGE_KEY = "csai_auto_sys_mock_exam_v1";
+const SLIDE_BASE = "/auto-sys/final-exam-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? '<span class="badge prof">Prof</span>'
+    : '<span class="badge">Exam</span>';
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = (q.slides || []).map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((correct / QUESTIONS.length) * 100);
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  document.getElementById("sum-correct").textContent = correct;
+  document.getElementById("sum-correct-total").textContent = QUESTIONS.length;
+
+  renderMistakes();
+
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+// Build the "Review your mistakes" block: one card per WRONG or SKIPPED
+// question, joining state.answers with QUESTIONS. The picked index refers
+// to the already-shuffled options array, so q.options[a.picked] is the
+// learner's pick and the option flagged .correct is the answer.
+function renderMistakes() {
+  const block = document.getElementById("mistakes-block");
+  const correct = state.answers.filter(a => a.correct).length;
+
+  const wrongIdx = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => !state.answers[i].correct); // wrong, skipped, or never answered
+
+  if (wrongIdx.length === 0) {
+    block.innerHTML = `<div class="mistakes-perfect"><strong>Perfect — no mistakes.</strong><br>All ${QUESTIONS.length} questions correct.</div>`;
+    return;
+  }
+
+  const head = `<p class="mistakes-head">Review your mistakes</p>`;
+  const count = `<p class="mistakes-count">${correct} of ${QUESTIONS.length} correct · ${wrongIdx.length} to review below.</p>`;
+
+  const cards = wrongIdx.map(i => {
+    const q = QUESTIONS[i];
+    const a = state.answers[i];
+    const correctOpt = q.options.find(o => o.correct);
+    const correctHtml = correctOpt ? correctOpt.html : "—";
+
+    const yourHtml = (a.status === "answered" && a.picked != null && q.options[a.picked])
+      ? `<div class="mc-ans mc-yours"><span class="mc-tag">✗ Your answer</span>${q.options[a.picked].html}</div>`
+      : `<div class="mc-ans mc-yours"><span class="mc-tag">✗ Skipped</span>You did not answer this question.</div>`;
+
+    return `<div class="mistake-card">
+      <div class="mc-meta">
+        <span class="mc-num">Q${String(q.id).padStart(2, "0")}</span>
+        <span>${q.section}</span>
+      </div>
+      <p class="mc-prompt">${q.prompt}</p>
+      ${yourHtml}
+      <div class="mc-ans mc-correct"><span class="mc-tag">✓ Correct answer</span>${correctHtml}</div>
+      <p class="mc-prof"><strong>Prof.</strong> ${q.prof}</p>
+    </div>`;
+  }).join("");
+
+  block.innerHTML = head + count + cards;
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the mock exam? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>

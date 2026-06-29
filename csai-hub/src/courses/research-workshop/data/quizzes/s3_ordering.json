@@ -1,0 +1,106 @@
+{
+  "section_id": "s3",
+  "quiz_type": "ordering",
+  "title": "Experimental Design - Ordering",
+  "questions": [
+    {
+      "id": "s3_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the 7 steps of the experimental design checklist from first to last.",
+      "items": [
+        "Choose the design (between or within subjects)",
+        "Formulate a research question",
+        "Plan the analysis",
+        "State a hypothesis",
+        "Define the IV and DV",
+        "Control for confounds",
+        "Define the conditions"
+      ],
+      "correct_order": [
+        "Formulate a research question",
+        "State a hypothesis",
+        "Define the IV and DV",
+        "Define the conditions",
+        "Choose the design (between or within subjects)",
+        "Control for confounds",
+        "Plan the analysis"
+      ],
+      "explanation": "The checklist runs research question, hypothesis, IV/DV, conditions, design, control confounds, then plan analysis. Each step builds on the previous one, ending with the analysis plan that the design itself dictates."
+    },
+    {
+      "id": "s3_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the steps of the null-hypothesis-testing logic from first to last.",
+      "items": [
+        "Compute the test statistic",
+        "Assume the null hypothesis (H0)",
+        "Decide: reject or fail to reject H0",
+        "Collect the data",
+        "Compute the p-value"
+      ],
+      "correct_order": [
+        "Assume the null hypothesis (H0)",
+        "Collect the data",
+        "Compute the test statistic",
+        "Compute the p-value",
+        "Decide: reject or fail to reject H0"
+      ],
+      "explanation": "You start by assuming H0, then collect data, compute a statistic, derive its p-value, and finally decide whether to reject or fail to reject H0. You can never prove H0, only fail to reject it."
+    },
+    {
+      "id": "s3_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order these design choices by the sample size typically required, from smallest to largest total N (course practical values).",
+      "items": [
+        "Between-subjects, two conditions (about 40 total)",
+        "Within-subjects, two conditions (about 20 total)"
+      ],
+      "correct_order": [
+        "Within-subjects, two conditions (about 20 total)",
+        "Between-subjects, two conditions (about 40 total)"
+      ],
+      "explanation": "A within-subjects design reuses participants, needing about 20 total for the course, whereas a between-subjects design needs roughly twice that, about 40 total (20 per condition)."
+    },
+    {
+      "id": "s3_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order these steps for planning the student example study (noise level on mind-wandering during reading) as they follow the design checklist.",
+      "items": [
+        "Hypothesis: louder noise increases mind-wandering",
+        "RQ: does noise level affect mind-wandering while reading?",
+        "Choose a between-subjects design",
+        "IV = noise level, DV = mind-wandering during reading"
+      ],
+      "correct_order": [
+        "RQ: does noise level affect mind-wandering while reading?",
+        "Hypothesis: louder noise increases mind-wandering",
+        "IV = noise level, DV = mind-wandering during reading",
+        "Choose a between-subjects design"
+      ],
+      "explanation": "Following the checklist, the research question comes first, then the hypothesis, then naming the IV and DV, and then selecting the between-subjects design before controlling confounds and planning analysis."
+    },
+    {
+      "id": "s3_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order these steps for using G*Power to plan a study, from first to last.",
+      "items": [
+        "Read off the required sample size N",
+        "Specify the expected effect size",
+        "Set the desired power (1 - beta)",
+        "Set the significance level alpha"
+      ],
+      "correct_order": [
+        "Set the significance level alpha",
+        "Set the desired power (1 - beta)",
+        "Specify the expected effect size",
+        "Read off the required sample size N"
+      ],
+      "explanation": "G*Power computes required N from the inputs: alpha, desired power, and expected effect size are specified first, and the tool then returns the sample size needed to achieve that power."
+    }
+  ]
+}

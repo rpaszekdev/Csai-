@@ -387,6 +387,31 @@ body {
   color: var(--ink);
 }
 
+.course-exam-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.exam-link-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--course-color);
+  border: 1px solid var(--course-color);
+  text-decoration: none;
+  transition: opacity 0.12s;
+}
+
+.exam-link-btn:hover {
+  opacity: 0.82;
+}
+
 .course-resources {
   display: flex;
   flex-wrap: wrap;

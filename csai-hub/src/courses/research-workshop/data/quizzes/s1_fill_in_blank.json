@@ -1,0 +1,107 @@
+{
+  "section_id": "s1",
+  "quiz_type": "fill_in_blank",
+  "title": "Course Introduction - Fill in the Blank",
+  "questions": [
+    {
+      "id": "s1_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the written team contract covering roles, deadlines, and conflict resolution.",
+      "blank_sentence": "Each group must produce a Team Expectations ___, a contract on roles, deadlines, and conflict resolution.",
+      "correct_answer": "Agreement",
+      "acceptable_answers": ["Agreement", "agreement", "TEP", "Agreement (TEP)"],
+      "explanation": "The Team Expectations Agreement (TEP) is the written contract that sets out roles, deadlines, and how the team resolves conflict."
+    },
+    {
+      "id": "s1_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Give the percentage weight of the exam in the final grade.",
+      "blank_sentence": "The exam contributes ___% of the final grade, while the paper contributes the remaining 40%.",
+      "correct_answer": "60",
+      "acceptable_answers": ["60", "60%", "sixty"],
+      "explanation": "The assessment is 40% paper and 60% exam, so the exam carries 60% of the final grade."
+    },
+    {
+      "id": "s1_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the compliance step that, with informed consent, must be completed before data collection.",
+      "blank_sentence": "Before collecting data, the team must complete Ethical Standards ___ together with the informed consent template.",
+      "correct_answer": "Compliance",
+      "acceptable_answers": ["Compliance", "compliance", "approval", "clearance"],
+      "explanation": "Ethical Standards Compliance plus an informed consent template are required before any data collection begins."
+    },
+    {
+      "id": "s1_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the statement in which students declare any GenAI or tooling they used.",
+      "blank_sentence": "Students must submit a ___ Statement declaring any GenAI or tooling used in the project.",
+      "correct_answer": "Technology",
+      "acceptable_answers": ["Technology", "technology", "Tech", "tech"],
+      "explanation": "The Technology Statement is the required declaration of any GenAI or tooling used during the project."
+    },
+    {
+      "id": "s1_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "State the minimum number of conditions a project must include.",
+      "blank_sentence": "A project must compare at least ___ conditions to meet the minimum requirements.",
+      "correct_answer": "2",
+      "acceptable_answers": ["2", "two"],
+      "explanation": "The minimum requirements specify at least 2 conditions, with at least 20 participants per condition."
+    },
+    {
+      "id": "s1_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "State the minimum number of participants required per condition.",
+      "blank_sentence": "Each condition must include at least ___ participants under the minimum project requirements.",
+      "correct_answer": "20",
+      "acceptable_answers": ["20", "twenty"],
+      "explanation": "The minimum requirements call for at least 20 participants per condition, alongside at least 2 conditions and R or Python analysis."
+    },
+    {
+      "id": "s1_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the learning-management platform where slides, templates, and example papers are hosted.",
+      "blank_sentence": "Slides, transcripts, templates, example papers, and the schedule are held in the ___ modules.",
+      "correct_answer": "Canvas",
+      "acceptable_answers": ["Canvas", "canvas"],
+      "explanation": "Canvas modules hold the slides, transcripts, templates, example papers, and schedule, and students also self-enroll in topic groups there."
+    },
+    {
+      "id": "s1_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the framework used to handle free-riders in teams.",
+      "blank_sentence": "Free-riders are addressed using the Hitchhikers and Couch ___ framework.",
+      "correct_answer": "Potatoes",
+      "acceptable_answers": ["Potatoes", "potatoes", "Potato"],
+      "explanation": "The Hitchhikers and Couch Potatoes framework is the named approach for handling free-riders within groups."
+    },
+    {
+      "id": "s1_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the two-letter track that pairs with Machine-Learning (ML) on the topic menu.",
+      "blank_sentence": "Supervisor topics fall on either the ___ (Human-Studies) side or the ML side.",
+      "correct_answer": "HS",
+      "acceptable_answers": ["HS", "hs", "Human-Studies", "Human Studies"],
+      "explanation": "The topic menu is split into the Human-Studies (HS) side and the Machine-Learning (ML) side, each with different example proposals."
+    },
+    {
+      "id": "s1_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name the required planning artefact provided as a spreadsheet.",
+      "blank_sentence": "The Project Schedule ___, provided as an xlsx file, is a required planning artefact.",
+      "correct_answer": "Template",
+      "acceptable_answers": ["Template", "template", "Spreadsheet"],
+      "explanation": "The Project Schedule Template (xlsx) is a required planning artefact for laying out the project timeline."
+    }
+  ]
+}

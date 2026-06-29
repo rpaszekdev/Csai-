@@ -1,0 +1,107 @@
+{
+  "section_id": "s2",
+  "quiz_type": "fill_in_blank",
+  "title": "Research Question & Literature Review - Fill in the Blank",
+  "questions": [
+    {
+      "id": "s2_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the predicted answer to a research question.",
+      "blank_sentence": "While the research question is the question itself, the ___ is your predicted answer to it.",
+      "correct_answer": "hypothesis",
+      "acceptable_answers": ["hypothesis", "Hypothesis"],
+      "explanation": "The RQ is the question; the hypothesis is the predicted answer to that question."
+    },
+    {
+      "id": "s2_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the citation mistake of citing a paper that cites the original.",
+      "blank_sentence": "Citing a paper that cites the original instead of the original itself is called citing the ___.",
+      "correct_answer": "citation",
+      "acceptable_answers": ["citation", "Citation"],
+      "explanation": "\"Citing the citation\" means citing a secondary source that references the original; you should always track down and cite the original source for a definition or finding."
+    },
+    {
+      "id": "s2_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the classic phenomenon Cherry (1953) studied.",
+      "blank_sentence": "Cherry's 1953 study of the ___-party effect is an example of a sharply scoped research question from a real phenomenon.",
+      "correct_answer": "cocktail",
+      "acceptable_answers": ["cocktail", "Cocktail", "cocktail-party", "cocktail party"],
+      "explanation": "The cocktail-party effect (Cherry, 1953) is cited as a sharply scoped RQ drawn from a real, observable phenomenon."
+    },
+    {
+      "id": "s2_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the framing (Belcher 2019) for how your paper enters a scholarly debate.",
+      "blank_sentence": "Belcher (2019) describes writing as joining the ___, where your paper enters an ongoing scholarly debate.",
+      "correct_answer": "conversation",
+      "acceptable_answers": ["conversation", "Conversation"],
+      "explanation": "\"Joining the conversation\" frames your work as entering an ongoing scholarly debate rather than standing alone."
+    },
+    {
+      "id": "s2_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the trap where a review just describes each source instead of analysing.",
+      "blank_sentence": "A review that describes one source after another instead of comparing them falls into the ___ effect.",
+      "correct_answer": "summary",
+      "acceptable_answers": ["summary", "Summary"],
+      "explanation": "The summary effect is avoided by grouping studies into sub-themes or sides of a debate rather than summarising each source in turn."
+    },
+    {
+      "id": "s2_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name what GenAI models do when they fabricate non-existent references.",
+      "blank_sentence": "The course warns against fully GenAI-written text because models ___ references that do not exist.",
+      "correct_answer": "hallucinate",
+      "acceptable_answers": ["hallucinate", "Hallucinate", "hallucinates"],
+      "explanation": "Generative AI models hallucinate references and content, which is the main reason the course discourages fully GenAI-generated text."
+    },
+    {
+      "id": "s2_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the review property that means it groups by topic, not author.",
+      "blank_sentence": "Sources should be organised by topic or ___, not by author, to make comparison easier.",
+      "correct_answer": "purpose",
+      "acceptable_answers": ["purpose", "Purpose", "theme", "sub-theme"],
+      "explanation": "Organising by topic or purpose (into sub-themes) facilitates comparison and guides the reader toward your research gap."
+    },
+    {
+      "id": "s2_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the feasibility constraint of running a study within one semester.",
+      "blank_sentence": "The feasibility filter asks whether time, participants, equipment, and ethical ___ are realistic within one semester.",
+      "correct_answer": "approval",
+      "acceptable_answers": ["approval", "Approval"],
+      "explanation": "Feasibility means checking that time, participants, equipment, and ethical approval are all realistic within the available semester."
+    },
+    {
+      "id": "s2_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the review quality the course says it must be, not a summary.",
+      "blank_sentence": "A literature review is not a summary; it is critical ___ tied to your project.",
+      "correct_answer": "evaluation",
+      "acceptable_answers": ["evaluation", "Evaluation", "analysis"],
+      "explanation": "A lit review is analysis and critical evaluation linked to your project, showing relevance, the gap, and why your RQ matters."
+    },
+    {
+      "id": "s2_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name one reference-manager tool used for LaTeX bibliographies.",
+      "blank_sentence": "For managing references in LaTeX documents, the format ___ is commonly used alongside tools like Zotero and Mendeley.",
+      "correct_answer": "BibTeX",
+      "acceptable_answers": ["BibTeX", "bibtex", "Bibtex", "BibTex"],
+      "explanation": "BibTeX is the reference format used with LaTeX, while Zotero and Mendeley are general-purpose reference managers."
+    }
+  ]
+}

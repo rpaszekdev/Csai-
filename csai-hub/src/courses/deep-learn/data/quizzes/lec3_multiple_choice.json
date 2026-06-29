@@ -1,0 +1,393 @@
+{
+  "section_id": "lec3",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: Gradient Descent & Optimizers - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec3_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What is the primary goal of optimization in the context of training neural networks?",
+      "options": {
+        "A": "Optimize learning so that it requires less computational power",
+        "B": "Minimize the computational complexity",
+        "C": "Minimize the cost function to improve model performance",
+        "D": "Maximize the number of layers in the network"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "You are optimising a simple linear model using gradient descent on MSE loss. You haven't taken a lot of optimisation steps yet, therefore the model's predictions are still a bit off. You consider an example in which the predicted outcome is larger than the target. The sign of the gradient is [ Select ] The sign of the optimisation step is [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "negative",
+        "B": "positive"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "You are optimising a simple linear model using gradient descent on MSE loss. You haven't taken a lot of optimisation steps yet, therefore the model's predictions are still a bit off. You consider an example in which the predicted outcome is larger than the target. The sign of the gradient is [ Select ] The sign of the optimisation step is [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "positive",
+        "B": "negative"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "In the context of optimization, what does the term \"momentum\" refer to?",
+      "options": {
+        "A": "The maximum number of iterations allowed during training",
+        "B": "A method to accelerate convergence by accumulating past gradients",
+        "C": "The rate at which the learning rate changes during training",
+        "D": "A parameter that controls the smoothness of the cost function"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "In neural network training, the term momentum, which is adopted from the field of physics, is essentially a small change to the SGD parameter update through an average over multiple time steps. Momentum speeds up movement along directions of strong improvement (loss decrease) and helps the network avoid local minima. What is the difference between SGD with momentum and Nesterov momentum:",
+      "options": {
+        "A": "The difference between the two update rules is how the momentum and velocity terms are updated at each next iteration. For Nesterov momentum the momentum term is reduced by a small ε after each iteration, while for SGD with momentum it does not change. This change impacts the velocity making Nesterov momentum lead to slower but more precise updates; SGD with momentum may skip local minima.",
+        "B": "There is no difference, Nesterov momentum is the more formal name of SGD with momentum.",
+        "C": "The difference between Nesterov momentum and SGD is in the way the gradient term is computed. For SGD with momentum the gradient term is computed from its current position in the parameter space; In Nesterov momentum it is computed from an intermediate position which equals the current position plus a lookahead step.",
+        "D": "The only difference is that in SGD with momentum, the learning rate remains unchanged, while in Nesterov momentum, the learning rane decreases based on the previous update."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "In the context of neural network optimization, what is the role of the learning rate?",
+      "options": {
+        "A": "It controls the batch size during training",
+        "B": "It regulates the speed at which the model parameters are updated",
+        "C": "It determines the number of epochs in training",
+        "D": "It defines the number of layers in the neural network"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "What is the primary disadvantage of using a learning rate that is too high in optimization algorithms?",
+      "options": {
+        "A": "Increased likelihood of getting stuck in local minima",
+        "B": "Excessive computational complexity",
+        "C": "Overshooting the minimum and failing to converge"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Which optimization algorithm is known for its capability in adjusting the learning rates for each parameter while avoiding a continuous decrease in the learning rate?",
+      "options": {
+        "A": "Adam",
+        "B": "Adagrad",
+        "C": "Stochastic Gradient Descent (SGD)",
+        "D": "Nesterov Accelerated Momentum"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Adam is an adaptive learning rate algorithm that optimizes the update of neural network parameters. Adam is based on two main quantities, defined as: mt = β₁ · mt₋₁ + (1 − β₁) · gₜ vt = β₂ · vt₋₁ + (1 − β₂) · gₜ² What are the correct interpretations of these notations?",
+      "options": {
+        "A": "mt is the estimate of the momentum of the gradients at time t (denoted by gₜ). vt is the estimate of the learning rate at time t. β₁ is the exponential decay rate for the momentum. β₂ is the exponential decay rate for the learning rate.",
+        "B": "mt and vt are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients, respectively. β₁ is the exponential decay rate for the first-moment estimates. β₂ is the exponential decay rate for the second-moment estimates. gₜ denotes the gradient at time step t.",
+        "C": "mt is the estimate of the momentum of the gradients at time t. vt is the estimate of the learning rate at time t. β₁ is the exponential decay rate for the momentum. β₂ is the exponential decay rate for the learning rate. gₜ denotes the loss at time t."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "0.2",
+        "B": "0.002",
+        "C": "0.18",
+        "D": "0.02"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "0.0004",
+        "B": "0.0002",
+        "C": "0.04",
+        "D": "0.00004"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "2.0",
+        "B": "0.02",
+        "C": "0.2",
+        "D": "0.022"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "0.04",
+        "B": "0.00004",
+        "C": "0.02",
+        "D": "0.00004004"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "0.10000001",
+        "B": "0.04000001",
+        "C": "0.2",
+        "D": "0.20000001"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "0.1",
+        "B": "1.0",
+        "C": "0.02",
+        "D": "0.01"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [ Select ] v₁ = [ Select ] Bias correction m̂₁ = [ Select ] v̂₁ = [ Select ] Denominator sqrt(v̂₁) + ε = [ Select ] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [ Select ] New parameter θ₁ = θ₀ − Δ ≈ [ Select ]\n\nSelect the correct choice for blank #7:",
+      "options": {
+        "A": "0.6",
+        "B": "0.4",
+        "C": "0.39",
+        "D": "0.49"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "In optimization, AdaGrad scales the learning rate by the inverse square root of the sum of past squared gradients. RMSProp and Adam instead use an exponential moving average of squared gradients. Why is the moving average preferred over the raw sum?",
+      "options": {
+        "A": "Because the moving average guarantees convergence in fewer steps than AdaGrad.",
+        "B": "Because the moving average prevents the denominator from growing indefinitely, keeping the learning rate from shrinking too much.",
+        "C": "Because the moving average makes the updates faster by ignoring large gradients."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "What is the primary advantage of using adaptive learning rate algorithms like Adam or RMSprop?",
+      "options": {
+        "A": "They prevent the model from converging to a local minimum",
+        "B": "They automatically adjust the learning rate based on the curvature of the cost function",
+        "C": "They increase the number of parameters in the neural network",
+        "D": "They eliminate the need for backpropagation"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [ Select ] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [ Select ] , which [ Select ] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [ Select ] of the gradients, which means it keeps track of both the [ Select ] and adjusts learning rates accordingly using an [ Select ] mechanism.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "decaying step size",
+        "B": "static learning rate",
+        "C": "adaptive learning rate",
+        "D": "gradient clipping"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [ Select ] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [ Select ] , which [ Select ] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [ Select ] of the gradients, which means it keeps track of both the [ Select ] and adjusts learning rates accordingly using an [ Select ] mechanism.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "damping factor",
+        "B": "acceleration term",
+        "C": "momentum rate",
+        "D": "velocity"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [ Select ] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [ Select ] , which [ Select ] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [ Select ] of the gradients, which means it keeps track of both the [ Select ] and adjusts learning rates accordingly using an [ Select ] mechanism.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "applies weight decay",
+        "B": "accumulates past gradients",
+        "C": "ignores past gradients",
+        "D": "rescales learning rate"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [ Select ] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [ Select ] , which [ Select ] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [ Select ] of the gradients, which means it keeps track of both the [ Select ] and adjusts learning rates accordingly using an [ Select ] mechanism.\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "moving median",
+        "B": "stochastic update",
+        "C": "exponentially weighted average",
+        "D": "raw gradient sum"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [ Select ] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [ Select ] , which [ Select ] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [ Select ] of the gradients, which means it keeps track of both the [ Select ] and adjusts learning rates accordingly using an [ Select ] mechanism.\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "weight and bias values",
+        "B": "learning rate decay",
+        "C": "local minima and maxima",
+        "D": "first and second moments"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_24",
+      "number": 24,
+      "type": "multiple_choice",
+      "question": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [ Select ] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [ Select ] , which [ Select ] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [ Select ] of the gradients, which means it keeps track of both the [ Select ] and adjusts learning rates accordingly using an [ Select ] mechanism.\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "adaptive learning rate",
+        "B": "learning rate annealing",
+        "C": "static learning rate",
+        "D": "gradient normalization"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_25",
+      "number": 25,
+      "type": "multiple_choice",
+      "question": "The following Python code snippet implements part of the Adam optimizer's update rule for a single parameter. import numpy as np # Simulated gradient at current timestep g = np.array([0.1, 0.01]) # Initialize first and second moment vectors m = np.zeros_like(g) # First moment (mean) v = np.zeros_like(g) # Second moment (uncentered variance) # Hyperparameters beta1 = 0.9 beta2 = 0.999 learning_rate = 0.001 epsilon = 1e-8 # Time step t = 1 # Update biased first and second moment estimates m = beta1 * m + (1 - beta1) * g v = beta2 * v + (1 - beta2) * (g ** 2) # Bias correction m_hat = m / (1 - beta1 ** t) v_hat = v / (1 - beta2 ** t) # Parameter update update = learning_rate * m_hat / (np.sqrt(v_hat) + epsilon) What is the purpose of the division term in update = learning_rate * m_hat / (np.sqrt(v_hat) + epsilon)?",
+      "options": {
+        "A": "To normalize the gradients so all parameters have equal learning rates",
+        "B": "To adapt the learning rate per parameter by scaling it inversely to the average of past squared gradients",
+        "C": "To reduce the effect of small gradients by increasing the update step",
+        "D": "To apply momentum and weight decay simultaneously"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_26",
+      "number": 26,
+      "type": "multiple_choice",
+      "question": "Answer the questions regarding the following code: class custom_SGD: def __init__(self, learning_rate): self.learning_rate = learning_rate # Set the learning rate # Define the step function that implements the parameter updates def step(self, params): with torch.no_grad(): # Iterate through each parameter to update them for param in params: # Update the parameter using the gradient and learning rate param.data -= self.learning_rate * param.grad # Reset the gradient to zero for the next iteration param.grad.zero_() def train_model(MLP_model, optimizer, num_epochs): # Define the loss function criterion = nn.CrossEntropyLoss() # Training loop for epoch in range(num_epochs): total_loss = 0 for inputs, labels in train_loader: inputs = inputs.view(-1, 28 * 28) # Flatten the images outputs = MLP_model(inputs) # Forward pass loss = criterion(outputs, labels) # Compute the loss loss.backward() # Backward pass # Update weights using the step function of our custom SGD optimizer.step(params=MLP_model.parameters()) # Store the loss. loss.item() gets the value in a tensor. This only works for scalars. total_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader):.4f}') 1) Inside the step function, the update is wrapped in with torch.no_grad(): because parameter updates should not be tracked by autograd; otherwise PyTorch would try to build a computation graph for the updates. This ensures [ [ Select ] ]. 2) After each parameter update, the code executes param.grad.zero_() which is required because PyTorch accumulates gradients by default; therefore zeroing them ensures [ [ Select ] ]. 3) When the training loop calls optimizer.step(params=MLP_model.parameters()) it applies updates to all tensors returned by MLP_model.parameters(), meaning it updates [ [ Select ] ].\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "parameter changes do not create new gradient history",
+        "B": "parameters are updated using mixed precision",
+        "C": "gradients are normalized before updating",
+        "D": "dropout is disabled during optimization"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_27",
+      "number": 27,
+      "type": "multiple_choice",
+      "question": "Answer the questions regarding the following code: class custom_SGD: def __init__(self, learning_rate): self.learning_rate = learning_rate # Set the learning rate # Define the step function that implements the parameter updates def step(self, params): with torch.no_grad(): # Iterate through each parameter to update them for param in params: # Update the parameter using the gradient and learning rate param.data -= self.learning_rate * param.grad # Reset the gradient to zero for the next iteration param.grad.zero_() def train_model(MLP_model, optimizer, num_epochs): # Define the loss function criterion = nn.CrossEntropyLoss() # Training loop for epoch in range(num_epochs): total_loss = 0 for inputs, labels in train_loader: inputs = inputs.view(-1, 28 * 28) # Flatten the images outputs = MLP_model(inputs) # Forward pass loss = criterion(outputs, labels) # Compute the loss loss.backward() # Backward pass # Update weights using the step function of our custom SGD optimizer.step(params=MLP_model.parameters()) # Store the loss. loss.item() gets the value in a tensor. This only works for scalars. total_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader):.4f}') 1) Inside the step function, the update is wrapped in with torch.no_grad(): because parameter updates should not be tracked by autograd; otherwise PyTorch would try to build a computation graph for the updates. This ensures [ [ Select ] ]. 2) After each parameter update, the code executes param.grad.zero_() which is required because PyTorch accumulates gradients by default; therefore zeroing them ensures [ [ Select ] ]. 3) When the training loop calls optimizer.step(params=MLP_model.parameters()) it applies updates to all tensors returned by MLP_model.parameters(), meaning it updates [ [ Select ] ].\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "the loss becomes numerically stable",
+        "B": "the model switches from training to evaluation mode",
+        "C": "gradients are clipped before propagation",
+        "D": "each backward pass computes fresh gradients instead of adding to previous ones"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec3_mc_28",
+      "number": 28,
+      "type": "multiple_choice",
+      "question": "Answer the questions regarding the following code: class custom_SGD: def __init__(self, learning_rate): self.learning_rate = learning_rate # Set the learning rate # Define the step function that implements the parameter updates def step(self, params): with torch.no_grad(): # Iterate through each parameter to update them for param in params: # Update the parameter using the gradient and learning rate param.data -= self.learning_rate * param.grad # Reset the gradient to zero for the next iteration param.grad.zero_() def train_model(MLP_model, optimizer, num_epochs): # Define the loss function criterion = nn.CrossEntropyLoss() # Training loop for epoch in range(num_epochs): total_loss = 0 for inputs, labels in train_loader: inputs = inputs.view(-1, 28 * 28) # Flatten the images outputs = MLP_model(inputs) # Forward pass loss = criterion(outputs, labels) # Compute the loss loss.backward() # Backward pass # Update weights using the step function of our custom SGD optimizer.step(params=MLP_model.parameters()) # Store the loss. loss.item() gets the value in a tensor. This only works for scalars. total_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader):.4f}') 1) Inside the step function, the update is wrapped in with torch.no_grad(): because parameter updates should not be tracked by autograd; otherwise PyTorch would try to build a computation graph for the updates. This ensures [ [ Select ] ]. 2) After each parameter update, the code executes param.grad.zero_() which is required because PyTorch accumulates gradients by default; therefore zeroing them ensures [ [ Select ] ]. 3) When the training loop calls optimizer.step(params=MLP_model.parameters()) it applies updates to all tensors returned by MLP_model.parameters(), meaning it updates [ [ Select ] ].\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "only non-zero parameters",
+        "B": "only gradients stored in the loss function",
+        "C": "all learnable weights and biases of the model",
+        "D": "only the final layer weights"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    }
+  ]
+}

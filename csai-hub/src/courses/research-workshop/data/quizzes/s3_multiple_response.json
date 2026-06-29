@@ -1,0 +1,161 @@
+{
+  "section_id": "s3",
+  "quiz_type": "multiple_response",
+  "title": "Experimental Design - Multiple Response",
+  "questions": [
+    {
+      "id": "s3_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "A researcher studies whether sleep affects task performance. Thirty participants are randomly assigned to sleep either 8 hours or 4 hours the night before testing. Each participant completes one long, cognitively demanding task once, and the outcome is the total time to complete the task. Which statements are correct? (Select all that apply)",
+      "options": {
+        "A": "An independent-samples t-test is appropriate",
+        "B": "Task completion time is the dependent variable and sleep condition is the predictor",
+        "C": "A regression is appropriate",
+        "D": "A paired t-test on participant means is appropriate",
+        "E": "A random intercept for participant should be included",
+        "F": "completion_time ~ condition + (1 + condition | participant) is the most appropriate formula",
+        "G": "A random slope for condition by participant should be included"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "This is between-subjects with one observation per participant, so an independent t-test or a regression with sleep condition as the predictor fits, and completion time is the DV. D, E, F and G all assume repeated measures or a mixed model, which is impossible when each participant contributes a single observation in one condition."
+    },
+    {
+      "id": "s3_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which of the following are factors that increase the statistical power of an experiment? (Select all that apply)",
+      "options": {
+        "A": "A larger sample size",
+        "B": "A bigger true effect size",
+        "C": "Lower variability in the data",
+        "D": "A larger alpha level",
+        "E": "Fewer participants per condition",
+        "F": "Greater measurement noise"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Power (1 - beta) increases with a larger sample, a bigger real effect, less variability, and a larger alpha. E reduces the sample and F adds variability, both of which lower power, so neither belongs."
+    },
+    {
+      "id": "s3_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which statements correctly describe a within-subjects design? (Select all that apply)",
+      "options": {
+        "A": "The same participants take part in every condition",
+        "B": "It generally has higher power than a between-subjects design",
+        "C": "Each participant acts as their own control",
+        "D": "It is immune to order effects without any precautions",
+        "E": "It requires roughly twice the sample of a between-subjects design"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "In a within-subjects design the same people serve in all conditions, giving each subject as their own control and higher power. D is false because order effects (practice, fatigue, carryover) must be counterbalanced, and E is false because between-subjects needs the larger sample, not within."
+    },
+    {
+      "id": "s3_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which of the following are recognised methods for controlling confounds or demand characteristics? (Select all that apply)",
+      "options": {
+        "A": "Randomisation of participants to conditions",
+        "B": "Counterbalancing the order of conditions",
+        "C": "Using matched stimuli across conditions",
+        "D": "Adding fillers and a cover story",
+        "E": "Reporting only the p-value of the test",
+        "F": "Letting participants choose their own condition"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Randomisation, counterbalancing, matched stimuli, control conditions, fillers and cover stories all guard against confounds and demand characteristics. E concerns reporting, not control, and F introduces self-selection, which creates rather than removes confounds."
+    },
+    {
+      "id": "s3_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "A study manipulates background noise (silence vs loud) and task difficulty (easy vs hard) in a 2x2 factorial design. Which statements are correct? (Select all that apply)",
+      "options": {
+        "A": "There are four condition combinations in total",
+        "B": "It can only ever detect a single main effect",
+        "C": "It is a correlational design because it has two variables",
+        "D": "Only one independent variable is being manipulated here",
+        "E": "Two independent variables are manipulated at the same time"
+      },
+      "correct_answers": ["A", "E"],
+      "explanation": "A 2x2 factorial crosses two manipulated IVs, yielding four condition combinations. B is false because factorial designs reveal main effects and interactions, C is false because manipulated variables make it experimental, and D is false because two IVs, not one, are manipulated."
+    },
+    {
+      "id": "s3_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which statements about the null hypothesis (H0) and hypothesis testing are correct? (Select all that apply)",
+      "options": {
+        "A": "H0 states there is no effect or no difference",
+        "B": "Failing to reject H0 does not prove that H0 is true",
+        "C": "H0 assumes observed differences are due to chance",
+        "D": "A non-significant result conclusively proves H0",
+        "E": "H0 is the directional prediction the researcher hopes to confirm"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "H0 is the no-effect assumption attributing observed differences to chance, and a non-significant result only fails to reject it. D is wrong because you can never prove H0, and E describes the alternative hypothesis, not the null."
+    },
+    {
+      "id": "s3_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which of the following correctly pair an experimental design with an appropriate statistical test? (Select all that apply)",
+      "options": {
+        "A": "Two between-subjects conditions to an independent t-test",
+        "B": "Two within-subjects conditions to a paired t-test",
+        "C": "A 2x2 factorial design to a factorial ANOVA",
+        "D": "Three within-subjects conditions to an independent t-test",
+        "E": "A single correlation between two measured variables to a paired t-test"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Between-subjects uses an independent t-test, within-subjects uses a paired t-test, and factorial designs use factorial ANOVA. D is wrong because three conditions need (repeated-measures) ANOVA, and E mismatches a correlational question with a paired t-test."
+    },
+    {
+      "id": "s3_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which of the following are commonly cited confounds or sources of bias in behavioural experiments? (Select all that apply)",
+      "options": {
+        "A": "Stimulus difficulty differing between conditions",
+        "B": "Participant fatigue across the session",
+        "C": "Learning or practice effects over trials",
+        "D": "Experimenter bias influencing participants",
+        "E": "Random assignment of participants to conditions"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Stimulus difficulty, fatigue, learning, demographics and experimenter bias are all classic confounds. E is the opposite: random assignment is a control technique used to neutralise confounds, not a confound itself."
+    },
+    {
+      "id": "s3_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "A researcher reports that ice-cream consumption is strongly correlated with drowning deaths. Which statements are correct? (Select all that apply)",
+      "options": {
+        "A": "This is a spurious correlation",
+        "B": "A third variable such as summer weather likely drives both",
+        "C": "The correlation alone does not establish that ice cream causes drowning",
+        "D": "It demonstrates a confirmed causal link between the two",
+        "E": "Eliminating ice-cream sales would directly reduce drownings"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "This is the textbook spurious correlation, where a third variable (summer) inflates both, so correlation does not imply causation. D and E both wrongly treat the association as a causal mechanism."
+    },
+    {
+      "id": "s3_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which statements about between-subjects designs are correct? (Select all that apply)",
+      "options": {
+        "A": "Different participants take part in each condition",
+        "B": "They avoid within-participant order effects",
+        "C": "They generally need a larger sample than within designs",
+        "D": "Each participant serves as their own control",
+        "E": "They always require Latin-square counterbalancing"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Between-subjects assigns different people to each condition, avoiding order effects but needing roughly twice the sample. D describes a within-subjects feature, and E is wrong because counterbalancing of order applies to within-subjects designs, not between."
+    }
+  ]
+}

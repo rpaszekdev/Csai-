@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-02.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,17 @@ const QUESTIONS = [
     "prompt": "An autonomous robot operates in a continuous loop: <strong>sense → decide → act → re-sense</strong>. What is the purpose of closing the loop after every action?",
     "options": [
       {
-        "html": "To save battery between commands."
+        "html": "To conserve battery by letting the actuators idle quietly between two successive motor commands."
       },
       {
-        "html": "To re-perceive the environment, since each action changes the world the robot must sense again.",
+        "html": "To re-perceive the world, since each action changes it and the robot must sense it again.",
         "correct": true
       },
       {
-        "html": "To synchronise with a global clock."
+        "html": "To keep every incoming sensor reading aligned to one shared global clock across the whole loop."
       },
       {
-        "html": "To upload telemetry to the cloud."
+        "html": "To stream a fresh full copy of the robot's internal state out to a remote logging server."
       }
     ],
     "prof": "Action and perception are not a one-shot pipeline — every motor output produces new sensory input. Open-loop control breaks the moment the world deviates from prediction."
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "Beyond proprioceptive vs exteroceptive, sensors are also classified as <strong>active</strong> or <strong>passive</strong>. Which sensor is <strong>active</strong>?",
     "options": [
       {
-        "html": "Microphone — listens to sound waves in the environment."
+        "html": "Microphone — picks up sound waves that travel through the surrounding air."
       },
       {
-        "html": "Photoresistor — measures incoming ambient light."
+        "html": "Photoresistor — changes resistance in response to incoming ambient light."
       },
       {
-        "html": "Ultrasonic rangefinder — emits a pulse and measures the echo.",
+        "html": "Ultrasonic rangefinder — emits its own pulse and times the returning echo.",
         "correct": true
       },
       {
-        "html": "Tactile bumper — closes a circuit when pressed."
+        "html": "Tactile bumper — closes an electrical circuit the moment it is pressed."
       }
     ],
     "prof": "Active sensors emit energy into the environment (ultrasound, IR, lidar). Passive sensors only receive (camera, microphone, photoresistor). The distinction matters for power budgets and interference."
@@ -155,17 +159,17 @@ const QUESTIONS = [
     "prompt": "Valentino Braitenberg's <em>Vehicles</em> thought experiment makes a single methodological point. Which one?",
     "options": [
       {
-        "html": "Complex behaviour requires complex internal representations."
+        "html": "Behaviour that looks complex from outside must be backed by an equally complex internal representation."
       },
       {
-        "html": "Simple wiring between sensors and motors can produce behaviour an observer attributes to fear, love, or aggression.",
+        "html": "Simple sensor-to-motor wiring can yield behaviour an observer reads as fear, love, or aggression.",
         "correct": true
       },
       {
-        "html": "Robots cannot exhibit goal-directed behaviour without learning."
+        "html": "Goal-directed behaviour only ever emerges once the vehicle has learned it from repeated experience."
       },
       {
-        "html": "Symbolic AI is necessary for reactive control."
+        "html": "Even purely reactive control still depends on an underlying hidden layer of symbolic reasoning."
       }
     ],
     "prof": "Braitenberg's law of uphill analysis / downhill synthesis: it's easier to <em>build</em> a vehicle that looks intelligent than to <em>infer</em> its mechanism from outside."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "In Braitenberg vehicles, a <strong>positive</strong> connection from sensor to motor means: the more the sensor fires, the <strong>more</strong> that motor spins. A <strong>negative</strong> connection means the opposite. With <strong>ipsilateral positive</strong> wiring (left sensor → left motor, right → right) and a single light source, what does the vehicle do?",
     "options": [
       {
-        "html": "Turns toward the light and accelerates — \"love\"."
+        "html": "Turns toward the light and accelerates as it closes in — \"love\" (Vehicle 3a)."
       },
       {
         "html": "Turns away from the light and accelerates — \"fear\" (Vehicle 2a).",
         "correct": true
       },
       {
-        "html": "Stops in front of the light."
+        "html": "Slows to a halt directly in front of the light and holds that position."
       },
       {
-        "html": "Circles the light at a fixed radius."
+        "html": "Settles into orbit, circling the light at a roughly fixed radius."
       }
     ],
     "prof": "Ipsilateral + positive = fear: the sensor closer to the light spins its motor faster, swinging the vehicle <em>away</em>. Cross the wires (contralateral) and you get aggression."
@@ -201,17 +205,17 @@ const QUESTIONS = [
     "prompt": "Vehicle 2a (\"fear\") and Vehicle 2b (\"aggression\") share the same wiring polarity. What single change flips fear → aggression?",
     "options": [
       {
-        "html": "Switching from positive to negative connections."
+        "html": "Flipping every connection from positive to negative while leaving the routing untouched."
       },
       {
         "html": "Crossing the wires — left sensor drives the right motor and vice versa (contralateral).",
         "correct": true
       },
       {
-        "html": "Doubling the motor gain."
+        "html": "Doubling the gain on both motors so the vehicle responds more aggressively to light."
       },
       {
-        "html": "Adding a third sensor."
+        "html": "Adding a third forward-facing sensor to widen the vehicle's field of view."
       }
     ],
     "prof": "Topology, not polarity, is what flips fear into aggression. Same components, swapped routing — this is why Braitenberg insists synthesis is easier than analysis."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "Vehicle 3a is the \"love\" vehicle. It is wired with <strong>negative</strong> ipsilateral connections, so a stronger sensor signal <strong>slows</strong> the same-side motor. What behaviour does it produce around a light source?",
     "options": [
       {
-        "html": "It runs away as fast as possible."
+        "html": "It flees the light at top speed, accelerating away faster the brighter the source becomes."
       },
       {
-        "html": "It spins in place indefinitely."
+        "html": "It spins in place indefinitely, never once settling on a steady heading toward the source."
       },
       {
-        "html": "It approaches the light and slows down as it gets closer, eventually stopping near it.",
+        "html": "It approaches the light, slowing down as it draws closer and finally stopping near it.",
         "correct": true
       },
       {
-        "html": "It oscillates left and right around the light."
+        "html": "It weaves left and right, oscillating endlessly back and forth across the source."
       }
     ],
     "prof": "Negative + ipsilateral = \"shy love.\" The vehicle approaches because the brighter side slows that motor, steering it <em>toward</em> the light, and it decelerates as the signal grows — settling next to the source."
@@ -247,17 +251,17 @@ const QUESTIONS = [
     "prompt": "Vehicle 1 has a <strong>single</strong> sensor wired to a single motor with a positive connection. Placed in a world with one light source, what happens — and what is the take-home insight?",
     "options": [
       {
-        "html": "It tracks the light precisely; insight: one sensor is enough for steering."
+        "html": "It steers straight at the light; the insight is that a single sensor already suffices for steering."
       },
       {
-        "html": "It cannot turn, but its speed varies with light — you already get behaviour that looks \"alive\" from one wire.",
+        "html": "It cannot turn, but its speed varies with light — one wire already yields behaviour that looks \"alive\".",
         "correct": true
       },
       {
-        "html": "It alternates forward and reverse."
+        "html": "It alternates between forward and reverse, treating brighter light as a cue to back away."
       },
       {
-        "html": "It stays still until power-cycled."
+        "html": "It stays completely still until power-cycled, ignoring the light entirely once switched on."
       }
     ],
     "prof": "Vehicle 1 has no steering — yet an observer reads it as \"afraid of the dark\" or \"drawn to warmth.\" Behaviour is in the eye of the observer; the mechanism is one wire."
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "When you implement a Braitenberg vehicle on the Arduino kit, the <strong>most common bug</strong> is reading a sensor on the wrong side, producing the <em>opposite</em> behaviour. Which design step makes this bug easiest to catch?",
     "options": [
       {
-        "html": "Buying matched motors so both sides spin identically."
+        "html": "Buying carefully matched motors so that both sides will spin at exactly the same rate under load."
       },
       {
-        "html": "Drawing the wiring diagram (sensor → motor, with + or −) before building, then verifying one wire at a time.",
+        "html": "Drawing the wiring diagram (sensor → motor, + or −) first, then checking one wire at a time.",
         "correct": true
       },
       {
-        "html": "Using thicker wires to reduce noise."
+        "html": "Using thicker, far better-shielded wires so that electrical noise cannot corrupt the sensor readings."
       },
       {
-        "html": "Skipping calibration to save time."
+        "html": "Skipping the calibration step entirely so a wiring mistake shows up sooner in the robot's motion."
       }
     ],
     "prof": "Schematic first, build second. Braitenberg vehicles are tiny — a single mis-wired sensor turns \"love\" into \"fear.\" Treat the diagram as the source of truth."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l02_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week02-slides/slide-";

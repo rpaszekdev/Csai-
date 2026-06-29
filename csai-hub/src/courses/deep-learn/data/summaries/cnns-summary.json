@@ -1,0 +1,123 @@
+{
+  "slug": "cnns",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L5 · CNNS",
+  "title": "CONVOLUTIONAL NEURAL NETWORKS",
+  "sub": "Visual exam summary — every section maps to a real quiz question.",
+  "podcast": { "href": "audio/cnns.mp3", "label": "LISTEN · CNNS PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 5 (CNNs)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "CONVOLUTION vs POOLING",
+      "exam": "Convolution slides a LEARNABLE kernel over a region and outputs one value (dot product + bias); pooling summarises a region with a STATIC predetermined function (max/avg) — same window, but only convolution has trainable weights.",
+      "ascii": "CONVOLUTION — kernel weights are LEARNED      POOLING — fixed rule, NO weights\n  [a b]   [w1 w2]                              [a b]\n  [c d] · [w3 w4]  + bias  -> one value        [c d]  -> max(a,b,c,d) -> one value\n   out = a·w1 + b·w2 + c·w3 + d·w4 + bias            (or average) — predetermined\n         ▲ trained by backprop                       ▲ nothing to learn\n\nmc_1 pipeline:  I --conv(kernel)--> feature map --2×2 max pool--> K = [3 2 2 3]",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "2D convolution",
+          "desc": "A kernel maps one local input region (the white cube) to a single output value — the learnable core of convolution." },
+        { "kind": "slide", "slot": "cnns-s02", "ph": "DROP slide-02", "label": "LECTURE SLIDE", "cap": "Typical CNN blocks",
+          "desc": "Conv (+ReLU) then pooling, repeated, then fully connected — pooling/downsampling is what shrinks the maps between conv layers." },
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Max_pooling.png",
+          "label": "WEB DIAGRAM", "cap": "2×2 max pooling",
+          "desc": "Each 2×2 region is summarised to its maximum (6, 8, 3, 4). A fixed rule with no learnable weights — that is the difference from convolution." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "OUTPUT SIZE & POOLING GOTCHAS",
+      "exam": "Feature-map size = floor((W_in − f + 2P)/S) + 1; conv 28→24 then 2×2 maxpool→12; Flatten = C·H·W; in PyTorch nn.MaxPool2d's stride DEFAULTS to kernel_size.",
+      "ascii": "W_out = floor( (W_in − f + 2P) / S ) + 1     (dilation d: replace f with d·(f−1)+1)\n\n 8×7 img, f=3, P=1, S=2 :  (8+2−3)/2 + 1 = floor(3.5) + 1 = 4   ->  4×4\n 28×28,  f=5, P=0, S=1 :  28 − 5 + 1 = 24 ; then 2×2 maxpool / 2 = 12\n (128,7,7) conv 5×5     :  7 − 5 + 1 = 3  ->  (32,3,3) ; Flatten = 32·3·3 = 288\n\nGOTCHA: nn.MaxPool2d(kernel_size=2)  ->  stride DEFAULTS to 2, not 1",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s06", "ph": "DROP slide-06", "label": "LECTURE SLIDE", "cap": "Output-size formula",
+          "desc": "The exact formula the exam tests: W_out = (W_in − f + 2P)/S + 1. Stride 2 on a 5×5 input gives the smaller green output map." },
+        { "kind": "slide", "slot": "cnns-s07", "ph": "DROP slide-07", "label": "LECTURE SLIDE", "cap": "Worked CNN shapes",
+          "desc": "Input (64,64,3) with a (4,4,3) filter at stride 2: plug into the boxed formula to get w1 = h1 = 31 and the conv-layer parameter count." }
+      ],
+      "table": {
+        "head": ["Input", "Setup", "Output"],
+        "rows": [
+          ["8×7", "f=3, P=1, S=2", "4×4"],
+          ["28×28", "f=5, P=0, S=1 → 2×2 maxpool", "24 → 12"],
+          ["(128,7,7)", "conv 5×5 → Flatten", "(32,3,3) → 288"]
+        ]
+      }
+    },
+    {
+      "n": "03",
+      "title": "EQUIVARIANCE & WEIGHT SHARING",
+      "exam": "2D convolution is translation-EQUIVARIANT (shift the input and the feature map shifts the same way), NOT invariant; weight sharing = one kernel's weights reused at every position, which cuts parameters; the feature map records that detector's response per location.",
+      "ascii": "EQUIVARIANCE (conv HAS it)            INVARIANCE (conv does NOT)\n input:  · ■ · · ·                     output does NOT stay put —\n  map :  · ▲ · · ·                     it SHIFTS with the input\n shift:  · · · ■ ·   ->  map: · · · ▲ ·   (response moves, same shape)\n\nWEIGHT SHARING: ONE kernel [w] reused at EVERY position\n  pos1[w]  pos2[w]  pos3[w] ...  -> same weights -> fewer params + equivariance\n  feature map = that kernel's RESPONSE recorded at each location\n  (rotation invariance? NO — that is the classic trap answer)",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s08", "ph": "DROP slide-08", "label": "LECTURE SLIDE", "cap": "One shared filter",
+          "desc": "The same (4,4,3) filter is swept across all positions — weight sharing keeps the conv layer at only 1568 parameters and gives translation equivariance." },
+        { "kind": "slide", "slot": "cnns-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "Kernel reused per position",
+          "desc": "The identical kernel slides over the image; its response at each location builds the feature map — shift the input, the lit position shifts with it." }
+      ]
+    },
+    {
+      "n": "04",
+      "title": "WHAT FILTERS DETECT: EDGE KERNELS",
+      "exam": "A filter always spans ALL input channels and outputs the dot product over the patch; kernel A [-1-1-1 / 0 0 0 / 1 1 1] (rows differ) detects HORIZONTAL edges, kernel B [-1 0 1]×3 (columns differ) detects VERTICAL edges.",
+      "ascii": "Kernel A              Kernel B\n[-1 -1 -1]            [-1  0  1]\n[ 0  0  0]            [-1  0  1]\n[ 1  1  1]            [-1  0  1]\n rows differ           columns differ\n top vs bottom         left vs right\n -> HORIZONTAL edge    -> VERTICAL edge\n\nA filter has one slice per channel; output = dot product over the patch (R + G + B + bias)",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s05", "ph": "DROP slide-05", "label": "LECTURE SLIDE", "cap": "Filter spans all channels",
+          "desc": "An RGB input is convolved with a per-channel kernel; the three channel results (308, −498, 164) sum with bias to one number — a filter always covers the full depth." },
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Valve_sobel_%283%29.PNG",
+          "label": "WEB DIAGRAM", "cap": "Edge-filter output",
+          "desc": "An edge-detecting kernel lights up where image intensity changes sharply and stays dark in flat regions — exactly what these gradient kernels learn to do." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "CONVOLUTION AS CODE: SHAPES & CONV≡LINEAR",
+      "exam": "Conv = dot product of each filter with a spatially-aligned receptive field; 1D filters have shape (num_filters, C, f), out_len = (L−f)/S + 1, sum over axes (−2,−1); a kernel covering the WHOLE input (k_w=W, k_h=H) equals Flatten + Linear with NL_in = C·W·H and NC_out = NL_out.",
+      "ascii": "output[:, f] = sum( patch * filter[f] )   over channel + spatial axes\n  1D:  filters shape = (num_filters, C, f) ;  out_len = (L − f)/S + 1\n       L=100, f=3, S=1  ->  98 ;   sum axes = (−2, −1)  (channels, length)\n  2D:  sum over (1,2,3) = dot product of filter with a spatially-aligned patch\n\nCONV ≡ FLATTEN + LINEAR  when the kernel covers the WHOLE input:\n  k_w = W,  k_h = H   ->   NL_in = C·W·H ,   NC_out = NL_out\n  (a full-size kernel = one dense neuron; one output per filter)",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s28", "ph": "DROP slide-28", "label": "LECTURE SLIDE", "cap": "1×1 convolution",
+          "desc": "A 1×1×D filter does a pure dot product across channels at each pixel — convolution acting as a per-position linear layer, with no spatial extent." },
+        { "kind": "slide", "slot": "cnns-s16", "ph": "DROP slide-16", "label": "LECTURE SLIDE", "cap": "Kernel → one value",
+          "desc": "A kernel reduces its whole receptive field to a single value; when the kernel spans the entire input that single value is exactly one dense-layer neuron." }
+      ],
+      "table": {
+        "head": ["1D conv arg", "Value", "Why"],
+        "rows": [
+          ["output_length", "98", "(100 − 3)/1 + 1"],
+          ["filters shape", "(4, 2, 3)", "(num_filters, C, f)"],
+          ["sum_reduction_axes", "(−2, −1)", "channels + length"]
+        ]
+      }
+    },
+    {
+      "n": "06",
+      "title": "SEGMENTATION & OUTPUT HEADS",
+      "exam": "Segmentation = per-pixel classification: the output carries one channel PER CLASS at each location (binary → 1 channel + Sigmoid; N classes → N + Softmax); encoder downsamples, decoder UPSAMPLES and skip connections recover detail; to make features differ, minimise L = L1 − L2.",
+      "ascii": "ENCODER (downsample)              DECODER (UPSAMPLE)\n img ->[conv]->[pool]-> ... ->[up]->[up]-> per-pixel class map\n   |__________ skip connections __________^   (recover fine detail)\n\nOUTPUT = one channel PER CLASS at each pixel\n   binary (relevant vs not) : out_channels = 1  + Sigmoid\n   N classes               : out_channels = N  + Softmax\n\nMULTI-TASK: classify well (L1 down) BUT make features DIFFER (L2 up)\n   minimise   L = L1 − L2",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s42", "ph": "DROP slide-42", "label": "LECTURE SLIDE", "cap": "Encoder–decoder segmentation",
+          "desc": "SegNet: the encoder downsamples with conv + pooling, the decoder upsamples back to full resolution, and softmax gives a class per pixel." },
+        { "kind": "slide", "slot": "cnns-s20", "ph": "DROP slide-20", "label": "LECTURE SLIDE", "cap": "Upsampling",
+          "desc": "Decoders enlarge a small feature map back toward input resolution — the step that makes dense per-pixel output possible after downsampling." },
+        { "kind": "slide", "slot": "cnns-s23", "ph": "DROP slide-23", "label": "LECTURE SLIDE", "cap": "Transposed convolution",
+          "desc": "A learnable upsampling: filters map a small feature map to a larger one, recovering spatial resolution in the decoder." }
+      ],
+      "table": {
+        "head": ["Segmentation task", "Out channels", "Activation"],
+        "rows": [
+          ["Binary: relevant vs not", "1", "Sigmoid"],
+          ["N classes per pixel", "N", "Softmax"]
+        ]
+      }
+    },
+    {
+      "n": "07",
+      "title": "3D CONV, STRIDE & ADAPTIVE POOLING",
+      "exam": "A depth-1 kernel over a depth-D input slides along depth too → 3D convolution, output depth D; a full-depth-D kernel → 2D convolution, output depth 1; raise STRIDE to cut compute (risking lost fine detail); AdaptiveAvgPool1d(1) gives one value per channel regardless of input length.",
+      "ascii": "input depth D\n  kernel depth 1  ->  slides over depth TOO  =>  3D CONVOLUTION, out depth = D\n  kernel depth D  ->  spans full depth, no slide  =>  2D CONVOLUTION, out depth = 1\n\nSPEED / MEMORY:  ↑ stride  ->  fewer activations, faster training\n                 (but skipping too much loses fine / short-term detail)\n\nnn.AdaptiveAvgPool1d(1):  any length  ->  ONE value per channel  (fixed output size)",
+      "figures": [
+        { "kind": "slide", "slot": "cnns-s14", "ph": "DROP slide-14", "label": "LECTURE SLIDE", "cap": "3D convolution",
+          "desc": "A small kernel slides through a volume in all three dimensions, producing a 3D output volume — what a depth-1 kernel does over a depth-D input (output depth = D)." },
+        { "kind": "slide", "slot": "cnns-s16", "ph": "DROP slide-16", "label": "LECTURE SLIDE", "cap": "Full-depth kernel → depth 1",
+          "desc": "When the kernel spans the entire depth it collapses that axis to a single value — standard 2D convolution, output depth 1." }
+      ]
+    }
+  ]
+}

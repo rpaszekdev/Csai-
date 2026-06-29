@@ -1,0 +1,107 @@
+{
+  "section_id": "s6",
+  "quiz_type": "fill_in_blank",
+  "title": "Writing a Research Paper - Fill in the Blank",
+  "questions": [
+    {
+      "id": "s6_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the acronym for the standard skeleton of a research paper.",
+      "blank_sentence": "The four core sections of a paper are captured by the acronym ___.",
+      "correct_answer": "IMRaD",
+      "acceptable_answers": ["IMRaD", "IMRAD", "imrad", "Introduction, Methods, Results, and Discussion"],
+      "explanation": "IMRaD stands for Introduction, Methods, Results, and Discussion, the standard skeleton of an empirical paper."
+    },
+    {
+      "id": "s6_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the property of the writing process described as plan, draft, revise, repeatedly.",
+      "blank_sentence": "Writing a paper is ___ rather than linear, cycling through plan, draft, and revise.",
+      "correct_answer": "iterative",
+      "acceptable_answers": ["iterative", "Iterative", "recursive", "cyclical"],
+      "explanation": "Writing is iterative, not linear: you plan, draft, and revise repeatedly rather than completing each step once."
+    },
+    {
+      "id": "s6_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the metaphor for the broad-to-specific shape of an introduction.",
+      "blank_sentence": "An introduction follows the ___ shape, moving from broad context to the specific research question at its tip.",
+      "correct_answer": "funnel",
+      "acceptable_answers": ["funnel", "Funnel", "funnel shape", "the funnel"],
+      "explanation": "The funnel narrows from broad background to the specific research question and hypothesis at the tip."
+    },
+    {
+      "id": "s6_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name what the CARS acronym (Swales, 1990) stands for.",
+      "blank_sentence": "The CARS model means 'Create A ___ Space', structured as three moves.",
+      "correct_answer": "Research",
+      "acceptable_answers": ["Research", "research"],
+      "explanation": "CARS stands for 'Create A Research Space', describing the three moves of an introduction: establish the territory, establish a niche, and occupy the niche."
+    },
+    {
+      "id": "s6_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the single key argument that a Methods section must support.",
+      "blank_sentence": "Beyond describing and justifying the choices, the Methods section's key argument is ___.",
+      "correct_answer": "replicability",
+      "acceptable_answers": ["replicability", "Replicability", "reproducibility", "replication"],
+      "explanation": "Methods must let another researcher reproduce the study, so its key argument is replicability."
+    },
+    {
+      "id": "s6_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name the grammatical voice that is acceptable in a Methods section because the procedure, not the researcher, is the point.",
+      "blank_sentence": "In the Methods section the ___ voice is fine, since the focus is on the procedure rather than the researcher.",
+      "correct_answer": "passive",
+      "acceptable_answers": ["passive", "Passive", "passive voice"],
+      "explanation": "Passive voice suits Methods because it foregrounds the procedure; this is the opposite of the Discussion, which should be as active as possible."
+    },
+    {
+      "id": "s6_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the tense used when pointing to your own exhibit, as in 'scores are shown in Table 2'.",
+      "blank_sentence": "Findings are reported in the past tense, but the ___ tense is used when pointing to your own tables or figures.",
+      "correct_answer": "present",
+      "acceptable_answers": ["present", "Present", "present tense"],
+      "explanation": "Your findings use the past tense, but you switch to the present tense when referring to your own exhibits, e.g. 'scores are shown in Table 2'."
+    },
+    {
+      "id": "s6_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the deliberately cautious language (may, suggests, seems) used in the Discussion.",
+      "blank_sentence": "Using words like 'may', 'suggests', and 'seems' to soften claims about meaning is called ___.",
+      "correct_answer": "hedging",
+      "acceptable_answers": ["hedging", "Hedging", "hedge", "to hedge"],
+      "explanation": "Hedging is deliberately cautious language used for claims about meaning in the Discussion/Conclusion, not for the facts in Methods or Results."
+    },
+    {
+      "id": "s6_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "State when the abstract should be written relative to the rest of the paper.",
+      "blank_sentence": "Although it appears first, the abstract should be written ___, after the rest of the paper.",
+      "correct_answer": "last",
+      "acceptable_answers": ["last", "Last", "at the end", "after"],
+      "explanation": "The abstract is written last so it can accurately summarise the finished paper section-by-section while remaining independent."
+    },
+    {
+      "id": "s6_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name the contract by which each sentence starts from something known and introduces something new.",
+      "blank_sentence": "Abstract parts are connected using the ___ contract, where each sentence builds from known information to new information.",
+      "correct_answer": "known-new",
+      "acceptable_answers": ["known-new", "known new", "Known-new", "given-new"],
+      "explanation": "The known-new (given-new) contract links sentences by starting from known information and adding something new, linked with signposts, producing a connected abstract rather than a choppy one."
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "section_id": "lec9",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: Positional Encoding & Transformers - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec9_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "causal language modeling",
+        "B": "next-sentence prediction",
+        "C": "contrastive learning",
+        "D": "masked-language modeling"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "autoregressive encoders",
+        "B": "probabilistic models",
+        "C": "true language models",
+        "D": "sequence-to-sequence models"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "reconstruct corrupted input",
+        "B": "predict missing tokens",
+        "C": "generate embeddings",
+        "D": "give a probability to a given sentence"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "contrastive pretraining",
+        "B": "causal language modeling",
+        "C": "denoising autoencoding",
+        "D": "masked-language modeling"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "they use fewer parameters",
+        "B": "they ignore positional information",
+        "C": "they overfit to masked tokens",
+        "D": "they only attend to past tokens"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "masking all future tokens",
+        "B": "predicting all tokens simultaneously",
+        "C": "ignoring the encoder outputs",
+        "D": "attending to both the encoder’s output and previously generated tokens"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Encoder models (like BERT) are trained using [ Select ] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [ Select ] because they can't [ Select ] . Decoder models (like GPT) are trained with [ Select ] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [ Select ] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [ Select ] . This setup makes them ideal for [ Select ] .\n\nSelect the correct choice for blank #7:",
+      "options": {
+        "A": "corrupted text reconstruction",
+        "B": "sentence similarity",
+        "C": "translation, summarization, and other sequence-to-sequence tasks",
+        "D": "classification and clustering"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Looking at the Positional Embedding formula, fill in the blanks: PE(pos,2i) =sin( pos 100002i/dmodel ) PE(pos,2i+1) =cos( pos 100002i/dmodel ) It important that we compute each positional embedding value using 2i and 2i + 1 because [ Select ] For lower embedding dimensions i the values of the respective entry in the positional embedding will change [ Select ] , which means that the positional embedding can capture variations at [ Select ] . For higher dimensions instead, the rate of change will be [ Select ] , meaning that these dimensions capture changes that happen across [ Select ] of contexts.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "it keeps all frequencies constant across dimensions",
+        "B": "the offset of 1 unit changes the frequencies that the embeddings capture",
+        "C": "it allows each position to be represented by unique combinations of periodic functions",
+        "D": "it ensures that positional embeddings are all identical"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Looking at the Positional Embedding formula, fill in the blanks: PE(pos,2i) =sin( pos 100002i/dmodel ) PE(pos,2i+1) =cos( pos 100002i/dmodel ) It important that we compute each positional embedding value using 2i and 2i + 1 because [ Select ] For lower embedding dimensions i the values of the respective entry in the positional embedding will change [ Select ] , which means that the positional embedding can capture variations at [ Select ] . For higher dimensions instead, the rate of change will be [ Select ] , meaning that these dimensions capture changes that happen across [ Select ] of contexts.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "irregularly",
+        "B": "slowly",
+        "C": "not at all",
+        "D": "rapidly"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "Looking at the Positional Embedding formula, fill in the blanks: PE(pos,2i) =sin( pos 100002i/dmodel ) PE(pos,2i+1) =cos( pos 100002i/dmodel ) It important that we compute each positional embedding value using 2i and 2i + 1 because [ Select ] For lower embedding dimensions i the values of the respective entry in the positional embedding will change [ Select ] , which means that the positional embedding can capture variations at [ Select ] . For higher dimensions instead, the rate of change will be [ Select ] , meaning that these dimensions capture changes that happen across [ Select ] of contexts.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "large-scale or global patterns",
+        "B": "uniform positions",
+        "C": "small-scale or local patterns",
+        "D": "irregular patterns"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "Looking at the Positional Embedding formula, fill in the blanks: PE(pos,2i) =sin( pos 100002i/dmodel ) PE(pos,2i+1) =cos( pos 100002i/dmodel ) It important that we compute each positional embedding value using 2i and 2i + 1 because [ Select ] For lower embedding dimensions i the values of the respective entry in the positional embedding will change [ Select ] , which means that the positional embedding can capture variations at [ Select ] . For higher dimensions instead, the rate of change will be [ Select ] , meaning that these dimensions capture changes that happen across [ Select ] of contexts.\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "faster",
+        "B": "nonlinearly",
+        "C": "randomly",
+        "D": "slower"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "Looking at the Positional Embedding formula, fill in the blanks: PE(pos,2i) =sin( pos 100002i/dmodel ) PE(pos,2i+1) =cos( pos 100002i/dmodel ) It important that we compute each positional embedding value using 2i and 2i + 1 because [ Select ] For lower embedding dimensions i the values of the respective entry in the positional embedding will change [ Select ] , which means that the positional embedding can capture variations at [ Select ] . For higher dimensions instead, the rate of change will be [ Select ] , meaning that these dimensions capture changes that happen across [ Select ] of contexts.\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "intermediate contexts",
+        "B": "longer, sentence-level or document-level contexts",
+        "C": "shorter, word-level or sentence-level contexts",
+        "D": "interdependent contexts"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "The positional encoding for a vector of dimension d in a context of length p, is a [ Select ] of shape [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "scalar",
+        "B": "matrix",
+        "C": "vector"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "The positional encoding for a vector of dimension d in a context of length p, is a [ Select ] of shape [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "p, d",
+        "B": "d, p",
+        "C": "1, cos(p)",
+        "D": "1, d"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "In the Transformer architecture, the encoder–decoder attention allows the decoder to attend to the encoder’s outputs. During this step: The queries come from the [ Select ] , while the keys and values come from the [ Select ] . This means that the decoder can focus on relevant parts of the encoder’s output sequence while generating each token. Formally, if h1,…,hn are the encoder outputs and z1,…,zn​ are the decoder inputs, then: ki=Khi,vi=Vhi,qi=Qzi Here, ki and vi are derived from the encoder’s [ Select ] , while qicomes from the decoder’s [ Select ] .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "feed-forward network",
+        "B": "embedding layer",
+        "C": "decoder",
+        "D": "encoder"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "In the Transformer architecture, the encoder–decoder attention allows the decoder to attend to the encoder’s outputs. During this step: The queries come from the [ Select ] , while the keys and values come from the [ Select ] . This means that the decoder can focus on relevant parts of the encoder’s output sequence while generating each token. Formally, if h1,…,hn are the encoder outputs and z1,…,zn​ are the decoder inputs, then: ki=Khi,vi=Vhi,qi=Qzi Here, ki and vi are derived from the encoder’s [ Select ] , while qicomes from the decoder’s [ Select ] .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "decoder",
+        "B": "encoder",
+        "C": "positional encoder",
+        "D": "masking unit"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "In the Transformer architecture, the encoder–decoder attention allows the decoder to attend to the encoder’s outputs. During this step: The queries come from the [ Select ] , while the keys and values come from the [ Select ] . This means that the decoder can focus on relevant parts of the encoder’s output sequence while generating each token. Formally, if h1,…,hn are the encoder outputs and z1,…,zn​ are the decoder inputs, then: ki=Khi,vi=Vhi,qi=Qzi Here, ki and vi are derived from the encoder’s [ Select ] , while qicomes from the decoder’s [ Select ] .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "hidden states",
+        "B": "attention scores",
+        "C": "input embeddings",
+        "D": "feed-forward activations"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "In the Transformer architecture, the encoder–decoder attention allows the decoder to attend to the encoder’s outputs. During this step: The queries come from the [ Select ] , while the keys and values come from the [ Select ] . This means that the decoder can focus on relevant parts of the encoder’s output sequence while generating each token. Formally, if h1,…,hn are the encoder outputs and z1,…,zn​ are the decoder inputs, then: ki=Khi,vi=Vhi,qi=Qzi Here, ki and vi are derived from the encoder’s [ Select ] , while qicomes from the decoder’s [ Select ] .\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "positional vectors",
+        "B": "input embeddings",
+        "C": "hidden states",
+        "D": "output logits"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "Understanding Sinusoidal Positional Encoding Transformers do not have any built-in notion of sequence order. To help the model understand the position of tokens in a sequence, we add a positional encoding to the input embeddings. Below is a sample implementation: import torch import math def positional_encoding(seq_len, d_model): pe = torch.zeros(seq_len, d_model) position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1) div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)) pe[:, 0::2] = torch.sin(position * div_term) pe[:, 1::2] = torch.cos(position * div_term) return pe Fill in the blanks to test your understanding: The goal of positional encoding is to inject information about [ Select ] into the model, which it otherwise lacks due to its architecture. The encoding uses [ Select ] applied to a scaled version of the token position to generate unique patterns per position. The encoding is designed such that it can generalize to [ Select ] sequences beyond those seen during training, due to its use of continuous functions. Instead of learned embeddings, this version uses a [ Select ] method based on math, which does not add trainable parameters. The term div_term scales the position using [ Select ] , which control how frequencies are distributed across dimensions.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "Position/order of tokens",
+        "B": "Token importance",
+        "C": "Word meaning",
+        "D": "Sentence length"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "Understanding Sinusoidal Positional Encoding Transformers do not have any built-in notion of sequence order. To help the model understand the position of tokens in a sequence, we add a positional encoding to the input embeddings. Below is a sample implementation: import torch import math def positional_encoding(seq_len, d_model): pe = torch.zeros(seq_len, d_model) position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1) div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)) pe[:, 0::2] = torch.sin(position * div_term) pe[:, 1::2] = torch.cos(position * div_term) return pe Fill in the blanks to test your understanding: The goal of positional encoding is to inject information about [ Select ] into the model, which it otherwise lacks due to its architecture. The encoding uses [ Select ] applied to a scaled version of the token position to generate unique patterns per position. The encoding is designed such that it can generalize to [ Select ] sequences beyond those seen during training, due to its use of continuous functions. Instead of learned embeddings, this version uses a [ Select ] method based on math, which does not add trainable parameters. The term div_term scales the position using [ Select ] , which control how frequencies are distributed across dimensions.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "normalization",
+        "B": "exponential",
+        "C": "sine and cosine functions",
+        "D": "logarithmic"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "Understanding Sinusoidal Positional Encoding Transformers do not have any built-in notion of sequence order. To help the model understand the position of tokens in a sequence, we add a positional encoding to the input embeddings. Below is a sample implementation: import torch import math def positional_encoding(seq_len, d_model): pe = torch.zeros(seq_len, d_model) position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1) div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)) pe[:, 0::2] = torch.sin(position * div_term) pe[:, 1::2] = torch.cos(position * div_term) return pe Fill in the blanks to test your understanding: The goal of positional encoding is to inject information about [ Select ] into the model, which it otherwise lacks due to its architecture. The encoding uses [ Select ] applied to a scaled version of the token position to generate unique patterns per position. The encoding is designed such that it can generalize to [ Select ] sequences beyond those seen during training, due to its use of continuous functions. Instead of learned embeddings, this version uses a [ Select ] method based on math, which does not add trainable parameters. The term div_term scales the position using [ Select ] , which control how frequencies are distributed across dimensions.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "Shorter",
+        "B": "Specific-length",
+        "C": "arbitrarily long",
+        "D": "More diverse"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "Understanding Sinusoidal Positional Encoding Transformers do not have any built-in notion of sequence order. To help the model understand the position of tokens in a sequence, we add a positional encoding to the input embeddings. Below is a sample implementation: import torch import math def positional_encoding(seq_len, d_model): pe = torch.zeros(seq_len, d_model) position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1) div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)) pe[:, 0::2] = torch.sin(position * div_term) pe[:, 1::2] = torch.cos(position * div_term) return pe Fill in the blanks to test your understanding: The goal of positional encoding is to inject information about [ Select ] into the model, which it otherwise lacks due to its architecture. The encoding uses [ Select ] applied to a scaled version of the token position to generate unique patterns per position. The encoding is designed such that it can generalize to [ Select ] sequences beyond those seen during training, due to its use of continuous functions. Instead of learned embeddings, this version uses a [ Select ] method based on math, which does not add trainable parameters. The term div_term scales the position using [ Select ] , which control how frequencies are distributed across dimensions.\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "Learned",
+        "B": "Probabilistic",
+        "C": "Heuristic",
+        "D": "Fixed"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "Understanding Sinusoidal Positional Encoding Transformers do not have any built-in notion of sequence order. To help the model understand the position of tokens in a sequence, we add a positional encoding to the input embeddings. Below is a sample implementation: import torch import math def positional_encoding(seq_len, d_model): pe = torch.zeros(seq_len, d_model) position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1) div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)) pe[:, 0::2] = torch.sin(position * div_term) pe[:, 1::2] = torch.cos(position * div_term) return pe Fill in the blanks to test your understanding: The goal of positional encoding is to inject information about [ Select ] into the model, which it otherwise lacks due to its architecture. The encoding uses [ Select ] applied to a scaled version of the token position to generate unique patterns per position. The encoding is designed such that it can generalize to [ Select ] sequences beyond those seen during training, due to its use of continuous functions. Instead of learned embeddings, this version uses a [ Select ] method based on math, which does not add trainable parameters. The term div_term scales the position using [ Select ] , which control how frequencies are distributed across dimensions.\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "Exponentially increasing frequencies",
+        "B": "Log-likelihood scoring",
+        "C": "Random noise injection",
+        "D": "Fourier compression"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_24",
+      "number": 24,
+      "type": "multiple_choice",
+      "question": "You are building an NLP system that must both classify political statements by stance (agree/disagree/neutral) and generate short summaries of each statement. You are considering three possible model types: Encoder-only, Decoder-only, and Encoder–Decoder architectures. For each case below, choose the correct description of how the model would process the task. If you use an Encoder-only model (e.g., BERT): [ Select ] If you use a Decoder-only model (e.g., GPT): [ Select ] If you use an Encoder–Decoder model (e.g., T5 or BART): [ Select ] For the stance classification part of your task, the most suitable architecture is: [ Select ] For the summarization part of your task, the best-suited architecture is: [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "You input one token at a time, predicting the next token sequentially, and use the average of all outputs for classification.",
+        "B": "You input the whole text, the model reads it bidirectionally, and you use the [CLS] token representation (or pooled output) for classification.",
+        "C": "You mask some tokens and reconstruct them entirely, using the reconstruction loss directly for classification.",
+        "D": "You feed both input and output sentences separately, cross-attending them to produce contextualized decoder vectors for classification."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_25",
+      "number": 25,
+      "type": "multiple_choice",
+      "question": "You are building an NLP system that must both classify political statements by stance (agree/disagree/neutral) and generate short summaries of each statement. You are considering three possible model types: Encoder-only, Decoder-only, and Encoder–Decoder architectures. For each case below, choose the correct description of how the model would process the task. If you use an Encoder-only model (e.g., BERT): [ Select ] If you use a Decoder-only model (e.g., GPT): [ Select ] If you use an Encoder–Decoder model (e.g., T5 or BART): [ Select ] For the stance classification part of your task, the most suitable architecture is: [ Select ] For the summarization part of your task, the best-suited architecture is: [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "You first encode the text with an encoder network and then generate the summary using a decoder.",
+        "B": "You provide the full input and output sentences together, training bidirectional attention across all tokens.",
+        "C": "You train it to predict masked tokens using both left and right context, learning bidirectional dependencies rather than generating text sequentially.",
+        "D": "You can feed the model with the sentence and task prompt (e.g., “Summarize: ...”) and have it generate the summary directly, token by token."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_26",
+      "number": 26,
+      "type": "multiple_choice",
+      "question": "You are building an NLP system that must both classify political statements by stance (agree/disagree/neutral) and generate short summaries of each statement. You are considering three possible model types: Encoder-only, Decoder-only, and Encoder–Decoder architectures. For each case below, choose the correct description of how the model would process the task. If you use an Encoder-only model (e.g., BERT): [ Select ] If you use a Decoder-only model (e.g., GPT): [ Select ] If you use an Encoder–Decoder model (e.g., T5 or BART): [ Select ] For the stance classification part of your task, the most suitable architecture is: [ Select ] For the summarization part of your task, the best-suited architecture is: [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "You employ only the encoder component to transform the input into hidden representations and map these directly to class logits or token probabilities, skipping the generative decoding phase.",
+        "B": "You input a task prompt and the full text, and the model predicts masked tokens directly from the encoder representations without using a decoding stage, focusing only on understanding the input.",
+        "C": "You rely on the decoder alone to process both input and output sequences under causal masking, then fine-tune the decoder for the classification task",
+        "D": "You first encode the entire input sequence bidirectionally, then use a decoder that attends to the encoder’s output while generating the summary token by token."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_27",
+      "number": 27,
+      "type": "multiple_choice",
+      "question": "You are building an NLP system that must both classify political statements by stance (agree/disagree/neutral) and generate short summaries of each statement. You are considering three possible model types: Encoder-only, Decoder-only, and Encoder–Decoder architectures. For each case below, choose the correct description of how the model would process the task. If you use an Encoder-only model (e.g., BERT): [ Select ] If you use a Decoder-only model (e.g., GPT): [ Select ] If you use an Encoder–Decoder model (e.g., T5 or BART): [ Select ] For the stance classification part of your task, the most suitable architecture is: [ Select ] For the summarization part of your task, the best-suited architecture is: [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "None — all architectures perform equally on classification.",
+        "B": "Encoder–Decoder",
+        "C": "Decoder-only",
+        "D": "Encoder-only"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_28",
+      "number": 28,
+      "type": "multiple_choice",
+      "question": "You are building an NLP system that must both classify political statements by stance (agree/disagree/neutral) and generate short summaries of each statement. You are considering three possible model types: Encoder-only, Decoder-only, and Encoder–Decoder architectures. For each case below, choose the correct description of how the model would process the task. If you use an Encoder-only model (e.g., BERT): [ Select ] If you use a Decoder-only model (e.g., GPT): [ Select ] If you use an Encoder–Decoder model (e.g., T5 or BART): [ Select ] For the stance classification part of your task, the most suitable architecture is: [ Select ] For the summarization part of your task, the best-suited architecture is: [ Select ]\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "Encoder-only",
+        "B": "Decoder-only",
+        "C": "None — summarization requires recurrent networks, not transformers.",
+        "D": "Encoder–Decoder"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_29",
+      "number": 29,
+      "type": "multiple_choice",
+      "question": "Complete the sentences with the correct continuations about this code: class PositionalEncoding(nn.Module): def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000): super().__init__() self.dropout = nn.Dropout(p=dropout) position = torch.arange(max_len).XX freq = (10000.0 ** (-2 * torch.arange(0, d_model, 2) / d_model)).unsqueeze(0) pe = torch.zeros(max_len, 1, d_model) pe[:, 0, 0::2] = torch.XX(position * freq) pe[:, 0, 1::2] = torch.cos(position * freq) self.register_buffer('pe', pe) def forward(self, x): \"\"\" Arguments: x: Tensor, shape [seq_len, batch_size, embedding_dim] \"\"\" x = x + self.pe[:x.size(0)] return self.dropout(x) 1) Complete the line: position = torch.arange(max_len). [ Select ] This operation reshapes the position indices so they can be broadcast correctly with the frequency tensor. 2) Complete the sinusoidal assignment: pe[:, 0, 0::2] = torch. [ Select ] (position * freq) Even embedding dimensions use one trigonometric function, while odd dimensions use another. 3) Complete the explanation: return self.dropout(x) Dropout is applied after adding positional encodings to [ Select ] .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "view(-1)",
+        "B": "unsqueeze(1)",
+        "C": "expand(d_model)",
+        "D": "reshape(1, max_len)"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_30",
+      "number": 30,
+      "type": "multiple_choice",
+      "question": "Complete the sentences with the correct continuations about this code: class PositionalEncoding(nn.Module): def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000): super().__init__() self.dropout = nn.Dropout(p=dropout) position = torch.arange(max_len).XX freq = (10000.0 ** (-2 * torch.arange(0, d_model, 2) / d_model)).unsqueeze(0) pe = torch.zeros(max_len, 1, d_model) pe[:, 0, 0::2] = torch.XX(position * freq) pe[:, 0, 1::2] = torch.cos(position * freq) self.register_buffer('pe', pe) def forward(self, x): \"\"\" Arguments: x: Tensor, shape [seq_len, batch_size, embedding_dim] \"\"\" x = x + self.pe[:x.size(0)] return self.dropout(x) 1) Complete the line: position = torch.arange(max_len). [ Select ] This operation reshapes the position indices so they can be broadcast correctly with the frequency tensor. 2) Complete the sinusoidal assignment: pe[:, 0, 0::2] = torch. [ Select ] (position * freq) Even embedding dimensions use one trigonometric function, while odd dimensions use another. 3) Complete the explanation: return self.dropout(x) Dropout is applied after adding positional encodings to [ Select ] .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "sin",
+        "B": "exp",
+        "C": "tan",
+        "D": "cos"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec9_mc_31",
+      "number": 31,
+      "type": "multiple_choice",
+      "question": "Complete the sentences with the correct continuations about this code: class PositionalEncoding(nn.Module): def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000): super().__init__() self.dropout = nn.Dropout(p=dropout) position = torch.arange(max_len).XX freq = (10000.0 ** (-2 * torch.arange(0, d_model, 2) / d_model)).unsqueeze(0) pe = torch.zeros(max_len, 1, d_model) pe[:, 0, 0::2] = torch.XX(position * freq) pe[:, 0, 1::2] = torch.cos(position * freq) self.register_buffer('pe', pe) def forward(self, x): \"\"\" Arguments: x: Tensor, shape [seq_len, batch_size, embedding_dim] \"\"\" x = x + self.pe[:x.size(0)] return self.dropout(x) 1) Complete the line: position = torch.arange(max_len). [ Select ] This operation reshapes the position indices so they can be broadcast correctly with the frequency tensor. 2) Complete the sinusoidal assignment: pe[:, 0, 0::2] = torch. [ Select ] (position * freq) Even embedding dimensions use one trigonometric function, while odd dimensions use another. 3) Complete the explanation: return self.dropout(x) Dropout is applied after adding positional encodings to [ Select ] .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "reduce sequence length variance",
+        "B": "ensure sinusoidal periodicity",
+        "C": "normalize the embedding scale",
+        "D": "regularize the model and prevent over-reliance on position information"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    }
+  ]
+}

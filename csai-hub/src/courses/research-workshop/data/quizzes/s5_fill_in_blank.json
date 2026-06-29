@@ -1,0 +1,107 @@
+{
+  "section_id": "s5",
+  "quiz_type": "fill_in_blank",
+  "title": "Data Analysis & ML Pitfalls - Fill in the Blank",
+  "questions": [
+    {
+      "id": "s5_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the umbrella problem in which information from the test set influences the trained model.",
+      "blank_sentence": "When test-set information improperly reaches the model during training, the methodology suffers from data ___.",
+      "correct_answer": "leakage",
+      "acceptable_answers": ["leakage", "leak", "Leakage"],
+      "explanation": "Data leakage is when information that should be unseen at training time reaches the model, producing optimistic, untrustworthy performance estimates."
+    },
+    {
+      "id": "s5_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the type of split that keeps all of one participant's samples on the same side of the train/test divide.",
+      "blank_sentence": "To prevent subject-level leakage with repeated measures, use a ___ split by participant ID.",
+      "correct_answer": "group",
+      "acceptable_answers": ["group", "Group", "grouped", "group-based"],
+      "explanation": "A group split assigns all records from a given subject to one side only, so the model cannot memorize a person who appears in both train and test."
+    },
+    {
+      "id": "s5_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the split appropriate for time-series and forecasting data.",
+      "blank_sentence": "Forecasting data must be divided with a ___ split so the future never leaks into the past.",
+      "correct_answer": "chronological",
+      "acceptable_answers": ["chronological", "Chronological", "temporal", "time-based", "time-ordered"],
+      "explanation": "A chronological split trains on earlier data and tests on later data, respecting temporal order; a random split lets the model interpolate future from past."
+    },
+    {
+      "id": "s5_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the resampling technique that creates synthetic minority-class points and must be applied inside each fold.",
+      "blank_sentence": "Applying ___ to the whole dataset before splitting leaks synthetic points built from the test data into training.",
+      "correct_answer": "SMOTE",
+      "acceptable_answers": ["SMOTE", "smote", "Synthetic Minority Oversampling Technique"],
+      "explanation": "SMOTE synthesizes new minority samples from existing ones; if run before the split it builds points partly from test rows, so it must run inside each fold."
+    },
+    {
+      "id": "s5_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the transparency violation of presenting a finding as if it had been predicted in advance.",
+      "blank_sentence": "Rewriting the introduction to claim an unplanned result was the original hypothesis is called ___.",
+      "correct_answer": "HARKing",
+      "acceptable_answers": ["HARKing", "harking", "HARK", "Hypothesizing After the Results are Known"],
+      "explanation": "HARKing (Hypothesizing After the Results are Known) dresses an exploratory result up as confirmatory; the fix is to label it as exploratory and note it was not pre-specified."
+    },
+    {
+      "id": "s5_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name the practice of trying many DVs, models, or metrics and reporting only the ones that reached significance.",
+      "blank_sentence": "Selectively reporting only the analyses that came out significant is known as ___.",
+      "correct_answer": "p-hacking",
+      "acceptable_answers": ["p-hacking", "p hacking", "phacking", "P-hacking", "data dredging"],
+      "explanation": "P-hacking inflates false positives by searching over analyses until something is significant; the fix is to report everything and pre-register confirmatory tests."
+    },
+    {
+      "id": "s5_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the held-out partition that should be touched only once, for the final unbiased estimate.",
+      "blank_sentence": "Hyperparameters are tuned on validation data, but the final unbiased estimate comes from the ___ set, used only once.",
+      "correct_answer": "test",
+      "acceptable_answers": ["test", "Test", "test set", "held-out test", "holdout"],
+      "explanation": "The test set must be locked and used a single time; repeatedly evaluating on it lets the analyst overfit the test set and learn its noise."
+    },
+    {
+      "id": "s5_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the single statistical model that underlies t-tests, ANOVA, and regression.",
+      "blank_sentence": "Behavioural statistics largely rest on one model, the general ___ model, written y = X-beta + epsilon.",
+      "correct_answer": "linear",
+      "acceptable_answers": ["linear", "Linear", "general linear", "GLM"],
+      "explanation": "The general linear model y = X-beta + epsilon unifies t-tests, ANOVA, and regression as the same model presented differently."
+    },
+    {
+      "id": "s5_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the model needed for repeated-measures or nested data, which plain regression cannot handle.",
+      "blank_sentence": "Nested or repeated-measures data require a linear ___ model, y = X-beta + Z-u + epsilon, because plain regression assumes independence.",
+      "correct_answer": "mixed",
+      "acceptable_answers": ["mixed", "Mixed", "mixed-effects", "mixed effects", "LMM"],
+      "explanation": "A linear mixed model adds random effects (Z-u) for grouped data; ignoring the nesting shrinks standard errors and produces false positives."
+    },
+    {
+      "id": "s5_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name the leakage where the prediction target was computed from variables that are then kept as inputs.",
+      "blank_sentence": "When a depression score is the average of symptom items and those items remain as features, the study has ___ leakage.",
+      "correct_answer": "target",
+      "acceptable_answers": ["target", "Target", "label", "outcome"],
+      "explanation": "Target leakage occurs when the outcome is derived from features that stay in the input set; the model trivially reconstructs the target, so the source variables must be dropped."
+    }
+  ]
+}

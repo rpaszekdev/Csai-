@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Final Exam 3 — Autonomous Systems</title>
+<link rel="stylesheet" href="/shared/lesson-shell.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys.skin.css" />
+<link rel="stylesheet" href="/auto-sys/auto-sys-exam.css" />
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+  /* Mistakes-review block — reuses the cream/ink/rust editorial palette. */
+  .mistakes { margin-top: 40px; }
+  .mistakes-head {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-mute); margin: 0 0 18px;
+  }
+  .mistake-card {
+    border: 1.5px solid var(--ink);
+    background: var(--paper, #F2EDE0);
+    padding: 20px 22px; margin-bottom: 20px;
+  }
+  .mistake-card .mc-meta {
+    display: flex; gap: 12px; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 10px;
+  }
+  .mistake-card .mc-num { font-weight: 700; color: var(--ink); }
+  .mistake-card .mc-prompt {
+    font-size: 15px; line-height: 1.5; margin: 0 0 16px; color: var(--ink);
+  }
+  .mistake-card .mc-ans { margin: 8px 0; padding: 10px 12px; line-height: 1.45; }
+  .mistake-card .mc-yours {
+    border-left: 3px solid var(--rust); color: var(--rust);
+    background: rgba(168, 79, 42, 0.06);
+  }
+  .mistake-card .mc-correct {
+    border-left: 3px solid var(--ink); color: var(--ink);
+    background: rgba(26, 26, 26, 0.04);
+  }
+  .mistake-card .mc-tag {
+    display: inline-block; font-weight: 700; margin-right: 8px;
+    font-size: 11px; letter-spacing: 0.06em;
+  }
+  .mistake-card .mc-yours .mc-tag { color: var(--rust); }
+  .mistake-card .mc-correct .mc-tag { color: var(--ink); }
+  .mistake-card .mc-prof {
+    margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--ink-mute);
+    font-size: 13px; line-height: 1.5; color: var(--ink-mute);
+  }
+  .mistakes-perfect {
+    border: 1.5px solid var(--ink); padding: 24px;
+    font-size: 15px; line-height: 1.5; text-align: center;
+  }
+  .mistakes-count {
+    font-size: 12px; color: var(--ink-mute); margin: 0 0 24px;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="rust-bar"></div>
+
+<header class="topbar">
+  <a href="./lecture-01.html" class="back">← Back to lectures</a>
+  <span class="brand">
+    <span class="mark"></span>
+    <span class="name">Autonomous Systems</span>
+  </span>
+  <span class="crumbs">
+    <span>Tilburg</span>
+    <span>Year 2</span>
+    <span>Sem 4</span>
+  </span>
+</header>
+
+<nav class="tabs">
+  <a href="#">Roadmap</a>
+  <a href="./lecture-01.html">Lessons</a>
+  <a href="#">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html" class="active">Final Exam 3</a>
+  <a href="#">Project</a>
+</nav>
+
+<section class="hero exam">
+  <div class="hero-left">
+    <div class="hero-title-block">
+      <span class="hero-eyebrow">Final Exam 3 · Practice Paper</span>
+      <h1 class="hero-title">
+        Final Exam 3 <span class="exam-mode-pill">20 Q</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <span>20 questions</span>
+      <span>~30 min</span>
+      <span id="autosave-time">autosaved —</span>
+    </div>
+    <div class="exam-progress">
+      <span>Progress</span>
+      <div class="exam-progress-bar"><span id="progress-bar"></span></div>
+      <span class="exam-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+</section>
+
+<main class="exam-layout">
+  <aside class="q-rail" aria-label="Question navigation">
+    <div class="q-rail-head">Questions</div>
+    <div id="q-rail-list"></div>
+    <div class="q-rail-foot">
+      <span><strong id="rail-done">0</strong> of <strong id="rail-total">20</strong> done</span>
+      <div class="bar"><span id="rail-bar"></span></div>
+    </div>
+  </aside>
+
+  <section class="q-main" aria-live="polite">
+    <div class="section-eyebrow" id="q-section">—</div>
+    <div class="q-slide-refs" id="q-slides"></div>
+    <p class="q-prompt" id="q-prompt"></p>
+    <ul class="q-options" id="q-options"></ul>
+    <div class="q-reveal" id="q-reveal">
+      <div class="callout">
+        <div class="callout-label">Prof emphasis <span class="badge prof">Prof</span></div>
+        <p id="q-reveal-text"></p>
+      </div>
+    </div>
+    <div class="q-actions">
+      <button id="btn-prev" type="button">◀ Prev</button>
+      <button id="btn-skip" type="button">Skip</button>
+      <span class="spacer"></span>
+      <span class="autosave"><span class="dot"></span><span id="save-status">saved</span></span>
+      <button id="btn-next" class="primary" type="button">Submit answer ▶</button>
+    </div>
+    <div class="q-summary" id="q-summary">
+      <h2>Final Exam 3 Complete</h2>
+      <p>You answered <strong id="sum-answered">0</strong> of <strong id="sum-total">20</strong> questions.</p>
+      <div class="score-big"><span id="sum-pct" class="pct">0%</span></div>
+      <p class="hero-meta" style="border:none;padding:0;margin:0;"><strong id="sum-correct">0</strong> of <strong id="sum-correct-total">20</strong> correct</p>
+
+      <div class="mistakes" id="mistakes-block"></div>
+
+      <h3 style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-mute);margin:40px 0 12px;">At a glance</h3>
+      <table id="sum-table">
+        <thead><tr><th>#</th><th>Topic</th><th>Result</th></tr></thead>
+        <tbody id="sum-tbody"></tbody>
+      </table>
+      <div class="q-actions" style="margin-top:32px;">
+        <button id="btn-restart" type="button">↻ Restart</button>
+        <span class="spacer"></span>
+        <a href="./lecture-01.html" class="back" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Back to lectures</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    "id": 1,
+    "section": "L01 · INTRO TO AUTONOMOUS SYSTEMS",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A robotic lawnmower runs every afternoon for weeks across a garden whose layout, weather, and obstacles it cannot fully predict, never needing a human to step in. A friend insists it is \"just automated.\" Using Nolfi's criteria, what is the sharpest reply?",
+    "options": [
+      { "html": "It is genuinely automated — running on a daily timer is exactly the kind of fixed schedule that disqualifies any system from the autonomous label." },
+      { "html": "It is autonomous — it acts without intervention, over prolonged periods, in a partially unknown environment, satisfying all three conditions.", "correct": true },
+      { "html": "It is borderline — it meets the no-intervention and prolonged-operation tests but a known garden fails the third condition entirely." },
+      { "html": "It is automated — true autonomy additionally requires onboard learning, which a fixed mowing routine plainly does not contain." }
+    ],
+    "prof": "All three of Nolfi's conditions hold here: no human steps in, it runs for weeks, and the garden is only partially predictable. Learning is not a fourth required condition — the distractors smuggle one in."
+  },
+  {
+    "id": 2,
+    "section": "L01 · INTRO TO AUTONOMOUS SYSTEMS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A robot carries a chest-mounted microphone and a forehead-mounted thermal camera. A classmate says the camera is proprioceptive \"because it sits on the robot's own head.\" What is the correct ruling on both sensors?",
+    "options": [
+      { "html": "Both are exteroceptive and both are passive — they read the outside world without emitting any signal, and mounting location never changes a sensor's type.", "correct": true },
+      { "html": "The camera is proprioceptive from its head mount and the microphone exteroceptive — a sensor's body location is exactly what decides the category." },
+      { "html": "Both are exteroceptive but both are active, since each must process incoming energy from the environment before it can report a usable value." },
+      { "html": "The microphone is proprioceptive and the camera exteroceptive, because only optical streams ever count as readings of the world outside the agent." }
+    ],
+    "prof": "Type is fixed by what is measured, not where the sensor sits — a forehead camera still looks outward, so it stays exteroceptive. Camera and microphone are both passive: they collect existing energy rather than emitting their own."
+  },
+  {
+    "id": 3,
+    "section": "L02 · BRAITENBERG VEHICLES",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A two-sensor cart is wired with <strong>positive uncrossed</strong> (ipsilateral) connections to warmth: the warmer side speeds its own same-side motor. Released near a single heat source slightly off to its left, what does it do?",
+    "options": [
+      { "html": "It curves toward the source and lingers, because the warmer left side accelerates the left motor and pulls the cart inward to the heat." },
+      { "html": "It turns away and accelerates off as it nears the source, since the closer warm side drives its own motor harder and steers the cart away.", "correct": true },
+      { "html": "It circles the source at a fixed radius, the two motors settling into a stable balance that traps it in a permanent orbit around the heat." },
+      { "html": "It stops dead facing the source, as both motors receive identical drive once the cart has squared up symmetrically to the warmth ahead." }
+    ],
+    "prof": "Positive ipsilateral wiring makes the near (warmer) side spin its own motor faster, swinging the cart away — the classic 2a \"fear\" coward. Both 2a and 2b use positive connections; only crossing the wires would turn this avoidance into pursuit."
+  },
+  {
+    "id": 4,
+    "section": "L02 · BRAITENBERG VEHICLES",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "An observer watches a Braitenberg vehicle dart away from bright lights and calls it \"afraid.\" Braitenberg would say the observer has committed which characteristic error?",
+    "options": [
+      { "html": "Over-synthesis — assuming the designer must have hand-tuned an avoidance routine, when in truth the behaviour emerged from random sensor noise." },
+      { "html": "The uphill-analysis trap — reading rich inner states into a vehicle whose behaviour is fully explained by a couple of direct sensor-to-motor wires.", "correct": true },
+      { "html": "A category error of embodiment — treating a behaviour produced by the body's morphology as though it were produced by the controller instead." },
+      { "html": "Misattributing closed-loop feedback to an open-loop machine, since fear would require the vehicle to monitor and correct its own escape path." }
+    ],
+    "prof": "Braitenberg's point: analysis (inferring mechanism from behaviour) runs uphill and tempts us to over-attribute mind, while synthesis (building it) is downhill and reveals it was just wires. The \"fear\" is in the observer, not the cart."
+  },
+  {
+    "id": 5,
+    "section": "L03 · CONTROL PARADIGMS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A household thermostat clicks the furnace fully ON below 19°C and fully OFF above 21°C, with nothing in between. Which controller family is this, and what is its signature drawback?",
+    "options": [
+      { "html": "A proportional controller — its drawback is a persistent steady-state offset that leaves the room slightly cooler than the chosen target." },
+      { "html": "A bang-bang controller — its drawback is oscillation around the target plus repeated hard switching that stresses the furnace.", "correct": true },
+      { "html": "A closed-loop deliberative controller — its drawback is the planning latency it adds before each on/off decision can be issued." },
+      { "html": "An open-loop controller — its drawback is that it never senses the room and so cannot react to a change in temperature at all." }
+    ],
+    "prof": "Full-on / full-off across a threshold band is bang-bang (on-off) control — it does close the loop on temperature, so it is not open-loop. The cost is hunting around the setpoint and actuator wear from constant switching."
+  },
+  {
+    "id": 6,
+    "section": "L03 · CONTROL PARADIGMS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "In a Sense–Plan–Act diagram a student must say what passes <strong>between the boxes</strong>. Which description of the two arrows is correct?",
+    "options": [
+      { "html": "Sense hands a world model to Plan, and Plan hands an action or motor command on to Act for execution.", "correct": true },
+      { "html": "Sense hands a motor command to Plan, and Plan hands the raw sensor reading on to Act for final interpretation." },
+      { "html": "Sense hands a reward signal to Plan, and Plan hands an updated value estimate on to Act to refine the policy." },
+      { "html": "Sense hands an action to Plan, and Plan hands a fresh perception back to Act so the world model stays current." }
+    ],
+    "prof": "The pipeline flows perception → plan → action: Sense builds a model, Plan turns it into a chosen action, Act executes. The distractors scramble which artefact rides each arrow — a favourite label-the-boxes trap."
+  },
+  {
+    "id": 7,
+    "section": "L04 · EMBODIMENT",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A bolted-down robotic palletiser arm and a tensegrity rover that rolls by flexing its own elastic struts are compared. On <strong>where computation lives</strong>, which statement is right?",
+    "options": [
+      { "html": "Both offload computation to their bodies, since any physical mechanism that moves is by definition doing morphological computation as it acts." },
+      { "html": "Only the tensegrity rover offloads control to its body; the palletiser's rigid links leave every motion for the controller to compute.", "correct": true },
+      { "html": "Only the palletiser offloads computation, because its precise rigid geometry lets the controller delegate fine positioning to the linkage." },
+      { "html": "Neither offloads computation, as morphological computation occurs solely in soft biological tissue and not in any engineered structure." }
+    ],
+    "prof": "Morphological computation means the body's dynamics do work the controller would otherwise do — the rover's compliant struts qualify, the rigid arm does not. Merely having a body and moving is not enough; the body must offload control."
+  },
+  {
+    "id": 8,
+    "section": "L04 · EMBODIMENT",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A swimming robot shaped like a fish glides forward partly because the elasticity and taper of its tail shed vortices on their own, with no per-stroke force computation. Why is this cited as embodiment doing cognitive work?",
+    "options": [
+      { "html": "Because the tail's material and shape carry out part of the propulsion the controller would otherwise have to compute stroke by stroke.", "correct": true },
+      { "html": "Because attaching a tail equips the agent with enough actuation to physically carry out whatever swimming plan its controller produces." },
+      { "html": "Because a sufficiently capable swimming controller can drive any body plan, and the fish tail is simply the output device it happens to use." },
+      { "html": "Because the fluid dynamics of water impose limits on speed, and respecting those limits is the real cognitive work the robot performs." }
+    ],
+    "prof": "The body offloads control: the tail's passive dynamics generate thrust the controller does not have to calculate. That is the operational test — remove the controller's burden and the morphology still does the job."
+  },
+  {
+    "id": 9,
+    "section": "L05 · REINFORCEMENT LEARNING",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "A student designs a reward where reaching the goal gives 0, every other step gives 0, and falling gives −1. They worry \"with no positive rewards the agent can't possibly learn.\" What is the correct response?",
+    "options": [
+      { "html": "They are right — without at least one strictly positive reward the value of every state collapses to zero and no preference can ever form." },
+      { "html": "They are wrong — rewards may be negative or zero, and the agent still learns to prefer the 0-step path that avoids the −1 penalty.", "correct": true },
+      { "html": "They are right only for Q-learning — policy-gradient methods alone can cope with an all non-positive reward signal of this kind." },
+      { "html": "They are wrong, but only because the discount factor will silently convert some of the zero rewards into positive future value over time." }
+    ],
+    "prof": "Reward is just a scalar signal — it can be negative, zero, or positive. Here the agent learns to avoid the −1, which is a perfectly valid gradient; the trap is assuming reward must be positive to drive learning."
+  },
+  {
+    "id": 10,
+    "section": "L05 · REINFORCEMENT LEARNING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "An exam asks you to separate the <strong>policy</strong> from the <strong>value function</strong> in a gridworld. Which pairing is correct?",
+    "options": [
+      { "html": "Policy = how much total future reward a state is worth; value = the fixed lookup table mapping each state to its single best action." },
+      { "html": "Policy = the rule choosing an action in each state; value = the expected long-run return from a state under that policy.", "correct": true },
+      { "html": "Policy = the immediate reward collected on entering a square; value = the random action picked whenever the agent decides to explore." },
+      { "html": "Policy = the discount factor weighting future steps; value = the learning rate controlling how fast estimates are updated each step." }
+    ],
+    "prof": "Policy answers \"what do I do here?\" (state → action); value answers \"how good is it to be here?\" (expected return). The distractors swap the two or confuse them with reward, γ, and α."
+  },
+  {
+    "id": 11,
+    "section": "L06 · UNSUPERVISED LEARNING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Mid-way through one k-means iteration, every data point has just been tagged with its nearest centroid. What does the algorithm do in the very next step?",
+    "options": [
+      { "html": "It moves each centroid to the mean position of all the points currently assigned to that centroid's cluster.", "correct": true },
+      { "html": "It reassigns every point again to the nearest centroid, since assignment is repeated twice before any centroid is moved." },
+      { "html": "It computes the gradient of a clustering loss and nudges every centroid a small step along the descent direction." },
+      { "html": "It deletes the emptiest cluster and respawns its centroid at a random data point to escape a poor local minimum." }
+    ],
+    "prof": "K-means alternates two steps: assign points to nearest centroid, then update each centroid to the mean of its members. After an assign step the update step recomputes the means — no gradients are involved."
+  },
+  {
+    "id": 12,
+    "section": "L06 · UNSUPERVISED LEARNING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "In a winner-take-all competitive layer, an input vector arrives and one neuron is declared the winner. What happens to that winner versus the rest?",
+    "options": [
+      { "html": "Every neuron updates toward the input, but the winner is frozen so that the losing units can specialise on it first." },
+      { "html": "Only the winning neuron updates, shifting its weight vector toward the input, while the losing neurons stay unchanged.", "correct": true },
+      { "html": "The winner is suppressed and only the runner-up neurons update, which is what spreads representations evenly across the layer." },
+      { "html": "All neurons update by the same fixed amount toward the input, with the winner merely flagged for later bookkeeping." }
+    ],
+    "prof": "Winner-take-all: the single closest neuron moves its weights toward the input and the losers do nothing. That is what makes competitive learning carve the input space into specialised units."
+  },
+  {
+    "id": 13,
+    "section": "L07 · MULTIMODAL LEARNING",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "An audio-visual classifier concatenates the raw waveform and raw pixel arrays into one long input vector before any learning happens. Which fusion strategy is this, and what is its main weakness?",
+    "options": [
+      { "html": "Late fusion — its weakness is that combining only the final decisions discards the fine-grained interactions between the two raw streams." },
+      { "html": "Early fusion — its weakness is that a single dropped or noisy modality corrupts the shared input vector and degrades the whole model.", "correct": true },
+      { "html": "Intermediate fusion — its weakness is that aligning learned mid-level features demands far more labelled data than either stream alone." },
+      { "html": "Hybrid fusion — its weakness is that running separate per-modality models in parallel roughly doubles the inference latency at test time." }
+    ],
+    "prof": "Concatenating raw modalities up front is early (data-level) fusion. Because everything shares one input vector, a missing or noisy stream poisons the lot — the opposite of late fusion's graceful degradation."
+  },
+  {
+    "id": 14,
+    "section": "L07 · MULTIMODAL LEARNING",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "An iCub-style robot identifies a cup more reliably from vision <em>and</em> touch together than from either sense alone. What general lesson does the lecture draw from this?",
+    "options": [
+      { "html": "Touch is the stronger modality, so vision should be treated as an optional backup that is only consulted when contact data is missing." },
+      { "html": "Modalities supply complementary, partly independent evidence, so fusing them yields recognition more robust than any single channel.", "correct": true },
+      { "html": "Adding a second modality always doubles accuracy, because two streams carry twice the information of one regardless of overlap." },
+      { "html": "Vision and touch are redundant here, so the real benefit is the lower latency of querying two fast sensors instead of one slow one." }
+    ],
+    "prof": "The point is complementarity: vision and touch fail in different situations, so together they cover each other's gaps. The traps overstate it (\"always doubles\") or invert it (\"redundant\")."
+  },
+  {
+    "id": 15,
+    "section": "L08 · AFFECTIVE & SOCIAL HRI",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "The lecture separates <strong>affect</strong>, <strong>feeling</strong>, and <strong>mood</strong>. Which mapping matches the course's definitions?",
+    "options": [
+      { "html": "Affect = a slow diffuse background state; feeling = the raw bodily change; mood = the brief conscious label placed on an episode." },
+      { "html": "Affect = the raw bodily/valence change; feeling = its conscious experience; mood = a longer, lower-intensity background state.", "correct": true },
+      { "html": "Affect = the deliberate social display; feeling = the hormonal trigger; mood = the single sharp reaction to one specific event." },
+      { "html": "Affect = the conscious narrative; feeling = the long background tone; mood = the fleeting physiological spike that starts it all." }
+    ],
+    "prof": "Affect is the underlying bodily/valence signal, feeling is its conscious experience, and mood is the slower, diffuse, lower-intensity backdrop. The distractors permute the time-scales and consciousness levels."
+  },
+  {
+    "id": 16,
+    "section": "L08 · AFFECTIVE & SOCIAL HRI",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "Designers of a social companion robot debate whether it should ever display emotion-like cues. Which argument best matches the lecture's <em>functional</em> case for affective expression?",
+    "options": [
+      { "html": "Expressive cues make the robot more marketable, and a likeable product sells better, which is the primary reason to engineer affect into it." },
+      { "html": "Expressive cues communicate the robot's internal state and intent, helping a human predict and coordinate with it more smoothly.", "correct": true },
+      { "html": "Expressive cues let the robot feel genuine emotion, and genuine feeling is what any system needs before it can interact socially at all." },
+      { "html": "Expressive cues replace the robot's need for sensors, since reading its own displayed emotion tells it everything about the situation." }
+    ],
+    "prof": "Affective expression is functional communication: it signals state and intent so humans can anticipate the robot's behaviour. It is not about the robot \"really feeling,\" nor a substitute for sensing."
+  },
+  {
+    "id": 17,
+    "section": "L09 · COGNITIVE ROBOTICS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "Cognitive robotics lists six attributes a system should show to count as cognitive. Which of the following is <strong>NOT</strong> one of them?",
+    "options": [
+      { "html": "Guaranteeing globally optimal task performance under every possible environmental condition the system could conceivably encounter.", "correct": true },
+      { "html": "Acting autonomously to pursue its goals rather than waiting for an external operator to issue each command in turn." },
+      { "html": "Adapting and learning from its own experience so that its behaviour improves over repeated encounters with the world." },
+      { "html": "Anticipating future states and acting in a goal-directed way rather than merely reacting to the present instant." }
+    ],
+    "prof": "Cognitive attributes centre on autonomy, adaptation/learning, anticipation, and goal-directedness — not a promise of global optimality, which no embodied agent in a partially unknown world could ever guarantee."
+  },
+  {
+    "id": 18,
+    "section": "L09 · COGNITIVE ROBOTICS",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "Why does <strong>development</strong>, rather than one-shot training on a fixed task, suit a robot facing a partially unknown environment?",
+    "options": [
+      { "html": "Because development pre-loads every skill the robot will ever need in advance, so no on-site learning is required once it is deployed." },
+      { "html": "Because staged, open-ended skill growth lets earlier competencies scaffold new ones as unforeseen situations arise over time.", "correct": true },
+      { "html": "Because a developmental schedule fixes the exact order of milestones, removing all uncertainty about what the robot will encounter." },
+      { "html": "Because development swaps reward optimisation for pure imitation, and copying a human always generalises better to novel surroundings." }
+    ],
+    "prof": "Open-ended development means competencies build on one another, so the robot can keep acquiring skills for situations its designers never enumerated. One-shot fitting to a fixed task cannot extend itself this way."
+  },
+  {
+    "id": 19,
+    "section": "L10 · SIMULATION ENVIRONMENTS",
+    "tag": "exam",
+    "slides": [],
+    "prompt": "A physics-based robot simulator differs from a computer-graphics renderer chiefly in what it computes. What is the distinction?",
+    "options": [
+      { "html": "The simulator integrates forces, masses, and contacts to evolve a dynamical system, whereas a renderer only computes how a scene looks.", "correct": true },
+      { "html": "The simulator produces photorealistic frames for training perception, whereas a renderer solves the equations of motion behind them." },
+      { "html": "The simulator runs only on the terminal without graphics, whereas a renderer must always display its output in a windowed viewport." },
+      { "html": "The simulator stores a fixed pre-recorded trajectory, whereas a renderer generates each new pose live from the robot's controller." }
+    ],
+    "prof": "Physics simulation integrates the dynamics — forces, masses, contacts evolving state over time — while graphics rendering just decides appearance. A simulator may render too, but its job is the dynamical-system maths."
+  },
+  {
+    "id": 20,
+    "section": "L11 · SELECTED TOPICS & EXAM REVIEW",
+    "tag": "prof",
+    "slides": [],
+    "prompt": "Of the \"gotchas\" the lecturer warned about during exam review, which statement is actually <strong>TRUE</strong> (and therefore not a trap)?",
+    "options": [
+      { "html": "A sensor mounted on the robot's own head is automatically proprioceptive, since proprioception is defined by where the sensor is physically placed." },
+      { "html": "A reward in reinforcement learning may be negative or zero, not just positive, and the agent can still learn from such a signal.", "correct": true },
+      { "html": "A rigid industrial arm performs morphological computation simply because it has a physical body that moves through the workspace." },
+      { "html": "A system is autonomous as soon as it can run without a human, regardless of how long it runs or how known its environment is." }
+    ],
+    "prof": "The true one: rewards can be negative or zero and still teach. The other three are the classic traps — location does not set sensor type, having a body is not morphological computation, and autonomy needs all three Nolfi conditions."
+  }
+];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
+
+const STORAGE_KEY = "csai_auto_sys_final_exam_3_v1";
+const SLIDE_BASE = "/auto-sys/final-exam-slides/slide-";
+
+const state = (() => {
+  const blank = {
+    cur: 0,
+    answers: QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null })),
+    finished: false,
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length) return saved;
+  } catch (_) {}
+  return blank;
+})();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    setSaveStatus("saved");
+    const t = new Date();
+    document.getElementById("autosave-time").textContent =
+      `autosaved ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+  } catch (_) {
+    setSaveStatus("offline");
+  }
+}
+
+let saveStatusTimer = null;
+function setSaveStatus(s) {
+  const el = document.getElementById("save-status");
+  if (!el) return;
+  el.textContent = s;
+  clearTimeout(saveStatusTimer);
+  if (s === "saving") {
+    saveStatusTimer = setTimeout(() => (el.textContent = "saved"), 600);
+  }
+}
+
+function render() {
+  if (state.finished) {
+    document.querySelector(".q-main > .section-eyebrow").style.display = "none";
+    document.querySelector(".q-main > .q-slide-refs").style.display = "none";
+    document.querySelector(".q-main > .q-prompt").style.display = "none";
+    document.querySelector(".q-main > .q-options").style.display = "none";
+    document.querySelector(".q-main > .q-reveal").style.display = "none";
+    document.querySelector(".q-main > .q-actions").style.display = "none";
+    renderSummary();
+    document.getElementById("q-summary").classList.add("shown");
+    renderRail();
+    renderProgress();
+    return;
+  }
+  const q = QUESTIONS[state.cur];
+  const a = state.answers[state.cur];
+
+  const tagHtml = q.tag === "prof"
+    ? '<span class="badge prof">Prof</span>'
+    : '<span class="badge">Exam</span>';
+  document.getElementById("q-section").innerHTML =
+    `${q.section} ${tagHtml} <span class="q-tag" style="color:var(--ink-mute);font-size:10px;letter-spacing:0.22em;">Q${String(q.id).padStart(2, "0")} of ${QUESTIONS.length}</span>`;
+
+  const slidesEl = document.getElementById("q-slides");
+  slidesEl.innerHTML = (q.slides || []).map(n =>
+    `<a href="${SLIDE_BASE}${n}.png" target="_blank" rel="noopener">
+       <span class="num">${n}</span>
+       <img src="${SLIDE_BASE}${n}.png" alt="Slide ${n}" loading="lazy" />
+     </a>`
+  ).join("");
+
+  document.getElementById("q-prompt").innerHTML = q.prompt;
+
+  const optsEl = document.getElementById("q-options");
+  optsEl.innerHTML = q.options.map((o, i) =>
+    `<li><button data-idx="${i}" type="button">
+       <span class="q-opt-num">${["①","②","③","④","⑤"][i]}</span>
+       <span class="q-opt-text">${o.html}</span>
+     </button></li>`
+  ).join("");
+
+  if (a.status === "answered") lockOptions(a.picked, q);
+  else {
+    optsEl.classList.remove("locked");
+    optsEl.querySelectorAll("button").forEach(b => {
+      b.disabled = false;
+      b.classList.remove("correct", "wrong");
+    });
+  }
+
+  const revealEl = document.getElementById("q-reveal");
+  document.getElementById("q-reveal-text").innerHTML = q.prof;
+  revealEl.classList.toggle("shown", a.status === "answered");
+
+  document.getElementById("btn-prev").disabled = state.cur === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (a.status === "answered") {
+    nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+  } else {
+    nextBtn.textContent = "Submit answer ▶";
+  }
+
+  optsEl.querySelectorAll("button").forEach(b => {
+    b.addEventListener("click", () => {
+      if (state.answers[state.cur].status === "answered") return;
+      const idx = +b.dataset.idx;
+      const isCorrect = !!q.options[idx].correct;
+      state.answers[state.cur] = { status: "answered", picked: idx, correct: isCorrect };
+      lockOptions(idx, q);
+      revealEl.classList.add("shown");
+      nextBtn.textContent = state.cur === QUESTIONS.length - 1 ? "Finish ▶" : "Next ▶";
+      setSaveStatus("saving");
+      persist();
+      renderRail();
+      renderProgress();
+    });
+  });
+
+  renderRail();
+  renderProgress();
+}
+
+function lockOptions(pickedIdx, q) {
+  const optsEl = document.getElementById("q-options");
+  optsEl.classList.add("locked");
+  optsEl.querySelectorAll("button").forEach(b => {
+    const i = +b.dataset.idx;
+    b.disabled = true;
+    if (q.options[i].correct) b.classList.add("correct");
+    else if (i === pickedIdx) b.classList.add("wrong");
+  });
+}
+
+function renderRail() {
+  const list = document.getElementById("q-rail-list");
+  list.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const active = i === state.cur && !state.finished ? "active" : "";
+    return `<button class="q-item ${active}" data-i="${i}" data-status="${a.status}" type="button">
+      <span class="q-num">Q${String(q.id).padStart(2, "0")}</span>
+      <span></span>
+      <span class="q-tag">${q.tag === "prof" ? "Prof" : "Exam"}</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("button.q-item").forEach(b => {
+    b.addEventListener("click", () => {
+      state.cur = +b.dataset.i;
+      state.finished = false;
+      document.getElementById("q-summary").classList.remove("shown");
+      document.querySelectorAll(".q-main > *").forEach(el => {
+        if (el.id !== "q-summary") el.style.display = "";
+      });
+      persist();
+      render();
+    });
+  });
+}
+
+function renderProgress() {
+  const done = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((done / QUESTIONS.length) * 100);
+  document.getElementById("progress-bar").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("rail-done").textContent = done;
+  document.getElementById("rail-total").textContent = QUESTIONS.length;
+  document.getElementById("rail-bar").style.width = pct + "%";
+}
+
+function renderSummary() {
+  const correct = state.answers.filter(a => a.correct).length;
+  const answered = state.answers.filter(a => a.status === "answered").length;
+  const pct = Math.round((correct / QUESTIONS.length) * 100);
+  document.getElementById("sum-answered").textContent = answered;
+  document.getElementById("sum-total").textContent = QUESTIONS.length;
+  document.getElementById("sum-pct").textContent = pct + "%";
+  document.getElementById("sum-correct").textContent = correct;
+  document.getElementById("sum-correct-total").textContent = QUESTIONS.length;
+
+  renderMistakes();
+
+  const tbody = document.getElementById("sum-tbody");
+  tbody.innerHTML = QUESTIONS.map((q, i) => {
+    const a = state.answers[i];
+    const result = a.status !== "answered"
+      ? "—"
+      : (a.correct ? "✓" : "✗");
+    return `<tr>
+      <td><strong>Q${String(q.id).padStart(2, "0")}</strong></td>
+      <td>${q.section}</td>
+      <td style="color:${a.correct ? 'var(--ink)' : 'var(--rust)'};font-weight:700;">${result}</td>
+    </tr>`;
+  }).join("");
+}
+
+// Build the "Review your mistakes" block: one card per WRONG or SKIPPED
+// question, joining state.answers with QUESTIONS. The picked index refers
+// to the already-shuffled options array, so q.options[a.picked] is the
+// learner's pick and the option flagged .correct is the answer.
+function renderMistakes() {
+  const block = document.getElementById("mistakes-block");
+  const correct = state.answers.filter(a => a.correct).length;
+
+  const wrongIdx = QUESTIONS
+    .map((q, i) => i)
+    .filter(i => !state.answers[i].correct); // wrong, skipped, or never answered
+
+  if (wrongIdx.length === 0) {
+    block.innerHTML = `<div class="mistakes-perfect"><strong>Perfect — no mistakes.</strong><br>All ${QUESTIONS.length} questions correct.</div>`;
+    return;
+  }
+
+  const head = `<p class="mistakes-head">Review your mistakes</p>`;
+  const count = `<p class="mistakes-count">${correct} of ${QUESTIONS.length} correct · ${wrongIdx.length} to review below.</p>`;
+
+  const cards = wrongIdx.map(i => {
+    const q = QUESTIONS[i];
+    const a = state.answers[i];
+    const correctOpt = q.options.find(o => o.correct);
+    const correctHtml = correctOpt ? correctOpt.html : "—";
+
+    const yourHtml = (a.status === "answered" && a.picked != null && q.options[a.picked])
+      ? `<div class="mc-ans mc-yours"><span class="mc-tag">✗ Your answer</span>${q.options[a.picked].html}</div>`
+      : `<div class="mc-ans mc-yours"><span class="mc-tag">✗ Skipped</span>You did not answer this question.</div>`;
+
+    return `<div class="mistake-card">
+      <div class="mc-meta">
+        <span class="mc-num">Q${String(q.id).padStart(2, "0")}</span>
+        <span>${q.section}</span>
+      </div>
+      <p class="mc-prompt">${q.prompt}</p>
+      ${yourHtml}
+      <div class="mc-ans mc-correct"><span class="mc-tag">✓ Correct answer</span>${correctHtml}</div>
+      <p class="mc-prof"><strong>Prof.</strong> ${q.prof}</p>
+    </div>`;
+  }).join("");
+
+  block.innerHTML = head + count + cards;
+}
+
+document.getElementById("btn-prev").addEventListener("click", () => {
+  if (state.cur > 0) { state.cur--; persist(); render(); }
+});
+
+document.getElementById("btn-skip").addEventListener("click", () => {
+  if (state.answers[state.cur].status === "pending") {
+    state.answers[state.cur].status = "skipped";
+  }
+  if (state.cur < QUESTIONS.length - 1) state.cur++;
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-next").addEventListener("click", () => {
+  const a = state.answers[state.cur];
+  if (a.status !== "answered") return;
+  if (state.cur < QUESTIONS.length - 1) {
+    state.cur++;
+  } else {
+    state.finished = true;
+  }
+  setSaveStatus("saving");
+  persist();
+  render();
+});
+
+document.getElementById("btn-restart").addEventListener("click", () => {
+  if (!confirm("Restart the final exam? Your answers will be cleared.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state.cur = 0;
+  state.finished = false;
+  state.answers = QUESTIONS.map(() => ({ status: "pending", picked: null, correct: null }));
+  document.getElementById("q-summary").classList.remove("shown");
+  document.querySelectorAll(".q-main > *").forEach(el => { if (el.id !== "q-summary") el.style.display = ""; });
+  persist();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (state.finished) return;
+  if (["1","2","3","4"].includes(e.key)) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") return;
+    const idx = +e.key - 1;
+    const btn = document.querySelector(`#q-options button[data-idx="${idx}"]`);
+    if (btn) btn.click();
+    return;
+  }
+  if (e.key === "ArrowLeft" && !e.metaKey && !e.ctrlKey) {
+    document.getElementById("btn-prev").click();
+  }
+  if (e.key === "ArrowRight" && !e.metaKey && !e.ctrlKey) {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "Enter") {
+    const a = state.answers[state.cur];
+    if (a.status === "answered") document.getElementById("btn-next").click();
+  }
+  if (e.key === "s" || e.key === "S") {
+    document.getElementById("btn-skip").click();
+  }
+});
+
+render();
+persist();
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "section_id": "s4",
+  "quiz_type": "ordering",
+  "title": "Writing a Research Proposal - Ordering",
+  "questions": [
+    {
+      "id": "s4_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the main sections of a research proposal as they appear, narrowing from problem to plan.",
+      "items": ["Research question (and hypothesis)", "Motivation", "Methods", "Background / theoretical framework"],
+      "correct_order": ["Motivation", "Background / theoretical framework", "Research question (and hypothesis)", "Methods"],
+      "explanation": "A proposal moves from Motivation (why we need this study) to Background (the state of the art), then to the Research Question and Hypothesis, and finally the Methods that can answer it. This mirrors the narrowing from a broad problem to a concrete plan."
+    },
+    {
+      "id": "s4_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the three source-misuse errors from LEAST common to MOST common.",
+      "items": ["Listing instead of synthesising", "Claim with no citation", "Lumping citations at the end of a paragraph"],
+      "correct_order": ["Lumping citations at the end of a paragraph", "Claim with no citation", "Listing instead of synthesising"],
+      "explanation": "Lumping citations at the paragraph's end is the least common error, claims with no citation happen constantly (mid-frequency), and listing instead of synthesising is the most common and hardest to fix."
+    },
+    {
+      "id": "s4_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order these steps for supporting a real-world motivation, from weakest hook to strongest evidence.",
+      "items": ["Back it with statistics or peer-reviewed future-work sections", "Open with an anecdote as a hook", "Add news coverage of the problem"],
+      "correct_order": ["Open with an anecdote as a hook", "Add news coverage of the problem", "Back it with statistics or peer-reviewed future-work sections"],
+      "explanation": "An anecdote is only a hook and not enough on its own; news coverage strengthens the case; statistics and the future-work sections of peer-reviewed papers give the strongest support for real-world relevance."
+    },
+    {
+      "id": "s4_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order the steps of building and using a synthesis matrix for one paragraph.",
+      "items": ["Read each row horizontally to find synthesis across sources", "Put sources across the top and main ideas down the side", "Fill the matching boxes with notes, leaving empties blank", "Drop or split rows that are too empty or too full"],
+      "correct_order": ["Put sources across the top and main ideas down the side", "Fill the matching boxes with notes, leaving empties blank", "Read each row horizontally to find synthesis across sources", "Drop or split rows that are too empty or too full"],
+      "explanation": "First lay out sources across the top and ideas down the side, then fill the matching boxes (many stay empty). Read horizontally for synthesis, then act on the diagnostics: drop a too-empty row or split a too-full one."
+    },
+    {
+      "id": "s4_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order what each proposal section must convince the reader of, following the section order.",
+      "items": ["This is correct and replicable", "We need this study", "You've done your homework"],
+      "correct_order": ["We need this study", "You've done your homework", "This is correct and replicable"],
+      "explanation": "Following the proposal order, Motivation must convince 'we need this study', Background must show 'you've done your homework', and Methods must convince that the design is correct and replicable."
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "section_id": "s5",
+  "quiz_type": "multiple_response",
+  "title": "Data Analysis & ML Pitfalls - Multiple Response",
+  "questions": [
+    {
+      "id": "s5_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following procedures, if done on the FULL dataset before the train/test split, cause data leakage? (Select all that apply)",
+      "options": {
+        "A": "Fitting a standard scaler and applying its mean and standard deviation",
+        "B": "Selecting features by their correlation with the target",
+        "C": "Lowercasing raw text strings before any model is fit",
+        "D": "Generating synthetic minority samples with SMOTE",
+        "E": "Mean-imputing missing values using the dataset-wide column mean"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Scaling, feature selection, SMOTE, and imputation all learn statistics from the data, so doing them before the split leaks test information into training. Lowercasing (C) is a stateless transform that learns nothing from the data and is therefore safe before splitting."
+    },
+    {
+      "id": "s5_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which practices help PROTECT a supervised ML study against data leakage? (Select all that apply)",
+      "options": {
+        "A": "Splitting into train/validation/test before any data-driven preprocessing",
+        "B": "Wrapping preprocessing and the model in a scikit-learn Pipeline",
+        "C": "Re-tuning the decision threshold on the test set for the best score",
+        "D": "Touching the held-out test set only once for the final estimate",
+        "E": "Running SMOTE and feature selection inside each cross-validation fold"
+      },
+      "correct_answers": ["A", "B", "D", "E"],
+      "explanation": "Splitting first, enforcing order with a Pipeline, using the test set once, and resampling or selecting inside each fold all keep test information out of training. Re-tuning the threshold on test (C) is itself a leakage that inflates the estimate."
+    },
+    {
+      "id": "s5_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "On a 75/25 imbalanced classification task, which evaluation choices are appropriate? (Select all that apply)",
+      "options": {
+        "A": "Reporting F1 or F-beta scores",
+        "B": "Reporting precision and recall separately",
+        "C": "Judging the model against the 75% majority baseline",
+        "D": "Using overall accuracy as the single headline metric",
+        "E": "Comparing performance to a fixed 50% chance level"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "F1/F-beta, separate precision and recall, and benchmarking against the majority baseline reveal minority-class performance under imbalance. Accuracy alone (D) is gamed by predicting the majority, and the relevant baseline is 75%, not the 50% chance level (E)."
+    },
+    {
+      "id": "s5_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which are valid statistical ways to compare two models rather than just eyeballing a higher score? (Select all that apply)",
+      "options": {
+        "A": "A paired t-test on the per-fold scores",
+        "B": "A Wilcoxon signed-rank test on the per-fold scores",
+        "C": "McNemar's test on predictions over the same test set",
+        "D": "Bootstrap confidence intervals on the metric",
+        "E": "Picking whichever model has the larger single F1 value"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Paired t-test, Wilcoxon, McNemar, and bootstrap CIs all account for variability before declaring one model better. Simply choosing the larger F1 (E) ignores noise and is exactly the unjustified comparison these tests are meant to replace."
+    },
+    {
+      "id": "s5_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which statements correctly describe how to choose a train/test split for a given data type? (Select all that apply)",
+      "options": {
+        "A": "Time-series data should use a chronological split, never letting the future leak into the past",
+        "B": "Data with multiple samples per subject should use a group split by participant ID",
+        "C": "Imbalanced classes are best handled with a stratified split",
+        "D": "Forecasting problems are best evaluated with a fully random shuffle of the rows",
+        "E": "Subject-level data is fine to split by random row since each row is independent"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Chronological splits for time series, group splits for repeated subjects, and stratified splits for imbalance each match the structure of the data. A random shuffle (D) leaks future into past, and rows from one subject are not independent, so random row splits (E) cause subject-level leakage."
+    },
+    {
+      "id": "s5_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which of the following are recognized forms or causes of data leakage? (Select all that apply)",
+      "options": {
+        "A": "Keeping input features that the target was computed from",
+        "B": "Putting one participant's records in both train and test",
+        "C": "Scaling on the full dataset before splitting",
+        "D": "Regularizing a model to reduce variance",
+        "E": "Tuning the decision threshold on the test set"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Target leakage, subject-level leakage, preprocessing before the split, and threshold tuning on test all let information cross from test into the fitted model. Regularization (D) is a legitimate defence against overfitting, not a leakage."
+    },
+    {
+      "id": "s5_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about explanatory (behavioural) versus predictive (ML) analysis are correct? (Select all that apply)",
+      "options": {
+        "A": "Explanatory analysis aims to test a causal hypothesis and reports estimates like beta-hat, t, F, and p",
+        "B": "Predictive analysis aims for accurate predictions and reports test-set metrics with a statistical comparison",
+        "C": "The main risk for explanatory work is p-hacking and HARKing",
+        "D": "The main risk for predictive work is overfitting and data leakage",
+        "E": "Predictive analysis is protected mainly by pre-registering the hypotheses in advance"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Explanatory work tests hypotheses with inferential statistics and is threatened by p-hacking and HARKing, while predictive work optimizes test-set accuracy and is threatened by overfitting and leakage. Pre-registration (E) protects explanatory analysis; predictive work is protected by cross-validation and a held-out test set."
+    },
+    {
+      "id": "s5_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which steps are appropriate fixes when a random forest flattens its predictions on a rising trend? (Select all that apply)",
+      "options": {
+        "A": "Predict the difference (delta-y) instead of the raw level",
+        "B": "Model the residual off an explicit trend component",
+        "C": "Use a linear booster such as XGBoost gblinear",
+        "D": "Add more decision trees so the forest can output larger values",
+        "E": "Shuffle the time series randomly before fitting the forest"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Trees cannot extrapolate, so differencing, residual modelling on a trend, or a linear booster let the model follow a rising series. Adding trees (D) still averages seen values, and random shuffling (E) destroys the temporal order and leaks the future."
+    },
+    {
+      "id": "s5_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which behaviours count as transparency violations in behavioural research? (Select all that apply)",
+      "options": {
+        "A": "Presenting an exploratory finding as if it had been hypothesized in advance",
+        "B": "Trying many DVs or models and reporting only the ones that reached significance",
+        "C": "Pre-registering the confirmatory analyses before collecting data",
+        "D": "Labelling unplanned results clearly as exploratory"
+      },
+      "correct_answers": ["A", "B"],
+      "explanation": "HARKing (presenting post-hoc findings as predictions) and p-hacking (cherry-picking what worked) are the two transparency violations here. Pre-registration (C) and clearly labelling exploratory results (D) are the recommended protections, not violations."
+    },
+    {
+      "id": "s5_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which statements about reading ML figures correctly are true? (Select all that apply)",
+      "options": {
+        "A": "In a confusion matrix, high accuracy can be driven by many true negatives under imbalance",
+        "B": "On a ROC curve the dashed diagonal marks chance, and a good curve sits above it",
+        "C": "A feature-importance plot is clearest when it shows only the top ten to fifteen features",
+        "D": "Every figure should have axis labels with units, a legend, and a self-contained caption",
+        "E": "A figure is acceptable even if it is never referred to anywhere in the text"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "Confusion matrices can hide imbalance behind true negatives, the ROC diagonal is chance, top-feature plots stay readable, and every figure needs labels, units, a legend, and a standalone caption. Each figure must also be referred to in the text (E), so an unreferenced figure is not acceptable."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "regularization",
+  "eyebrow": "CSAI@LIVE · DEEP LEARNING · L6 · REGULARIZATION",
+  "title": "REGULARIZATION",
+  "sub": "Visual exam summary — every section maps to a real lecturer-quiz question.",
+  "podcast": { "href": "audio/regularization.mp3", "label": "LISTEN · REGULARIZATION PODCAST" },
+  "source": "Source · Tilburg — Introduction to Deep Learning · Lecture 6 (Regularization)",
+  "sections": [
+    {
+      "n": "01",
+      "title": "WHY REGULARIZE? BIAS, VARIANCE & OVERFITTING",
+      "exam": "Regularization prevents overfitting & improves generalization; high bias = underfitting, high variance = overfitting — shown by training loss falling while validation loss RISES.",
+      "ascii": "train loss : ＼＼＼＼＼＼＼＼＼  (keeps falling)\nval   loss : ＼＼＼＼＼／／／／  (falls, then RISES)\n                     ▲ stop here\n widening gap between the two  =  OVERFITTING",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Bias_and_variance_contributing_to_total_error.svg",
+          "label": "WEB DIAGRAM", "cap": "Bias–variance trade-off",
+          "desc": "Total error = bias² + variance (+ noise). As complexity grows bias falls but variance rises; the best model minimises their SUM, not either alone." },
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/6/68/Overfitted_Data.png",
+          "label": "WEB DIAGRAM", "cap": "Overfitting illustrated",
+          "desc": "The wiggly curve threads every training point (memorising noise) instead of the smooth trend — so it generalises badly to new data." },
+        { "kind": "slide", "slot": "reg-s02", "ph": "DROP slide-02", "label": "LECTURE SLIDE", "cap": "Dartboard intuition",
+          "desc": "High bias = darts clustered off-target (too simple → underfit); high variance = darts scattered (too sensitive → overfit)." },
+        { "kind": "slide", "slot": "reg-s04", "ph": "DROP slide-04", "label": "LECTURE SLIDE", "cap": "Train vs validation over epochs",
+          "desc": "Training loss keeps dropping while validation loss turns upward — the widening gap is the textbook diagnostic for overfitting." }
+      ]
+    },
+    {
+      "n": "02",
+      "title": "L1 & L2 — PENALISE THE WEIGHTS",
+      "exam": "Regularization adds a TERM to the objective that constrains the parameters; L2 (weight decay) shrinks weights, L1 makes them sparse; bigger λ → less capacity → can underfit.",
+      "ascii": "objective  =  loss  +  λ · penalty\n   L2 (ridge / weight decay):  λ·Σ w²    → shrinks weights toward 0 (small, not zero)\n   L1 (lasso):                 λ·Σ |w|   → drives some weights EXACTLY to 0 (sparse)\n   bigger λ → stronger constraint → lower capacity → may underfit",
+      "figures": [
+        { "kind": "web", "src": "https://upload.wikimedia.org/wikipedia/commons/0/02/Regularization.svg",
+          "label": "WEB DIAGRAM", "cap": "Regularization smooths the fit",
+          "desc": "Adding a penalty pulls the fitted function toward a simpler, smoother curve that follows the true trend instead of the noise." },
+        { "kind": "slide", "slot": "reg-s05", "ph": "DROP slide-05", "label": "LECTURE SLIDE", "cap": "Constrained decision boundary",
+          "desc": "Regularization simplifies the boundary so it stops contorting around individual training points." },
+        { "kind": "slide", "slot": "reg-s06", "ph": "DROP slide-06", "label": "LECTURE SLIDE", "cap": "L1 vs L2 geometry",
+          "desc": "The L1 'diamond' meets the loss at the axes → zeros out weights (sparse); the L2 'circle' just shrinks them. L2 = penalise large weights." }
+      ]
+    },
+    {
+      "n": "03",
+      "title": "DROPOUT — DROP UNITS WHILE TRAINING",
+      "exam": "Dropout randomly masks units (prob p) during TRAINING and keeps ALL units (scaled) at TEST; it drops units rather than adding an objective term — the go-to overfitting fix.",
+      "ascii": "TRAIN:   o  x  o  o  x  o      drop each unit with prob p (new mask every step)\nTEST :   o  o  o  o  o  o      keep ALL units, scale outputs to compensate",
+      "figures": [
+        { "kind": "slide", "slot": "reg-s13", "ph": "DROP slide-13", "label": "LECTURE SLIDE", "cap": "Dropout (training)",
+          "desc": "A random subset of units is switched off each step, so no single neuron becomes indispensable — this prevents co-adaptation." },
+        { "kind": "slide", "slot": "reg-s17", "ph": "DROP slide-17", "label": "LECTURE SLIDE", "cap": "Train vs test",
+          "desc": "Units are dropped only during training; at test every unit is active and outputs are scaled so the expected activation matches." }
+      ]
+    },
+    {
+      "n": "04",
+      "title": "EARLY STOPPING & DATA AUGMENTATION",
+      "exam": "Early stopping halts at minimum validation loss — it fights OVERFITTING, NOT vanishing gradients (false-statement trap); augmentation must preserve the label.",
+      "ascii": "augment a spoken-audio clip:\n  + background noise / slight speed change   → ADEQUATE (label still holds)\n  reverse the clip in time                    → INADEQUATE (destroys the spoken word)",
+      "figures": [
+        { "kind": "slide", "slot": "reg-s08", "ph": "DROP slide-08", "label": "LECTURE SLIDE", "cap": "Early stopping",
+          "desc": "Track the validation loss and stop at its minimum, keeping those weights. Curbs overfitting — it is NOT a vanishing-gradient fix." },
+        { "kind": "slide", "slot": "reg-s11", "ph": "DROP slide-11", "label": "LECTURE SLIDE", "cap": "Data augmentation",
+          "desc": "Make new training examples with label-preserving transforms (crop, noise, mild speed). Must keep the class meaning — reversing audio in time would not." }
+      ]
+    },
+    {
+      "n": "05",
+      "title": "MODEL CAPACITY — THE OVERFITTING DIAL",
+      "exam": "Too little capacity → underfit (high bias), too much → overfit (high variance); fix an overfitting model with more dropout + L2 weight decay + data augmentation + reduced capacity.",
+      "ascii": "test error\n  ＼                       ／\n    ＼____           ___／\n         ‾‾‾‾‾‾‾‾‾‾‾        ← sweet spot\n  underfit    just right    overfit\n (high bias)              (high variance)",
+      "figures": [
+        { "kind": "slide", "slot": "reg-s21", "ph": "DROP slide-21", "label": "LECTURE SLIDE", "cap": "Capacity vs error",
+          "desc": "Test error is U-shaped in capacity: underfit on the left (high bias), overfit on the right (high variance), the sweet spot in the middle." },
+        { "kind": "slide", "slot": "reg-s22", "ph": "DROP slide-22", "label": "LECTURE SLIDE", "cap": "Double descent",
+          "desc": "Past the interpolation point test error can fall AGAIN — where modern over-parameterised networks operate." }
+      ]
+    },
+    {
+      "n": "06",
+      "title": "BATCH NORMALIZATION (& OTHER NORMS)",
+      "exam": "Batch norm normalises activations with BATCH statistics → mitigates internal covariate shift → stabler, faster training; layer norm uses ONE example's features (Transformers).",
+      "ascii": "ŷ = γ · (x − μ)/√(σ² + ε) + β        μ,σ² = mean/variance over the chosen axis\n  Batch Norm : average over the BATCH (per feature)        → needs batch stats\n  Layer Norm : average over the FEATURES of ONE example    → per-example (Transformers)",
+      "figures": [
+        { "kind": "slide", "slot": "reg-s25", "ph": "DROP slide-25", "label": "LECTURE SLIDE", "cap": "Batch norm",
+          "desc": "Each feature is normalised using the mean/variance of the current mini-batch, then rescaled by learnable γ and β." },
+        { "kind": "slide", "slot": "reg-s26", "ph": "DROP slide-26", "label": "LECTURE SLIDE", "cap": "Covariate shift",
+          "desc": "As lower layers update, the input distribution to each layer keeps shifting; BN steadies it — the 'internal covariate shift' answer." },
+        { "kind": "slide", "slot": "reg-s30", "ph": "DROP slide-30", "label": "LECTURE SLIDE", "cap": "BN formula",
+          "desc": "Subtract the batch mean, divide by √(variance+ε), then scale (γ) and shift (β); γ, β let the layer undo normalisation if needed." },
+        { "kind": "slide", "slot": "reg-s34", "ph": "DROP slide-34", "label": "LECTURE SLIDE", "cap": "Other norms",
+          "desc": "Batch / layer / instance / group norm differ only in which axis is averaged. Layer norm (per-example, across features) is what Transformers use." }
+      ]
+    }
+  ]
+}

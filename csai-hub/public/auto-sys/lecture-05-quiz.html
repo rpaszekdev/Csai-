@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-05.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,17 @@ const QUESTIONS = [
     "prompt": "In this course, <strong>adaptivity</strong> is the capacity of an autonomous system to modify its behaviour based on experience. Why is adaptivity required by Nolfi's three-condition definition?",
     "options": [
       {
-        "html": "Because adaptivity reduces battery use."
+        "html": "Because behaviour that is tuned online draws far less power than a fixed policy, so adaptivity is mainly an energy-efficiency requirement."
       },
       {
         "html": "Because partially unknown environments guarantee unforeseen states — a non-adaptive policy will fail on the first one.",
         "correct": true
       },
       {
-        "html": "Because all robots must use deep learning."
+        "html": "Because Nolfi defines autonomy in terms of deep learning, so any system meeting his criteria must train a neural network at runtime."
       },
       {
-        "html": "Because adaptivity is part of the Arduino spec."
+        "html": "Because the third condition concerns onboard control hardware, and adaptivity is what lets that hardware reconfigure itself electrically."
       }
     ],
     "prof": "Adaptivity is the bridge from condition (3) to behaviour: if the environment is partially unknown, you cannot pre-program every response."
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "Learning from Demonstration (LfD) comes in three flavours. Which set names them?",
     "options": [
       {
-        "html": "Imitation · supervised · reinforcement."
+        "html": "Imitation learning · supervised regression · reinforcement learning, grouped by the loss the robot ultimately optimises."
       },
       {
         "html": "Kinesthetic teaching · teleoperation · observational learning.",
         "correct": true
       },
       {
-        "html": "Online · offline · batch."
+        "html": "Online · offline · batch demonstration, grouped by when the demonstration data reaches the learner relative to acting."
       },
       {
-        "html": "Genetic · neural · symbolic."
+        "html": "Genetic · neural · symbolic demonstration, grouped by the representation used to encode the demonstrated policy."
       }
     ],
     "prof": "Kinesthetic = hand-guide the robot. Teleoperation = remote-control demos. Observation = watch a human do it. Each gives a different action-state coverage."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "An MDP assumes the <strong>Markov property</strong>. What does that property state?",
     "options": [
       {
-        "html": "The reward is deterministic."
+        "html": "The reward for each transition is a fixed deterministic function, so the same state-action pair always yields the same payoff."
       },
       {
-        "html": "The agent has perfect memory."
+        "html": "The agent retains a perfect memory of every past state, and uses that full history to decide its next action."
       },
       {
         "html": "The next state depends only on the current state and action, not on history.",
         "correct": true
       },
       {
-        "html": "Actions are continuous."
+        "html": "The action set is continuous rather than discrete, which is what lets the process be modelled as a Markov chain."
       }
     ],
     "prof": "Markov = \"the present is sufficient.\" If your environment violates this (e.g., partial observability), you're in a POMDP, and the standard algorithms need adjustment."
@@ -201,17 +205,17 @@ const QUESTIONS = [
     "prompt": "What is the difference between a <strong>policy</strong> π(a|s) and a <strong>value function</strong> V(s)?",
     "options": [
       {
-        "html": "Policies are deterministic; value functions are stochastic."
+        "html": "A policy is always a deterministic mapping while a value function is inherently stochastic, which is the core distinction between them."
       },
       {
         "html": "Policy = which action to take in a state; value = expected long-term return from that state.",
         "correct": true
       },
       {
-        "html": "They are interchangeable."
+        "html": "They are two notations for the same object: V(s) is just the policy written as a function of state rather than of action."
       },
       {
-        "html": "V(s) is only used in supervised learning."
+        "html": "The value function V(s) belongs to supervised learning, whereas the policy is the only quantity that genuinely appears in RL."
       }
     ],
     "prof": "Policy is what you do; value is how good the situation is. Most modern RL learns one or the other (or both, as in actor–critic)."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "The Q-learning update rule is <code>Q(s,a) ← Q(s,a) + α [r + γ·max<sub>a'</sub> Q(s',a') − Q(s,a)]</code>. What does <code>γ</code> control?",
     "options": [
       {
-        "html": "The learning rate."
+        "html": "The learning rate — how large a step each update takes toward the new estimate (small = cautious, large = aggressive)."
       },
       {
         "html": "The discount factor — how much future rewards count relative to immediate ones (0 = myopic, near 1 = far-sighted).",
         "correct": true
       },
       {
-        "html": "The exploration rate."
+        "html": "The exploration rate — how often the agent picks a random action instead of the current best one (0 = greedy, near 1 = random)."
       },
       {
-        "html": "The replay buffer size."
+        "html": "The replay buffer size — how many past transitions are stored and resampled to stabilise the Q-value updates."
       }
     ],
     "prof": "α = how fast you update. γ = how far you care into the future. ε (separate) = how much you explore. Don't confuse them — it's the most common exam slip."
@@ -247,16 +251,16 @@ const QUESTIONS = [
     "prompt": "The lecture lists five core challenges that make real-robot RL hard. Which option is <strong>NOT</strong> one of them?",
     "options": [
       {
-        "html": "Reward shaping — designing a reward that actually leads to the desired behaviour."
+        "html": "Reward shaping — designing a reward signal that actually leads to the desired behaviour rather than a degenerate shortcut."
       },
       {
-        "html": "Sample efficiency — real robots can't run a million episodes."
+        "html": "Sample efficiency — real robots can't run a million episodes, so the algorithm must learn from very few interactions."
       },
       {
-        "html": "Exploration vs exploitation."
+        "html": "Exploration vs exploitation — balancing trying new actions against cashing in on the best policy found so far."
       },
       {
-        "html": "Choosing between Python and C++.",
+        "html": "Choosing an implementation language — deciding between Python and C++ for the controller before training begins.",
         "correct": true
       }
     ],
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "Why does tabular Q-learning break down on tasks with images or continuous state, and how does <strong>DQN</strong> address this?",
     "options": [
       {
-        "html": "The table grows too slowly; DQN adds caching."
+        "html": "The table updates too slowly to keep up with the stream; DQN fixes this by caching recent lookups for faster access."
       },
       {
         "html": "The state space explodes combinatorially; DQN replaces the table with a neural network that approximates Q(s,a).",
         "correct": true
       },
       {
-        "html": "Tables can't store negative rewards; DQN can."
+        "html": "A Q-table cannot represent negative or fractional rewards, whereas a DQN's network output can take any real value."
       },
       {
-        "html": "Tables only work for discrete time."
+        "html": "Tabular methods are restricted to discrete-time problems, and DQN is what extends Q-learning to continuous-time control."
       }
     ],
     "prof": "Q-tables die in high-dimensional state. DQN's contribution: function approximation + experience replay + target network — three tricks to make NN-based Q-learning stable."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l05_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week05-slides/slide-";

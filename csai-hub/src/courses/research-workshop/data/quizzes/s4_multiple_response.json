@@ -1,0 +1,157 @@
+{
+  "section_id": "s4",
+  "quiz_type": "multiple_response",
+  "title": "Writing a Research Proposal - Multiple Response",
+  "questions": [
+    {
+      "id": "s4_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following belong in a research proposal? (Select all that apply)",
+      "options": {
+        "A": "Motivation for the study",
+        "B": "Background / theoretical framework",
+        "C": "Research question (and hypothesis)",
+        "D": "Results of the planned study",
+        "E": "Discussion of the study's findings"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "A proposal contains motivation, background/theoretical framework, and the research question (plus hypothesis), along with methods. D and E are excluded because a proposal plans a future study and therefore has neither results nor a discussion of findings."
+    },
+    {
+      "id": "s4_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which sections are present in a paper but NOT in a proposal? (Select all that apply)",
+      "options": {
+        "A": "Results",
+        "B": "Discussion / Conclusion",
+        "C": "Methods",
+        "D": "Motivation",
+        "E": "Background"
+      },
+      "correct_answers": ["A", "B"],
+      "explanation": "A paper reports an already-conducted study, so it adds Results and Discussion/Conclusion that the proposal lacks. Methods, motivation, and background appear in both, since the proposal is essentially the first half of the paper."
+    },
+    {
+      "id": "s4_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which items are explicitly required by the proposal assignment? (Select all that apply)",
+      "options": {
+        "A": "Names of all contributing group members",
+        "B": "An explicit research question",
+        "C": "Background based on at least five relevant scientific sources",
+        "D": "A full statistical results table",
+        "E": "The attached Technology Statement"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The assignment requires group member names, an explicit RQ, background grounded in at least five scientific sources, and the attached Technology Statement. D is wrong because a proposal has no results, only planned analyses."
+    },
+    {
+      "id": "s4_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "For a human-subject experiment, which elements must the methods section specify? (Select all that apply)",
+      "options": {
+        "A": "The groups being compared",
+        "B": "The design (between- or within-subjects)",
+        "C": "The dependent and independent variables",
+        "D": "The algorithms being compared",
+        "E": "The planned statistical analyses"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "A human-subject experiment must state the groups compared, the between/within design, the DV and IV, and the planned statistical analyses. D belongs to a machine-learning experiment, not a human-subject one."
+    },
+    {
+      "id": "s4_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "For a machine-learning experiment, which elements must the methods section specify? (Select all that apply)",
+      "options": {
+        "A": "The dataset used",
+        "B": "The features to extract",
+        "C": "The algorithms being compared",
+        "D": "The evaluation measures",
+        "E": "The between- or within-subjects design"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "A machine-learning experiment must state the dataset, the features to extract, the algorithms compared, and the evaluation measures. E (between/within design) is a human-subject experiment concept, not an ML one."
+    },
+    {
+      "id": "s4_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which are the 5 C's of writing with sources? (Select all that apply)",
+      "options": {
+        "A": "Cite",
+        "B": "Compare",
+        "C": "Critique",
+        "D": "Connect",
+        "E": "Collect"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The 5 C's are Cite, Compare, Contrast, Critique, and Connect. E ('Collect') is not one of them; the missing genuine C in this list is Contrast."
+    },
+    {
+      "id": "s4_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which uses of AI are RESPONSIBLE under the course's Index Level 3 policy? (Select all that apply)",
+      "options": {
+        "A": "Brainstorming, planning, and getting started",
+        "B": "Help with coding or analysis only if you already know how",
+        "C": "Using AI to learn, such as asking questions or spotting bugs",
+        "D": "Generating paragraphs of content to paste into your text",
+        "E": "Asking AI to find the scientific sources for you"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "Responsible use means AI supports your process: brainstorming, code/analysis help when you can verify it, and learning. D (generating content to submit) and E (finding sources) are forbidden because AI invents facts and hallucinates sources."
+    },
+    {
+      "id": "s4_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "Which statements about reading a synthesis matrix are correct? (Select all that apply)",
+      "options": {
+        "A": "Sources go across the top and main ideas down the side",
+        "B": "Reading horizontally (one idea across sources) shows synthesis",
+        "C": "Reading vertically (one source) produces a summary",
+        "D": "Every box in the matrix must be filled in",
+        "E": "A very full row means the idea is too big and should be split"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Sources sit across the top with ideas down the side; a horizontal read gives synthesis, a vertical read gives a summary, and a very full row means the idea is too big to split. D is false because many boxes legitimately stay empty."
+    },
+    {
+      "id": "s4_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which are the three source-misuse sub-errors named in the section? (Select all that apply)",
+      "options": {
+        "A": "Lumping citations at the end of a paragraph",
+        "B": "Making claims with no citation",
+        "C": "Listing instead of synthesising",
+        "D": "Citing more than five sources per claim",
+        "E": "Quoting sources word-for-word"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The three source-misuse errors are lumping citations at the paragraph's end, claims with no citation, and listing instead of synthesising. D and E are not among the named errors."
+    },
+    {
+      "id": "s4_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which statements about the proposal-to-paper relationship are correct? (Select all that apply)",
+      "options": {
+        "A": "The proposal is essentially the first half of the paper",
+        "B": "A proposal's goal is to convince readers to approve the study",
+        "C": "Methods described in the proposal may change later",
+        "D": "A proposal must report a finished study's contribution",
+        "E": "The proposal and the paper share identical goals"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The proposal is the first half of the paper, aims to get the study approved, and its methods may legitimately change. D is false because the proposal concerns a future study, and E is false because their goals differ: a proposal seeks approval while a paper argues the conducted study was good."
+    }
+  ]
+}

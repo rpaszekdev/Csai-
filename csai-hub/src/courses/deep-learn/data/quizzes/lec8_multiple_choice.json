@@ -1,0 +1,637 @@
+{
+  "section_id": "lec8",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: Attention & Transformers - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec8_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "What is the primary role of attention in the transformer architecture?",
+      "options": {
+        "A": "Distributing computational resources efficiently across the model's layers.",
+        "B": "Regularizing the model's training process to prevent overfitting.",
+        "C": "Capturing contextual relationships between input tokens.",
+        "D": "Applying non-linear transformations to input embeddings."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Which of the following statements best summarizes the main differences between the LSTM and Transformer architectures.",
+      "options": {
+        "A": "Transformer is used for translating from one language to another. LSTM is used to predict which letter comes next in a text.",
+        "B": "In a Transformer, sequential processing of the data is encoded via self-attention. In LSTM it is encoded in the memory cell.",
+        "C": "LSTM and Transformer are both recurrent architectures with memory. The main difference is that in LSTM the memory is short term and in Transformer it is long term.",
+        "D": "In an LSTM, sequential processing of the data is hard-wired in the architecture. Transformer does not assume sequential order of the data: instead the order can be specified via positional encodings."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Which of the following states best summarizes what LSTM and Transformer have in common.",
+      "options": {
+        "A": "Both LSTM and Transformer are types of neural architectures which aim at learning to capture long-distance dependencies in sequential data.",
+        "B": "LSTM and Transformer are both types of architecture which are designed to be easily trained in parallel on multiple graphical processing units.",
+        "C": "Both LSTM and Transformer are types of neural architectures which are designed to capture graph or tree structured data.",
+        "D": "LSTM and Transformer are both types of architectures which are designed to be able to approximate arbitrary non-linear functions."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "In an implementation of the attention layer using Linear layers in PyTorch, you encounter these lines in the forward function of the forward function. values = self.values(input_values) keys = self.keys(input_keys) queries = self.queries(input_queries) energy = torch.einsum(\"nqhd,nkhd->nhqk\", [queries, keys]) energy /= queries.size(-1) ** 0.5 attention = torch.nn.functional.softmax(energy, dim=3) out = torch.einsum(\"nhll,nlhd->nlhd\", [attention, values]) out = out.reshape(N, query_len, self.heads * self.head_dim) out = self.fc_out(out) What is the purpose of the torch.einsum operation in this line: energy = torch.einsum(\"nqhd,nkhd->nhqk\", [queries, keys]):",
+      "options": {
+        "A": "Applying activation functions to the input embeddings.",
+        "B": "Computing the attention scores between query and key vectors.",
+        "C": "Concatenating query and key vectors along specified dimensions.",
+        "D": "Summing the dot products of query and key vectors across multiple attention heads."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "Which of the following options correctly identifies the main elements of attention in recurrent neural networks (RNNs) and their relevance for sequence modeling?",
+      "options": {
+        "A": "Attention in RNNs refers to the incorporation of recurrent connections within the network architecture, enabling it to maintain a memory of past inputs. This enhances sequence modeling by preserving temporal dependencies in the data.",
+        "B": "Attention in RNNs consists of mechanisms that allow the model to selectively focus on different parts of the input sequence during processing. It enhances sequence modeling by assigning varying degrees of importance to different elements of the input sequence based on their relevance to the current step.",
+        "C": "Attention in RNNs comprises the encoder-decoder architecture, where the encoder processes the input sequence and the decoder generates the output sequence. It enhances sequence modeling by focusing on relevant parts of the output sequence during decoding.",
+        "D": "Attention in RNNs involves the use of convolutional layers to extract features from the input sequence and dynamically allocate different weights to these features during processing. This enhances sequence modeling by capturing intricate patterns in the data."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Which of the following best describes the working principles of the architecture elements in a transformer?",
+      "options": {
+        "A": "The attention mechanism facilitates capturing long-range dependencies by assigning different weights to input tokens.",
+        "B": "All of the other options",
+        "C": "The positional encoding scheme ensures that the model can handle input sequences of varying lengths effectively.",
+        "D": "The feedforward neural network layers process information sequentially, enhancing feature extraction."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "You are encoding the following sentence with a self-attention: \"Attention is all you need\". So you get the following data from your encodings, queries, keys and values: - Input vectors (X): x1: [1, 0, 1, 0] x2: [1, 1, 1, 0] x3: [2, 0, 1, 2] x4: [1, 2, 1, 0] x5: [0, 1, 0, 0] - Query vectors (Q): q1: [2, 1, 3] q2: [1, 0, 2] q3: [0, 0, 1] q4: [1, 2, 3] q5: [2, 0, 0] - Key vectors (K): k1: [0, 1, 1] k2: [0, 2, 1] k3: [1, 1, 2] k4: [1, 0, 0] k5: [0, 0, 2] - Value vectors (V) v1: [1, 2, 3] v2: [2, 8, 0] v3: [2, 6, 3] v4: [1, 3, 1] v5: [0, 2, 0] What is the value vector (vi) that will get the highest attention weight for the word 'Attention' when using a self-attention layer? v [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "4",
+        "B": "2",
+        "C": "3",
+        "D": "5",
+        "E": "1"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Consider the following expression related to the attention mechanism in the Transformer architecture: Attention Scores = 𝑄 𝐾 𝑇 𝑑 Which of the following statements gives the most accurate interpretation of this formula?",
+      "options": {
+        "A": "Inputs to a transformer layer are transformed into key vectors (columns of K) and query vectors (columns of Q). The entries of the matrix QKT contain similarities between pairs of input positions (as measured by the cosine similarity function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors.",
+        "B": "Inputs to a transformer layer are transformed into key vectors (columns of K) and query vectors (columns of Q). The entries of the matrix QKT contain similarities between pairs of input positions (as measured by the dot product function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors.",
+        "C": "Inputs to a transformer layer are transformed into key vectors (rows of K) and query vectors (rows of Q). The entries of the matrix QK^T contain similarities between pairs of input positions (as measured by the dot product function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors.",
+        "D": "Inputs to a transformer layer are transformed into key vectors (rows of K) and query vectors (rows of Q). The entries of the matrix QKT contain similarities between pairs of input positions (as measured by the cosine similarity function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Both transformer and RNN-based architectures can be used quite effectively for NLP sequence-to-sequence tasks. What is the reason for the transformer architecture to be faster, more efficient than RNN-based architectures, e.g. LSTMs?",
+      "options": {
+        "A": "LSTMs and GRUs which are used for NLP tasks extend simple RNNs with gates. gates are computationally expensive as they reason about information that has to be memorised or forgotten, to cope with the vanishing gradient problem. Transformer networks do not employ gates which is the main reason why they are faster.",
+        "B": "The Transformer architecture implements a self-attention mechanism. RNNs (e.g. LSTM or GRU) used for sequence to sequence implement a global attention mechanism. The latter attention mechanism is much less efficient as it needs to focus on the complete sentence, rather than on local parts of it. That is why RNNs used for sequence to sequence tasks are less efficient than Transformer. If no attention was used, it is not conclusive which of the two architectures is more efficient.",
+        "C": "RNNs process information sequentially, one input (e.g. token) at a time making it difficult to parallelize training of RNNs. In contrast the Transformer architecture employs FF networks and processes each input independently, making the training easy to parallelise and distribute.",
+        "D": "In order to achieve high performance (e.g. accuracy) we typically build very deep RNNs but shallow Transformer models. The depth of RNNs makes them less efficient to train than Transformer."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "2, 0, 2",
+        "B": "3, 0, 3",
+        "C": "2, 2, 0",
+        "D": "1, 0, 2"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "2, 1, 2",
+        "B": "1, 2, 1",
+        "C": "2, 0, 2",
+        "D": "1, 2, 2"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "1, 1, 1",
+        "B": "0, 0, 0",
+        "C": "0, 1, 0",
+        "D": "1, 2, 1"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "2, 0.5, 2",
+        "B": "0.5, 2, 0.5",
+        "C": "0.5, 1, 0.5",
+        "D": "0.25, 2, 0.25"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "2, 1.5, 2",
+        "B": "2.25, 2.25, 2.5",
+        "C": "2.5, 2, 2",
+        "D": "2, 2, 2.5"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "1, 1.5, 1.5",
+        "B": "0.5, 0, 0.5",
+        "C": "1, 1, 1.5",
+        "D": "1.5, 1.5, 1"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #7:",
+      "options": {
+        "A": "2, 0, 0",
+        "B": "2, 0.5, 0.5",
+        "C": "0, 2, 0.5",
+        "D": "2, 0, 0.5"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #8:",
+      "options": {
+        "A": "2, 0, 1",
+        "B": "1, 2, 0",
+        "C": "0, 2, 1",
+        "D": "0, 1, 2"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #9:",
+      "options": {
+        "A": "1, 1, 0.5",
+        "B": "1, 2, 0.5",
+        "C": "0.5, 1, 1",
+        "D": "1, 0.5, 1"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #10:",
+      "options": {
+        "A": "9",
+        "B": "2",
+        "C": "1",
+        "D": "5"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #11:",
+      "options": {
+        "A": "9",
+        "B": "2",
+        "C": "5",
+        "D": "7"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #12:",
+      "options": {
+        "A": "5",
+        "B": "9",
+        "C": "3",
+        "D": "2"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #13:",
+      "options": {
+        "A": "0.01",
+        "B": "0.02",
+        "C": "0.04",
+        "D": "0.2"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #14:",
+      "options": {
+        "A": "0.1",
+        "B": "0.7",
+        "C": "0.3",
+        "D": "0.9"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_24",
+      "number": 24,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #15:",
+      "options": {
+        "A": "0.07",
+        "B": "0.2",
+        "C": "0.03",
+        "D": "0.09"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_25",
+      "number": 25,
+      "type": "multiple_choice",
+      "question": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [ Select ] q2 = [ Select ] q3 = [ Select ] K = [k1, k2, k3], where k1 = [ Select ] k2 = [ Select ] k3 = [ Select ] V = [v1, v2, v3], where v1 = [ Select ] v2 = [ Select ] v3 = [ Select ] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [ Select ] score_12 = [ Select ] score_13 = [ Select ] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [ Select ] α12 = [ Select ] α13 = [ Select ] 4. Finally, compute the output vector for token 1: z1 = [ Select ]\n\nSelect the correct choice for blank #16:",
+      "options": {
+        "A": "1.22, 2.88, 1.05",
+        "B": "1.2, 3.84, 0.25",
+        "C": "0.05, 1.02, 1.88",
+        "D": "1.02, 1.88, 0.05"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_26",
+      "number": 26,
+      "type": "multiple_choice",
+      "question": "You are training a system composed of two neural networks: The first maps audio clips to vector embeddings using an LSTM model, where the final hidden state is used as a single-vector representation for each audio clip. The second maps text transcriptions to vector embeddings using a Transformer model, which also outputs a single-vector representation for each input. Your goal is that matching audio-text pairs (i.e., an audio clip and its corresponding transcription) have similar embeddings, while non- matching pairs should have embeddings that are far apart. During training: You construct batches where each item is an aligned audio–text pair. Each audio and text appears only once per batch (no repeats). To train the models, you create a loss function that tries to make the embeddings of the matching audio and text transcripts as similar as possible and as far apart from dissimilar ones as possible. An approach to implement this idea could follow the steps described below. Choose the best option to complete the description of each step in a way that would lead to the desired result: 1. Normalize the audio and text embeddings so that each one lies on a unit hypersphere. This can be done using [ Select ] . 2. Compute a similarity matrix between all audio and text embeddings in a batch using [ Select ] . 3. For each audio embedding, you want the correct text embedding to have the highest similarity, so you apply [ Select ] over each row of the similarity matrix. Then, you compute [ Select ] using the correct index for each audio-text pair to define the target. 4. You repeat the process symmetrically: for each text embedding, apply the same logic using [ Select ] .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "L2 normalization",
+        "B": "Batch Normalization",
+        "C": "Softmax",
+        "D": "Dropout"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_27",
+      "number": 27,
+      "type": "multiple_choice",
+      "question": "You are training a system composed of two neural networks: The first maps audio clips to vector embeddings using an LSTM model, where the final hidden state is used as a single-vector representation for each audio clip. The second maps text transcriptions to vector embeddings using a Transformer model, which also outputs a single-vector representation for each input. Your goal is that matching audio-text pairs (i.e., an audio clip and its corresponding transcription) have similar embeddings, while non- matching pairs should have embeddings that are far apart. During training: You construct batches where each item is an aligned audio–text pair. Each audio and text appears only once per batch (no repeats). To train the models, you create a loss function that tries to make the embeddings of the matching audio and text transcripts as similar as possible and as far apart from dissimilar ones as possible. An approach to implement this idea could follow the steps described below. Choose the best option to complete the description of each step in a way that would lead to the desired result: 1. Normalize the audio and text embeddings so that each one lies on a unit hypersphere. This can be done using [ Select ] . 2. Compute a similarity matrix between all audio and text embeddings in a batch using [ Select ] . 3. For each audio embedding, you want the correct text embedding to have the highest similarity, so you apply [ Select ] over each row of the similarity matrix. Then, you compute [ Select ] using the correct index for each audio-text pair to define the target. 4. You repeat the process symmetrically: for each text embedding, apply the same logic using [ Select ] .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "Euclidean distance",
+        "B": "ReLU activation",
+        "C": "Cross-entropy",
+        "D": "Dot product or cosine similarity"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_28",
+      "number": 28,
+      "type": "multiple_choice",
+      "question": "You are training a system composed of two neural networks: The first maps audio clips to vector embeddings using an LSTM model, where the final hidden state is used as a single-vector representation for each audio clip. The second maps text transcriptions to vector embeddings using a Transformer model, which also outputs a single-vector representation for each input. Your goal is that matching audio-text pairs (i.e., an audio clip and its corresponding transcription) have similar embeddings, while non- matching pairs should have embeddings that are far apart. During training: You construct batches where each item is an aligned audio–text pair. Each audio and text appears only once per batch (no repeats). To train the models, you create a loss function that tries to make the embeddings of the matching audio and text transcripts as similar as possible and as far apart from dissimilar ones as possible. An approach to implement this idea could follow the steps described below. Choose the best option to complete the description of each step in a way that would lead to the desired result: 1. Normalize the audio and text embeddings so that each one lies on a unit hypersphere. This can be done using [ Select ] . 2. Compute a similarity matrix between all audio and text embeddings in a batch using [ Select ] . 3. For each audio embedding, you want the correct text embedding to have the highest similarity, so you apply [ Select ] over each row of the similarity matrix. Then, you compute [ Select ] using the correct index for each audio-text pair to define the target. 4. You repeat the process symmetrically: for each text embedding, apply the same logic using [ Select ] .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "ReLU",
+        "B": "Softmax",
+        "C": "Argmax",
+        "D": "Mean squared error"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_29",
+      "number": 29,
+      "type": "multiple_choice",
+      "question": "You are training a system composed of two neural networks: The first maps audio clips to vector embeddings using an LSTM model, where the final hidden state is used as a single-vector representation for each audio clip. The second maps text transcriptions to vector embeddings using a Transformer model, which also outputs a single-vector representation for each input. Your goal is that matching audio-text pairs (i.e., an audio clip and its corresponding transcription) have similar embeddings, while non- matching pairs should have embeddings that are far apart. During training: You construct batches where each item is an aligned audio–text pair. Each audio and text appears only once per batch (no repeats). To train the models, you create a loss function that tries to make the embeddings of the matching audio and text transcripts as similar as possible and as far apart from dissimilar ones as possible. An approach to implement this idea could follow the steps described below. Choose the best option to complete the description of each step in a way that would lead to the desired result: 1. Normalize the audio and text embeddings so that each one lies on a unit hypersphere. This can be done using [ Select ] . 2. Compute a similarity matrix between all audio and text embeddings in a batch using [ Select ] . 3. For each audio embedding, you want the correct text embedding to have the highest similarity, so you apply [ Select ] over each row of the similarity matrix. Then, you compute [ Select ] using the correct index for each audio-text pair to define the target. 4. You repeat the process symmetrically: for each text embedding, apply the same logic using [ Select ] .\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "Hinge loss",
+        "B": "Cross-entropy loss",
+        "C": "L1 loss",
+        "D": "Binary classification loss"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_30",
+      "number": 30,
+      "type": "multiple_choice",
+      "question": "You are training a system composed of two neural networks: The first maps audio clips to vector embeddings using an LSTM model, where the final hidden state is used as a single-vector representation for each audio clip. The second maps text transcriptions to vector embeddings using a Transformer model, which also outputs a single-vector representation for each input. Your goal is that matching audio-text pairs (i.e., an audio clip and its corresponding transcription) have similar embeddings, while non- matching pairs should have embeddings that are far apart. During training: You construct batches where each item is an aligned audio–text pair. Each audio and text appears only once per batch (no repeats). To train the models, you create a loss function that tries to make the embeddings of the matching audio and text transcripts as similar as possible and as far apart from dissimilar ones as possible. An approach to implement this idea could follow the steps described below. Choose the best option to complete the description of each step in a way that would lead to the desired result: 1. Normalize the audio and text embeddings so that each one lies on a unit hypersphere. This can be done using [ Select ] . 2. Compute a similarity matrix between all audio and text embeddings in a batch using [ Select ] . 3. For each audio embedding, you want the correct text embedding to have the highest similarity, so you apply [ Select ] over each row of the similarity matrix. Then, you compute [ Select ] using the correct index for each audio-text pair to define the target. 4. You repeat the process symmetrically: for each text embedding, apply the same logic using [ Select ] .\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "The loss from the text embeddings",
+        "B": "The same audio embeddings",
+        "C": "A decoder output",
+        "D": "The transposed similarity matrix"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_31",
+      "number": 31,
+      "type": "multiple_choice",
+      "question": "In a sequence-to-sequence RNN model with attention, how is the context vector typically computed during decoding at timestep t?",
+      "options": {
+        "A": "By computing a weighted sum of encoder hidden states, where weights are derived from a compatibility function between encoder states and the current decoder state",
+        "B": "By selecting the encoder hidden state with the highest cosine similarity to the decoder input at timestep t",
+        "C": "By taking the element-wise maximum of all encoder hidden states based on the decoder's previous hidden state",
+        "D": "By summing the decoder's hidden state with the last encoder hidden state"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_32",
+      "number": 32,
+      "type": "multiple_choice",
+      "question": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.\n\nMatch: Model A (Word2Vec)",
+      "options": {
+        "A": "The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.",
+        "B": "The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.",
+        "C": "The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.",
+        "D": "The embedding of \"bank\" is influenced by the words around it in the sentence.",
+        "E": "The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"",
+        "F": "The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_33",
+      "number": 33,
+      "type": "multiple_choice",
+      "question": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.\n\nMatch: Model A (Word2Vec)",
+      "options": {
+        "A": "The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.",
+        "B": "The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.",
+        "C": "The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.",
+        "D": "The embedding of \"bank\" is influenced by the words around it in the sentence.",
+        "E": "The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"",
+        "F": "The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_34",
+      "number": 34,
+      "type": "multiple_choice",
+      "question": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.\n\nMatch: Model A (Word2Vec)",
+      "options": {
+        "A": "The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.",
+        "B": "The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.",
+        "C": "The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.",
+        "D": "The embedding of \"bank\" is influenced by the words around it in the sentence.",
+        "E": "The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"",
+        "F": "The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_35",
+      "number": 35,
+      "type": "multiple_choice",
+      "question": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.\n\nMatch: Model B (Transformer-based)",
+      "options": {
+        "A": "The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.",
+        "B": "The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.",
+        "C": "The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.",
+        "D": "The embedding of \"bank\" is influenced by the words around it in the sentence.",
+        "E": "The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"",
+        "F": "The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_36",
+      "number": 36,
+      "type": "multiple_choice",
+      "question": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.\n\nMatch: Model B (Transformer-based)",
+      "options": {
+        "A": "The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.",
+        "B": "The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.",
+        "C": "The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.",
+        "D": "The embedding of \"bank\" is influenced by the words around it in the sentence.",
+        "E": "The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"",
+        "F": "The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      "correct_answer": "E",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_37",
+      "number": 37,
+      "type": "multiple_choice",
+      "question": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.\n\nMatch: Model B (Transformer-based)",
+      "options": {
+        "A": "The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.",
+        "B": "The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.",
+        "C": "The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.",
+        "D": "The embedding of \"bank\" is influenced by the words around it in the sentence.",
+        "E": "The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"",
+        "F": "The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      "correct_answer": "F",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_38",
+      "number": 38,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple version of self-attention in PyTorch: import torch import torch.nn as nn import torch.nn.functional as F class SelfAttention(nn.Module): def __init__(self, embed_dim): super(SelfAttention, self).__init__() self.embed_dim = embed_dim self.query = nn.Linear(embed_dim, embed_dim) self.key = nn.Linear(embed_dim, embed_dim) self.value = nn.Linear(embed_dim, embed_dim) def forward(self, x): # x: (batch_size, seq_len, embed_dim) Q = self.query(x) K = self.key(x) V = self.value(x) # Compute attention scores scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.embed_dim ** 0.5) weights = F.softmax(scores, dim=-1) # Compute context context = torch.matmul(weights, V) return context The role of the linear layers for Query, Key, and Value in the Self-Attention module is: → [ Select ] The operation where the raw attention logits are computed is: → [ Select ] If the input x has shape (batch_size, seq_len, embed_dim), the shape of the tensor scores is: → [ Select ] The final matrix multiplication torch.matmul(weights, V) computes: → [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "They copy input tokens into separate attention heads",
+        "B": "They map input tokens into a shared embedding space used to compute attention.",
+        "C": "They normalize input sequences to unit length",
+        "D": "They reduce dimensionality for faster matrix multiplication"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_39",
+      "number": 39,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple version of self-attention in PyTorch: import torch import torch.nn as nn import torch.nn.functional as F class SelfAttention(nn.Module): def __init__(self, embed_dim): super(SelfAttention, self).__init__() self.embed_dim = embed_dim self.query = nn.Linear(embed_dim, embed_dim) self.key = nn.Linear(embed_dim, embed_dim) self.value = nn.Linear(embed_dim, embed_dim) def forward(self, x): # x: (batch_size, seq_len, embed_dim) Q = self.query(x) K = self.key(x) V = self.value(x) # Compute attention scores scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.embed_dim ** 0.5) weights = F.softmax(scores, dim=-1) # Compute context context = torch.matmul(weights, V) return context The role of the linear layers for Query, Key, and Value in the Self-Attention module is: → [ Select ] The operation where the raw attention logits are computed is: → [ Select ] If the input x has shape (batch_size, seq_len, embed_dim), the shape of the tensor scores is: → [ Select ] The final matrix multiplication torch.matmul(weights, V) computes: → [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "torch.matmul(Q, K.transpose(-2, -1))",
+        "B": "torch.matmul(weights, V)",
+        "C": "F.softmax(scores, dim=-1)",
+        "D": "self.query(x)"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_40",
+      "number": 40,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple version of self-attention in PyTorch: import torch import torch.nn as nn import torch.nn.functional as F class SelfAttention(nn.Module): def __init__(self, embed_dim): super(SelfAttention, self).__init__() self.embed_dim = embed_dim self.query = nn.Linear(embed_dim, embed_dim) self.key = nn.Linear(embed_dim, embed_dim) self.value = nn.Linear(embed_dim, embed_dim) def forward(self, x): # x: (batch_size, seq_len, embed_dim) Q = self.query(x) K = self.key(x) V = self.value(x) # Compute attention scores scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.embed_dim ** 0.5) weights = F.softmax(scores, dim=-1) # Compute context context = torch.matmul(weights, V) return context The role of the linear layers for Query, Key, and Value in the Self-Attention module is: → [ Select ] The operation where the raw attention logits are computed is: → [ Select ] If the input x has shape (batch_size, seq_len, embed_dim), the shape of the tensor scores is: → [ Select ] The final matrix multiplication torch.matmul(weights, V) computes: → [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "(batch_size, embed_dim, embed_dim)",
+        "B": "(batch_size, seq_len, embed_dim)",
+        "C": "(seq_len, seq_len, batch_size)",
+        "D": "(batch_size, seq_len, seq_len)"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_41",
+      "number": 41,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple version of self-attention in PyTorch: import torch import torch.nn as nn import torch.nn.functional as F class SelfAttention(nn.Module): def __init__(self, embed_dim): super(SelfAttention, self).__init__() self.embed_dim = embed_dim self.query = nn.Linear(embed_dim, embed_dim) self.key = nn.Linear(embed_dim, embed_dim) self.value = nn.Linear(embed_dim, embed_dim) def forward(self, x): # x: (batch_size, seq_len, embed_dim) Q = self.query(x) K = self.key(x) V = self.value(x) # Compute attention scores scores = torch.matmul(Q, K.transpose(-2, -1)) / (self.embed_dim ** 0.5) weights = F.softmax(scores, dim=-1) # Compute context context = torch.matmul(weights, V) return context The role of the linear layers for Query, Key, and Value in the Self-Attention module is: → [ Select ] The operation where the raw attention logits are computed is: → [ Select ] If the input x has shape (batch_size, seq_len, embed_dim), the shape of the tensor scores is: → [ Select ] The final matrix multiplication torch.matmul(weights, V) computes: → [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "A fixed-size embedding representing the whole input",
+        "B": "The predicted next token in a sequence",
+        "C": "The updated token representations, weighted by attention to all other tokens.",
+        "D": "A summary vector for each sentence"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_42",
+      "number": 42,
+      "type": "multiple_choice",
+      "question": "Answer the questions below based on the code provided: class SelfAttentionLayer(torch.nn.Module): def __init__(self, embed_size, heads): super(SelfAttentionLayer, self).__init__() self.embed_size = embed_size # The dimensionality of the input embeddings self.heads = heads # The number of attention heads self.head_dim = embed_size // heads # The dimensionality of each attention head assert ( self.head_dim * heads == embed_size ), XX self.values = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.keys = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.queries = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.fc_out = torch.nn.Linear(heads * self.head_dim, embed_size) def forward(self, input_values, input_keys, input_queries): #Extract batch size (N), and lengths of value, key, and query sequences. N = input_queries.shape[ 0 ] value_len, key_len, query_len = input_values.shape[ 1 ], input_keys.shape[ 1 ], input_queries.shape[ 1 ] # Split the embedding into self.heads different pieces input_values = input_values.reshape(N, value_len, self.heads, self.head_dim) input_keys = input_keys.reshape(N, key_len, self.heads, self.head_dim) input_queries = input_queries.reshape(N, query_len, XX, self.head_dim) values = self.values(input_values) keys = self.keys(input_keys) queries = self.queries(input_queries) # Scaled dot-product attention energy = torch.einsum(XX, [queries, keys]) # (N, heads, query_len, key_len) # Scale the energy energy /= queries.size(-1) ** 0.5 # Scale by square root of dimension of queries attention = torch.nn.functional.softmax(energy, dim=3) out = torch.einsum(\"nhll,nlhd->nlhd\", [attention, values]) out = out.reshape(N, query_len, self.heads * self.head_dim) # (N, query_len, heads * head_dim) out = self.fc_out(out) return out 1) Complete the assertion: assert self.head_dim * heads == embed_size, \" [ Select ] \" This check ensures that the embedding can be evenly split across attention heads. 2) Complete the reshaping operation: input_queries = input_queries.reshape(N, query_len, [ Select ] , self.head_dim) This operation splits the embedding dimension into multiple attention heads. 3) Fill in the einsum expression: energy = torch.einsum(\" [ Select ] \", [queries, keys]) This computes dot-product attention scores between queries and keys for each head.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "\"Sequence length must be fixed\"",
+        "B": "\"Embedding size needs to be divisible by heads\"",
+        "C": "\"Hidden size must equal output size\"",
+        "D": "\"Batch size mismatch\""
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_43",
+      "number": 43,
+      "type": "multiple_choice",
+      "question": "Answer the questions below based on the code provided: class SelfAttentionLayer(torch.nn.Module): def __init__(self, embed_size, heads): super(SelfAttentionLayer, self).__init__() self.embed_size = embed_size # The dimensionality of the input embeddings self.heads = heads # The number of attention heads self.head_dim = embed_size // heads # The dimensionality of each attention head assert ( self.head_dim * heads == embed_size ), XX self.values = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.keys = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.queries = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.fc_out = torch.nn.Linear(heads * self.head_dim, embed_size) def forward(self, input_values, input_keys, input_queries): #Extract batch size (N), and lengths of value, key, and query sequences. N = input_queries.shape[ 0 ] value_len, key_len, query_len = input_values.shape[ 1 ], input_keys.shape[ 1 ], input_queries.shape[ 1 ] # Split the embedding into self.heads different pieces input_values = input_values.reshape(N, value_len, self.heads, self.head_dim) input_keys = input_keys.reshape(N, key_len, self.heads, self.head_dim) input_queries = input_queries.reshape(N, query_len, XX, self.head_dim) values = self.values(input_values) keys = self.keys(input_keys) queries = self.queries(input_queries) # Scaled dot-product attention energy = torch.einsum(XX, [queries, keys]) # (N, heads, query_len, key_len) # Scale the energy energy /= queries.size(-1) ** 0.5 # Scale by square root of dimension of queries attention = torch.nn.functional.softmax(energy, dim=3) out = torch.einsum(\"nhll,nlhd->nlhd\", [attention, values]) out = out.reshape(N, query_len, self.heads * self.head_dim) # (N, query_len, heads * head_dim) out = self.fc_out(out) return out 1) Complete the assertion: assert self.head_dim * heads == embed_size, \" [ Select ] \" This check ensures that the embedding can be evenly split across attention heads. 2) Complete the reshaping operation: input_queries = input_queries.reshape(N, query_len, [ Select ] , self.head_dim) This operation splits the embedding dimension into multiple attention heads. 3) Fill in the einsum expression: energy = torch.einsum(\" [ Select ] \", [queries, keys]) This computes dot-product attention scores between queries and keys for each head.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "query_len",
+        "B": "embed_size",
+        "C": "N",
+        "D": "self.heads"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec8_mc_44",
+      "number": 44,
+      "type": "multiple_choice",
+      "question": "Answer the questions below based on the code provided: class SelfAttentionLayer(torch.nn.Module): def __init__(self, embed_size, heads): super(SelfAttentionLayer, self).__init__() self.embed_size = embed_size # The dimensionality of the input embeddings self.heads = heads # The number of attention heads self.head_dim = embed_size // heads # The dimensionality of each attention head assert ( self.head_dim * heads == embed_size ), XX self.values = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.keys = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.queries = torch.nn.Linear(self.head_dim, self.head_dim, bias=False) self.fc_out = torch.nn.Linear(heads * self.head_dim, embed_size) def forward(self, input_values, input_keys, input_queries): #Extract batch size (N), and lengths of value, key, and query sequences. N = input_queries.shape[ 0 ] value_len, key_len, query_len = input_values.shape[ 1 ], input_keys.shape[ 1 ], input_queries.shape[ 1 ] # Split the embedding into self.heads different pieces input_values = input_values.reshape(N, value_len, self.heads, self.head_dim) input_keys = input_keys.reshape(N, key_len, self.heads, self.head_dim) input_queries = input_queries.reshape(N, query_len, XX, self.head_dim) values = self.values(input_values) keys = self.keys(input_keys) queries = self.queries(input_queries) # Scaled dot-product attention energy = torch.einsum(XX, [queries, keys]) # (N, heads, query_len, key_len) # Scale the energy energy /= queries.size(-1) ** 0.5 # Scale by square root of dimension of queries attention = torch.nn.functional.softmax(energy, dim=3) out = torch.einsum(\"nhll,nlhd->nlhd\", [attention, values]) out = out.reshape(N, query_len, self.heads * self.head_dim) # (N, query_len, heads * head_dim) out = self.fc_out(out) return out 1) Complete the assertion: assert self.head_dim * heads == embed_size, \" [ Select ] \" This check ensures that the embedding can be evenly split across attention heads. 2) Complete the reshaping operation: input_queries = input_queries.reshape(N, query_len, [ Select ] , self.head_dim) This operation splits the embedding dimension into multiple attention heads. 3) Fill in the einsum expression: energy = torch.einsum(\" [ Select ] \", [queries, keys]) This computes dot-product attention scores between queries and keys for each head.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "\"nqhd,nkhd->nqhd\"",
+        "B": "\"nqhd,nkhd->nhqk\"",
+        "C": "\"nhqk,nkhd->nqhd\"",
+        "D": "\"nhqd,nkhd->nqkh\""
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    }
+  ]
+}

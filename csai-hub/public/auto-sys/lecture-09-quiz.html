@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-09.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,20 @@ const QUESTIONS = [
     "prompt": "Turing's <strong>child machine</strong> argument proposes that, instead of building an adult-level intelligent machine directly, we should:",
     "options": [
       {
-        "html": "Use only symbolic AI."
+        "html": "Hand-engineer adult-level reasoning directly in symbolic logic, since a machine has no childhood and cannot benefit from one.",
+        "correct": false
       },
       {
         "html": "Build a simpler machine that learns and develops over time, the way a child does, eventually reaching adult competence.",
         "correct": true
       },
       {
-        "html": "Avoid sensors entirely."
+        "html": "Copy an adult human brain's final wiring outright, skipping development because the mature endpoint is what we actually want.",
+        "correct": false
       },
       {
-        "html": "Replace learning with rule-based programming."
+        "html": "Replace open-ended learning with an exhaustive rule base, so the machine never has to discover any competence on its own.",
+        "correct": false
       }
     ],
     "prof": "Turing already saw it: don't engineer the endpoint, engineer the trajectory. This is the seed of developmental robotics."
@@ -132,16 +139,16 @@ const QUESTIONS = [
     "prompt": "Cognitive robotics typically lists <strong>six</strong> attributes a system should exhibit to be called cognitive. Which option is <strong>NOT</strong> among them?",
     "options": [
       {
-        "html": "Perception of the environment."
+        "html": "Perception — sensing and interpreting the surrounding environment."
       },
       {
-        "html": "Action selection toward goals."
+        "html": "Action selection — choosing behaviours that move the agent toward its goals."
       },
       {
-        "html": "Adaptation / learning over time."
+        "html": "Adaptation — learning and improving from experience over time."
       },
       {
-        "html": "Strict 24/7 uptime.",
+        "html": "Strict 24/7 uptime — guaranteed continuous operation with no downtime.",
         "correct": true
       }
     ],
@@ -155,17 +162,20 @@ const QUESTIONS = [
     "prompt": "A <strong>cognitive architecture</strong> (e.g., SOAR, ACT-R, SOIMA) is best described as:",
     "options": [
       {
-        "html": "A specific neural network library."
+        "html": "A specific neural-network library that ships pretrained perception and control models ready to drop into a robot.",
+        "correct": false
       },
       {
         "html": "A unified blueprint specifying memory, perception, action, and learning components — and how they exchange information.",
         "correct": true
       },
       {
-        "html": "A type of operating system."
+        "html": "A real-time operating system that schedules a robot's cognitive processes across its CPU and GPU under tight latency limits.",
+        "correct": false
       },
       {
-        "html": "A debugging tool for ROS."
+        "html": "A middleware layer that standardises message passing between sensors and actuators, much like a higher-level version of ROS.",
+        "correct": false
       }
     ],
     "prof": "Architectures are about <em>integration</em>. They commit to which modules exist and how they talk, so cognitive functions don't live in isolated demos."
@@ -178,17 +188,20 @@ const QUESTIONS = [
     "prompt": "<strong>SOIMA</strong> is presented as a concrete cognitive architecture in this course. What is its central design move?",
     "options": [
       {
-        "html": "Replacing every module with a single LLM."
+        "html": "Collapsing perception, memory, and motor control into a single large language model that is left to handle every cognitive function end to end on its own.",
+        "correct": false
       },
       {
         "html": "Organising perception, attention, memory, and motor control into tightly coupled modules around a shared internal model, supporting developmental learning.",
         "correct": true
       },
       {
-        "html": "Using only symbolic logic."
+        "html": "Encoding all of cognition in hand-written symbolic logic rules, keeping the modules fully separate from one another and free of any learned components whatsoever.",
+        "correct": false
       },
       {
-        "html": "Avoiding any sensor data."
+        "html": "Driving behaviour purely from a fixed internal world model, so that the architecture needs no live sensor data at all once it has finished training.",
+        "correct": false
       }
     ],
     "prof": "SOIMA = an integrated, developmentally-oriented architecture. Useful as a reference example of \"what a cognitive architecture actually looks like in code.\""
@@ -201,17 +214,20 @@ const QUESTIONS = [
     "prompt": "What distinguishes <strong>developmental robotics</strong> from \"ordinary\" learning in robots?",
     "options": [
       {
-        "html": "Developmental robots only use deep learning."
+        "html": "Developmental robotics is simply ordinary task learning scaled up with deeper networks and much larger training datasets for each individual task the robot faces.",
+        "correct": false
       },
       {
         "html": "Developmental robotics emphasises open-ended, staged acquisition of skills, where earlier capabilities scaffold later ones — not just optimising one task.",
         "correct": true
       },
       {
-        "html": "Developmental robots cannot use cameras."
+        "html": "Developmental robotics swaps reward optimisation for pure imitation, learning every single new skill by directly copying the movements of a human demonstrator.",
+        "correct": false
       },
       {
-        "html": "Development means hard-coding milestones."
+        "html": "Developmental robotics hard-codes a fixed sequence of milestones fully in advance, then trains the robot to hit each one of them in a strict, predetermined order.",
+        "correct": false
       }
     ],
     "prof": "Learning ≠ development. Learning fits a curve to a fixed task. Development changes <em>what tasks the agent can attempt</em> over time."
@@ -224,17 +240,20 @@ const QUESTIONS = [
     "prompt": "Why is development, rather than one-shot learning, attractive for autonomous systems in <strong>partially unknown environments</strong>?",
     "options": [
       {
-        "html": "Because development uses less memory."
+        "html": "Because development front-loads all of its training in simulation, so that the deployed agent never has to adapt any further once it finally reaches the real world.",
+        "correct": false
       },
       {
         "html": "Because staged acquisition lets the agent bootstrap competence with minimal supervision, and reuse earlier skills as building blocks for new ones.",
         "correct": true
       },
       {
-        "html": "Because development eliminates the need for sensors."
+        "html": "Because a developmental agent can fully model an unknown environment right up front, removing in advance all of the uncertainty that one-shot learning normally faces.",
+        "correct": false
       },
       {
-        "html": "Because development is faster than learning."
+        "html": "Because development simply converges faster than one-shot learning, reaching the very same fixed-task performance level in far fewer training episodes overall.",
+        "correct": false
       }
     ],
     "prof": "Development = curriculum + reuse. The agent doesn't have to be told \"here is task N+1\" — earlier skills make N+1 reachable on its own."
@@ -247,17 +266,20 @@ const QUESTIONS = [
     "prompt": "Building a cognitive robot via the <strong>synthetic methodology</strong> means:",
     "options": [
       {
-        "html": "Hand-coding every behaviour exhaustively."
+        "html": "Exhaustively hand-coding every behaviour in advance, treating the finished robot as a delivered product rather than a tool for inquiry.",
+        "correct": false
       },
       {
         "html": "Using building robots/simulators as the primary instrument for understanding cognition — hypotheses become architectures, then experiments.",
         "correct": true
       },
       {
-        "html": "Avoiding biology-inspired ideas."
+        "html": "Deliberately avoiding all biology-inspired ideas, on the grounds that engineered cognition should owe nothing at all to how living brains actually work.",
+        "correct": false
       },
       {
-        "html": "Using only off-the-shelf neural networks."
+        "html": "Assembling a system purely from off-the-shelf neural networks, leaving the underlying cognitive theory entirely untested by the build.",
+        "correct": false
       }
     ],
     "prof": "\"Understanding by building.\" If your theory of perception/action/memory can't be instantiated in a working artefact, it's underspecified."
@@ -270,22 +292,35 @@ const QUESTIONS = [
     "prompt": "The lecture argues that cognitive robotics matters <strong>beyond research labs</strong> because:",
     "options": [
       {
-        "html": "It is required for warehouse picking only."
+        "html": "It is needed only for a few narrow industrial niches such as warehouse picking, where a fixed and predefined task list already covers every situation the robot will meet.",
+        "correct": false
       },
       {
         "html": "Real deployment in homes, hospitals, and public spaces requires open-ended, robust, context-sensitive behaviour — exactly what cognitive architectures aim for.",
         "correct": true
       },
       {
-        "html": "It only matters for academic publications."
+        "html": "It matters chiefly as a steady source of academic publications, with very little practical bearing on the kinds of robots that actually operate outside the research lab.",
+        "correct": false
       },
       {
-        "html": "It replaces all classical control."
+        "html": "It is set to replace classical control entirely, since cognitive architectures are claimed to handle low-level motor loops far better than ordinary PID controllers do.",
+        "correct": false
       }
     ],
     "prof": "Real environments don't have a fixed task list. The push from lab to deployment is the same push from \"task-specific learning\" to \"cognitive integration.\""
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l09_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week09-slides/slide-";

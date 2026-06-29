@@ -30,6 +30,10 @@
   <a href="#">Roadmap</a>
   <a href="#" class="active">Lessons</a>
   <a href="./lecture-08-quiz.html">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -51,6 +55,7 @@
       <button type="button" class="hero-tool" data-toggle-panel="panel-l08-transcript">📋 Transcript</button>
       <a class="hero-tool hero-tool-pdf" href="/auto-sys/decks/lecture-08.pdf" target="_blank" rel="noopener">📊 Slides PDF</a>
       <a class="hero-tool hero-tool-pdf" href="/auto-sys/decks/lecture-08.pdf" download>⬇ Download</a>
+      <button type="button" class="hero-tool" data-toggle-panel="panel-l08-podcast">🎧 Podcast</button>
     </div>
   </div>
 
@@ -60,6 +65,16 @@
 </section>
 
 <div class="hero-panels">
+  <div class="hero-panel" id="panel-l08-podcast" hidden>
+    <div class="hero-panel-head">
+      <span class="hero-panel-title">Revision podcast</span>
+      <button type="button" class="hero-panel-close" data-close="panel-l08-podcast" aria-label="Close">×</button>
+    </div>
+    <audio class="hero-podcast-audio" controls preload="none" style="width:100%;margin-top:14px;">
+      <source src="/auto-sys/podcasts/lecture-08.mp3" type="audio/mpeg" />
+      Your browser does not support audio playback.
+    </audio>
+  </div>
   <div class="hero-panel" id="panel-l08-transcript" hidden>
     <div class="hero-panel-head">
       <span class="hero-panel-title">Lecture transcript</span>

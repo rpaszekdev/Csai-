@@ -1,0 +1,147 @@
+{
+  "section_id": "s3",
+  "quiz_type": "multiple_choice",
+  "title": "Experimental Design - Multiple Choice",
+  "questions": [
+    {
+      "id": "s3_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "A researcher predicts that listening to classical music will improve test performance compared to silence. Which statement represents the null hypothesis?",
+      "options": {
+        "A": "Classical music improves test performance over silence",
+        "B": "There is no difference in test performance between conditions",
+        "C": "Silence leads to clearly higher test scores than music does",
+        "D": "Music preference is the main confounding variable here"
+      },
+      "correct_answer": "B",
+      "explanation": "The null hypothesis (H0) states that there is no effect or difference between conditions. A and C are directional alternative hypotheses (H1), and D names a methodological worry, not a hypothesis about the effect."
+    },
+    {
+      "id": "s3_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "In null-hypothesis testing, the significance level (alpha = .05) represents:",
+      "options": {
+        "A": "The probability of making a Type I error",
+        "B": "The probability of making a Type II error",
+        "C": "The measured effect size of the experiment",
+        "D": "The probability that the null hypothesis is true"
+      },
+      "correct_answer": "A",
+      "explanation": "Alpha is the false-positive rate: the probability of rejecting H0 when it is actually true (a Type I error). B describes beta (a Type II error), C confuses alpha with effect size, and D is wrong because a p-value or alpha never gives the probability that H0 is true."
+    },
+    {
+      "id": "s3_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "A researcher measures participants' natural levels of stress and correlates them with sleep quality. Why is this not a true behavioural experiment according to the lecture definition?",
+      "options": {
+        "A": "The study completely lacks any dependent variable to measure",
+        "B": "Stress cannot be measured scientifically at all",
+        "C": "There is no manipulation of an independent variable",
+        "D": "The study does not take place in a laboratory"
+      },
+      "correct_answer": "C",
+      "explanation": "An experiment requires manipulating an independent variable; here stress is only measured, making this correlational. A is false because sleep quality is a DV, B is false because stress can be measured, and D is wrong because a lab setting is not part of the definition."
+    },
+    {
+      "id": "s3_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "A researcher inserts several unrelated items between the critical memory items so participants do not notice the study's purpose. These unrelated items are called:",
+      "options": {
+        "A": "Independent variable items",
+        "B": "Demand characteristic items",
+        "C": "Confounding variable items",
+        "D": "Filler items in the list"
+      },
+      "correct_answer": "D",
+      "explanation": "Fillers are trials unrelated to the hypothesis that hide the manipulation and reduce strategic responding. A is what you manipulate, B is participants guessing the hypothesis, and C is a variable that systematically differs between conditions."
+    },
+    {
+      "id": "s3_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What fundamentally distinguishes an experimental design from a correlational design?",
+      "options": {
+        "A": "An experiment establishes causality through manipulation",
+        "B": "An experiment always uses a far larger participant sample",
+        "C": "An experiment must always be run inside a proper laboratory",
+        "D": "An experiment can only ever measure reaction-time outcomes"
+      },
+      "correct_answer": "A",
+      "explanation": "By manipulating an IV and measuring its effect, experiments support causal claims, which correlational designs cannot. B is false because sample size is not the defining feature, C is false because location is irrelevant, and D is false because many DVs (memory, eye movements, decisions) are possible."
+    },
+    {
+      "id": "s3_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "A team compares ChatGPT users versus non-users on a writing task, using participants' existing usage to form the groups. How is this design best classified?",
+      "options": {
+        "A": "A true between-subjects experiment with random assignment",
+        "B": "A purely correlational design with no grouping variable",
+        "C": "A within-subjects experiment with counterbalancing of order",
+        "D": "A quasi-experimental design based on naturalistic variation"
+      },
+      "correct_answer": "D",
+      "explanation": "Groups are defined by a pre-existing, naturally varying characteristic rather than random assignment, which is the hallmark of a quasi-experiment. A is wrong because there is no manipulation or random assignment, B ignores the explicit grouping, and C is wrong because participants are not in all conditions."
+    },
+    {
+      "id": "s3_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Which set of factors all increase the statistical power of an experiment?",
+      "options": {
+        "A": "Smaller sample, smaller effect, more variability, smaller alpha",
+        "B": "Larger sample, bigger real effect, less variability, larger alpha",
+        "C": "Larger sample, smaller real effect, more variability, smaller alpha",
+        "D": "Smaller sample, bigger real effect, less variability, larger alpha"
+      },
+      "correct_answer": "B",
+      "explanation": "Power (1 - beta) rises with a larger sample, a bigger true effect, lower variability, and a larger alpha. The other options each flip at least one of these factors in the wrong direction, which would reduce rather than increase power."
+    },
+    {
+      "id": "s3_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "A researcher runs a within-subjects study with two conditions, A and B, and worries about practice and fatigue effects. Is using counterbalancing the RIGHT or WRONG approach, and why?",
+      "options": {
+        "A": "WRONG — order effects can only be removed by switching to a between-subjects design",
+        "B": "WRONG — counterbalancing changes the IV levels and so alters the hypothesis",
+        "C": "RIGHT — splitting the sample so half do A then B and half do B then A cancels the average order effect",
+        "D": "RIGHT — counterbalancing guarantees every individual participant shows zero order effect"
+      },
+      "correct_answer": "C",
+      "explanation": "Counterbalancing (Group 1 A then B, Group 2 B then A) cancels the average order effect across the sample. A is wrong because counterbalancing handles order without dropping the within design, B misdescribes it, and D overstates it, since it balances the average effect, not each individual's."
+    },
+    {
+      "id": "s3_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "In a reading-time study, the critical words in one condition happen to be far more frequent than in the other. What does this represent?",
+      "options": {
+        "A": "A filler manipulation built into the materials",
+        "B": "A confound that could explain the results",
+        "C": "An appropriate counterbalancing of stimuli",
+        "D": "A measure of the study's effect size"
+      },
+      "correct_answer": "B",
+      "explanation": "Word frequency systematically differs between conditions and could itself drive reading times, so it is a confound. A is wrong because fillers are unrelated trials, C is wrong because nothing is being balanced, and D confuses a nuisance variable with effect magnitude."
+    },
+    {
+      "id": "s3_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "A study compares three noise levels (silence, background, loud) using the same participants in all three, and reports only a p-value. Which critique is most justified?",
+      "options": {
+        "A": "An independent t-test should have been used for these three groups",
+        "B": "A within-subjects design is invalid for three or more conditions",
+        "C": "Three conditions require a correlational rather than experimental design",
+        "D": "The p-value alone omits the effect size, which conveys magnitude"
+      },
+      "correct_answer": "D",
+      "explanation": "A p-value indicates whether an effect is detectable but says nothing about its size, so reporting an effect size (e.g. eta-squared) is needed. A is wrong because three within-subjects conditions call for repeated-measures ANOVA, B is false, and C wrongly denies that a manipulated IV makes this experimental."
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "section_id": "s5",
+  "quiz_type": "multiple_choice",
+  "title": "Data Analysis & ML Pitfalls - Multiple Choice",
+  "questions": [
+    {
+      "id": "s5_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "A retail company builds a model to predict next-day demand for many products across stores using three years of daily sales. The data scientist trains on the first 2.5 years and reserves the most recent 6 months as the test set. Is the proposed methodology RIGHT or WRONG?",
+      "options": {
+        "A": "RIGHT — using past data to predict future observations respects the temporal structure of forecasting and gives a realistic evaluation",
+        "B": "WRONG — several years of history capture old market tendencies that no longer hold, which lowers predictive performance",
+        "C": "WRONG — a single model cannot predict sales for many products across many different stores at the same time",
+        "D": "WRONG — the train/test ratio is unsuitable, since forecasting six months ahead is not feasible with only 2.5 years"
+      },
+      "correct_answer": "A",
+      "explanation": "A chronological split keeps the future out of training, which is exactly what a forecasting evaluation requires, so the verdict and reason are both correct. B wrongly treats more history as harmful, C falsely claims one model cannot cover many series, and D invents an arbitrary feasibility limit on the horizon."
+    },
+    {
+      "id": "s5_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "An engineer building a house-price model standardizes all numerical features into z-scores using the WHOLE dataset's mean and standard deviation, then splits into train and test, trains, and evaluates. Is the proposed methodology RIGHT or WRONG?",
+      "options": {
+        "A": "RIGHT — standardizing puts every numerical feature on a comparable scale, which can improve model training",
+        "B": "WRONG — standardization parameters must be computed only on the training set and then applied to the test set",
+        "C": "WRONG — numerical variables should never be standardized because doing so removes their original units of measurement",
+        "D": "WRONG — the test set should be standardized on its own mean and standard deviation to keep evaluation fair"
+      },
+      "correct_answer": "B",
+      "explanation": "Fitting the scaler on the whole dataset leaks test statistics into training, so the fix is to fit on train only and apply those parameters to test. A states a true benefit but ignores the leakage, C wrongly bans standardization outright, and D would still leak by re-fitting separately on test rather than reusing training parameters."
+    },
+    {
+      "id": "s5_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "In a diabetes-risk competition the data scientist splits into train and test first, then incorporates mean imputation of missing values into the training pipeline using training statistics, and evaluates on test. Is the proposed methodology RIGHT or WRONG?",
+      "options": {
+        "A": "RIGHT — performing imputation using only training-data statistics prevents data leakage",
+        "B": "WRONG — missing values must always be handled by removing the incomplete samples rather than imputing them",
+        "C": "WRONG — mean imputation cannot be used on numerical clinical measurements as it distorts the feature distribution",
+        "D": "WRONG — imputation should always run before the split so that every sample can contribute to the estimates"
+      },
+      "correct_answer": "A",
+      "explanation": "Imputing with statistics learned only from training data keeps test information out of the fit, so this is correct. B wrongly mandates dropping rows, C overstates distortion as a blanket ban, and D describes the exact leakage error of estimating from the full dataset."
+    },
+    {
+      "id": "s5_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "A researcher had no planned hypothesis about reaction time, but after seeing the data notices it differs between conditions, rewrites the introduction to present reaction time as the primary measure, and submits. Which threat is this, and the best way to handle it?",
+      "options": {
+        "A": "P-hacking; the researcher should report only the planned accuracy analysis and omit the reaction-time result",
+        "B": "Measurement error; the researcher should re-calibrate the reaction-time task before reporting any result",
+        "C": "HARKing; the researcher should report reaction time as exploratory and note it was not pre-specified",
+        "D": "Low replicability; the researcher should collect an entirely new sample before reporting reaction time"
+      },
+      "correct_answer": "C",
+      "explanation": "Presenting a post-hoc finding as if it had been hypothesized is HARKing, and the honest fix is to label it exploratory. A misnames it as p-hacking and wrongly hides the result, B blames an instrument that is not the issue, and D demands new data rather than transparent labelling."
+    },
+    {
+      "id": "s5_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "A classifier on a 75/25 imbalanced dataset reports 90% accuracy. A teammate says this proves the model is excellent. Which response is correct?",
+      "options": {
+        "A": "Correct — at 90% the model clearly beats chance, since chance on any classification task is 50%",
+        "B": "Correct — accuracy is the most reliable single metric whenever the classes are imbalanced",
+        "C": "Incorrect — accuracy must be replaced by training loss, which is the proper benchmark under imbalance",
+        "D": "Incorrect — accuracy should be judged against the 75% majority baseline and paired with F1, precision, and recall"
+      },
+      "correct_answer": "D",
+      "explanation": "Under imbalance the right benchmark is the majority-class baseline, here 75%, and accuracy alone hides per-class errors, so F1, precision, and recall are needed. A wrongly uses 50% as the baseline, B trusts accuracy exactly where it misleads, and C confuses an evaluation metric with optimization loss."
+    },
+    {
+      "id": "s5_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "Working with a highly imbalanced fraud dataset, an analyst applies SMOTE to the full dataset to balance the classes, then splits into train and test, trains, and reports a high F1. Is the proposed methodology RIGHT or WRONG?",
+      "options": {
+        "A": "WRONG — SMOTE must run inside each fold after the split, or synthetic points built from test data leak into training",
+        "B": "RIGHT — running SMOTE before splitting guarantees that both train and test end up balanced, which is what makes the high F1 trustworthy here",
+        "C": "WRONG — SMOTE should never be used because oversampling can only ever copy the existing minority samples",
+        "D": "WRONG — the analyst should report accuracy instead of F1, as F1 is undefined on a balanced dataset"
+      },
+      "correct_answer": "A",
+      "explanation": "SMOTE on the whole set synthesizes points from samples that later land in test, so it must run inside the fold after splitting. B treats the leakage as a feature, C confuses SMOTE with naive duplication, and D wrongly claims F1 fails on balanced data."
+    },
+    {
+      "id": "s5_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "An EEG study has many trials per participant. The analyst pools all trials and makes a random row-level train/test split, getting near-perfect accuracy. What is the most likely problem?",
+      "options": {
+        "A": "The model needs stratified sampling, because the trial classes are slightly imbalanced across the pooled data overall",
+        "B": "The decision threshold was tuned on the test set, which inflated the reported accuracy estimate",
+        "C": "Subject-level leakage — the same participant's trials sit in both train and test, so the model memorizes the person",
+        "D": "The features were standardized after splitting, which prevented the model from learning useful patterns"
+      },
+      "correct_answer": "C",
+      "explanation": "A random row split scatters one person's trials across train and test, letting the model recognize the participant rather than a general pattern; a group split by participant ID is the fix. A names a different concern, B describes threshold leakage that is not the issue here, and D mislabels the correct after-split practice as the cause."
+    },
+    {
+      "id": "s5_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "A model predicts a depression score that was itself computed as the average of several symptom-item responses, and those same item responses are kept as input features. The reported accuracy is suspiciously high. What is the flaw?",
+      "options": {
+        "A": "Overfitting the test set, fixed by locking the test set and tuning only on the validation folds",
+        "B": "Target leakage — the target is built from the input features, so they must be dropped from the inputs",
+        "C": "Class imbalance, which should be corrected by oversampling the minority depression-score values",
+        "D": "Wrong split for time series, which should be replaced with a strictly chronological train/test split ordered in time"
+      },
+      "correct_answer": "B",
+      "explanation": "When the target is derived from features that remain as inputs, the model trivially reconstructs the target, so the source variables must be removed. A describes a different leakage about repeated tuning, C misdiagnoses imbalance, and D applies a temporal fix to a non-temporal problem."
+    },
+    {
+      "id": "s5_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "A team wants to claim Model A beats Model B because A scored a higher F1 on a 5-fold cross-validation run. Is this conclusion RIGHT or WRONG?",
+      "options": {
+        "A": "RIGHT — a higher mean F1 across folds is by itself sufficient evidence that Model A outperforms Model B",
+        "B": "WRONG — they should instead compare the two models only on overall accuracy rather than on F1",
+        "C": "RIGHT — cross-validation removes all randomness, so any difference in fold scores is automatically meaningful",
+        "D": "WRONG — a single higher F1 is not proof; they need a statistical test such as a paired t-test or Wilcoxon on the fold scores"
+      },
+      "correct_answer": "D",
+      "explanation": "Fold-score differences are noisy, so a statistical test (paired t-test, Wilcoxon, McNemar, or bootstrap CIs) is required before claiming superiority. A and C treat a raw score gap as proof, and B swaps to a metric that is worse under imbalance rather than addressing the need for a test."
+    },
+    {
+      "id": "s5_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "An analyst forecasts daily temperature with a random forest. On a steadily rising trend the predictions flatten out and never exceed past values. What explains this, and what is an appropriate fix?",
+      "options": {
+        "A": "The test set was too small; the fix is to enlarge it so that the individual trees become able to reach the higher values on the rising trend",
+        "B": "The model underfit due to too few trees; the fix is simply to add many more trees to the forest",
+        "C": "Tree models cannot extrapolate beyond seen values; predict the difference, model the residual off a trend, or use a linear booster",
+        "D": "The features were leaked from the target; the fix is to drop the variables used to build the target"
+      },
+      "correct_answer": "C",
+      "explanation": "Trees and forests output averages of values seen in training, so they cannot extrapolate above a rising trend; differencing, residual modelling on a trend, or a gblinear booster restores extrapolation. A and B blame data size or tree count, which does not address extrapolation, and D describes target leakage, a different pitfall."
+    }
+  ]
+}

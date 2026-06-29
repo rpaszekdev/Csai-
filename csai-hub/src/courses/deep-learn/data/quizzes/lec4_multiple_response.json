@@ -1,0 +1,26 @@
+{
+  "section_id": "lec4",
+  "quiz_type": "multiple_response",
+  "title": "Lecturer Quiz: PyTorch & Hyperparameter Tuning - Multiple Response",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec4_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "When tuning hyperparameters of a neural network, different search techniques can be applied. Which of the following statements correctly describes the advantages and disadvantages of common hyperparameter search methods? Select ALL that apply",
+      "options": {
+        "A": "Bayesian Optimization uses previous evaluation results to model the relationship between hyperparameters and performance. It can find good configurations with fewer evaluations, but it is more complex to implement and computationally heavier per iteration.",
+        "B": "Grid Search systematically explores all possible combinations of hyperparameters. It guarantees that every configuration is tested, but it becomes computationally expensive and inefficient when the number of hyperparameters or possible values increases.",
+        "C": "Random Search always performs worse than Grid Search because it tests fewer combinations and does not cover the full parameter space.",
+        "D": "Random Search samples random combinations of hyperparameters. It does not guarantee testing all combinations, but it is often more efficient than Grid Search because it explores a wider range of hyperparameter values in fewer trials."
+      },
+      "correct_answers": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": ""
+    }
+  ]
+}

@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-10.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,17 @@ const QUESTIONS = [
     "prompt": "Rodney Brooks famously called simulation-only robotics <em>\"doomed to succeed.\"</em> What did he mean?",
     "options": [
       {
-        "html": "That simulators always converge."
+        "html": "That any controller will eventually converge in simulation because the solver is guaranteed to find a stable numerical fixed point given enough steps."
       },
       {
         "html": "That a controller tuned only in simulation will look great in sim and fail on the real robot, because the simulator hides the hard parts of physics, sensing, and timing.",
         "correct": true
       },
       {
-        "html": "That simulators are unnecessary."
+        "html": "That simulation is an unnecessary detour, since modern robots can be tuned directly on hardware faster than a sim model can be built and validated."
       },
       {
-        "html": "That simulators are too expensive."
+        "html": "That high-fidelity simulation has become so expensive in compute that the cost now outweighs any sim-to-real benefit it might provide."
       }
     ],
     "prof": "\"Doomed to succeed\" = the simulator rewards behaviours that exploit its own approximations. Without a sim-to-real plan, you train an artefact, not a robot."
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "Despite the sim-to-real gap, simulation has clear advantages. Which trio captures the standard reasons to simulate?",
     "options": [
       {
-        "html": "Speed · safety · scale (parallel runs).",
+        "html": "Speed (faster than real time) · safety (no hardware to break) · scale (thousands of parallel runs).",
         "correct": true
       },
       {
-        "html": "Cheaper hardware · faster GPUs · better wifi."
+        "html": "Cheaper hardware bills · access to faster GPUs · more reliable network bandwidth for telemetry."
       },
       {
-        "html": "Marketing · documentation · graphics."
+        "html": "Better marketing demos · auto-generated documentation · more photorealistic rendering of the robot."
       },
       {
-        "html": "Operating-system independence · no Python needed · no electricity."
+        "html": "Operating-system independence · freedom from Python dependencies · no power consumption on the test bench."
       }
     ],
     "prof": "Sim is for things you can't afford to break, can't afford to wait for, or need a million of. Everything else, run on the robot."
@@ -155,17 +159,17 @@ const QUESTIONS = [
     "prompt": "What separates a <strong>physics-based simulation</strong> from <strong>computer graphics</strong> rendering?",
     "options": [
       {
-        "html": "Computer graphics is always slower."
+        "html": "Computer graphics is always the slower of the two, because shading every pixel costs more than integrating a few rigid-body equations."
       },
       {
         "html": "Simulation models the dynamics of physical systems (forces, masses, contacts) and integrates them in time; CG only renders an image.",
         "correct": true
       },
       {
-        "html": "Computer graphics requires a GPU; simulation does not."
+        "html": "Computer graphics fundamentally requires a dedicated GPU to function, whereas physics simulation runs purely on the CPU by definition."
       },
       {
-        "html": "They are synonyms."
+        "html": "They are essentially synonyms; both compute the same underlying physical state and merely present it through different visual front-ends."
       }
     ],
     "prof": "Pretty pixels ≠ correct dynamics. A photorealistic scene with cartoon physics is useless for control; a wireframe with proper physics is gold."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "Physics-based simulators model robots as <strong>dynamical systems</strong>. Which trio does the simulator integrate over time?",
     "options": [
       {
-        "html": "Pixels · sounds · keystrokes."
+        "html": "Pixels, audio samples, and keystrokes — the simulator integrates the rendered output stream the user actually perceives."
       },
       {
-        "html": "Forces · masses · constraints producing positions, velocities, accelerations.",
+        "html": "Forces · masses · constraints producing positions, velocities, and accelerations over each timestep.",
         "correct": true
       },
       {
-        "html": "WiFi · USB · Bluetooth."
+        "html": "Network packets, USB transfers, and Bluetooth events — the simulator advances the robot's communication buses in time."
       },
       {
-        "html": "Files · folders · processes."
+        "html": "Files, folders, and operating-system processes — the simulator schedules these resources as the underlying dynamical state."
       }
     ],
     "prof": "Newton's laws + constraints (joints, contacts). Everything else — sensors, controllers — is layered on top of this dynamical core."
@@ -201,17 +205,17 @@ const QUESTIONS = [
     "prompt": "Which pair of simulators is most commonly used for <strong>robotics research and education</strong>, and is mentioned in the lecture's tour?",
     "options": [
       {
-        "html": "Microsoft Word · Excel."
+        "html": "Unity and Unreal Engine, since their game-physics engines are the de-facto standard for serious robotics research."
       },
       {
-        "html": "Webots · Gazebo (and increasingly MuJoCo / Isaac).",
+        "html": "Webots and Gazebo (with MuJoCo and Isaac increasingly used for modern reinforcement-learning work).",
         "correct": true
       },
       {
-        "html": "Photoshop · Blender."
+        "html": "Blender and Maya, because their rigid-body solvers are tuned specifically for robot dynamics and ROS integration."
       },
       {
-        "html": "Notepad · TextEdit."
+        "html": "MATLAB Simulink and LabVIEW, which the lecture names as the dominant teaching stack for mobile robotics."
       }
     ],
     "prof": "Webots and Gazebo are the dominant teaching/research stacks; MuJoCo and Isaac dominate modern RL. Pick by physics fidelity, sensor library, and ROS integration."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "When choosing a simulator for a project, which factor should dominate?",
     "options": [
       {
-        "html": "Logo aesthetics."
+        "html": "The visual polish of the rendering engine, since a more photorealistic scene transfers more reliably to the real robot."
       },
       {
-        "html": "Match between the simulator's modelled physics + sensors and the actual phenomena your task depends on.",
+        "html": "The match between the simulator's modelled physics and sensors and the actual phenomena your task depends on.",
         "correct": true
       },
       {
-        "html": "The number of YouTube tutorials."
+        "html": "The size of the community, since the simulator with the most YouTube tutorials will solve any task you throw at it."
       },
       {
-        "html": "The licence colour."
+        "html": "The licensing model, since a permissive open-source licence guarantees the physics fidelity your task requires."
       }
     ],
     "prof": "If the task hinges on contact compliance, pick a sim that models compliance. If it hinges on lidar noise, pick a sim that models lidar noise. Match the physics to the question."
@@ -247,17 +251,17 @@ const QUESTIONS = [
     "prompt": "Modern simulator workflows assume a <strong>command-line / terminal</strong> baseline. Why does the lecture insist on terminal fluency?",
     "options": [
       {
-        "html": "Because GUIs are forbidden by the university."
+        "html": "Because graphical tools are formally prohibited in the course toolchain and the university only licenses command-line software."
       },
       {
         "html": "Because real robotics workflows — building, running, deploying, debugging — are script- and shell-driven; GUI-only workflows do not scale or version.",
         "correct": true
       },
       {
-        "html": "Because the terminal uses less RAM."
+        "html": "Because the terminal consumes far less RAM than a windowed environment, which is the deciding factor for running simulators."
       },
       {
-        "html": "Because GUIs cannot run Python."
+        "html": "Because graphical environments are unable to launch Python interpreters, so simulation code can only be run from a shell."
       }
     ],
     "prof": "Terminal isn't tradition; it's reproducibility. A \"roslaunch\" line in a notebook is a real artefact; a sequence of right-clicks is not."
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "Why does the lecture emphasise <strong>virtual environments</strong> for simulation projects?",
     "options": [
       {
-        "html": "Because venvs run on the GPU."
+        "html": "Because a virtual environment offloads numerical work to the GPU, which is what makes simulation packages run at acceptable speed."
       },
       {
         "html": "Because robotics stacks pin specific package versions, and a per-project venv isolates dependencies and prevents global breakage.",
         "correct": true
       },
       {
-        "html": "Because venvs make Python faster."
+        "html": "Because running inside a virtual environment measurably speeds up the Python interpreter compared with the system installation."
       },
       {
-        "html": "Because Python only works inside venvs."
+        "html": "Because the Python interpreter is technically unable to import third-party packages unless it is launched from within a venv."
       }
     ],
     "prof": "One global Python is one wrong \"pip install\" away from breaking every project. venv (or conda/pipenv/uv) per project is non-negotiable."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l10_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week10-slides/slide-";

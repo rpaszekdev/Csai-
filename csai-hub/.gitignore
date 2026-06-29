@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .vercel
 podcasts/
+.design-ref/
+.DS_Store

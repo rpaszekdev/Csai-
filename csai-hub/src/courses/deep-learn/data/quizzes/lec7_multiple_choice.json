@@ -1,0 +1,529 @@
+{
+  "section_id": "lec7",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: RNNs, LSTMs & GRUs - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec7_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [ Select ] [ Select ] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [ Select ] Softmax [ Select ] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [ Select ] [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "Sigmoid",
+        "B": "Softmax",
+        "C": "Linear",
+        "D": "Tanh"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [ Select ] [ Select ] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [ Select ] Softmax [ Select ] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [ Select ] [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "ReLU",
+        "B": "Tanh",
+        "C": "Sigmoid",
+        "D": "Softmax"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [ Select ] [ Select ] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [ Select ] Softmax [ Select ] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [ Select ] [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "Tanh",
+        "B": "Softmax",
+        "C": "ReLU",
+        "D": "Sigmoid"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [ Select ] [ Select ] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [ Select ] Softmax [ Select ] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [ Select ] [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "Categorical cross entropy",
+        "B": "MSE",
+        "C": "Binary cross entropy"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [ Select ] [ Select ] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [ Select ] Softmax [ Select ] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [ Select ] [ Select ]\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "Sigmoid",
+        "B": "Tanh",
+        "C": "Softmax",
+        "D": "ReLU"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [ Select ] [ Select ] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [ Select ] Softmax [ Select ] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [ Select ] [ Select ]\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "MSE",
+        "B": "Categorical cross entropy",
+        "C": "Binary cross entropy"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Which of the following statements related to LSTM and GRU in RNNs is true?",
+      "options": {
+        "A": "Gated Recurrent Units (GRUs) have two gates, a reset and an update gate, while Long Short Term Memory (LSTM) units have three gates, forget, input and output gate. The two gates of a GRU and the input and output gates of LSTM use tanh as activation function.",
+        "B": "Neither of the above statements is true.",
+        "C": "Gated Recurrent Units (GRUs) have two gates, a remember and a forget gate, while Long Short Term Memory (LSTM) units have three gates, forget, input and output gate. To compensate for the fewer gates, GRUs use the cell state as input to the next unit or iteration.",
+        "D": "Both Long Short Term Memory (LSTM) units and Gated Recurrent Units (GRU) use the hyperbolic tangent (tanh) activation function; in LSTM the forget gate applies a sigmoid transformation, the input gate applies both a sigmoid and a tanh and the output gate applies a sigmoid followed by tanh; in GRU tanh is applied on the unit’s input, which is then combined with the outputs of the reseat and the update gates."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "Long-short term memory units (LSTMs) are units of RNNs that exploit three types of gates. Which are these gates and what is the intuition behind them:",
+      "options": {
+        "A": "Forget gate which might decide what information to remove from the information already stored in the cell. Input gate that decides whether the input is important to be added to the cell state or not at all. It acts as a binary switch allowing or disallowing new information to impact the state cell. Output gate which controls whether the information following the forget gate or the information following from the input gate should be retained.",
+        "B": "Forget gate which might decide to get rid of irrelevant information. Input gate that decides what new information should be stored in the cell. This new information will be merged with the ‘old’ memory that has made it through the forget gate, creating a new cell state. Output gate which controls how strongly the memory state is passed to the next layer.",
+        "C": "Update gate which decides what information to discard and what new information to add. Reset gate which decides how much past information to forget. Output gate that controls how strong the information of the concatenated output from the udate and the reset gates is passed to the next layer.",
+        "D": "Update gate which updates the cell state with new information which decides what information to remove from the information already stored in the cell and what information to keep based on the input and the previous state. Reset gate which decides whether to retain the information after the Update gate, or to ignore it (i.e. reset it). Output gate that selects information from which gate to be output. It acts as a binary switch between the output from the update and the reset gates."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Which of the following statements accurately summarizes the motivations and working principles of gated recurrent architectures such as LSTMs and GRUs?",
+      "options": {
+        "A": "Gated recurrent architectures were designed to improve the computational efficiency of traditional recurrent neural networks (RNNs) by reducing the number of parameters and operations required for training. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) accomplish this by employing fewer layers and connections compared to standard RNNs.",
+        "B": "Gated recurrent architectures were introduced to enhance the interpretability of traditional recurrent neural networks (RNNs) by incorporating attention mechanisms that allow the model to focus on relevant parts of the input sequence during processing. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) achieve this through the use of attention-based mechanisms.",
+        "C": "Gated recurrent architectures were developed to address overfitting issues in traditional recurrent neural networks (RNNs) by implementing regularization techniques such as dropout. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) accomplish this by randomly dropping connections between units during training to prevent co-adaptation.",
+        "D": "Gated recurrent architectures were developed to address the vanishing gradient problem in traditional recurrent neural networks (RNNs) by introducing mechanisms to selectively update and forget information over multiple time steps. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) achieve this through the use of specialized gates, allowing them to better capture long-range dependencies in sequential data."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "In backpropagation through time (BPTT), what do the gradients represent?",
+      "options": {
+        "A": "The change in error with respect to the biases of the neurons in the recurrent network.",
+        "B": "The change in error with respect to the weights of the recurrent connections across time steps.",
+        "C": "The change in error with respect to the input features at each time step of the sequence.",
+        "D": "The change in error with respect to the output activations of the recurrent network."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "Which of the following best describes the working principle of recurrent networks?",
+      "options": {
+        "A": "Recurrent networks utilize loops within the network architecture to allow information to persist over time, making them suitable for sequential data processing.",
+        "B": "Recurrent networks utilize convolutional layers to capture temporal dependencies in data.",
+        "C": "Recurrent networks employ multiple layers of neurons connected in a feedforward manner, allowing them to process input data sequentially.",
+        "D": "Recurrent networks use a single layer of neurons with feedback connections, enabling them to process temporal sequences effectively."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "You are provided with the following forward computation graph for a Recurrent Neural Network (RNN). The input word vectors are denoted as e, hidden vectors as h, transformation matrices as W (for hidden state transitions) and U (for input-to-hidden transitions). The final loss function is given by J which is derived from h2​, as described in the graph below. (recurrent W) (recurrent W). w_o h0 ───────────────▶ h1 ───────────────▶ h2 ─────────▶ J ▲ ▲ │ U │ U e1 e2 RNN equation (2 timesteps): h0 =0 h1 =f(Whh0+Ue1+b) h2 =f(Whh1+Ue2+b) J =g(h2,wo) Using the chain rule, fill in the blanks for the formula to compute the gradients of the loss J with respect to W and h0​. Your answer should meet the following requirements: Each formula only involves partial derivatives over variables (such as ∂x ∂y ​). Each partial derivative should be directly computable according to the forward computational graph. ∂J/∂W = [ Select ] -- direct at t=2 + [ Select ] -- indirect via h1 ∂J/∂h_0 = [ Select ] + [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+        "B": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+        "C": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+        "D": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+        "E": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "You are provided with the following forward computation graph for a Recurrent Neural Network (RNN). The input word vectors are denoted as e, hidden vectors as h, transformation matrices as W (for hidden state transitions) and U (for input-to-hidden transitions). The final loss function is given by J which is derived from h2​, as described in the graph below. (recurrent W) (recurrent W). w_o h0 ───────────────▶ h1 ───────────────▶ h2 ─────────▶ J ▲ ▲ │ U │ U e1 e2 RNN equation (2 timesteps): h0 =0 h1 =f(Whh0+Ue1+b) h2 =f(Whh1+Ue2+b) J =g(h2,wo) Using the chain rule, fill in the blanks for the formula to compute the gradients of the loss J with respect to W and h0​. Your answer should meet the following requirements: Each formula only involves partial derivatives over variables (such as ∂x ∂y ​). Each partial derivative should be directly computable according to the forward computational graph. ∂J/∂W = [ Select ] -- direct at t=2 + [ Select ] -- indirect via h1 ∂J/∂h_0 = [ Select ] + [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+        "B": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+        "C": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+        "D": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+        "E": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)"
+      },
+      "correct_answer": "E",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "You are provided with the following forward computation graph for a Recurrent Neural Network (RNN). The input word vectors are denoted as e, hidden vectors as h, transformation matrices as W (for hidden state transitions) and U (for input-to-hidden transitions). The final loss function is given by J which is derived from h2​, as described in the graph below. (recurrent W) (recurrent W). w_o h0 ───────────────▶ h1 ───────────────▶ h2 ─────────▶ J ▲ ▲ │ U │ U e1 e2 RNN equation (2 timesteps): h0 =0 h1 =f(Whh0+Ue1+b) h2 =f(Whh1+Ue2+b) J =g(h2,wo) Using the chain rule, fill in the blanks for the formula to compute the gradients of the loss J with respect to W and h0​. Your answer should meet the following requirements: Each formula only involves partial derivatives over variables (such as ∂x ∂y ​). Each partial derivative should be directly computable according to the forward computational graph. ∂J/∂W = [ Select ] -- direct at t=2 + [ Select ] -- indirect via h1 ∂J/∂h_0 = [ Select ] + [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+        "B": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+        "C": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+        "D": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+        "E": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "You are provided with the following forward computation graph for a Recurrent Neural Network (RNN). The input word vectors are denoted as e, hidden vectors as h, transformation matrices as W (for hidden state transitions) and U (for input-to-hidden transitions). The final loss function is given by J which is derived from h2​, as described in the graph below. (recurrent W) (recurrent W). w_o h0 ───────────────▶ h1 ───────────────▶ h2 ─────────▶ J ▲ ▲ │ U │ U e1 e2 RNN equation (2 timesteps): h0 =0 h1 =f(Whh0+Ue1+b) h2 =f(Whh1+Ue2+b) J =g(h2,wo) Using the chain rule, fill in the blanks for the formula to compute the gradients of the loss J with respect to W and h0​. Your answer should meet the following requirements: Each formula only involves partial derivatives over variables (such as ∂x ∂y ​). Each partial derivative should be directly computable according to the forward computational graph. ∂J/∂W = [ Select ] -- direct at t=2 + [ Select ] -- indirect via h1 ∂J/∂h_0 = [ Select ] + [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+        "B": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+        "C": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+        "D": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+        "E": "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "Which of the following is not a technique to mitigate the vanishing gradient problem?",
+      "options": {
+        "A": "Gradient clipping",
+        "B": "Using gated recurrent units (GRU or LSTM)",
+        "C": "Using attention mechanism",
+        "D": "Using droupout"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple GRU cell and its forward ​function. class GRUCell(nn.Module): def __init__(self, input_size, hidden_size): super(GRUCell, self).__init__() self.input_size = input_size self.hidden_size = hidden_size # Update gate self.W_z = nn.Linear(input_size + hidden_size, hidden_size) # Reset gate self.W_r = nn.Linear(input_size + hidden_size, hidden_size) # Candidate hidden state self.W_h = nn.Linear(input_size + hidden_size, hidden_size) def forward(self, x, h_prev): # Concatenate input and previous hidden state combined = torch.cat((x, h_prev), dim=1) # Gates z = torch.sigmoid(self.W_z(combined)) r = torch.sigmoid(self.W_r(combined)) # Apply reset gate to hidden state combined_reset = torch.cat((x, r * h_prev), dim=1) h_tilde = torch.tanh(self.W_h(combined_reset)) # Final hidden state h_next = (1 - z) * h_prev + z * h_tilde return h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [ Select ] The line in the code that interpolates between the old and new states based on the update gate is: [ Select ] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [ Select ] If input_size = 8 and hidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [ Select ] ), Output: (batch_size, [ Select ] ) The purpose of the activation functions used in the GRU gates is: [ Select ]\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "h_next = (1 - z) * h_prev + z * h_tilde",
+        "B": "z = torch.sigmoid(self.W_z(combined))",
+        "C": "combined = torch.cat((x, h_prev), dim=1)",
+        "D": "r = torch.sigmoid(self.W_r(combined))"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple GRU cell and its forward ​function. class GRUCell(nn.Module): def __init__(self, input_size, hidden_size): super(GRUCell, self).__init__() self.input_size = input_size self.hidden_size = hidden_size # Update gate self.W_z = nn.Linear(input_size + hidden_size, hidden_size) # Reset gate self.W_r = nn.Linear(input_size + hidden_size, hidden_size) # Candidate hidden state self.W_h = nn.Linear(input_size + hidden_size, hidden_size) def forward(self, x, h_prev): # Concatenate input and previous hidden state combined = torch.cat((x, h_prev), dim=1) # Gates z = torch.sigmoid(self.W_z(combined)) r = torch.sigmoid(self.W_r(combined)) # Apply reset gate to hidden state combined_reset = torch.cat((x, r * h_prev), dim=1) h_tilde = torch.tanh(self.W_h(combined_reset)) # Final hidden state h_next = (1 - z) * h_prev + z * h_tilde return h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [ Select ] The line in the code that interpolates between the old and new states based on the update gate is: [ Select ] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [ Select ] If input_size = 8 and hidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [ Select ] ), Output: (batch_size, [ Select ] ) The purpose of the activation functions used in the GRU gates is: [ Select ]\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "combined = torch.cat((x, h_prev), dim=1)",
+        "B": "h_next = (1 - z) * h_prev + z * h_tilde",
+        "C": "z = torch.sigmoid(self.W_z(combined))",
+        "D": "r = torch.sigmoid(self.W_r(combined))"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple GRU cell and its forward ​function. class GRUCell(nn.Module): def __init__(self, input_size, hidden_size): super(GRUCell, self).__init__() self.input_size = input_size self.hidden_size = hidden_size # Update gate self.W_z = nn.Linear(input_size + hidden_size, hidden_size) # Reset gate self.W_r = nn.Linear(input_size + hidden_size, hidden_size) # Candidate hidden state self.W_h = nn.Linear(input_size + hidden_size, hidden_size) def forward(self, x, h_prev): # Concatenate input and previous hidden state combined = torch.cat((x, h_prev), dim=1) # Gates z = torch.sigmoid(self.W_z(combined)) r = torch.sigmoid(self.W_r(combined)) # Apply reset gate to hidden state combined_reset = torch.cat((x, r * h_prev), dim=1) h_tilde = torch.tanh(self.W_h(combined_reset)) # Final hidden state h_next = (1 - z) * h_prev + z * h_tilde return h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [ Select ] The line in the code that interpolates between the old and new states based on the update gate is: [ Select ] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [ Select ] If input_size = 8 and hidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [ Select ] ), Output: (batch_size, [ Select ] ) The purpose of the activation functions used in the GRU gates is: [ Select ]\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "force the new state to depend entirely on current input",
+        "B": "reduce computational complexity",
+        "C": "allow the model to conditionally forget past information",
+        "D": "apply dropout to the hidden state"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple GRU cell and its forward ​function. class GRUCell(nn.Module): def __init__(self, input_size, hidden_size): super(GRUCell, self).__init__() self.input_size = input_size self.hidden_size = hidden_size # Update gate self.W_z = nn.Linear(input_size + hidden_size, hidden_size) # Reset gate self.W_r = nn.Linear(input_size + hidden_size, hidden_size) # Candidate hidden state self.W_h = nn.Linear(input_size + hidden_size, hidden_size) def forward(self, x, h_prev): # Concatenate input and previous hidden state combined = torch.cat((x, h_prev), dim=1) # Gates z = torch.sigmoid(self.W_z(combined)) r = torch.sigmoid(self.W_r(combined)) # Apply reset gate to hidden state combined_reset = torch.cat((x, r * h_prev), dim=1) h_tilde = torch.tanh(self.W_h(combined_reset)) # Final hidden state h_next = (1 - z) * h_prev + z * h_tilde return h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [ Select ] The line in the code that interpolates between the old and new states based on the update gate is: [ Select ] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [ Select ] If input_size = 8 and hidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [ Select ] ), Output: (batch_size, [ Select ] ) The purpose of the activation functions used in the GRU gates is: [ Select ]\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "48",
+        "B": "24",
+        "C": "0",
+        "D": "8",
+        "E": "16"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple GRU cell and its forward ​function. class GRUCell(nn.Module): def __init__(self, input_size, hidden_size): super(GRUCell, self).__init__() self.input_size = input_size self.hidden_size = hidden_size # Update gate self.W_z = nn.Linear(input_size + hidden_size, hidden_size) # Reset gate self.W_r = nn.Linear(input_size + hidden_size, hidden_size) # Candidate hidden state self.W_h = nn.Linear(input_size + hidden_size, hidden_size) def forward(self, x, h_prev): # Concatenate input and previous hidden state combined = torch.cat((x, h_prev), dim=1) # Gates z = torch.sigmoid(self.W_z(combined)) r = torch.sigmoid(self.W_r(combined)) # Apply reset gate to hidden state combined_reset = torch.cat((x, r * h_prev), dim=1) h_tilde = torch.tanh(self.W_h(combined_reset)) # Final hidden state h_next = (1 - z) * h_prev + z * h_tilde return h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [ Select ] The line in the code that interpolates between the old and new states based on the update gate is: [ Select ] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [ Select ] If input_size = 8 and hidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [ Select ] ), Output: (batch_size, [ Select ] ) The purpose of the activation functions used in the GRU gates is: [ Select ]\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "-1",
+        "B": "16",
+        "C": "8",
+        "D": "32"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "The code below implements a simple GRU cell and its forward ​function. class GRUCell(nn.Module): def __init__(self, input_size, hidden_size): super(GRUCell, self).__init__() self.input_size = input_size self.hidden_size = hidden_size # Update gate self.W_z = nn.Linear(input_size + hidden_size, hidden_size) # Reset gate self.W_r = nn.Linear(input_size + hidden_size, hidden_size) # Candidate hidden state self.W_h = nn.Linear(input_size + hidden_size, hidden_size) def forward(self, x, h_prev): # Concatenate input and previous hidden state combined = torch.cat((x, h_prev), dim=1) # Gates z = torch.sigmoid(self.W_z(combined)) r = torch.sigmoid(self.W_r(combined)) # Apply reset gate to hidden state combined_reset = torch.cat((x, r * h_prev), dim=1) h_tilde = torch.tanh(self.W_h(combined_reset)) # Final hidden state h_next = (1 - z) * h_prev + z * h_tilde return h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [ Select ] The line in the code that interpolates between the old and new states based on the update gate is: [ Select ] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [ Select ] If input_size = 8 and hidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [ Select ] ), Output: (batch_size, [ Select ] ) The purpose of the activation functions used in the GRU gates is: [ Select ]\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "sigmoid enables smooth gating between 0 and 1 for z and r, while tanh squashes h_tilde into a usable hidden range",
+        "B": "sigmoid allows for binary decision making in hidden states, while tanh reduces model complexity",
+        "C": "tanh ensures the update gate outputs are between 0 and 1, while sigmoid allows to combine inputs with past information",
+        "D": "tanh and sigmoid are used to reduce computational overhead"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "You ​are using RNNs to solve different problems and need to decide which RNN architecture best suits each type of problem. Match each specific application to the appropriate RNN architecture type.\n\nMatch: Generating a sequence of musical notes based on a single mood label (e.g., “melancholic”)",
+      "options": {
+        "A": "One-to-Many",
+        "B": "Many-to-One",
+        "C": "Many-to-Many (synchronized)",
+        "D": "Many-to-Many (encoder-decoder)"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_24",
+      "number": 24,
+      "type": "multiple_choice",
+      "question": "You ​are using RNNs to solve different problems and need to decide which RNN architecture best suits each type of problem. Match each specific application to the appropriate RNN architecture type.\n\nMatch: Predicting the author of a literary paragraph given the full text",
+      "options": {
+        "A": "One-to-Many",
+        "B": "Many-to-One",
+        "C": "Many-to-Many (synchronized)",
+        "D": "Many-to-Many (encoder-decoder)"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_25",
+      "number": 25,
+      "type": "multiple_choice",
+      "question": "You ​are using RNNs to solve different problems and need to decide which RNN architecture best suits each type of problem. Match each specific application to the appropriate RNN architecture type.\n\nMatch: Aligning audio speech to text transcripts, word by word",
+      "options": {
+        "A": "One-to-Many",
+        "B": "Many-to-One",
+        "C": "Many-to-Many (synchronized)",
+        "D": "Many-to-Many (encoder-decoder)"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_26",
+      "number": 26,
+      "type": "multiple_choice",
+      "question": "You ​are using RNNs to solve different problems and need to decide which RNN architecture best suits each type of problem. Match each specific application to the appropriate RNN architecture type.\n\nMatch: Generating a concise summary of a technical research abstract, preserving the key insights but rephrasing in simpler language.",
+      "options": {
+        "A": "One-to-Many",
+        "B": "Many-to-One",
+        "C": "Many-to-Many (synchronized)",
+        "D": "Many-to-Many (encoder-decoder)"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_27",
+      "number": 27,
+      "type": "multiple_choice",
+      "question": "Select the correct options based on this code: class SimpleRNN(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(SimpleRNN, self).__init__() self.hidden_size = hidden_size self.h0 = nn.Parameter(torch.rand([1, hidden_size])) self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) self.Why = nn.Linear(hidden_size, output_size) # Non-linearity (you can experiment with different activation functions) self.tanh = nn.Tanh() def forward(self, x, h_prev): # Update hidden state using the RNN equations h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) # Output prediction y_t = self.Why(h_t) return y_t, h_t The line self.h0 = nn.Parameter(torch.rand([1, hidden_size])) defines the initial hidden state as a learnable parameter, meaning it is optimized via [ Select ] during training. In the forward pass, the hidden state is updated as h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) which implements the core RNN recurrence, where the new hidden state depends on the current input and the [ Select ] . The non-linearity tanh is applied to the hidden state update in order to [ Select ] . Finally, the layer self.Why = nn.Linear(hidden_size, output_size) maps the hidden state to the output space, meaning y_t has shape [ Select ] .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "backpropagation through time (BPTT)",
+        "B": "dropout masking",
+        "C": "data augmentation",
+        "D": "weight decay"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_28",
+      "number": 28,
+      "type": "multiple_choice",
+      "question": "Select the correct options based on this code: class SimpleRNN(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(SimpleRNN, self).__init__() self.hidden_size = hidden_size self.h0 = nn.Parameter(torch.rand([1, hidden_size])) self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) self.Why = nn.Linear(hidden_size, output_size) # Non-linearity (you can experiment with different activation functions) self.tanh = nn.Tanh() def forward(self, x, h_prev): # Update hidden state using the RNN equations h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) # Output prediction y_t = self.Why(h_t) return y_t, h_t The line self.h0 = nn.Parameter(torch.rand([1, hidden_size])) defines the initial hidden state as a learnable parameter, meaning it is optimized via [ Select ] during training. In the forward pass, the hidden state is updated as h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) which implements the core RNN recurrence, where the new hidden state depends on the current input and the [ Select ] . The non-linearity tanh is applied to the hidden state update in order to [ Select ] . Finally, the layer self.Why = nn.Linear(hidden_size, output_size) maps the hidden state to the output space, meaning y_t has shape [ Select ] .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "output prediction",
+        "B": "previous hidden state",
+        "C": "input batch",
+        "D": "loss gradient"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_29",
+      "number": 29,
+      "type": "multiple_choice",
+      "question": "Select the correct options based on this code: class SimpleRNN(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(SimpleRNN, self).__init__() self.hidden_size = hidden_size self.h0 = nn.Parameter(torch.rand([1, hidden_size])) self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) self.Why = nn.Linear(hidden_size, output_size) # Non-linearity (you can experiment with different activation functions) self.tanh = nn.Tanh() def forward(self, x, h_prev): # Update hidden state using the RNN equations h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) # Output prediction y_t = self.Why(h_t) return y_t, h_t The line self.h0 = nn.Parameter(torch.rand([1, hidden_size])) defines the initial hidden state as a learnable parameter, meaning it is optimized via [ Select ] during training. In the forward pass, the hidden state is updated as h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) which implements the core RNN recurrence, where the new hidden state depends on the current input and the [ Select ] . The non-linearity tanh is applied to the hidden state update in order to [ Select ] . Finally, the layer self.Why = nn.Linear(hidden_size, output_size) maps the hidden state to the output space, meaning y_t has shape [ Select ] .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "enforce sparsity",
+        "B": "normalize inputs",
+        "C": "introduce non-linearity and bound activations",
+        "D": "reduce dimensionality"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_30",
+      "number": 30,
+      "type": "multiple_choice",
+      "question": "Select the correct options based on this code: class SimpleRNN(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(SimpleRNN, self).__init__() self.hidden_size = hidden_size self.h0 = nn.Parameter(torch.rand([1, hidden_size])) self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) self.Why = nn.Linear(hidden_size, output_size) # Non-linearity (you can experiment with different activation functions) self.tanh = nn.Tanh() def forward(self, x, h_prev): # Update hidden state using the RNN equations h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) # Output prediction y_t = self.Why(h_t) return y_t, h_t The line self.h0 = nn.Parameter(torch.rand([1, hidden_size])) defines the initial hidden state as a learnable parameter, meaning it is optimized via [ Select ] during training. In the forward pass, the hidden state is updated as h_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) which implements the core RNN recurrence, where the new hidden state depends on the current input and the [ Select ] . The non-linearity tanh is applied to the hidden state update in order to [ Select ] . Finally, the layer self.Why = nn.Linear(hidden_size, output_size) maps the hidden state to the output space, meaning y_t has shape [ Select ] .\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "(batch_size, output_size)",
+        "B": "(hidden_size, output_size)",
+        "C": "(output_size,)",
+        "D": "(batch_size, hidden_size)"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_31",
+      "number": 31,
+      "type": "multiple_choice",
+      "question": "Select the correct continuation of the sentences based on the code below: class GRU(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(GRU, self).__init__() self.input_size = input_size self.hidden_size = hidden_size self.output_size = output_size # Initial state self.h0 = nn.Parameter(torch.rand([1, hidden_size])) # Reset gate parameters self.Wxr = nn.Linear(input_size, hidden_size) self.Whr = nn.Linear(hidden_size, hidden_size) # Update gate parameters self.Wxz = nn.Linear(input_size, hidden_size) self.Whz = nn.Linear(hidden_size, hidden_size) # Candidate hidden state parameters self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) # Output layer self.Why = nn.Linear(hidden_size, output_size) # Non-linearity self.sigmoid = nn.Sigmoid() self.tanh = nn.Tanh() def forward(self, x, h_prev): # Reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) # Update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) # Candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) # Updated hidden state h_t = (1 - z_t) * h_prev + z_t * h_candidate # Output prediction y_t = self.Why(h_t) return y_t, h_t 1) The reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) controls how much of the previous hidden state is used when computing the candidate hidden state. When r_t is close to 0, the model [ Select ] . 2) The update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) determines how much of the previous hidden state is carried over to the new hidden state, effectively controlling [ Select ] . 3) The candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) differs from a simple RNN update because the previous hidden state is first [ Select ] before being combined with the input. 4) Finally, the hidden state update h_t = (1 - z_t) * h_prev + z_t * h_candidate implements a convex combination that helps mitigate [ Select ] in long sequences.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "amplifies gradients",
+        "B": "ignores past information",
+        "C": "freezes all parameters",
+        "D": "resets the output layer"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_32",
+      "number": 32,
+      "type": "multiple_choice",
+      "question": "Select the correct continuation of the sentences based on the code below: class GRU(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(GRU, self).__init__() self.input_size = input_size self.hidden_size = hidden_size self.output_size = output_size # Initial state self.h0 = nn.Parameter(torch.rand([1, hidden_size])) # Reset gate parameters self.Wxr = nn.Linear(input_size, hidden_size) self.Whr = nn.Linear(hidden_size, hidden_size) # Update gate parameters self.Wxz = nn.Linear(input_size, hidden_size) self.Whz = nn.Linear(hidden_size, hidden_size) # Candidate hidden state parameters self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) # Output layer self.Why = nn.Linear(hidden_size, output_size) # Non-linearity self.sigmoid = nn.Sigmoid() self.tanh = nn.Tanh() def forward(self, x, h_prev): # Reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) # Update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) # Candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) # Updated hidden state h_t = (1 - z_t) * h_prev + z_t * h_candidate # Output prediction y_t = self.Why(h_t) return y_t, h_t 1) The reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) controls how much of the previous hidden state is used when computing the candidate hidden state. When r_t is close to 0, the model [ Select ] . 2) The update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) determines how much of the previous hidden state is carried over to the new hidden state, effectively controlling [ Select ] . 3) The candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) differs from a simple RNN update because the previous hidden state is first [ Select ] before being combined with the input. 4) Finally, the hidden state update h_t = (1 - z_t) * h_prev + z_t * h_candidate implements a convex combination that helps mitigate [ Select ] in long sequences.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "the output dimensionality",
+        "B": "the batch size",
+        "C": "how much new information replaces old information",
+        "D": "the learning rate"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_33",
+      "number": 33,
+      "type": "multiple_choice",
+      "question": "Select the correct continuation of the sentences based on the code below: class GRU(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(GRU, self).__init__() self.input_size = input_size self.hidden_size = hidden_size self.output_size = output_size # Initial state self.h0 = nn.Parameter(torch.rand([1, hidden_size])) # Reset gate parameters self.Wxr = nn.Linear(input_size, hidden_size) self.Whr = nn.Linear(hidden_size, hidden_size) # Update gate parameters self.Wxz = nn.Linear(input_size, hidden_size) self.Whz = nn.Linear(hidden_size, hidden_size) # Candidate hidden state parameters self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) # Output layer self.Why = nn.Linear(hidden_size, output_size) # Non-linearity self.sigmoid = nn.Sigmoid() self.tanh = nn.Tanh() def forward(self, x, h_prev): # Reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) # Update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) # Candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) # Updated hidden state h_t = (1 - z_t) * h_prev + z_t * h_candidate # Output prediction y_t = self.Why(h_t) return y_t, h_t 1) The reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) controls how much of the previous hidden state is used when computing the candidate hidden state. When r_t is close to 0, the model [ Select ] . 2) The update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) determines how much of the previous hidden state is carried over to the new hidden state, effectively controlling [ Select ] . 3) The candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) differs from a simple RNN update because the previous hidden state is first [ Select ] before being combined with the input. 4) Finally, the hidden state update h_t = (1 - z_t) * h_prev + z_t * h_candidate implements a convex combination that helps mitigate [ Select ] in long sequences.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "selectively filtered",
+        "B": "normalized",
+        "C": "randomly dropped",
+        "D": "flattened"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_34",
+      "number": 34,
+      "type": "multiple_choice",
+      "question": "Select the correct continuation of the sentences based on the code below: class GRU(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(GRU, self).__init__() self.input_size = input_size self.hidden_size = hidden_size self.output_size = output_size # Initial state self.h0 = nn.Parameter(torch.rand([1, hidden_size])) # Reset gate parameters self.Wxr = nn.Linear(input_size, hidden_size) self.Whr = nn.Linear(hidden_size, hidden_size) # Update gate parameters self.Wxz = nn.Linear(input_size, hidden_size) self.Whz = nn.Linear(hidden_size, hidden_size) # Candidate hidden state parameters self.Wxh = nn.Linear(input_size, hidden_size) self.Whh = nn.Linear(hidden_size, hidden_size) # Output layer self.Why = nn.Linear(hidden_size, output_size) # Non-linearity self.sigmoid = nn.Sigmoid() self.tanh = nn.Tanh() def forward(self, x, h_prev): # Reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) # Update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) # Candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) # Updated hidden state h_t = (1 - z_t) * h_prev + z_t * h_candidate # Output prediction y_t = self.Why(h_t) return y_t, h_t 1) The reset gate r_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) controls how much of the previous hidden state is used when computing the candidate hidden state. When r_t is close to 0, the model [ Select ] . 2) The update gate z_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) determines how much of the previous hidden state is carried over to the new hidden state, effectively controlling [ Select ] . 3) The candidate hidden state h_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) differs from a simple RNN update because the previous hidden state is first [ Select ] before being combined with the input. 4) Finally, the hidden state update h_t = (1 - z_t) * h_prev + z_t * h_candidate implements a convex combination that helps mitigate [ Select ] in long sequences.\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "exploding batch sizes",
+        "B": "mismatched tensor shapes",
+        "C": "overfitting due to dropout",
+        "D": "vanishing gradient"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_35",
+      "number": 35,
+      "type": "multiple_choice",
+      "question": "Complete the code below: # Define the Seq2Seq model class Seq2Seq(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(Seq2Seq, self).__init__() # Initialize the Seq2Seq model with the specified input, hidden, and output sizes. # input_size: The size of the input vocabulary. # hidden_size: The dimensionality of the hidden state in the RNNs. # output_size: The size of the output vocabulary. self.hidden_size = hidden_size # Define the encoder RNN layer self.encoder = nn.RNN(input_size, hidden_size) # Define the decoder RNN layer self.decoder = nn.RNN(input_size, hidden_size) # Define the linear layer for output prediction self.output_FC = nn.Linear(hidden_size, output_size) def forward(self, input_seq, target_seq, train=True, teacher_forcing_ratio=0.5): # Perform the forward pass of the Seq2Seq model. # input_seq: The input sequence tensor. # target_seq: The target sequence tensor. # train: Flag indicating whether the model is in training mode. # teacher_forcing_ratio: The probability of using teacher forcing during training. # Encode the input sequence using the encoder RNN. _, hidden = _, hidden = [ Select ] # Initialize the input to the decoder with zeros. decoder_input = [ Select ] # Initialize the hidden state of the decoder. decoder_hidden = hidden # Initialize an empty list to store the outputs outputs = [] # If in training mode if train: # Get the length of the target sequence target_length = target_seq.size(0) # Iterate through each time step in the target sequence for t in range(target_length): # Decode the input and hidden state to obtain the decoder output decoder_output, decoder_hidden = self.decoder(decoder_input, decoder_hidden) # Pass the decoder output through the linear layer to obtain the final output output = self.output_FC(decoder_output) # Append the output to the list of outputs outputs.append(output) # Decide whether to use teacher forcing teacher_force = random.random() < teacher_forcing_ratio # Update the decoder input based on teacher forcing decoder_input = [ Select ] if teacher_force else nn.functional.softmax(output, -1) # If not in training mode (during inference) else: # Initialize a counter for the maximum number of output steps t = 0 # Loop until the stopping condition is met while True: # Decode the input and hidden state to obtain the decoder output decoder_output, decoder_hidden = self.decoder(decoder_input, decoder_hidden) # Pass the decoder output through the linear layer to obtain the final output output = self.output_FC(decoder_output) # Append the output to the list of outputs outputs.append(output) # Update the decoder input based on the softmax of the output decoder_input = nn.functional.softmax(output, -1) # Check if the end token is reached or if the maximum number of steps is exceeded if decoder_input.argmax(dim=-1).item() == char_to_index [ END_TOKEN ] or t > 3: break # Increment the step counter t += 1 # Concatenate the outputs into a single tensor outputs = torch.cat(outputs, 0) # Return the outputs return outputs\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "self.decoder(input_seq)",
+        "B": "self.output_FC(input_seq)",
+        "C": "self.encoder(hidden)",
+        "D": "self.encoder(input_seq)"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_36",
+      "number": 36,
+      "type": "multiple_choice",
+      "question": "Complete the code below: # Define the Seq2Seq model class Seq2Seq(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(Seq2Seq, self).__init__() # Initialize the Seq2Seq model with the specified input, hidden, and output sizes. # input_size: The size of the input vocabulary. # hidden_size: The dimensionality of the hidden state in the RNNs. # output_size: The size of the output vocabulary. self.hidden_size = hidden_size # Define the encoder RNN layer self.encoder = nn.RNN(input_size, hidden_size) # Define the decoder RNN layer self.decoder = nn.RNN(input_size, hidden_size) # Define the linear layer for output prediction self.output_FC = nn.Linear(hidden_size, output_size) def forward(self, input_seq, target_seq, train=True, teacher_forcing_ratio=0.5): # Perform the forward pass of the Seq2Seq model. # input_seq: The input sequence tensor. # target_seq: The target sequence tensor. # train: Flag indicating whether the model is in training mode. # teacher_forcing_ratio: The probability of using teacher forcing during training. # Encode the input sequence using the encoder RNN. _, hidden = _, hidden = [ Select ] # Initialize the input to the decoder with zeros. decoder_input = [ Select ] # Initialize the hidden state of the decoder. decoder_hidden = hidden # Initialize an empty list to store the outputs outputs = [] # If in training mode if train: # Get the length of the target sequence target_length = target_seq.size(0) # Iterate through each time step in the target sequence for t in range(target_length): # Decode the input and hidden state to obtain the decoder output decoder_output, decoder_hidden = self.decoder(decoder_input, decoder_hidden) # Pass the decoder output through the linear layer to obtain the final output output = self.output_FC(decoder_output) # Append the output to the list of outputs outputs.append(output) # Decide whether to use teacher forcing teacher_force = random.random() < teacher_forcing_ratio # Update the decoder input based on teacher forcing decoder_input = [ Select ] if teacher_force else nn.functional.softmax(output, -1) # If not in training mode (during inference) else: # Initialize a counter for the maximum number of output steps t = 0 # Loop until the stopping condition is met while True: # Decode the input and hidden state to obtain the decoder output decoder_output, decoder_hidden = self.decoder(decoder_input, decoder_hidden) # Pass the decoder output through the linear layer to obtain the final output output = self.output_FC(decoder_output) # Append the output to the list of outputs outputs.append(output) # Update the decoder input based on the softmax of the output decoder_input = nn.functional.softmax(output, -1) # Check if the end token is reached or if the maximum number of steps is exceeded if decoder_input.argmax(dim=-1).item() == char_to_index [ END_TOKEN ] or t > 3: break # Increment the step counter t += 1 # Concatenate the outputs into a single tensor outputs = torch.cat(outputs, 0) # Return the outputs return outputs\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "hidden.clone()",
+        "B": "torch.ones(1, self.hidden_size)",
+        "C": "torch.zeros(len(vocab), 1)",
+        "D": "torch.zeros(1, len(vocab))"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec7_mc_37",
+      "number": 37,
+      "type": "multiple_choice",
+      "question": "Complete the code below: # Define the Seq2Seq model class Seq2Seq(nn.Module): def __init__(self, input_size, hidden_size, output_size): super(Seq2Seq, self).__init__() # Initialize the Seq2Seq model with the specified input, hidden, and output sizes. # input_size: The size of the input vocabulary. # hidden_size: The dimensionality of the hidden state in the RNNs. # output_size: The size of the output vocabulary. self.hidden_size = hidden_size # Define the encoder RNN layer self.encoder = nn.RNN(input_size, hidden_size) # Define the decoder RNN layer self.decoder = nn.RNN(input_size, hidden_size) # Define the linear layer for output prediction self.output_FC = nn.Linear(hidden_size, output_size) def forward(self, input_seq, target_seq, train=True, teacher_forcing_ratio=0.5): # Perform the forward pass of the Seq2Seq model. # input_seq: The input sequence tensor. # target_seq: The target sequence tensor. # train: Flag indicating whether the model is in training mode. # teacher_forcing_ratio: The probability of using teacher forcing during training. # Encode the input sequence using the encoder RNN. _, hidden = _, hidden = [ Select ] # Initialize the input to the decoder with zeros. decoder_input = [ Select ] # Initialize the hidden state of the decoder. decoder_hidden = hidden # Initialize an empty list to store the outputs outputs = [] # If in training mode if train: # Get the length of the target sequence target_length = target_seq.size(0) # Iterate through each time step in the target sequence for t in range(target_length): # Decode the input and hidden state to obtain the decoder output decoder_output, decoder_hidden = self.decoder(decoder_input, decoder_hidden) # Pass the decoder output through the linear layer to obtain the final output output = self.output_FC(decoder_output) # Append the output to the list of outputs outputs.append(output) # Decide whether to use teacher forcing teacher_force = random.random() < teacher_forcing_ratio # Update the decoder input based on teacher forcing decoder_input = [ Select ] if teacher_force else nn.functional.softmax(output, -1) # If not in training mode (during inference) else: # Initialize a counter for the maximum number of output steps t = 0 # Loop until the stopping condition is met while True: # Decode the input and hidden state to obtain the decoder output decoder_output, decoder_hidden = self.decoder(decoder_input, decoder_hidden) # Pass the decoder output through the linear layer to obtain the final output output = self.output_FC(decoder_output) # Append the output to the list of outputs outputs.append(output) # Update the decoder input based on the softmax of the output decoder_input = nn.functional.softmax(output, -1) # Check if the end token is reached or if the maximum number of steps is exceeded if decoder_input.argmax(dim=-1).item() == char_to_index [ END_TOKEN ] or t > 3: break # Increment the step counter t += 1 # Concatenate the outputs into a single tensor outputs = torch.cat(outputs, 0) # Return the outputs return outputs\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "output.argmax(dim=-1)",
+        "B": "decoder_output.detach()",
+        "C": "hidden.view(1, -1)",
+        "D": "target_seq[t].view(1, -1)"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    }
+  ]
+}

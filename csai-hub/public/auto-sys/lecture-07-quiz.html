@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-07.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,20 @@ const QUESTIONS = [
     "prompt": "In multimodal ML, what is a <strong>modality</strong>?",
     "options": [
       {
-        "html": "Any deep neural network architecture."
+        "html": "A loss function that forces several neural networks to converge on a shared embedding during joint training.",
+        "correct": false
       },
       {
         "html": "A single channel of sensory information — e.g., vision, audio, text, touch — with its own representation and statistics.",
         "correct": true
       },
       {
-        "html": "An optimiser variant."
+        "html": "A scheduling policy that decides which sensor a robot reads from at each control timestep.",
+        "correct": false
       },
       {
-        "html": "A type of GPU."
+        "html": "A preprocessing stage that normalises every input stream to identical dimensionality before fusion.",
+        "correct": false
       }
     ],
     "prof": "Modality = a \"way the world reaches you.\" Vision, sound, touch, language — each has its own structure, and aligning them is the central challenge."
@@ -132,16 +139,16 @@ const QUESTIONS = [
     "prompt": "The lecture lists five canonical challenges in multimodal ML. Which option is <strong>NOT</strong> one of them?",
     "options": [
       {
-        "html": "Representation — how to embed each modality."
+        "html": "Representation — how to embed each modality into a useful form."
       },
       {
-        "html": "Translation — mapping one modality to another."
+        "html": "Translation — mapping content from one modality into another modality."
       },
       {
-        "html": "Alignment — temporal/semantic correspondence."
+        "html": "Alignment — finding temporal and semantic correspondence across modalities."
       },
       {
-        "html": "Lossless audio compression.",
+        "html": "Lossless audio compression — shrinking a waveform with no fidelity loss.",
         "correct": true
       }
     ],
@@ -159,13 +166,16 @@ const QUESTIONS = [
         "correct": true
       },
       {
-        "html": "Linear · Convolutional · Recurrent."
+        "html": "Linear fusion · Convolutional fusion · Recurrent fusion, named after the layer doing the combining.",
+        "correct": false
       },
       {
-        "html": "Encoder · Decoder · Discriminator."
+        "html": "Encoder fusion · Decoder fusion · Discriminator fusion, mirroring a generative-adversarial pipeline.",
+        "correct": false
       },
       {
-        "html": "Train · Validate · Test."
+        "html": "Train-time · Validation-time · Test-time fusion, depending on which split the merge happens in.",
+        "correct": false
       }
     ],
     "prof": "Where you fuse — raw signal, learned features, or final decisions — defines the architecture. Each has its own failure mode."
@@ -178,17 +188,20 @@ const QUESTIONS = [
     "prompt": "<strong>Early (data-level) fusion</strong> concatenates raw modalities before the model. What is its main weakness?",
     "options": [
       {
-        "html": "It cannot learn at all."
+        "html": "It discards the weaker modality entirely, so only the highest-resolution channel ever influences the prediction.",
+        "correct": false
       },
       {
         "html": "Modalities must be temporally and dimensionally aligned, and the model has to learn to ignore irrelevant cross-modal noise.",
         "correct": true
       },
       {
-        "html": "It always overfits."
+        "html": "It can only combine two modalities at once, so adding a third channel requires retraining the whole network.",
+        "correct": false
       },
       {
-        "html": "It works only for images."
+        "html": "It needs a separate encoder per modality, making it far more expensive than late or intermediate fusion.",
+        "correct": false
       }
     ],
     "prof": "Early fusion is brittle: misalignment, missing channels, or different sampling rates and the whole input vector becomes garbage."
@@ -201,17 +214,20 @@ const QUESTIONS = [
     "prompt": "<strong>Late (decision-level) fusion</strong> trains a separate model per modality and combines their <strong>outputs</strong>. What does it gain — and lose?",
     "options": [
       {
-        "html": "Gains: cross-modal feature interactions. Loses: nothing."
+        "html": "Gains: rich fine-grained feature interactions. Loses: robustness, since one missing modality corrupts the shared input vector.",
+        "correct": false
       },
       {
         "html": "Gains: robustness to missing modalities and easier engineering. Loses: cannot exploit fine-grained cross-modal interactions.",
         "correct": true
       },
       {
-        "html": "Gains: faster training. Loses: model accuracy is identical to early fusion."
+        "html": "Gains: a single end-to-end model that is simpler to train. Loses: the ability to weight modalities independently at inference.",
+        "correct": false
       },
       {
-        "html": "Gains: smaller models. Loses: cannot use GPUs."
+        "html": "Gains: lower latency from one forward pass. Loses: accuracy whenever the modalities carry redundant information.",
+        "correct": false
       }
     ],
     "prof": "Late fusion is the safe default — vote at the end. But you forfeit the cases where the modalities only make sense <em>together</em>."
@@ -224,17 +240,20 @@ const QUESTIONS = [
     "prompt": "Intermediate (representation-level) fusion combines learned <strong>features</strong> from each modality before final prediction. Why is it now the dominant strategy?",
     "options": [
       {
-        "html": "It removes the need for any data."
+        "html": "It collapses all modalities into one stream early, so the network never has to align mismatched sampling rates.",
+        "correct": false
       },
       {
         "html": "It captures cross-modal interactions in a shared latent space while staying robust to per-modality noise.",
         "correct": true
       },
       {
-        "html": "It runs without GPUs."
+        "html": "It defers fusion to the final layer, letting each modality train in complete isolation until the last decision.",
+        "correct": false
       },
       {
-        "html": "It guarantees zero overfitting."
+        "html": "It needs far fewer parameters than late fusion because the per-modality encoders are shared and identical.",
+        "correct": false
       }
     ],
     "prof": "Modern transformers (CLIP, multimodal LLMs) all live here. Per-modality encoders, then a shared latent — best of both worlds."
@@ -247,17 +266,20 @@ const QUESTIONS = [
     "prompt": "In the iCub multimodal object-recognition example, combining <strong>vision + touch</strong> outperforms either alone. The lecture's point is that:",
     "options": [
       {
-        "html": "Touch sensors are always more accurate than vision."
+        "html": "Touch sensors are inherently more accurate than vision, so fusing them simply averages out the camera's errors.",
+        "correct": false
       },
       {
         "html": "Modalities provide complementary information — touch resolves visual ambiguities (occluded faces, transparent objects) and vice versa.",
         "correct": true
       },
       {
-        "html": "Vision is unnecessary for robots."
+        "html": "The two streams carry the same information, so combining them mainly adds redundancy that guards against sensor dropout.",
+        "correct": false
       },
       {
-        "html": "iCub uses no neural networks."
+        "html": "Vision and touch are fused only to speed up inference; either modality alone would reach the same final accuracy.",
+        "correct": false
       }
     ],
     "prof": "Multimodality matters when the modalities are <em>complementary</em>, not redundant. A glass cup looks invisible but feels obvious."
@@ -270,22 +292,35 @@ const QUESTIONS = [
     "prompt": "Why does <strong>rotation-invariant</strong> recognition benefit from multimodal input?",
     "options": [
       {
-        "html": "Because GPUs handle rotation in hardware."
+        "html": "Because the camera pipeline already augments every frame with rotated copies, removing any need for a second modality.",
+        "correct": false
       },
       {
         "html": "Because haptic features (mass, texture, edges) are rotation-invariant by nature, while vision is not — fusing them stabilises recognition.",
         "correct": true
       },
       {
-        "html": "Because rotated images have higher contrast."
+        "html": "Because rotating an object boosts the contrast of its visual features, which on its own makes recognition pose-invariant.",
+        "correct": false
       },
       {
-        "html": "Because cameras have higher framerates."
+        "html": "Because a higher camera framerate captures every intermediate angle, so the visual model learns rotation invariance unaided.",
+        "correct": false
       }
     ],
     "prof": "Touch doesn't care which way you rotated the mug. Vision does. Fusing them gives you the rotation invariance for free."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l07_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week07-slides/slide-";

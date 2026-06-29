@@ -1,0 +1,107 @@
+{
+  "section_id": "s3",
+  "quiz_type": "fill_in_blank",
+  "title": "Experimental Design - Fill in the Blank",
+  "questions": [
+    {
+      "id": "s3_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the type of variable the experimenter actively manipulates.",
+      "blank_sentence": "In an experiment, the variable you manipulate is the ___ variable.",
+      "correct_answer": "independent",
+      "acceptable_answers": ["independent", "Independent", "IV"],
+      "explanation": "The independent variable (IV) is what the researcher manipulates, such as noise level or cognitive load. Its effect is then measured on the dependent variable."
+    },
+    {
+      "id": "s3_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the type of variable the experimenter measures.",
+      "blank_sentence": "The outcome you measure, such as reaction time, is the ___ variable.",
+      "correct_answer": "dependent",
+      "acceptable_answers": ["dependent", "Dependent", "DV"],
+      "explanation": "The dependent variable (DV) is the measured outcome, such as reaction time, accuracy, or eye movements. It is expected to depend on the manipulated IV."
+    },
+    {
+      "id": "s3_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the kind of relationship that experiments, unlike correlations, can establish.",
+      "blank_sentence": "Because they manipulate an IV, experiments can establish a ___ relationship.",
+      "correct_answer": "causal",
+      "acceptable_answers": ["causal", "Causal", "cause-and-effect", "cause and effect", "causation"],
+      "explanation": "Manipulating the IV while controlling other factors lets experiments support causal claims. Correlational designs can only show association, not causation."
+    },
+    {
+      "id": "s3_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the error of detecting an effect that is not actually there.",
+      "blank_sentence": "A false positive, rejecting a true null hypothesis, is a Type ___ error.",
+      "correct_answer": "I",
+      "acceptable_answers": ["I", "1", "one", "i"],
+      "explanation": "A Type I error is a false positive controlled by alpha, conventionally set at .05. A Type II error, by contrast, is missing a real effect."
+    },
+    {
+      "id": "s3_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the quantity equal to 1 minus beta.",
+      "blank_sentence": "The probability of correctly detecting a real effect, 1 - beta, is called ___.",
+      "correct_answer": "power",
+      "acceptable_answers": ["power", "Power", "statistical power"],
+      "explanation": "Power (1 - beta) is the chance of correctly rejecting a false null. It rises with larger samples, bigger effects, less variability, and a larger alpha."
+    },
+    {
+      "id": "s3_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name the technique that has Group 1 do A then B while Group 2 does B then A.",
+      "blank_sentence": "To cancel the average order effect in a within-subjects study, use ___.",
+      "correct_answer": "counterbalancing",
+      "acceptable_answers": ["counterbalancing", "Counterbalancing", "counter-balancing", "counterbalance"],
+      "explanation": "Counterbalancing reverses condition order across groups so the average order effect cancels out. For three or more conditions, a Latin-square design counterbalances systematically."
+    },
+    {
+      "id": "s3_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name a variable that systematically differs between conditions and could explain the results.",
+      "blank_sentence": "A variable that differs with the conditions and could explain the effect is a ___.",
+      "correct_answer": "confound",
+      "acceptable_answers": ["confound", "Confound", "confounding variable", "confounder"],
+      "explanation": "A confound, such as word frequency in a reading-time study, offers a rival explanation for the results. Controls like randomisation and matched stimuli reduce confounds."
+    },
+    {
+      "id": "s3_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the design that manipulates two or more independent variables at once.",
+      "blank_sentence": "Manipulating two or more IVs simultaneously defines a ___ design.",
+      "correct_answer": "factorial",
+      "acceptable_answers": ["factorial", "Factorial"],
+      "explanation": "A factorial design crosses multiple IVs, for example noise by task difficulty, and is analysed with factorial ANOVA. A 2x2 factorial produces four condition combinations."
+    },
+    {
+      "id": "s3_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the statistic that conveys the magnitude of an effect beyond its p-value.",
+      "blank_sentence": "Cohen's d and eta-squared are measures of ___.",
+      "correct_answer": "effect size",
+      "acceptable_answers": ["effect size", "Effect size", "effect-size", "effect magnitude"],
+      "explanation": "Effect size reports how large an effect is, which a p-value alone never conveys. Two studies with the same p can have very different effect sizes."
+    },
+    {
+      "id": "s3_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name what happens when participants guess the hypothesis and adjust their behaviour.",
+      "blank_sentence": "Participants guessing the study's aim and changing how they respond are showing demand ___.",
+      "correct_answer": "characteristics",
+      "acceptable_answers": ["characteristics", "Characteristics", "characteristic"],
+      "explanation": "Demand characteristics arise when participants infer the hypothesis and adjust their behaviour. Fillers, cover stories, and blinding help reduce them."
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "section_id": "lec6",
+  "quiz_type": "multiple_choice",
+  "title": "Lecturer Quiz: Regularization - Multiple Choice",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec6_mc_1",
+      "number": 1,
+      "type": "multiple_choice",
+      "question": "How does batch normalization contribute to training stability in deep neural networks?",
+      "options": {
+        "A": "It reduces the number of neurons in each layer",
+        "B": "It helps mitigate issues related to internal covariate shift",
+        "C": "It normalizes the input features during forward pass",
+        "D": "It increases the model's complexity by adding more layers"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_2",
+      "number": 2,
+      "type": "multiple_choice",
+      "question": "Which of the following is true regarding bias and variance (in the context of Deep Learning)?",
+      "options": {
+        "A": "High bias leads to underfitting",
+        "B": "Variance are a set of various assumptions made by a model to make the target function easier to learn.",
+        "C": "Bias is the variability of model prediction for a given data point.",
+        "D": "High variance leads to underfitting"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_3",
+      "number": 3,
+      "type": "multiple_choice",
+      "question": "Applying dropout in a neural network model is done differently during the training and testing phase. Which of the following statements best describes the application of dropout:",
+      "options": {
+        "A": "During training, subnetworks are sampled uniformly at random. During testing, the output of all subnetworks is averaged.",
+        "B": "During training, network units are randomly masked out (dropped) with probability p. During testing, the unit outputs are multiplied by 1-p.",
+        "C": "During training, subnetworks are randomly sampled with probability p. During testing, the output of all subnetworks is weighted by p and summed.",
+        "D": "During training, network units are randomly masked out (dropped) with probability p. During testing, the unit outputs are multiplied by p."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_4",
+      "number": 4,
+      "type": "multiple_choice",
+      "question": "What is the difference between regularization and dropout?",
+      "options": {
+        "A": "Regularisation modifies the weights at their initialization to ensure they are not close to zero nor disproportionatelly high.",
+        "B": "Regularisation adds a term to the objective function to constrain the parameters while dropout removes connections to neurons at random.",
+        "C": "Dropout changes the objective function while regularisation impacts the updatability of certain weights in an iteration.",
+        "D": "Regularization is a method to prevent underfitting while dropeout is used to prevent overfitting."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_5",
+      "number": 5,
+      "type": "multiple_choice",
+      "question": "What is the primary purpose of regularization in the context of training neural networks?",
+      "options": {
+        "A": "To speed up convergence during training",
+        "B": "To prevent overfitting and improve generalization",
+        "C": "To reduce the number of layers in the neural network",
+        "D": "To increase the computational complexity of the model"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_6",
+      "number": 6,
+      "type": "multiple_choice",
+      "question": "How does L2 regularization contribute to training neural networks?",
+      "options": {
+        "A": "It penalizes large weights in the network",
+        "B": "It adjusts the activation functions of neurons",
+        "C": "It increases the learning rate dynamically",
+        "D": "It introduces random noise to the input data"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_7",
+      "number": 7,
+      "type": "multiple_choice",
+      "question": "Consider a scenario where a neural network is experiencing overfitting. Which regularization technique would be most appropriate to apply to improve performance?",
+      "options": {
+        "A": "Weight initialization techniques",
+        "B": "Dropout",
+        "C": "Batch normalization",
+        "D": "L1 regularization"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_8",
+      "number": 8,
+      "type": "multiple_choice",
+      "question": "How does increasing the regularization strength (e.g., using a higher regularization parameter) typically affect a neural network's capacity and performance?",
+      "options": {
+        "A": "Decreases capacity and improves performance",
+        "B": "Increases capacity and improves performance",
+        "C": "Decreases capacity and may hurt performance",
+        "D": "Increases capacity but may hurt performance"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_9",
+      "number": 9,
+      "type": "multiple_choice",
+      "question": "Which of the following statements is false:",
+      "options": {
+        "A": "Early stopping is an approach to mitigate overfitting.",
+        "B": "Early stopping is an approach to terminate training of a neural network before it reaches the minimum training loss so that the network generalizes better.",
+        "C": "Early stopping is an approach in which the training is terminated after several consecutive epochs where no improvement on the validation set is observed.",
+        "D": "Early stopping is an approach to overcome the issue of vanishing gradient descent."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_10",
+      "number": 10,
+      "type": "multiple_choice",
+      "question": "A deep learning model is trained on a classification task on a given dataset and achieves near-perfect accuracy on the training set but performs poorly on the validation set. To address this, L2 regularization is applied. After training with regularization, the model’s capacity changes, affecting both training and validation accuracy. Complete the statement below with the correct and coherent text given this context: The application of L2 regularization helps to improve generalization as it [ Select ] the model’s capacity, leading to a [ Select ] in training accuracy and a [ Select ] in validation accuracy when compared to the results without regularization.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "increases",
+        "B": "reduces"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_11",
+      "number": 11,
+      "type": "multiple_choice",
+      "question": "A deep learning model is trained on a classification task on a given dataset and achieves near-perfect accuracy on the training set but performs poorly on the validation set. To address this, L2 regularization is applied. After training with regularization, the model’s capacity changes, affecting both training and validation accuracy. Complete the statement below with the correct and coherent text given this context: The application of L2 regularization helps to improve generalization as it [ Select ] the model’s capacity, leading to a [ Select ] in training accuracy and a [ Select ] in validation accuracy when compared to the results without regularization.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "drop",
+        "B": "gain"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_12",
+      "number": 12,
+      "type": "multiple_choice",
+      "question": "A deep learning model is trained on a classification task on a given dataset and achieves near-perfect accuracy on the training set but performs poorly on the validation set. To address this, L2 regularization is applied. After training with regularization, the model’s capacity changes, affecting both training and validation accuracy. Complete the statement below with the correct and coherent text given this context: The application of L2 regularization helps to improve generalization as it [ Select ] the model’s capacity, leading to a [ Select ] in training accuracy and a [ Select ] in validation accuracy when compared to the results without regularization.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "rise",
+        "B": "deteriorate"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_13",
+      "number": 13,
+      "type": "multiple_choice",
+      "question": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [ Select ] with [ Select ] values of H2, and [ Select ] with higher values of H1. Furthermore, out of the two parameters, [ Select ] seems to act as a regularization parameter, as [ Select ] it prevents [ Select ] .\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "bearly changes",
+        "B": "increases",
+        "C": "decreases"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_14",
+      "number": 14,
+      "type": "multiple_choice",
+      "question": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [ Select ] with [ Select ] values of H2, and [ Select ] with higher values of H1. Furthermore, out of the two parameters, [ Select ] seems to act as a regularization parameter, as [ Select ] it prevents [ Select ] .\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "lower",
+        "B": "higher"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_15",
+      "number": 15,
+      "type": "multiple_choice",
+      "question": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [ Select ] with [ Select ] values of H2, and [ Select ] with higher values of H1. Furthermore, out of the two parameters, [ Select ] seems to act as a regularization parameter, as [ Select ] it prevents [ Select ] .\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "decreases",
+        "B": "increases",
+        "C": "bearly changes"
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_16",
+      "number": 16,
+      "type": "multiple_choice",
+      "question": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [ Select ] with [ Select ] values of H2, and [ Select ] with higher values of H1. Furthermore, out of the two parameters, [ Select ] seems to act as a regularization parameter, as [ Select ] it prevents [ Select ] .\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "H2",
+        "B": "H1"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_17",
+      "number": 17,
+      "type": "multiple_choice",
+      "question": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [ Select ] with [ Select ] values of H2, and [ Select ] with higher values of H1. Furthermore, out of the two parameters, [ Select ] seems to act as a regularization parameter, as [ Select ] it prevents [ Select ] .\n\nSelect the correct choice for blank #5:",
+      "options": {
+        "A": "decreasing",
+        "B": "increasing"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_18",
+      "number": 18,
+      "type": "multiple_choice",
+      "question": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [ Select ] with [ Select ] values of H2, and [ Select ] with higher values of H1. Furthermore, out of the two parameters, [ Select ] seems to act as a regularization parameter, as [ Select ] it prevents [ Select ] .\n\nSelect the correct choice for blank #6:",
+      "options": {
+        "A": "underfitting",
+        "B": "overfitting"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_19",
+      "number": 19,
+      "type": "multiple_choice",
+      "question": "You're working on a spoken audio classification task where each audio clip contains a short utterance in one of several languages. Your dataset is relatively small, and you want to apply data augmentation to improve generalization. Which of the following data augmentation strategies would be most appropriate for this task? Match each augmentation technique with the assessment of adequacy and its most likely effect or consequence in the context of spoken audio classification.\n\nMatch: Flipping the audio signal in time (time reversal)",
+      "options": {
+        "A": "Inadequate: This approach would invert the temporal order, disrupting the spoken content and its interpretation.",
+        "B": "Adequate: This approach would maintain the class semantics while simulating variations like different speakers.",
+        "C": "Inadequate: This approach would alter the time and frequency axes, making the speech structure unrecognizable to the model.",
+        "D": "Inadequate: This approach would introduce artifacts that could potentially harm generalization in normal conditions.",
+        "E": "Adequate: This approach would encourage the model to rely on a broader context for classification."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_20",
+      "number": 20,
+      "type": "multiple_choice",
+      "question": "You're working on a spoken audio classification task where each audio clip contains a short utterance in one of several languages. Your dataset is relatively small, and you want to apply data augmentation to improve generalization. Which of the following data augmentation strategies would be most appropriate for this task? Match each augmentation technique with the assessment of adequacy and its most likely effect or consequence in the context of spoken audio classification.\n\nMatch: Slightly changing the pitch or speed of the audio",
+      "options": {
+        "A": "Inadequate: This approach would invert the temporal order, disrupting the spoken content and its interpretation.",
+        "B": "Adequate: This approach would maintain the class semantics while simulating variations like different speakers.",
+        "C": "Inadequate: This approach would alter the time and frequency axes, making the speech structure unrecognizable to the model.",
+        "D": "Inadequate: This approach would introduce artifacts that could potentially harm generalization in normal conditions.",
+        "E": "Adequate: This approach would encourage the model to rely on a broader context for classification."
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_21",
+      "number": 21,
+      "type": "multiple_choice",
+      "question": "You're working on a spoken audio classification task where each audio clip contains a short utterance in one of several languages. Your dataset is relatively small, and you want to apply data augmentation to improve generalization. Which of the following data augmentation strategies would be most appropriate for this task? Match each augmentation technique with the assessment of adequacy and its most likely effect or consequence in the context of spoken audio classification.\n\nMatch: Rotating spectrogram images by 90°",
+      "options": {
+        "A": "Inadequate: This approach would invert the temporal order, disrupting the spoken content and its interpretation.",
+        "B": "Adequate: This approach would maintain the class semantics while simulating variations like different speakers.",
+        "C": "Inadequate: This approach would alter the time and frequency axes, making the speech structure unrecognizable to the model.",
+        "D": "Inadequate: This approach would introduce artifacts that could potentially harm generalization in normal conditions.",
+        "E": "Adequate: This approach would encourage the model to rely on a broader context for classification."
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_22",
+      "number": 22,
+      "type": "multiple_choice",
+      "question": "You're working on a spoken audio classification task where each audio clip contains a short utterance in one of several languages. Your dataset is relatively small, and you want to apply data augmentation to improve generalization. Which of the following data augmentation strategies would be most appropriate for this task? Match each augmentation technique with the assessment of adequacy and its most likely effect or consequence in the context of spoken audio classification.\n\nMatch: Replacing silent segments with random white noise",
+      "options": {
+        "A": "Inadequate: This approach would invert the temporal order, disrupting the spoken content and its interpretation.",
+        "B": "Adequate: This approach would maintain the class semantics while simulating variations like different speakers.",
+        "C": "Inadequate: This approach would alter the time and frequency axes, making the speech structure unrecognizable to the model.",
+        "D": "Inadequate: This approach would introduce artifacts that could potentially harm generalization in normal conditions.",
+        "E": "Adequate: This approach would encourage the model to rely on a broader context for classification."
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_23",
+      "number": 23,
+      "type": "multiple_choice",
+      "question": "You're working on a spoken audio classification task where each audio clip contains a short utterance in one of several languages. Your dataset is relatively small, and you want to apply data augmentation to improve generalization. Which of the following data augmentation strategies would be most appropriate for this task? Match each augmentation technique with the assessment of adequacy and its most likely effect or consequence in the context of spoken audio classification.\n\nMatch: Randomly masking short spans of the audio or spectrogram",
+      "options": {
+        "A": "Inadequate: This approach would invert the temporal order, disrupting the spoken content and its interpretation.",
+        "B": "Adequate: This approach would maintain the class semantics while simulating variations like different speakers.",
+        "C": "Inadequate: This approach would alter the time and frequency axes, making the speech structure unrecognizable to the model.",
+        "D": "Inadequate: This approach would introduce artifacts that could potentially harm generalization in normal conditions.",
+        "E": "Adequate: This approach would encourage the model to rely on a broader context for classification."
+      },
+      "correct_answer": "E",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_24",
+      "number": 24,
+      "type": "multiple_choice",
+      "question": "The current model is overfitting our data, with a validation accuracy of just 0.5 against a training accuracy of .96. List possible strategies to mitigate this unwanted behavior class SimpleCNN_dropout(SimpleCNN): def __init__(self, dropout_prob=0.5): super(SimpleCNN_dropout, self).__init__() self.dropout_prob = dropout_prob self.dropout = nn.Dropout(p=dropout_prob) def forward(self, x): # Convolutional and pooling layers with ReLU activation x = self.conv1(x) x = self.relu(x) x = self.pool(x) # Dropout applied after the first convolutional layer x = self.dropout(x) x = self.conv2(x) x = self.relu(x) x = self.pool(x) # Dropout applied after the second convolutional layer x = self.dropout(x) x = self.conv3(x) x = self.relu(x) # Dropout applied after the third convolutional layer x = self.dropout(x) # Flatten the output for fully connected layers x = x.view(-1, self.fc1.in_features) # Fully connected layers with ReLU activation x = self.fc1(x) x = self.relu(x) x = self.fc2(x) return x",
+      "options": {
+        "A": "Increase regularisation by adding or increasing dropout, apply L2 weight decay, use data augmentation, or reduce model complexity.",
+        "B": "Lower the learning rate to make the model memorize the training set more efficiently, disable pooling layers, and switch ReLU to a linear activation.",
+        "C": "Remove dropout layers, increase the number of convolutional filters, and train for more epochs until training accuracy reaches 100%.",
+        "D": "Use a larger batch size so the model sees fewer gradient updates, freeze earlier layers, and remove validation data to avoid distribution mismatch."
+      },
+      "correct_answer": "A",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_25",
+      "number": 25,
+      "type": "multiple_choice",
+      "question": "Select the correct alternative about this code: epochs = 100 # Create a CNN model with dropout model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) # Changed dropout probability to 0.2 since 0.5 was too high in combination with data augmentation # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.Adam(model_d1.parameters(), lr=0.001) # Define data augmentation transformations for training transform_train = transforms.Compose([ transforms.RandomHorizontalFlip(), # Randomly flip images horizontally transforms.RandomRotation(degrees=30), # Randomly rotate images by a maximum of 30 degrees transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2), # Adjust brightness, contrast, saturation, and hue randomly transforms.ToTensor(), # Convert the images to PyTorch tensors transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize the tensor values to a range of [-1, 1] (better for computations) from [0, 1] ]) # Create data loaders for training, validation, and testing using the defined transformations train_loader, val_loader, test_loader, _ = get_data_loaders(transform_train) We create a CNN with dropout by calling model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) The dropout_prob controls the probability that a neuron is set to zero during training. Lowering this value from 0.5 to 0.3 makes the model [ Select ] . We apply several data augmentation transformations such as transforms.RandomRotation(degrees=30) This helps reduce overfitting by artificially increasing the diversity of the training data, acting as a form of [ [ Select ] ]. The optimizer used is optimizer = optim.Adam(model_d1.parameters(), lr=0.001) which adapts learning rates per parameter through estimates of first and second moments, making it a form of [ [ Select ] ] optimization. Finally, the line transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) normalizes each channel so that the inputs have values centered around zero, which improves [ [ Select ] ] during training.\n\nSelect the correct choice for blank #1:",
+      "options": {
+        "A": "converted to a binary classifier",
+        "B": "unable to train on GPUs",
+        "C": "more strongly regularized",
+        "D": "less aggressively regularized"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_26",
+      "number": 26,
+      "type": "multiple_choice",
+      "question": "Select the correct alternative about this code: epochs = 100 # Create a CNN model with dropout model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) # Changed dropout probability to 0.2 since 0.5 was too high in combination with data augmentation # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.Adam(model_d1.parameters(), lr=0.001) # Define data augmentation transformations for training transform_train = transforms.Compose([ transforms.RandomHorizontalFlip(), # Randomly flip images horizontally transforms.RandomRotation(degrees=30), # Randomly rotate images by a maximum of 30 degrees transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2), # Adjust brightness, contrast, saturation, and hue randomly transforms.ToTensor(), # Convert the images to PyTorch tensors transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize the tensor values to a range of [-1, 1] (better for computations) from [0, 1] ]) # Create data loaders for training, validation, and testing using the defined transformations train_loader, val_loader, test_loader, _ = get_data_loaders(transform_train) We create a CNN with dropout by calling model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) The dropout_prob controls the probability that a neuron is set to zero during training. Lowering this value from 0.5 to 0.3 makes the model [ Select ] . We apply several data augmentation transformations such as transforms.RandomRotation(degrees=30) This helps reduce overfitting by artificially increasing the diversity of the training data, acting as a form of [ [ Select ] ]. The optimizer used is optimizer = optim.Adam(model_d1.parameters(), lr=0.001) which adapts learning rates per parameter through estimates of first and second moments, making it a form of [ [ Select ] ] optimization. Finally, the line transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) normalizes each channel so that the inputs have values centered around zero, which improves [ [ Select ] ] during training.\n\nSelect the correct choice for blank #2:",
+      "options": {
+        "A": "loss shaping",
+        "B": "label smoothing",
+        "C": "regularisation",
+        "D": "feature pooling"
+      },
+      "correct_answer": "C",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_27",
+      "number": 27,
+      "type": "multiple_choice",
+      "question": "Select the correct alternative about this code: epochs = 100 # Create a CNN model with dropout model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) # Changed dropout probability to 0.2 since 0.5 was too high in combination with data augmentation # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.Adam(model_d1.parameters(), lr=0.001) # Define data augmentation transformations for training transform_train = transforms.Compose([ transforms.RandomHorizontalFlip(), # Randomly flip images horizontally transforms.RandomRotation(degrees=30), # Randomly rotate images by a maximum of 30 degrees transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2), # Adjust brightness, contrast, saturation, and hue randomly transforms.ToTensor(), # Convert the images to PyTorch tensors transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize the tensor values to a range of [-1, 1] (better for computations) from [0, 1] ]) # Create data loaders for training, validation, and testing using the defined transformations train_loader, val_loader, test_loader, _ = get_data_loaders(transform_train) We create a CNN with dropout by calling model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) The dropout_prob controls the probability that a neuron is set to zero during training. Lowering this value from 0.5 to 0.3 makes the model [ Select ] . We apply several data augmentation transformations such as transforms.RandomRotation(degrees=30) This helps reduce overfitting by artificially increasing the diversity of the training data, acting as a form of [ [ Select ] ]. The optimizer used is optimizer = optim.Adam(model_d1.parameters(), lr=0.001) which adapts learning rates per parameter through estimates of first and second moments, making it a form of [ [ Select ] ] optimization. Finally, the line transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) normalizes each channel so that the inputs have values centered around zero, which improves [ [ Select ] ] during training.\n\nSelect the correct choice for blank #3:",
+      "options": {
+        "A": "genetic algorithm-based",
+        "B": "adaptive gradient-based",
+        "C": "reinforcement-learning-based",
+        "D": "second-order Newton"
+      },
+      "correct_answer": "B",
+      "explanation": ""
+    },
+    {
+      "id": "lec6_mc_28",
+      "number": 28,
+      "type": "multiple_choice",
+      "question": "Select the correct alternative about this code: epochs = 100 # Create a CNN model with dropout model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) # Changed dropout probability to 0.2 since 0.5 was too high in combination with data augmentation # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.Adam(model_d1.parameters(), lr=0.001) # Define data augmentation transformations for training transform_train = transforms.Compose([ transforms.RandomHorizontalFlip(), # Randomly flip images horizontally transforms.RandomRotation(degrees=30), # Randomly rotate images by a maximum of 30 degrees transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2), # Adjust brightness, contrast, saturation, and hue randomly transforms.ToTensor(), # Convert the images to PyTorch tensors transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize the tensor values to a range of [-1, 1] (better for computations) from [0, 1] ]) # Create data loaders for training, validation, and testing using the defined transformations train_loader, val_loader, test_loader, _ = get_data_loaders(transform_train) We create a CNN with dropout by calling model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) The dropout_prob controls the probability that a neuron is set to zero during training. Lowering this value from 0.5 to 0.3 makes the model [ Select ] . We apply several data augmentation transformations such as transforms.RandomRotation(degrees=30) This helps reduce overfitting by artificially increasing the diversity of the training data, acting as a form of [ [ Select ] ]. The optimizer used is optimizer = optim.Adam(model_d1.parameters(), lr=0.001) which adapts learning rates per parameter through estimates of first and second moments, making it a form of [ [ Select ] ] optimization. Finally, the line transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) normalizes each channel so that the inputs have values centered around zero, which improves [ [ Select ] ] during training.\n\nSelect the correct choice for blank #4:",
+      "options": {
+        "A": "number of model parameters",
+        "B": "image resolution",
+        "C": "GPU memory usage",
+        "D": "numerical stability and convergence"
+      },
+      "correct_answer": "D",
+      "explanation": ""
+    }
+  ]
+}

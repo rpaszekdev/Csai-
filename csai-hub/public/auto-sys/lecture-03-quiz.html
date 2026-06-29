@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-03.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,17 @@ const QUESTIONS = [
     "prompt": "A controller maps <strong>sensor input</strong> to <strong>actuator output</strong>. Which definition best captures its role in the action-perception cycle?",
     "options": [
       {
-        "html": "A static lookup table of motor commands."
+        "html": "A fixed lookup table that maps each possible sensor reading to one single pre-stored motor command."
       },
       {
-        "html": "A function that, given the current (and possibly past) sensor states, regulates the actuators to achieve a task.",
+        "html": "A function that, given current (and maybe past) sensor states, regulates the actuators for a task.",
         "correct": true
       },
       {
-        "html": "A scheduler that wakes sensors on a timer."
+        "html": "A scheduler that wakes each sensor on a timer and then reads them all in a fixed cyclic order."
       },
       {
-        "html": "A communication layer to the cloud."
+        "html": "A communication layer that relays raw sensor data out to a remote service for heavy processing."
       }
     ],
     "prof": "The controller is the policy. Whether it's a lookup table, a PID loop, or a neural network, its job is the same: turn sensing into action toward a goal."
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "An <strong>open-loop</strong> controller issues commands without checking the result. A <strong>closed-loop</strong> controller uses feedback. Which task is the clearest case for closed-loop control?",
     "options": [
       {
-        "html": "Playing a fixed song on a buzzer."
+        "html": "Playing a fixed melody on a buzzer, where every note plays for one preset duration."
       },
       {
         "html": "Holding a target position despite external disturbances (someone pushes the arm).",
         "correct": true
       },
       {
-        "html": "Blinking an LED at 1 Hz."
+        "html": "Blinking an indicator LED at a steady 1 Hz, toggling on and off on a fixed timed schedule."
       },
       {
-        "html": "Printing \"hello\" once at boot."
+        "html": "Printing \"hello\" exactly once at boot time, before the main control loop has even started."
       }
     ],
     "prof": "If the world can perturb the system, you need feedback. Open loop = \"fire and forget.\" Closed loop = \"check, correct, repeat.\""
@@ -155,17 +159,17 @@ const QUESTIONS = [
     "prompt": "<strong>Forward kinematics</strong> answers: given joint angles, where is the end-effector? <strong>Inverse kinematics</strong> answers the opposite. Why is inverse kinematics typically the harder problem?",
     "options": [
       {
-        "html": "Forward kinematics has no closed-form solution."
+        "html": "Forward kinematics rarely has a closed-form solution, so it must be solved numerically."
       },
       {
         "html": "Inverse kinematics can have multiple solutions or none, and is generally non-linear.",
         "correct": true
       },
       {
-        "html": "Inverse kinematics needs more sensors."
+        "html": "Inverse kinematics demands far more sensors than forward kinematics to compute its answer."
       },
       {
-        "html": "Forward kinematics requires real-time feedback."
+        "html": "Forward kinematics requires constant real-time feedback, whereas inverse kinematics runs offline."
       }
     ],
     "prof": "Forward = one input, one output. Inverse = one target, possibly many joint configurations (or none reachable). That ambiguity is what makes IK hard."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "A bang-bang controller switches an actuator <strong>fully on</strong> or <strong>fully off</strong> based on whether the measured value crossed a threshold. What is its main weakness?",
     "options": [
       {
-        "html": "It cannot reach the setpoint at all."
+        "html": "It can never reach the setpoint, settling instead at a fixed offset below the threshold."
       },
       {
         "html": "It produces oscillation around the setpoint and aggressive wear on actuators.",
         "correct": true
       },
       {
-        "html": "It needs a continuous sensor."
+        "html": "It depends on a continuous-valued sensor, so it fails with a simple threshold switch."
       },
       {
-        "html": "It only works with neural networks."
+        "html": "It only behaves correctly once a neural network is added to smooth the switching."
       }
     ],
     "prof": "Bang-bang = thermostat. Cheap, simple, oscillates. You buy simplicity at the cost of overshoot, chatter, and actuator stress."
@@ -205,13 +209,13 @@ const QUESTIONS = [
         "correct": true
       },
       {
-        "html": "Slower response with no oscillation regardless of K."
+        "html": "Slower response as K rises, yet the output still stays perfectly smooth with no oscillation."
       },
       {
-        "html": "K has no effect on dynamics."
+        "html": "The gain K only scales the command magnitude and has no real effect on the system's dynamics."
       },
       {
-        "html": "Higher K always reduces steady-state error to zero."
+        "html": "Raising K always drives the steady-state error all the way down to zero without side effects."
       }
     ],
     "prof": "Proportional alone leaves a steady-state error and tends to oscillate at high gain. That's why you eventually add I and D terms — but pure-P is a useful first cut."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "The classical <strong>Sense–Plan–Act</strong> hierarchy was the dominant paradigm for early autonomous systems. What is the typical <strong>weakness</strong> attributed to it (the \"Shakey\" critique)?",
     "options": [
       {
-        "html": "It cannot use cameras."
+        "html": "It cannot integrate any camera input, since symbolic models only ever accept discrete sensor values."
       },
       {
         "html": "Planning over a symbolic world model is slow, and the world changes faster than the planner.",
         "correct": true
       },
       {
-        "html": "It requires deep neural networks."
+        "html": "It depends entirely on deep neural networks, which were not yet available when Shakey was built."
       },
       {
-        "html": "It works only in indoor environments."
+        "html": "It works only in a carefully controlled indoor setting and breaks down outdoors entirely."
       }
     ],
     "prof": "Hierarchical robots think too long. By the time the plan is ready, the door has closed. This is the gap that reactive robotics opened in the late 1980s."
@@ -247,17 +251,17 @@ const QUESTIONS = [
     "prompt": "Brooks' <strong>reactive</strong> (subsumption) paradigm rejects centralised symbolic planning. What replaces it?",
     "options": [
       {
-        "html": "A single huge neural network end-to-end."
+        "html": "A single large end-to-end neural network that maps the raw sensors directly to the motor outputs."
       },
       {
-        "html": "Multiple tightly coupled sensor-motor behaviours, layered so higher-priority behaviours suppress lower ones.",
+        "html": "Multiple coupled sensor-motor behaviours, layered so higher-priority ones suppress lower ones.",
         "correct": true
       },
       {
-        "html": "A hand-written world map kept in RAM."
+        "html": "A hand-authored world map kept resident in RAM, which each behaviour must consult before acting."
       },
       {
-        "html": "An offline simulator running in parallel."
+        "html": "An offline simulator running in parallel that predicts the next state for the robot to follow."
       }
     ],
     "prof": "Behaviours instead of plans. \"The world is its own best model.\" Subsumption = layered, parallel, no central blackboard."
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "The <strong>hybrid deliberative/reactive</strong> paradigm combines both philosophies. What is the typical division of labour?",
     "options": [
       {
-        "html": "Deliberative handles low-level motor commands; reactive handles long-horizon goals."
+        "html": "Deliberative handles fast low-level motor commands; reactive owns the long-horizon goal planning."
       },
       {
         "html": "Deliberative handles long-horizon planning; reactive handles fast obstacle/safety responses.",
         "correct": true
       },
       {
-        "html": "Both layers run identical algorithms in parallel."
+        "html": "Both layers run the very same planning algorithm in parallel and vote on the final action."
       },
       {
-        "html": "Reactive is used only when batteries are low."
+        "html": "The reactive layer only engages when batteries run low, staying dormant the rest of the time."
       }
     ],
     "prof": "Plan slow, react fast. Modern autonomous stacks (cars, drones, manipulators) all live here — a planner for goals plus a reactive shell for safety."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l03_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week03-slides/slide-";

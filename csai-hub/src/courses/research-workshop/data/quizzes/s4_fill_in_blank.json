@@ -1,0 +1,107 @@
+{
+  "section_id": "s4",
+  "quiz_type": "fill_in_blank",
+  "title": "Writing a Research Proposal - Fill in the Blank",
+  "questions": [
+    {
+      "id": "s4_fib_1",
+      "number": 1,
+      "type": "fill_in_blank",
+      "question": "Name the document type whose only job is to get a not-yet-run study approved.",
+      "blank_sentence": "A ___ is a plan for a study you haven't run yet, written to get it green-lit.",
+      "correct_answer": "proposal",
+      "acceptable_answers": ["proposal", "Proposal", "research proposal"],
+      "explanation": "A proposal is a plan for a future study whose only job is to get it approved. Unlike a paper, it contains no results and no discussion."
+    },
+    {
+      "id": "s4_fib_2",
+      "number": 2,
+      "type": "fill_in_blank",
+      "question": "Name the two sections a paper has that a proposal does not (give the one that reports outcomes).",
+      "blank_sentence": "A proposal has no discussion and no ___, because the study has not yet been run.",
+      "correct_answer": "results",
+      "acceptable_answers": ["results", "Results", "result"],
+      "explanation": "A proposal lacks both results and discussion since it plans a future study. Results and Discussion appear only in the paper, which reports an already-conducted study."
+    },
+    {
+      "id": "s4_fib_3",
+      "number": 3,
+      "type": "fill_in_blank",
+      "question": "Name the informal test that checks whether the motivation made the reader care.",
+      "blank_sentence": "If a reader can shrug at your question, you have failed the '___?' test.",
+      "correct_answer": "so what",
+      "acceptable_answers": ["so what", "So what", "so-what", "so what?"],
+      "explanation": "The 'so what?' test checks the motivation: if the reader can shrug, the motivation has failed to establish relevance. It is the diagnostic for the single biggest proposal error, missing motivation."
+    },
+    {
+      "id": "s4_fib_4",
+      "number": 4,
+      "type": "fill_in_blank",
+      "question": "Name the quality the methods section must convince the reader of (the key replication test).",
+      "blank_sentence": "Methods must show the study is correct and ___, so someone could repeat it from the description.",
+      "correct_answer": "replicable",
+      "acceptable_answers": ["replicable", "Replicable", "reproducible", "replicability"],
+      "explanation": "The methods section must convince the reader the approach is correct and replicable. The key test is whether someone could replicate your study from the description alone."
+    },
+    {
+      "id": "s4_fib_5",
+      "number": 5,
+      "type": "fill_in_blank",
+      "question": "Name the way of using sources that explains why they were all invited together, telling a story.",
+      "blank_sentence": "Explaining what holds your sources together and what each uniquely adds is ___, not summary.",
+      "correct_answer": "synthesis",
+      "acceptable_answers": ["synthesis", "Synthesis", "synthesising", "synthesizing"],
+      "explanation": "Synthesis explains why sources were invited together and what each uniquely adds, telling a story. A one-by-one introduction of each source is merely a summary."
+    },
+    {
+      "id": "s4_fib_6",
+      "number": 6,
+      "type": "fill_in_blank",
+      "question": "Name the most common, hardest-to-master source-use error (the 'Smith said X, Jones said Y' pattern).",
+      "blank_sentence": "Writing 'Smith said X. Furthermore, Jones said Y.' is ___ instead of synthesising.",
+      "correct_answer": "listing",
+      "acceptable_answers": ["listing", "Listing", "list"],
+      "explanation": "Listing sources one after another with no narrative is the most common and hardest source-use error. The fix is to synthesise: connect the sources around your own point."
+    },
+    {
+      "id": "s4_fib_7",
+      "number": 7,
+      "type": "fill_in_blank",
+      "question": "Name the 5 C that means stating which arguments were more convincing and what is lacking.",
+      "blank_sentence": "Judging which arguments held up and what is missing is the C called ___.",
+      "correct_answer": "critique",
+      "acceptable_answers": ["critique", "Critique", "critiquing"],
+      "explanation": "Critique means assessing which arguments were more convincing and why, and what is lacking. It is one of the 5 C's alongside Cite, Compare, Contrast, and Connect."
+    },
+    {
+      "id": "s4_fib_8",
+      "number": 8,
+      "type": "fill_in_blank",
+      "question": "Name the chart that sorts ideas across sources and is read horizontally for synthesis.",
+      "blank_sentence": "A ___ matrix puts sources across the top and ideas down the side; read it horizontally.",
+      "correct_answer": "synthesis",
+      "acceptable_answers": ["synthesis", "Synthesis"],
+      "explanation": "A synthesis matrix sorts similarities and differences across the literature on one topic. Reading horizontally (one idea across sources) yields synthesis, while reading vertically yields a summary."
+    },
+    {
+      "id": "s4_fib_9",
+      "number": 9,
+      "type": "fill_in_blank",
+      "question": "Name the give-away signal that reveals AI was used to find sources.",
+      "blank_sentence": "The give-away of AI source-finding is the ___ source, which does not really exist.",
+      "correct_answer": "hallucinated",
+      "acceptable_answers": ["hallucinated", "Hallucinated", "fabricated", "invented"],
+      "explanation": "Hallucinated sources are the main AI risk: the tool invents both the source and its contents. This is why finding sources with AI is forbidden and every citation must trace to a real paper you read."
+    },
+    {
+      "id": "s4_fib_10",
+      "number": 10,
+      "type": "fill_in_blank",
+      "question": "Name the separate declaration of any GenAI or tooling that must be attached to the proposal.",
+      "blank_sentence": "Besides references, the proposal must attach the ___ Statement.",
+      "correct_answer": "Technology",
+      "acceptable_answers": ["Technology", "technology", "Tech"],
+      "explanation": "The Technology Statement is a required attachment declaring any GenAI or tooling used. It is one of the explicit assignment requirements alongside references and a max-3-page limit."
+    }
+  ]
+}

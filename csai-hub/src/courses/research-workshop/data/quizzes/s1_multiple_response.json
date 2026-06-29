@@ -1,0 +1,157 @@
+{
+  "section_id": "s1",
+  "quiz_type": "multiple_response",
+  "title": "Course Introduction - Multiple Response",
+  "questions": [
+    {
+      "id": "s1_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Which of the following are mandatory assignments in the Research Workshop? (Select all that apply)",
+      "options": {
+        "A": "A research proposal setting the RQ, hypothesis, design, and planned analysis",
+        "B": "Ethical Standards Compliance with an informed consent template",
+        "C": "A Technology Statement declaring any GenAI or tooling used",
+        "D": "A final paper following the example papers' structure",
+        "E": "A published conference poster summarising the results"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The proposal, ethics and consent, Technology Statement, and final paper are all mandatory. A conference poster (E) is not part of the course requirements and is invented."
+    },
+    {
+      "id": "s1_mr_2",
+      "number": 2,
+      "type": "multiple_response",
+      "question": "Which statements about the course assessment are correct? (Select all that apply)",
+      "options": {
+        "A": "The paper counts for 40% of the final grade",
+        "B": "The exam counts for 60% of the final grade",
+        "C": "The paper is the group product and the exam is the individual product",
+        "D": "Passing only the exam is sufficient to pass the course",
+        "E": "The exam draws primarily on the plenary lecture slides"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "The paper is 40% and the exam 60%, the paper is the group product while the exam is individual, and the slides are the primary exam material. D is wrong because both products must pass, not just the exam."
+    },
+    {
+      "id": "s1_mr_3",
+      "number": 3,
+      "type": "multiple_response",
+      "question": "Which conditions must a project meet to satisfy the minimum project requirements? (Select all that apply)",
+      "options": {
+        "A": "At least 2 conditions",
+        "B": "At least 20 participants per condition",
+        "C": "Analysis carried out in R or Python",
+        "D": "A minimum of three supervisors signing off",
+        "E": "Feasibility within a single semester with available participants or data"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Projects need at least 2 conditions, at least 20 participants per condition, R or Python analysis, and one-semester feasibility. D invents a sign-off rule that is not a stated minimum requirement."
+    },
+    {
+      "id": "s1_mr_4",
+      "number": 4,
+      "type": "multiple_response",
+      "question": "Which session types make up the course structure? (Select all that apply)",
+      "options": {
+        "A": "Plenary lecture series",
+        "B": "Small-group supervision sessions",
+        "C": "Writing support sessions",
+        "D": "Mandatory daily standup meetings",
+        "E": "Graded weekly pop quizzes in every lecture"
+      },
+      "correct_answers": ["A", "B", "C"],
+      "explanation": "The course runs plenary lectures, supervision sessions, and writing support sessions. Daily standups (D) and graded weekly pop quizzes (E) are not part of the described structure."
+    },
+    {
+      "id": "s1_mr_5",
+      "number": 5,
+      "type": "multiple_response",
+      "question": "Which topics are explicitly covered by the plenary lecture series? (Select all that apply)",
+      "options": {
+        "A": "RQ and literature review",
+        "B": "Experimental design",
+        "C": "Data analysis",
+        "D": "Writing",
+        "E": "Grant fundraising for the project"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The plenary lectures cover RQ and literature review, experimental design, data analysis, and writing. Grant fundraising (E) is not a lecture topic in this course."
+    },
+    {
+      "id": "s1_mr_6",
+      "number": 6,
+      "type": "multiple_response",
+      "question": "Which items are resources or artefacts provided through or recommended alongside the Canvas modules? (Select all that apply)",
+      "options": {
+        "A": "Slides, transcripts, and the course schedule",
+        "B": "Example papers and proposal templates",
+        "C": "A Project Schedule Template spreadsheet",
+        "D": "The official course exam answer key",
+        "E": "A LaTeX primer and paper templates"
+      },
+      "correct_answers": ["A", "B", "C", "E"],
+      "explanation": "Canvas holds slides, transcripts, schedule, templates, and example papers, the schedule template is a required artefact, and a LaTeX primer plus templates are recommended. An exam answer key (D) is never provided."
+    },
+    {
+      "id": "s1_mr_7",
+      "number": 7,
+      "type": "multiple_response",
+      "question": "Which statements about group formation and supervision are correct? (Select all that apply)",
+      "options": {
+        "A": "Students self-enroll around a supervisor's research topic",
+        "B": "Canvas auto-assigned groups are the same as research-topic groups",
+        "C": "The Team Expectations Agreement covers roles, deadlines, and conflict resolution",
+        "D": "Free-riders are handled via the Hitchhikers and Couch Potatoes framework",
+        "E": "Supervisors are randomly allocated regardless of topic"
+      },
+      "correct_answers": ["A", "C", "D"],
+      "explanation": "Students self-enroll around a supervisor's topic, the TEP governs roles, deadlines, and conflict resolution, and free-riders are handled via the Hitchhikers and Couch Potatoes framework. B is false because auto groups are not topic groups, and E is false because groups form around chosen supervisor topics."
+    },
+    {
+      "id": "s1_mr_8",
+      "number": 8,
+      "type": "multiple_response",
+      "question": "On which criteria is the final paper graded? (Select all that apply)",
+      "options": {
+        "A": "RQ clarity",
+        "B": "Design rigour",
+        "C": "Analysis correctness",
+        "D": "Writing quality",
+        "E": "Number of pages submitted"
+      },
+      "correct_answers": ["A", "B", "C", "D"],
+      "explanation": "The paper is graded on RQ clarity, design rigour, analysis correctness, and writing quality. Raw page count (E) is not a grading criterion."
+    },
+    {
+      "id": "s1_mr_9",
+      "number": 9,
+      "type": "multiple_response",
+      "question": "Which statements correctly describe the research-project topic options? (Select all that apply)",
+      "options": {
+        "A": "Topics are chosen from a supervisor topic menu",
+        "B": "Topics fall on a Human-Studies (HS) or Machine-Learning (ML) side",
+        "C": "HS and ML tracks share one identical example proposal",
+        "D": "A project must be feasible in one semester with available participants or data",
+        "E": "Students may invent any topic with no supervisor involvement"
+      },
+      "correct_answers": ["A", "B", "D"],
+      "explanation": "Topics come from a supervisor menu, split into HS and ML sides, and must be feasible within one semester. C is wrong because the tracks have different example proposals, and E is wrong because topics come from supervisor offerings."
+    },
+    {
+      "id": "s1_mr_10",
+      "number": 10,
+      "type": "multiple_response",
+      "question": "Which conditions must hold for a student to pass the course overall? (Select all that apply)",
+      "options": {
+        "A": "The group paper must pass",
+        "B": "The individual exam must pass",
+        "C": "Only the higher of the two scores needs to pass",
+        "D": "A failing exam can be offset by an excellent paper alone",
+        "E": "Both the group product and the individual product must pass"
+      },
+      "correct_answers": ["A", "B", "E"],
+      "explanation": "Both the group paper and the individual exam must pass, which is the same as saying both products must pass. C and D both wrongly suggest one product can compensate for failing the other."
+    }
+  ]
+}

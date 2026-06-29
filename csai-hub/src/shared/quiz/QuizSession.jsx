@@ -402,7 +402,28 @@ export default function QuizSession({
         <p className="quiz-list-eyebrow">
           {lectureCode} · {typeLabel}
         </p>
-        <h1 className="quiz-list-title">{quiz.title}</h1>
+        <h1 className="quiz-list-title">
+          {quiz.title}
+          {quiz.source === "lecturer" ? (
+            <span
+              className="quiz-mod-badge quiz-mod-badge--lecturer"
+              style={{
+                marginLeft: "0.5em",
+                fontSize: "0.65rem",
+                fontWeight: 700,
+                letterSpacing: "0.08em",
+                padding: "0.15em 0.5em",
+                borderRadius: "0.25em",
+                border: "1px solid currentColor",
+                textTransform: "uppercase",
+                opacity: 0.75,
+                verticalAlign: "middle",
+              }}
+            >
+              Lecturer
+            </span>
+          ) : null}
+        </h1>
         <p className="quiz-list-meta">
           <span>
             Question {index + 1} of {questions.length}

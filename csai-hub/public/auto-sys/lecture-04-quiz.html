@@ -29,6 +29,10 @@
   <a href="#">Roadmap</a>
   <a href="./lecture-04.html">Lessons</a>
   <a href="#" class="active">Quizzes</a>
+  <a href="./final-exam.html">Final Exam</a>
+  <a href="./mock-exam.html">Mock Exam</a>
+  <a href="./final-exam-2.html">Final Exam 2</a>
+  <a href="./final-exam-3.html">Final Exam 3</a>
   <a href="#">Project</a>
 </nav>
 
@@ -109,17 +113,17 @@ const QUESTIONS = [
     "prompt": "Embodiment, in the cognitive-robotics sense, is more than \"having a body.\" Which definition captures the technical claim?",
     "options": [
       {
-        "html": "Any agent with metal parts is embodied."
+        "html": "Embodiment = equipping an agent with enough actuators and sensors that it can physically execute the plans its controller produces."
       },
       {
         "html": "Embodiment = the agent's morphology and material properties shape its perception, action, and even its computation.",
         "correct": true
       },
       {
-        "html": "Embodiment = having a brain that can move a body."
+        "html": "Embodiment = the principle that a sufficiently rich neural controller can drive whatever body it happens to be attached to."
       },
       {
-        "html": "Embodiment is irrelevant once you have enough compute."
+        "html": "Embodiment = the claim that physical wear and material fatigue are the real limits on what a robot can learn."
       }
     ],
     "prof": "Embodiment is structural, not aesthetic. The body's shape, compliance, and dynamics <em>do</em> cognitive work."
@@ -132,17 +136,17 @@ const QUESTIONS = [
     "prompt": "The <strong>dead fish</strong> swimming downstream and the <strong>passive walker</strong> walking down an incline are introduced together. What single point do both illustrate?",
     "options": [
       {
-        "html": "Robots need GPS."
+        "html": "Coherent behaviour requires at least a minimal feedback controller to stabilise the body against disturbances."
       },
       {
         "html": "Coherent behaviour can emerge without any controller, when body morphology exploits the environment.",
         "correct": true
       },
       {
-        "html": "Biological systems always outperform mechanical ones."
+        "html": "Coherent behaviour proves that biological bodies are strictly more capable than any engineered mechanism."
       },
       {
-        "html": "Reinforcement learning explains both cases."
+        "html": "Coherent behaviour in both cases is best explained as fast, implicit reinforcement learning over the body's dynamics."
       }
     ],
     "prof": "No brain, behaviour anyway. The body is doing the computation — gravity, water flow, leg geometry — and an external observer reads \"intelligence.\""
@@ -155,17 +159,17 @@ const QUESTIONS = [
     "prompt": "Classical AI (Newell & Simon's Physical Symbol System Hypothesis) vs the modern embodied view. What is the core disagreement?",
     "options": [
       {
-        "html": "Whether to use Python or C++."
+        "html": "Whether the right substrate for intelligence is logical inference over discrete symbols or statistical pattern-matching over continuous data."
       },
       {
         "html": "Whether intelligence is fundamentally symbol manipulation in a disembodied agent, or emerges from sensorimotor coupling with a body and world.",
         "correct": true
       },
       {
-        "html": "Whether robots need wheels."
+        "html": "Whether a robot's internal world-model should be hand-authored by engineers or learned from scratch through trial and error."
       },
       {
-        "html": "Whether neural networks count as AI."
+        "html": "Whether genuine intelligence demands biological neurons or can be realised in any sufficiently fast artificial network."
       }
     ],
     "prof": "Symbols-in-the-head vs body-in-the-world. The embodied view doesn't deny representation; it denies that representation alone is sufficient."
@@ -178,17 +182,17 @@ const QUESTIONS = [
     "prompt": "Pfeifer & Bongard's <em>How the Body Shapes the Way We Think</em> argues that the body is not just an output device. What is the strongest version of their claim?",
     "options": [
       {
-        "html": "Bodies make controllers easier to debug."
+        "html": "A well-designed body mainly serves to make the controller easier to debug, since failures show up as visible mechanical faults."
       },
       {
         "html": "Body morphology and material properties contribute to \"thinking\" — they offload, simplify, or even substitute for neural computation.",
         "correct": true
       },
       {
-        "html": "Bodies are interchangeable across cognitive tasks."
+        "html": "Because cognition lives entirely in the brain, one general controller can be ported across interchangeable bodies without loss."
       },
       {
-        "html": "Bodies must always be made of soft materials."
+        "html": "Genuine cognitive offloading only happens in soft, compliant bodies, so rigid robots gain nothing from their morphology."
       }
     ],
     "prof": "The body is a co-author of cognition. Reach into a coffee cup — finger compliance, palm shape, friction all \"compute\" the grasp before any neural decision."
@@ -201,17 +205,17 @@ const QUESTIONS = [
     "prompt": "The <strong>synthetic methodology</strong> — \"understanding by building\" — typically distinguishes <strong>four kinds of bodies</strong> the researcher works with. Which set is correct?",
     "options": [
       {
-        "html": "Real · simulated · imagined · biological."
+        "html": "Biological · physical (real robot) · simulated · purely imagined bodies the researcher reasons about informally."
       },
       {
         "html": "Biological · physical (real robot) · simulated · theoretical/mathematical bodies.",
         "correct": true
       },
       {
-        "html": "Hard · soft · medium · liquid."
+        "html": "Rigid-skeleton · soft-compliant · hybrid rigid-soft · fluid-actuated bodies grouped by material class."
       },
       {
-        "html": "Industrial · domestic · medical · military."
+        "html": "Industrial · domestic · medical · military bodies grouped by the application domain they are built for."
       }
     ],
     "prof": "Each \"body\" is an experimental modality. The synthetic claim is that building <em>any</em> of them — model, sim, robot — generates understanding you can't get from observation alone."
@@ -224,17 +228,17 @@ const QUESTIONS = [
     "prompt": "<strong>Morphological computation</strong> means the body performs work the controller would otherwise have to. Which example illustrates it most cleanly?",
     "options": [
       {
-        "html": "A 6-DoF arm running a PID loop."
+        "html": "A 6-DoF arm whose PID loop computes every joint torque so the controller fully determines the motion."
       },
       {
         "html": "A passive walker descending an incline using leg geometry alone — no controller at all.",
         "correct": true
       },
       {
-        "html": "A self-driving car with a deep neural network."
+        "html": "A self-driving car whose deep network maps camera frames straight to steering, with the chassis playing no computational role."
       },
       {
-        "html": "A drone using GPS waypoints."
+        "html": "A drone that follows GPS waypoints by closing the loop entirely in software, with the airframe just carrying the payload."
       }
     ],
     "prof": "If you remove the controller and behaviour persists, the body was doing the computation. That's the operational test."
@@ -247,17 +251,17 @@ const QUESTIONS = [
     "prompt": "<strong>Voxel-bots</strong> and <strong>Xenobots</strong> push embodiment further by <strong>co-evolving body and brain</strong>. What advantage does co-evolution claim over fixed-body learning?",
     "options": [
       {
-        "html": "It guarantees faster training."
+        "html": "By searching body and brain together it converges faster than fixed-body learning, since the extra parameters speed up optimisation."
       },
       {
-        "html": "It removes the need for sensors."
+        "html": "By letting the body change shape it removes the need for dedicated sensors, since morphology can encode the same information."
       },
       {
         "html": "It lets morphology adapt to the task, finding body-controller pairs neither half could reach alone.",
         "correct": true
       },
       {
-        "html": "It eliminates the need for simulation."
+        "html": "By evolving morphology directly on hardware it sidesteps simulation, avoiding the sim-to-real gap that fixed-body learning suffers."
       }
     ],
     "prof": "Most learning fixes the body and tunes the brain. Co-evolution searches both at once — more expensive, but it discovers solutions a fixed body would lock out."
@@ -270,22 +274,32 @@ const QUESTIONS = [
     "prompt": "If you take embodiment seriously as a designer, which of the following design moves does it most directly justify?",
     "options": [
       {
-        "html": "Always use the largest neural network you can afford."
+        "html": "Invest your effort in the largest neural controller you can afford and let it compensate for whatever body you happen to have."
       },
       {
         "html": "Match body morphology to task and environment, then design the controller to exploit it — not the other way around.",
         "correct": true
       },
       {
-        "html": "Standardise on one universal robot platform."
+        "html": "Standardise on one universal robot platform so a single controller can be reused unchanged across every task you face."
       },
       {
-        "html": "Avoid soft materials."
+        "html": "Avoid compliant, soft materials wherever possible, since their unpredictable dynamics only make the controller's job harder."
       }
     ],
     "prof": "Form follows function — but bidirectionally. A clever body lets the controller be smaller, simpler, and more robust."
   }
 ];
+
+// De-bias: shuffle each question's options once per load so neither
+// position nor length is a reliable tell. The `correct` flag travels with
+// the option object, so correctness stays valid after shuffling.
+QUESTIONS.forEach(function (q) {
+  for (var i = q.options.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = q.options[i]; q.options[i] = q.options[j]; q.options[j] = tmp;
+  }
+});
 
 const STORAGE_KEY = "csai_auto_sys_l04_quiz_v1";
 const SLIDE_BASE = "/auto-sys/week04-slides/slide-";

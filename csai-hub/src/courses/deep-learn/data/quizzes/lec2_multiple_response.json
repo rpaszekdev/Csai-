@@ -1,0 +1,27 @@
+{
+  "section_id": "lec2",
+  "quiz_type": "multiple_response",
+  "title": "Lecturer Quiz: MLP Activation & Backpropagation - Multiple Response",
+  "source": "lecturer",
+  "questions": [
+    {
+      "id": "lec2_mr_1",
+      "number": 1,
+      "type": "multiple_response",
+      "question": "Why is the binary cross-entropy loss function generally preferred over the mean squared error (MSE) loss function for binary classification tasks? Select all that apply.",
+      "options": {
+        "A": "Gradient Behavior: Binary cross-entropy provides better gradient behavior, leading to faster convergence during training.",
+        "B": "Interpretability of Probabilities: Binary cross-entropy directly interprets the output as probabilities, making it more intuitive for binary classification tasks.",
+        "C": "Error Sensitivity: Mean squared error can be overly sensitive to outliers, which is less of a concern for binary cross-entropy in binary classification tasks.",
+        "D": "Model Output Range: Binary cross-entropy ensures that the model outputs are strictly within the range of [0, 1].",
+        "E": "Numerical Stability: Binary cross-entropy is more numerically stable, especially for extreme predictions close to 0 or 1."
+      },
+      "correct_answers": [
+        "A",
+        "B",
+        "E"
+      ],
+      "explanation": ""
+    }
+  ]
+}

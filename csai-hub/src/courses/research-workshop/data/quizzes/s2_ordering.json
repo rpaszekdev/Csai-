@@ -1,0 +1,108 @@
+{
+  "section_id": "s2",
+  "quiz_type": "ordering",
+  "title": "Research Question & Literature Review - Ordering",
+  "questions": [
+    {
+      "id": "s2_ord_1",
+      "number": 1,
+      "type": "ordering",
+      "question": "Order the seven steps of the literature-review process.",
+      "items": [
+        "Outline",
+        "Search",
+        "Write",
+        "Read and note",
+        "Evaluate",
+        "Build a storyline",
+        "Organise sources"
+      ],
+      "correct_order": [
+        "Search",
+        "Evaluate",
+        "Read and note",
+        "Organise sources",
+        "Outline",
+        "Build a storyline",
+        "Write"
+      ],
+      "explanation": "The seven steps in order are: search, evaluate, read and note, organise, outline, storyline, write."
+    },
+    {
+      "id": "s2_ord_2",
+      "number": 2,
+      "type": "ordering",
+      "question": "Order the topic-narrowing funnel from broadest to a single study.",
+      "items": [
+        "Pick one specific study you can run",
+        "Choose a broad area of interest",
+        "Narrow to a focused angle",
+        "Identify a sub-topic within the area"
+      ],
+      "correct_order": [
+        "Choose a broad area of interest",
+        "Identify a sub-topic within the area",
+        "Narrow to a focused angle",
+        "Pick one specific study you can run"
+      ],
+      "explanation": "You narrow a broad topic to a sub-topic, then a focused angle, until you can pick one feasible study."
+    },
+    {
+      "id": "s2_ord_3",
+      "number": 3,
+      "type": "ordering",
+      "question": "Order these steps for handling a definition you want to cite, ending with citing correctly.",
+      "items": [
+        "Cite the original source",
+        "Notice a secondary source uses the definition",
+        "Trace it back to the original source",
+        "Confirm the original actually defines the term"
+      ],
+      "correct_order": [
+        "Notice a secondary source uses the definition",
+        "Trace it back to the original source",
+        "Confirm the original actually defines the term",
+        "Cite the original source"
+      ],
+      "explanation": "To avoid citing the citation, trace a definition back to the original source, confirm it, and cite that original."
+    },
+    {
+      "id": "s2_ord_4",
+      "number": 4,
+      "type": "ordering",
+      "question": "Order these steps for formulating a research question from a phenomenon.",
+      "items": [
+        "Check the question is feasible to study",
+        "Observe an interesting real phenomenon",
+        "Phrase a specific, answerable question",
+        "Identify measurable variables"
+      ],
+      "correct_order": [
+        "Observe an interesting real phenomenon",
+        "Identify measurable variables",
+        "Phrase a specific, answerable question",
+        "Check the question is feasible to study"
+      ],
+      "explanation": "From a real phenomenon you identify measurable variables, phrase a specific answerable RQ, then check feasibility, as with Cherry's cocktail-party effect."
+    },
+    {
+      "id": "s2_ord_5",
+      "number": 5,
+      "type": "ordering",
+      "question": "Order these steps for evaluating a paper before committing to a deep read.",
+      "items": [
+        "Decide whether to deep-read it",
+        "Read the abstract",
+        "Check citation count and recency",
+        "Skim the conclusions"
+      ],
+      "correct_order": [
+        "Read the abstract",
+        "Skim the conclusions",
+        "Check citation count and recency",
+        "Decide whether to deep-read it"
+      ],
+      "explanation": "Pre-reading evaluation scans the abstract and conclusions, weighs citation count and recency, then decides whether a full read is worthwhile."
+    }
+  ]
+}
