@@ -128,15 +128,16 @@ function createViewer(container, onProgress, onReady) {
   });
   ro.observe(container);
 
-  api.highlightRegion = (region) => {
+  // dim/dimU default to the quiz's "hunt for it" levels; the explore mini-viewer passes higher values to keep context
+  api.highlightRegion = (region, dim = 0.12, dimU = 0.05) => {
     for (const r of BRAIN_REGIONS) {
       const mats = regionMaterials.get(r.id); if (!mats) continue;
       const on = r.id === region.id;
-      for (const m of mats) { m.opacity = on ? 1.0 : 0.12; m.emissiveIntensity = on ? 0.5 : 0; }
+      for (const m of mats) { m.opacity = on ? 1.0 : dim; m.emissiveIntensity = on ? 0.6 : 0; }
     }
     for (const [file, obj] of meshByFile) {
       if (meshToRegion.get(file)) continue;
-      obj.traverse((c) => { if (c instanceof THREE.Mesh) c.material.opacity = 0.05; });
+      obj.traverse((c) => { if (c instanceof THREE.Mesh) c.material.opacity = dimU; });
     }
   };
   api.reset = () => {
@@ -306,3 +307,43 @@ function sync() {
 const mo = new MutationObserver(sync);
 mo.observe(document.body, { childList: true, subtree: true });
 sync();
+
+// ---- corner mini-viewer for brain-link words inside notes ----
+// Clicking a region word (baked into note HTML as <button class="brain-link" data-region=...>)
+// pops a small interactive 3D brain in the top-right with that region highlighted.
+let mini = null; // lazily built on first click; reused after that
+function ensureMini() {
+  if (mini) return mini;
+  const wrap = el("div", `position:fixed;top:74px;right:18px;z-index:120;width:330px;background:var(--bg);border:2px solid var(--ink);box-shadow:7px 7px 0 var(--line);display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;`);
+  const head = el("div", "display:flex;align-items:center;gap:8px;padding:9px 8px 9px 12px;border-bottom:2px solid var(--ink);");
+  const title = el("div", `font-family:${PSS};font-size:8px;letter-spacing:1px;flex:1;line-height:1.5;`, { text: "BRAIN" });
+  const close = el("button", `font-family:${PSS};font-size:9px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;padding:4px 8px;`, { text: "✕" });
+  close.onclick = () => { wrap.style.display = "none"; };
+  head.appendChild(title); head.appendChild(close);
+  const canvas = el("div", "height:270px;position:relative;background:#141414;cursor:grab;");
+  const loading = el("div", `position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#e8e6e2;font-family:${PSS};font-size:9px;letter-spacing:1px;pointer-events:none;`, { text: "LOADING…" });
+  canvas.appendChild(loading);
+  const desc = el("div", "font-size:11px;color:var(--mute);line-height:1.55;padding:10px 12px;border-top:1px dashed var(--line);max-height:120px;overflow:auto;", { text: "" });
+  wrap.appendChild(head); wrap.appendChild(canvas); wrap.appendChild(desc);
+  document.body.appendChild(wrap);
+  mini = { wrap, title, desc, loading, ready: false, pending: null, viewer: null };
+  mini.viewer = createViewer(canvas, () => {}, () => { mini.ready = true; loading.style.display = "none"; if (mini.pending) { show(mini.pending); mini.pending = null; } });
+  return mini;
+}
+function show(region) {
+  mini.title.textContent = region.name.toUpperCase();
+  mini.desc.textContent = region.description || "";
+  if (mini.ready) { mini.viewer.highlightRegion(region, 0.34, 0.14); mini.viewer.flyToRegion(region); }
+  else mini.pending = region;
+}
+function openMiniBrain(regionId) {
+  const region = BRAIN_REGIONS.find((r) => r.id === regionId);
+  if (!region) return;
+  const m = ensureMini();
+  m.wrap.style.display = "flex";
+  show(region);
+}
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest && e.target.closest(".brain-link");
+  if (btn && btn.dataset.region) { e.preventDefault(); openMiniBrain(btn.dataset.region); }
+});

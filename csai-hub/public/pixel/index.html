@@ -51,6 +51,13 @@
 .as-note blockquote { border-left:3px solid var(--ink); margin:18px 0; padding:6px 0 6px 16px; color:var(--mute); font-style:italic; }
 .as-note code { font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--sel); padding:1px 5px; border:1px solid var(--line); }
 .as-note hr { border:none; border-top:1px dashed var(--line); margin:30px 0; }
+.as-note .brain-link { font:inherit; color:var(--ink); background:none; border:none; border-bottom:1.5px dotted var(--ink); padding:0 1px; margin:0; cursor:pointer; white-space:nowrap; }
+.as-note .brain-link::after { content:'\25C9'; font-size:7px; vertical-align:super; margin-left:2px; opacity:.55; }
+.as-note .brain-link:hover { background:var(--ink); color:#fff; }
+.as-note .note-slides { border-top:1px dashed var(--line); margin-top:42px; padding-top:30px; }
+.as-note .slide-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:12px; margin-top:16px; }
+.as-note .slide-grid .slide-embed { margin:0; }
+.as-note .slide-grid .slide-embed img { width:100%; }
 </style>
 <script type="importmap">
 { "imports": {
@@ -88,6 +95,16 @@
           <i class="hn {{ row.tagIcon }}" style="font-size:12px; color:var(--ink); opacity:{{ row.tagOp }};"></i>
         </div>
       </sc-for>
+    </div>
+
+    <div style="padding:12px 22px 8px; border-top:1px dashed var(--line);">
+      <div style="font-family:'Press Start 2P',monospace; font-size:8px; letter-spacing:1px; color:var(--mute); margin-bottom:11px;">DOWNLOADS</div>
+      <a href="/pixel/downloads/cheatsheet_ULTIMATE.pdf" download style="display:flex; align-items:center; gap:11px; height:30px; font-size:12.5px; color:var(--ink); text-decoration:none;">
+        <i class="hn hn-file-import" style="font-size:14px; color:var(--accent);"></i><span>Ultimate cheatsheet (PDF)</span>
+      </a>
+      <a href="/pixel/downloads/quizzes.json" download style="display:flex; align-items:center; gap:11px; height:30px; font-size:12.5px; color:var(--ink); text-decoration:none;">
+        <i class="hn hn-file-import" style="font-size:14px; color:var(--accent);"></i><span>All quizzes (JSON)</span>
+      </a>
     </div>
 
     <div style="display:flex; align-items:center; gap:20px; padding:18px 24px; border-top:1px dashed var(--line);">

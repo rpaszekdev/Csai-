@@ -5,7 +5,7 @@
 // Source (auto-sys, static HTML only):
 //   public/auto-sys/lecture-NN-quiz.html + the 4 exams  -> embedded `const QUESTIONS = [...]`
 //   public/auto-sys/lecture-NN.html                     -> <article> notes HTML
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import vm from "node:vm";
@@ -186,6 +186,43 @@ function mdToHtml(md) {
   return out.join("\n");
 }
 
+// --- brain-region word linking (reuse the old site's per-region aliases) ---
+const BRAIN_JSON = join(ROOT, "public/cog-neuro/lectures/brain-regions.json");
+const brainRegions = existsSync(BRAIN_JSON) ? JSON.parse(readFileSync(BRAIN_JSON, "utf8")) : [];
+const aliasToId = new Map();
+for (const r of brainRegions) for (const a of (r.aliases || [])) aliasToId.set(a.toLowerCase(), r.id);
+const aliasList = [...aliasToId.keys()].sort((a, b) => b.length - a.length).map((a) => a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+const aliasRe = aliasList.length ? new RegExp("\\b(" + aliasList.join("|") + ")\\b", "gi") : null;
+
+// wrap the FIRST mention of each region in a clickable button; never touch text inside HTML tags
+function wrapBrainLinks(html) {
+  if (!aliasRe) return html;
+  const linked = new Set();
+  return html.split(/(<[^>]+>)/).map((tok) => {
+    if (tok.startsWith("<")) return tok; // a tag — leave untouched
+    return tok.replace(aliasRe, (m) => {
+      const id = aliasToId.get(m.toLowerCase());
+      if (!id || linked.has(id)) return m;
+      linked.add(id);
+      return `<button type="button" class="brain-link" data-region="${id}">${m}</button>`;
+    });
+  }).join("");
+}
+
+// --- per-lesson presentation slides -> a zoomable grid section ---
+const SLIDES_DIR = join(ROOT, "public/cog-neuro/slides");
+function slidesSection(id) {
+  if (!existsSync(SLIDES_DIR)) return "";
+  const files = readdirSync(SLIDES_DIR).filter((f) => f.startsWith(id + "_slide-") && f.endsWith(".png"))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  if (!files.length) return "";
+  const figs = files.map((f) => {
+    const num = (f.match(/slide-(\d+)/) || [])[1] || "";
+    return `<figure class="slide-embed"><img src="/cog-neuro/slides/${f}" alt="slide ${num}" loading="lazy"><figcaption><span class="num">${num}</span></figcaption></figure>`;
+  }).join("");
+  return `<section class="note-slides"><span class="section-eyebrow">PRESENTATION SLIDES · ${files.length}</span><div class="slide-grid">${figs}</div></section>`;
+}
+
 function cogTopic(id) {
   const meta = readJSON(join(COG, "notes", id + ".meta.json"));
   if (meta && meta.title) { const t = meta.title.split(":").pop().trim(); return t || meta.title; }
@@ -209,7 +246,8 @@ function buildCogNeuro() {
     const mdPath = join(COG, "notes", id + ".md");
     if (!existsSync(mdPath)) return null;
     const meta = readJSON(join(COG, "notes", id + ".meta.json"));
-    return { id: "cog-" + id, title: (meta && meta.title) || cogTopic(id), html: mdToHtml(readFileSync(mdPath, "utf8")) };
+    const html = wrapBrainLinks(mdToHtml(readFileSync(mdPath, "utf8"))) + slidesSection(id);
+    return { id: "cog-" + id, title: (meta && meta.title) || cogTopic(id), html };
   }).filter(Boolean);
   return { id: "cogneuro", name: "cognitive-neuroscience", navIcon: "cogneuro", live: true, lessons, notes, exams: [] };
 }
@@ -254,6 +292,12 @@ const cogneuro = buildCogNeuro();
   const need = ["<h2>Head</h2>", "<strong>bold</strong>", 'class="badge">EXAM', "<ul>", "<table>", "<th>A</th>", "<blockquote>"];
   for (const s of need) if (!html.includes(s)) throw new Error("mdToHtml self-test failed, missing: " + s);
   if (html.includes("<h1>") || html.includes("Title")) throw new Error("mdToHtml should drop the leading H1 title");
+  if (aliasRe) { // brain-link: wrap first mention only, never inside a tag
+    const w = wrapBrainLinks("<p>The hippocampus and amygdala. The hippocampus again.</p>");
+    const links = (w.match(/class="brain-link"/g) || []).length;
+    if (links !== 2) throw new Error("wrapBrainLinks should link first mention per region (got " + links + ")");
+    if (!/data-region="hippocampus"/.test(w) || !/data-region="amygdala"/.test(w)) throw new Error("wrapBrainLinks missing region ids");
+  }
 })();
 
 const out =

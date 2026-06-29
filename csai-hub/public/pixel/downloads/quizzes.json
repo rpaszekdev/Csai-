@@ -1,0 +1,3286 @@
+[
+  {
+    "code": "L1",
+    "id": "l1",
+    "topic": "MLPs",
+    "title": "MLPs - Multiple Choice",
+    "count": 10,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "dropdown",
+        "q": "The perceptron is one of the first and most basic artificial neural network models. Fill in the blanks in the text below by selecting the option from the list which will make the statement correct with respect to the perceptron. The output of the perceptron is computed by first computing the [[1]] of inputs and weights, plus the bias, which is then passed through the [[2]] activation function resulting in [[3]] .",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "Cartesian product",
+              "Cross product",
+              "Sum of the products"
+            ],
+            "correct": "Sum of the products"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "identity",
+              "softmax",
+              "sigmoid",
+              "step"
+            ],
+            "correct": "step"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "a binary output 0/1",
+              "outputs ranging from 0 to 1"
+            ],
+            "correct": "a binary output 0/1"
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "type": "single",
+        "q": "The perceptron is one of the simplest and earliest artificial neural network models. It can be mapped to the following function: 𝑜 = 𝑓 ( 𝑤 0 + ∑ 𝑖 = 1 𝑛 𝑤 𝑖 ∗ 𝑥 𝑖 ) Which of the following statements is correct with respect to f?",
+        "code": false,
+        "options": {
+          "A": "f denotes the function being approximated",
+          "B": "f denotes the activation function",
+          "C": "f denotes the loss function"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Consider a learning problem with 100 inputs: x0, … x100 that can have values 0 or 1. The learning objective is to predict 1 when at least any of the 51 inputs are 1 and 0 when at least any of the 51 inputs are 0. Which of the following describes a perceptron that can do that:",
+        "code": false,
+        "options": {
+          "A": "All weights equal to 0.02, and bias equals -1",
+          "B": "At least half of the weights equal 0.04, and bias equals 0.0",
+          "C": "All weights equal to 0.01, and bias equals -1"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "You train a perceptron with a step activation function to learn the function specified by this table: Input 1 Input 2 Output 0 0 0 0 1 1 1 0 0 1 1 0 With which of the following set of weights can you say that the perceptron correctly approximates the function? (w1 being the weight for input 1 and w2 for input 2)",
+        "code": false,
+        "options": {
+          "A": "A single perceptron cannot model this function.",
+          "B": "w1 = -1, w2 = 1.3, bias = -1.0",
+          "C": "w1 = 1, w2 = -1.3, bias = -0.5",
+          "D": "w1 = -1, w2 = 1.3, bias = -1.5"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "review",
+        "q": "Training a multilayer perceptron (MLP) involves the following steps: forward pass, error calculation, backward pass and weight update. The following statements describe parts of these steps. Place them in the most suitable category:",
+        "code": false,
+        "options": {},
+        "correct": [],
+        "explain": "Forward pass  →  input data is fed into the neural network\nError calculation  →  the cost function output is computed\nBackward pass  →  the gradient of the cost with respect to each weight and bias is computed using the chain rule.\nWeight update  →  the network parameters are modified according to the the opposite direction of the gradient"
+      },
+      {
+        "n": 6,
+        "type": "single",
+        "q": "How are weights and biases defined and used in the context of a multi-layered perceptron (MLP) when considering Linear Algebra?",
+        "code": false,
+        "options": {
+          "A": "Weights are scalars applied to each input feature, and biases are matrices used for activation functions.",
+          "B": "Weights are matrices connecting layers, biases are vectors, and the output is computed using matrix multiplication and addition.",
+          "C": "Weights and biases are not applicable in the Linear Algebra representation of an MLP.",
+          "D": "Weights are represented as vectors, and biases as matrices, determining the output through vector multiplication."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "single",
+        "q": "You have trained a simple MLP (two layers with sigmoid activation) on the XOR problem and got perfect results. What parameters (weights and biases) among the ones listed below would provide the right solution to the XOR problem? Remember that the XOR function takes two binary inputs and returns 1 when the two inputs are different and zero otherwise. The input vector is a column vector given as: x = [x1; x2]",
+        "code": false,
+        "options": {
+          "A": "Weights of the first layer: Biases for the first layer: 8 -8 -4 8 -8 4 Weights of the second layer: Biases for the second layer: 12 -12 6",
+          "B": "Weights of the first layer: Biases for the first layer: -8 -8 -4 8 -8 4 Weights of the second layer: Biases for the second layer: 12 -12 6",
+          "C": "Weights of the first layer: Biases for the first layer: 8 -8 -4 8 -8 0 Weights of the second layer: Biases for the second layer: 0 -12 6",
+          "D": "Weights of the first layer: Biases for the first layer: -8 8 4 8 -8 -4 Weights of the second layer: Biases for the second layer: -12 12 6"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "Why can’t a single layer of perceptrons model the XOR problem?",
+        "code": false,
+        "options": {
+          "A": "The number of inputs does not allow to have a single layer with only one output",
+          "B": "The problem is linearly separable but has to be addressed in two stages",
+          "C": "The problem is not linearly separable",
+          "D": "The problem is linearly separable as long as there are more than two perceptrons in the first layer"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "single",
+        "q": "A Multi-Layer Perceptron (MLP) can approximate complex, non-linear functions. Which statement best explains why this is possible?",
+        "code": false,
+        "options": {
+          "A": "Because non-linear activation functions between layers allow the composition of multiple linear transformations to represent non-linear mappings from inputs to outputs.",
+          "B": "Because each neuron applies a linear transformation, stacking multiple linear layers automatically increases the model’s expressive power, even without non-linear activations.",
+          "C": "Because using a larger number of hidden units ensures that the network memorizes every possible input-output pair, regardless of activation functions.",
+          "D": "Because the bias terms in each layer make the transformations non-linear, allowing the network to learn curved decision boundaries."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 10,
+        "type": "dropdown",
+        "q": "This code is the python implementation of the perceptron update rule stated below, fill in the blanks with the correct values to make this code run correctly. Equation: Δ 𝑤 𝑖 = 𝜂 ( 𝑦 − 𝑜 ) 𝑥 𝑖 𝑤 𝑖 ( 𝑡 + 1 ) = 𝑤 𝑖 ( 𝑡 ) + Δ 𝑤 𝑖 def update(inputs, output, target, weights, bias, learning_rate): # Calculate the error error = target - [[1]] output weights * inputs + bias inputs # Calculate delta for weights d_weights = learning_rate * error * [[2]] # Calculate delta for bias d_bias = learning_rate * [[3]] bias weigths * bias error # update weights weights = [[4]] # update bias bias [[5]] return error, weights, bias",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "output",
+              "weights * inputs + bias",
+              "inputs"
+            ],
+            "correct": "output"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "weights",
+              "bias",
+              "inputs"
+            ],
+            "correct": "inputs"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "bias",
+              "weigths * bias",
+              "error"
+            ],
+            "correct": "error"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "weights - inputs * d_weights",
+              "weights + d_weights",
+              "weights - d_weights"
+            ],
+            "correct": "weights + d_weights"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "-= d_bias",
+              "= bias - error",
+              "+= d_bias"
+            ],
+            "correct": "+= d_bias"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L2",
+    "id": "l2",
+    "topic": "Activation & Backprop",
+    "title": "Activation & Backprop - Multiple Choice",
+    "count": 16,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "single",
+        "q": "For a binary classification problem where the goal is to predict whether an email is spam (1) or not spam (0), which combination of loss and output activation functions is most appropriate?",
+        "code": false,
+        "options": {
+          "A": "Cross-Entropy Loss with Tanh Activation",
+          "B": "Mean Squared Error Loss with Softmax Activation",
+          "C": "Cross-Entropy Loss with Sigmoid Activation",
+          "D": "Mean Absolute Error Loss with ReLU Activation"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 2,
+        "type": "single",
+        "q": "Which of the following statements accurately describes the Rectified Linear Unit (ReLU) activation function and the reasoning behind its use in hidden layers of neural networks?",
+        "code": false,
+        "options": {
+          "A": "ReLU is preferred for regression tasks as it ensures that the output is always positive, facilitating interpretation.",
+          "B": "ReLU is a function that outputs probabilities between 0 and 1, making it suitable for binary classification tasks.",
+          "C": "ReLU is defined as f(x) = ln(1 + e^x) and is chosen for hidden layers to avoid the vanishing gradient problem in deep networks.",
+          "D": "ReLU is a piecewise linear function, f(x) = max(0, x), promoting sparsity and addressing the vanishing gradient problem."
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Activation functions are central to how and what neural networks learn. The output layer will have an activation function according to the problem at hand; however, that does not determine the function to be used in hidden layers. Why is the activation function of a hidden layers in an MLP almost never set to be a Softmax?",
+        "code": false,
+        "options": {
+          "A": "The softmax calculates a probability distribution over all the layer units, which will always cause the training of this MLP to suffer from vanishing gradients",
+          "B": "The outputs of layer l will be linearly dependent, creating a competition between neurons in that layer, therefore restricting the modeling power of that layer. However, that does not hinder the backpropagation.",
+          "C": "The output would be valid in the forward pass; however, the training would not be possible as the softmax is not differentiable when placed in a hidden layer.",
+          "D": "Using a softmax in a hidden layer is equivalent to using sigmoids, given that no cross-entropy loss is calculated on that layer's output."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "dropdown",
+        "q": "Suppose you have a single neuron, with a single input, and an activation function f(x). Assume the weight is 1, and the bias is 0. The input x to the neuron is drawn from a uniform distribution with parameters a=-1, and b=1; meaning that it is equally probable to get any value between -1 and 1 as input. For each one of the activation functions listed, match the corresponding expected value (mean) of the neuron's output y = f(x). Assume you sample a large set of inputs x and calculate the mean of all outputs y. Choose the best option for each activation function. The numbers are approximated to a single decimal. Sigmoid [[1]] Leaky ReLU with negative slope of 0.4 [[2]] ReLU [[3]] Tanh [[4]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "0.3",
+              "0.2",
+              "0.5",
+              "0.0"
+            ],
+            "correct": "0.5"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "0.2",
+              "0.5",
+              "0.3",
+              "0.0"
+            ],
+            "correct": "0.2"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "0.3",
+              "0.2",
+              "0.5",
+              "0.0"
+            ],
+            "correct": "0.3"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "0.5",
+              "0.2",
+              "0.3",
+              "0.0"
+            ],
+            "correct": "0.0"
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "type": "single",
+        "q": "A model consisting of two MLPs, M1, and M2 is trained for a specific application. Both M1 and M2 share the same input x. Their respective outputs, y1, and y2 are to be combined to create the final output of the model o. This final output is defined as where A is a matrix. The matrix A is created as the weighted average of a given set of N matrices So, the final matrix is given by: With , where f is an activation function applied to the output y2 from M2, which has N neurons. What would be such a function f so that matrix A is a weighted average of the given set of matrices S?",
+        "code": false,
+        "options": {
+          "A": "Relu",
+          "B": "Sigmoid",
+          "C": "Linear",
+          "D": "Softmax"
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "multi",
+        "q": "Why is the binary cross-entropy loss function generally preferred over the mean squared error (MSE) loss function for binary classification tasks? Select all that apply.",
+        "code": false,
+        "options": {
+          "A": "Gradient Behavior: Binary cross-entropy provides better gradient behavior, leading to faster convergence during training.",
+          "B": "Interpretability of Probabilities: Binary cross-entropy directly interprets the output as probabilities, making it more intuitive for binary classification tasks.",
+          "C": "Error Sensitivity: Mean squared error can be overly sensitive to outliers, which is less of a concern for binary cross-entropy in binary classification tasks.",
+          "D": "Model Output Range: Binary cross-entropy ensures that the model outputs are strictly within the range of [0, 1].",
+          "E": "Numerical Stability: Binary cross-entropy is more numerically stable, especially for extreme predictions close to 0 or 1."
+        },
+        "correct": [
+          "A",
+          "B",
+          "E"
+        ],
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "dropdown",
+        "q": "Rectified Linear Unit or ReLU is a suitable activation function for the hidden units in an MLP. However, ReLU has a drawback. A neuron with ReLU could end up outputting [[1]]s all the time and failing to learn. That is known as dying ReLU. Consider a neuron N with ReLU activation with a single input X and a bias term b. if we assume that Neuron N is suffering from dying ReLU. X is the output of a neuron with a sigmoid activation function The weight of the neuron N is a positive number, W>=0. What is the maximum value v of the bias b, so that b<v satisfies the conditions for N to suffer from dying ReLU? v = What is the maximum value c of the weight W in terms of b? c(b)= [[2]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "0",
+              "-b"
+            ],
+            "correct": "0"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "0",
+              "-b"
+            ],
+            "correct": "-b"
+          }
+        ]
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "In an MLP, the calculation of the derivative of a Loss function with respect to the input to the activation function of layer l-1 is given by: The first two terms in the right side of the equation together conceptually can be best described as:",
+        "code": false,
+        "options": {
+          "A": "The contribution of the activation of layer l-1 to the overall loss",
+          "B": "The addition of the contributions caused by layers l and l-1 to the overall loss",
+          "C": "The contribution of the parameters of layer l-1 to the overall loss"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "single",
+        "q": "What are the fundamental principles underlying the backpropagation algorithm in neural networks?",
+        "code": false,
+        "options": {
+          "A": "Backpropagation relies on a forward pass to predict outputs followed by a backward pass to update weights based on the gradient of the loss function with respect to each weight.",
+          "B": "Backpropagation involves randomly adjusting network weights and biases to minimize the loss function.",
+          "C": "Backpropagation utilizes reinforcement learning techniques to optimize the network's decision-making process.",
+          "D": "Backpropagation calculates the loss function by comparing the predicted outputs with the ground truth labels without adjusting network parameters."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 10,
+        "type": "single",
+        "q": "In a multi-layer neural network trained using backpropagation, describe the role of the chain rule in computing gradients during the backward pass. How does the chain rule enable efficient calculation of gradients across each layer?",
+        "code": false,
+        "options": {
+          "A": "The chain rule computes gradients by considering the reciprocal of the derivative of the activation function at each neuron, allowing for precise adjustment of weights in each layer.",
+          "B": "The chain rule ensures that gradients are propagated backward through the network by iteratively multiplying the gradients of each layer's activation function.",
+          "C": "The chain rule enables the decomposition of the overall gradient of the loss function with respect to the network's output into smaller gradients for each layer, facilitating the efficient calculation of gradients in a layer-wise fashion.",
+          "D": "The chain rule allows for the computation of gradients by recursively applying the derivative of the loss function with respect to the inputs of each layer."
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 11,
+        "type": "single",
+        "q": "The main advantage of using ReLU activation function in the hidden layers as opposed to Sigmoid is that it helps to avoid vanishing gradients; that is mainly due to:",
+        "code": false,
+        "options": {
+          "A": "The derivative of a Sigmoid can be defined in terms of the Sigmoid itself, while the derivative of ReLU can’t",
+          "B": "The derivative of ReLU is not defined everywhere, while the derivative of the Sigmoid is",
+          "C": "The derivative of ReLU is always one for positive inputs, while the derivative of the Sigmoid tends to zero when its input has an absolute value significantly higher than 0",
+          "D": "Calculating the derivative of ReLU is computationally cheaper than calculating the derivative of the Sigmoid"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 12,
+        "type": "single",
+        "q": "What is the most appropriate weight initialisation method for a neural network using the Sigmoid activation function in its hidden layers to mitigate the vanishing gradient problem?",
+        "code": false,
+        "options": {
+          "A": "Random Initialization",
+          "B": "Xavier initialization",
+          "C": "He Initialization"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 13,
+        "type": "single",
+        "q": "Consider you are building a feed forward network and you are using ReLU as an activation function in each hidden layer. Which is the most appropriate way to initialize the weights of the hidden layers of your network:",
+        "code": false,
+        "options": {
+          "A": "For each hidden layer, draw the weights from a normal distribution with mean 0 and variance varl = 2*(nl-1), where nl-1 is the number of incoming connections; initialize the bias to 0.",
+          "B": "For each hidden layer, draw the weights from a normal distribution with mean 0 and variance varl = nl-1, where nl-1is the number of incoming connections; initialize the bias to 0.",
+          "C": "Initialize both bias and weights to 0.",
+          "D": "For each hidden layer, draw the weights from a normal distribution with mean 0 and variance varl = nl-1, where nl-1is the number of incoming connections; initialize the bias to 1."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 14,
+        "type": "single",
+        "q": "You have an MLP with two outputs, one to perform a classification into a set of N classes, and the second to estimate the parameters of a Gaussian distribution D ~ N(𝜇, σ) to model a target output y. You use one loss function for each one of them: L1, a cross-entropy comparing the difference between two distributions, and L2 a log-likelihood assessing how likely it is that the target data y comes from the estimated distribution D. The total loss L you want to minimize can be expressed as:",
+        "code": false,
+        "options": {
+          "A": "L = L1 - L2",
+          "B": "L = - (L1 + L2)",
+          "C": "L = L1 + L2",
+          "D": "L = -L1 + L2"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 15,
+        "type": "dropdown",
+        "q": "Complete the following text by extracting information from the code: def backpropagate(mlp, x, target): # Calculate the error component for the output layer: This is the derivative of the loss function with respect to the network's output. # For an input of shape[1, input_size], derivative_of_loss has a size of [1, output_size] derivative_of_loss = (mlp.output - target) / (mlp.output*(1 - mlp.output)) # Calculate the delta for the output layer: The derivative of the loss wrt the weighted sum (z) in the output layer # Mind the definition of the derivative of the activation and what it expects a an input. delta_output = derivative_of_loss * sigmoid_derivative(mlp.output_z) # Calculate the error at the hidden layer: The error propagated from the output layer to the hidden layer. # Hint: this is the delta_output multiplied times the weights of the hidden layer. error_hidden = delta_output.dot(mlp.weights_hidden_output.T) # Calculate the delta for the hidden layer: The derivative of the loss wrt the weighted sum (z) of the hidden layer delta_hidden = error_hidden * sigmoid_derivative(mlp.hidden_z) # Update the weights and biases for the output layer mlp.weights_hidden_output -= mlp.hidden_output.T.dot(delta_output) * mlp.learning_rate mlp.bias_output -= delta_output * mlp.learning_rate # Update the weights and biases for the hidden layer mlp.weights_input_hidden -= x.T.dot(delta_hidden) * mlp.learning_rate mlp.bias_hidden -= delta_hidden * mlp.learning_rate 1) The expression derivative_of_loss = (mlp.output - target) / (mlp.output * (1 - mlp.output)) computes the derivative of the loss with respect to the network's output, which for binary cross-entropy assumes the activation is a [[1]] function. 2) The quantity delta_output = derivative_of_loss * sigmoid_derivative(mlp.output_z) represents the gradient of the loss with respect to the pre-activation values z of the output layer, meaning it corresponds to [[2]] . 3) If delta_output has shape [1, output_size] and mlp.weights_hidden_output has shape [hidden_size,output_size], then error_hidden = delta_output.dot(mlp.weights_hidden_output.T) produces a tensor of shape [[3]] . 4) The transpose in delta_output.dot(mlp.weights_hidden_output.T) is needed because backpropagated error must be multiplied by the weight matrix in the direction opposite to the forward pass, ensuring dimensions align as [1,output_size]×[output_size,hidden_size]. This step implements [[4]] .",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "Softmax",
+              "relu",
+              "tanh",
+              "sigmoid"
+            ],
+            "correct": "sigmoid"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "∂L/∂x",
+              "∂L/∂a_hidden",
+              "∂L/∂W_input",
+              "∂L/∂z_output"
+            ],
+            "correct": "∂L/∂z_output"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "[output_size,hidden_size]",
+              "[ hidden_size , 1 ]",
+              "[1,output_size]",
+              "[1,hidden_size]"
+            ],
+            "correct": "[1,hidden_size]"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "Xavier initialization",
+              "forward propagation",
+              "the chain rule for gradients",
+              "dropout regularization"
+            ],
+            "correct": "the chain rule for gradients"
+          }
+        ]
+      },
+      {
+        "n": 16,
+        "type": "dropdown",
+        "q": "Fill in the blanks about the following code:\n\ndef backpropagate(mlp, x, target):\n# Calculate the error component for the output layer\nif mlp.problem_type == 'classification':\n# For BCE with sigmoid: gradient simplifies to (output - target)\ndelta_output = mlp.output - target\nelif mlp.problem_type == 'regression':\n# For MSE with linear output: dL/do = 2*(output - target), do/dz = 1\ndelta_output = 2 * (mlp.output - target)\n# Calculate the error at the hidden layer\nerror_hidden = delta_output.dot(mlp.weights_hidden_output.T)\ndelta_hidden = error_hidden * mlp.activation_derivative(mlp.hidden_z)\n# Update the weights and biases for the output layer\nmlp.weights_hidden_output -= mlp.hidden_output.T.dot(delta_output) * mlp.learning_rate\nmlp.bias_output -= np.sum(delta_output, axis=0, keepdims=True) * mlp.learning_rate\n# Update the weights and biases for the hidden layer\nmlp.weights_input_hidden -= x.T.dot(delta_hidden) * mlp.learning_rate\nmlp.bias_hidden -= np.sum(delta_hidden, axis=0, keepdims=True) * mlp.learning_rate 1) When the problem type is classification, the code uses\ndelta_output = mlp.output - target because for binary cross-entropy with a sigmoid output, the gradient simplifies to [ [[1]] ]. 2) The line\nerror_hidden = delta_output.dot(mlp.weights_hidden_output.T) implements backpropagation by multiplying the output error by the transpose of the output-layer weight matrix, which corresponds to [ [[2]] ] in the chain rule. 3) In\ndelta_hidden = error_hidden * mlp.activation_derivative(mlp.hidden_z) the activation derivative is evaluated on the hidden layer’s pre-activation values z, because ∂a/∂z depends on [ [[3]] ]. 4) The update\nmlp.weights_hidden_output -= mlp.hidden_output.T.dot(delta_output) produces a matrix whose shape matches the output-layer weight matrix because the dot product yields [ [[4]] ].",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "the derivative of softmax logits",
+              "the difference between prediction and target",
+              "the normalized log-likelihood ratio",
+              "the squared error term"
+            ],
+            "correct": "the difference between prediction and target"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "normalizing activations before computing softmax",
+              "projecting hidden states to a lower dimension",
+              "distributing the gradient backward through the weights",
+              "applying dropout masks to hidden neurons"
+            ],
+            "correct": "distributing the gradient backward through the weights"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "the momentum coefficient during updates",
+              "the L2 penalty applied to weights",
+              "the normalization factor used in batch norm",
+              "the local slope of the activation function at each hidden neuron"
+            ],
+            "correct": "the local slope of the activation function at each hidden neuron"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "(hidden_size, output_size)",
+              "(batch_size, output_size)",
+              "(output_size, hidden_size)",
+              "(1, hidden_size)"
+            ],
+            "correct": "(hidden_size, output_size)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L3",
+    "id": "l3",
+    "topic": "Optimizers",
+    "title": "Optimizers - Multiple Choice",
+    "count": 14,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "single",
+        "q": "What is the primary goal of optimization in the context of training neural networks?",
+        "code": false,
+        "options": {
+          "A": "Optimize learning so that it requires less computational power",
+          "B": "Minimize the computational complexity",
+          "C": "Minimize the cost function to improve model performance",
+          "D": "Maximize the number of layers in the network"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 2,
+        "type": "dropdown",
+        "q": "You are optimising a simple linear model using gradient descent on MSE loss. You haven't taken a lot of optimisation steps yet, therefore the model's predictions are still a bit off. You consider an example in which the predicted outcome is larger than the target. The sign of the gradient is [[1]] The sign of the optimisation step is [[2]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "negative",
+              "positive"
+            ],
+            "correct": "positive"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "positive",
+              "negative"
+            ],
+            "correct": "negative"
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "In the context of optimization, what does the term \"momentum\" refer to?",
+        "code": false,
+        "options": {
+          "A": "The maximum number of iterations allowed during training",
+          "B": "A method to accelerate convergence by accumulating past gradients",
+          "C": "The rate at which the learning rate changes during training",
+          "D": "A parameter that controls the smoothness of the cost function"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "In neural network training, the term momentum, which is adopted from the field of physics, is essentially a small change to the SGD parameter update through an average over multiple time steps. Momentum speeds up movement along directions of strong improvement (loss decrease) and helps the network avoid local minima. What is the difference between SGD with momentum and Nesterov momentum:",
+        "code": false,
+        "options": {
+          "A": "The difference between the two update rules is how the momentum and velocity terms are updated at each next iteration. For Nesterov momentum the momentum term is reduced by a small ε after each iteration, while for SGD with momentum it does not change. This change impacts the velocity making Nesterov momentum lead to slower but more precise updates; SGD with momentum may skip local minima.",
+          "B": "There is no difference, Nesterov momentum is the more formal name of SGD with momentum.",
+          "C": "The difference between Nesterov momentum and SGD is in the way the gradient term is computed. For SGD with momentum the gradient term is computed from its current position in the parameter space; In Nesterov momentum it is computed from an intermediate position which equals the current position plus a lookahead step.",
+          "D": "The only difference is that in SGD with momentum, the learning rate remains unchanged, while in Nesterov momentum, the learning rane decreases based on the previous update."
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "single",
+        "q": "In the context of neural network optimization, what is the role of the learning rate?",
+        "code": false,
+        "options": {
+          "A": "It controls the batch size during training",
+          "B": "It regulates the speed at which the model parameters are updated",
+          "C": "It determines the number of epochs in training",
+          "D": "It defines the number of layers in the neural network"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "single",
+        "q": "What is the primary disadvantage of using a learning rate that is too high in optimization algorithms?",
+        "code": false,
+        "options": {
+          "A": "Increased likelihood of getting stuck in local minima",
+          "B": "Excessive computational complexity",
+          "C": "Overshooting the minimum and failing to converge"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "single",
+        "q": "Which optimization algorithm is known for its capability in adjusting the learning rates for each parameter while avoiding a continuous decrease in the learning rate?",
+        "code": false,
+        "options": {
+          "A": "Adam",
+          "B": "Adagrad",
+          "C": "Stochastic Gradient Descent (SGD)",
+          "D": "Nesterov Accelerated Momentum"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "Adam is an adaptive learning rate algorithm that optimizes the update of neural network parameters. Adam is based on two main quantities, defined as: mt = β₁ · mt₋₁ + (1 − β₁) · gₜ vt = β₂ · vt₋₁ + (1 − β₂) · gₜ² What are the correct interpretations of these notations?",
+        "code": false,
+        "options": {
+          "A": "mt is the estimate of the momentum of the gradients at time t (denoted by gₜ). vt is the estimate of the learning rate at time t. β₁ is the exponential decay rate for the momentum. β₂ is the exponential decay rate for the learning rate.",
+          "B": "mt and vt are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients, respectively. β₁ is the exponential decay rate for the first-moment estimates. β₂ is the exponential decay rate for the second-moment estimates. gₜ denotes the gradient at time step t.",
+          "C": "mt is the estimate of the momentum of the gradients at time t. vt is the estimate of the learning rate at time t. β₁ is the exponential decay rate for the momentum. β₂ is the exponential decay rate for the learning rate. gₜ denotes the loss at time t."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "dropdown",
+        "q": "We want to update a single parameter theta using the Adam optimizer, formula: Given: learning rate 𝛼 , decay rates 𝛽 1 , 𝛽 2 , small constant 𝜖 𝑚 𝑡 = 𝛽 1 𝑚 𝑡 − 1 + ( 1 − 𝛽 1 ) 𝑔 𝑡 𝑣 𝑡 = 𝛽 2 𝑣 𝑡 − 1 + ( 1 − 𝛽 2 ) 𝑔 𝑡 2 𝑚 ^ 𝑡 = 𝑚 𝑡 1 − 𝛽 1 𝑡 𝑣 ^ 𝑡 = 𝑣 𝑡 1 − 𝛽 2 𝑡 𝜃 𝑡 = 𝜃 𝑡 − 1 − 𝛼 𝑚 ^ 𝑡 𝑣 ^ 𝑡 + 𝜖 Given the following values: Initial parameter: theta_0 = 0.5 Gradient at step 1: g_1 = 0.2 m_0 = 0 v_0 = 0 Learning rate: alpha = 0.1 Exponential decay rates: beta_1 = 0.9, beta_2 = 0.999 Numerical stability constant: epsilon = 1e-8 Task: Compute the updated parameter theta_1 after the first Adam update step. Show your intermediate results for m_1, v_1, m_hat1 (bias-corrected m), v_hat1 (bias-corrected v), and the final parameter update. When possible, round your answer to 2 decimal places, if present, keep all values until the 8th decimal place. You might use a calculator. Compute m₁ and v₁ m₁ = [[1]] v₁ = [[2]] Bias correction m̂₁ = [[3]] v̂₁ = [[4]] Denominator sqrt(v̂₁) + ε = [[5]] Update size Δ = α * m̂₁ / (sqrt(v̂₁) + ε) ≈ [[6]] New parameter θ₁ = θ₀ − Δ ≈ [[7]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "0.2",
+              "0.002",
+              "0.18",
+              "0.02"
+            ],
+            "correct": "0.02"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "0.0004",
+              "0.0002",
+              "0.04",
+              "0.00004"
+            ],
+            "correct": "0.00004"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "2.0",
+              "0.02",
+              "0.2",
+              "0.022"
+            ],
+            "correct": "0.2"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "0.04",
+              "0.00004",
+              "0.02",
+              "0.00004004"
+            ],
+            "correct": "0.04"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "0.10000001",
+              "0.04000001",
+              "0.2",
+              "0.20000001"
+            ],
+            "correct": "0.20000001"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "0.1",
+              "1.0",
+              "0.02",
+              "0.01"
+            ],
+            "correct": "0.1"
+          },
+          {
+            "label": "Blank 7",
+            "pool": [
+              "0.6",
+              "0.4",
+              "0.39",
+              "0.49"
+            ],
+            "correct": "0.4"
+          }
+        ]
+      },
+      {
+        "n": 10,
+        "type": "single",
+        "q": "In optimization, AdaGrad scales the learning rate by the inverse square root of the sum of past squared gradients. RMSProp and Adam instead use an exponential moving average of squared gradients. Why is the moving average preferred over the raw sum?",
+        "code": false,
+        "options": {
+          "A": "Because the moving average guarantees convergence in fewer steps than AdaGrad.",
+          "B": "Because the moving average prevents the denominator from growing indefinitely, keeping the learning rate from shrinking too much.",
+          "C": "Because the moving average makes the updates faster by ignoring large gradients."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 11,
+        "type": "single",
+        "q": "What is the primary advantage of using adaptive learning rate algorithms like Adam or RMSprop?",
+        "code": false,
+        "options": {
+          "A": "They prevent the model from converging to a local minimum",
+          "B": "They automatically adjust the learning rate based on the curvature of the cost function",
+          "C": "They increase the number of parameters in the neural network",
+          "D": "They eliminate the need for backpropagation"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 12,
+        "type": "dropdown",
+        "q": "Complete the sentences below by filling in the blanks with the correct terms related to the optimizers SGD, Momentum, and Adam. Choose the correct option for each blank from the provided lists. SGD uses a [[1]] and updates weights based only on the current gradient, which can make convergence noisy and slow. The Momentum optimizer improves upon SGD by incorporating a concept called [[2]] , which [[3]] to smooth out the updates and accelerate learning in relevant directions. Adam combines the benefits of Momentum and RMSProp by using [[4]] of the gradients, which means it keeps track of both the [[5]] and adjusts learning rates accordingly using an [[6]] mechanism.",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "decaying step size",
+              "static learning rate",
+              "adaptive learning rate",
+              "gradient clipping"
+            ],
+            "correct": "static learning rate"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "damping factor",
+              "acceleration term",
+              "momentum rate",
+              "velocity"
+            ],
+            "correct": "velocity"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "applies weight decay",
+              "accumulates past gradients",
+              "ignores past gradients",
+              "rescales learning rate"
+            ],
+            "correct": "accumulates past gradients"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "moving median",
+              "stochastic update",
+              "exponentially weighted average",
+              "raw gradient sum"
+            ],
+            "correct": "exponentially weighted average"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "weight and bias values",
+              "learning rate decay",
+              "local minima and maxima",
+              "first and second moments"
+            ],
+            "correct": "first and second moments"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "adaptive learning rate",
+              "learning rate annealing",
+              "static learning rate",
+              "gradient normalization"
+            ],
+            "correct": "adaptive learning rate"
+          }
+        ]
+      },
+      {
+        "n": 13,
+        "type": "single",
+        "q": "The following Python code snippet implements part of the Adam optimizer's update rule for a single parameter.\n\nimport numpy as np\n# Simulated gradient at current timestep\ng = np.array([0.1, 0.01])\n# Initialize first and second moment vectors\nm = np.zeros_like(g)\n# First moment (mean)\nv = np.zeros_like(g)\n# Second moment (uncentered variance)\n# Hyperparameters\nbeta1 = 0.9\nbeta2 = 0.999\nlearning_rate = 0.001\nepsilon = 1e-8\n# Time step\nt = 1\n# Update biased first and second moment estimates\nm = beta1 * m + (1 - beta1) * g\nv = beta2 * v + (1 - beta2) * (g ** 2)\n# Bias correction\nm_hat = m / (1 - beta1 ** t)\nv_hat = v / (1 - beta2 ** t)\n# Parameter update\nupdate = learning_rate * m_hat / (np.sqrt(v_hat) + epsilon) What is the purpose of the division term in\nupdate = learning_rate * m_hat / (np.sqrt(v_hat) + epsilon)?",
+        "code": true,
+        "options": {
+          "A": "To normalize the gradients so all parameters have equal learning rates",
+          "B": "To adapt the learning rate per parameter by scaling it inversely to the average of past squared gradients",
+          "C": "To reduce the effect of small gradients by increasing the update step",
+          "D": "To apply momentum and weight decay simultaneously"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 14,
+        "type": "dropdown",
+        "q": "Answer the questions regarding the following code:\n\nclass custom_SGD:\ndef __init__(self, learning_rate):\nself.learning_rate = learning_rate\n# Set the learning rate\n# Define the step function that implements the parameter updates\ndef step(self, params):\nwith torch.no_grad():\n# Iterate through each parameter to update them\nfor param in params:\n# Update the parameter using the gradient and learning rate\nparam.data -= self.learning_rate * param.grad\n# Reset the gradient to zero for the next iteration param.grad.zero_()\ndef train_model(MLP_model, optimizer, num_epochs):\n# Define the loss function\ncriterion = nn.CrossEntropyLoss()\n# Training loop\nfor epoch in range(num_epochs):\ntotal_loss = 0\nfor inputs, labels in train_loader:\ninputs = inputs.view(-1, 28 * 28)\n# Flatten the images\noutputs = MLP_model(inputs)\n# Forward pass\nloss = criterion(outputs, labels)\n# Compute the loss loss.backward()\n# Backward pass\n# Update weights using the step function of our custom SGD optimizer.step(params=MLP_model.parameters())\n# Store the loss. loss.item() gets the value in a tensor. This only works for scalars.\ntotal_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader):.4f}') 1) Inside the step function, the update is wrapped in\nwith torch.no_grad(): because parameter updates should not be tracked by autograd; otherwise PyTorch would try to build a computation graph for the updates. This ensures [ [[1]] ]. 2) After each parameter update, the code executes param.grad.zero_() which is required because PyTorch accumulates gradients by default; therefore zeroing them ensures [ [[2]] ]. 3) When the training loop calls optimizer.step(params=MLP_model.parameters()) it applies updates to all tensors returned by MLP_model.parameters(), meaning it updates [ [[3]] ].",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "parameter changes do not create new gradient history",
+              "parameters are updated using mixed precision",
+              "gradients are normalized before updating",
+              "dropout is disabled during optimization"
+            ],
+            "correct": "parameter changes do not create new gradient history"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "the loss becomes numerically stable",
+              "the model switches from training to evaluation mode",
+              "gradients are clipped before propagation",
+              "each backward pass computes fresh gradients instead of adding to previous ones"
+            ],
+            "correct": "each backward pass computes fresh gradients instead of adding to previous ones"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "only non-zero parameters",
+              "only gradients stored in the loss function",
+              "all learnable weights and biases of the model",
+              "only the final layer weights"
+            ],
+            "correct": "all learnable weights and biases of the model"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L4",
+    "id": "l4",
+    "topic": "PyTorch & Tuning",
+    "title": "PyTorch & Tuning - Multiple Choice",
+    "count": 7,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "single",
+        "q": "What is the purpose of hyperparameter tuning in the context of machine learning?",
+        "code": false,
+        "options": {
+          "A": "To find the optimal configuration for hyperparameters",
+          "B": "To increase the complexity of the neural network",
+          "C": "To adjust the training data to better fit the model",
+          "D": "To automatically generate new features for improved accuracy"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 2,
+        "type": "single",
+        "q": "In PyTorch, what is the primary function of the nn.Linear module?",
+        "code": false,
+        "options": {
+          "A": "It defines the forward pass of the model",
+          "B": "It applies an activation function to the layer's output",
+          "C": "It makes the layer's input data linealry independent",
+          "D": "It connects each input in a layer to every output using a linear transformation"
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Why is nn.ModuleList commonly used in PyTorch for defining neural network architectures?",
+        "code": false,
+        "options": {
+          "A": "It allows for a dynamic creation of layers by registering all modules it contains as part of a model",
+          "B": "It automatically computes gradients during backpropagation, making it necessary for training",
+          "C": "It stores the values of the activations in the forward pass as a list to be backpropagated through when updating the parameters",
+          "D": "It enforces sequential execution of layers"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "In PyTorch, when using the CrossEntropyLoss for classification, we don't add an activation function after the output layer. Why?",
+        "code": false,
+        "options": {
+          "A": "The CrossEntropyLoss works with the raw, unnormalized scores (logits)",
+          "B": "The CrossEntropyLoss assumes the use of the sigmoid activation function",
+          "C": "This is a bad practice; Not adding an activation function after the output layer may cause numerical instability in this case",
+          "D": "The CrossEntropyLoss is incompatible with any activation function"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "multi",
+        "q": "When tuning hyperparameters of a neural network, different search techniques can be applied. Which of the following statements correctly describes the advantages and disadvantages of common hyperparameter search methods? Select ALL that apply",
+        "code": false,
+        "options": {
+          "A": "Bayesian Optimization uses previous evaluation results to model the relationship between hyperparameters and performance. It can find good configurations with fewer evaluations, but it is more complex to implement and computationally heavier per iteration.",
+          "B": "Grid Search systematically explores all possible combinations of hyperparameters. It guarantees that every configuration is tested, but it becomes computationally expensive and inefficient when the number of hyperparameters or possible values increases.",
+          "C": "Random Search always performs worse than Grid Search because it tests fewer combinations and does not cover the full parameter space.",
+          "D": "Random Search samples random combinations of hyperparameters. It does not guarantee testing all combinations, but it is often more efficient than Grid Search because it explores a wider range of hyperparameter values in fewer trials."
+        },
+        "correct": [
+          "A",
+          "B",
+          "D"
+        ],
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "single",
+        "q": "When training an MLP in PyTorch, what is the purpose of the torch.optim module?",
+        "code": false,
+        "options": {
+          "A": "It optimizes the model parameters using gradient descent.",
+          "B": "It specifies the number of hidden layers in the model.",
+          "C": "It defines the loss function for the model.",
+          "D": "It computes the gradients during backpropagation."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "dropdown",
+        "q": "Select the correct alternatives based on this code:\n\ndef train_model(MLP_model, num_epochs = 10): MLP_model.to(device)\n# Move model to device\n# Define the loss function and optimizer\ncriterion = nn.CrossEntropyLoss()\noptimizer = optim.SGD(MLP_model.parameters(), lr=0.01)\n# Training loop\nfor epoch in range(num_epochs):\ntotal_loss = 0\nfor inputs, labels in train_loader: inputs,\nlabels = inputs.to(device), labels.to(device)\n# Move data to device optimizer.zero_grad()\n# Zero the gradients\ninputs = inputs.view(-1, 28 * 28)\n# Flatten the images\noutputs = MLP_model(inputs)\n# Forward pass\nloss = criterion(outputs, labels)\n# Compute the loss loss.backward()\n# Backward pass optimizer.step()\n# Update the weights\ntotal_loss += loss.item() print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {total_loss / len(train_loader)}') 1) In the line: MLP_model.to(device) what is the purpose of calling .to(device) on the model? [[1]] 2) In the line:\ninputs = inputs.view(-1, 28 * 28) why is the input reshaped this way? [[2]]",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "It freezes all parameters so they no longer update during training",
+              "It moves all model parameters and buffers to the CPU or GPU specified by device, ensuring computations happen on the correct hardware",
+              "It automatically tunes the learning rate to match the device speed",
+              "It converts the model into a TorchScript module for faster inference"
+            ],
+            "correct": "It moves all model parameters and buffers to the CPU or GPU specified by device, ensuring computations happen on the correct hardware"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "Because SGD can only operate on flattened tensors",
+              "Because the MLP expects 1-dimensional feature vectors, so each 28×28 image must be flattened into a single vector before being fed into the first fully connected layer",
+              "Because CrossEntropyLoss requires 1-dimensional inputs only",
+              "Because flattening reduces overfitting by removing spatial correlations"
+            ],
+            "correct": "Because the MLP expects 1-dimensional feature vectors, so each 28×28 image must be flattened into a single vector before being fed into the first fully connected layer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L5",
+    "id": "l5",
+    "topic": "CNNs",
+    "title": "CNNs - Multiple Choice",
+    "count": 15,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "single",
+        "q": "Consider the following 2D input I to a CNN: 0 0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 0 And the kernel k: 0 0 1 0 1 0 1 0 0 Which of the following feature maps is the output of applying the kernel to the input (stride = 1, padding = 0), followed by a 2x2 max pooling m, that is m(k ∗ I):",
+        "code": false,
+        "options": {
+          "A": "K=[3 1.71 0 2.71]",
+          "B": "K=[0 0 0 0]",
+          "C": "K=[3 2 2 3]",
+          "D": "K=[2.71 0.71 0.71 2.71]"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 2,
+        "type": "multi",
+        "q": "Consider that the input to a CNN is a 3D tensor with shape H, W, D (where D >= 2). We apply two types of kernels on this input: k1 with a shape h_k, w_k, 1 and k2 with a shape of h_k, w_k, D (where h_k < H, w_k < W, D = D). Which of the following is/are valid for the feature maps after applying k1 or k2 on the input? Select ALL that apply",
+        "code": false,
+        "options": {
+          "A": "The third dimension of the feature map after applying k2 is going to be 1.",
+          "B": "Applying k1 on the input can be referred to as 3D convolution.",
+          "C": "Applying k2 on the input can be referred to as 3D convolution.",
+          "D": "The third dimension of the feature map after applying k1 is going to be D."
+        },
+        "correct": [
+          "A",
+          "B",
+          "D"
+        ],
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Convolution and pooling are two very similar yet very different operations. Which of the following describes most completely the difference between convolution and pooling?",
+        "code": false,
+        "options": {
+          "A": "Pooling is the general term for an operation that generates a summary (i.e. a single value) of the input values. It is the more general form of convolution which, unlike pooling, is limited to applying a static kernel on the input region (multiple values).",
+          "B": "Both pooling and convolution apply operations on a given input region (multiple values) to generate a single value, i.e. a summary; unlike pooling, convolution can be viewed as an infinitely strong prior.",
+          "C": "Pooling is an operation that generates a summary (i.e. a single value) of the input values by applying a predetermined function, e.g. average or max; similarly the operation of convolution applies a kernel on a given input region (multiple values) to generate one output value, but unlike pooling, which applies a static function, the weights of the kernel are learnable.",
+          "D": "Pooling is an operation that generates a summary (i.e. a single value) of the input values by applying a predetermined function, e.g. average or max; in contrast the operation of convolution applies a kernel on a given input region (multiple values) to generate multiple output values."
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "For a particular application you are implementing a network in PyTorch by defining a module. The last three layers are called L_n, L_m and L_out. The first two are defined as follows:\n\nself.L_n = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=(3,3))\nself.L_m = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=(3,3)) To create the final output, you concatenate the outputs from L_m and L_n over the channels axis and feed the result to L_out. You expect an output performing a segmentation into two classes, telling which areas of the feature map contain a relevant property and which don't. Which of these layers would be the most adequate for this:",
+        "code": true,
+        "options": {
+          "A": "self.L_out = nn.Conv2d(in_channels=64, out_channels=2, kernel_size=(3,3)) self.L_out_activation = nn.Softmax()",
+          "B": "self.L_out = nn.Conv2d(in_channels=128, out_channels=1, kernel_size=(3,3)) self.L_out_activation = nn.Sigmoid()",
+          "C": "self.L_out = nn.Conv2d(in_channels=96, out_channels=2, kernel_size=(3,3)) self.L_out_activation = nn.Sigmoid()",
+          "D": "self.L_out = nn.Conv2d(in_channels=64, out_channels=1, kernel_size=(3,3)) self.L_out_activation = nn.Sigmoid()"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "single",
+        "q": "In a mapping operation, such as convolution, an input is mapped to an output map. Some properties can be of interest in such kinds of operations, for example, translation invariance and equivariance. Translation invariance means that if the input is shifted, the output map stays the same or invariant. Translation equivariance means that when the input is shifted, the output map shifts in the same way, equivalently. Which of those two properties apply to 2D convolutional layers:",
+        "code": false,
+        "options": {
+          "A": "Both, translation invariance and equivariance.",
+          "B": "Translation equivariance, but not invariance.",
+          "C": "Translation invariance, but not equivariance.",
+          "D": "None."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "single",
+        "q": "The convolution operation produces a feature map of a certain dimension which depends on the input dimensions, the kernel size, the stride, the padding and the dilation. Consider a 8x7 image which is processed by a 3x3 kernel; the padding is 1; the stride is 2 and the dilation is 1. Which of the following answers is true:",
+        "code": false,
+        "options": {
+          "A": "These values are incompatible since the kernel has the same height and width while the input does not. This will lead to a non-integer output size which is not allowed.",
+          "B": "The stride should not be larger than the dilation. The given values for the stride and the dilation will lead to negative values for the size of the output feature map.",
+          "C": "The output feature map is of size 5x5",
+          "D": "The output feature map is of size 4x4"
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "single",
+        "q": "For a given application, you train a neural network composed of two parts, a CNN that extracts a feature vector f and an MLP that classifies f into N classes. You have divided your train set into two: S1 and S2. The distribution of classes in S1 and S2 is the same; the only difference is that the data in S1 comes\n\nfrom a different population than the data in S2. You want your network to accurately classify all the data points regardless of the group they come from; however, at the same time, you want the features f1 extracted by the CNN from data in S1 to be as different as possible from the features f2 extracted from data in S2. Thus, you feed the data to the network in pairs coming from both groups, and you use a loss function for each one of the described goals: L1, a cross-entropy for the classification, and L2, a cosine distance between f1 and f2. The total loss L you want to minimize can be expressed as:",
+        "code": true,
+        "options": {
+          "A": "L = L1 + L2",
+          "B": "L = - (L1 + L2)",
+          "C": "L = L1 - L2",
+          "D": "L = -L1 + L2"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "With an input feature map M of shape (C, W, H), when would applying any of the two possibilities described below be equivalent? nn.Conv2d(in_channels = NC_in, out_channels = NC_out, kernel_size=(k_w, k_h)) nn.Flatten() nn.Linear = (in_features = NL_in, out_features = NL_out) When:",
+        "code": false,
+        "options": {
+          "A": "k_w = W, k_h = H, NL_in = NC_in, and NC_out = NL_in*W*H",
+          "B": "kw = W, k_h = H, NL_in = NC_in*W*H, and NC_out = NL_out",
+          "C": "k_w = W, k_h = H, NC_in = NL_in, and NC_out = NL_out",
+          "D": "k_w = W, k_h = H, NC_in = NL_out, and NC_out = NL_in"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "single",
+        "q": "In the context of CNNs, what does parameter sharing refer to:",
+        "code": false,
+        "options": {
+          "A": "Coefficients are the same for each kernel in the network.",
+          "B": "Kernel coefficients are the same for all the positions where they are applied in a given layer.",
+          "C": "Coefficients are initialized to the same random values for each kernel of the network.",
+          "D": "Kernel coefficients are the same at each epoch."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 10,
+        "type": "dropdown",
+        "q": "Consider a black and white image with a width and height of 28. We first apply convolution with a 5x5 filter, using 0 padding (i.e., no padding) and a stride of 1. On the resulting feature map, we then apply 2x2 max pooling. The two layers are defined as follows:\n\nmodel.add_module('Conv_1', nn.Conv2d(in_channels=1, out_channels=32, kernel_size=(5,5))) model.add_module('MaxPool_1', nn.MaxPool2d(kernel_size=2)) After running, you observe that the output shape is different from the one you expected. What is the dimension of the resulting feature map (after the average pooling) according to PyTorch? [[1]] What is the reason\nfor the discrepancies you may observe between the shape you expected and the one you got in Python? [[2]] Hint: check the documentation of PyTorch for max pooling",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "28",
+              "23",
+              "12",
+              "14"
+            ],
+            "correct": "12"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "The code would not run because of a mismatch between input and output channels",
+              "The stride for max pooling is always 2, if not specified otherwise",
+              "There is no discrepancy"
+            ],
+            "correct": "The stride for max pooling is always 2, if not specified otherwise"
+          }
+        ]
+      },
+      {
+        "n": 11,
+        "type": "dropdown",
+        "q": "Consider that the last layers of a CNN, before the fully connected network are defined in pytorch as: input.shape = (128, 7, 7)\n\nmodel.add_module('Conv_3', nn.Conv2d(in_channels=128, out_channels=32, kernel_size=(5,5))) model.add_module('Relu_3', nn.ReLU()) What would be the input dimension that needs to be defined for the fully connected layer, which would come after using the Flatten function? nn.Linear(in_features = [[1]] , out_features=10)",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "3200",
+              "288",
+              "640",
+              "160"
+            ],
+            "correct": "288"
+          }
+        ]
+      },
+      {
+        "n": 12,
+        "type": "dropdown",
+        "q": "Consider the following two 3×3 convolution kernels (filters): Kernel A: [-1 -1 -1] [ 0 0 0] [ 1 1 1] Kernel B: [-1 0 1] [-1 0 1] [-1 0 1] Which function does each kernel perform? Detects vertical edges: [[1]] Detects horizontal edges: [[2]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "B",
+              "A"
+            ],
+            "correct": "B"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "B",
+              "A"
+            ],
+            "correct": "A"
+          }
+        ]
+      },
+      {
+        "n": 13,
+        "type": "dropdown",
+        "q": "You are designing a model to classify short spoken utterances (e.g., audio clips of 1–3 seconds) into language categories. Your approach uses 1D CNNs to process the raw waveform. Below is a simplified version of the CNN architecture:\n\nimport torch.nn as nn\nclass AudioClassifier(nn.Module):\ndef __init__(self, in_channels): super().__init__()\nself.net = nn.Sequential( nn.Conv1d(in_channels=in_channels, out_channels=64, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(64, 128, kernel_size=5, stride=1), nn.ReLU(), nn.Conv1d(128, 128, kernel_size=3, stride=2), nn.ReLU(), ##### MISSING LINE HERE ######, nn.Flatten(), nn.Linear(128, 10) # 10 language classes )\ndef forward(self, x):\nreturn self.net(x) You're building a model to classify short audio clips. The initial architecture works, but it is slow to train and memory-intensive. To improve performance, you consider modifying the convolutional layers and pooling strategy: To reduce training time and memory usage, you decide to [[1]] in the early convolutional layers. This reduces the number of activations early in the model, leading to fewer computations and faster training. However, you must be cautious. If this is done too aggressively in early layers, you risk [[2]] , which may degrade model performance by discarding fine-grained temporal patterns essential for distinguishing phonemes or intonation. Finally, before classification, you want to reduce the temporal dimension to a fixed size, regardless of input length. This is the missing line in the code. In order to achieve the expected behaviour, you need to include the line [[3]] , which compresses the entire sequence down to a single value per channel.",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "Decrease the kernel sizes",
+              "Remove padding",
+              "Add more filters",
+              "Increase the stride"
+            ],
+            "correct": "Increase the stride"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "Increasing embedding size too early",
+              "Overfitting to silence",
+              "Duplicating features unnecessarily",
+              "Losing short-term information by skipping too much input"
+            ],
+            "correct": "Losing short-term information by skipping too much input"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "nn.AdaptiveAvgPool1d(1)",
+              "nn.AvgPool1d(kernel_size=1)",
+              "nn.MaxPool1d(kernel_size=2)",
+              "nn.Linear(128, 1)"
+            ],
+            "correct": "nn.AdaptiveAvgPool1d(1)"
+          }
+        ]
+      },
+      {
+        "n": 14,
+        "type": "dropdown",
+        "q": "The code below implements a 1D convolution using NumPy. This function takes batched inputs, with an arbitrary number of channels. Choose the best options to complete the statements, considering the code. # Import necessary libraries\n\nimport numpy as np\ndef apply_convolution(input_data, filters, output_length, sum_reduction_axes, stride): \"\"\" Parameters: - input_data: numpy array, the input data - filters: numpy array, representing the filters - output_length: Integers, precomputed length of the output given the input and filters - sum_reduction_axes: A tuple, it contains the axis over which to sum the multiplication between an input segment and the filters in each step of the convolution. - stride: Integer, the stride of the convolution operation Returns: - output: numpy array, the result of convolution \"\"\"\n# If input_data is 2D, ensure filters are the right shape assert all(f.shape[0] == input_data.shape[1] for f in filters), \"Filter dimensions must match input data dimensions\"\n# Initialize an empty array to store the convolution result\nnum_filters = len(filters)\nbatch_size = input_data.shape[0]\noutput = np.zeros((batch_size, num_filters, output_length))\n# Add necessary broadcastable dimenssions\ninput_data = np.expand_dims(input_data, 1)\nfilters = np.expand_dims(filters, 0)\n# Perform convolution with the specified stride\nfor i in range(output_length):\ninput_segment = input_data[:, :, :, i * stride:i * stride + filters[0].shape[-1]]\noutput[:, :, i] = np.sum(input_segment * filters, axis=sum_reduction_axes)\nreturn output The apply_convolution function is used to calculate the convolution between an input batch with 16 sequences of length 100 and two channels (shape (16, 2, 100)) with a set of 4 filters of size 3, using stride=1 and no padding. The function expects the parameter output_length, which in this case must be: [[1]] Furthermore, the function gets as a parameter the filters, which are a numpy array with shape: [[2]] Finally, the argument sum_reduction_axes must be: [[3]]",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "98",
+              "96",
+              "16",
+              "100"
+            ],
+            "correct": "98"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "(2, 3, 4)",
+              "(4, 2, 3)",
+              "(4, 3, 2)",
+              "(3, 2, 4)",
+              "(3, 4, 2)"
+            ],
+            "correct": "(4, 2, 3)"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "(-2, -3)",
+              "(1, 2)",
+              "(-1)",
+              "(-2, -1)",
+              "(0, 1)",
+              "(0, -1)"
+            ],
+            "correct": "(-2, -1)"
+          }
+        ]
+      },
+      {
+        "n": 15,
+        "type": "dropdown",
+        "q": "Fill in the blanks about the following code (beware, array indexing is done with round brackets due to Canvas formatting constraints) :\n\ndef apply_2D_convolution(input_data, filters, stride=1): \"\"\" Apply convolution on a 3D input (2D image + channels) using given filters. Parameters: - input_data: 3D numpy array, the input data (channels, height, width) - filters: List of 3D numpy arrays, representing the filters - stride: Integer, the stride of the convolution operation Returns: - output: 3D numpy array, the result of convolution \"\"\"\n# If input_data is 3D, ensure filters are the right shape assert all(f.shape(0) == input_data.shape(0) for f in filters), \"Filter dimensions must match input data dimensions\"\n# Initialize an empty array to store the convolution result\noutput_h = (input_data.shape(1) - filters(0).shape(1)) // stride + 1\noutput_w = (input_data.shape(2) - filters(0).shape(2)) // stride + 1\nnum_filters = len(filters)\noutput = np.zeros((num_filters, output_h, output_w))\n# Perform convolution with the specified stride\nfor i in range(output_h):\nfor j in range(output_w):\noutput[:, i, j] = np.sum(input_data[:, i * stride : i * stride + filters(0).shape(1), j * stride : j * stride + filters(0).shape(2)] * filters, axis=(1, 2, 3))\nreturn output 1) Before performing the convolution, the code verifies that each filter has the same number of channels as the input by checking assert all(f.shape[0] == input_data.shape[0]\nfor f in filters) This ensures that [ [[1]] ]. 2) The output height is computed as\noutput_h = (input_data.shape[1] - filters[0].shape[1]) // stride + 1 This reflects the standard convolution formula, where the output size shrinks because [ [[2]] ]. 3) Inside the nested loops, the expression input_data[:, i*stride : i*stride + filters[0].shape[1], j*stride : j*stride + filters[0].shape[2]] extracts a local input patch whose shape matches each filter, which is necessary because convolution is computed over [ [[3]] ]. 4) The operation np.sum(input_patch * filters, axis=(1, 2, 3)) produces one output value per filter because multiplying the input patch by all filters produces a tensor with shape ( ), and summing over axes (1,2,3) computes [ [[4]] ].",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "each filter spans all input channels",
+              "all filters are normalized before use",
+              "each filter has the same spatial size as the input",
+              "convolution reduces the number of channels"
+            ],
+            "correct": "each filter spans all input channels"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "channels determine spatial resolution",
+              "filters only slide over valid positions without padding",
+              "stride automatically increases receptive field size",
+              "filters expand the input volume"
+            ],
+            "correct": "filters only slide over valid positions without padding"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "flattened pixel vectors",
+              "the entire image across all channels",
+              "normalized activation maps",
+              "spatially aligned receptive fields"
+            ],
+            "correct": "spatially aligned receptive fields"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "the stride-normalized activation",
+              "the max value in each receptive field",
+              "the dot product between each filter and the local patch",
+              "the channel-averaged feature map"
+            ],
+            "correct": "the dot product between each filter and the local patch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L6",
+    "id": "l6",
+    "topic": "Regularization",
+    "title": "Regularization - Multiple Choice",
+    "count": 14,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "single",
+        "q": "How does batch normalization contribute to training stability in deep neural networks?",
+        "code": false,
+        "options": {
+          "A": "It reduces the number of neurons in each layer",
+          "B": "It helps mitigate issues related to internal covariate shift",
+          "C": "It normalizes the input features during forward pass",
+          "D": "It increases the model's complexity by adding more layers"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 2,
+        "type": "single",
+        "q": "Which of the following is true regarding bias and variance (in the context of Deep Learning)?",
+        "code": false,
+        "options": {
+          "A": "High bias leads to underfitting",
+          "B": "Variance are a set of various assumptions made by a model to make the target function easier to learn.",
+          "C": "Bias is the variability of model prediction for a given data point.",
+          "D": "High variance leads to underfitting"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Applying dropout in a neural network model is done differently during the training and testing phase. Which of the following statements best describes the application of dropout:",
+        "code": false,
+        "options": {
+          "A": "During training, subnetworks are sampled uniformly at random. During testing, the output of all subnetworks is averaged.",
+          "B": "During training, network units are randomly masked out (dropped) with probability p. During testing, the unit outputs are multiplied by 1-p.",
+          "C": "During training, subnetworks are randomly sampled with probability p. During testing, the output of all subnetworks is weighted by p and summed.",
+          "D": "During training, network units are randomly masked out (dropped) with probability p. During testing, the unit outputs are multiplied by p."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "What is the difference between regularization and dropout?",
+        "code": false,
+        "options": {
+          "A": "Regularisation modifies the weights at their initialization to ensure they are not close to zero nor disproportionatelly high.",
+          "B": "Regularisation adds a term to the objective function to constrain the parameters while dropout removes connections to neurons at random.",
+          "C": "Dropout changes the objective function while regularisation impacts the updatability of certain weights in an iteration.",
+          "D": "Regularization is a method to prevent underfitting while dropeout is used to prevent overfitting."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "single",
+        "q": "What is the primary purpose of regularization in the context of training neural networks?",
+        "code": false,
+        "options": {
+          "A": "To speed up convergence during training",
+          "B": "To prevent overfitting and improve generalization",
+          "C": "To reduce the number of layers in the neural network",
+          "D": "To increase the computational complexity of the model"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "single",
+        "q": "How does L2 regularization contribute to training neural networks?",
+        "code": false,
+        "options": {
+          "A": "It penalizes large weights in the network",
+          "B": "It adjusts the activation functions of neurons",
+          "C": "It increases the learning rate dynamically",
+          "D": "It introduces random noise to the input data"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "single",
+        "q": "Consider a scenario where a neural network is experiencing overfitting. Which regularization technique would be most appropriate to apply to improve performance?",
+        "code": false,
+        "options": {
+          "A": "Weight initialization techniques",
+          "B": "Dropout",
+          "C": "Batch normalization",
+          "D": "L1 regularization"
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "How does increasing the regularization strength (e.g., using a higher regularization parameter) typically affect a neural network's capacity and performance?",
+        "code": false,
+        "options": {
+          "A": "Decreases capacity and improves performance",
+          "B": "Increases capacity and improves performance",
+          "C": "Decreases capacity and may hurt performance",
+          "D": "Increases capacity but may hurt performance"
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "single",
+        "q": "Which of the following statements is false:",
+        "code": false,
+        "options": {
+          "A": "Early stopping is an approach to mitigate overfitting.",
+          "B": "Early stopping is an approach to terminate training of a neural network before it reaches the minimum training loss so that the network generalizes better.",
+          "C": "Early stopping is an approach in which the training is terminated after several consecutive epochs where no improvement on the validation set is observed.",
+          "D": "Early stopping is an approach to overcome the issue of vanishing gradient descent."
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 10,
+        "type": "dropdown",
+        "q": "A deep learning model is trained on a classification task on a given dataset and achieves near-perfect accuracy on the training set but performs poorly on the validation set. To address this, L2 regularization is applied. After training with regularization, the model’s capacity changes, affecting both training and validation accuracy. Complete the statement below with the correct and coherent text given this context: The application of L2 regularization helps to improve generalization as it [[1]] the model’s capacity, leading to a [[2]] in training accuracy and a [[3]] in validation accuracy when compared to the results without regularization.",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "increases",
+              "reduces"
+            ],
+            "correct": "reduces"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "drop",
+              "gain"
+            ],
+            "correct": "drop"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "rise",
+              "deteriorate"
+            ],
+            "correct": "rise"
+          }
+        ]
+      },
+      {
+        "n": 11,
+        "type": "dropdown",
+        "q": "While performing hyperparameter tuning, you are focused on studying how your model behaves with different values of the hyperparameters H1 and H2. For two values of each hyperparameter, you get the following performances on training and validation sets. Value of H1 Value of H2 Error on the training set Error on the validation set 0.1 1 11.2% 12.2% 0.1 2 5.1% 6.1% 0.2 1 14.5% 15.8% 0.2 2 7.9% 8.2% Based on the table, one could conclude that the capacity of the model: [[1]] with [[2]] values of H2, and [[3]] with higher values of H1. Furthermore, out of the two parameters, [[4]] seems to act as a regularization parameter, as [[5]] it prevents [[6]] .",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "bearly changes",
+              "increases",
+              "decreases"
+            ],
+            "correct": "increases"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "lower",
+              "higher"
+            ],
+            "correct": "higher"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "decreases",
+              "increases",
+              "bearly changes"
+            ],
+            "correct": "decreases"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "H2",
+              "H1"
+            ],
+            "correct": "H1"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "decreasing",
+              "increasing"
+            ],
+            "correct": "increasing"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "underfitting",
+              "overfitting"
+            ],
+            "correct": "overfitting"
+          }
+        ]
+      },
+      {
+        "n": 12,
+        "type": "review",
+        "q": "You're working on a spoken audio classification task where each audio clip contains a short utterance in one of several languages. Your dataset is relatively small, and you want to apply data augmentation to improve generalization. Which of the following data augmentation strategies would be most appropriate for this task? Match each augmentation technique with the assessment of adequacy and its most likely effect or consequence in the context of spoken audio classification.",
+        "code": false,
+        "options": {},
+        "correct": [],
+        "explain": "Flipping the audio signal in time (time reversal)  →  Inadequate: This approach would invert the temporal order, disrupting the spoken content and its interpretation.\nSlightly changing the pitch or speed of the audio  →  Adequate: This approach would maintain the class semantics while simulating variations like different speakers.\nRotating spectrogram images by 90°  →  Inadequate: This approach would alter the time and frequency axes, making the speech structure unrecognizable to the model.\nReplacing silent segments with random white noise  →  Inadequate: This approach would introduce artifacts that could potentially harm generalization in normal conditions.\nRandomly masking short spans of the audio or spectrogram  →  Adequate: This approach would encourage the model to rely on a broader context for classification."
+      },
+      {
+        "n": 13,
+        "type": "single",
+        "q": "The current model is overfitting our data, with a validation accuracy of just 0.5 against a training accuracy of .96. List possible strategies to mitigate this unwanted behavior\n\nclass SimpleCNN_dropout(SimpleCNN):\ndef __init__(self, dropout_prob=0.5): super(SimpleCNN_dropout, self).__init__()\nself.dropout_prob = dropout_prob\nself.dropout = nn.Dropout(p=dropout_prob)\ndef forward(self, x):\n# Convolutional and pooling layers with ReLU activation\nx = self.conv1(x)\nx = self.relu(x)\nx = self.pool(x)\n# Dropout applied after the first convolutional layer\nx = self.dropout(x)\nx = self.conv2(x)\nx = self.relu(x)\nx = self.pool(x)\n# Dropout applied after the second convolutional layer\nx = self.dropout(x)\nx = self.conv3(x)\nx = self.relu(x)\n# Dropout applied after the third convolutional layer\nx = self.dropout(x)\n# Flatten the output for fully connected layers\nx = x.view(-1, self.fc1.in_features)\n# Fully connected layers with ReLU activation\nx = self.fc1(x)\nx = self.relu(x)\nx = self.fc2(x)\nreturn x",
+        "code": true,
+        "options": {
+          "A": "Increase regularisation by adding or increasing dropout, apply L2 weight decay, use data augmentation, or reduce model complexity.",
+          "B": "Lower the learning rate to make the model memorize the training set more efficiently, disable pooling layers, and switch ReLU to a linear activation.",
+          "C": "Remove dropout layers, increase the number of convolutional filters, and train for more epochs until training accuracy reaches 100%.",
+          "D": "Use a larger batch size so the model sees fewer gradient updates, freeze earlier layers, and remove validation data to avoid distribution mismatch."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 14,
+        "type": "dropdown",
+        "q": "Select the correct alternative about this code: epochs = 100 # Create a CNN model with dropout model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) # Changed dropout probability to 0.2 since 0.5 was too high in combination with data augmentation # Define the loss function and optimizer criterion = nn.CrossEntropyLoss() optimizer = optim.Adam(model_d1.parameters(), lr=0.001) # Define data augmentation transformations for training transform_train = transforms.Compose([ transforms.RandomHorizontalFlip(), # Randomly flip images horizontally transforms.RandomRotation(degrees=30), # Randomly rotate images by a maximum of 30 degrees transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2), # Adjust brightness, contrast, saturation, and hue randomly transforms.ToTensor(), # Convert the images to PyTorch tensors transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize the tensor values to a range of [-1, 1] (better for computations) from [0, 1] ]) # Create data loaders for training, validation, and testing using the defined transformations train_loader, val_loader, test_loader, _ = get_data_loaders(transform_train) We create a CNN with dropout by calling model_d1 = SimpleCNN_dropout(dropout_prob=0.3).to(device) The dropout_prob controls the probability that a neuron is set to zero during training. Lowering this value from 0.5 to 0.3 makes the model [[1]] . We apply several data augmentation transformations such as transforms.RandomRotation(degrees=30) This helps reduce overfitting by artificially increasing the diversity of the training data, acting as a form of [ [[2]] ]. The optimizer used is optimizer = optim.Adam(model_d1.parameters(), lr=0.001) which adapts learning rates per parameter through estimates of first and second moments, making it a form of [ [[3]] ] optimization. Finally, the line transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) normalizes each channel so that the inputs have values centered around zero, which improves [ [[4]] ] during training.",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "converted to a binary classifier",
+              "unable to train on GPUs",
+              "more strongly regularized",
+              "less aggressively regularized"
+            ],
+            "correct": "less aggressively regularized"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "loss shaping",
+              "label smoothing",
+              "regularisation",
+              "feature pooling"
+            ],
+            "correct": "regularisation"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "genetic algorithm-based",
+              "adaptive gradient-based",
+              "reinforcement-learning-based",
+              "second-order Newton"
+            ],
+            "correct": "adaptive gradient-based"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "number of model parameters",
+              "image resolution",
+              "GPU memory usage",
+              "numerical stability and convergence"
+            ],
+            "correct": "numerical stability and convergence"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L7",
+    "id": "l7",
+    "topic": "RNNs & LSTMs",
+    "title": "RNNs & LSTMs - Multiple Choice",
+    "count": 15,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "dropdown",
+        "q": "The combination of activation functions, loss functions, output types, and network architecture is crucial for the problem one is trying to solve. Furthermore, certain outputs, loss functions, and activation functions are more favorable for training the network. Fill in the table below with the most appropriate choices. Problem / Use-case Last-layer output nodes Network type Hidden-layer activation Last-layer activation Loss function Classification of incoming emails into Urgent or not (i.e. Regular) 1 RNN [[1]] [[2]] Binary cross entropy Classification of images of car brands (each image contains one car; there are 42 possible car brands) 42 CNN [[3]] Softmax [[4]] Prediction of the probability of a student passing the Intro to Deep Learning exam based on their previous grades (regression). 1 MLP ReLU [[5]] [[6]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "Sigmoid",
+              "Softmax",
+              "Linear",
+              "Tanh"
+            ],
+            "correct": "Tanh"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "ReLU",
+              "Tanh",
+              "Sigmoid",
+              "Softmax"
+            ],
+            "correct": "Sigmoid"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "Tanh",
+              "Softmax",
+              "ReLU",
+              "Sigmoid"
+            ],
+            "correct": "ReLU"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "Categorical cross entropy",
+              "MSE",
+              "Binary cross entropy"
+            ],
+            "correct": "Categorical cross entropy"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "Sigmoid",
+              "Tanh",
+              "Softmax",
+              "ReLU"
+            ],
+            "correct": "Sigmoid"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "MSE",
+              "Categorical cross entropy",
+              "Binary cross entropy"
+            ],
+            "correct": "MSE"
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "type": "single",
+        "q": "Which of the following statements related to LSTM and GRU in RNNs is true?",
+        "code": false,
+        "options": {
+          "A": "Gated Recurrent Units (GRUs) have two gates, a reset and an update gate, while Long Short Term Memory (LSTM) units have three gates, forget, input and output gate. The two gates of a GRU and the input and output gates of LSTM use tanh as activation function.",
+          "B": "Neither of the above statements is true.",
+          "C": "Gated Recurrent Units (GRUs) have two gates, a remember and a forget gate, while Long Short Term Memory (LSTM) units have three gates, forget, input and output gate. To compensate for the fewer gates, GRUs use the cell state as input to the next unit or iteration.",
+          "D": "Both Long Short Term Memory (LSTM) units and Gated Recurrent Units (GRU) use the hyperbolic tangent (tanh) activation function; in LSTM the forget gate applies a sigmoid transformation, the input gate applies both a sigmoid and a tanh and the output gate applies a sigmoid followed by tanh; in GRU tanh is applied on the unit’s input, which is then combined with the outputs of the reseat and the update gates."
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Long-short term memory units (LSTMs) are units of RNNs that exploit three types of gates. Which are these gates and what is the intuition behind them:",
+        "code": false,
+        "options": {
+          "A": "Forget gate which might decide what information to remove from the information already stored in the cell. Input gate that decides whether the input is important to be added to the cell state or not at all. It acts as a binary switch allowing or disallowing new information to impact the state cell. Output gate which controls whether the information following the forget gate or the information following from the input gate should be retained.",
+          "B": "Forget gate which might decide to get rid of irrelevant information. Input gate that decides what new information should be stored in the cell. This new information will be merged with the ‘old’ memory that has made it through the forget gate, creating a new cell state. Output gate which controls how strongly the memory state is passed to the next layer.",
+          "C": "Update gate which decides what information to discard and what new information to add. Reset gate which decides how much past information to forget. Output gate that controls how strong the information of the concatenated output from the udate and the reset gates is passed to the next layer.",
+          "D": "Update gate which updates the cell state with new information which decides what information to remove from the information already stored in the cell and what information to keep based on the input and the previous state. Reset gate which decides whether to retain the information after the Update gate, or to ignore it (i.e. reset it). Output gate that selects information from which gate to be output. It acts as a binary switch between the output from the update and the reset gates."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "Which of the following statements accurately summarizes the motivations and working principles of gated recurrent architectures such as LSTMs and GRUs?",
+        "code": false,
+        "options": {
+          "A": "Gated recurrent architectures were designed to improve the computational efficiency of traditional recurrent neural networks (RNNs) by reducing the number of parameters and operations required for training. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) accomplish this by employing fewer layers and connections compared to standard RNNs.",
+          "B": "Gated recurrent architectures were introduced to enhance the interpretability of traditional recurrent neural networks (RNNs) by incorporating attention mechanisms that allow the model to focus on relevant parts of the input sequence during processing. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) achieve this through the use of attention-based mechanisms.",
+          "C": "Gated recurrent architectures were developed to address overfitting issues in traditional recurrent neural networks (RNNs) by implementing regularization techniques such as dropout. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) accomplish this by randomly dropping connections between units during training to prevent co-adaptation.",
+          "D": "Gated recurrent architectures were developed to address the vanishing gradient problem in traditional recurrent neural networks (RNNs) by introducing mechanisms to selectively update and forget information over multiple time steps. Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs) achieve this through the use of specialized gates, allowing them to better capture long-range dependencies in sequential data."
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "multi",
+        "q": "Which of the following NLP tasks can be performed by a many-to-many RNN-based encoder-decoder architecture:",
+        "code": false,
+        "options": {
+          "A": "Machine Translation: translating a sentence in one language into a sentence in another.",
+          "B": "Textual entailment: given two sentences, decide whether the one entails the other.",
+          "C": "Sentence parsing: given a natural language sentence, generate its parse tree.",
+          "D": "Text summarisation: given a natural language text, generate a reduced (in volume) version of it."
+        },
+        "correct": [
+          "A",
+          "C",
+          "D"
+        ],
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "dropdown",
+        "q": "Complete the code below:\n\nimport torch\nimport torch.nn as nn\nimport torch.optim as optim\nimport numpy as np\nfrom torch import [[4]]\n# Define the CNN-LSTM model\nclass CNNLSTM(nn.Module):\ndef __init__(self, input_dim, [[[[6]]]], num_[[5]]s, [[3]]): super(CNNLSTM, self).__init__()\n# CNN layers self.conv[[7]] = nn.Conv1d(in_channels=input_dim, out_channels=64, kernel_size=3, stride=1, padding=1)\nself.conv2 = nn.Conv1d(in_channels=64, out_channels=128, kernel_size=3, stride=1, padding=1)\nself.conv3 = nn.Conv1d(in_channels=128, out_channels=[[1]], kernel_size=3, stride=1, padding=1)\n# LSTM layer\nself.lstm = nn.LSTM(input_size= , hidden_size=hidden_dim, num_layers=num_layers, batch_first=True)\n# Fully connected layer\nself.fc = nn.Linear( , )\ndef forward(self, x):\n# Input shape: (batch_size, input_dim, sequence_length)\n# CNN layers followed by ReLU activation.\nfor layer in [self.conv1, self.conv2, self.conv3]\nx = ( (x))\n# Permute for LSTM input: (batch_size, sequence_length, hidden_dim)\nx = x.permute(0, , )\n# LSTM layer out,\n_ = self.lstm(x)\n# Only take the output from the last time step\nout = out[:, , :]\n# Fully connected layer\nout = self.fc(out)\nreturn out [[8]]",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "256"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "hidden_dim"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "num_classes"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "relu"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "layer"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "2"
+          },
+          {
+            "label": "Blank 7",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "1"
+          },
+          {
+            "label": "Blank 8",
+            "pool": [
+              "256",
+              "hidden_dim",
+              "num_classes",
+              "relu",
+              "layer",
+              "2",
+              "1",
+              "-1"
+            ],
+            "correct": "-1"
+          }
+        ]
+      },
+      {
+        "n": 7,
+        "type": "single",
+        "q": "In backpropagation through time (BPTT), what do the gradients represent?",
+        "code": false,
+        "options": {
+          "A": "The change in error with respect to the biases of the neurons in the recurrent network.",
+          "B": "The change in error with respect to the weights of the recurrent connections across time steps.",
+          "C": "The change in error with respect to the input features at each time step of the sequence.",
+          "D": "The change in error with respect to the output activations of the recurrent network."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "Which of the following best describes the working principle of recurrent networks?",
+        "code": false,
+        "options": {
+          "A": "Recurrent networks utilize loops within the network architecture to allow information to persist over time, making them suitable for sequential data processing.",
+          "B": "Recurrent networks utilize convolutional layers to capture temporal dependencies in data.",
+          "C": "Recurrent networks employ multiple layers of neurons connected in a feedforward manner, allowing them to process input data sequentially.",
+          "D": "Recurrent networks use a single layer of neurons with feedback connections, enabling them to process temporal sequences effectively."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "dropdown",
+        "q": "You are provided with the following forward computation graph for a Recurrent Neural Network (RNN). The input word vectors are denoted as 𝑒 , hidden vectors as ℎ , transformation matrices as 𝑊 (for hidden state transitions) and 𝑈 (for input-to-hidden transitions). The final loss function is given by 𝐽 which is derived from ℎ 2 ​, as described in the graph below. (recurrent W) (recurrent W). w_o h0 ───────────────▶ h1 ───────────────▶ h2 ─────────▶ J ▲ ▲ │ U │ U e1 e2 RNN equation (2 timesteps): ℎ 0 = 0 ℎ 1 = 𝑓 ( 𝑊 ℎ ℎ 0 + 𝑈 𝑒 1 + 𝑏 ) ℎ 2 = 𝑓 ( 𝑊 ℎ ℎ 1 + 𝑈 𝑒 2 + 𝑏 ) 𝐽 = 𝑔 ( ℎ 2 , 𝑤 𝑜 ) Using the chain rule, fill in the blanks for the formula to compute the gradients of the loss 𝐽 with respect to 𝑊 and ℎ 0 ​. Your answer should meet the following requirements: Each formula only involves partial derivatives over variables (such as ∂ 𝑥 ∂ 𝑦 ​). Each partial derivative should be directly computable according to the forward computational graph. ∂J/∂W = [[1]] -- direct at t=2 + [[2]] -- indirect via h1 ∂J/∂h_0 = [[3]] + [[4]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)"
+            ],
+            "correct": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)"
+            ],
+            "correct": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)"
+            ],
+            "correct": "∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂W)",
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+              "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)",
+              "(∂J/∂h₁)(∂h₁/∂a₁)(∂a₁/∂W)"
+            ],
+            "correct": "(∂J/∂h₂)(∂h₂/∂a₂)(∂a₂/∂h₁)(∂h₁/∂a₁)(∂a₁/∂h₀)"
+          }
+        ]
+      },
+      {
+        "n": 10,
+        "type": "single",
+        "q": "Which of the following is not a technique to mitigate the vanishing gradient problem?",
+        "code": false,
+        "options": {
+          "A": "Gradient clipping",
+          "B": "Using gated recurrent units (GRU or LSTM)",
+          "C": "Using attention mechanism",
+          "D": "Using droupout"
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 11,
+        "type": "dropdown",
+        "q": "The code below implements a simple GRU cell and its forward ​function.\n\nclass GRUCell(nn.Module):\ndef __init__(self, input_size, hidden_size): super(GRUCell, self).__init__()\nself.input_size = input_size\nself.hidden_size = hidden_size\n# Update gate\nself.W_z = nn.Linear(input_size + hidden_size, hidden_size)\n# Reset gate\nself.W_r = nn.Linear(input_size + hidden_size, hidden_size)\n# Candidate hidden state\nself.W_h = nn.Linear(input_size + hidden_size, hidden_size)\ndef forward(self, x, h_prev):\n# Concatenate input and previous hidden state\ncombined = torch.cat((x, h_prev), dim=1)\n# Gates\nz = torch.sigmoid(self.W_z(combined))\nr = torch.sigmoid(self.W_r(combined))\n# Apply reset gate to hidden state\ncombined_reset = torch.cat((x, r * h_prev), dim=1)\nh_tilde = torch.tanh(self.W_h(combined_reset))\n# Final hidden state\nh_next = (1 - z) * h_prev + z * h_tilde\nreturn h_next Based on the code, complete the statements ​or select the best answers. The line in the code calculating the gate responsible for enabling the GRU to forget past hidden state information selectively is: [[1]] The line in the code that interpolates between the old and new states based on the update gate is: [[2]] The GRU cell multiplies the reset gate r with h_prev before computing h_tilde in order to: [[3]] If\ninput_size = 8 and\nhidden_size = 16, what is the input and output shape of self.W_z? Input: (batch_size, [[4]] ), Output: (batch_size, [[5]] ) The purpose of the activation functions used in the GRU gates is: [[6]]",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "h_next = (1 - z) * h_prev + z * h_tilde",
+              "z = torch.sigmoid(self.W_z(combined))",
+              "combined = torch.cat((x, h_prev), dim=1)",
+              "r = torch.sigmoid(self.W_r(combined))"
+            ],
+            "correct": "r = torch.sigmoid(self.W_r(combined))"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "combined = torch.cat((x, h_prev), dim=1)",
+              "h_next = (1 - z) * h_prev + z * h_tilde",
+              "z = torch.sigmoid(self.W_z(combined))",
+              "r = torch.sigmoid(self.W_r(combined))"
+            ],
+            "correct": "h_next = (1 - z) * h_prev + z * h_tilde"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "force the new state to depend entirely on current input",
+              "reduce computational complexity",
+              "allow the model to conditionally forget past information",
+              "apply dropout to the hidden state"
+            ],
+            "correct": "allow the model to conditionally forget past information"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "48",
+              "24",
+              "0",
+              "8",
+              "16"
+            ],
+            "correct": "24"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "-1",
+              "16",
+              "8",
+              "32"
+            ],
+            "correct": "16"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "sigmoid enables smooth gating between 0 and 1 for z and r, while tanh squashes h_tilde into a usable hidden range",
+              "sigmoid allows for binary decision making in hidden states, while tanh reduces model complexity",
+              "tanh ensures the update gate outputs are between 0 and 1, while sigmoid allows to combine inputs with past information",
+              "tanh and sigmoid are used to reduce computational overhead"
+            ],
+            "correct": "sigmoid enables smooth gating between 0 and 1 for z and r, while tanh squashes h_tilde into a usable hidden range"
+          }
+        ]
+      },
+      {
+        "n": 12,
+        "type": "review",
+        "q": "You ​are using RNNs to solve different problems and need to decide which RNN architecture best suits each type of problem. Match each specific application to the appropriate RNN architecture type.",
+        "code": false,
+        "options": {},
+        "correct": [],
+        "explain": "Generating a sequence of musical notes based on a single mood label (e.g., “melancholic”)  →  One-to-Many\nPredicting the author of a literary paragraph given the full text  →  Many-to-One\nAligning audio speech to text transcripts, word by word  →  Many-to-Many (synchronized)\nGenerating a concise summary of a technical research abstract, preserving the key insights but rephrasing in simpler language.  →  Many-to-Many (encoder-decoder)"
+      },
+      {
+        "n": 13,
+        "type": "dropdown",
+        "q": "Select the correct options based on this code:\n\nclass SimpleRNN(nn.Module):\ndef __init__(self, input_size, hidden_size, output_size): super(SimpleRNN, self).__init__()\nself.hidden_size = hidden_size\nself.h0 = nn.Parameter(torch.rand([1, hidden_size]))\nself.Wxh = nn.Linear(input_size, hidden_size)\nself.Whh = nn.Linear(hidden_size, hidden_size)\nself.Why = nn.Linear(hidden_size, output_size)\n# Non-linearity (you can experiment with different activation functions)\nself.tanh = nn.Tanh()\ndef forward(self, x, h_prev):\n# Update hidden state using the RNN equations\nh_t = self.tanh(self.Wxh(x) + self.Whh(h_prev))\n# Output prediction\ny_t = self.Why(h_t)\nreturn y_t, h_t The line\nself.h0 = nn.Parameter(torch.rand([1, hidden_size])) defines the initial hidden state as a learnable parameter, meaning it is optimized via [[1]] during training. In the forward pass, the hidden state is updated as\nh_t = self.tanh(self.Wxh(x) + self.Whh(h_prev)) which implements the core RNN recurrence, where the new hidden state depends on the current input and the [[2]] . The non-linearity tanh is applied to the hidden state update in order to [[3]] . Finally, the layer\nself.Why = nn.Linear(hidden_size, output_size) maps the hidden state to the output space, meaning y_t has shape [[4]] .",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "backpropagation through time (BPTT)",
+              "dropout masking",
+              "data augmentation",
+              "weight decay"
+            ],
+            "correct": "backpropagation through time (BPTT)"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "output prediction",
+              "previous hidden state",
+              "input batch",
+              "loss gradient"
+            ],
+            "correct": "previous hidden state"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "enforce sparsity",
+              "normalize inputs",
+              "introduce non-linearity and bound activations",
+              "reduce dimensionality"
+            ],
+            "correct": "introduce non-linearity and bound activations"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "(batch_size, output_size)",
+              "(hidden_size, output_size)",
+              "(output_size,)",
+              "(batch_size, hidden_size)"
+            ],
+            "correct": "(batch_size, output_size)"
+          }
+        ]
+      },
+      {
+        "n": 14,
+        "type": "dropdown",
+        "q": "Select the correct continuation of the sentences based on the code below:\n\nclass GRU(nn.Module):\ndef __init__(self, input_size, hidden_size, output_size): super(GRU, self).__init__()\nself.input_size = input_size\nself.hidden_size = hidden_size\nself.output_size = output_size\n# Initial state\nself.h0 = nn.Parameter(torch.rand([1, hidden_size]))\n# Reset gate parameters\nself.Wxr = nn.Linear(input_size, hidden_size)\nself.Whr = nn.Linear(hidden_size, hidden_size)\n# Update gate parameters\nself.Wxz = nn.Linear(input_size, hidden_size)\nself.Whz = nn.Linear(hidden_size, hidden_size)\n# Candidate hidden state parameters\nself.Wxh = nn.Linear(input_size, hidden_size)\nself.Whh = nn.Linear(hidden_size, hidden_size)\n# Output layer\nself.Why = nn.Linear(hidden_size, output_size)\n# Non-linearity\nself.sigmoid = nn.Sigmoid()\nself.tanh = nn.Tanh()\ndef forward(self, x, h_prev):\n# Reset gate\nr_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev))\n# Update gate\nz_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev))\n# Candidate hidden state\nh_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev))\n# Updated hidden state\nh_t = (1 - z_t) * h_prev + z_t * h_candidate\n# Output prediction\ny_t = self.Why(h_t)\nreturn y_t, h_t 1) The reset gate\nr_t = self.sigmoid(self.Wxr(x) + self.Whr(h_prev)) controls how much of the previous hidden state is used when computing the candidate hidden state. When r_t is close to 0, the model [[1]] . 2) The update gate\nz_t = self.sigmoid(self.Wxz(x) + self.Whz(h_prev)) determines how much of the previous hidden state is carried over to the new hidden state, effectively controlling [[2]] . 3) The candidate hidden state\nh_candidate = self.tanh(self.Wxh(x) + r_t * self.Whh(h_prev)) differs from a simple RNN update because the previous hidden state is first [[3]] before being combined with the input. 4) Finally, the hidden state update\nh_t = (1 - z_t) * h_prev + z_t * h_candidate implements a convex combination that helps mitigate [[4]] in long sequences.",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "amplifies gradients",
+              "ignores past information",
+              "freezes all parameters",
+              "resets the output layer"
+            ],
+            "correct": "ignores past information"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "the output dimensionality",
+              "the batch size",
+              "how much new information replaces old information",
+              "the learning rate"
+            ],
+            "correct": "how much new information replaces old information"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "selectively filtered",
+              "normalized",
+              "randomly dropped",
+              "flattened"
+            ],
+            "correct": "selectively filtered"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "exploding batch sizes",
+              "mismatched tensor shapes",
+              "overfitting due to dropout",
+              "vanishing gradient"
+            ],
+            "correct": "vanishing gradient"
+          }
+        ]
+      },
+      {
+        "n": 15,
+        "type": "dropdown",
+        "q": "Complete the code below: # Define the Seq2Seq model\n\nclass Seq2Seq(nn.Module):\ndef __init__(self, input_size, hidden_size, output_size): super(Seq2Seq, self).__init__()\n# Initialize the Seq2Seq model with the specified input, hidden, and output sizes.\n# input_size: The size of the input vocabulary.\n# hidden_size: The dimensionality of the hidden state in the RNNs.\n# output_size: The size of the output vocabulary.\nself.hidden_size = hidden_size\n# Define the encoder RNN layer\nself.encoder = nn.RNN(input_size, hidden_size)\n# Define the decoder RNN layer\nself.decoder = nn.RNN(input_size, hidden_size)\n# Define the linear layer for output prediction\nself.output_FC = nn.Linear(hidden_size, output_size)\ndef forward(self, input_seq, target_seq, train=True, teacher_forcing_ratio=0.5):\n# Perform the forward pass of the Seq2Seq model.\n# input_seq: The input sequence tensor.\n# target_seq: The target sequence tensor.\n# train: Flag indicating whether the model is in training mode.\n# teacher_forcing_ratio: The probability of using teacher forcing during training.\n# Encode the input sequence using the encoder RNN. _,\nhidden = _,\nhidden = [[1]]\n# Initialize the input to the decoder with zeros.\ndecoder_input = [[2]]\n# Initialize the hidden state of the decoder.\ndecoder_hidden = hidden\n# Initialize an empty list to store the outputs\noutputs = []\n# If in training mode if train:\n# Get the length of the target sequence\ntarget_length = target_seq.size(0)\n# Iterate through each time step in the target sequence\nfor t in range(target_length):\n# Decode the input and hidden state to obtain the decoder output decoder_output,\ndecoder_hidden = self.decoder(decoder_input, decoder_hidden)\n# Pass the decoder output through the linear layer to obtain the final output\noutput = self.output_FC(decoder_output)\n# Append the output to the list of outputs outputs.append(output)\n# Decide whether to use teacher forcing\nteacher_force = random.random() < teacher_forcing_ratio\n# Update the decoder input based on teacher forcing\ndecoder_input = [[3]] if teacher_force else nn.functional.softmax(output, -1)\n# If not in training mode (during inference)\nelse:\n# Initialize a counter for the maximum number of output steps\nt = 0\n# Loop until the stopping condition is met\nwhile True:\n# Decode the input and hidden state to obtain the decoder output decoder_output,\ndecoder_hidden = self.decoder(decoder_input, decoder_hidden)\n# Pass the decoder output through the linear layer to obtain the final output\noutput = self.output_FC(decoder_output)\n# Append the output to the list of outputs outputs.append(output)\n# Update the decoder input based on the softmax of the output\ndecoder_input = nn.functional.softmax(output, -1)\n# Check if the end token is reached or if the maximum number of steps is exceeded if decoder_input.argmax(dim=-1).item() == char_to_index [ END_TOKEN ] or t > 3: break\n# Increment the step counter\nt += 1\n# Concatenate the outputs into a single tensor\noutputs = torch.cat(outputs, 0)\n# Return the outputs\nreturn outputs",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "self.decoder(input_seq)",
+              "self.output_FC(input_seq)",
+              "self.encoder(hidden)",
+              "self.encoder(input_seq)"
+            ],
+            "correct": "self.encoder(input_seq)"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "hidden.clone()",
+              "torch.ones(1, self.hidden_size)",
+              "torch.zeros(len(vocab), 1)",
+              "torch.zeros(1, len(vocab))"
+            ],
+            "correct": "torch.zeros(1, len(vocab))"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "output.argmax(dim=-1)",
+              "decoder_output.detach()",
+              "hidden.view(1, -1)",
+              "target_seq[t].view(1, -1)"
+            ],
+            "correct": "target_seq[t].view(1, -1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L8",
+    "id": "l8",
+    "topic": "Transformers",
+    "title": "Transformers - Multiple Choice",
+    "count": 15,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "single",
+        "q": "What is the primary role of attention in the transformer architecture?",
+        "code": false,
+        "options": {
+          "A": "Distributing computational resources efficiently across the model's layers.",
+          "B": "Regularizing the model's training process to prevent overfitting.",
+          "C": "Capturing contextual relationships between input tokens.",
+          "D": "Applying non-linear transformations to input embeddings."
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 2,
+        "type": "single",
+        "q": "Which of the following statements best summarizes the main differences between the LSTM and Transformer architectures.",
+        "code": false,
+        "options": {
+          "A": "Transformer is used for translating from one language to another. LSTM is used to predict which letter comes next in a text.",
+          "B": "In a Transformer, sequential processing of the data is encoded via self-attention. In LSTM it is encoded in the memory cell.",
+          "C": "LSTM and Transformer are both recurrent architectures with memory. The main difference is that in LSTM the memory is short term and in Transformer it is long term.",
+          "D": "In an LSTM, sequential processing of the data is hard-wired in the architecture. Transformer does not assume sequential order of the data: instead the order can be specified via positional encodings."
+        },
+        "correct": "D",
+        "explain": ""
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "Which of the following states best summarizes what LSTM and Transformer have in common.",
+        "code": false,
+        "options": {
+          "A": "Both LSTM and Transformer are types of neural architectures which aim at learning to capture long-distance dependencies in sequential data.",
+          "B": "LSTM and Transformer are both types of architecture which are designed to be easily trained in parallel on multiple graphical processing units.",
+          "C": "Both LSTM and Transformer are types of neural architectures which are designed to capture graph or tree structured data.",
+          "D": "LSTM and Transformer are both types of architectures which are designed to be able to approximate arbitrary non-linear functions."
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 4,
+        "type": "single",
+        "q": "In an implementation of the attention layer using Linear layers in PyTorch, you encounter these lines in the forward function of the forward function. values =\n\nself.values(input_values)\nkeys = self.keys(input_keys)\nqueries = self.queries(input_queries)\nenergy = torch.einsum(\"nqhd,nkhd->nhqk\", [queries, keys])\nenergy /= queries.size(-1) ** 0.5\nattention = torch.nn.functional.softmax(energy, dim=3)\nout = torch.einsum(\"nhll,nlhd->nlhd\", [attention, values])\nout = out.reshape(N, query_len, self.heads * self.head_dim)\nout = self.fc_out(out) What is the purpose of the torch.einsum operation in this line:\nenergy = torch.einsum(\"nqhd,nkhd->nhqk\", [queries, keys]):",
+        "code": true,
+        "options": {
+          "A": "Applying activation functions to the input embeddings.",
+          "B": "Computing the attention scores between query and key vectors.",
+          "C": "Concatenating query and key vectors along specified dimensions.",
+          "D": "Summing the dot products of query and key vectors across multiple attention heads."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 5,
+        "type": "single",
+        "q": "Which of the following options correctly identifies the main elements of attention in recurrent neural networks (RNNs) and their relevance for sequence modeling?",
+        "code": false,
+        "options": {
+          "A": "Attention in RNNs refers to the incorporation of recurrent connections within the network architecture, enabling it to maintain a memory of past inputs. This enhances sequence modeling by preserving temporal dependencies in the data.",
+          "B": "Attention in RNNs consists of mechanisms that allow the model to selectively focus on different parts of the input sequence during processing. It enhances sequence modeling by assigning varying degrees of importance to different elements of the input sequence based on their relevance to the current step.",
+          "C": "Attention in RNNs comprises the encoder-decoder architecture, where the encoder processes the input sequence and the decoder generates the output sequence. It enhances sequence modeling by focusing on relevant parts of the output sequence during decoding.",
+          "D": "Attention in RNNs involves the use of convolutional layers to extract features from the input sequence and dynamically allocate different weights to these features during processing. This enhances sequence modeling by capturing intricate patterns in the data."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 6,
+        "type": "single",
+        "q": "Which of the following best describes the working principles of the architecture elements in a transformer?",
+        "code": false,
+        "options": {
+          "A": "The attention mechanism facilitates capturing long-range dependencies by assigning different weights to input tokens.",
+          "B": "All of the other options",
+          "C": "The positional encoding scheme ensures that the model can handle input sequences of varying lengths effectively.",
+          "D": "The feedforward neural network layers process information sequentially, enhancing feature extraction."
+        },
+        "correct": "B",
+        "explain": ""
+      },
+      {
+        "n": 7,
+        "type": "dropdown",
+        "q": "You are encoding the following sentence with a self-attention: \"Attention is all you need\". So you get the following data from your encodings, queries, keys and values: - Input vectors (X): x1: [1, 0, 1, 0] x2: [1, 1, 1, 0] x3: [2, 0, 1, 2] x4: [1, 2, 1, 0] x5: [0, 1, 0, 0] - Query vectors (Q): q1: [2, 1, 3] q2: [1, 0, 2] q3: [0, 0, 1] q4: [1, 2, 3] q5: [2, 0, 0] - Key vectors (K): k1: [0, 1, 1] k2: [0, 2, 1] k3: [1, 1, 2] k4: [1, 0, 0] k5: [0, 0, 2] - Value vectors (V) v1: [1, 2, 3] v2: [2, 8, 0] v3: [2, 6, 3] v4: [1, 3, 1] v5: [0, 2, 0] What is the value vector (vi) that will get the highest attention weight for the word 'Attention' when using a self-attention layer? v [[1]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "4",
+              "2",
+              "3",
+              "5",
+              "1"
+            ],
+            "correct": "3"
+          }
+        ]
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "Consider the following expression related to the attention mechanism in the Transformer architecture: Attention Scores = 𝑄 𝐾 𝑇 𝑑 Which of the following statements gives the most accurate interpretation of this formula?",
+        "code": false,
+        "options": {
+          "A": "Inputs to a transformer layer are transformed into key vectors (columns of K) and query vectors (columns of Q). The entries of the matrix QKT contain similarities between pairs of input positions (as measured by the cosine similarity function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors.",
+          "B": "Inputs to a transformer layer are transformed into key vectors (columns of K) and query vectors (columns of Q). The entries of the matrix QKT contain similarities between pairs of input positions (as measured by the dot product function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors.",
+          "C": "Inputs to a transformer layer are transformed into key vectors (rows of K) and query vectors (rows of Q). The entries of the matrix QK^T contain similarities between pairs of input positions (as measured by the dot product function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors.",
+          "D": "Inputs to a transformer layer are transformed into key vectors (rows of K) and query vectors (rows of Q). The entries of the matrix QKT contain similarities between pairs of input positions (as measured by the cosine similarity function). The denominator scales these similarity scores by the square root of the number of dimensions of the key vectors."
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 9,
+        "type": "single",
+        "q": "Both transformer and RNN-based architectures can be used quite effectively for NLP sequence-to-sequence tasks. What is the reason for the transformer architecture to be faster, more efficient than RNN-based architectures, e.g. LSTMs?",
+        "code": false,
+        "options": {
+          "A": "LSTMs and GRUs which are used for NLP tasks extend simple RNNs with gates. gates are computationally expensive as they reason about information that has to be memorised or forgotten, to cope with the vanishing gradient problem. Transformer networks do not employ gates which is the main reason why they are faster.",
+          "B": "The Transformer architecture implements a self-attention mechanism. RNNs (e.g. LSTM or GRU) used for sequence to sequence implement a global attention mechanism. The latter attention mechanism is much less efficient as it needs to focus on the complete sentence, rather than on local parts of it. That is why RNNs used for sequence to sequence tasks are less efficient than Transformer. If no attention was used, it is not conclusive which of the two architectures is more efficient.",
+          "C": "RNNs process information sequentially, one input (e.g. token) at a time making it difficult to parallelize training of RNNs. In contrast the Transformer architecture employs FF networks and processes each input independently, making the training easy to parallelise and distribute.",
+          "D": "In order to achieve high performance (e.g. accuracy) we typically build very deep RNNs but shallow Transformer models. The depth of RNNs makes them less efficient to train than Transformer."
+        },
+        "correct": "C",
+        "explain": ""
+      },
+      {
+        "n": 10,
+        "type": "dropdown",
+        "q": "You are computing scaled dot-product self-attention for the sentence: “Transformers are powerful.” You have 3 token embeddings x1, x2, x3: x1 = [1, 0, 1] x2 = [0, 2, 1] x3 = [1, 1, 0] and the following weight matrices: Wq: 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 Wk: 0.5 1.0 0.0 1.0 0.5 1.0 0.0 1.0 0.5 Wv: 1.0 0.0 0.5 0.0 1.0 0.0 1.0 0.0 0.0 Tasks --keep your answers as integers, if it's not possible, round to two decimals, use a comma to separate values in a vector: Compute the query, key, and value matrices Q, V, K by multiplying X with the corresponding weight matrices. Fill in the blanks below (round values to two decimals, separate with commas and a space): Q = [q1, q2, q3], where q1 = [[1]] q2 = [[2]] q3 = [[3]] K = [k1, k2, k3], where k1 = [[4]] k2 = [[5]] k3 = [[6]] V = [v1, v2, v3], where v1 = [[7]] v2 = [[8]] v3 = [[9]] 2. Compute the attention scores for token 1 (q1) using the dot-product with each key: score_11 = [[10]] score_12 = [[11]] score_13 = [[12]] 3. Apply softmax to the attention scores to get the attention weights 𝛼 1 𝑖 : (remember scaling by 𝑑 𝑘 !!!) α11 = [[13]] α12 = [[14]] α13 = [[15]] 4. Finally, compute the output vector for token 1: z1 = [[16]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "2, 0, 2",
+              "3, 0, 3",
+              "2, 2, 0",
+              "1, 0, 2"
+            ],
+            "correct": "2, 0, 2"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "2, 1, 2",
+              "1, 2, 1",
+              "2, 0, 2",
+              "1, 2, 2"
+            ],
+            "correct": "1, 2, 1"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "1, 1, 1",
+              "0, 0, 0",
+              "0, 1, 0",
+              "1, 2, 1"
+            ],
+            "correct": "1, 1, 1"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "2, 0.5, 2",
+              "0.5, 2, 0.5",
+              "0.5, 1, 0.5",
+              "0.25, 2, 0.25"
+            ],
+            "correct": "0.5, 2, 0.5"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "2, 1.5, 2",
+              "2.25, 2.25, 2.5",
+              "2.5, 2, 2",
+              "2, 2, 2.5"
+            ],
+            "correct": "2, 2, 2.5"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "1, 1.5, 1.5",
+              "0.5, 0, 0.5",
+              "1, 1, 1.5",
+              "1.5, 1.5, 1"
+            ],
+            "correct": "1.5, 1.5, 1"
+          },
+          {
+            "label": "Blank 7",
+            "pool": [
+              "2, 0, 0",
+              "2, 0.5, 0.5",
+              "0, 2, 0.5",
+              "2, 0, 0.5"
+            ],
+            "correct": "2, 0, 0.5"
+          },
+          {
+            "label": "Blank 8",
+            "pool": [
+              "2, 0, 1",
+              "1, 2, 0",
+              "0, 2, 1",
+              "0, 1, 2"
+            ],
+            "correct": "1, 2, 0"
+          },
+          {
+            "label": "Blank 9",
+            "pool": [
+              "1, 1, 0.5",
+              "1, 2, 0.5",
+              "0.5, 1, 1",
+              "1, 0.5, 1"
+            ],
+            "correct": "1, 1, 0.5"
+          },
+          {
+            "label": "Blank 10",
+            "pool": [
+              "9",
+              "2",
+              "1",
+              "5"
+            ],
+            "correct": "2"
+          },
+          {
+            "label": "Blank 11",
+            "pool": [
+              "9",
+              "2",
+              "5",
+              "7"
+            ],
+            "correct": "9"
+          },
+          {
+            "label": "Blank 12",
+            "pool": [
+              "5",
+              "9",
+              "3",
+              "2"
+            ],
+            "correct": "5"
+          },
+          {
+            "label": "Blank 13",
+            "pool": [
+              "0.01",
+              "0.02",
+              "0.04",
+              "0.2"
+            ],
+            "correct": "0.02"
+          },
+          {
+            "label": "Blank 14",
+            "pool": [
+              "0.1",
+              "0.7",
+              "0.3",
+              "0.9"
+            ],
+            "correct": "0.9"
+          },
+          {
+            "label": "Blank 15",
+            "pool": [
+              "0.07",
+              "0.2",
+              "0.03",
+              "0.09"
+            ],
+            "correct": "0.09"
+          },
+          {
+            "label": "Blank 16",
+            "pool": [
+              "1.22, 2.88, 1.05",
+              "1.2, 3.84, 0.25",
+              "0.05, 1.02, 1.88",
+              "1.02, 1.88, 0.05"
+            ],
+            "correct": "1.02, 1.88, 0.05"
+          }
+        ]
+      },
+      {
+        "n": 11,
+        "type": "dropdown",
+        "q": "You are training a system composed of two neural networks: The first maps audio clips to vector embeddings using an LSTM model, where the final hidden state is used as a single-vector representation for each audio clip. The second maps text transcriptions to vector embeddings using a Transformer model, which also outputs a single-vector representation for each input. Your goal is that matching audio-text pairs (i.e., an audio clip and its corresponding transcription) have similar embeddings, while non- matching pairs should have embeddings that are far apart. During training: You construct batches where each item is an aligned audio–text pair. Each audio and text appears only once per batch (no repeats). To train the models, you create a loss function that tries to make the embeddings of the matching audio and text transcripts as similar as possible and as far apart from dissimilar ones as possible. An approach to implement this idea could follow the steps described below. Choose the best option to complete the description of each step in a way that would lead to the desired result: 1. Normalize the audio and text embeddings so that each one lies on a unit hypersphere. This can be done using [[1]] . 2. Compute a similarity matrix between all audio and text embeddings in a batch using [[2]] . 3. For each audio embedding, you want the correct text embedding to have the highest similarity, so you apply [[3]] over each row of the similarity matrix. Then, you compute [[4]] using the correct index for each audio-text pair to define the target. 4. You repeat the process symmetrically: for each text embedding, apply the same logic using [[5]] .",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "L2 normalization",
+              "Batch Normalization",
+              "Softmax",
+              "Dropout"
+            ],
+            "correct": "L2 normalization"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "Euclidean distance",
+              "ReLU activation",
+              "Cross-entropy",
+              "Dot product or cosine similarity"
+            ],
+            "correct": "Dot product or cosine similarity"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "ReLU",
+              "Softmax",
+              "Argmax",
+              "Mean squared error"
+            ],
+            "correct": "Softmax"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "Hinge loss",
+              "Cross-entropy loss",
+              "L1 loss",
+              "Binary classification loss"
+            ],
+            "correct": "Cross-entropy loss"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "The loss from the text embeddings",
+              "The same audio embeddings",
+              "A decoder output",
+              "The transposed similarity matrix"
+            ],
+            "correct": "The transposed similarity matrix"
+          }
+        ]
+      },
+      {
+        "n": 12,
+        "type": "single",
+        "q": "In a sequence-to-sequence RNN model with attention, how is the context vector typically computed during decoding at timestep t?",
+        "code": false,
+        "options": {
+          "A": "By computing a weighted sum of encoder hidden states, where weights are derived from a compatibility function between encoder states and the current decoder state",
+          "B": "By selecting the encoder hidden state with the highest cosine similarity to the decoder input at timestep t",
+          "C": "By taking the element-wise maximum of all encoder hidden states based on the decoder's previous hidden state",
+          "D": "By summing the decoder's hidden state with the last encoder hidden state"
+        },
+        "correct": "A",
+        "explain": ""
+      },
+      {
+        "n": 13,
+        "type": "review",
+        "q": "You're given the sentence: \"He sat by the bank to enjoy the view of the river.\" And you’re told that you’re using two models to encode the words of the sentence: Model A: Uses pre-trained Word2Vec embeddings. Model B: Uses a transformer-based model that produces contextualized embeddings. You are given the embedding vector of the word \"bank\" from both models. You must match each of the following observations with the corresponding model.",
+        "code": false,
+        "options": {},
+        "correct": [],
+        "explain": "Model A (Word2Vec)  →  The same embedding vector is returned for \"bank\" regardless of whether it refers to a financial institution or a river edge.\nModel A (Word2Vec)  →  The embedding of \"bank\" is learned during pre-training and never changes, even with different sentence inputs.\nModel A (Word2Vec)  →  The embedding of a word depends only on the word itself and is unaffected by the order or meaning of surrounding words.\nModel B (Transformer-based)  →  The embedding of \"bank\" is influenced by the words around it in the sentence.\nModel B (Transformer-based)  →  The embedding for \"bank\" would differ if the sentence were instead: \"She went to the bank to deposit a check.\"\nModel B (Transformer-based)  →  The word \"Bank\" will have different vector representations depending on whether it's used as a noun or a verb."
+      },
+      {
+        "n": 14,
+        "type": "dropdown",
+        "q": "The code below implements a simple version of self-attention in PyTorch:\n\nimport torch\nimport torch.nn as nn\nimport torch.nn.functional as F\nclass SelfAttention(nn.Module):\ndef __init__(self, embed_dim): super(SelfAttention, self).__init__()\nself.embed_dim = embed_dim\nself.query = nn.Linear(embed_dim, embed_dim)\nself.key = nn.Linear(embed_dim, embed_dim)\nself.value = nn.Linear(embed_dim, embed_dim)\ndef forward(self, x):\n# x: (batch_size, seq_len, embed_dim)\nQ = self.query(x)\nK = self.key(x)\nV = self.value(x)\n# Compute attention scores\nscores = torch.matmul(Q, K.transpose(-2, -1)) / (self.embed_dim ** 0.5)\nweights = F.softmax(scores, dim=-1)\n# Compute context\ncontext = torch.matmul(weights, V)\nreturn context The role of the linear layers\nfor Query, Key, and Value in the Self-Attention module is: → [[1]] The operation where the raw attention logits are computed is: → [[2]] If the input x has shape (batch_size, seq_len, embed_dim), the shape of the tensor scores is: → [[3]] The final matrix multiplication torch.matmul(weights, V) computes: → [[4]]",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "They copy input tokens into separate attention heads",
+              "They map input tokens into a shared embedding space used to compute attention.",
+              "They normalize input sequences to unit length",
+              "They reduce dimensionality for faster matrix multiplication"
+            ],
+            "correct": "They map input tokens into a shared embedding space used to compute attention."
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "torch.matmul(Q, K.transpose(-2, -1))",
+              "torch.matmul(weights, V)",
+              "F.softmax(scores, dim=-1)",
+              "self.query(x)"
+            ],
+            "correct": "torch.matmul(Q, K.transpose(-2, -1))"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "(batch_size, embed_dim, embed_dim)",
+              "(batch_size, seq_len, embed_dim)",
+              "(seq_len, seq_len, batch_size)",
+              "(batch_size, seq_len, seq_len)"
+            ],
+            "correct": "(batch_size, seq_len, seq_len)"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "A fixed-size embedding representing the whole input",
+              "The predicted next token in a sequence",
+              "The updated token representations, weighted by attention to all other tokens.",
+              "A summary vector for each sentence"
+            ],
+            "correct": "The updated token representations, weighted by attention to all other tokens."
+          }
+        ]
+      },
+      {
+        "n": 15,
+        "type": "dropdown",
+        "q": "Answer the questions below based on the code provided:\n\nclass SelfAttentionLayer(torch.nn.Module):\ndef __init__(self, embed_size, heads): super(SelfAttentionLayer, self).__init__()\nself.embed_size = embed_size\n# The dimensionality of the input embeddings\nself.heads = heads\n# The number of attention heads\nself.head_dim = embed_size // heads\n# The dimensionality of each attention head assert ( self.head_dim * heads == embed_size ), XX\nself.values = torch.nn.Linear(self.head_dim, self.head_dim, bias=False)\nself.keys = torch.nn.Linear(self.head_dim, self.head_dim, bias=False)\nself.queries = torch.nn.Linear(self.head_dim, self.head_dim, bias=False)\nself.fc_out = torch.nn.Linear(heads * self.head_dim, embed_size)\ndef forward(self, input_values, input_keys, input_queries):\n#Extract batch size (N), and lengths of value, key, and query sequences.\nN = input_queries.shape[ 0 ] value_len, key_len,\nquery_len = input_values.shape[ 1 ], input_keys.shape[ 1 ], input_queries.shape[ 1 ]\n# Split the embedding into self.heads different pieces\ninput_values = input_values.reshape(N, value_len, self.heads, self.head_dim)\ninput_keys = input_keys.reshape(N, key_len, self.heads, self.head_dim)\ninput_queries = input_queries.reshape(N, query_len, XX, self.head_dim)\nvalues = self.values(input_values)\nkeys = self.keys(input_keys)\nqueries = self.queries(input_queries)\n# Scaled dot-product attention\nenergy = torch.einsum(XX, [queries, keys])\n# (N, heads, query_len, key_len)\n# Scale the energy\nenergy /= queries.size(-1) ** 0.5\n# Scale by square root of dimension of queries\nattention = torch.nn.functional.softmax(energy, dim=3)\nout = torch.einsum(\"nhll,nlhd->nlhd\", [attention, values])\nout = out.reshape(N, query_len, self.heads * self.head_dim)\n# (N, query_len, heads * head_dim)\nout = self.fc_out(out)\nreturn out 1) Complete the assertion: assert self.head_dim * heads == embed_size, \" [[1]] \" This check ensures that the embedding can be evenly split across attention heads. 2) Complete the reshaping operation:\ninput_queries = input_queries.reshape(N, query_len, [[2]] , self.head_dim) This operation splits the embedding dimension into multiple attention heads. 3) Fill in the einsum expression:\nenergy = torch.einsum(\" [[3]] \", [queries, keys]) This computes dot-product attention scores between queries and keys for each head.",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "\"Sequence length must be fixed\"",
+              "\"Embedding size needs to be divisible by heads\"",
+              "\"Hidden size must equal output size\"",
+              "\"Batch size mismatch\""
+            ],
+            "correct": "\"Embedding size needs to be divisible by heads\""
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "query_len",
+              "embed_size",
+              "N",
+              "self.heads"
+            ],
+            "correct": "self.heads"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "\"nqhd,nkhd->nqhd\"",
+              "\"nqhd,nkhd->nhqk\"",
+              "\"nhqk,nkhd->nqhd\"",
+              "\"nhqd,nkhd->nqkh\""
+            ],
+            "correct": "\"nqhd,nkhd->nhqk\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "L9",
+    "id": "l9",
+    "topic": "Positional Encoding",
+    "title": "Positional Encoding - Multiple Choice",
+    "count": 7,
+    "real": true,
+    "source": "Tilburg · Intro to Deep Learning 800883-B-6",
+    "questions": [
+      {
+        "n": 1,
+        "type": "dropdown",
+        "q": "Encoder models (like BERT) are trained using [[1]] , where the model sees both left and right context. This allows them to learn bidirectional representations. They aren't [[2]] because they can't [[3]] . Decoder models (like GPT) are trained with [[4]] , predicting the next token from past context only. These models are great for text generation, yet have less accurate latent representations since [[5]] . Encoder-decoder models (like T5 or BART) combine both ideas: the encoder reads the full input sequence, while the decoder generates the output token-by-token, [[6]] . This setup makes them ideal for [[7]] .",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "causal language modeling",
+              "next-sentence prediction",
+              "contrastive learning",
+              "masked-language modeling"
+            ],
+            "correct": "masked-language modeling"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "autoregressive encoders",
+              "probabilistic models",
+              "true language models",
+              "sequence-to-sequence models"
+            ],
+            "correct": "true language models"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "reconstruct corrupted input",
+              "predict missing tokens",
+              "generate embeddings",
+              "give a probability to a given sentence"
+            ],
+            "correct": "give a probability to a given sentence"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "contrastive pretraining",
+              "causal language modeling",
+              "denoising autoencoding",
+              "masked-language modeling"
+            ],
+            "correct": "causal language modeling"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "they use fewer parameters",
+              "they ignore positional information",
+              "they overfit to masked tokens",
+              "they only attend to past tokens"
+            ],
+            "correct": "they only attend to past tokens"
+          },
+          {
+            "label": "Blank 6",
+            "pool": [
+              "masking all future tokens",
+              "predicting all tokens simultaneously",
+              "ignoring the encoder outputs",
+              "attending to both the encoder’s output and previously generated tokens"
+            ],
+            "correct": "attending to both the encoder’s output and previously generated tokens"
+          },
+          {
+            "label": "Blank 7",
+            "pool": [
+              "corrupted text reconstruction",
+              "sentence similarity",
+              "translation, summarization, and other sequence-to-sequence tasks",
+              "classification and clustering"
+            ],
+            "correct": "translation, summarization, and other sequence-to-sequence tasks"
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "type": "dropdown",
+        "q": "Looking at the Positional Embedding formula, fill in the blanks: 𝑃 𝐸 ( 𝑝 𝑜 𝑠 , 2 𝑖 ) = sin ( 𝑝 𝑜 𝑠 10000 2 𝑖 / 𝑑 model ) 𝑃 𝐸 ( 𝑝 𝑜 𝑠 , 2 𝑖 + 1 ) = cos ( 𝑝 𝑜 𝑠 10000 2 𝑖 / 𝑑 model ) It important that we compute each positional embedding value using 2i and 2i + 1 because [[1]] For lower embedding dimensions i the values of the respective entry in the positional embedding will change [[2]] , which means that the positional embedding can capture variations at [[3]] . For higher dimensions instead, the rate of change will be [[4]] , meaning that these dimensions capture changes that happen across [[5]] of contexts.",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "it keeps all frequencies constant across dimensions",
+              "the offset of 1 unit changes the frequencies that the embeddings capture",
+              "it allows each position to be represented by unique combinations of periodic functions",
+              "it ensures that positional embeddings are all identical"
+            ],
+            "correct": "it allows each position to be represented by unique combinations of periodic functions"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "irregularly",
+              "slowly",
+              "not at all",
+              "rapidly"
+            ],
+            "correct": "rapidly"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "large-scale or global patterns",
+              "uniform positions",
+              "small-scale or local patterns",
+              "irregular patterns"
+            ],
+            "correct": "small-scale or local patterns"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "faster",
+              "nonlinearly",
+              "randomly",
+              "slower"
+            ],
+            "correct": "slower"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "intermediate contexts",
+              "longer, sentence-level or document-level contexts",
+              "shorter, word-level or sentence-level contexts",
+              "interdependent contexts"
+            ],
+            "correct": "longer, sentence-level or document-level contexts"
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "type": "dropdown",
+        "q": "The positional encoding for a vector of dimension d in a context of length p, is a [[1]] of shape [[2]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "scalar",
+              "matrix",
+              "vector"
+            ],
+            "correct": "matrix"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "p, d",
+              "d, p",
+              "1, cos(p)",
+              "1, d"
+            ],
+            "correct": "p, d"
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "type": "dropdown",
+        "q": "In the Transformer architecture, the encoder–decoder attention allows the decoder to attend to the encoder’s outputs. During this step: The queries come from the [[1]] , while the keys and values come from the [[2]] . This means that the decoder can focus on relevant parts of the encoder’s output sequence while generating each token. Formally, if ℎ 1 , … , ℎ 𝑛 are the encoder outputs and 𝑧 1 , … , 𝑧 𝑛 ​ are the decoder inputs, then: 𝑘 𝑖 = 𝐾 ℎ 𝑖 , 𝑣 𝑖 = 𝑉 ℎ 𝑖 , 𝑞 𝑖 = 𝑄 𝑧 𝑖 Here, 𝑘 𝑖 and 𝑣 𝑖 are derived from the encoder’s [[3]] , while 𝑞 𝑖 comes from the decoder’s [[4]] .",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "feed-forward network",
+              "embedding layer",
+              "decoder",
+              "encoder"
+            ],
+            "correct": "decoder"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "decoder",
+              "encoder",
+              "positional encoder",
+              "masking unit"
+            ],
+            "correct": "encoder"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "hidden states",
+              "attention scores",
+              "input embeddings",
+              "feed-forward activations"
+            ],
+            "correct": "hidden states"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "positional vectors",
+              "input embeddings",
+              "hidden states",
+              "output logits"
+            ],
+            "correct": "input embeddings"
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "type": "dropdown",
+        "q": "Understanding Sinusoidal Positional Encoding Transformers do not have any built-in notion of sequence order. To help the model understand the position of tokens in a sequence, we add a positional encoding to the input embeddings. Below is a sample implementation:\n\nimport torch\nimport math\ndef positional_encoding(seq_len, d_model):\npe = torch.zeros(seq_len, d_model)\nposition = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1)\ndiv_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model))\npe[:, 0::2] = torch.sin(position * div_term)\npe[:, 1::2] = torch.cos(position * div_term)\nreturn pe Fill in the blanks to test your understanding: The goal of positional encoding is to inject information about [[1]] into the model, which it otherwise lacks due to its architecture. The encoding uses [[2]] applied to a scaled version of the token position to generate unique patterns per position. The encoding is designed such that it can generalize to [[3]] sequences beyond those seen during training, due to its use of continuous functions. Instead of learned embeddings, this version uses a [[4]] method based on math, which does not add trainable parameters. The term div_term scales the position using [[5]] , which control how frequencies are distributed across dimensions.",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "Position/order of tokens",
+              "Token importance",
+              "Word meaning",
+              "Sentence length"
+            ],
+            "correct": "Position/order of tokens"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "normalization",
+              "exponential",
+              "sine and cosine functions",
+              "logarithmic"
+            ],
+            "correct": "sine and cosine functions"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "Shorter",
+              "Specific-length",
+              "arbitrarily long",
+              "More diverse"
+            ],
+            "correct": "arbitrarily long"
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "Learned",
+              "Probabilistic",
+              "Heuristic",
+              "Fixed"
+            ],
+            "correct": "Fixed"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "Exponentially increasing frequencies",
+              "Log-likelihood scoring",
+              "Random noise injection",
+              "Fourier compression"
+            ],
+            "correct": "Exponentially increasing frequencies"
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "type": "dropdown",
+        "q": "You are building an NLP system that must both classify political statements by stance (agree/disagree/neutral) and generate short summaries of each statement. You are considering three possible model types: Encoder-only, Decoder-only, and Encoder–Decoder architectures. For each case below, choose the correct description of how the model would process the task. If you use an Encoder-only model (e.g., BERT): [[1]] If you use a Decoder-only model (e.g., GPT): [[2]] If you use an Encoder–Decoder model (e.g., T5 or BART): [[3]] For the stance classification part of your task, the most suitable architecture is: [[4]] For the summarization part of your task, the best-suited architecture is: [[5]]",
+        "code": false,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "You input one token at a time, predicting the next token sequentially, and use the average of all outputs for classification.",
+              "You input the whole text, the model reads it bidirectionally, and you use the [CLS] token representation (or pooled output) for classification.",
+              "You mask some tokens and reconstruct them entirely, using the reconstruction loss directly for classification.",
+              "You feed both input and output sentences separately, cross-attending them to produce contextualized decoder vectors for classification."
+            ],
+            "correct": "You input the whole text, the model reads it bidirectionally, and you use the [CLS] token representation (or pooled output) for classification."
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "You first encode the text with an encoder network and then generate the summary using a decoder.",
+              "You provide the full input and output sentences together, training bidirectional attention across all tokens.",
+              "You train it to predict masked tokens using both left and right context, learning bidirectional dependencies rather than generating text sequentially.",
+              "You can feed the model with the sentence and task prompt (e.g., “Summarize: ...”) and have it generate the summary directly, token by token."
+            ],
+            "correct": "You can feed the model with the sentence and task prompt (e.g., “Summarize: ...”) and have it generate the summary directly, token by token."
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "You employ only the encoder component to transform the input into hidden representations and map these directly to class logits or token probabilities, skipping the generative decoding phase.",
+              "You input a task prompt and the full text, and the model predicts masked tokens directly from the encoder representations without using a decoding stage, focusing only on understanding the input.",
+              "You rely on the decoder alone to process both input and output sequences under causal masking, then fine-tune the decoder for the classification task",
+              "You first encode the entire input sequence bidirectionally, then use a decoder that attends to the encoder’s output while generating the summary token by token."
+            ],
+            "correct": "You first encode the entire input sequence bidirectionally, then use a decoder that attends to the encoder’s output while generating the summary token by token."
+          },
+          {
+            "label": "Blank 4",
+            "pool": [
+              "None — all architectures perform equally on classification.",
+              "Encoder–Decoder",
+              "Decoder-only",
+              "Encoder-only"
+            ],
+            "correct": "Encoder-only"
+          },
+          {
+            "label": "Blank 5",
+            "pool": [
+              "Encoder-only",
+              "Decoder-only",
+              "None — summarization requires recurrent networks, not transformers.",
+              "Encoder–Decoder"
+            ],
+            "correct": "Encoder–Decoder"
+          }
+        ]
+      },
+      {
+        "n": 7,
+        "type": "dropdown",
+        "q": "Complete the sentences with the correct continuations about this code:\n\nclass PositionalEncoding(nn.Module):\ndef __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000): super().__init__()\nself.dropout = nn.Dropout(p=dropout)\nposition = torch.arange(max_len).XX\nfreq = (10000.0 ** (-2 * torch.arange(0, d_model, 2) / d_model)).unsqueeze(0)\npe = torch.zeros(max_len, 1, d_model)\npe[:, 0, 0::2] = torch.XX(position * freq)\npe[:, 0, 1::2] = torch.cos(position * freq) self.register_buffer('pe', pe)\ndef forward(self, x): \"\"\" Arguments: x: Tensor, shape [seq_len, batch_size, embedding_dim] \"\"\"\nx = x + self.pe[:x.size(0)]\nreturn self.dropout(x) 1) Complete the line:\nposition = torch.arange(max_len). [[1]] This operation reshapes the position indices so they can be broadcast correctly with the frequency tensor. 2) Complete the sinusoidal assignment:\npe[:, 0, 0::2] = torch. [[2]] (position * freq) Even embedding dimensions use one trigonometric function,\nwhile odd dimensions use another. 3) Complete the explanation:\nreturn self.dropout(x) Dropout is applied after adding positional encodings to [[3]] .",
+        "code": true,
+        "blanks": [
+          {
+            "label": "Blank 1",
+            "pool": [
+              "view(-1)",
+              "unsqueeze(1)",
+              "expand(d_model)",
+              "reshape(1, max_len)"
+            ],
+            "correct": "unsqueeze(1)"
+          },
+          {
+            "label": "Blank 2",
+            "pool": [
+              "sin",
+              "exp",
+              "tan",
+              "cos"
+            ],
+            "correct": "sin"
+          },
+          {
+            "label": "Blank 3",
+            "pool": [
+              "reduce sequence length variance",
+              "ensure sinusoidal periodicity",
+              "normalize the embedding scale",
+              "regularize the model and prevent over-reliance on position information"
+            ],
+            "correct": "regularize the model and prevent over-reliance on position information"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "EXAM",
+    "id": "exam",
+    "topic": "Final Exam",
+    "title": "Final Exam - Mixed",
+    "count": 15,
+    "real": true,
+    "isExam": true,
+    "source": "Tilburg · IDL 800883-B-6 · Final Exam",
+    "questions": [
+      {
+        "n": 1,
+        "type": "review",
+        "q": "A Transformer for machine translation: a student claims \"all the decoder’s attention layers do the same thing.\" Match each description (a–i) to the right interpretation. Reveal the worked solution.",
+        "options": {},
+        "correct": [],
+        "explain": "Decoder MASKED SELF-ATTENTION → a (Q, K, V all from decoder-side reps), c (combines earlier target positions while blocking future tokens), d (replacing it with encoder-only attention loses target-side context).\nDecoder CROSS-ATTENTION → e (conditions the next prediction on encoder/source), g (aligns target decisions with source content), h (Q from decoder, K & V from encoder), i (retrieves from the encoded source sentence).\nINCORRECT — confuses masking with future access → b (claims masking lets the decoder look ahead).\nINCORRECT — overstates attention for word order → f (claims it is the only reason target order is represented).",
+        "code": false
+      },
+      {
+        "n": 2,
+        "type": "review",
+        "q": "Match each CNN concept (Convolutional filter, Low-level feature extraction, CNN, MLP, Weight sharing, Feature map) to the best description. Some descriptions have no match.",
+        "options": {},
+        "correct": [],
+        "explain": "Convolutional filter → (3) responds to local visual patterns such as vertical edges.\nLow-level feature extraction → (2) main role of convolution in early hidden layers.\nCNN → (8) model family for spatially-structured inputs, built on a translation-equivariant operation.\nMLP → (5) does not preserve 2D neighbourhood structure after flattening.\nWeight sharing → (7) reuses one detector across the image to cut parameters.\nFeature map → (9) detector response at different spatial positions.\nNo match → (1) and (4) are misconceptions; (6) class-probability store has no concept in the list.",
+        "code": false
+      },
+      {
+        "n": 3,
+        "type": "single",
+        "q": "A researcher trains an RNN and a Transformer on the same task. For short sequences the Transformer is faster; once sequences get long enough it becomes less efficient than the RNN. Which explanation best accounts for this?",
+        "options": {
+          "A": "The RNN is more efficient for long sequences because backprop-through-time is cheaper than backprop in self-attention, regardless of model size.",
+          "B": "The Transformer is mainly efficient for short sequences because it emphasises local context, while the RNN gains efficiency once long temporal dependencies dominate.",
+          "C": "The RNN is faster for long sequences because recurrent connections let all time steps be processed in parallel, while the Transformer processes tokens one by one.",
+          "D": "The Transformer is faster on short sequences because it parallelises across positions, but its self-attention cost grows quadratically with sequence length, unlike the more gradual scaling of recurrent updates."
+        },
+        "correct": "D",
+        "explain": "Self-attention is O(n²) in sequence length n (every token attends to every other), so for long sequences it overtakes the roughly linear per-step cost of recurrence — even though the Transformer parallelises across positions for short inputs.",
+        "code": false
+      },
+      {
+        "n": 4,
+        "type": "multi",
+        "q": "A paper proposes a convolutional encoder–decoder for semantic segmentation (a class label per pixel, with downsampling, upsampling and skip connections). Select EVERY reviewer comment that is conceptually INCORRECT.",
+        "options": {
+          "A": "Using upsampling is consistent with recovering higher-resolution prediction maps in later layers.",
+          "B": "It is correct to describe segmentation as predicting a class label for each pixel.",
+          "C": "The paper is mistaken to preserve spatial structure, because the purpose of convolution is to remove spatial information and treat each pixel independently.",
+          "D": "Describing convolution as extracting local visual patterns is appropriate for segmentation.",
+          "E": "Pooling/downsampling is always incompatible with segmentation, because any resolution reduction permanently prevents pixel-level prediction.",
+          "F": "The paper should keep the number of channels constant across all layers, because pixelwise classification requires a fixed channel dimension.",
+          "G": "Representing the output with one channel per class at each location is reasonable for multi-class segmentation.",
+          "H": "The final feature map should be flattened to a 1-D vector before classification, as the standard way to preserve pixel-level correspondences.",
+          "I": "Skip connections are justified because early layers hold fine spatial detail useful to later prediction layers."
+        },
+        "correct": [
+          "C",
+          "E",
+          "F",
+          "H"
+        ],
+        "explain": "Incorrect claims: C (convolution preserves spatial structure, it does not remove it), E (downsampling is fine — the decoder upsamples back), F (channel counts routinely change across layers), H (flattening destroys the pixel grid — fatal for dense prediction). A, B, D, G, I are all correct.",
+        "code": false
+      },
+      {
+        "n": 5,
+        "type": "review",
+        "q": "Arrange the computations of one GRU update (input x_t, previous state h_(t-1) → new state h_t) in order. Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "1. Compute the reset and update gate values from x_t and h_(t-1).\n2. The reset gate element-wise filters the previous hidden state.\n3. Compute the candidate hidden state from x_t and the reset-filtered state.\n4. The update gate blends the previous hidden state and the candidate to produce h_t.",
+        "code": false
+      },
+      {
+        "n": 6,
+        "type": "review",
+        "q": "Complete the text about normalization methods (batch / layer / instance / group norm). Reveal the corrected solution.",
+        "options": {},
+        "correct": [],
+        "explain": "Batch normalization normalises using statistics across the examples of a mini-batch — so its behaviour depends on the mini-BATCH (its size & composition). Layer normalization computes statistics across the FEATURES of a single example (batch-independent) and is widely used in transformers/feedforward nets. With very small mini-batches, batch-norm statistics become NOISY/unreliable (not \"slow\"). Instance norm normalises each channel of a single example independently; group norm normalises channels in groups.",
+        "code": false
+      },
+      {
+        "n": 7,
+        "type": "review",
+        "q": "MLP backprop: the error signal is δ^(l) = (∂L/∂z^(l+1))·(∂z^(l+1)/∂a^(l))·(∂a^(l)/∂z^(l)). Match each derivative component to its term. Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "∂z^(l+1)/∂a^(l) → W^(l+1) (the next layer’s weight matrix).\n∂a^(l)/∂z^(l) → σ(z^(l))·(1 − σ(z^(l))) (the sigmoid derivative).\n∂L/∂z^(l+1) → δ^(l+1) (the next layer’s error signal). The common mistake is swapping W^(l+1) and δ^(l+1).",
+        "code": false
+      },
+      {
+        "n": 8,
+        "type": "single",
+        "q": "Four seq2seq models for long inputs: (1) vanilla RNN enc–dec, (2) LSTM no attention, (3) vanilla RNN + attention, (4) LSTM/GRU + attention. Attention and gated recurrence address different but complementary limitations. Which statement is best?",
+        "options": {
+          "A": "Attention and gated recurrence are equivalent because both weight past information, so a vanilla RNN + attention should match an LSTM without attention on long sequences.",
+          "B": "Attention removes the need for recurrence by connecting encoder and decoder at every step; gated units mainly improve training stability as a form of regularization.",
+          "C": "Gated units solve the fixed-context bottleneck by storing the whole source history, while attention solves vanishing gradients by controlling recurrent information flow over time.",
+          "D": "GRUs/LSTMs guarantee correct alignment between input and output positions, whereas attention guarantees preservation of important past information.",
+          "E": "Gated recurrence controls how information is updated, retained and forgotten inside the recurrent state over time, whereas attention lets the decoder selectively access relevant encoder states instead of relying on a single final summary."
+        },
+        "correct": "E",
+        "explain": "Gating (LSTM/GRU) manages the recurrent memory across time steps (mitigating vanishing gradients); attention tackles the fixed-length context bottleneck by letting the decoder read any encoder state directly. They are complementary, which is why model (4) is strongest on long sequences.",
+        "code": false
+      },
+      {
+        "n": 9,
+        "type": "review",
+        "q": "Layer normalization (numeric). Example 1 activations = [2, 2, 6, 6], with ε = 0, γ = 1.5, β = −0.5. Find the mean, variance, the normalized 3rd feature, and the final 3rd-feature output. Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "Mean = (2+2+6+6)/4 = 4.\nVariance = ((−2)²+(−2)²+2²+2²)/4 = 16/4 = 4 → std = 2.\nNormalized 3rd feature (value 6) = (6−4)/2 = 1.\nAfter scale & shift: 1.5·1 + (−0.5) = 1.0.",
+        "code": false
+      },
+      {
+        "n": 10,
+        "type": "review",
+        "q": "A SimpleCNN training script (Conv2d, MaxPool, Linear; CrossEntropyLoss; Adam). Match each description to the code line number. Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "Conv layer (local filters) → L9.   Reduces spatial size (pooling) → L10.   Flatten to a vector → L15.   Predictions for a batch → L27 (model(images)).   Clears previous gradients → L26 (zero_grad).   Computes gradients of the loss → L29 (loss.backward()).   Updates parameters → L30 (optimizer.step()).   RuntimeError \"expected Long but found Float\" → L28 — labels.float() is wrong; CrossEntropyLoss needs integer (Long) class indices.",
+        "code": false
+      },
+      {
+        "n": 11,
+        "type": "review",
+        "q": "Memory accounting. A fully-connected MLP with sizes 8 → 5 → 3 → 2 (each non-input layer has a bias). Give the number of trainable parameters, and the total scalars stored per iteration for Nesterov and for Adam. Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "Parameters = (8·5 + 5) + (5·3 + 3) + (3·2 + 2) = 45 + 18 + 8 = 71.\nPer iteration = parameters + gradients + optimizer state.\nNesterov / momentum keeps 1 extra buffer → 71×3 = 213.\nAdam keeps 2 buffers (m and v) → 71×4 = 284.\n(Check: the worked example 4→3→2 has 23 params → 23×3 = 69 for momentum.)",
+        "code": false
+      },
+      {
+        "n": 12,
+        "type": "review",
+        "q": "An attentive many-to-one GRU classifier processes input (batch, 5, 8), hidden size 6, 3 output logits, with attention over all hidden states. How many alignment scores per sequence, which softmax dimension, and how many time steps does BPTT traverse? Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "Attention produces 5 scalar alignment scores per sequence — one per time step.\nSoftmax is taken over dim = 1 (the time-step axis), so the 5 scores sum to 1.\nBackprop-through-time for one sequence propagates through all 5 recurrent time steps.",
+        "code": false
+      },
+      {
+        "n": 13,
+        "type": "multi",
+        "q": "A multi-task CustomerNet (shared layer + classification head + regression head) has bugs. Select EVERY statement that correctly identifies a problem.",
+        "options": {
+          "A": "The implementation does not correctly apply the classification head to the shared representation h.",
+          "B": "reg_head is not registered as part of the model (it is a local variable, not self.reg_head).",
+          "C": "self.shared = nn.Linear(in_features, hidden_dim) is invalid because shared layers cannot be used in multi-task networks.",
+          "D": "purchase = torch.sigmoid(self.class_head) is incorrect because self.class_head is a layer, not the output of that layer.",
+          "E": "torch.sigmoid(h) is always wrong for this kind of classification.",
+          "F": "self.dropout(h) is invalid because dropout can only be used in convolutional networks."
+        },
+        "correct": [
+          "A",
+          "B",
+          "D"
+        ],
+        "explain": "Real bugs: B (reg_head is a local, so self.reg_head(h) fails and it is never registered), D (sigmoid is applied to the layer object instead of its output), and A (a consequence of D — the class head is never actually applied to h). C, E, F are false statements.",
+        "code": false
+      },
+      {
+        "n": 14,
+        "type": "review",
+        "q": "Single-head encoder self-attention in PyTorch. For each described change, identify the matching code block (not all descriptions have one). Reveal the solution.",
+        "options": {},
+        "correct": [],
+        "explain": "1 swaps Q and K → scores = matmul(k, q.transpose(-2,-1)).\n2 runtime shape error in context → context = matmul(v, attn_weights).\n4 runtime shape error in scores → scores = matmul(q, k) (missing transpose).\n5 wrong scaling → scores / 4 (should be / 4**0.5).\n6 uses values instead of keys → matmul(q, v.transpose(-2,-1)).\n7 reuses W_q for keys → k = self.W_q(x).\n8 softmax over wrong dim → softmax(scores, dim=1) (should be -1).\n9 correct standard encoder self-attention.\n10 missing output projection → output = context (no W_o). Description 3 has no matching block.",
+        "code": false
+      },
+      {
+        "n": 15,
+        "type": "multi",
+        "q": "A layer of three step-perceptrons, y = H(W·x + b), with W = [[1,0],[1,0],[-1,0]] and b = [-0.5, -1.5, 2.5], x ∈ {0,1}². Tick EVERY output code (y1,y2,y3) that occurs for at least one input.",
+        "options": {
+          "A": "(0,0,0)",
+          "B": "(0,0,1)",
+          "C": "(0,1,0)",
+          "D": "(0,1,1)",
+          "E": "(1,0,0)",
+          "F": "(1,0,1)",
+          "G": "(1,1,0)",
+          "H": "(1,1,1)"
+        },
+        "correct": [
+          "B",
+          "F"
+        ],
+        "explain": "x2 has zero weight in every row, so it is ignored. y1 = H(x1−0.5) = x1; y2 = H(x1−1.5) = 0 always; y3 = H(−x1+2.5) = 1 always. Thus x1=0 → (0,0,1) and x1=1 → (1,0,1) are the only outputs that occur.",
+        "code": false
+      }
+    ]
+  }
+]
