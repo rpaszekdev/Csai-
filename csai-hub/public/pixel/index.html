@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="fonts/iconfont.css">
 <script src="image-slot.js"></script>
 <script src="dl-data.js"></script>
+<script src="real-exam.js"></script>
+<script src="dl-transcripts.js"></script>
 <script src="dl-summaries.js"></script>
 <script src="courses-data.js"></script>
 <style>
@@ -95,16 +97,6 @@
           <i class="hn {{ row.tagIcon }}" style="font-size:12px; color:var(--ink); opacity:{{ row.tagOp }};"></i>
         </div>
       </sc-for>
-    </div>
-
-    <div style="padding:12px 22px 8px; border-top:1px dashed var(--line);">
-      <div style="font-family:'Press Start 2P',monospace; font-size:8px; letter-spacing:1px; color:var(--mute); margin-bottom:11px;">DOWNLOADS</div>
-      <a href="/pixel/downloads/cheatsheet_ULTIMATE.pdf" download style="display:flex; align-items:center; gap:11px; height:30px; font-size:12.5px; color:var(--ink); text-decoration:none;">
-        <i class="hn hn-file-import" style="font-size:14px; color:var(--accent);"></i><span>Ultimate cheatsheet (PDF)</span>
-      </a>
-      <a href="/pixel/downloads/quizzes.json" download style="display:flex; align-items:center; gap:11px; height:30px; font-size:12.5px; color:var(--ink); text-decoration:none;">
-        <i class="hn hn-file-import" style="font-size:14px; color:var(--accent);"></i><span>All quizzes (JSON)</span>
-      </a>
     </div>
 
     <div style="display:flex; align-items:center; gap:20px; padding:18px 24px; border-top:1px dashed var(--line);">
@@ -371,11 +363,12 @@
               <sc-if value="{{ matTranscript }}" hint-placeholder-val="{{ false }}">
                 <div style="max-width:760px;">
                   <div style="font-family:'Press Start 2P',monospace; font-size:10px;">TRANSCRIPT</div>
-                  <div style="display:flex; gap:16px; margin-top:20px; padding-bottom:16px; border-bottom:1px dashed var(--line);">
-                    <span style="font-size:11px; color:var(--mute); min-width:46px;">00:00</span>
-                    <span style="font-size:13px; line-height:1.75;">Placeholder transcript segment — the lesson’s auto-synced transcript appears here, one timestamped block per paragraph.</span>
-                  </div>
-                  <div style="font-size:11px; color:var(--mute); letter-spacing:1px; margin-top:18px;">··· full transcript wires in here ···</div>
+                  <sc-if value="{{ hasTranscript }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-size:13px; line-height:1.85; color:var(--ink); margin-top:20px; white-space:pre-wrap; word-break:break-word;">{{ transcriptText }}</div>
+                  </sc-if>
+                  <sc-if value="{{ noTranscript }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:12.5px; color:var(--mute); margin-top:20px;">No transcript available for this lecture yet.</div>
+                  </sc-if>
                 </div>
               </sc-if>
               <sc-if value="{{ matChapter }}" hint-placeholder-val="{{ false }}">
@@ -539,7 +532,7 @@ class Component extends DCLogic {
     lightSrc: null,
     podPlaying: false,
     progress: this.loadProgress(),
-    expanded: { 'c-deeplearn': true, 'c-deeplearn-quizzes': true, 'c-deeplearn-summaries': true, 'c-autosys': true, 'c-autosys-quizzes': true, 'c-autosys-notes': false, 'c-autosys-exams': false, 'c-cogneuro': true, 'c-cogneuro-quizzes': true, 'c-cogneuro-notes': false },
+    expanded: { 'c-deeplearn': true, 'c-deeplearn-quizzes': true, 'c-deeplearn-videoquizzes': true, 'c-deeplearn-summaries': true, 'c-deeplearn-downloads': true, 'c-autosys': true, 'c-autosys-quizzes': true, 'c-autosys-notes': false, 'c-autosys-exams': false, 'c-cogneuro': true, 'c-cogneuro-quizzes': true, 'c-cogneuro-notes': false },
     tabs: ['quiz', 'dllecture'],
     qIndex: 0,
     selected: [],
@@ -914,12 +907,22 @@ class Component extends DCLogic {
           bg: bact ? 'var(--sel)' : 'transparent', mark: bact ? 'var(--ink)' : 'transparent',
           prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openBrain() });
       }
-      if (lessons.length && folder('c-' + cid + '-quizzes', 'quizzes', 1)) {
+      if (lessons.some(l => !l.video) && folder('c-' + cid + '-quizzes', 'quizzes', 1)) {
         lessons.forEach((l, i) => {
+          if (l.video) return;
           const act = open === 'quiz' && S.course === cid && S.dlLesson === i;
           const answered = Object.keys(S.progress[cid + ':' + i] || {}).length;
           const cnt = (l.questions || []).length || l.count || 0;
           qrow('q-' + cid + '-' + i, 'l' + (i + 1) + '-' + dlSlug(l.topic || ('l' + (i + 1))) + '.mc', 'hn-check-list', act, answered, cnt, () => this.openQuizLesson(cid, i));
+        });
+      }
+      if (lessons.some(l => l.video) && folder('c-' + cid + '-videoquizzes', 'video-quizzes', 1)) {
+        lessons.forEach((l, i) => {
+          if (!l.video) return;
+          const act = open === 'quiz' && S.course === cid && S.dlLesson === i;
+          const answered = Object.keys(S.progress[cid + ':' + i] || {}).length;
+          const cnt = (l.questions || []).length || l.count || 0;
+          qrow('q-' + cid + '-' + i, (l.code ? l.code.toLowerCase() + '-' : '') + dlSlug(l.title || l.topic || 'video') + '.mc', 'hn-video-camera', act, answered, cnt, () => this.openQuizLesson(cid, i));
         });
       }
       if ((co.summaryOrder || []).length && folder('c-' + cid + '-summaries', 'summaries', 1)) {
@@ -934,14 +937,24 @@ class Component extends DCLogic {
             prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openNote(cid, nt.id) });
         });
       }
-      if (cid === 'deeplearn' && lessons.length && folder('c-' + cid + '-lectures', 'lectures', 1)) {
+      if (cid === 'deeplearn' && lessons.some(l => !l.video) && folder('c-' + cid + '-lectures', 'lectures', 1)) {
         lessons.forEach((l, i) => {
+          if (l.video) return;
           const act = open === 'dllecture' && S.course === cid && S.dlLesson === i;
           rows.push({ key: 'dll-' + cid + '-' + i, label: 'l' + (i + 1) + '-' + dlSlug(l.topic || ('l' + (i + 1))) + '.dl', pad: (12 + 2 * 18) + 'px',
             chev: 'hn-blank', chevOp: '0', icon: 'hn-book', iconColor: act ? 'var(--ink)' : 'var(--mute)',
             fg: 'var(--ink)', weight: act ? '700' : '400', bg: act ? 'var(--sel)' : 'transparent', mark: act ? 'var(--ink)' : 'transparent',
             prog: '', tagIcon: 'hn-blank', tagOp: '0', onClick: () => this.openDlLesson(cid, i) });
         });
+      }
+      if (cid === 'deeplearn' && folder('c-' + cid + '-downloads', 'downloads', 1)) {
+        const dl = (id, label, href) => rows.push({ key: id, label, pad: (12 + 2 * 18) + 'px',
+          chev: 'hn-blank', chevOp: '0', icon: 'hn-file-import', iconColor: 'var(--accent)',
+          fg: 'var(--ink)', weight: '400', bg: 'transparent', mark: 'transparent',
+          prog: '', tagIcon: 'hn-blank', tagOp: '0',
+          onClick: () => { const a = document.createElement('a'); a.href = href; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); } });
+        dl('dl-cheatsheet', 'ultimate-cheatsheet.pdf', '/dl/cheatsheet_ULTIMATE.pdf');
+        dl('dl-all-quizzes', 'all-quizzes.json', '/dl/quizzes.json');
       }
       if (exams.length && folder('c-' + cid + '-exams', 'exams', 1)) {
         exams.forEach((ex, j) => {
@@ -1159,6 +1172,9 @@ class Component extends DCLogic {
       dlEyebrow: cLabel + ' · LESSON ' + (S.dlLesson + 1),
       dlTopic: ((DL[S.dlLesson] || {}).topic || '').toUpperCase(),
       matPptx: S.material === 'pptx', matTranscript: S.material === 'transcript',
+      transcriptText: (window.DL_TRANSCRIPTS || {})[(DL[S.dlLesson] || {}).code] || '',
+      hasTranscript: !!(window.DL_TRANSCRIPTS || {})[(DL[S.dlLesson] || {}).code],
+      noTranscript: !(window.DL_TRANSCRIPTS || {})[(DL[S.dlLesson] || {}).code],
       matChapter: S.material === 'chapter', matPodcast: S.material === 'podcast', matNotes: S.material === 'notes',
       podIcon: S.podPlaying ? 'hn-pause' : 'hn-play',
       podcastOn: !!S.podcast,
